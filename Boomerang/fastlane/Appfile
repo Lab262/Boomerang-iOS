@@ -1,0 +1,8 @@
+# itc_team_name "Thiago Bernardes|537916904"
+team_name "Thiago Bernardes"
+app_identifier "Lab262.Boomerang" # The bundle identifier of your app
+apple_id "tmb0710@gmail.com" # Your Apple email address
+
+
+# you can even provide different app identifiers, Apple IDs and team names per lane:
+# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md
