@@ -14,6 +14,7 @@ class TabBarController: UIViewController {
     @IBOutlet weak var imgViewLeftOption: UIImageView!
     @IBOutlet weak var imgViewCenterOption: UIImageView!
     @IBOutlet weak var imgViewRightOption: UIImageView!
+    @IBOutlet weak var viewContainerCenterOption: UIView!
 
     var leftIsSelected: Bool = false {
         didSet {
@@ -24,7 +25,7 @@ class TabBarController: UIViewController {
     
     var centerIsSelected: Bool = false {
         didSet {
-            let stateImage = self.centerIsSelected ? UIImage() : UIImage(named: "ic_tabbar_boomer")
+            let stateImage = self.centerIsSelected ? UIImage(named: "ic_tabbar_boomer") : UIImage(named: "ic_tabbar_boomer")
             self.imgViewCenterOption.image = stateImage
         }
     }
@@ -55,6 +56,7 @@ class TabBarController: UIViewController {
     
     @IBAction func selectCenterOption(_ sender: UIButton) {
         
+        self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
         self.leftIsSelected = false
         self.rightIsSelected = false
         self.centerIsSelected = true

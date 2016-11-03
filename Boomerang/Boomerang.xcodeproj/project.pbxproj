@@ -10,6 +10,7 @@
 		4AF67983571B3521F7815ECF /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4740BB8B9F69EC21C95B9451 /* Pods_Boomerang.framework */; };
 		4EE890349CF141E54F460029 /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6115D89A9D141691FD587E70 /* Pods_BoomerangTests.framework */; };
 		A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */; };
+		A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25191DCB681A00DF9523 /* UIView+Animations.swift */; };
 		A4E462F21DCAEA7F00A611C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462EC1DCAEA7F00A611C0 /* Main.storyboard */; };
 		A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E462F11DCAEA7F00A611C0 /* TabBarController.swift */; };
 		A4E462FB1DCAEAE800A611C0 /* Boomer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */; };
@@ -40,6 +41,7 @@
 		8649FC11B60E4ADD22B76989 /* Pods-Boomerang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.release.xcconfig"; sourceTree = "<group>"; };
 		96823E7B18D94C4C17A636C7 /* Pods-Boomerang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.debug.xcconfig"; sourceTree = "<group>"; };
 		A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspector.swift"; sourceTree = "<group>"; };
+		A40A25191DCB681A00DF9523 /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
 		A4E462EC1DCAEA7F00A611C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A4E462F11DCAEA7F00A611C0 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Boomer.storyboard; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		A4E462F51DCAEAC200A611C0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A40A25191DCB681A00DF9523 /* UIView+Animations.swift */,
 				A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */,
 			);
 			path = Extensions;
@@ -285,7 +288,6 @@
 				447A52C46E0C74EA5D7B569F /* [CP] Embed Pods Frameworks */,
 				E85E50AC82A7A1B3976CFDF8 /* [CP] Copy Pods Resources */,
 				A4F89B491DA80A0F00949A35 /* Adding tags to comment */,
-				D0F7253B3F75ED870E3EFDE3 /* Tailor */,
 				A4B5CAA91DA811DB003260BA /* Fabric */,
 			);
 			buildRules = (
@@ -331,6 +333,7 @@
 					A4F89B251DA809B100949A35 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = B865ENT4P3;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					A4F89B391DA809B100949A35 = {
@@ -488,20 +491,6 @@
 			shellPath = /bin/sh;
 			shellScript = "#http://krakendev.io/blog/generating-warnings-in-xcode\n#http://stackoverflow.com/questions/24183812/swift-warning-equivalent\nTAGS=\"TODO:\"\necho \"searching ${SRCROOT/Humagine} for ${TAGS}\"\nfind \"${SRCROOT/Humagine}\" \\( -name \"*.swift\" \\) -type f -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
 		};
-		D0F7253B3F75ED870E3EFDE3 /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor --except=trailing-whitespace,terminating-newline\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-		};
 		E85E50AC82A7A1B3976CFDF8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -525,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
+				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
 				A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */,
 			);
