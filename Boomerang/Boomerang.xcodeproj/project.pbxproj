@@ -11,6 +11,10 @@
 		4EE890349CF141E54F460029 /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6115D89A9D141691FD587E70 /* Pods_BoomerangTests.framework */; };
 		A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */; };
 		A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25191DCB681A00DF9523 /* UIView+Animations.swift */; };
+		A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25221DCBC28E00DF9523 /* RightMenuCell.swift */; };
+		A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25251DCBC2A600DF9523 /* RightMenuViewController.swift */; };
+		A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25271DCBC46D00DF9523 /* RightMenuTableViewController.swift */; };
+		A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */; };
 		A4E462F21DCAEA7F00A611C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462EC1DCAEA7F00A611C0 /* Main.storyboard */; };
 		A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E462F11DCAEA7F00A611C0 /* TabBarController.swift */; };
 		A4E462FB1DCAEAE800A611C0 /* Boomer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */; };
@@ -42,6 +46,10 @@
 		96823E7B18D94C4C17A636C7 /* Pods-Boomerang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.debug.xcconfig"; sourceTree = "<group>"; };
 		A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspector.swift"; sourceTree = "<group>"; };
 		A40A25191DCB681A00DF9523 /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
+		A40A25221DCBC28E00DF9523 /* RightMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuCell.swift; sourceTree = "<group>"; };
+		A40A25251DCBC2A600DF9523 /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
+		A40A25271DCBC46D00DF9523 /* RightMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuTableViewController.swift; sourceTree = "<group>"; };
+		A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
 		A4E462EC1DCAEA7F00A611C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A4E462F11DCAEA7F00A611C0 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Boomer.storyboard; sourceTree = "<group>"; };
@@ -89,6 +97,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A40A25211DCBC28E00DF9523 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A40A25221DCBC28E00DF9523 /* RightMenuCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A40A25231DCBC28E00DF9523 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A40A25251DCBC2A600DF9523 /* RightMenuViewController.swift */,
+				A40A25271DCBC46D00DF9523 /* RightMenuTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A40A25291DCBD4B500DF9523 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		A4E462E71DCAEA7F00A611C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +154,7 @@
 		A4E462EA1DCAEA7F00A611C0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A40A25291DCBD4B500DF9523 /* Controllers */,
 				A4E462EB1DCAEA7F00A611C0 /* Interface */,
 			);
 			path = Home;
@@ -153,6 +187,8 @@
 		A4E462EF1DCAEA7F00A611C0 /* RightMenu */ = {
 			isa = PBXGroup;
 			children = (
+				A40A25211DCBC28E00DF9523 /* Cells */,
+				A40A25231DCBC28E00DF9523 /* Controllers */,
 				A4E462F01DCAEA7F00A611C0 /* Interface */,
 			);
 			path = RightMenu;
@@ -515,7 +551,11 @@
 			files = (
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
+				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
+				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
+				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
+				A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */,
 				A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

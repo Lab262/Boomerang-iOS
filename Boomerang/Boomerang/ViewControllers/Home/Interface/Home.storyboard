@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="tgi-Tq-cjX">
             <objects>
-                <viewController storyboardIdentifier="Home" title="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y4o-Ot-Hoh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" title="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y4o-Ot-Hoh" customClass="HomeMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6nA-1m-uaN"/>
                         <viewControllerLayoutGuide type="bottom" id="PbL-Ml-ivy"/>
@@ -20,6 +20,16 @@
                     <view key="view" contentMode="scaleToFill" id="78E-60-gc8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bE9-O6-w9V">
+                                <rect key="frame" x="291" y="44" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showMenu:" destination="Y4o-Ot-Hoh" eventType="touchUpInside" id="iol-Xe-KNj"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>

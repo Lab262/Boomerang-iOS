@@ -15,7 +15,8 @@ class TabBarController: UIViewController {
     @IBOutlet weak var imgViewCenterOption: UIImageView!
     @IBOutlet weak var imgViewRightOption: UIImageView!
     @IBOutlet weak var viewContainerCenterOption: UIView!
-
+    static var mainTabBarController: TabBarController!
+    
     var leftIsSelected: Bool = false {
         didSet {
             let stateImage = self.leftIsSelected ? UIImage() : UIImage(named: "ic_tabbar_boomer")
@@ -51,7 +52,6 @@ class TabBarController: UIViewController {
         self.rightIsSelected = true
         self.centerIsSelected = false
         self.uiTabBarController.selectedIndex = 2
-
     }
     
     @IBAction func selectCenterOption(_ sender: UIButton) {
@@ -65,6 +65,8 @@ class TabBarController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TabBarController.mainTabBarController = self
         // Do any additional setup after loading the view, typically from a nib.
         self.uiTabBarController.tabBar.isHidden = true
         
@@ -75,6 +77,14 @@ class TabBarController: UIViewController {
         if let uiTabBarController = segue.destination as? UITabBarController {
             self.uiTabBarController = uiTabBarController
         }
+    }
+    
+    static func showMenu() {
+        let storyBoardToShow = UIStoryboard(name: "RightMenu", bundle: nil)
+        let rightMenuNavController = storyBoardToShow.instantiateInitialViewController() as! UINavigationController
+        
+        TabBarController.mainTabBarController.present(rightMenuNavController, animated: true, completion: nil)
+
     }
 
 }
