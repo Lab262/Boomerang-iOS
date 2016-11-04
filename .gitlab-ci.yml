@@ -3,17 +3,18 @@ before_script:
   - cd Boomerang
 
 stages:
-  - release
-  - beta
+  - deploy
 
-build_project:
-  stage: release
+deploy_beta:
+  stage: deploy
   script:
     - fastlane beta
-  only: master
-  
-  build_project:
-  stage: release
+  only:
+    - dev
+
+deploy_production:
+  stage: deploy
   script:
-    - fastlane beta
-  only: master
+    - fastlane release
+  only:
+    - master
