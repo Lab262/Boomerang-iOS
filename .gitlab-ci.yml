@@ -1,8 +1,19 @@
+before_script:
+  - sudo gem install fastlane
+  - cd Boomerang
+
 stages:
-  - build
-  - sudo gem install fastlane --verbose
+  - release
+  - beta
 
 build_project:
-  stage: build
+  stage: release
   script:
-    - Boomerang/fastlane beta
+    - fastlane beta
+  only: master
+  
+  build_project:
+  stage: release
+  script:
+    - fastlane beta
+  only: master
