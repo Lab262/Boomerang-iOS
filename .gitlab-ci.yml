@@ -1,5 +1,6 @@
 before_script:
-  - gem install fastlane
+  - if ! gem list "fastlane" -i > /dev/null 2>&1; then echo "fastlane not installed. Installing..." gem install fastlane; fi 
+  - if ! gem list "cocoapods" -i > /dev/null 2>&1; then echo "cocoapods not installed. Installing..." gem install cocoapods; fi   
   - cd Boomerang
 
 stages:
