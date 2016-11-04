@@ -1,5 +1,5 @@
 before_script:
-  - sudo gem install fastlane
+  - gem install fastlane
   - cd Boomerang
 
 stages:
