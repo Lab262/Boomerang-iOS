@@ -5,4 +5,4 @@ stages:
 build_project:
   stage: build
   script:
-    - fastlane beta
+    - Boomerang/fastlane beta
