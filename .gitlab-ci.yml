@@ -1,0 +1,8 @@
+stages:
+  - build
+  - sudo gem install fastlane --verbose
+
+build_project:
+  stage: build
+  script:
+    - fastlane beta
