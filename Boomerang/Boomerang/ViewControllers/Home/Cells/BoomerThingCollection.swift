@@ -50,8 +50,8 @@ extension BoomerThingCollection: UICollectionViewDataSource {
         
         return cell
     }
-    
-    
+  
+
 }
 
 extension BoomerThingCollection: UICollectionViewDelegate {
@@ -61,11 +61,14 @@ extension BoomerThingCollection: UICollectionViewDelegate {
         
         print(indexPath)
     }
+}
+
+extension BoomerThingCollection: UICollectionViewDelegateFlowLayout {
     
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        return CGSize(width: borderWidth, height: screenWidth);
-//    }
-    
-    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.frame.height * 1.5, height: self.frame.height / 1);
+    }
 }
 

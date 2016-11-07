@@ -27,7 +27,7 @@ class HomeMainViewController: UIViewController {
         homeBoomerThingsData = [
             "Meus amigos" : [boomerThing1, boomerThing2, boomerThing3],
             "Brasília - DF" : [boomerThing4,boomerThing2, boomerThing3],
-            "Recomendados para voce" : [boomerThing3, boomerThing2],
+            "Recomendados para voce" : [boomerThing3, boomerThing2,boomerThing4],
 
         ]
     }

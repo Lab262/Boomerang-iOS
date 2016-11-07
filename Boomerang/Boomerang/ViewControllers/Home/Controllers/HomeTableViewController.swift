@@ -18,7 +18,6 @@ class HomeTableViewController: UIViewController {
         super.viewDidLoad()
         
         self.registerNib()
-        self.tableView.sectionFooterHeight = 0.0;
     }
     
     func registerNib() {
@@ -69,8 +68,8 @@ extension HomeTableViewController: UITableViewDelegate {
         
         var headerData = (
             title: self.homeBoomerThingsData.keyAtIndex(index: section), isLocation: false)
-        let recomendationsSectionNumber = 1
-        if section == recomendationsSectionNumber {
+        let locationsSectionNumber = 1
+        if section == locationsSectionNumber {
             
             headerData.isLocation = true
         } else {
@@ -97,8 +96,15 @@ extension HomeTableViewController: UITableViewDelegate {
         return CGFloat(65)
     }
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        let recomendationsSectionNumber = 2
+
+        if section != recomendationsSectionNumber {
+            return CGFloat(0)
+        } else {
+            return CGFloat(40)
+        }
     }
     
 }
