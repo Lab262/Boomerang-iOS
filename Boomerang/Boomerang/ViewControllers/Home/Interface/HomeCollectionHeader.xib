@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeCollectionHeader" id="7jz-5v-0Bp" customClass="HomeCollectionHeader" customModule="Boomerang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7jz-5v-0Bp" id="W0u-Xd-c16">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
+                        <rect key="frame" x="0.0" y="-1" width="375" height="65"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brasília - DF" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80Q-8i-h3n">
+                                <rect key="frame" x="20" y="22" width="108" height="22"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location" translatesAutoresizingMaskIntoConstraints="NO" id="be6-gG-QHU">
+                                <rect key="frame" x="131" y="25" width="12" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="63i-y5-26Y"/>
+                                    <constraint firstAttribute="width" constant="12" id="gTc-bb-KoV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="be6-gG-QHU" firstAttribute="centerY" secondItem="80Q-8i-h3n" secondAttribute="centerY" id="96h-0i-LtG"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="be6-gG-QHU" secondAttribute="trailing" constant="20" id="FqC-mU-i1j"/>
+                            <constraint firstItem="be6-gG-QHU" firstAttribute="leading" secondItem="80Q-8i-h3n" secondAttribute="trailing" constant="3" id="Vih-cM-Vqg"/>
+                            <constraint firstItem="80Q-8i-h3n" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="q0z-c4-wUM"/>
+                            <constraint firstItem="80Q-8i-h3n" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tL1-GA-efK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="iN0-l3-epB" firstAttribute="width" secondItem="W0u-Xd-c16" secondAttribute="width" id="BdR-tX-Rcm"/>
+                    <constraint firstItem="iN0-l3-epB" firstAttribute="centerX" secondItem="W0u-Xd-c16" secondAttribute="centerX" id="C6n-8o-orK"/>
+                    <constraint firstItem="iN0-l3-epB" firstAttribute="centerY" secondItem="W0u-Xd-c16" secondAttribute="centerY" id="mes-4q-DF9"/>
+                    <constraint firstItem="iN0-l3-epB" firstAttribute="height" secondItem="W0u-Xd-c16" secondAttribute="height" id="xjd-MH-TYg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="locationIndicatorImageView" destination="be6-gG-QHU" id="UWd-o8-LL3"/>
+                <outlet property="titleLabel" destination="80Q-8i-h3n" id="IBq-ov-Jbi"/>
+            </connections>
+            <point key="canvasLocation" x="-68" y="-470"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_location" width="12" height="16"/>
+    </resources>
+</document>
