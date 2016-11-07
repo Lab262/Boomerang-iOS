@@ -103,7 +103,7 @@ extension HomeTableViewController: UITableViewDelegate {
         if section != recomendationsSectionNumber {
             return CGFloat(0)
         } else {
-            return CGFloat(40)
+            return CGFloat(100)
         }
     }
     
