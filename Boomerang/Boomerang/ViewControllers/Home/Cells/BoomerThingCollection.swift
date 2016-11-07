@@ -62,5 +62,10 @@ extension BoomerThingCollection: UICollectionViewDelegate {
         print(indexPath)
     }
     
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        return CGSize(width: borderWidth, height: screenWidth);
+//    }
+    
+    
 }
 

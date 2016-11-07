@@ -19,10 +19,10 @@ class HomeMainViewController: UIViewController {
     }
 
     func loadDummyData() {
-        let boomerThing1 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Preciso de um app para o boomerang", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Amanda Elys")
-        let boomerThing2 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Ofereço um longboard freehide", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Thiago Bernardes")
-        let boomerThing3 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Preciso de um mangá", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Huallyd Smadi")
-        let boomerThing4 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Ofereço aulas de como ser foda", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Janaina na aaaa aaa")
+        let boomerThing1 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Preciso de um app para o boomerang", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Amanda Elys", thingType: .need)
+        let boomerThing2 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Ofereço um longboard freehide", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Thiago Bernardes", thingType: .have)
+        let boomerThing3 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Um mangá", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Huallyd Smadi", thingType: .need)
+        let boomerThing4 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Aulas de como ser foda", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Janaina na aaaa aaa", thingType: .experience)
         
         homeBoomerThingsData = [
             "Meus amigos" : [boomerThing1, boomerThing2, boomerThing3],

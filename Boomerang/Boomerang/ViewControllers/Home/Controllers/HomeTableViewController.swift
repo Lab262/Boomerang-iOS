@@ -89,7 +89,7 @@ extension HomeTableViewController: UITableViewDelegate {
         if indexPath.section != 2 {
             return CGFloat(165)
         } else {
-            return CGFloat(195)
+            return CGFloat(225)
         }
     }
     
