@@ -23,6 +23,10 @@
 		A44E0C6C1DD092650028F06C /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C641DD092650028F06C /* Montserrat-Regular.otf */; };
 		A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */; };
 		A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */; };
+		A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */; };
+		A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4CB02661DD261B200B01A6B /* IconNavigationBar.xib */; };
+		A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */; };
+		A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CE0A5F1DD2408200576360 /* NotificationsMainViewController.swift */; };
 		A4E462F21DCAEA7F00A611C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462EC1DCAEA7F00A611C0 /* Main.storyboard */; };
 		A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E462F11DCAEA7F00A611C0 /* TabBarController.swift */; };
 		A4E462FB1DCAEAE800A611C0 /* Boomer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */; };
@@ -75,6 +79,10 @@
 		A44E0C641DD092650028F06C /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Navigation.swift"; sourceTree = "<group>"; };
+		A4CB02661DD261B200B01A6B /* IconNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconNavigationBar.xib; sourceTree = "<group>"; };
+		A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconNavigationBar.swift; sourceTree = "<group>"; };
+		A4CE0A5F1DD2408200576360 /* NotificationsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsMainViewController.swift; sourceTree = "<group>"; };
 		A4E462EC1DCAEA7F00A611C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A4E462F11DCAEA7F00A611C0 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Boomer.storyboard; sourceTree = "<group>"; };
@@ -142,6 +150,7 @@
 		A40A25231DCBC28E00DF9523 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A4CE0A5D1DD2406D00576360 /* MenuOptions */,
 				A40A25251DCBC2A600DF9523 /* RightMenuViewController.swift */,
 				A40A25271DCBC46D00DF9523 /* RightMenuTableViewController.swift */,
 			);
@@ -178,6 +187,31 @@
 				A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */,
 			);
 			path = "montserrat ";
+			sourceTree = "<group>";
+		};
+		A4CB02651DD261B200B01A6B /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				A4CB02661DD261B200B01A6B /* IconNavigationBar.xib */,
+				A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		A4CE0A5D1DD2406D00576360 /* MenuOptions */ = {
+			isa = PBXGroup;
+			children = (
+				A4CE0A5E1DD2406D00576360 /* Notifications */,
+			);
+			path = MenuOptions;
+			sourceTree = "<group>";
+		};
+		A4CE0A5E1DD2406D00576360 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				A4CE0A5F1DD2408200576360 /* NotificationsMainViewController.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		A4E462E71DCAEA7F00A611C0 /* ViewControllers */ = {
@@ -274,8 +308,10 @@
 		A4E462F51DCAEAC200A611C0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A4CB02651DD261B200B01A6B /* NavigationBar */,
 				A40A25191DCB681A00DF9523 /* UIView+Animations.swift */,
 				A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */,
+				A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */,
 				A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */,
 			);
 			path = Extensions;
@@ -490,6 +526,7 @@
 				A44E0C691DD092650028F06C /* Montserrat-ExtraBold.otf in Resources */,
 				A4FE062E1DD0967E00BFDC4D /* HomeCollectionHeader.xib in Resources */,
 				A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */,
+				A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */,
 				A4FE062C1DD0965700BFDC4D /* BoomerThingCell.xib in Resources */,
 				A44E0C6A1DD092650028F06C /* Montserrat-Hairline.otf in Resources */,
 				A4E462FF1DCAEB0200A611C0 /* Profile.storyboard in Resources */,
@@ -643,7 +680,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
+				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
+				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
 				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,

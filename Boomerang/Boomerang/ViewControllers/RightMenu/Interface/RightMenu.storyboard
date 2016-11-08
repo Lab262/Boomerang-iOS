@@ -146,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="1385.5999999999999" y="-103.89805097451276"/>
         </scene>
-        <!--DetailView-->
+        <!--Notification-->
         <scene sceneID="VR8-HZ-vTx">
             <objects>
-                <viewController storyboardIdentifier="DetailView" title="DetailView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gYS-Gl-8ZS" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationsMainViewController" title="Notification" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gYS-Gl-8ZS" customClass="NotificationsMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pjp-uB-dfy"/>
                         <viewControllerLayoutGuide type="bottom" id="O2v-f8-zpn"/>
@@ -157,8 +157,28 @@
                     <view key="view" contentMode="scaleToFill" id="LpW-LI-wUf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVr-b6-5JP" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="7Jm-KY-6gU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="ic_button_back"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="titleIconImage" value="ic_notification"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Notificação "/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JVr-b6-5JP" firstAttribute="top" secondItem="Pjp-uB-dfy" secondAttribute="bottom" constant="-20" id="E2s-ql-gVV"/>
+                            <constraint firstItem="JVr-b6-5JP" firstAttribute="width" secondItem="LpW-LI-wUf" secondAttribute="width" id="Rxl-7t-XXJ"/>
+                            <constraint firstItem="JVr-b6-5JP" firstAttribute="centerX" secondItem="LpW-LI-wUf" secondAttribute="centerX" id="lYu-cx-L5o"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Y2q-Kq-Upd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oK4-9d-Pka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,11 +187,12 @@
         <!--Navigation Controller-->
         <scene sceneID="Smy-kF-TdX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="4j5-QE-t7v" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" navigationBarHidden="YES" id="4j5-QE-t7v" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BHX-ud-ZhU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="BHX-ud-ZhU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -183,4 +204,8 @@
             <point key="canvasLocation" x="-231.19999999999999" y="-104.7976011994003"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_button_back" width="13" height="21"/>
+        <image name="ic_notification" width="23" height="23"/>
+    </resources>
 </document>

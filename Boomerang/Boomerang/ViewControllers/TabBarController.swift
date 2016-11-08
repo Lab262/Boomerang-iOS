@@ -19,7 +19,7 @@ class TabBarController: UIViewController {
     
     var leftIsSelected: Bool = false {
         didSet {
-            let stateImage = self.leftIsSelected ? UIImage() : UIImage(named: "ic_tabbar_boomer")
+            let stateImage = self.leftIsSelected ? UIImage() : #imageLiteral(resourceName: "ic_tabbar_boomer")
             self.imgViewLeftOption.image = stateImage
         }
     }

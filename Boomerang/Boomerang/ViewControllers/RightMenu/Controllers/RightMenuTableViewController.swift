@@ -83,7 +83,7 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyBoardToShow = UIStoryboard(name: "RightMenu", bundle: nil)
-        let viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "DetailView")
+        let viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "NotificationsMainViewController")
         self.show(viewControllerToShow, sender: self)
         self.navigationController?.isNavigationBarHidden = false
 
