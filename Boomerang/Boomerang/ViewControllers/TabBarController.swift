@@ -26,7 +26,7 @@ class TabBarController: UIViewController {
     
     var centerIsSelected: Bool = false {
         didSet {
-            let stateImage = self.centerIsSelected ? UIImage(named: "ic_tabbar_boomer") : UIImage(named: "ic_tabbar_boomer")
+            let stateImage = self.centerIsSelected ? #imageLiteral(resourceName: "ic_tabbar_boomer_selected") : #imageLiteral(resourceName: "ic_tabbar_boomer")
             self.imgViewCenterOption.image = stateImage
         }
     }

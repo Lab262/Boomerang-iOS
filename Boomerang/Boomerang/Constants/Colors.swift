@@ -16,4 +16,16 @@ extension UIColor {
         }
     }
     
+    static var unselectedButtonTextColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("BDBDBD")
+        }
+    }
+    
+    static var selectedButtonTextColor: UIColor  {
+        get {
+            return UIColor.white
+        }
+    }
+    
 }

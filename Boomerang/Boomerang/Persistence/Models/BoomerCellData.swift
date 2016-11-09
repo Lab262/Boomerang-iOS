@@ -13,10 +13,15 @@ class BoomerCellData: NSObject {
     var dataPhoto: UIImage!
     var dataDescription: String!
     var dataTitle: String!
+    var dataSubDescription: String?
     
-    init(dataPhoto: UIImage, dataDescription: String, dataTitle: String) {
+    init(dataPhoto: UIImage,
+         dataDescription: String,
+         dataTitle: String,
+         dataSubDescription: String? = nil) {
         self.dataPhoto = dataPhoto
         self.dataDescription = dataDescription
         self.dataTitle = dataTitle
+        self.dataSubDescription = dataSubDescription
     }
 }

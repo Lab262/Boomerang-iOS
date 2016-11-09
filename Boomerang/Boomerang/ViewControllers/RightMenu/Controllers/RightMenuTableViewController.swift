@@ -110,23 +110,20 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
 //            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
             break
         case rightMenuOptions.addFriends.rawValue:
-//            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
+            viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "AddBoomerMainViewController")
             break
         case rightMenuOptions.messages.rawValue:
             viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "MessagesMainViewController")
-
-//            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
             break
         case rightMenuOptions.notifications.rawValue:
             viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "NotificationsMainViewController")
-
-//            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
             break
         case rightMenuOptions.lovedTricks.rawValue:
 //            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
             break
         case rightMenuOptions.myTricks.rawValue:
-//            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
+            let storyBoardToShow = UIStoryboard(name: "MyThings", bundle: nil)
+            viewControllerToShow = storyBoardToShow.instantiateInitialViewController()
             break
         case rightMenuOptions.logout.rawValue:
 //            cell.cellImage = UIImage(named: "ic_tabbar_boomer")

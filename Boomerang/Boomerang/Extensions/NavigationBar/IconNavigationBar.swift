@@ -66,6 +66,7 @@ class IconNavigationBar: UIView {
             return self.titleLabel.text
         }
     }
+    
 }
 
 
