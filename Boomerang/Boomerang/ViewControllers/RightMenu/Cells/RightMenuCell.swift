@@ -11,6 +11,9 @@ import UIKit
 class RightMenuCell: UITableViewCell {
     
     @IBOutlet weak var imgViewCell: UIImageView!
+    @IBOutlet weak var imageBigSizeConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageSmallSizeConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backgroundCircleView: UIView!
     
     var cellImage: UIImage! {
         didSet{

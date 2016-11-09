@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotificationsMainViewController: UIViewController {
+class MessagesMainViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     
@@ -46,7 +46,7 @@ class NotificationsMainViewController: UIViewController {
 }
 
 
-extension NotificationsMainViewController: UITableViewDelegate, UITableViewDataSource {
+extension MessagesMainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

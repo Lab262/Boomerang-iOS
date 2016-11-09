@@ -54,25 +54,28 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
         
         switch indexPath.row {
         case rightMenuOptions.profile.rawValue:
-            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
+            cell.cellImage = #imageLiteral(resourceName: "profile_dummy")
+            cell.imageBigSizeConstraint.isActive = true
+            cell.imageSmallSizeConstraint.isActive = false
             return cell
         case rightMenuOptions.addFriends.rawValue:
-            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
+            cell.cellImage = #imageLiteral(resourceName: "ic_add_friends")
             return cell
         case rightMenuOptions.messages.rawValue:
-            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
+            cell.cellImage = #imageLiteral(resourceName: "ic_chat")
             return cell
         case rightMenuOptions.notifications.rawValue:
-            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
+            cell.cellImage = #imageLiteral(resourceName: "ic_notification")
             return cell
         case rightMenuOptions.lovedTricks.rawValue:
-            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
+            cell.cellImage = #imageLiteral(resourceName: "ic_loved")
             return cell
         case rightMenuOptions.myTricks.rawValue:
-            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
+            cell.cellImage = #imageLiteral(resourceName: "ic_my_things")
             return cell
         case rightMenuOptions.logout.rawValue:
-            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
+            cell.cellImage = #imageLiteral(resourceName: "ic_exit")
+            cell.backgroundCircleView.backgroundColor = .clear
             return cell
 
         default:
@@ -80,12 +83,27 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let optionRowHeight = CGFloat(75)
+        
+        if indexPath.row != rightMenuOptions.logout.rawValue {
+            return optionRowHeight
+        } else {
+            let viewHeight = self.view.frame.height
+            let numberOfOptionsExcludingLogout = (rightMenuOptions.count - 1)
+            let optionsContainerSize = (optionRowHeight * CGFloat(numberOfOptionsExcludingLogout) )
+            let headerHeight = CGFloat(25)
+            let lastRowSize = viewHeight - optionsContainerSize - headerHeight
+            return lastRowSize
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyBoardToShow = UIStoryboard(name: "RightMenu", bundle: nil)
-        let viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "NotificationsMainViewController")
-        self.show(viewControllerToShow, sender: self)
-        self.navigationController?.isNavigationBarHidden = false
+        
+        var viewControllerToShow: UIViewController! = storyBoardToShow.instantiateViewController(withIdentifier: "NotificationsMainViewController")
 
         switch indexPath.row {
         case rightMenuOptions.profile.rawValue:
@@ -95,9 +113,13 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
 //            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
             break
         case rightMenuOptions.messages.rawValue:
+            viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "MessagesMainViewController")
+
 //            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
             break
         case rightMenuOptions.notifications.rawValue:
+            viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "NotificationsMainViewController")
+
 //            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
             break
         case rightMenuOptions.lovedTricks.rawValue:
@@ -111,13 +133,13 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
             break
             
         default:
-            return
+            viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "NotificationsMainViewController")
         }
         
         
-        
-
-        
+        self.show(viewControllerToShow, sender: self)
+        self.navigationController?.isNavigationBarHidden = false
+ 
     }
     
 }

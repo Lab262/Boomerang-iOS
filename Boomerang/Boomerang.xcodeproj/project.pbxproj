@@ -27,6 +27,8 @@
 		A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */; };
 		A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */; };
 		A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */; };
+		A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB0A1DD2D6C400F270C7 /* MessagesMainViewController.swift */; };
+		A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB0C1DD35D4600F270C7 /* Colors.swift */; };
 		A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4CB02661DD261B200B01A6B /* IconNavigationBar.xib */; };
 		A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */; };
 		A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CE0A5F1DD2408200576360 /* NotificationsMainViewController.swift */; };
@@ -86,6 +88,8 @@
 		A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerMessageAndNotificationsCell.swift; sourceTree = "<group>"; };
 		A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoomerMessageAndNotificationsCell.xib; sourceTree = "<group>"; };
 		A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerCellData.swift; sourceTree = "<group>"; };
+		A4AFBB0A1DD2D6C400F270C7 /* MessagesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesMainViewController.swift; sourceTree = "<group>"; };
+		A4AFBB0C1DD35D4600F270C7 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A4CB02661DD261B200B01A6B /* IconNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconNavigationBar.xib; sourceTree = "<group>"; };
 		A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconNavigationBar.swift; sourceTree = "<group>"; };
 		A4CE0A5F1DD2408200576360 /* NotificationsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsMainViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +200,14 @@
 			path = "montserrat ";
 			sourceTree = "<group>";
 		};
+		A4AFBB091DD2D6C400F270C7 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				A4AFBB0A1DD2D6C400F270C7 /* MessagesMainViewController.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
 		A4CB02651DD261B200B01A6B /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +220,7 @@
 		A4CE0A5D1DD2406D00576360 /* MenuOptions */ = {
 			isa = PBXGroup;
 			children = (
+				A4AFBB091DD2D6C400F270C7 /* Messages */,
 				A4CE0A5E1DD2406D00576360 /* Notifications */,
 			);
 			path = MenuOptions;
@@ -309,6 +322,7 @@
 		A4E462F41DCAEAC200A611C0 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				A4AFBB0C1DD35D4600F270C7 /* Colors.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -700,6 +714,7 @@
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
+				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
@@ -708,6 +723,7 @@
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
 				A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */,
+				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,
 				A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
