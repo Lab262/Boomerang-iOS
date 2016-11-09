@@ -24,6 +24,9 @@
 		A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */; };
 		A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */; };
 		A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */; };
+		A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */; };
+		A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */; };
+		A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */; };
 		A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4CB02661DD261B200B01A6B /* IconNavigationBar.xib */; };
 		A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */; };
 		A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CE0A5F1DD2408200576360 /* NotificationsMainViewController.swift */; };
@@ -80,6 +83,9 @@
 		A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
 		A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Navigation.swift"; sourceTree = "<group>"; };
+		A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerMessageAndNotificationsCell.swift; sourceTree = "<group>"; };
+		A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoomerMessageAndNotificationsCell.xib; sourceTree = "<group>"; };
+		A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerCellData.swift; sourceTree = "<group>"; };
 		A4CB02661DD261B200B01A6B /* IconNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconNavigationBar.xib; sourceTree = "<group>"; };
 		A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconNavigationBar.swift; sourceTree = "<group>"; };
 		A4CE0A5F1DD2408200576360 /* NotificationsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsMainViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				A40A25221DCBC28E00DF9523 /* RightMenuCell.swift */,
+				A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -294,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				A4E463001DCAEB1500A611C0 /* RightMenu.storyboard */,
+				A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -416,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */,
+				A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -531,6 +540,7 @@
 				A44E0C6A1DD092650028F06C /* Montserrat-Hairline.otf in Resources */,
 				A4E462FF1DCAEB0200A611C0 /* Profile.storyboard in Resources */,
 				A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */,
+				A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */,
 				A4E462FB1DCAEAE800A611C0 /* Boomer.storyboard in Resources */,
 				A4E462FD1DCAEAF800A611C0 /* Home.storyboard in Resources */,
 				A44E0C6C1DD092650028F06C /* Montserrat-Regular.otf in Resources */,
@@ -688,7 +698,9 @@
 				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
+				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
+				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
