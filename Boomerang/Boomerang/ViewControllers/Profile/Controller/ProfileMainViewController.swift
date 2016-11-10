@@ -72,7 +72,7 @@ extension ProfileMainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let spacing = CGFloat(3)
+        let spacing = CGFloat(0)
         return CGSize(width: self.view.frame.width/3 - spacing, height: self.view.frame.width/3 - spacing);
     }
 }
@@ -81,25 +81,17 @@ extension ProfileMainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-//        var newHeight = self.parallaxBackgroundHeightConstraint.constant + (self.lastContentOffset - scrollView.contentOffset.y)
-
         if (self.lastContentOffset > scrollView.contentOffset.y) {
-            print("down")
+//            print("down")
                    }
         else if (self.lastContentOffset < scrollView.contentOffset.y) {
-            print("up")
+//            print("up")
  
         }
-        
-        
-        
-        print(scrollView.contentOffset.y)
 
         if scrollView.contentOffset.y <= 0 {
             self.parallaxBackgroundHeightConstraint.constant = self.parallaxBackgroundHeightConstraint.constant + (self.lastContentOffset - scrollView.contentOffset.y)
-//            self.backgroundIsFreezy = false
         } else {
-//            self.backgroundIsFreezy = true
             self.parallaxBackgroundHeightConstraint.constant = 155
         }
         
@@ -109,11 +101,9 @@ extension ProfileMainViewController: UIScrollViewDelegate {
                 self.view.layoutIfNeeded()
             }, completion: nil)
         }
-      
-        // update the new position acquired
+        
         
         self.lastContentOffset = scrollView.contentOffset.y
-        
    
     }
 
