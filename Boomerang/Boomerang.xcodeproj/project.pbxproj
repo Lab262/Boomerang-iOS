@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4AF67983571B3521F7815ECF /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4740BB8B9F69EC21C95B9451 /* Pods_Boomerang.framework */; };
 		4EE890349CF141E54F460029 /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6115D89A9D141691FD587E70 /* Pods_BoomerangTests.framework */; };
+		A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */; };
+		A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */; };
 		A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */; };
 		A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25191DCB681A00DF9523 /* UIView+Animations.swift */; };
 		A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25221DCBC28E00DF9523 /* RightMenuCell.swift */; };
@@ -82,6 +84,8 @@
 		66A6951243DC0AB8AA5FFBAD /* Pods-BoomerangTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8649FC11B60E4ADD22B76989 /* Pods-Boomerang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.release.xcconfig"; sourceTree = "<group>"; };
 		96823E7B18D94C4C17A636C7 /* Pods-Boomerang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.debug.xcconfig"; sourceTree = "<group>"; };
+		A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerMainViewController.swift; sourceTree = "<group>"; };
+		A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspector.swift"; sourceTree = "<group>"; };
 		A40A25191DCB681A00DF9523 /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
 		A40A25221DCBC28E00DF9523 /* RightMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuCell.swift; sourceTree = "<group>"; };
@@ -171,6 +175,22 @@
 				3F07268A3E6B9CC51F50285A /* Pods-BoomerangTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A40453781DD3F33800A42E4B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A404537B1DD4149500A42E4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A40A25211DCBC28E00DF9523 /* Cells */ = {
@@ -298,6 +318,7 @@
 		A4E462E81DCAEA7F00A611C0 /* Boomer */ = {
 			isa = PBXGroup;
 			children = (
+				A40453781DD3F33800A42E4B /* Controllers */,
 				A4E462E91DCAEA7F00A611C0 /* Interface */,
 			);
 			path = Boomer;
@@ -335,6 +356,7 @@
 		A4E462ED1DCAEA7F00A611C0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A404537B1DD4149500A42E4B /* Controller */,
 				A4E462EE1DCAEA7F00A611C0 /* Interface */,
 			);
 			path = Profile;
@@ -762,6 +784,7 @@
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
+				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
@@ -773,6 +796,7 @@
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
+				A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */,
 				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,

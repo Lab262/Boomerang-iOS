@@ -12,7 +12,7 @@ class ExperienceThingsViewController: LendingThingsViewController {
     
     override func loadData() {
         self.thingsData = [
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Aulas de Ninjutso", dataTitle: "Huallyd Smadi", dataSubDescription: "No dia 13/ 04 / 2017" ),
+            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Aulas de Ninjutsu", dataTitle: "Huallyd Smadi", dataSubDescription: "No dia 13/ 04 / 2017" ),
             BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Workshop como ser top", dataTitle: "Janaina Araújo",dataSubDescription: "No dia 12/ 02 / 2017")
         ]
     }
