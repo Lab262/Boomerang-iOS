@@ -11,6 +11,9 @@ import UIKit
 class ProfileMainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var parallaxBackgroundHeightConstraint: NSLayoutConstraint!
+    internal var lastContentOffset: CGFloat = 0
+    internal var backgroundIsFreezy = false
     
     var inventoryData = [BoomerCellData]()
     
@@ -72,4 +75,47 @@ extension ProfileMainViewController: UICollectionViewDelegateFlowLayout {
         let spacing = CGFloat(3)
         return CGSize(width: self.view.frame.width/3 - spacing, height: self.view.frame.width/3 - spacing);
     }
+}
+
+extension ProfileMainViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+//        var newHeight = self.parallaxBackgroundHeightConstraint.constant + (self.lastContentOffset - scrollView.contentOffset.y)
+
+        if (self.lastContentOffset > scrollView.contentOffset.y) {
+            print("down")
+                   }
+        else if (self.lastContentOffset < scrollView.contentOffset.y) {
+            print("up")
+ 
+        }
+        
+        
+        
+        print(scrollView.contentOffset.y)
+
+        if scrollView.contentOffset.y <= 0 {
+            self.parallaxBackgroundHeightConstraint.constant = self.parallaxBackgroundHeightConstraint.constant + (self.lastContentOffset - scrollView.contentOffset.y)
+//            self.backgroundIsFreezy = false
+        } else {
+//            self.backgroundIsFreezy = true
+            self.parallaxBackgroundHeightConstraint.constant = 155
+        }
+        
+        if self.parallaxBackgroundHeightConstraint.constant > 155 && scrollView.contentOffset.y >= 0  {
+            self.parallaxBackgroundHeightConstraint.constant = 155
+            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
+      
+        // update the new position acquired
+        
+        self.lastContentOffset = scrollView.contentOffset.y
+        
+   
+    }
+
+    
 }
