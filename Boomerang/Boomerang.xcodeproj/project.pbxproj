@@ -193,6 +193,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		A404537E1DD4173700A42E4B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		A40A25211DCBC28E00DF9523 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +363,7 @@
 		A4E462ED1DCAEA7F00A611C0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A404537E1DD4173700A42E4B /* Cell */,
 				A404537B1DD4149500A42E4B /* Controller */,
 				A4E462EE1DCAEA7F00A611C0 /* Interface */,
 			);

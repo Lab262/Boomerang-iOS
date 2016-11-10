@@ -20,10 +20,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Profile Main View Controller-->
         <scene sceneID="F3m-gM-Aof">
             <objects>
-                <viewController storyboardIdentifier="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Fz-mB-rWv" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Fz-mB-rWv" customClass="ProfileMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="flV-Ni-cSO"/>
                         <viewControllerLayoutGuide type="bottom" id="axi-yD-Qgh"/>
@@ -35,15 +35,15 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ige-ez-pUn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="gnE-KY-lzQ">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="gnE-KY-lzQ">
                                     <size key="itemSize" width="122" height="122"/>
                                     <size key="headerReferenceSize" width="50" height="365"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="55"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cC3-44-u61">
-                                        <rect key="frame" x="0.0" y="365" width="122" height="122"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PhotoCell" reuseIdentifier="PhotoCell" id="cC3-44-u61">
+                                        <rect key="frame" x="2" y="367" width="122" height="122"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="122" height="122"/>
@@ -62,7 +62,7 @@
                                         </constraints>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iwe-rX-zr5">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ProfileHeaderView" reuseIdentifier="ProfileHeaderView" id="iwe-rX-zr5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="365"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -76,7 +76,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZD-VT-nXX" userLabel="Info">
                                             <rect key="frame" x="-0.5" y="155" width="375" height="165"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_dummy" translatesAutoresizingMaskIntoConstraints="NO" id="eM7-CP-yPq">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="perfil_dummy" translatesAutoresizingMaskIntoConstraints="NO" id="eM7-CP-yPq">
                                                     <rect key="frame" x="16" y="-57.5" width="112" height="112"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="112" id="QcB-a9-2Wl"/>
@@ -252,6 +252,10 @@
                                         <constraint firstItem="abn-5L-Uql" firstAttribute="centerX" secondItem="iwe-rX-zr5" secondAttribute="centerX" id="p9m-rN-0TP"/>
                                     </constraints>
                                 </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="1Fz-mB-rWv" id="seS-fI-wsz"/>
+                                    <outlet property="delegate" destination="1Fz-mB-rWv" id="Hf0-db-49G"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.30196078430000001" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -262,6 +266,10 @@
                             <constraint firstItem="Ige-ez-pUn" firstAttribute="width" secondItem="yLA-R9-F2D" secondAttribute="width" id="z3k-fc-uoi"/>
                         </constraints>
                     </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Ige-ez-pUn" id="dD7-na-eqC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUA-7c-9Mq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,6 +280,6 @@
         <image name="foto_dummy" width="224" height="125"/>
         <image name="ic_location" width="12" height="16"/>
         <image name="ic_plus" width="14" height="14"/>
-        <image name="profile_dummy" width="53" height="53"/>
+        <image name="perfil_dummy" width="371" height="372"/>
     </resources>
 </document>
