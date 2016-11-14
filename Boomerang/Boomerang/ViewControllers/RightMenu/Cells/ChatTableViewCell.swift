@@ -23,6 +23,11 @@ class ChatTableViewCell: UITableViewCell {
     
     @IBOutlet weak var myChatBaloomImage: UIImageView!
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.window?.endEditing(true)
+    }
+    
     var chatMessageData : MessageModel! {
         didSet {
             self.setupCell()

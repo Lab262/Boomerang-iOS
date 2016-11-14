@@ -265,7 +265,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbb-wu-tZL">
-                                <rect key="frame" x="37.5" y="146" width="299" height="29"/>
+                                <rect key="frame" x="37" y="146" width="300" height="29"/>
                                 <string key="text">ADICIONE SEUS AMIGOS DO 
 FACEBOOK</string>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
@@ -273,7 +273,7 @@ FACEBOOK</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buscar" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l1b-v5-MK3">
-                                <rect key="frame" x="37.5" y="88" width="299" height="38"/>
+                                <rect key="frame" x="37" y="88" width="300" height="38"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="iFq-Xl-EWN"/>
@@ -407,20 +407,8 @@ FACEBOOK</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7q-e8-fZF" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="OO0-4H-3Yl"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="ic_button_back"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mensagens "/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="rightBarIconImage" value="profile_dummy"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-3H-nRw">
-                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-3H-nRw">
+                                <rect key="frame" x="0.0" y="88" width="375" height="534"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="adt-ZK-Kg5" id="2eT-Ff-xOA"/>
@@ -439,6 +427,9 @@ FACEBOOK</string>
                                         <state key="normal" title="Enviar">
                                             <color key="titleColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendMessageAction:" destination="adt-ZK-Kg5" eventType="touchUpInside" id="fi8-oo-1eX"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escrever mensagem" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MRw-yd-njp">
                                         <rect key="frame" x="10" y="0.0" width="252.5" height="30"/>
@@ -463,6 +454,18 @@ FACEBOOK</string>
                                     <constraint firstAttribute="bottom" secondItem="MRw-yd-njp" secondAttribute="bottom" id="UBw-zb-Tpv"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7q-e8-fZF" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="OO0-4H-3Yl"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="ic_button_back"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mensagens "/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="rightBarIconImage" value="profile_dummy"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -470,16 +473,18 @@ FACEBOOK</string>
                             <constraint firstItem="Fny-Wx-Ll1" firstAttribute="width" secondItem="aW4-b8-SKH" secondAttribute="width" multiplier="0.9" id="AU4-2Q-6aK"/>
                             <constraint firstItem="n7q-e8-fZF" firstAttribute="top" secondItem="HAC-oP-isz" secondAttribute="bottom" constant="-20" id="VXT-z4-o4g"/>
                             <constraint firstItem="2tW-3H-nRw" firstAttribute="width" secondItem="aW4-b8-SKH" secondAttribute="width" id="a2b-qE-erg"/>
-                            <constraint firstItem="SYD-5K-tEg" firstAttribute="top" secondItem="2tW-3H-nRw" secondAttribute="bottom" id="axe-bt-tav"/>
+                            <constraint firstItem="SYD-5K-tEg" firstAttribute="top" secondItem="Fny-Wx-Ll1" secondAttribute="bottom" constant="15" id="diO-g2-ieL"/>
                             <constraint firstItem="2tW-3H-nRw" firstAttribute="centerX" secondItem="aW4-b8-SKH" secondAttribute="centerX" id="dia-vX-ORE"/>
                             <constraint firstItem="n7q-e8-fZF" firstAttribute="centerX" secondItem="aW4-b8-SKH" secondAttribute="centerX" id="hZ7-Y8-QRO"/>
                             <constraint firstItem="Fny-Wx-Ll1" firstAttribute="centerX" secondItem="aW4-b8-SKH" secondAttribute="centerX" id="mEu-Zq-cy0"/>
                             <constraint firstItem="2tW-3H-nRw" firstAttribute="top" secondItem="n7q-e8-fZF" secondAttribute="bottom" id="n3x-i3-6cg"/>
-                            <constraint firstItem="SYD-5K-tEg" firstAttribute="top" secondItem="Fny-Wx-Ll1" secondAttribute="bottom" constant="15" id="tQ9-XB-9Kq"/>
+                            <constraint firstItem="2tW-3H-nRw" firstAttribute="bottom" secondItem="Fny-Wx-Ll1" secondAttribute="bottom" constant="-30" id="uRl-5X-5Ks"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="BqW-YR-SbX"/>
                     <connections>
+                        <outlet property="chatInputField" destination="MRw-yd-njp" id="wpM-6v-vfl"/>
+                        <outlet property="inputViewBottomConstraint" destination="diO-g2-ieL" id="HdT-rC-Ehz"/>
                         <outlet property="navigationBar" destination="n7q-e8-fZF" id="03S-Ig-evX"/>
                         <outlet property="tableView" destination="2tW-3H-nRw" id="Dbl-EM-hnX"/>
                     </connections>
