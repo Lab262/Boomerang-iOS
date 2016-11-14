@@ -28,4 +28,40 @@ extension UIColor {
         }
     }
     
+  
+}
+
+//MARK: - CHAT MESSAGES COLORS
+extension UIColor {
+    
+    static var myMessageChatTextColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("FFFFFF")
+        }
+    }
+    static var myMessageChatBorderColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("2C2C2C")
+        }
+    }
+    static var myMessageChatBackgroundColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("2C2C2C")
+        }
+    }
+    static var friendMessageChatTextColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("000000")
+        }
+    }
+    static var friendMessageChatBackgroundColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("FAFAFA")
+        }
+    }
+    static var friendMessageChatBorderColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("E0E0E0")
+        }
+    }
 }

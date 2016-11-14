@@ -19,6 +19,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IconNavigationBar" customModule="Boomerang">
             <connections>
                 <outlet property="leftButtonIcon" destination="OUO-SG-gwc" id="NCj-p3-zcx"/>
+                <outlet property="rightIcon" destination="203-Af-QFl" id="Rse-ca-hDW"/>
                 <outlet property="titleIcon" destination="mOr-Pj-gOQ" id="GMn-Ar-ZTu"/>
                 <outlet property="titleLabel" destination="zTA-DZ-yQ8" id="Z8g-eo-h4V"/>
                 <outlet property="view" destination="iN0-l3-epB" id="AeI-ye-a1z"/>
@@ -29,8 +30,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_notification" translatesAutoresizingMaskIntoConstraints="NO" id="mOr-Pj-gOQ">
-                    <rect key="frame" x="93" y="31.5" width="25" height="25"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mOr-Pj-gOQ">
+                    <rect key="frame" x="92.5" y="31.5" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="7W8-eZ-w2e"/>
                         <constraint firstAttribute="height" constant="25" id="WzY-eq-lvb"/>
@@ -50,11 +51,21 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notificação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zTA-DZ-yQ8">
-                    <rect key="frame" x="125.5" y="29" width="145.5" height="30.5"/>
+                    <rect key="frame" x="125" y="29" width="145.5" height="30.5"/>
                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="203-Af-QFl">
+                    <rect key="frame" x="325" y="26.5" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="rNd-Sl-czA"/>
+                        <constraint firstAttribute="width" secondItem="203-Af-QFl" secondAttribute="height" multiplier="1:1" id="y5E-Nd-N1Q"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -66,8 +77,10 @@
                 <constraint firstItem="34E-pe-8Yc" firstAttribute="centerX" secondItem="OUO-SG-gwc" secondAttribute="centerX" id="bTt-UV-zCo"/>
                 <constraint firstItem="zTA-DZ-yQ8" firstAttribute="leading" secondItem="mOr-Pj-gOQ" secondAttribute="trailing" constant="7.5" id="e1w-iA-pTy"/>
                 <constraint firstItem="OUO-SG-gwc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kXo-cZ-KG7"/>
+                <constraint firstItem="203-Af-QFl" firstAttribute="centerY" secondItem="zTA-DZ-yQ8" secondAttribute="centerY" id="sEI-Fa-Ldf"/>
                 <constraint firstItem="zTA-DZ-yQ8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="umj-Wo-kbA"/>
                 <constraint firstItem="OUO-SG-gwc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="yn3-mM-OU9"/>
+                <constraint firstAttribute="trailing" secondItem="203-Af-QFl" secondAttribute="trailing" constant="15" id="z09-YD-stq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="129" y="251"/>
@@ -75,6 +88,5 @@
     </objects>
     <resources>
         <image name="ic_button_back" width="13" height="21"/>
-        <image name="ic_notification" width="23" height="23"/>
     </resources>
 </document>

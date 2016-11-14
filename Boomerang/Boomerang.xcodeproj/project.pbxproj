@@ -28,6 +28,11 @@
 		A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427680B1DD3A09D00363343 /* UIColorExtension.swift */; };
 		A427680E1DD3DC4600363343 /* BoomerMyThingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A427680D1DD3DC4600363343 /* BoomerMyThingCell.xib */; };
 		A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427680F1DD3DDF600363343 /* BoomerMyThingCell.swift */; };
+		A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44967691DDA1F3300990008 /* ChatTableViewCell.swift */; };
+		A449676E1DDA1F4600990008 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A449676D1DDA1F4600990008 /* ChatTableViewCell.xib */; };
+		A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44967711DDA23D600990008 /* MessagesChatViewController.swift */; };
+		A44967741DDA246100990008 /* BoomerChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44967731DDA246100990008 /* BoomerChatData.swift */; };
+		A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44967751DDA300100990008 /* DefaultsHelper.swift */; };
 		A44E0C671DD092650028F06C /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C5F1DD092650028F06C /* Montserrat-Black.otf */; };
 		A44E0C681DD092650028F06C /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C601DD092650028F06C /* Montserrat-Bold.otf */; };
 		A44E0C691DD092650028F06C /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C611DD092650028F06C /* Montserrat-ExtraBold.otf */; };
@@ -103,6 +108,11 @@
 		A427680B1DD3A09D00363343 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A427680D1DD3DC4600363343 /* BoomerMyThingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoomerMyThingCell.xib; sourceTree = "<group>"; };
 		A427680F1DD3DDF600363343 /* BoomerMyThingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerMyThingCell.swift; sourceTree = "<group>"; };
+		A44967691DDA1F3300990008 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		A449676D1DDA1F4600990008 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		A44967711DDA23D600990008 /* MessagesChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesChatViewController.swift; sourceTree = "<group>"; };
+		A44967731DDA246100990008 /* BoomerChatData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerChatData.swift; sourceTree = "<group>"; };
+		A44967751DDA300100990008 /* DefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsHelper.swift; sourceTree = "<group>"; };
 		A44E0C5F1DD092650028F06C /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
 		A44E0C601DD092650028F06C /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		A44E0C611DD092650028F06C /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -207,6 +217,7 @@
 				A427680F1DD3DDF600363343 /* BoomerMyThingCell.swift */,
 				A40A25221DCBC28E00DF9523 /* RightMenuCell.swift */,
 				A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */,
+				A44967691DDA1F3300990008 /* ChatTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -269,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				A4AFBB0A1DD2D6C400F270C7 /* MessagesMainViewController.swift */,
+				A44967711DDA23D600990008 /* MessagesChatViewController.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -391,8 +403,9 @@
 		A4E462F01DCAEA7F00A611C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				A427680D1DD3DC4600363343 /* BoomerMyThingCell.xib */,
 				A4E463001DCAEB1500A611C0 /* RightMenu.storyboard */,
+				A427680D1DD3DC4600363343 /* BoomerMyThingCell.xib */,
+				A449676D1DDA1F4600990008 /* ChatTableViewCell.xib */,
 				A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */,
 				A4AFBB0E1DD3612F00F270C7 /* AddBoomerCell.xib */,
 				A42767FE1DD393D800363343 /* MyThings.storyboard */,
@@ -434,6 +447,7 @@
 		A4E462F71DCAEAC200A611C0 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				A44967751DDA300100990008 /* DefaultsHelper.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -521,6 +535,7 @@
 			children = (
 				A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */,
 				A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */,
+				A44967731DDA246100990008 /* BoomerChatData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -594,7 +609,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = B865ENT4P3;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					A4F89B391DA809B100949A35 = {
 						CreatedOnToolsVersion = 8.0;
@@ -629,6 +644,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A44E0C691DD092650028F06C /* Montserrat-ExtraBold.otf in Resources */,
+				A449676E1DDA1F4600990008 /* ChatTableViewCell.xib in Resources */,
 				A4FE062E1DD0967E00BFDC4D /* HomeCollectionHeader.xib in Resources */,
 				A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */,
 				A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */,
@@ -800,13 +816,16 @@
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
+				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
+				A44967741DDA246100990008 /* BoomerChatData.swift in Sources */,
 				A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */,
 				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
+				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
@@ -816,6 +835,7 @@
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
 				A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
+				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
 				A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */,
 				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,
@@ -957,14 +977,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = B865ENT4P3;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ee7f0f61-a0db-48c4-a437-12b5ee3bfc0e";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore Lab262.Boomerang";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -975,14 +995,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = B865ENT4P3;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ee7f0f61-a0db-48c4-a437-12b5ee3bfc0e";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore Lab262.Boomerang";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

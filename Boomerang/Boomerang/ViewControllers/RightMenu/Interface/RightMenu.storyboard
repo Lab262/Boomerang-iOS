@@ -320,59 +320,6 @@ FACEBOOK</string>
             </objects>
             <point key="canvasLocation" x="2076" y="-830"/>
         </scene>
-        <!--Mensagens-->
-        <scene sceneID="Yjg-Wn-x0w">
-            <objects>
-                <viewController storyboardIdentifier="MessagesMainViewController" title="Mensagens" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tvl-mV-w7i" customClass="MessagesMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="d7A-I7-sCh"/>
-                        <viewControllerLayoutGuide type="bottom" id="0iZ-GQ-VIK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="o2Y-tr-BRp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QW-40-Q8p" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="679-KP-xer"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="ic_button_back"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="titleIconImage" value="ic_chat"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mensagens "/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zik-wh-LPG">
-                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="tvl-mV-w7i" id="AWK-hl-4dw"/>
-                                    <outlet property="delegate" destination="tvl-mV-w7i" id="NPj-gO-ILe"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="zik-wh-LPG" firstAttribute="width" secondItem="o2Y-tr-BRp" secondAttribute="width" id="0mB-9K-czT"/>
-                            <constraint firstItem="0iZ-GQ-VIK" firstAttribute="top" secondItem="zik-wh-LPG" secondAttribute="bottom" id="6Ad-6i-G8j"/>
-                            <constraint firstItem="4QW-40-Q8p" firstAttribute="centerX" secondItem="o2Y-tr-BRp" secondAttribute="centerX" id="6VM-Zo-jNh"/>
-                            <constraint firstItem="4QW-40-Q8p" firstAttribute="width" secondItem="o2Y-tr-BRp" secondAttribute="width" id="GM2-ki-lRk"/>
-                            <constraint firstItem="zik-wh-LPG" firstAttribute="centerX" secondItem="o2Y-tr-BRp" secondAttribute="centerX" id="eba-LL-DcP"/>
-                            <constraint firstItem="zik-wh-LPG" firstAttribute="top" secondItem="4QW-40-Q8p" secondAttribute="bottom" id="ht3-tx-wzI"/>
-                            <constraint firstItem="4QW-40-Q8p" firstAttribute="top" secondItem="d7A-I7-sCh" secondAttribute="bottom" constant="-20" id="xYb-23-npO"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="m3s-bj-RN8"/>
-                    <connections>
-                        <outlet property="tableView" destination="zik-wh-LPG" id="6y3-AR-Zaa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JIT-EB-a5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2076" y="591"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Smy-kF-TdX">
             <objects>
@@ -392,11 +339,119 @@ FACEBOOK</string>
             </objects>
             <point key="canvasLocation" x="-231.19999999999999" y="-104.7976011994003"/>
         </scene>
+        <!--Mensagens-->
+        <scene sceneID="wXY-ph-Id8">
+            <objects>
+                <viewController storyboardIdentifier="MessagesMainViewController" title="Mensagens" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hUq-eB-w2k" customClass="MessagesMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DTJ-u4-s3L"/>
+                        <viewControllerLayoutGuide type="bottom" id="U1E-vg-EEv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tr2-ZM-f93">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfF-uI-2QQ" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="lyL-Gu-S4H"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="ic_button_back"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="titleIconImage" value="ic_chat"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mensagens "/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IBh-Ca-ekW">
+                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hUq-eB-w2k" id="3iF-eu-oeC"/>
+                                    <outlet property="delegate" destination="hUq-eB-w2k" id="i6j-01-i9g"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IfF-uI-2QQ" firstAttribute="centerX" secondItem="Tr2-ZM-f93" secondAttribute="centerX" id="0zC-D1-OuY"/>
+                            <constraint firstItem="U1E-vg-EEv" firstAttribute="top" secondItem="IBh-Ca-ekW" secondAttribute="bottom" id="cGK-xm-F1f"/>
+                            <constraint firstItem="IfF-uI-2QQ" firstAttribute="top" secondItem="DTJ-u4-s3L" secondAttribute="bottom" constant="-20" id="cIw-jq-6K5"/>
+                            <constraint firstItem="IfF-uI-2QQ" firstAttribute="width" secondItem="Tr2-ZM-f93" secondAttribute="width" id="etg-4m-ytO"/>
+                            <constraint firstItem="IBh-Ca-ekW" firstAttribute="width" secondItem="Tr2-ZM-f93" secondAttribute="width" id="rz3-of-Wnm"/>
+                            <constraint firstItem="IBh-Ca-ekW" firstAttribute="centerX" secondItem="Tr2-ZM-f93" secondAttribute="centerX" id="sTD-mS-t7B"/>
+                            <constraint firstItem="IBh-Ca-ekW" firstAttribute="top" secondItem="IfF-uI-2QQ" secondAttribute="bottom" id="wgd-9Q-JOK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="uu8-oX-bUA"/>
+                    <connections>
+                        <outlet property="tableView" destination="IBh-Ca-ekW" id="JBq-yW-Hm3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02q-DR-4dt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2076" y="652"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="ZKV-c9-vE8">
+            <objects>
+                <viewController storyboardIdentifier="MessagesChatViewController" title="Chat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="adt-ZK-Kg5" customClass="MessagesChatViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HAC-oP-isz"/>
+                        <viewControllerLayoutGuide type="bottom" id="SYD-5K-tEg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aW4-b8-SKH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7q-e8-fZF" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="OO0-4H-3Yl"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="ic_button_back"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mensagens "/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="rightBarIconImage" value="profile_dummy"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-3H-nRw">
+                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="adt-ZK-Kg5" id="2eT-Ff-xOA"/>
+                                    <outlet property="delegate" destination="adt-ZK-Kg5" id="mTU-Xw-A7L"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n7q-e8-fZF" firstAttribute="width" secondItem="aW4-b8-SKH" secondAttribute="width" id="82F-08-v0Y"/>
+                            <constraint firstItem="n7q-e8-fZF" firstAttribute="top" secondItem="HAC-oP-isz" secondAttribute="bottom" constant="-20" id="VXT-z4-o4g"/>
+                            <constraint firstItem="2tW-3H-nRw" firstAttribute="width" secondItem="aW4-b8-SKH" secondAttribute="width" id="a2b-qE-erg"/>
+                            <constraint firstItem="SYD-5K-tEg" firstAttribute="top" secondItem="2tW-3H-nRw" secondAttribute="bottom" id="axe-bt-tav"/>
+                            <constraint firstItem="2tW-3H-nRw" firstAttribute="centerX" secondItem="aW4-b8-SKH" secondAttribute="centerX" id="dia-vX-ORE"/>
+                            <constraint firstItem="n7q-e8-fZF" firstAttribute="centerX" secondItem="aW4-b8-SKH" secondAttribute="centerX" id="hZ7-Y8-QRO"/>
+                            <constraint firstItem="2tW-3H-nRw" firstAttribute="top" secondItem="n7q-e8-fZF" secondAttribute="bottom" id="n3x-i3-6cg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="BqW-YR-SbX"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="n7q-e8-fZF" id="03S-Ig-evX"/>
+                        <outlet property="tableView" destination="2tW-3H-nRw" id="Dbl-EM-hnX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVc-16-fu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2778" y="661"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_add_friends" width="23" height="27"/>
         <image name="ic_button_back" width="13" height="21"/>
         <image name="ic_chat" width="20" height="20"/>
         <image name="ic_notification" width="23" height="23"/>
+        <image name="profile_dummy" width="53" height="53"/>
     </resources>
 </document>

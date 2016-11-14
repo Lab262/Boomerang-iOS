@@ -15,6 +15,7 @@ class IconNavigationBar: UIView {
     @IBOutlet weak var leftButtonIcon: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleIcon: UIImageView!
+    @IBOutlet weak var rightIcon: UIImageView!
     
     
     @IBAction func leftAction(_ sender: Any) {
@@ -57,6 +58,16 @@ class IconNavigationBar: UIView {
             return self.titleIcon.image
         }
     }
+    
+    @IBInspectable var rightBarIconImage: UIImage? {
+        set {
+            self.rightIcon.image = newValue
+        }
+        get {
+            return self.rightIcon.image
+        }
+    }
+
     
     @IBInspectable var titleLabelText: String? {
         set {

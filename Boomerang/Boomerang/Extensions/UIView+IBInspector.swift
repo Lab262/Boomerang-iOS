@@ -82,6 +82,38 @@ extension UIView {
             self.layer.shouldRasterize = newValue
         }
     }
+    
+    @IBInspectable var roundedByHeight: Bool {
+        get {
+            return self.layer.cornerRadius == self.frame.height
+        }
+        set {
+            if newValue == true {
+                self.layer.cornerRadius = self.frame.height / 8
+                self.layer.masksToBounds = true
+
+            } else {
+                self.layer.cornerRadius = 0
+            }
+            
+        }
+    }
+    
+    @IBInspectable var roundedCircle: Bool {
+        get {
+            return self.layer.cornerRadius == self.frame.height/2
+        }
+        set {
+            if newValue == true {
+                self.layer.cornerRadius = self.frame.height / 2
+                self.layer.masksToBounds = true
+                
+            } else {
+                self.layer.cornerRadius = 0
+            }
+            
+        }
+    }
 
 }
 

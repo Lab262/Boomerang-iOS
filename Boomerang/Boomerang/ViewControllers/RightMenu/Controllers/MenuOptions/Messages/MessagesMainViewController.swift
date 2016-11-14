@@ -61,5 +61,20 @@ extension MessagesMainViewController: UITableViewDelegate, UITableViewDataSource
         cell.boomerCellData = self.cellDatas[indexPath.row]
         return cell;
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedData = self.cellDatas[indexPath.row]
+        let chatData = BoomerChatData(friendPhotos: [selectedData.dataPhoto], friendNames: [selectedData.dataDescription])
+
+        
+        let storyBoardToShow = UIStoryboard(name: "RightMenu", bundle: nil)
+        let viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "MessagesChatViewController") as! MessagesChatViewController
+        
+        viewControllerToShow.chatData = chatData
+        
+        self.navigationController?.pushViewController(viewControllerToShow, animated: true)
+
+    }
 
 }
