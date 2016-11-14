@@ -24,4 +24,9 @@ class RightMenuCell: UITableViewCell {
     func setupCell() {
         self.imgViewCell.image = self.cellImage
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.window?.endEditing(true)
+    }
 }

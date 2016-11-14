@@ -33,7 +33,9 @@ class HomeTableViewController: UIViewController {
         self.tableView.reloadData()
     }
 
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.window?.endEditing(true)
+    }
 }
 
 extension HomeTableViewController: UITableViewDataSource {

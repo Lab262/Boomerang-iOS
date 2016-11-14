@@ -107,7 +107,6 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
 
         switch indexPath.row {
         case rightMenuOptions.profile.rawValue:
-//            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
             break
         case rightMenuOptions.addFriends.rawValue:
             viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "AddBoomerMainViewController")
@@ -119,20 +118,21 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
             viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "NotificationsMainViewController")
             break
         case rightMenuOptions.lovedTricks.rawValue:
-//            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
             break
         case rightMenuOptions.myTricks.rawValue:
             let storyBoardToShow = UIStoryboard(name: "MyThings", bundle: nil)
             viewControllerToShow = storyBoardToShow.instantiateInitialViewController()
             break
         case rightMenuOptions.logout.rawValue:
-//            cell.cellImage = UIImage(named: "ic_tabbar_boomer")
-            break
+            let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+            let vcToShow = storyboard.instantiateInitialViewController()
+            self.present(vcToShow!, animated: true, completion: nil)
+            DefaultsHelper.sharedInstance.email = ""
+            return
             
         default:
             viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "NotificationsMainViewController")
         }
-        
         
         self.show(viewControllerToShow, sender: self)
         self.navigationController?.isNavigationBarHidden = false

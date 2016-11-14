@@ -29,4 +29,9 @@ class BoomerMyThingCell: UITableViewCell {
         self.subLabel.text = boomerCellData.dataDescription
         self.descriptionLabel.text = boomerCellData.dataSubDescription
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.window?.endEditing(true)
+    }
 }

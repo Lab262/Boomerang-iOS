@@ -30,5 +30,8 @@ class BoomerMainViewController: UIViewController {
     @IBAction func experienceAction(_ sender: Any) {
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.window?.endEditing(true)
+    }
     
 }

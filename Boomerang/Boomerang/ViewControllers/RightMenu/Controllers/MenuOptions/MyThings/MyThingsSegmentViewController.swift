@@ -23,6 +23,10 @@ class MyThingsSegmentViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         self.scrollView.delegate = self
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.window?.endEditing(true)
+    }
 
 }
 

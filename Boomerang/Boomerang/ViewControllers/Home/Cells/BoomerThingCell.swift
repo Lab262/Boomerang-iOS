@@ -56,7 +56,6 @@ class BoomerThingCell: UICollectionViewCell {
         
     }
     
-    
     override func draw(_ rect: CGRect) {
         self.setupProfilePhotoData()
         
@@ -67,6 +66,11 @@ class BoomerThingCell: UICollectionViewCell {
         self.profilePhotoImgView2.layer.cornerRadius = self.profilePhotoImgView2.frame.height / 2
         self.profilePhotoImgView2.layer.masksToBounds = true
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.window?.endEditing(true)
     }
     
 }

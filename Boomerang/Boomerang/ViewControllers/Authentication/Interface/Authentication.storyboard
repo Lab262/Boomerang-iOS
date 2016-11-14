@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X73-22-FGr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Light.otf">
+            <string>Montserrat-Light</string>
+        </array>
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Authentication Main View Controller-->
+        <scene sceneID="JdW-pe-xfF">
+            <objects>
+                <viewController storyboardIdentifier="AuthenticationMainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X73-22-FGr" customClass="AuthenticationMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Zw-XO-h1c"/>
+                        <viewControllerLayoutGuide type="bottom" id="NgG-V1-EPR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6hQ-UJ-Hzx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="LA3-PX-4tg">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-Qx-C6j">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boomer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="agE-nl-h5s">
+                                <rect key="frame" x="145" y="124.5" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="7hV-UK-T2j"/>
+                                    <constraint firstAttribute="width" constant="85" id="YEU-Wq-zew"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boomer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgw-5K-Jyv">
+                                <rect key="frame" x="119" y="227.5" width="138" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8x-7M-uVa" userLabel="Divider">
+                                <rect key="frame" x="165.5" y="296.5" width="83" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="0VQ-Vl-3gU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedByHeight" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enhance Your Brand Potential With Giant Advertising." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jir-hp-yFh">
+                                <rect key="frame" x="47.5" y="328.5" width="281" height="43.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ozv-mH-EdX">
+                                <rect key="frame" x="47" y="442" width="281" height="90"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8RF-RX-2cc">
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFV-al-eP8">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
+                                                <state key="normal" title="Sign in">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="signInAction:" destination="X73-22-FGr" eventType="touchUpInside" id="EuT-05-gU8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1j-WB-AZ8">
+                                                <rect key="frame" x="143" y="0.0" width="138" height="40"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
+                                                <state key="normal" title="Sign up">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="signUpAction:" destination="X73-22-FGr" eventType="touchUpInside" id="JKZ-ke-SJV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNH-Tn-3st">
+                                        <rect key="frame" x="0.0" y="50" width="281" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                        <state key="normal" title="Entrar com Facebook">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="facebookAction:" destination="X73-22-FGr" eventType="touchUpInside" id="vFG-0p-EVg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="01Z-Dc-ySo"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jir-hp-yFh" firstAttribute="width" secondItem="6hQ-UJ-Hzx" secondAttribute="width" multiplier="0.75" id="37g-9p-F3a"/>
+                            <constraint firstItem="LA3-PX-4tg" firstAttribute="centerY" secondItem="6hQ-UJ-Hzx" secondAttribute="centerY" id="Hbo-6Y-D4U"/>
+                            <constraint firstItem="ozv-mH-EdX" firstAttribute="top" secondItem="jir-hp-yFh" secondAttribute="bottom" constant="70" id="IP0-Zr-d7V"/>
+                            <constraint firstItem="DJO-Qx-C6j" firstAttribute="height" secondItem="6hQ-UJ-Hzx" secondAttribute="height" id="ImZ-Ao-ILm"/>
+                            <constraint firstItem="LA3-PX-4tg" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="KCj-wy-toI"/>
+                            <constraint firstItem="jir-hp-yFh" firstAttribute="top" secondItem="G8x-7M-uVa" secondAttribute="bottom" constant="30" id="PJO-lB-EV5"/>
+                            <constraint firstItem="DJO-Qx-C6j" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="VCu-nX-h0Y"/>
+                            <constraint firstItem="hgw-5K-Jyv" firstAttribute="top" secondItem="agE-nl-h5s" secondAttribute="bottom" constant="18" id="VGH-Wu-tUq"/>
+                            <constraint firstItem="G8x-7M-uVa" firstAttribute="width" secondItem="hgw-5K-Jyv" secondAttribute="width" multiplier="0.6" id="VRR-Bp-C6H"/>
+                            <constraint firstItem="LA3-PX-4tg" firstAttribute="height" secondItem="6hQ-UJ-Hzx" secondAttribute="height" id="Vd0-Ff-aVG"/>
+                            <constraint firstItem="jir-hp-yFh" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="gaw-ZX-dpk"/>
+                            <constraint firstItem="G8x-7M-uVa" firstAttribute="top" secondItem="hgw-5K-Jyv" secondAttribute="bottom" constant="21" id="huB-yj-SOl"/>
+                            <constraint firstItem="agE-nl-h5s" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="jf6-RL-fha"/>
+                            <constraint firstItem="ozv-mH-EdX" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="kH5-um-jKs"/>
+                            <constraint firstItem="ozv-mH-EdX" firstAttribute="width" secondItem="jir-hp-yFh" secondAttribute="width" id="mmM-1N-9e4"/>
+                            <constraint firstItem="LA3-PX-4tg" firstAttribute="width" secondItem="6hQ-UJ-Hzx" secondAttribute="width" id="p5e-9h-ed4"/>
+                            <constraint firstItem="agE-nl-h5s" firstAttribute="centerY" secondItem="6hQ-UJ-Hzx" secondAttribute="centerY" multiplier="0.5" id="pDa-WR-mVe"/>
+                            <constraint firstItem="G8x-7M-uVa" firstAttribute="centerX" secondItem="hgw-5K-Jyv" secondAttribute="centerX" multiplier="1.1" id="qWr-8v-GZe"/>
+                            <constraint firstItem="DJO-Qx-C6j" firstAttribute="width" secondItem="6hQ-UJ-Hzx" secondAttribute="width" id="rNe-NO-Tkw"/>
+                            <constraint firstItem="hgw-5K-Jyv" firstAttribute="centerX" secondItem="agE-nl-h5s" secondAttribute="centerX" id="ug4-vj-Iug"/>
+                            <constraint firstItem="DJO-Qx-C6j" firstAttribute="centerY" secondItem="6hQ-UJ-Hzx" secondAttribute="centerY" id="yuo-Zm-sQd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3OH-Qp-fbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="473.6131934032984"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="375" height="667"/>
+        <image name="boomer_logo" width="85" height="85"/>
+    </resources>
+</document>

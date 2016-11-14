@@ -30,6 +30,11 @@ class BoomerThingCollection: UITableViewCell {
             forCellWithReuseIdentifier: BoomerThingCell.cellIdentifier)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.window?.endEditing(true)
+    }
+    
 }
 
 

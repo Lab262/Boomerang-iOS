@@ -41,6 +41,8 @@
 		A44E0C6C1DD092650028F06C /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C641DD092650028F06C /* Montserrat-Regular.otf */; };
 		A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */; };
 		A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */; };
+		A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A489B1F61DDA7D1100B239D5 /* Authentication.storyboard */; };
+		A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489B1F81DDA7D3E00B239D5 /* AuthenticationMainViewController.swift */; };
 		A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */; };
 		A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */; };
 		A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */; };
@@ -121,6 +123,8 @@
 		A44E0C641DD092650028F06C /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		A489B1F61DDA7D1100B239D5 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		A489B1F81DDA7D3E00B239D5 /* AuthenticationMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationMainViewController.swift; sourceTree = "<group>"; };
 		A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Navigation.swift"; sourceTree = "<group>"; };
 		A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerMessageAndNotificationsCell.swift; sourceTree = "<group>"; };
 		A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoomerMessageAndNotificationsCell.xib; sourceTree = "<group>"; };
@@ -276,6 +280,31 @@
 			path = "montserrat ";
 			sourceTree = "<group>";
 		};
+		A489B1F31DDA7D0300B239D5 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A489B1F41DDA7D0300B239D5 /* Controllers */,
+				A489B1F51DDA7D0300B239D5 /* Interface */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A489B1F41DDA7D0300B239D5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A489B1F81DDA7D3E00B239D5 /* AuthenticationMainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A489B1F51DDA7D0300B239D5 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A489B1F61DDA7D1100B239D5 /* Authentication.storyboard */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
 		A4AFBB091DD2D6C400F270C7 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +353,7 @@
 		A4E462E71DCAEA7F00A611C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A489B1F31DDA7D0300B239D5 /* Authentication */,
 				A4E462E81DCAEA7F00A611C0 /* Boomer */,
 				A4E462EA1DCAEA7F00A611C0 /* Home */,
 				A4E462EC1DCAEA7F00A611C0 /* Main.storyboard */,
@@ -652,6 +682,7 @@
 				A4AFBB0F1DD3612F00F270C7 /* AddBoomerCell.xib in Resources */,
 				A42767FF1DD393D800363343 /* MyThings.storyboard in Resources */,
 				A4FE062C1DD0965700BFDC4D /* BoomerThingCell.xib in Resources */,
+				A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */,
 				A44E0C6A1DD092650028F06C /* Montserrat-Hairline.otf in Resources */,
 				A4E462FF1DCAEB0200A611C0 /* Profile.storyboard in Resources */,
 				A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */,
@@ -839,6 +870,7 @@
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
 				A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */,
 				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,
+				A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */,
 				A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */,
 				A42767FD1DD3630400363343 /* AddBoomerMainViewController.swift in Sources */,
 			);

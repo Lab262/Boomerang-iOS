@@ -37,6 +37,10 @@ class ProfileMainViewController: UIViewController {
         self.loadData()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
 }
 
 
@@ -109,3 +113,4 @@ extension ProfileMainViewController: UIScrollViewDelegate {
 
     
 }
+
