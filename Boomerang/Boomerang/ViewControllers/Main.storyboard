@@ -13,7 +13,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="sFg-Y2-3IV">
             <objects>
-                <viewController id="aFI-aJ-oa2" customClass="TabBarController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="aFI-aJ-oa2" customClass="TabBarController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JG7-EU-y4c"/>
                         <viewControllerLayoutGuide type="bottom" id="caD-02-hCa"/>

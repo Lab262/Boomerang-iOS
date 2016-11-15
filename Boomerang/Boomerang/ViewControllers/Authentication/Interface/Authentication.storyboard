@@ -21,7 +21,7 @@
         <!--Authentication Main View Controller-->
         <scene sceneID="JdW-pe-xfF">
             <objects>
-                <viewController storyboardIdentifier="AuthenticationMainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X73-22-FGr" customClass="AuthenticationMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthenticationMainViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X73-22-FGr" customClass="AuthenticationMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Zw-XO-h1c"/>
                         <viewControllerLayoutGuide type="bottom" id="NgG-V1-EPR"/>
