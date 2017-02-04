@@ -1,16 +1,31 @@
 PODS:
+  - Alamofire (4.0.0)
   - Crashlytics (3.8.2):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.9)
+  - FalconFrameworkIOSSDK (0.1.9):
+    - Alamofire (= 4.0)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - FalconFrameworkIOSSDK (from `https://gitlab.com/LAB262/FalconFrameworkIOSSDK.git`)
+
+EXTERNAL SOURCES:
+  FalconFrameworkIOSSDK:
+    :git: https://gitlab.com/LAB262/FalconFrameworkIOSSDK.git
+
+CHECKOUT OPTIONS:
+  FalconFrameworkIOSSDK:
+    :commit: e3c936a7f5cc03981b7e23447af59a1b9c2b3511
+    :git: https://gitlab.com/LAB262/FalconFrameworkIOSSDK.git
 
 SPEC CHECKSUMS:
+  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
   Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
   Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
+  FalconFrameworkIOSSDK: 0815254993050a347e672c4a802b18add094fb43
 
-PODFILE CHECKSUM: 5aafc1f68ac2abc0a431d3e0172e6fcbf38eab78
+PODFILE CHECKSUM: 634ffdca235ef04a26ffb70714a7e34b8c565a61
 
 COCOAPODS: 1.1.1
