@@ -8,7 +8,11 @@ target 'Boomerang' do
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'FalconFrameworkIOSSDK', :git => 'https://gitlab.com/LAB262/FalconFrameworkIOSSDK.git'
-  # Pods for Boomerang
+    pod 'FacebookCore'
+    pod 'FacebookLogin'
+    pod 'FacebookShare'
+    
+    # Pods for Boomerang
 
   target 'BoomerangTests' do
     inherit! :search_paths

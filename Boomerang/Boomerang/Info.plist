@@ -45,12 +45,34 @@
 			</dict>
 		</array>
 	</dict>
-	<key>LSRequiresIPhoneOS</key>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
+    <key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>FacebookAppID</key>
+	<string>294221600993928</string>
+	<key>FacebookDisplayName</key>
+	<string>Boomerang</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb294221600993928</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

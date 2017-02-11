@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA93B281E4A881E0080F99A /* UserRequest.swift */; };
+		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
+		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
+		2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771E1E4F998A0005F026 /* URLS.swift */; };
 		4AF67983571B3521F7815ECF /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4740BB8B9F69EC21C95B9451 /* Pods_Boomerang.framework */; };
 		4EE890349CF141E54F460029 /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6115D89A9D141691FD587E70 /* Pods_BoomerangTests.framework */; };
 		A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */; };
@@ -85,6 +89,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2FA93B281E4A881E0080F99A /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		2FF1771A1E4F60650005F026 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2FF1771C1E4F91A20005F026 /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
+		2FF1771E1E4F998A0005F026 /* URLS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
 		3F07268A3E6B9CC51F50285A /* Pods-BoomerangTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.release.xcconfig"; sourceTree = "<group>"; };
 		4740BB8B9F69EC21C95B9451 /* Pods_Boomerang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boomerang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6115D89A9D141691FD587E70 /* Pods_BoomerangTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoomerangTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +188,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FA93B271E4A88030080F99A /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				2FA93B281E4A881E0080F99A /* UserRequest.swift */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
 		3DFACAA143E64F5C802398F6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				A4AFBB0C1DD35D4600F270C7 /* Colors.swift */,
+				2FF1771E1E4F998A0005F026 /* URLS.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -456,6 +473,7 @@
 			children = (
 				A4CB02651DD261B200B01A6B /* NavigationBar */,
 				A40A25191DCB681A00DF9523 /* UIView+Animations.swift */,
+				2FF1771C1E4F91A20005F026 /* ViewUtil.swift */,
 				A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */,
 				A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */,
 				A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */,
@@ -467,9 +485,9 @@
 		A4E462F61DCAEAC200A611C0 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				2FA93B271E4A88030080F99A /* Request */,
 				A4FE06371DD09D6400BFDC4D /* Models */,
 				A4E462F71DCAEAC200A611C0 /* Local */,
-				A4E462F81DCAEAC200A611C0 /* Requests */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -480,13 +498,6 @@
 				A44967751DDA300100990008 /* DefaultsHelper.swift */,
 			);
 			path = Local;
-			sourceTree = "<group>";
-		};
-		A4E462F81DCAEAC200A611C0 /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Requests;
 			sourceTree = "<group>";
 		};
 		A4E462F91DCAEAC200A611C0 /* Vendor */ = {
@@ -566,6 +577,7 @@
 				A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */,
 				A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */,
 				A44967731DDA246100990008 /* BoomerChatData.swift */,
+				2FF1771A1E4F60650005F026 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -637,7 +649,7 @@
 				TargetAttributes = {
 					A4F89B251DA809B100949A35 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = B865ENT4P3;
+						DevelopmentTeam = V927RLF8V5;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -840,6 +852,7 @@
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
 				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
+				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
@@ -861,6 +874,7 @@
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
+				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
 				A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
@@ -868,10 +882,12 @@
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
+				2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */,
 				A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */,
 				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,
 				A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */,
 				A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */,
+				2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */,
 				A42767FD1DD3630400363343 /* AddBoomerMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1010,7 +1026,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = B865ENT4P3;
+				DEVELOPMENT_TEAM = V927RLF8V5;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;
@@ -1028,7 +1044,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = B865ENT4P3;
+				DEVELOPMENT_TEAM = V927RLF8V5;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;
