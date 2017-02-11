@@ -21,20 +21,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Fabric.with([Crashlytics.self])
         
+          URLS.setupBaseURL()
+//        
+//        if DefaultsHelper.sharedInstance.email == ""  || DefaultsHelper.sharedInstance.email == nil {
+//            let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+//            let vcToShow = storyboard.instantiateInitialViewController()
+//            self.window?.rootViewController = vcToShow
+//        } else {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vcToShow = storyboard.instantiateInitialViewController()
+//            self.window?.rootViewController = vcToShow
+//        }
         
-        if DefaultsHelper.sharedInstance.email == ""  || DefaultsHelper.sharedInstance.email == nil {
+        if FFDefaults.authTokenData == ""  || FFDefaults.authTokenData == nil {
             let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
             let vcToShow = storyboard.instantiateInitialViewController()
             self.window?.rootViewController = vcToShow
+            
         } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let vcToShow = storyboard.instantiateInitialViewController()
             self.window?.rootViewController = vcToShow
         }
         
+        
+        
+        
            return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        // Override point for customization after application launch.
-        return true
+      
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
