@@ -10,6 +10,10 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import FalconFrameworkIOSSDK
+import FacebookLogin
+import  FacebookCore
+import FacebookShare
+
 
 class AuthenticationMainViewController: UIViewController {
 
@@ -78,6 +82,8 @@ extension AuthenticationMainViewController {
                     let email = data["email"] as! String
                     let name = "\(data["first_name"] as! String) \(data["last_name"])"
                     
+                    self.getListFriends()
+                    
                     FFAuthRequests.loginUserWithSocialMedia(socialMediaId: socialMediaId, email: email, name: name, socialMediaType: .facebook, socialMediaPasswordServerSecret: "AQWgd$j[QGe]Bh.Ugkf>?B3y696?2$#B2xwfN3hrVhFrE348g", autoStoreAuthTokenData: true) { (error, tokenReturnData) in
                         
                         if error == nil,
@@ -94,7 +100,30 @@ extension AuthenticationMainViewController {
         }
     }
     
-  
+    func getListFriends(){
+           
+//        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/me/friends", parameters: nil)
+//        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+//            
+//            if ((error) != nil)
+//            {
+//                // Process error
+//                print("Error: \(error)")
+//            }
+//            else
+//            {
+//                print("fetched user: \(result)")
+//                let userName : NSString = result.valueForKey("name") as! NSString
+//                print("User Name is: \(userName)")
+//                let userID : NSString = result.valueForKey("id") as! NSString
+//                print("User Email is: \(userID)")
+//                
+//                
+//                
+//            }
+//        })
+    
+    }
     
 
    
