@@ -11,8 +11,10 @@ target 'Boomerang' do
     pod 'FacebookCore'
     pod 'FacebookLogin'
     pod 'FacebookShare'
-    
-    # Pods for Boomerang
+    pod 'Parse'
+    pod 'ParseFacebookUtilsV4'
+   
+   # Pods for Boomerang
 
   target 'BoomerangTests' do
     inherit! :search_paths

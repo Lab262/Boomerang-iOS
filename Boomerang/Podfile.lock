@@ -30,6 +30,14 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.18.0):
     - FBSDKCoreKit
+  - Parse (1.14.2):
+    - Bolts/Tasks (~> 1.8)
+  - ParseFacebookUtilsV4 (1.11.1):
+    - Bolts/Tasks (>= 1.6)
+    - FBSDKCoreKit (~> 4.10)
+    - FBSDKLoginKit (~> 4.10)
+    - FBSDKTVOSKit (~> 4.10)
+    - Parse (~> 1.12)
 
 DEPENDENCIES:
   - Crashlytics
@@ -38,6 +46,8 @@ DEPENDENCIES:
   - FacebookLogin
   - FacebookShare
   - FalconFrameworkIOSSDK (from `https://gitlab.com/LAB262/FalconFrameworkIOSSDK.git`)
+  - Parse
+  - ParseFacebookUtilsV4
 
 EXTERNAL SOURCES:
   FalconFrameworkIOSSDK:
@@ -60,7 +70,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
+  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
 
-PODFILE CHECKSUM: 20bbe0dd8710de0ba0c2bc0b2bc75525f59fd0de
+PODFILE CHECKSUM: 9d4b6a5e5958010653e91c1736a9b7c725861531
 
 COCOAPODS: 1.1.1
