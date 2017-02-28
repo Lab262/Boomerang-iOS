@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */; };
 		2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA93B281E4A881E0080F99A /* UserRequest.swift */; };
 		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
 		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
@@ -89,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
 		2FA93B281E4A881E0080F99A /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		2FF1771A1E4F60650005F026 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF1771C1E4F91A20005F026 /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
@@ -188,6 +190,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F2F078A1E64CA0800C61A6D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */,
+			);
+			name = Enum;
+			sourceTree = "<group>";
+		};
 		2FA93B271E4A88030080F99A /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +584,7 @@
 		A4FE06371DD09D6400BFDC4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2F2F078A1E64CA0800C61A6D /* Enum */,
 				A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */,
 				A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */,
 				A44967731DDA246100990008 /* BoomerChatData.swift */,
@@ -877,6 +888,7 @@
 				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
 				A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
+				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
 				A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,

@@ -10,7 +10,8 @@ import UIKit
 import Fabric
 import Crashlytics
 import FBSDKCoreKit
-import FalconFrameworkIOSSDK
+import Parse
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,10 +20,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        //Fabric.with([Crashlytics.self])
+        
+         // URLS.setupBaseURL()
+   
+        
         Fabric.with([Crashlytics.self])
         
-          URLS.setupBaseURL()
-//        
+        self.window!.rootViewController = self.setInitialStoryboardBySeasonUser()
+        
+       // self.setupBarsAppearance()
+        
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "boomerangapi"
+            $0.clientKey = ""
+            $0.server = "http://boomerangapi.herokuapp.com/parse"
+        }
+        
+        Parse.initialize(with: configuration)
+        
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+
+        
 //        if DefaultsHelper.sharedInstance.email == ""  || DefaultsHelper.sharedInstance.email == nil {
 //            let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
 //            let vcToShow = storyboard.instantiateInitialViewController()
@@ -32,25 +51,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            let vcToShow = storyboard.instantiateInitialViewController()
 //            self.window?.rootViewController = vcToShow
 //        }
+
         
-        if FFDefaults.authTokenData == ""  || FFDefaults.authTokenData == nil {
-            let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
-            let vcToShow = storyboard.instantiateInitialViewController()
-            self.window?.rootViewController = vcToShow
-            
-        } else {
-            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let vcToShow = storyboard.instantiateInitialViewController()
-            self.window?.rootViewController = vcToShow
-        }
+        return true
         
-        
-        
-        
-           return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
       
     }
 
+    
+    func setInitialStoryboardBySeasonUser() -> UIViewController? {
+        
+        var initialViewController: UIViewController? = nil
+        
+        if PFUser.current() != nil {
+            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
+            
+        }else {
+            
+            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "")
+        }
+        
+        return initialViewController
+        
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

@@ -9,9 +9,9 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-import FalconFrameworkIOSSDK
 import FacebookLogin
-
+import Parse
+import ParseFacebookUtilsV4
 
 
 class AuthenticationMainViewController: UIViewController {
@@ -22,13 +22,50 @@ class AuthenticationMainViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func signInAction(_ sender: Any) {
-        self.showHomeVC()
+        let permissions = ["public_profile", "email"]
+        
+        PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
+            if let user = user {
+                if user.isNew {
+                    self.updateUserByFacebook()
+                } else {
+                    self.showHomeVC()
+                }
+            }
+        }
+
 
     }
     
     
     @IBAction func signUpAction(_ sender: Any) {
-        self.showHomeVC()
+        
+       
+              
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        
+        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            
+            if error == nil {
+                self.view.loadAnimation()
+                let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                
+                if (result?.isCancelled)! {
+                    self.view.unload()
+                    return
+                }
+                
+                if(fbloginresult.grantedPermissions.contains("email")) {
+                    
+                    self.returnUserData()
+                    
+                }
+            } else {
+                
+            }
+            
+        }
+
 
     }
     
@@ -52,9 +89,50 @@ class AuthenticationMainViewController: UIViewController {
         }
     }
 
+    func updateUserByFacebook(){
+        
+        let requestParameters = ["fields": "id, email, first_name, last_name"]
+        let userDetails = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters)
+        
+        let newUser = PFUser.current()!
+        
+        userDetails!.start { (connection, result, error) -> Void in
+            
+            if error != nil {
+                print ("ERRO")
+            }
+            
+            if result != nil {
+                if let data = result as? [String: Any] {
+                    
+                    if let firstName = data["first_name"] as? String {
+                        newUser.setObject(firstName, forKey: "username")
+                        newUser.setObject(firstName, forKey: "firstName")
+                    }
+                    
+                    if let lastName = data["last_name"] as? String {
+                        newUser.setObject(lastName, forKey: "lastName")
+                    }
+                    
+                    if let email = data ["email"] as? String {
+                        newUser.setObject(email, forKey: "email")
+                    }
+                }
+                
+                newUser.saveInBackground(block: { (success, error) in
+                    if success {
+                        self.showHomeVC()
+                    }
+                })
+            }
+        }
+    }
+
+    
+    
     func showHomeVC() {
         
-        DefaultsHelper.sharedInstance.email = "thiago@lab262.com"
+       // DefaultsHelper.sharedInstance.email = "thiago@lab262.com"
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vcToShow = storyboard.instantiateInitialViewController()!
         self.present(vcToShow, animated: true, completion: nil)
@@ -68,7 +146,6 @@ class AuthenticationMainViewController: UIViewController {
 extension AuthenticationMainViewController {
     
     func returnUserData(){
-        
         if((FBSDKAccessToken.current()) != nil){
             
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
@@ -76,29 +153,23 @@ extension AuthenticationMainViewController {
                 if (error == nil) {
                     
                     let data:[String:AnyObject] = result as! [String : AnyObject]
+                    let userName = "\(data["first_name"] as! String) \(data["last_name"] as! String)"
                     
-                    let socialMediaId = data["id"] as! String
-                    let email = data["email"] as! String
-                    let name = "\(data["first_name"] as! String) \(data["last_name"])"
-                    
-                    
-                    
-                    FFAuthRequests.loginUserWithSocialMedia(socialMediaId: socialMediaId, email: email, name: name, socialMediaType: .facebook, socialMediaPasswordServerSecret: "AQWgd$j[QGe]Bh.Ugkf>?B3y696?2$#B2xwfN3hrVhFrE348g", autoStoreAuthTokenData: true) { (error, tokenReturnData) in
+                    UserRequest.loginUserWithFacebook(id: data["id"] as! String, email: data["email"] as! String,userName: userName, mediaType:SocialMediaType.facebook.rawValue, completionHandler: { (success, msg, user) in
                         
-                        if error == nil,
-                            let user = tokenReturnData?["user"] as? NSDictionary,
-                            let userId = user["id"] as? Int {
-                           
-                        } else {
+                        if success {
+                            self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Main")!, animated: true, completion: nil)
+                            
+                        }else {
                             self.view.unload()
-                            self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: error!.detail!), animated: true, completion: nil)
-                        }
-                    }
+                            self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
+                        }                    })
+                    
                 }
             })
         }
+
     }
-    
 
 
    
