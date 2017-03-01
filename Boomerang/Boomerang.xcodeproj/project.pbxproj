@@ -77,6 +77,7 @@
 		A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */; };
 		A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */; };
 		A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */; };
+		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
 		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -170,6 +171,7 @@
 		A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerThingCollection.swift; sourceTree = "<group>"; };
 		A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerThing.swift; sourceTree = "<group>"; };
 		A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Indexable.swift"; sourceTree = "<group>"; };
+		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
 		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,6 +273,7 @@
 			children = (
 				A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */,
 				A4FE06281DD0953200BFDC4D /* HomeTableViewController.swift */,
+				D43DF1311E66970400397251 /* ThingDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -875,6 +878,7 @@
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
 				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
+				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,

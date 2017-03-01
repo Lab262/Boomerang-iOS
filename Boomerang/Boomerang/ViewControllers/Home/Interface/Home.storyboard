@@ -117,10 +117,13 @@
                             <constraint firstItem="bai-kT-Rto" firstAttribute="top" secondItem="whq-g7-neK" secondAttribute="bottom" constant="26" id="lII-lp-tqS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="OAa-qd-sUY" kind="show" identifier="showDetailThing" id="AL7-AX-imq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYt-rM-9sf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="242" y="146"/>
+            <point key="canvasLocation" x="241" y="133"/>
         </scene>
         <!--Home Table View Controller-->
         <scene sceneID="Wpf-8E-vbr">
@@ -157,12 +160,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jlx-Ww-3st" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="241" y="812"/>
+            <point key="canvasLocation" x="241" y="860"/>
         </scene>
-        <!--View Controller-->
+        <!--Thing Detail View Controller-->
         <scene sceneID="yTL-aV-yR5">
             <objects>
-                <viewController id="OAa-qd-sUY" sceneMemberID="viewController">
+                <viewController id="OAa-qd-sUY" customClass="ThingDetailViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gsM-3m-uNa"/>
                         <viewControllerLayoutGuide type="bottom" id="c9M-eD-pal"/>
