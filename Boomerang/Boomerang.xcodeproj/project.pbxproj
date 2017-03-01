@@ -77,6 +77,8 @@
 		A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */; };
 		A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */; };
 		A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */; };
+		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
+		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +170,8 @@
 		A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerThingCollection.swift; sourceTree = "<group>"; };
 		A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerThing.swift; sourceTree = "<group>"; };
 		A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Indexable.swift"; sourceTree = "<group>"; };
+		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
+		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +424,7 @@
 		A4E462EB1DCAEA7F00A611C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */,
 				A4E462FC1DCAEAF800A611C0 /* Home.storyboard */,
 				A4FE062B1DD0965700BFDC4D /* BoomerThingCell.xib */,
 				A4FE062D1DD0967E00BFDC4D /* HomeCollectionHeader.xib */,
@@ -577,6 +582,7 @@
 				A4FE062F1DD09A1100BFDC4D /* BoomerThingCell.swift */,
 				A4FE06311DD09AA200BFDC4D /* HomeCollectionHeader.swift */,
 				A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */,
+				D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -697,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A44E0C691DD092650028F06C /* Montserrat-ExtraBold.otf in Resources */,
+				D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */,
 				A449676E1DDA1F4600990008 /* ChatTableViewCell.xib in Resources */,
 				A4FE062E1DD0967E00BFDC4D /* HomeCollectionHeader.xib in Resources */,
 				A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */,
@@ -886,6 +893,7 @@
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
 				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
 				A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */,
+				D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
 				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,

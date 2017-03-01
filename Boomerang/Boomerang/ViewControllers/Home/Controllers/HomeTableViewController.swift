@@ -80,7 +80,9 @@ extension HomeTableViewController: UITableViewDelegate {
         }
         
         let header = tableView.dequeueReusableCell(withIdentifier:HomeCollectionHeader.cellIdentifier) as! HomeCollectionHeader
+        
         header.headerData = headerData
+        
         
         return header
     }
