@@ -25,6 +25,7 @@ class AuthenticationMainViewController: UIViewController {
         let permissions = ["public_profile", "email"]
         
         PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
+            
             if let user = user {
                 if user.isNew {
                     self.updateUserByFacebook()

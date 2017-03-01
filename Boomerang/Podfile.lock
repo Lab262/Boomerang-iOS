@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (4.0.0)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -22,8 +21,6 @@ PODS:
     - FacebookCore (~> 0.2)
     - FBSDKCoreKit (~> 4.15)
     - FBSDKShareKit (~> 4.15)
-  - FalconFrameworkIOSSDK (0.1.9):
-    - Alamofire (= 4.0)
   - FBSDKCoreKit (4.19.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.19.0):
@@ -45,34 +42,22 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
-  - FalconFrameworkIOSSDK (from `https://gitlab.com/LAB262/FalconFrameworkIOSSDK.git`)
   - Parse
   - ParseFacebookUtilsV4
 
-EXTERNAL SOURCES:
-  FalconFrameworkIOSSDK:
-    :git: https://gitlab.com/LAB262/FalconFrameworkIOSSDK.git
-
-CHECKOUT OPTIONS:
-  FalconFrameworkIOSSDK:
-    :commit: e3c936a7f5cc03981b7e23447af59a1b9c2b3511
-    :git: https://gitlab.com/LAB262/FalconFrameworkIOSSDK.git
-
 SPEC CHECKSUMS:
-  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
-  FalconFrameworkIOSSDK: 0815254993050a347e672c4a802b18add094fb43
   FBSDKCoreKit: 894b2b6eda6a4c8c4204e92e59cc355709ef045c
   FBSDKLoginKit: 83ca4d8f12a2022570af9fd6aacf27f6b425b99f
   FBSDKShareKit: 5953758366278430dc322d5cdc906db361ed7f81
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
 
-PODFILE CHECKSUM: 9d4b6a5e5958010653e91c1736a9b7c725861531
+PODFILE CHECKSUM: f37fea4c56e32b93c77a71e408826eaaf99afc15
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

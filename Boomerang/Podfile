@@ -7,7 +7,6 @@ target 'Boomerang' do
 
     pod 'Fabric'
     pod 'Crashlytics'
-    pod 'FalconFrameworkIOSSDK', :git => 'https://gitlab.com/LAB262/FalconFrameworkIOSSDK.git'
     pod 'FacebookCore'
     pod 'FacebookLogin'
     pod 'FacebookShare'

@@ -9,7 +9,6 @@
 import UIKit
 import Fabric
 import Crashlytics
-import FBSDKCoreKit
 import Parse
 import ParseFacebookUtilsV4
 
@@ -35,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.applicationId = "boomerangapi"
             $0.clientKey = ""
             $0.server = "http://boomerangapi.herokuapp.com/parse"
+            
         }
         
         Parse.initialize(with: configuration)

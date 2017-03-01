@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FalconFrameworkIOSSDK
 
 #if DEVELOPMENT
 let URL_WS_SERVER = "https://boomerang-api-stg.herokuapp.com/api"
@@ -16,7 +15,7 @@ let URL_WS_SERVER = "https://boomerang-api-prd.herokuapp.com/api"
 #endif
 class URLS: NSObject {
     static func setupBaseURL() {
-        FFDefaults.hostBaseURL = URL_WS_SERVER
+    //    UserDefaults.hostBaseURL = URL_WS_SERVER
     }
 
 }

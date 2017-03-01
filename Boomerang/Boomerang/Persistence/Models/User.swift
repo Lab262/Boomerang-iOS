@@ -6,11 +6,9 @@
 //  Copyright © 2017 Lab262. All rights reserved.
 //
 
+import Foundation
 
-import FalconFrameworkIOSSDK
-
-
-class User: FFModel {
+class User: NSObject {
     
     var name: String? = ""
     var email: String? = ""
