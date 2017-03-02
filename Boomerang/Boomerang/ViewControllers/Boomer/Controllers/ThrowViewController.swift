@@ -11,6 +11,7 @@ import UIKit
 class ThrowViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+     let placeholder = ["Nome do Produto","Valor do Emprestimo","Periodo de disponibilidade","Quantidade disponível"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,11 @@ class ThrowViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        tabBarController?.tabBar.isHidden = true
+            
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = false
+    
     }
     
     @IBAction func getPhoto(_ sender: Any) {
@@ -68,6 +68,7 @@ class ThrowViewController: UIViewController {
     func generateThrowButtonCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:ThrowButtonTableViewCell.cellIdentifier, for: indexPath) as! ThrowButtonTableViewCell
+        cell.selectionStyle = .none
         
         return cell
         
@@ -76,6 +77,7 @@ class ThrowViewController: UIViewController {
     func generateDescriptionCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.cellIdentifier, for: indexPath) as! DescriptionTextTableViewCell
+        cell.selectionStyle = .none
         
         return cell
         
@@ -85,6 +87,8 @@ class ThrowViewController: UIViewController {
     func generateSimpleTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
+         cell.selectionStyle = .none
+        cell.textField.placeholder = placeholder[indexPath.row]
         
         return cell
         
