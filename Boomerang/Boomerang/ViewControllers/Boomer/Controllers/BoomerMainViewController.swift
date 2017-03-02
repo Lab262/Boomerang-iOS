@@ -17,17 +17,26 @@ class BoomerMainViewController: UIViewController {
     }
     
     @IBAction func iHaveAction(_ sender: Any) {
+        
+        self.performSegue(withIdentifier:"goThrowVC", sender:nil)
+        
     }
     
     
     @IBAction func iNeedaction(_ sender: Any) {
+        
+        self.performSegue(withIdentifier:"goThrowVC", sender:nil)
     }
     
     @IBAction func donateAction(_ sender: Any) {
+        
+        self.performSegue(withIdentifier:"goThrowVC", sender:nil)
     }
     
     
     @IBAction func experienceAction(_ sender: Any) {
+        
+        self.performSegue(withIdentifier:"goThrowVC", sender:nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

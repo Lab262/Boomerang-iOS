@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */; };
+		2F2F07901E6733CC00C61A6D /* ThrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */; };
+		2F2F07941E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F07921E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift */; };
+		2F2F07951E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07931E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib */; };
+		2F2F07981E688DF400C61A6D /* DescriptionTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F07961E688DF400C61A6D /* DescriptionTextTableViewCell.swift */; };
+		2F2F07991E688DF400C61A6D /* DescriptionTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */; };
+		2F2F079C1E6891A800C61A6D /* ThrowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */; };
+		2F2F079D1E6891A800C61A6D /* ThrowButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */; };
 		2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA93B281E4A881E0080F99A /* UserRequest.swift */; };
 		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
 		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
@@ -94,6 +101,13 @@
 
 /* Begin PBXFileReference section */
 		2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
+		2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowViewController.swift; sourceTree = "<group>"; };
+		2F2F07921E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		2F2F07931E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SimpleTextFieldTableViewCell.xib; path = ../SimpleTextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		2F2F07961E688DF400C61A6D /* DescriptionTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTextTableViewCell.swift; sourceTree = "<group>"; };
+		2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTextTableViewCell.xib; path = ../DescriptionTextTableViewCell.xib; sourceTree = "<group>"; };
+		2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowButtonTableViewCell.swift; sourceTree = "<group>"; };
+		2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThrowButtonTableViewCell.xib; path = ../ThrowButtonTableViewCell.xib; sourceTree = "<group>"; };
 		2FA93B281E4A881E0080F99A /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		2FF1771A1E4F60650005F026 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF1771C1E4F91A20005F026 /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
@@ -204,6 +218,16 @@
 			name = Enum;
 			sourceTree = "<group>";
 		};
+		2F2F07911E67387300C61A6D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2F2F07921E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift */,
+				2F2F07961E688DF400C61A6D /* DescriptionTextTableViewCell.swift */,
+				2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		2FA93B271E4A88030080F99A /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */,
+				2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -400,6 +425,7 @@
 		A4E462E81DCAEA7F00A611C0 /* Boomer */ = {
 			isa = PBXGroup;
 			children = (
+				2F2F07911E67387300C61A6D /* Cell */,
 				A40453781DD3F33800A42E4B /* Controllers */,
 				A4E462E91DCAEA7F00A611C0 /* Interface */,
 			);
@@ -409,6 +435,9 @@
 		A4E462E91DCAEA7F00A611C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */,
+				2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */,
+				2F2F07931E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib */,
 				A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */,
 			);
 			path = Interface;
@@ -707,6 +736,7 @@
 			files = (
 				A44E0C691DD092650028F06C /* Montserrat-ExtraBold.otf in Resources */,
 				D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */,
+				2F2F07991E688DF400C61A6D /* DescriptionTextTableViewCell.xib in Resources */,
 				A449676E1DDA1F4600990008 /* ChatTableViewCell.xib in Resources */,
 				A4FE062E1DD0967E00BFDC4D /* HomeCollectionHeader.xib in Resources */,
 				A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */,
@@ -717,6 +747,7 @@
 				A4FE062C1DD0965700BFDC4D /* BoomerThingCell.xib in Resources */,
 				A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */,
 				A44E0C6A1DD092650028F06C /* Montserrat-Hairline.otf in Resources */,
+				2F2F079D1E6891A800C61A6D /* ThrowButtonTableViewCell.xib in Resources */,
 				A4E462FF1DCAEB0200A611C0 /* Profile.storyboard in Resources */,
 				A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */,
 				A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */,
@@ -731,6 +762,7 @@
 				A4F89B341DA809B100949A35 /* LaunchScreen.storyboard in Resources */,
 				A44E0C681DD092650028F06C /* Montserrat-Bold.otf in Resources */,
 				A44E0C6B1DD092650028F06C /* Montserrat-Light.otf in Resources */,
+				2F2F07951E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,7 +793,7 @@
 		};
 		447A52C46E0C74EA5D7B569F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -769,9 +801,10 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		53BF4E5334B0A85A252C270F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -848,7 +881,7 @@
 		};
 		E85E50AC82A7A1B3976CFDF8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -875,7 +908,9 @@
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
+				2F2F07901E6733CC00C61A6D /* ThrowViewController.swift in Sources */,
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
+				2F2F07941E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift in Sources */,
 				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
 				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
@@ -892,6 +927,7 @@
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
+				2F2F07981E688DF400C61A6D /* DescriptionTextTableViewCell.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
@@ -909,6 +945,7 @@
 				A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */,
 				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,
 				A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */,
+				2F2F079C1E6891A800C61A6D /* ThrowButtonTableViewCell.swift in Sources */,
 				A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */,
 				2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */,
 				A42767FD1DD3630400363343 /* AddBoomerMainViewController.swift in Sources */,
