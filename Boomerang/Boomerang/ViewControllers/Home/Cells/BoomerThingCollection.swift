@@ -10,7 +10,10 @@ import UIKit
 
 class BoomerThingCollection: UITableViewCell {
     
+    weak var selectionDelegate: CollectionViewSelectionDelegate?
+    
     static let cellIdentifier = "BoomerThingCollection"
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var thingsData: [BoomerThing]! {
@@ -63,6 +66,8 @@ extension BoomerThingCollection: UICollectionViewDelegate {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
         
         print(indexPath)
     }

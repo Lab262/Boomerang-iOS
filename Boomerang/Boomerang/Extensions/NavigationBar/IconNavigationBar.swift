@@ -50,6 +50,15 @@ class IconNavigationBar: UIView {
         }
     }
     
+    @IBInspectable var backgroundViewColor: UIColor? {
+        set {
+            self.view.backgroundColor = newValue
+        }
+        get {
+            return self.view.backgroundColor
+        }
+    }
+    
     @IBInspectable var titleIconImage: UIImage? {
         set {
             self.titleIcon.image = newValue
@@ -67,6 +76,7 @@ class IconNavigationBar: UIView {
             return self.rightIcon.image
         }
     }
+    
 
     
     @IBInspectable var titleLabelText: String? {

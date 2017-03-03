@@ -34,7 +34,7 @@ class HomeMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.isHidden = true
         self.loadDummyData()
         self.homeTableViewController.loadHomeData(homeBoomerThingsData: homeBoomerThingsData)
         // Do any additional setup after loading the view.

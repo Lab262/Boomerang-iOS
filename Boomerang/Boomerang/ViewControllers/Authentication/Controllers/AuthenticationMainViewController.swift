@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import FBSDKLoginKit
-import FBSDKCoreKit
-import FacebookLogin
 import Parse
 import ParseFacebookUtilsV4
 
