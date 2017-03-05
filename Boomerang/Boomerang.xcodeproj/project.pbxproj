@@ -82,6 +82,9 @@
 		D48C99B21E68C7FF00A17E71 /* ActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */; };
 		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
+		D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */; };
+		D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */; };
+		D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +181,9 @@
 		D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
 		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
+		D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
+		D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -607,11 +613,11 @@
 		A4FE06371DD09D6400BFDC4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D4EEC1C21E6CAE4B00F5C1D6 /* PFObjects */,
 				2F2F078A1E64CA0800C61A6D /* Enum */,
 				A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */,
 				A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */,
 				A44967731DDA246100990008 /* BoomerChatData.swift */,
-				2FF1771A1E4F60650005F026 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -623,6 +629,17 @@
 				D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		D4EEC1C21E6CAE4B00F5C1D6 /* PFObjects */ = {
+			isa = PBXGroup;
+			children = (
+				2FF1771A1E4F60650005F026 /* User.swift */,
+				D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */,
+				D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */,
+				D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */,
+			);
+			name = PFObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -891,6 +908,7 @@
 				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
+				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
 				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
@@ -900,6 +918,7 @@
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
+				D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */,
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
@@ -907,6 +926,7 @@
 				A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */,
 				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
+				D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */,
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,

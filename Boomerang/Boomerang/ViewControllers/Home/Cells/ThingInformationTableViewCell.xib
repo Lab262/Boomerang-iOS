@@ -23,18 +23,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="thingInformationCell" rowHeight="418" id="KGk-i7-Jjw" customClass="ThingInformationTableViewCell" customModule="Boomerang" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="418"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="thingInformationCell" rowHeight="254" id="KGk-i7-Jjw" customClass="ThingInformationTableViewCell" customModule="Boomerang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="391" height="254"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="417"/>
+                <rect key="frame" x="0.0" y="0.0" width="391" height="253"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thingPhoto_image" translatesAutoresizingMaskIntoConstraints="NO" id="Rfm-FU-Adr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIN-kg-ebd">
-                        <rect key="frame" x="23" y="180" width="330" height="219"/>
+                        <rect key="frame" x="30" y="17" width="330" height="218"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Júlio Andrade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeX-EM-2PT">
                                 <rect key="frame" x="25" y="20" width="114.5" height="19.5"/>
@@ -95,34 +92,30 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="Rfm-FU-Adr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4aL-qF-A11"/>
-                    <constraint firstItem="Rfm-FU-Adr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Lmp-Nz-A6N"/>
-                    <constraint firstAttribute="bottom" secondItem="Rfm-FU-Adr" secondAttribute="bottom" constant="208" id="MLn-D2-blL"/>
-                    <constraint firstItem="EIN-kg-ebd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="Xeh-We-y5d"/>
-                    <constraint firstAttribute="trailing" secondItem="Rfm-FU-Adr" secondAttribute="trailing" id="cLG-Kf-8tK"/>
-                    <constraint firstItem="EIN-kg-ebd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="172" id="eGx-an-nUp"/>
+                    <constraint firstItem="EIN-kg-ebd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="22" id="Xeh-We-y5d"/>
+                    <constraint firstItem="EIN-kg-ebd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="bJz-n3-1Kc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="EIN-kg-ebd" secondAttribute="bottom" constant="10" id="fJ4-xO-y2X"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="EIN-kg-ebd" secondAttribute="trailing" constant="14" id="xO0-fc-OlN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="EIN-kg-ebd" secondAttribute="trailing" constant="23" id="xO0-fc-OlN"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="boomerUserLabel" destination="OeX-EM-2PT" id="IoS-W7-SAt"/>
                 <outlet property="descriptionThingLabel" destination="sZg-Vh-XX0" id="jZZ-mA-wTU"/>
                 <outlet property="locationLabel" destination="ded-1t-udo" id="8sg-wa-sW8"/>
-                <outlet property="thingImage" destination="Rfm-FU-Adr" id="Hvj-Cc-oX6"/>
                 <outletCollection property="evaluationButtons" destination="MlV-KF-0Lu" collectionClass="NSMutableArray" id="Fp3-3c-2gb"/>
                 <outletCollection property="evaluationButtons" destination="cim-vV-o64" collectionClass="NSMutableArray" id="6K1-PC-zh5"/>
                 <outletCollection property="evaluationButtons" destination="2Nj-B1-pFy" collectionClass="NSMutableArray" id="FBR-bk-JOP"/>
                 <outletCollection property="evaluationButtons" destination="zFa-gf-x3m" collectionClass="NSMutableArray" id="983-cI-h6Y"/>
                 <outletCollection property="evaluationButtons" destination="oqj-jd-sXs" collectionClass="NSMutableArray" id="ISP-cT-Xs5"/>
             </connections>
-            <point key="canvasLocation" x="101.5" y="305"/>
+            <point key="canvasLocation" x="109.5" y="387"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="evaluation_star_disabled_button" width="15" height="15"/>
         <image name="evaluation_star_enabled_button" width="15" height="15"/>
-        <image name="thingPhoto_image" width="375" height="209"/>
     </resources>
 </document>
