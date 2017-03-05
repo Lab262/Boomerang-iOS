@@ -144,9 +144,15 @@ extension ThrowViewController: UITableViewDelegate {
         
        
     }
+}
+
+extension ThrowViewController: UIImagePickerControllerDelegate {
     
-    
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        //let image = info[UIImagePickerControllerEditedImage] as! UIImage
+     
+    }
 }
 
 extension ThrowViewController: UINavigationControllerDelegate {
@@ -154,12 +160,15 @@ extension ThrowViewController: UINavigationControllerDelegate {
     func getPhotoWithLibrary(_ image: UIImagePickerController) {
         
         image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+         self.present(image, animated: true, completion: nil)
     }
     
     
     func getPhotoWithCamera (_ image: UIImagePickerController) {
         image.sourceType = UIImagePickerControllerSourceType.camera
         image.cameraCaptureMode = UIImagePickerControllerCameraCaptureMode.photo
+        self.present(image, animated: true, completion: nil)
+
     }
     
     

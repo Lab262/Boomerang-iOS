@@ -45,6 +45,10 @@
 			</dict>
 		</array>
 	</dict>
+    <key>NSCameraUsageDescription</key>
+    <string>Boomerang deseja ter acesso a câmera?</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>O Boomerang deseja ter acesso a galeria de fotos?</string>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
