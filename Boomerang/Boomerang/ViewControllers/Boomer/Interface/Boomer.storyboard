@@ -325,14 +325,6 @@ miga ? </string>
                                     <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="ic_button_back"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DzK-R5-V37">
-                                <rect key="frame" x="0.0" y="242" width="375" height="425"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="d9x-FE-3gw" id="PsK-OL-o1C"/>
-                                    <outlet property="delegate" destination="d9x-FE-3gw" id="NZm-Bc-24z"/>
-                                </connections>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tenho" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hx-Le-7sO">
                                 <rect key="frame" x="115" y="35" width="153" height="21"/>
                                 <constraints>
@@ -342,6 +334,14 @@ miga ? </string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DzK-R5-V37">
+                                <rect key="frame" x="0.0" y="242" width="375" height="425"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="d9x-FE-3gw" id="PsK-OL-o1C"/>
+                                    <outlet property="delegate" destination="d9x-FE-3gw" id="NZm-Bc-24z"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -359,12 +359,13 @@ miga ? </string>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="X0a-uH-Ang"/>
                     <connections>
+                        <outlet property="bgPostImage" destination="YPU-14-68s" id="AeP-uv-bI5"/>
                         <outlet property="tableView" destination="DzK-R5-V37" id="aWm-nD-V24"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbJ-Dc-ELd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1348" y="142.57871064467767"/>
+            <point key="canvasLocation" x="1409" y="143"/>
         </scene>
     </scenes>
     <resources>

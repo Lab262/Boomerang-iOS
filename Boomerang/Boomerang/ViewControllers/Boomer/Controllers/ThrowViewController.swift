@@ -10,6 +10,7 @@ import UIKit
 
 class ThrowViewController: UIViewController {
 
+    @IBOutlet weak var bgPostImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
      let placeholder = ["Nome do Produto","Valor do Emprestimo","Periodo de disponibilidade","Quantidade disponível"]
     
@@ -152,8 +153,11 @@ extension ThrowViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        //let image = info[UIImagePickerControllerEditedImage] as! UIImage
-     
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        bgPostImage.image = image
+        dismiss(animated: false, completion: nil)
+
     }
 }
 
@@ -162,17 +166,23 @@ extension ThrowViewController: UINavigationControllerDelegate {
     func getPhotoWithLibrary(_ image: UIImagePickerController) {
         
         image.sourceType = UIImagePickerControllerSourceType.photoLibrary
-         self.present(image, animated: true, completion: nil)
+        image.delegate = self
+         image.allowsEditing = true
+        self.present(image, animated: true, completion: nil)
     }
     
     
     func getPhotoWithCamera (_ image: UIImagePickerController) {
         image.sourceType = UIImagePickerControllerSourceType.camera
+        image.delegate = self
         image.cameraCaptureMode = UIImagePickerControllerCameraCaptureMode.photo
+        image.allowsEditing = true
         self.present(image, animated: true, completion: nil)
 
     }
-    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: false, completion: nil)
+    }
     
 }
 
