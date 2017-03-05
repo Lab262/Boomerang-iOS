@@ -119,6 +119,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LRM-nv-VAa"/>
                     <connections>
+                        <outlet property="profileImage" destination="SXu-VK-YbB" id="Wrj-j8-vki"/>
                         <segue destination="OAa-qd-sUY" kind="show" identifier="showDetailThing" id="AL7-AX-imq"/>
                     </connections>
                 </viewController>
@@ -173,7 +174,7 @@
                         <viewControllerLayoutGuide type="bottom" id="c9M-eD-pal"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OWj-2H-2fc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thingPhoto_image" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-Hg-AW2">
@@ -183,7 +184,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MYy-Ur-yOs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="OAa-qd-sUY" id="tqs-LM-KVh"/>
@@ -257,6 +258,6 @@
         <image name="white_back_button" width="13" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XWg-FZ-tkl"/>
+        <segue reference="AL7-AX-imq"/>
     </inferredMetricsTieBreakers>
 </document>

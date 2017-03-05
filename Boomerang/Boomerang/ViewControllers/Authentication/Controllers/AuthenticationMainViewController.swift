@@ -18,6 +18,8 @@ class AuthenticationMainViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
     @IBAction func signInAction(_ sender: Any) {
         let permissions = ["public_profile", "email"]
         
@@ -39,7 +41,7 @@ class AuthenticationMainViewController: UIViewController {
     @IBAction func signUpAction(_ sender: Any) {
         
        
-              
+
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
@@ -63,8 +65,25 @@ class AuthenticationMainViewController: UIViewController {
             }
             
         }
-
-
+    }
+    
+    func getPhotoOfFacebookInPFFile (userId: String) -> PFFile? {
+        
+        var photoInPFFile: PFFile?
+        
+        if let url = URL(string: "https://graph.facebook.com/" + userId + "/picture?type=large") {
+            do {
+                let contents = try Data(contentsOf: url)
+                 photoInPFFile = PFFile(data: contents)
+            } catch {
+                // contents could not be loaded
+            }
+        } else {
+            // the URL was bad!
+        }
+        
+        return photoInPFFile
+        
     }
     
     
@@ -114,6 +133,12 @@ class AuthenticationMainViewController: UIViewController {
                     
                     if let email = data ["email"] as? String {
                         newUser.setObject(email, forKey: "email")
+                    }
+                    
+                    if let userId = data["id"] as? String {
+                        if let userPhoto = self.getPhotoOfFacebookInPFFile(userId: userId) {
+                            newUser.setObject(userPhoto, forKey: "photo")
+                        }
                     }
                 }
                 

@@ -63,13 +63,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var initialViewController: UIViewController? = nil
         initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
-//        if PFUser.current() != nil {
-//            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
-//            
-//        }else {
-//            
-//            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "")
-//        }
+        if PFUser.current() != nil {
+            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
+            
+        }else {
+            
+            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "")
+        }
         
         return initialViewController
         

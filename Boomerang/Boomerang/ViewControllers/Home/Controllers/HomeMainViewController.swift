@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class HomeMainViewController: UIViewController {
 
     internal var homeTableViewController: HomeTableViewController!
     internal var homeBoomerThingsData = [String: [BoomerThing]]()
 
+    @IBOutlet weak var profileImage: UIImageView!
+    
     @IBAction func showMenu(_ sender: Any) {
         
         TabBarController.showMenu()
@@ -37,7 +40,24 @@ class HomeMainViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.loadDummyData()
         self.homeTableViewController.loadHomeData(homeBoomerThingsData: homeBoomerThingsData)
-        // Do any additional setup after loading the view.
+        
+        
+        let imageFile = PFUser.current()?["photo"] as? PFFile
+        
+        imageFile?.getDataInBackground(block: { (data, error) in
+            
+            if error == nil {
+                if let imageData = data{
+                    let image = UIImage(data: imageData)
+                    self.profileImage.image = image
+                } else {
+                    print ("Data is nil")
+                }
+            } else {
+                print ("ERROR: \(error)")
+            }
+        })
+        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
