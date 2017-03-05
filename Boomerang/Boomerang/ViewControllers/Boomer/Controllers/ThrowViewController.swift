@@ -25,11 +25,13 @@ class ThrowViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            
+        TabBarController.mainTabBarController.removeTabBar()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-    
+         TabBarController.mainTabBarController.showTabBar()
+
     }
     
     @IBAction func getPhoto(_ sender: Any) {
