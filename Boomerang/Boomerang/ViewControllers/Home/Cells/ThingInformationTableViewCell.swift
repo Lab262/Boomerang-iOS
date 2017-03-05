@@ -12,22 +12,30 @@ class ThingInformationTableViewCell: UITableViewCell {
     
     @IBOutlet var evaluationButtons: [UIButton]!
     @IBOutlet weak var thingImage: UIImageView!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var boomerUserLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionThingLabel: UILabel!
     
+    
     static let identifier = "thingInformationCell"
+    
+    var actionDelegate: ButtonActionDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    
+    @IBAction func leftButtonAction(_ sender: Any) {
+        self.actionDelegate?.actionButtonDelegate(actionType: .back)
+    }
+    
+    @IBAction func rightButtonAction(_ sender: Any) {
+        self.actionDelegate?.actionButtonDelegate(actionType: .like)
         
     }
+    
     
 }

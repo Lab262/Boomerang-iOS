@@ -14,6 +14,8 @@ class HomeTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     internal var homeBoomerThingsData = [String: [BoomerThing]]()
     
+    var boomerThingDelegate: UICollectionViewDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,14 +59,26 @@ extension HomeTableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: BoomerThingCollection.cellIdentifier,
             for: indexPath) as! BoomerThingCollection
+        
         cell.thingsData = self.homeBoomerThingsData.dataAtKeyAtIndex(
             index: indexPath.section) as! [BoomerThing]
+        
+        self.boomerThingDelegate = cell
+        
+        cell.selectionDelegate = self
+        
         return cell
     }
     
 }
 
 extension HomeTableViewController: UITableViewDelegate {
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+     
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -90,9 +104,9 @@ extension HomeTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section != 2 {
-            return CGFloat(165)
+            return 165
         } else {
-            return CGFloat(225)
+            return 225
         }
     }
     
@@ -110,6 +124,19 @@ extension HomeTableViewController: UITableViewDelegate {
             return CGFloat(100)
         }
     }
-    
 }
+
+extension HomeTableViewController: CollectionViewSelectionDelegate {
+    
+    func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath) {
+        
+        if colletionViewDelegate === boomerThingDelegate {
+            self.performSegue(withIdentifier: "showDetailThing", sender: self)
+        } else {
+            
+        }
+        
+    }
+}
+
 

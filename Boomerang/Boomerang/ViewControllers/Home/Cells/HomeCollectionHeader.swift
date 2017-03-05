@@ -22,10 +22,8 @@ class HomeCollectionHeader: UITableViewCell {
     }
     
     func setupCell() {
-        
         self.locationIndicatorImageView.isHidden = !headerData.isLocation
         self.titleLabel.text = headerData.title
-        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

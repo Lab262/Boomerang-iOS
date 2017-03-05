@@ -62,14 +62,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setInitialStoryboardBySeasonUser() -> UIViewController? {
         
         var initialViewController: UIViewController? = nil
-        
-        if PFUser.current() == nil {
-            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
-            
-        }else {
-            
-            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "")
-        }
+        initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
+//        if PFUser.current() != nil {
+//            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
+//            
+//        }else {
+//            
+//            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "")
+//        }
         
         return initialViewController
         

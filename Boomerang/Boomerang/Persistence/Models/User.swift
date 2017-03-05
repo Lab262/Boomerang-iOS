@@ -7,14 +7,26 @@
 //
 
 import Foundation
+import Parse
 
-class User: NSObject {
+class User: PFObject {
     
     var name: String? = ""
-    var email: String? = ""
     var password: String? = ""
     var cpf: String? = ""
     var accessLevel: Int? = 0
     var gender: Int? = 0
-
+    
+    @NSManaged var firstName: Post?
+    @NSManaged var lastName: String?
+    @NSManaged var email: String?
+    @NSManaged var photo: PFFile?
+    
 }
+
+extension User: PFSubclassing {
+    static func parseClassName() -> String {
+        return "User"
+    }
+}
+
