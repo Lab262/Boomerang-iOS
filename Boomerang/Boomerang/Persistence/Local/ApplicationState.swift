@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ApplicationState: NSObject {
     
@@ -26,6 +27,6 @@ class ApplicationState: NSObject {
     
     private init(singleton: Bool) {
         super.init()
-        self.currentUser = User()
+        self.currentUser = User(user: PFUser.current()!)
     }
 }

@@ -11,10 +11,53 @@ import Parse
 
 class Post: PFObject {
     
-    @NSManaged var user: User?
+    @NSManaged var id: String?
+    @NSManaged var author: User?
     @NSManaged var title: String?
     @NSManaged var content: String?
     @NSManaged var thing: Thing?
+    
+    
+    override init(){
+        super.init()
+    }
+    
+//    override class func initialize() {
+//        self.registerSubclass()
+//    }
+    
+    convenience init(object: PFObject) {
+        self.init()
+        
+        setInformationsUserByPFObject(object: object)
+    }
+    
+    
+    func setInformationsUserByPFObject(object: PFObject){
+        
+        self.objectId = object.objectId
+        
+        if let title = object["title"] as? String {
+            
+            self.title = title
+        }
+        
+        if let content = object["content"] as? String {
+            
+            self.content = content
+        }
+        
+        if let author = object["author"] as? User {
+            
+            self.author = author
+        }
+        
+        if let thing = object["thing"] as? Thing {
+            
+            self.thing = thing
+        }
+       
+    }
 }
 
 extension Post: PFSubclassing {

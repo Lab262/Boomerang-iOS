@@ -15,6 +15,8 @@ class RightMenuCell: UITableViewCell {
     @IBOutlet weak var imageSmallSizeConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundCircleView: UIView!
     
+    var user = ApplicationState.sharedInstance.currentUser
+    
     var cellImage: UIImage? {
         didSet{
             self.setupCell()
@@ -36,7 +38,7 @@ class RightMenuCell: UITableViewCell {
             
             self.imgViewCell.loadAnimation()
             
-            UserRequest.getProfilePhoto(completionHandler: { (success, msg, photo) in
+            UserRequest.getProfilePhoto(user: user!, completionHandler: { (success, msg, photo) in
                 
                 if success {
                     self.imgViewCell.image = photo

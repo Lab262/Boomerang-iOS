@@ -9,60 +9,62 @@
 import Foundation
 import Parse
 
-class User: PFObject {
+class User: PFUser {
     
     var name: String? = ""
-    var password: String? = ""
+   // var password: String? = ""
     var cpf: String? = ""
     var accessLevel: Int? = 0
     var gender: Int? = 0
     
+    @NSManaged var id: String?
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
     @NSManaged var userName: String?
-    @NSManaged var email: String?
+ //   @NSManaged var email: String?
     @NSManaged var imageFile: PFFile?
     var profileImage: UIImage?
     
     
-    override init() {
-        super.init()
-        self.setInformationsUserByPFUser()
+    convenience init(user: PFUser) {
+        self.init()
+        
+        self.setInformationsUserByPFUser(user: user)
     }
     
-    func setInformationsUserByPFUser(){
+    
+    func setInformationsUserByPFUser(user: PFUser){
         
-        if let firstName = PFUser.current()?["firstName"] as? String {
+        self.objectId = user.objectId
+        
+        
+        
+        if let firstName = user["firstName"] as? String {
             
             self.firstName = firstName
         }
         
-        if let lastName = PFUser.current()?["lastName"] as? String {
+        if let lastName = user["lastName"] as? String {
             
             self.lastName = lastName
         }
         
-        if let userName = PFUser.current()?["username"] as? String {
+        if let userName = user["username"] as? String {
             
             self.userName = userName
         }
         
-        if let email = PFUser.current()?["email"] as? String {
+        if let email = user["email"] as? String {
             
             self.email = email
         }
         
-         if let imageFile = PFUser.current()?["photo"] as? PFFile {
+         if let imageFile = user["photo"] as? PFFile {
             
             self.imageFile = imageFile
         }
     }
+
 }
 
-extension User: PFSubclassing {
-    
-    static func parseClassName() -> String {
-        return "User"
-    }
-}
 

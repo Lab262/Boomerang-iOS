@@ -40,7 +40,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             
             profileImage.loadAnimation()
             
-            UserRequest.getProfilePhoto(completionHandler: { (success, msg, photo) in
+            UserRequest.getProfilePhoto(user: user!, completionHandler: { (success, msg, photo) in
                 
                 if success {
                     self.user?.profileImage = photo

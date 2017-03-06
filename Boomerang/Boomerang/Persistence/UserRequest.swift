@@ -50,9 +50,9 @@ class UserRequest: NSObject {
         }
     }
     
-    static func getProfilePhoto(completionHandler: @escaping (_ success: Bool, _ msg: String, _ photo: UIImage?) -> Void) {
+    static func getProfilePhoto(user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, _ photo: UIImage?) -> Void) {
         
-        ApplicationState.sharedInstance.currentUser?.imageFile?.getDataInBackground(block: { (data, error) in
+        user.imageFile?.getDataInBackground(block: { (data, error) in
             
             if error == nil {
                 if let imageData = data {
@@ -65,7 +65,23 @@ class UserRequest: NSObject {
                 completionHandler(false, error.debugDescription, nil)
             }
         })
+    }
+    
+    static func getThingPhoto(thing: Thing, completionHandler: @escaping (_ success: Bool, _ msg: String, _ photo: UIImage?) -> Void) {
         
+        thing.image?.getDataInBackground(block: { (data, error) in
+            
+            if error == nil {
+                if let imageData = data {
+                    let image = UIImage(data: imageData)
+                    completionHandler(true, "Success", image)
+                } else {
+                    completionHandler(false, "data is nil", nil)
+                }
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        })
     }
 
 }

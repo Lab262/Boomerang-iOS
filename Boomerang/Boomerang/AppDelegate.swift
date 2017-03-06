@@ -38,8 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(with: configuration)
         
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
-
         
+       
         self.window!.rootViewController = self.setInitialStoryboardBySeasonUser()
         
         return true

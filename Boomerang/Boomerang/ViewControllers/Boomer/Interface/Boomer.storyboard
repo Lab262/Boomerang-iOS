@@ -26,7 +26,7 @@
         <scene sceneID="mtw-Jj-Pa6">
             <objects>
                 <navigationController navigationBarHidden="YES" id="aJg-2A-R9N" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="af4-35-Bzl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="af4-35-Bzl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -55,8 +55,8 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2j-i3-WCm">
                                         <rect key="frame" x="20" y="25" width="243.5" height="60.5"/>
-                                        <string key="text">O que você precisa 
-miga ? </string>
+                                        <string key="text">O que você precisa,
+migo? </string>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@ miga ? </string>
                                     <constraint firstAttribute="height" constant="110" id="tLd-kx-PWG"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="O que você procura ?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qj4-aH-teB">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="O que você procura?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qj4-aH-teB">
                                 <rect key="frame" x="38" y="136" width="300" height="38"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
