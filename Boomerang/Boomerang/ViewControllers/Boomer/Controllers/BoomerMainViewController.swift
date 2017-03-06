@@ -10,10 +10,41 @@ import UIKit
 
 class BoomerMainViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    var user = ApplicationState.sharedInstance.currentUser
 
     @IBAction func showMenu(_ sender: Any) {
         
         TabBarController.showMenu()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.getProfilePhoto()
+    }
+    
+    func getProfilePhoto(){
+        
+        guard let image = user?.profileImage else {
+            profileImage.loadAnimation()
+            
+            UserRequest.getProfilePhoto(completionHandler: { (success, msg, photo) in
+                
+                if success {
+                    self.user?.profileImage = photo
+                    self.profileImage.image = photo
+                    self.profileImage.unload()
+                } else {
+                    
+                }
+            })
+            
+            return
+        }
+        
+        profileImage.image = image
+
     }
     
     @IBAction func iHaveAction(_ sender: Any) {
