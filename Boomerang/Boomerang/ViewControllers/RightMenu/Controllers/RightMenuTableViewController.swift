@@ -24,6 +24,7 @@ class RightMenuTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var mainViewController: UIViewController!
+    var user = ApplicationState.sharedInstance.currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,7 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
         
         switch indexPath.row {
         case rightMenuOptions.profile.rawValue:
-            cell.cellImage = #imageLiteral(resourceName: "profile_dummy")
+            cell.cellImage = user?.profileImage
             cell.imageBigSizeConstraint.isActive = true
             cell.imageSmallSizeConstraint.isActive = false
             return cell

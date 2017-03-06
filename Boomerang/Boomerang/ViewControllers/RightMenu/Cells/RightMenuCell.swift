@@ -15,18 +15,43 @@ class RightMenuCell: UITableViewCell {
     @IBOutlet weak var imageSmallSizeConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundCircleView: UIView!
     
-    var cellImage: UIImage! {
+    var cellImage: UIImage? {
         didSet{
             self.setupCell()
         }
     }
     
     func setupCell() {
-        self.imgViewCell.image = self.cellImage
+        self.getUserPhoto()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.window?.endEditing(true)
     }
+    
+    func getUserPhoto() {
+        
+        guard let image = cellImage else {
+            
+            self.imgViewCell.loadAnimation()
+            
+            UserRequest.getProfilePhoto(completionHandler: { (success, msg, photo) in
+                
+                if success {
+                    self.imgViewCell.image = photo
+                    ApplicationState.sharedInstance.currentUser?.profileImage = photo
+                    self.imgViewCell.unload()
+                } else {
+                    // error
+                }
+            })
+            
+            return
+        }
+        
+        self.imgViewCell.image = image
+    }
+    
+
 }
