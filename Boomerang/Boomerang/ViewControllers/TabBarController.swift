@@ -10,12 +10,14 @@ import UIKit
 
 class TabBarController: UIViewController {
 
+    @IBOutlet weak var viewContainerTabBar: UIView!
     var uiTabBarController: UITabBarController!
     @IBOutlet weak var imgViewLeftOption: UIImageView!
     @IBOutlet weak var imgViewCenterOption: UIImageView!
     @IBOutlet weak var imgViewRightOption: UIImageView!
     @IBOutlet weak var viewContainerCenterOption: UIView!
     static var mainTabBarController: TabBarController!
+    
     
     var leftIsSelected: Bool = false {
         didSet {
@@ -85,6 +87,26 @@ class TabBarController: UIViewController {
         
         TabBarController.mainTabBarController.present(rightMenuNavController, animated: true, completion: nil)
 
+    }
+
+     func removeTabBar() {
+        self.imgViewLeftOption.isHidden = true
+        self.imgViewRightOption.isHidden = true
+        self.imgViewCenterOption.isHidden = true
+        viewContainerCenterOption.isHidden = true
+        tabBarController?.hidesBottomBarWhenPushed = true
+        viewContainerTabBar.isHidden = true
+        
+    }
+
+    func showTabBar() {
+        self.imgViewLeftOption.isHidden = false
+        self.imgViewRightOption.isHidden = false
+        self.imgViewCenterOption.isHidden = false
+        viewContainerCenterOption.isHidden = false
+        tabBarController?.hidesBottomBarWhenPushed = false
+        viewContainerTabBar.isHidden = false
+        
     }
 
 }
