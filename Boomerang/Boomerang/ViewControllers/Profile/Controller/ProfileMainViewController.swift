@@ -9,11 +9,14 @@
 import UIKit
 
 class ProfileMainViewController: UIViewController {
+
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var parallaxBackgroundHeightConstraint: NSLayoutConstraint!
     internal var lastContentOffset: CGFloat = 0
     internal var backgroundIsFreezy = false
+    
+    var user = ApplicationState.sharedInstance.currentUser
     
     var inventoryData = [BoomerCellData]()
     
@@ -54,6 +57,7 @@ extension ProfileMainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
         return cell
     }
@@ -62,7 +66,10 @@ extension ProfileMainViewController: UICollectionViewDataSource {
         
         if kind == UICollectionElementKindSectionHeader {
             
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ProfileHeaderView", for: indexPath)
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileCollectionReusableView
+            
+            headerView.user = user
+            
             return headerView
         }
         

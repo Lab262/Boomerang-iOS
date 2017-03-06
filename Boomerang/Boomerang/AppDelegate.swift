@@ -26,8 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Crashlytics.self])
         
-        self.window!.rootViewController = self.setInitialStoryboardBySeasonUser()
-        
        // self.setupBarsAppearance()
         
         let configuration = ParseClientConfiguration {
@@ -42,16 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
 
         
-//        if DefaultsHelper.sharedInstance.email == ""  || DefaultsHelper.sharedInstance.email == nil {
-//            let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
-//            let vcToShow = storyboard.instantiateInitialViewController()
-//            self.window?.rootViewController = vcToShow
-//        } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vcToShow = storyboard.instantiateInitialViewController()
-//            self.window?.rootViewController = vcToShow
-//        }
-
+        self.window!.rootViewController = self.setInitialStoryboardBySeasonUser()
         
         return true
         
@@ -63,7 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var initialViewController: UIViewController? = nil
         initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
-        if PFUser.current() != nil {
+        
+        if let _ = PFUser.current() {
             initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
             
         }else {

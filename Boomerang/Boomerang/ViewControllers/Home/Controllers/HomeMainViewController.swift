@@ -16,6 +16,10 @@ class HomeMainViewController: UIViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var greetingText: UILabel!
+    
+    var user = ApplicationState.sharedInstance.currentUser
+    
     @IBAction func showMenu(_ sender: Any) {
         
         TabBarController.showMenu()
@@ -35,28 +39,43 @@ class HomeMainViewController: UIViewController {
         ]
     }
     
+
+    func setUserInformationsInHUD(){
+        
+        greetingText.text = "Olar, \(user!.firstName!)"
+        
+        guard let image = user?.profileImage else {
+            profileImage.loadAnimation()
+            
+            UserRequest.getProfilePhoto(completionHandler: { (success, msg, photo) in
+                
+                if success {
+                    self.user?.profileImage = photo
+                    self.profileImage.image = photo
+                    self.profileImage.unload()
+                } else {
+                    
+                }
+            })
+            
+            return
+        }
+        
+        profileImage.image = image
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.setUserInformationsInHUD()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.isHidden = true
+        
         self.loadDummyData()
         self.homeTableViewController.loadHomeData(homeBoomerThingsData: homeBoomerThingsData)
-        
-        
-        let imageFile = PFUser.current()?["photo"] as? PFFile
-        
-        imageFile?.getDataInBackground(block: { (data, error) in
-            
-            if error == nil {
-                if let imageData = data{
-                    let image = UIImage(data: imageData)
-                    self.profileImage.image = image
-                } else {
-                    print ("Data is nil")
-                }
-            } else {
-                print ("ERROR: \(error)")
-            }
-        })
         
     }
 

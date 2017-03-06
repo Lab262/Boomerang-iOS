@@ -155,7 +155,7 @@ class AuthenticationMainViewController: UIViewController {
     
     func showHomeVC() {
         
-       // DefaultsHelper.sharedInstance.email = "thiago@lab262.com"
+       
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vcToShow = storyboard.instantiateInitialViewController()!
         self.present(vcToShow, animated: true, completion: nil)

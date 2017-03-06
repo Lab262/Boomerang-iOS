@@ -11,7 +11,7 @@ import Parse
 
 
 class UserRequest: NSObject {
-    static func createAccountUser (user: User, pass: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+    static func createAccountUser(user: User, pass: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
         
         let pfUser = PFUser()
         
@@ -33,12 +33,12 @@ class UserRequest: NSObject {
     }
     
     
-    static func loginUserWithFacebook (id: String, email: String,userName: String ,mediaType:Int,completionHandler: @escaping (_ sucess: Bool, _ msg: String, _ user: User?) -> Void) {
+    static func loginUserWithFacebook(id: String, email: String,userName: String ,mediaType:Int,completionHandler: @escaping (_ sucess: Bool, _ msg: String, _ user: User?) -> Void) {
         
         
     }
     
-    static func loginUser (email: String, pass: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+    static func loginUser(email: String, pass: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
         
         PFUser.logInWithUsername(inBackground: email, password: pass) { (success, error) in
             
@@ -48,6 +48,24 @@ class UserRequest: NSObject {
                 completionHandler(false, error.debugDescription)
             }
         }
+    }
+    
+    static func getProfilePhoto(completionHandler: @escaping (_ success: Bool, _ msg: String, _ photo: UIImage?) -> Void) {
+        
+        ApplicationState.sharedInstance.currentUser?.imageFile?.getDataInBackground(block: { (data, error) in
+            
+            if error == nil {
+                if let imageData = data {
+                    let image = UIImage(data: imageData)
+                    completionHandler(true, "Success", image)
+                } else {
+                    completionHandler(false, "data is nil", nil)
+                }
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        })
+        
     }
 
 }

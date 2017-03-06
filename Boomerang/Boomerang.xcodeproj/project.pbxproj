@@ -92,6 +92,8 @@
 		D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */; };
 		D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */; };
 		D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */; };
+		D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C71E6CE67E00F5C1D6 /* ApplicationState.swift */; };
+		D4EEC1CA1E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +200,8 @@
 		D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
 		D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		D4EEC1C71E6CE67E00F5C1D6 /* ApplicationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
+		D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileCollectionReusableView.swift; path = Boomerang/Persistence/Local/ProfileCollectionReusableView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +290,7 @@
 		A404537E1DD4173700A42E4B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				A44967751DDA300100990008 /* DefaultsHelper.swift */,
+				D4EEC1C71E6CE67E00F5C1D6 /* ApplicationState.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -964,6 +970,7 @@
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
 				2F2F07981E688DF400C61A6D /* DescriptionTextTableViewCell.swift in Sources */,
+				D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
@@ -977,6 +984,7 @@
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
+				D4EEC1CA1E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift in Sources */,
 				2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */,
 				A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */,
 				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,

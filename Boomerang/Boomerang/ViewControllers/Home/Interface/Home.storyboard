@@ -119,6 +119,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LRM-nv-VAa"/>
                     <connections>
+                        <outlet property="greetingText" destination="1Rk-n9-dAq" id="vhV-xN-wja"/>
                         <outlet property="profileImage" destination="SXu-VK-YbB" id="Wrj-j8-vki"/>
                         <segue destination="OAa-qd-sUY" kind="show" identifier="showDetailThing" id="AL7-AX-imq"/>
                     </connections>
