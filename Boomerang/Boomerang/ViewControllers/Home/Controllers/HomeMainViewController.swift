@@ -166,12 +166,11 @@ class HomeMainViewController: UIViewController {
         guard let image = user?.profileImage else {
             profileImage.loadAnimation()
             
-            user?.getMultipleDataFrom(keys: [#keyPath(User.imageFile), #keyPath(User.imageFile)], completionHandler: { (success, msg, datas) in
+            user?.getMultipleDataBy(keys: [#keyPath(User.imageFile), #keyPath(User.imageFile)], completionHandler: { (success, msg, datas) in
                 
                 self.user?.profileImage = UIImage(data: datas![0])
                 
                 self.profileImage.image = UIImage(data: datas![1])
-                
             })
             
             return

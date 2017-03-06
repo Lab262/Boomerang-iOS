@@ -29,9 +29,7 @@ class BoomerMainViewController: UIViewController {
         guard let image = user?.profileImage else {
             profileImage.loadAnimation()
             
-            user?.getMultipleDataFrom(keys: ["photo", "photo"], completionHandler: { (success, msg, datas) in
-                
-            })
+            
             
 //            UserRequest.getProfilePhoto(user: user!, completionHandler: { (success, msg, photo) in
 //                
