@@ -37,8 +37,6 @@ class User: PFUser {
         
         self.objectId = user.objectId
         
-        
-        
         if let firstName = user["firstName"] as? String {
             
             self.firstName = firstName
@@ -64,7 +62,6 @@ class User: PFUser {
             self.imageFile = imageFile
         }
     }
-
 }
 
 

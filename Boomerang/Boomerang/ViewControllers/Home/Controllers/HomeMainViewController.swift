@@ -92,7 +92,7 @@ class HomeMainViewController: UIViewController {
             
             post.author = User(user: object as! PFUser)
             
-            self.getThingByPost(post: post)
+          //  self.getThingByPost(post: post)
         })
         
 
@@ -100,24 +100,31 @@ class HomeMainViewController: UIViewController {
     
     func getPhotoUser(user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, _ photo: UIImage?) -> Void) {
         
-        UserRequest.getProfilePhoto(user: user) { (success, msg, photo) in
-            
-            if success {
-                completionHandler(true, msg, photo)
             }
-        }
+    
+    func getDataFor(object: PFObject, key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: Data?) -> Void) {
+        
+        
+        
+        
+        
+//        ParseRequest.getDataFrom(object: object, key: key) { (success, msg, data) in
+//            if success {
+//                completionHandler(success, msg, data)
+//            } else {
+//                completionHandler(success, msg, data)
+//            }
+//        }
     }
     
-    func getPhotoThing(thing: Thing, completionHandler: @escaping (_ success: Bool, _ msg: String, _ photo: UIImage?) -> Void) {
-        
-        UserRequest.getThingPhoto(thing: thing) { (success, msg, photo) in
-            
-            if success {
-                completionHandler(true, msg, photo)
-            }
-        }
-    }
-
+//        UserRequest.getProfilePhoto(user: user) { (success, msg, photo) in
+//            
+//            if success {
+//                completionHandler(true, msg, photo)
+//            }
+//        }
+//    }
+    
     
     func getThingByPost(post: Post){
         
@@ -130,57 +137,27 @@ class HomeMainViewController: UIViewController {
             self.getPhotoUser(user: post.author!, completionHandler: { (success, msg, userPhoto) in
                 
                 if success {
-                    
-                    self.getPhotoThing(thing: post.thing!, completionHandler: { (success, msg, thingPhoto) in
-                        
-                         let boomerThing1 = BoomerThing(thingPhoto: thingPhoto!, thingDescription: post.content!, profilePhoto: userPhoto!, profileName: post.author!.firstName! + " " + post.author!.lastName!, thingType: .need)
-                        
-                        self.homeBoomerThingsData = [
-                            "Meus amigos" : [boomerThing1, boomerThing1],
-                            "Brasília - DF" : [boomerThing1],
-                            "Recomendados para voce" : [boomerThing1, boomerThing1,boomerThing1]]
-                        
-                        
-                         self.homeTableViewController.loadHomeData(homeBoomerThingsData: self.homeBoomerThingsData)
-
-                    })
-                    
-                 
-                    
-                    
-               
+//                    
+//                    self.getPhotoThing(thing: post.thing!, completionHandler: { (success, msg, thingPhoto) in
+//                        
+//                         let boomerThing1 = BoomerThing(thingPhoto: thingPhoto!, thingDescription: post.content!, profilePhoto: userPhoto!, profileName: post.author!.firstName! + " " + post.author!.lastName!, thingType: .need)
+//                        
+//                        self.homeBoomerThingsData = [
+//                            "Meus amigos" : [boomerThing1, boomerThing1],
+//                            "Brasília - DF" : [boomerThing1],
+//                            "Recomendados para voce" : [boomerThing1, boomerThing1,boomerThing1]]
+//                        
+//                        
+//                         self.homeTableViewController.loadHomeData(homeBoomerThingsData: self.homeBoomerThingsData)
+//
+//                    })
                     
                 }
             })
             
-
-//            
-////                    let boomerThing2 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Ofereço um longboard freehide", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Thiago Bernardes", thingType: .have)
-////                    let boomerThing3 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Um mangá", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Huallyd Smadi", thingType: .need)
-////                    let boomerThing4 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Aulas de como ser foda", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Janaina na aaaa aaa", thingType: .experience)
-//            
-//            self.homeBoomerThingsData = [
-//                "Meus amigos" : [post, post],
-//                "Brasília - DF" : [post],
-//                "Recomendados para voce" : [post, post,post]]
-            
-
-            
         })
     }
-    
 
-    func loadDummyData() {
-        
-        
-        
-//        let boomerThing1 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Preciso de um app para o boomerang", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Amanda Elys", thingType: .need)
-//        let boomerThing2 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Ofereço um longboard freehide", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Thiago Bernardes", thingType: .have)
-//        let boomerThing3 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Um mangá", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Huallyd Smadi", thingType: .need)
-//        let boomerThing4 = BoomerThing(thingPhoto: #imageLiteral(resourceName: "foto_dummy"), thingDescription: "Aulas de como ser foda", profilePhoto: #imageLiteral(resourceName: "profile_dummy"), profileName: "Janaina na aaaa aaa", thingType: .experience)
-        
-    }
-    
 
     func setUserInformationsInHUD(){
         
@@ -189,15 +166,12 @@ class HomeMainViewController: UIViewController {
         guard let image = user?.profileImage else {
             profileImage.loadAnimation()
             
-            UserRequest.getProfilePhoto(user: user!, completionHandler: { (success, msg, photo) in
+            user?.getMultipleDataFrom(keys: [#keyPath(User.imageFile), #keyPath(User.imageFile)], completionHandler: { (success, msg, datas) in
                 
-                if success {
-                    self.user?.profileImage = photo
-                    self.profileImage.image = photo
-                    self.profileImage.unload()
-                } else {
-                    
-                }
+                self.user?.profileImage = UIImage(data: datas![0])
+                
+                self.profileImage.image = UIImage(data: datas![1])
+                
             })
             
             return
@@ -209,7 +183,7 @@ class HomeMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.setUserInformationsInHUD()
-        self.getFriends()
+     //   self.getFriends()
     }
     
     override func viewDidLoad() {
@@ -217,7 +191,7 @@ class HomeMainViewController: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true
         
-        self.loadDummyData()
+     
        // self.homeTableViewController.loadHomeData(homeBoomerThingsData: homeBoomerThingsData)
         
     }

@@ -38,16 +38,16 @@ class RightMenuCell: UITableViewCell {
             
             self.imgViewCell.loadAnimation()
             
-            UserRequest.getProfilePhoto(user: user!, completionHandler: { (success, msg, photo) in
-                
-                if success {
-                    self.imgViewCell.image = photo
-                    ApplicationState.sharedInstance.currentUser?.profileImage = photo
-                    self.imgViewCell.unload()
-                } else {
-                    // error
-                }
-            })
+//            UserRequest.getProfilePhoto(user: user!, completionHandler: { (success, msg, photo) in
+//                
+//                if success {
+//                    self.imgViewCell.image = photo
+//                    ApplicationState.sharedInstance.currentUser?.profileImage = photo
+//                    self.imgViewCell.unload()
+//                } else {
+//                    // error
+//                }
+//            })
             
             return
         }
