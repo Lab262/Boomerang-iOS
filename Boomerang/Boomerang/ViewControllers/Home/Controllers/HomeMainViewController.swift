@@ -30,23 +30,30 @@ class HomeMainViewController: UIViewController {
     
     func getFriends(){
         
-        let query = PFQuery(className: "Follow")
-        
-        query.whereKey("from", equalTo: PFUser.current()!)
-        
-        query.findObjectsInBackground { (objects, error) in
+        ParseRequest.queryEqualToValue(className: "Follow", key: "from", value: PFUser.current()!) { (success, msg, objects) in
             
-            if let objects = objects {
-                
-                for obj in objects {
+            if success {
+                for object in objects! {
                     
-                    self.getFetchFriend(follow: obj)
+                    if let friend = object.fetchObjectBy(key: "to") {
+                          self.following.append(friend as! User)
+                    }
                 }
                 
-                
+                self.getPostsOfFriends()
             }
         }
     }
+    
+    //                    object.fetchObjectInBackgroundBy(key: "to", completionHandler: { (success, msg, object) in
+    //
+    //                        if success {
+    //                            self.following.append(User(user: object as! PFUser))
+    //
+    //
+    //
+    //                        }
+    //                    })
     
     func getFetchFriend(follow: PFObject){
         
@@ -67,37 +74,33 @@ class HomeMainViewController: UIViewController {
     
     func getPostsOfFriends(){
         
-        let query = PFQuery(className: "Post")
-        query.whereKey("author", equalTo: following.first!)
-        
-        query.findObjectsInBackground { (objects, error) in
+        ParseRequest.queryContainedIn(className: "Post", key: "author", value: self.following) { (success, msg, objects) in
             
-            if let objects = objects {
-                
-                for obj in objects {
-                    
+            if success {
+                for obj in objects! {
                     let post = Post(object: obj)
                     self.posts.append(post)
                 }
-                
-                self.getAuthorByPost(post: self.posts.first!)
             }
         }
     }
-    
-    func getAuthorByPost(post: Post){
         
-        let author = post["author"] as? PFUser
-        
-        author?.fetchIfNeededInBackground(block: { (object, error) in
-            
-            post.author = User(user: object as! PFUser)
-            
-          //  self.getThingByPost(post: post)
-        })
-        
-
+//        let query = PFQuery(className: "Post")
+//        query.whereKey("author", equalTo: following.first!)
+//        
+//        query.findObjectsInBackground { (objects, error) in
+//            
+//            if let objects = objects {
+//                
+//                for obj in objects {
+//                    let post = Post(object: obj)
+//                    self.posts.append(post)
+//                }
+//                
+//            }
+//        }
     }
+    
     
     func getPhotoUser(user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, _ photo: UIImage?) -> Void) {
         
@@ -129,15 +132,17 @@ class HomeMainViewController: UIViewController {
     
     func getThingByPost(post: Post){
         
-        let thing = post["thing"] as? PFObject
-        
-        thing?.fetchIfNeededInBackground(block: { (object, error) in
-            
-            post.thing = Thing(object: object!)
-            
-            self.getPhotoUser(user: post.author!, completionHandler: { (success, msg, userPhoto) in
-                
-                if success {
+//        
+//        
+//        let thing = post["thing"] as? PFObject
+//        
+//        thing?.fetchIfNeededInBackground(block: { (object, error) in
+//            
+//            post.thing = Thing(object: object!)
+//            
+//            self.getPhotoUser(user: post.author!, completionHandler: { (success, msg, userPhoto) in
+//                
+//                if success {
 //                    
 //                    self.getPhotoThing(thing: post.thing!, completionHandler: { (success, msg, thingPhoto) in
 //                        

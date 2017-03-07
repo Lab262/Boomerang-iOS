@@ -12,8 +12,7 @@ import Parse
 
 class ParseRequest: NSObject {
     
-    
-    func queryEqualToValue(className: String, key: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    static func queryEqualToValue(className: String, key: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
     
         let query = PFQuery(className: className)
         query.whereKey(key, equalTo: value)
@@ -28,7 +27,23 @@ class ParseRequest: NSObject {
         }
     }
     
-    func queryWithPredicate(className: String, predicate: NSPredicate, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    static func queryContainedIn(className: String, key: String, value: [Any], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+        
+        let query = PFQuery(className: className)
+        query.whereKey(key, containedIn: value)
+        
+        query.findObjectsInBackground { (objects, error) in
+            
+            if error == nil {
+                completionHandler(true, "Success", objects)
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        }
+
+    }
+    
+    static func queryWithPredicate(className: String, predicate: NSPredicate, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let query = PFQuery(className: className, predicate: predicate)
         
@@ -88,7 +103,9 @@ extension PFObject {
         })
     }
     
-    func fetchObjectBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: PFObject?) -> Void) {
+    
+    
+    func fetchObjectInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: PFObject?) -> Void) {
         
         let object = self.object(forKey: key) as? PFObject
         
@@ -100,10 +117,19 @@ extension PFObject {
                 completionHandler(false, error.debugDescription, nil)
             }
         })
-        
     }
     
-    func fetchMultipleObjectsBy(keys: [String], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    func fetchObjectBy(key: String) -> PFObject? {
+        
+        let object = self.object(forKey: key) as? PFObject
+            do {
+                return try object?.fetchIfNeeded()
+            } catch {
+                return nil
+            }
+    }
+    
+    func fetchMultipleObjectsInBackgroundBy(keys: [String], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         var tasks = [BFTask<AnyObject>]()
         
