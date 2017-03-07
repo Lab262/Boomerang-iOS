@@ -31,6 +31,7 @@ class HomeMainViewController: UIViewController {
     func getFriends(){
         
         let query = PFQuery(className: "Follow")
+        
         query.whereKey("from", equalTo: PFUser.current()!)
         
         query.findObjectsInBackground { (objects, error) in
@@ -164,13 +165,16 @@ class HomeMainViewController: UIViewController {
         greetingText.text = "Olar, \(user!.firstName!)"
         
         guard let image = user?.profileImage else {
-            profileImage.loadAnimation()
+            
+            self.profileImage.loadAnimation()
             
             user?.getMultipleDataBy(keys: [#keyPath(User.imageFile), #keyPath(User.imageFile)], completionHandler: { (success, msg, datas) in
                 
                 self.user?.profileImage = UIImage(data: datas![0])
                 
                 self.profileImage.image = UIImage(data: datas![1])
+                
+                self.profileImage.unload()
             })
             
             return
@@ -182,7 +186,7 @@ class HomeMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.setUserInformationsInHUD()
-     //   self.getFriends()
+        self.getFriends()
     }
     
     override func viewDidLoad() {

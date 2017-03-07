@@ -12,6 +12,35 @@ import Parse
 
 class ParseRequest: NSObject {
     
+    
+    func queryEqualToValue(className: String, key: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    
+        let query = PFQuery(className: className)
+        query.whereKey(key, equalTo: value)
+        
+        query.findObjectsInBackground { (objects, error) in
+            
+            if error == nil {
+                completionHandler(true, "Success", objects)
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        }
+    }
+    
+    func queryWithPredicate(className: String, predicate: NSPredicate, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+        
+        let query = PFQuery(className: className, predicate: predicate)
+        
+        query.findObjectsInBackground { (objects, error) in
+            
+            if error == nil {
+                completionHandler(true, "Success", objects)
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        }
+    }
 
 }
 
@@ -44,11 +73,58 @@ extension PFObject {
             tasks.append(task as! BFTask<AnyObject>)
         }
         
-        BFTask<AnyObject>(forCompletionOfAllTasksWithResults: tasks as [BFTask<AnyObject>]?).continue({ task -> Any? in
+        BFTask<AnyObject>(forCompletionOfAllTasksWithResults: tasks as [BFTask<AnyObject>]?).continue({ task in
             
-            completionHandler(true, "success", task.result as? [Data])
+            if task.error == nil {
+                
+                completionHandler(true, "success", task.result as? [Data])
+            } else {
+    
+                completionHandler(false, task.error.debugDescription, nil)
+            }
+            
+            return nil
             
         })
-
+    }
+    
+    func fetchObjectBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: PFObject?) -> Void) {
+        
+        let object = self.object(forKey: key) as? PFObject
+        
+        object?.fetchIfNeededInBackground(block: { (object, error) in
+            
+            if error == nil {
+                completionHandler(true, "Success", object)
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        })
+        
+    }
+    
+    func fetchMultipleObjectsBy(keys: [String], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+        
+        var tasks = [BFTask<AnyObject>]()
+        
+        for (_, key) in keys.enumerated() {
+            let object = self.object(forKey: key) as? PFObject
+            let task = object?.fetchIfNeededInBackground()
+            tasks.append(task as! BFTask<AnyObject>)
+        }
+        
+        BFTask<AnyObject>(forCompletionOfAllTasksWithResults: tasks as [BFTask<AnyObject>]?).continue({ task in
+            
+            if task.error == nil {
+                
+                completionHandler(true, "success", task.result as? [PFObject])
+            } else {
+                
+                completionHandler(false, task.error.debugDescription, nil)
+            }
+            
+            return nil
+            
+        })
     }
 }
