@@ -16,6 +16,9 @@
 		2F2F07991E688DF400C61A6D /* DescriptionTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */; };
 		2F2F079C1E6891A800C61A6D /* ThrowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */; };
 		2F2F079D1E6891A800C61A6D /* ThrowButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */; };
+		2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */; };
+		2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB341E6E590B00224284 /* TextViewHandler.swift */; };
+		2FA0CB381E6E5F1800224284 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB371E6E5F1800224284 /* AlertUtils.swift */; };
 		2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA93B281E4A881E0080F99A /* UserRequest.swift */; };
 		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
 		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
@@ -117,6 +120,9 @@
 		2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTextTableViewCell.xib; path = ../DescriptionTextTableViewCell.xib; sourceTree = "<group>"; };
 		2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThrowButtonTableViewCell.xib; path = ../ThrowButtonTableViewCell.xib; sourceTree = "<group>"; };
+		2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldHandler.swift; sourceTree = "<group>"; };
+		2FA0CB341E6E590B00224284 /* TextViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewHandler.swift; sourceTree = "<group>"; };
+		2FA0CB371E6E5F1800224284 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		2FA93B281E4A881E0080F99A /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		2FF1771A1E4F60650005F026 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF1771C1E4F91A20005F026 /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
@@ -240,6 +246,8 @@
 				2F2F07921E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift */,
 				2F2F07961E688DF400C61A6D /* DescriptionTextTableViewCell.swift */,
 				2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */,
+				2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */,
+				2FA0CB341E6E590B00224284 /* TextViewHandler.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -553,6 +561,7 @@
 				A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */,
 				A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */,
 				A427680B1DD3A09D00363343 /* UIColorExtension.swift */,
+				2FA0CB371E6E5F1800224284 /* AlertUtils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -943,6 +952,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */,
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
@@ -955,6 +965,7 @@
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
 				2F2F07941E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift in Sources */,
 				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
+				2FA0CB381E6E5F1800224284 /* AlertUtils.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
 				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,
@@ -964,6 +975,7 @@
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
 				D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */,
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
+				2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
 				A44967741DDA246100990008 /* BoomerChatData.swift in Sources */,

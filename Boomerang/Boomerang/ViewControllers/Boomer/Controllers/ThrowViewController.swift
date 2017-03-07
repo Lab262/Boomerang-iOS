@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Parse
 
 class ThrowViewController: UIViewController {
 
     @IBOutlet weak var bgPostImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
      let placeholder = ["Nome do Produto","Valor do Emprestimo","Periodo de disponibilidade","Quantidade disponível"]
+    var fields:[String] = []
+    var nameThing = String ()
+    var descriptionThing = String ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,15 +76,29 @@ class ThrowViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:ThrowButtonTableViewCell.cellIdentifier, for: indexPath) as! ThrowButtonTableViewCell
         cell.selectionStyle = .none
+        cell.throwButton.addTarget(self, action: #selector(throwAction(_:)), for: .touchUpInside)
+        
         
         return cell
         
     }
     
+    
+    @IBAction func throwAction(_ sender: Any) {
+        
+        self.createPost()
+    }
+    
+    
     func generateDescriptionCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.cellIdentifier, for: indexPath) as! DescriptionTextTableViewCell
         cell.selectionStyle = .none
+        
+        cell.handler!.completation = { (text) -> Void in
+            self.descriptionThing = text
+        }
+        
         
         return cell
         
@@ -93,10 +111,42 @@ class ThrowViewController: UIViewController {
          cell.selectionStyle = .none
         cell.textField.placeholder = placeholder[indexPath.row]
         
+        cell.handler!.completation = { (text) -> Void in
+            self.nameThing = text
+        }
+        
         return cell
         
     }
-    
+    func createPost () {
+        
+        
+        let post = Post()
+        let thing = Thing()
+        
+        
+        let pictureData = UIImagePNGRepresentation(bgPostImage.image!)
+        let pictureFileObject = PFFile (data:pictureData!)
+        thing.image = pictureFileObject
+        thing.descriptionThing = self.descriptionThing
+        thing.name = self.nameThing
+        
+        post.author = ApplicationState.sharedInstance.currentUser
+        post.title = self.nameThing
+        post.thing = thing
+        
+        self.view.loadAnimation()
+        post.saveInBackground(block: { (success, error) in
+            if success {
+                AlertUtils.showAlertError(title:"Arrmessado com sucesso", viewController:self)
+                  self.view.unload()
+            }else {
+                AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
+                 self.view.unload()
+            }
+        })
+        
+    }
 
 }
 

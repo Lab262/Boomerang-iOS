@@ -56,6 +56,9 @@
                     <constraint firstAttribute="trailingMargin" secondItem="u8e-vP-Vig" secondAttribute="trailing" constant="9" id="sOS-xE-51s"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="textView" destination="u8e-vP-Vig" id="flL-Le-JD7"/>
+            </connections>
             <point key="canvasLocation" x="40.5" y="139"/>
         </tableViewCell>
     </objects>
