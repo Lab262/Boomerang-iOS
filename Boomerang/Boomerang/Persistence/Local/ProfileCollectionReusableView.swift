@@ -37,19 +37,18 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     func getUserPhoto() {
         
         guard let image = user?.profileImage else {
-            
             profileImage.loadAnimation()
             
-//            UserRequest.getProfilePhoto(user: user!, completionHandler: { (success, msg, photo) in
-//                
-//                if success {
-//                    self.user?.profileImage = photo
-//                    self.profileImage.image = photo
-//                    self.profileImage.unload()
-//                } else {
-//                    // error
-//                }
-//            })
+            user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+                
+                if success {
+                    self.user?.profileImage = UIImage(data: data!)
+                    self.profileImage.image = UIImage(data: data!)
+                    self.profileImage.unload()
+                } else {
+                    // error
+                }
+            })
             
             return
         }

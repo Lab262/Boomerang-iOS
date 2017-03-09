@@ -21,6 +21,7 @@ class User: PFUser {
     @NSManaged var lastName: String?
     @NSManaged var imageFile: PFFile?
     var profileImage: UIImage?
+    var alreadySearched = false
     
     
     convenience init(user: PFUser) {

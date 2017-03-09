@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class BoomerThing: NSObject {
     
@@ -14,18 +15,22 @@ class BoomerThing: NSObject {
         case have, need, donate, experience
     }
     
-    var thingPhoto: UIImage!
-    var thingDescription: String!
-    var profilePhoto: UIImage!
-    var profileName: String!
-    var thingType: thingType!
+    var post: Post?
+//    var thingDescription: String?
+//    var profilePhoto: PFFile?
+//    var profileName: String?
+    var thingType: thingType?
     
-    init(thingPhoto: UIImage, thingDescription: String, profilePhoto: UIImage, profileName: String, thingType: thingType) {
-        self.thingPhoto = thingPhoto
-        self.thingDescription = thingDescription
-        self.profilePhoto = profilePhoto
-        self.profileName = profileName
+    init (post: Post, thingType: thingType) {
+        self.post = post
         self.thingType = thingType
     }
+//    init(thingPhoto: PFFile, thingDescription: String, profilePhoto: PFFile, profileName: String, thingType: thingType) {
+//        self.thingPhoto = thingPhoto
+//        self.thingDescription = thingDescription
+//        self.profilePhoto = profilePhoto
+//        self.profileName = profileName
+//        self.thingType = thingType
+//    }
     
 }

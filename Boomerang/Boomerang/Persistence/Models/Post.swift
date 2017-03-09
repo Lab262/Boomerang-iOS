@@ -16,8 +16,9 @@ class Post: PFObject {
     @NSManaged var title: String?
     @NSManaged var content: String?
     @NSManaged var thing: Thing?
+    var alreadySearched = false
     
-    var photos: [UIImage]?
+    var photos = [UIImage]()
     
     
     override init(){

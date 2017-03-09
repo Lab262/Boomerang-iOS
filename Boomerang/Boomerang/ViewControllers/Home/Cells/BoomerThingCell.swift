@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class BoomerThingCell: UICollectionViewCell {
 
@@ -29,14 +30,55 @@ class BoomerThingCell: UICollectionViewCell {
     }
     
     func setupCell() {
+        self.thingDescriptionLabel.text = thingData.post?.content
+        self.profileNameLabel.text = thingData.post!.author!.firstName! + " " + thingData.post!.author!.lastName!
         
-        self.imgViewThingPhoto.image = thingData.thingPhoto
-        self.thingDescriptionLabel.text = thingData.thingDescription
-        self.profilePhotoImgView.image = thingData.profilePhoto
-        self.profileNameLabel.text = thingData.profileName
-        
+        self.getUserPhotoImage()
+        self.getRelationPhotosByThing()
+    }
+    
+    
+    func getUserPhotoImage() {
+        guard let image = thingData.post?.author?.profileImage else {
+            profilePhotoImgView.loadAnimation()
+            
+            thingData.post?.author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+                
+                if success {
+                    self.thingData.post?.author?.profileImage = UIImage(data: data!)
+                    self.profilePhotoImgView.image = UIImage(data: data!)
+                    self.profilePhotoImgView.unload()
+                } else {
+                    // error
+                }
+            })
+            
+            return
+        }
+        profilePhotoImgView.image = image
     }
 
+    func getRelationPhotosByThing(){
+        
+        if thingData.post!.photos.count > 0 {
+            
+            imgViewThingPhoto.image = thingData.post?.photos[0]
+            
+        } else {
+            
+            thingData.post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
+                
+                if success {
+                    self.thingData.post?.photos.append(UIImage(data: data!)!)
+                    self.imgViewThingPhoto.image = UIImage(data: data!)!
+                    self.imgViewThingPhoto.unload()
+                } else {
+                    
+                }
+            })
+        }
+    }
+    
     func setupProfilePhotoData() {
         
         if thingData.thingType != .experience {
