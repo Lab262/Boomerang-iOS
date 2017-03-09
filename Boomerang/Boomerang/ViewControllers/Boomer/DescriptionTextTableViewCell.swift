@@ -10,15 +10,17 @@ import UIKit
 
 class DescriptionTextTableViewCell: UITableViewCell {
     static var cellIdentifier = "descriptionTextCell"
-    
+    var handler: TextViewHandler?
+
+    @IBOutlet weak var textView: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.handler = TextViewHandler(textView: textView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+       
         // Configure the view for the selected state
     }
     
