@@ -17,11 +17,8 @@ class User: PFUser {
     var accessLevel: Int? = 0
     var gender: Int? = 0
     
-    @NSManaged var id: String?
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
-    @NSManaged var userName: String?
- //   @NSManaged var email: String?
     @NSManaged var imageFile: PFFile?
     var profileImage: UIImage?
     
@@ -45,11 +42,6 @@ class User: PFUser {
         if let lastName = user["lastName"] as? String {
             
             self.lastName = lastName
-        }
-        
-        if let userName = user["username"] as? String {
-            
-            self.userName = userName
         }
         
         if let email = user["email"] as? String {

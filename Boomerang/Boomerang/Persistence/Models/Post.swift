@@ -17,6 +17,8 @@ class Post: PFObject {
     @NSManaged var content: String?
     @NSManaged var thing: Thing?
     
+    var photos: [UIImage]?
+    
     
     override init(){
         super.init()
@@ -51,6 +53,7 @@ class Post: PFObject {
             
             self.author = author
         }
+        
         
         if let thing = object["thing"] as? Thing {
             

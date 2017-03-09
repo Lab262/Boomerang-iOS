@@ -13,7 +13,7 @@ class HomeMainViewController: UIViewController {
 
     internal var homeTableViewController: HomeTableViewController!
     internal var homeBoomerThingsData = [String: [BoomerThing]]()
-
+    internal var boomerThings = [BoomerThing]()
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var greetingText: UILabel!
@@ -24,23 +24,31 @@ class HomeMainViewController: UIViewController {
     var user = ApplicationState.sharedInstance.currentUser
     
     @IBAction func showMenu(_ sender: Any) {
-        
         TabBarController.showMenu()
     }
     
     func getFriends(){
-        
         ParseRequest.queryEqualToValue(className: "Follow", key: "from", value: PFUser.current()!) { (success, msg, objects) in
             
             if success {
                 for object in objects! {
-                    
                     if let friend = object.fetchObjectBy(key: "to") {
-                          self.following.append(friend as! User)
+                        
+                        friend.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+                            
+                            if success {
+                                (friend as! User).profileImage = UIImage(data: data!)
+                                self.following.append(friend as! User)
+                                self.getPostsOfFriends()
+                                
+                            } else {
+                                print ("FALHA NA FOTO DE FRIEND")
+                            }
+                        })
                     }
                 }
+            
                 
-                self.getPostsOfFriends()
             }
         }
     }
@@ -56,49 +64,86 @@ class HomeMainViewController: UIViewController {
     //                    })
     
     func getFetchFriend(follow: PFObject){
-        
         let friend = follow.object(forKey: "to") as? PFUser
         
         friend?.fetchIfNeededInBackground(block: { (object, error) in
             
             let friend = User(user: object! as! PFUser)
             
-            self.following.append(friend)
-            
-            self.getPostsOfFriends()
+            friend.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+                
+                if success {
+                    friend.profileImage = UIImage(data: data!)
+                    self.following.append(friend)
+                    self.getPostsOfFriends()
+                    
+                } else {
+                    print ("FALHA NA FOTO DE FRIEND")
+                }
+            })
             
         })
-        
-
     }
     
     func getPostsOfFriends(){
         
         ParseRequest.queryContainedIn(className: "Post", key: "author", value: self.following) { (success, msg, objects) in
-            
+        
             if success {
                 for obj in objects! {
                     let post = Post(object: obj)
+                    self.setAuthorInFriendPost(post: post)
                     self.posts.append(post)
                 }
             }
+            
+          self.getRelationDatas()
         }
     }
+    
+    func getRelationDatas(){
         
-//        let query = PFQuery(className: "Post")
-//        query.whereKey("author", equalTo: following.first!)
-//        
-//        query.findObjectsInBackground { (objects, error) in
-//            
-//            if let objects = objects {
-//                
-//                for obj in objects {
-//                    let post = Post(object: obj)
-//                    self.posts.append(post)
-//                }
-//                
-//            }
-//        }
+        for post in posts {
+            post.photos = [UIImage]()
+            if let datas = post.getRelationWithDataBy(key: "photos", keyFile: "imageFile") {
+                for data in datas {
+                    post.photos?.append(UIImage(data: data)!)
+//                    post.photos.append(UIImage(data: data)!)
+                }
+            }
+        }
+        
+        for post in posts {
+            
+            print ("POSTS COUNT: \(posts.count)")
+            print ("POST: photos: \(post.photos) content: \(post.content) profile photo: \(post.author?.profileImage) profile name: \(post.author?.name)")
+            
+            self.boomerThings.append(BoomerThing(thingPhoto: post.photos![0], thingDescription: post.content!, profilePhoto: post.author!.profileImage!, profileName: post.author!.username!, thingType: .have))
+        }
+        
+        self.homeBoomerThingsData = ["Meus Amigos" : self.boomerThings, "Brasilia - DF" : self.boomerThings]
+        
+        self.homeTableViewController.loadHomeData(homeBoomerThingsData: self.homeBoomerThingsData)
+        
+       
+        //
+        //                        self.homeBoomerThingsData = [
+        //                            "Meus amigos" : [boomerThing1, boomerThing1],
+        //                            "Brasília - DF" : [boomerThing1],
+        //                            "Recomendados para voce" : [boomerThing1, boomerThing1,boomerThing1]]
+        //
+        //
+        //
+
+    }
+    
+    func setAuthorInFriendPost(post: Post){
+        for follower in following {
+            if follower.objectId == post.author?.objectId {
+                post.author = follower
+                return
+            }
+        }
     }
     
     
@@ -109,27 +154,9 @@ class HomeMainViewController: UIViewController {
     func getDataFor(object: PFObject, key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: Data?) -> Void) {
         
         
-        
-        
-        
-//        ParseRequest.getDataFrom(object: object, key: key) { (success, msg, data) in
-//            if success {
-//                completionHandler(success, msg, data)
-//            } else {
-//                completionHandler(success, msg, data)
-//            }
-//        }
     }
-    
-//        UserRequest.getProfilePhoto(user: user) { (success, msg, photo) in
-//            
-//            if success {
-//                completionHandler(true, msg, photo)
-//            }
-//        }
-//    }
-    
-    
+
+
     func getThingByPost(post: Post){
         
 //        
@@ -143,7 +170,7 @@ class HomeMainViewController: UIViewController {
 //            self.getPhotoUser(user: post.author!, completionHandler: { (success, msg, userPhoto) in
 //                
 //                if success {
-//                    
+//
 //                    self.getPhotoThing(thing: post.thing!, completionHandler: { (success, msg, thingPhoto) in
 //                        
 //                         let boomerThing1 = BoomerThing(thingPhoto: thingPhoto!, thingDescription: post.content!, profilePhoto: userPhoto!, profileName: post.author!.firstName! + " " + post.author!.lastName!, thingType: .need)
@@ -158,10 +185,10 @@ class HomeMainViewController: UIViewController {
 //
 //                    })
                     
-                }
-            })
-            
-        })
+//                }
+//            })
+        
+        //})
     }
 
 
@@ -173,20 +200,15 @@ class HomeMainViewController: UIViewController {
             
             self.profileImage.loadAnimation()
             
-            user?.getMultipleDataBy(keys: [#keyPath(User.imageFile), #keyPath(User.imageFile)], completionHandler: { (success, msg, datas) in
-                
-                self.user?.profileImage = UIImage(data: datas![0])
-                
-                self.profileImage.image = UIImage(data: datas![1])
-                
+            user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+                self.user?.profileImage = UIImage(data: data!)
+                self.profileImage.image = UIImage(data: data!)
                 self.profileImage.unload()
             })
             
             return
         }
-        
         profileImage.image = image
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

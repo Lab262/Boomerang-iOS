@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 
-
 class ParseRequest: NSObject {
     
     static func queryEqualToValue(className: String, key: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
@@ -27,6 +26,7 @@ class ParseRequest: NSObject {
         }
     }
     
+    
     static func queryContainedIn(className: String, key: String, value: [Any], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let query = PFQuery(className: className)
@@ -36,11 +36,11 @@ class ParseRequest: NSObject {
             
             if error == nil {
                 completionHandler(true, "Success", objects)
+                
             } else {
                 completionHandler(false, error.debugDescription, nil)
             }
         }
-
     }
     
     static func queryWithPredicate(className: String, predicate: NSPredicate, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
@@ -61,7 +61,91 @@ class ParseRequest: NSObject {
 
 extension PFObject {
     
-    func getDataBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: Data?) -> Void) {
+    func getRelationInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: [PFObject]?) -> Void) {
+
+        let relation = self.relation(forKey: key)
+        let query = relation.query()
+        
+        query.findObjectsInBackground(block: { (objects, error) in
+            if error == nil {
+                completionHandler(true, "Success", objects)
+            } else{
+                completionHandler(false, error.debugDescription, nil)
+            }
+        })
+    }
+    
+    
+    func getRelationsInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+        
+        let relation = self.relation(forKey: key)
+        let query = relation.query()
+        
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                completionHandler(true, "Success", objects)
+            }
+        }
+    }
+    
+    func getRelationsInBackgroundWithDataBy(key: String, keyFile: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ relations: [PFObject]?, _ data: Data?) -> Void) {
+        
+        getRelationsInBackgroundBy(key: key) { (success, msg, relations) in
+            if success {
+                for relation in relations! {
+                    relation.getDataInBackgroundBy(key: keyFile, completionHandler: { (success, msg, data) in
+                        
+                        if success {
+                            completionHandler(true, "Success", relations, data)
+                        } else {
+                            completionHandler(false, msg, relations, nil)
+                        }
+                    })
+                }
+            } else {
+                completionHandler(false, msg, nil, nil)
+            }
+        }
+    }
+    
+    func getRelationsBy(key: String) -> [PFObject]? {
+        let relation = self.relation(forKey: key)
+        let query = relation.query()
+        
+        do {
+            return try query.findObjects()
+        } catch {
+            return nil
+        }
+    }
+    
+    func getRelationWithDataBy(key: String, keyFile: String) -> [Data]? {
+        var datas = [Data]()
+        
+        if let relations = getRelationsBy(key: key) {
+            for relation in relations {
+                if let data = relation.getDataBy(key: keyFile) {
+                    datas.append(data)
+                }
+            }
+            return datas
+        } else {
+            return nil
+        }
+    }
+    
+    func getDataBy(key: String) -> Data? {
+        
+        let file = self.object(forKey: key) as? PFFile
+        
+        do {
+            return try file?.getData()
+        } catch {
+            return nil
+        }
+    }
+    
+    func getDataInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: Data?) -> Void) {
         
         let file = self.object(forKey: key) as? PFFile
         
@@ -78,7 +162,7 @@ extension PFObject {
         })
     }
     
-    func getMultipleDataBy(keys: [String], completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: [Data]?) -> Void) {
+    func getMultipleDataInBackgroundBy(keys: [String], completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: [Data]?) -> Void) {
         
         var tasks = [BFTask<AnyObject>]()
         
@@ -122,11 +206,12 @@ extension PFObject {
     func fetchObjectBy(key: String) -> PFObject? {
         
         let object = self.object(forKey: key) as? PFObject
-            do {
-                return try object?.fetchIfNeeded()
-            } catch {
-                return nil
-            }
+        
+        do {
+            return try object?.fetchIfNeeded()
+        } catch {
+            return nil
+        }
     }
     
     func fetchMultipleObjectsInBackgroundBy(keys: [String], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
