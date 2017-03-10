@@ -39,6 +39,7 @@ class BoomerThingCell: UICollectionViewCell {
     
     
     func getUserPhotoImage() {
+        
         guard let image = thingData.post?.author?.profileImage else {
             profilePhotoImgView.loadAnimation()
             
@@ -61,21 +62,27 @@ class BoomerThingCell: UICollectionViewCell {
     func getRelationPhotosByThing(){
         
         if thingData.post!.photos.count > 0 {
-            
             imgViewThingPhoto.image = thingData.post?.photos[0]
             
-        } else {
-            
-            thingData.post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
+        } else if !thingData.post!.downloadedImages {
+        thingData.post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
                 
                 if success {
-                    self.thingData.post?.photos.append(UIImage(data: data!)!)
-                    self.imgViewThingPhoto.image = UIImage(data: data!)!
+                    
+                  self.thingData.post?.photos.append(UIImage(data: data!)!)
+                    
+                    if self.thingData.post!.photos.count < 2 {
+                        self.imgViewThingPhoto.image = UIImage(data: data!)!
+                    }
+                    
                     self.imgViewThingPhoto.unload()
+                    
                 } else {
                     
                 }
             })
+        } else {
+            self.imgViewThingPhoto.image = UIImage(named: "foto_dummy")
         }
     }
     
