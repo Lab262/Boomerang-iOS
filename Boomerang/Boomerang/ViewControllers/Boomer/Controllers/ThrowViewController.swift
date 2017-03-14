@@ -18,6 +18,7 @@ class ThrowViewController: UIViewController {
     var nameThing = String ()
     var descriptionThing = String ()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
@@ -105,7 +106,7 @@ class ThrowViewController: UIViewController {
     }
     
     
-    func generateSimpleTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func generateNameProducTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
          cell.selectionStyle = .none
@@ -118,33 +119,62 @@ class ThrowViewController: UIViewController {
         return cell
         
     }
+    
+    func generateSimpleTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
+        cell.selectionStyle = .none
+        cell.textField.placeholder = placeholder[indexPath.row]
+        
+        cell.handler!.completation = { (text) -> Void in
+           
+        }
+        return cell
+        
+    }
+    
+    
     func createPost () {
         
-        
+        self.view.endEditing(true)
         let post = Post()
-        let thing = Thing()
-        
         
         let pictureData = UIImagePNGRepresentation(bgPostImage.image!)
         let pictureFileObject = PFFile (data:pictureData!)
-        thing.image = pictureFileObject
-        thing.descriptionThing = self.descriptionThing
-        thing.name = self.nameThing
         
         post.author = ApplicationState.sharedInstance.currentUser
-        post.title = self.nameThing
-        post.thing = thing
+        post.title =  self.nameThing
+        post.content = self.descriptionThing
         
         self.view.loadAnimation()
-        post.saveInBackground(block: { (success, error) in
+        
+        let photos = PFObject(className:"Photo")
+        photos["imageFile"] = pictureFileObject
+        
+        photos.saveInBackground(block: { (success, error) in
             if success {
-                AlertUtils.showAlertError(title:"Arrmessado com sucesso", viewController:self)
-                  self.view.unload()
+                let relation = post.relation(forKey: "photos")
+                
+                relation.add(photos)
+                
+                post.saveInBackground(block: { (success, error) in
+                    if success {
+                        AlertUtils.showAlertError(title:"Arrmessado com sucesso", viewController:self)
+                        self.view.unload()
+                    }else {
+                        AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
+                        self.view.unload()
+                    }
+                })
+            
+            
             }else {
                 AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
-                 self.view.unload()
+                self.view.unload()
             }
         })
+        
+      
         
     }
 
@@ -165,7 +195,7 @@ extension ThrowViewController: UITableViewDataSource {
         
         switch indexPath.row {
             case  0:
-                return generateSimpleTextCell(tableView, indexPath:indexPath)
+                return generateNameProducTextCell(tableView, indexPath:indexPath)
             case 1:
                 return generateSimpleTextCell(tableView, indexPath:indexPath)
             case 2:
