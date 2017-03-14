@@ -43,8 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = self.setInitialStoryboardBySeasonUser()
         
         return true
-        
-      
     }
 
     

@@ -13,10 +13,14 @@ class HomeMainViewController: UIViewController {
 
     internal var homeTableViewController: HomeTableViewController!
     internal var homeBoomerThingsData = [String: [BoomerThing]]()
+    
     internal var boomerThings = [BoomerThing]()
+    
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var greetingText: UILabel!
+    
+    @IBOutlet weak var navigationBarView: UIView!
     
     var following = [User]()
     var posts = [Post]()
@@ -45,7 +49,6 @@ class HomeMainViewController: UIViewController {
             }
         }
     }
-
     
     func getPostsOfFriends(){
         
@@ -104,7 +107,6 @@ class HomeMainViewController: UIViewController {
     }
 
     func setUserInformationsInHUD(){
-        
         greetingText.text = "Olar, \(user!.firstName!)"
         
         guard let image = user?.profileImage else {
@@ -114,6 +116,7 @@ class HomeMainViewController: UIViewController {
                 self.user?.profileImage = UIImage(data: data!)
                 self.profileImage.image = UIImage(data: data!)
                 self.profileImage.unload()
+                
             })
         
             return
@@ -128,12 +131,7 @@ class HomeMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.isHidden = true
-        
-     
-       // self.homeTableViewController.loadHomeData(homeBoomerThingsData: homeBoomerThingsData)
-        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
