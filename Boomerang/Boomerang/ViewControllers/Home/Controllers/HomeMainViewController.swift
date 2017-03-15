@@ -78,7 +78,7 @@ class HomeMainViewController: UIViewController {
         let filteredPosts = (self.posts.filter { post in
             return post.alreadySearched == false
         })
-        
+
         posts.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
         
         for post in filteredPosts {

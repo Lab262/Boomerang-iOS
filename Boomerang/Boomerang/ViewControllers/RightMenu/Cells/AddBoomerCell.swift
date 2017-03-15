@@ -26,6 +26,7 @@ class AddBoomerCell: UITableViewCell {
         self.photoImageView.image = boomerCellData.dataPhoto
         self.titleLabel.text = boomerCellData.dataTitle
         self.subLabel.text = boomerCellData.dataDescription
+       
     }
     
     @IBAction func addBoomerActiona(_ sender: UIButton) {

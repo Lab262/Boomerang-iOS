@@ -21,7 +21,7 @@ class AuthenticationMainViewController: UIViewController {
     
     
     @IBAction func signInAction(_ sender: Any) {
-        let permissions = ["public_profile", "email"]
+        let permissions = ["public_profile", "email","user_friends"]
         
         PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
             
@@ -29,7 +29,7 @@ class AuthenticationMainViewController: UIViewController {
                 if user.isNew {
                     self.updateUserByFacebook()
                 } else {
-                    self.showHomeVC()
+                   self.showHomeVC()
                 }
             }
         }
@@ -115,6 +115,8 @@ class AuthenticationMainViewController: UIViewController {
         let userDetails = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters)
         
         let newUser = PFUser.current()!
+      
+        
         
         userDetails!.start { (connection, result, error) -> Void in
             
@@ -143,6 +145,8 @@ class AuthenticationMainViewController: UIViewController {
                             newUser.setObject(userPhoto, forKey: "photo")
                         }
                     }
+                  
+                
                 }
                 
                 newUser.saveInBackground(block: { (success, error) in
@@ -154,7 +158,7 @@ class AuthenticationMainViewController: UIViewController {
         }
     }
 
-    
+  
     
     func showHomeVC() {
         

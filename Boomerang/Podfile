@@ -11,12 +11,19 @@ target 'Boomerang' do
     pod 'Crashlytics'
     pod 'Parse'
     pod 'ParseFacebookUtilsV4'
-
+    pod 'SwiftyJSON'
+    pod 'Kingfisher', '~> 3.0'
    # Pods for Boomerang
 
   target 'BoomerangTests' do
     inherit! :search_paths
     # Pods for testing
   end
+ 
+
+     
+     
+  
+
 
 end
