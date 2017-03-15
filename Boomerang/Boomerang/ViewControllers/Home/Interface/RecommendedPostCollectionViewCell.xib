@@ -12,6 +12,9 @@
         <array key="Montserrat-Bold.otf">
             <string>Montserrat-Bold</string>
         </array>
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -37,6 +40,11 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="PZM-9d-leP">
                                 <rect key="frame" x="22" y="19" width="44" height="44"/>
@@ -77,8 +85,48 @@ máximo de caracteres help in a numb</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.76462173460000005" green="0.764754355" blue="0.76461333040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="34" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwm-Po-2Cu">
+                                <rect key="frame" x="63" y="252" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="comment-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="wws-9K-gzf">
+                                <rect key="frame" x="104" y="255" width="14" height="15"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="like-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="PHb-g6-9Gy">
+                                <rect key="frame" x="43" y="256" width="15" height="13"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="34" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKe-Kq-sTU">
+                                <rect key="frame" x="123" y="252" width="14" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="34" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqu-NX-ikt">
+                                <rect key="frame" x="206" y="253" width="12" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="sharing-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Y4-Q2-fWk">
+                                <rect key="frame" x="185" y="254" width="16" height="14"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrV-zC-Hlh">
+                                <rect key="frame" x="185" y="8" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </subviews>
             </view>
@@ -87,9 +135,12 @@ máximo de caracteres help in a numb</string>
     </objects>
     <resources>
         <image name="avatar-default" width="62" height="62"/>
+        <image name="comment-count-icon" width="14" height="15"/>
         <image name="default-post-image1" width="208" height="145"/>
         <image name="default-post-image2" width="115" height="73"/>
         <image name="default-post-image3" width="115" height="73"/>
         <image name="have-icon" width="26" height="38"/>
+        <image name="like-count-icon" width="15" height="13"/>
+        <image name="sharing-count-icon" width="16" height="14"/>
     </resources>
 </document>
