@@ -14,6 +14,7 @@ class BoomerCellData: NSObject {
     var dataDescription: String!
     var dataTitle: String!
     var dataSubDescription: String?
+   
     
     init(dataPhoto: UIImage,
          dataDescription: String,

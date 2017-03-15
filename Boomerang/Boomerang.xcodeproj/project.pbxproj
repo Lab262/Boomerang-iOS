@@ -20,6 +20,8 @@
 		2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB341E6E590B00224284 /* TextViewHandler.swift */; };
 		2FA0CB381E6E5F1800224284 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB371E6E5F1800224284 /* AlertUtils.swift */; };
 		2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA93B281E4A881E0080F99A /* UserRequest.swift */; };
+		2FAE03071E78C3540062E155 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE03061E78C3540062E155 /* Friend.swift */; };
+		2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */; };
 		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
 		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
 		2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771E1E4F998A0005F026 /* URLS.swift */; };
@@ -124,6 +126,8 @@
 		2FA0CB341E6E590B00224284 /* TextViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewHandler.swift; sourceTree = "<group>"; };
 		2FA0CB371E6E5F1800224284 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		2FA93B281E4A881E0080F99A /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		2FAE03061E78C3540062E155 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		2FF1771A1E4F60650005F026 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF1771C1E4F91A20005F026 /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		2FF1771E1E4F998A0005F026 /* URLS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
@@ -562,6 +566,7 @@
 				A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */,
 				A427680B1DD3A09D00363343 /* UIColorExtension.swift */,
 				2FA0CB371E6E5F1800224284 /* AlertUtils.swift */,
+				2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -685,6 +690,7 @@
 				D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */,
 				D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */,
 				D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */,
+				2FAE03061E78C3540062E155 /* Friend.swift */,
 			);
 			name = PFObjects;
 			sourceTree = "<group>";
@@ -852,7 +858,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81F257C77482D4401703111B /* [CP] Embed Pods Frameworks */ = {
@@ -979,9 +985,11 @@
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
 				A44967741DDA246100990008 /* BoomerChatData.swift in Sources */,
+				2FAE03071E78C3540062E155 /* Friend.swift in Sources */,
 				A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */,
 				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
+				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
 				D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */,
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,

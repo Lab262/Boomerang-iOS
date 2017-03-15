@@ -8,10 +8,11 @@ PODS:
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
-  - FBSDKCoreKit (4.20.0):
+  - FBSDKCoreKit (4.20.1):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.20.0):
+  - FBSDKLoginKit (4.20.1):
     - FBSDKCoreKit
+  - Kingfisher (3.5.2)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - ParseFacebookUtilsV4 (1.11.1):
@@ -20,22 +21,27 @@ PODS:
     - FBSDKLoginKit (~> 4.10)
     - FBSDKTVOSKit (~> 4.10)
     - Parse (~> 1.12)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - Kingfisher (~> 3.0)
   - Parse
   - ParseFacebookUtilsV4
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  FBSDKCoreKit: 2d16979b28fe28c2b95af0d275ad5f9703c6c8de
-  FBSDKLoginKit: a9d9391506c687e2304a590bf9312837fce7f375
+  FBSDKCoreKit: 39a3569652983bf8666620dd334804c9057ae9b2
+  FBSDKLoginKit: 17092ff61a18c54ca423aebc18c5acc2e5a4a728
+  Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: d0e560d8f8c856055b09287e40e2fa1049ae6bcd
+PODFILE CHECKSUM: 1529ad8155cdbc01f8eea2fef93304ee6bd4e4d5
 
 COCOAPODS: 1.1.1

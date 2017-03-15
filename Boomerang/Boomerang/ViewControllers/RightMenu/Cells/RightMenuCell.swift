@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Parse
+import ParseFacebookUtilsV4
 class RightMenuCell: UITableViewCell {
     
     @IBOutlet weak var imgViewCell: UIImageView!

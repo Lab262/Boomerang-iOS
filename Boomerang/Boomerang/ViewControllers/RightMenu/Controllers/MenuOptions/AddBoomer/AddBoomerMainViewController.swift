@@ -7,19 +7,61 @@
 //
 
 import UIKit
+import Parse
+import ParseFacebookUtilsV4
+import SwiftyJSON
+
 
 class AddBoomerMainViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     
     var cellDatas = [BoomerCellData]()
+    var friendsArray : [Friend] = []
     
     func loadDummyData() {
-        self.cellDatas = [
-        BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-        BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY")
-        ]
+        self.updateUserByFacebook()
     }
+    
+    
+    func updateUserByFacebook(){
+        
+        
+        let requestParameters = ["fields":"id,name,email,picture.width(500).height(500)"]
+        let userDetails = FBSDKGraphRequest(graphPath: "/me/taggable_friends?limit=25", parameters: requestParameters)
+        
+        userDetails!.start { (connection, result, error) -> Void in
+            if error != nil {
+                print(error.debugDescription)
+            }else {
+               if let data = result as? [String: Any] {
+                    if let data = data["data"] as? [[String: Any]] {
+                        for userData:[String: Any] in data {
+                            if let friend = Friend(JSON: userData) {
+                                self.friendsArray.append(friend)
+                            }
+                        }
+                          self.updateTableByAppendingUsers()
+                    }
+                  
+                }
+            }
+           
+        }
+       
+    }
+    
+    
+    func updateTableByAppendingUsers(){
+        for friend in self.friendsArray{
+           let placeHolder = UIImage(named: "placeholder")
+           let boomer = BoomerCellData(dataPhoto:placeHolder!, dataDescription:"Brasilia-DF", dataTitle:friend.firstName!)
+            cellDatas.append(boomer)
+        }
+        self.tableView.reloadData()
+    }
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +103,7 @@ extension AddBoomerMainViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddBoomerCell.cellIdentifier, for: indexPath) as! AddBoomerCell
         cell.boomerCellData = self.cellDatas[indexPath.row]
+       
         return cell;
     }
 
