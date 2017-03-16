@@ -22,10 +22,8 @@ class ThingDetailViewController: UIViewController {
     let tableViewTopInset: CGFloat = 156.0
     let bottomMargin: CGFloat = 10.0
     
-    
-
     func registerNibs(){
-        self.tableView.register(UINib(nibName: "ThingInformationTableViewCell", bundle: nil), forCellReuseIdentifier: ThingInformationTableViewCell.identifier)
+        self.tableView.register(UINib(nibName: "RecommendedPost", bundle: nil), forCellReuseIdentifier: ThingInformationTableViewCell.identifier)
     }
     
     override func viewDidLoad() {
@@ -92,7 +90,6 @@ extension ThingDetailViewController: UIScrollViewDelegate {
         updateImageScale(yOffset)
         updateNavigationBarAlpha(yOffset)
         updateInformationsCell(yOffset)
-        
     }
     
     func updateInformationsCell(_ yOffset: CGFloat) {
@@ -116,7 +113,6 @@ extension ThingDetailViewController: UIScrollViewDelegate {
     }
     
     func updateImageScale(_ yOffset: CGFloat) {
-        
         if yOffset < 0 {
             thingHeightConstraint.constant = thingImageViewHeight - yOffset
         } else if thingHeightConstraint.constant != thingImageViewHeight {
