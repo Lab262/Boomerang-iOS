@@ -100,6 +100,13 @@
 		D48735081E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48735061E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib */; };
 		D48C99AF1E68B67100A17E71 /* SelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */; };
 		D48C99B21E68C7FF00A17E71 /* ActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */; };
+		D4A012F51E7AC83900B3B811 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */; };
+		D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */; };
+		D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */; };
+		D4A012FA1E7AC85600B3B811 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A012F81E7AC85600B3B811 /* PostTableViewCell.xib */; };
+		D4A012FE1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012FB1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift */; };
+		D4A012FF1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012FD1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift */; };
+		D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A013031E7B181F00B3B811 /* CGOperations.swift */; };
 		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */; };
@@ -221,6 +228,14 @@
 		D48735061E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostCollectionViewCell.xib; sourceTree = "<group>"; };
 		D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionDelegate.swift; sourceTree = "<group>"; };
 		D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
+		D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCollectionViewCell.swift; path = ../Interface/PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
+		D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = ../Interface/PostTableViewCell.swift; sourceTree = "<group>"; };
+		D4A012F81E7AC85600B3B811 /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		D4A012FB1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenterCellCollectionViewFlowLayout.swift; path = NavigationBar/CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		D4A012FC1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScaledVisibleCellsCollectionView.h; path = NavigationBar/ScaledVisibleCellsCollectionView.h; sourceTree = "<group>"; };
+		D4A012FD1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScaledVisibleCellsCollectionView.swift; path = NavigationBar/ScaledVisibleCellsCollectionView.swift; sourceTree = "<group>"; };
+		D4A013031E7B181F00B3B811 /* CGOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGOperations.swift; sourceTree = "<group>"; };
 		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -570,9 +585,11 @@
 		A4E462F51DCAEAC200A611C0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D4A013001E7B160B00B3B811 /* ScaledVisibleCellsCollectionView */,
 				A4CB02651DD261B200B01A6B /* NavigationBar */,
 				A40A25191DCB681A00DF9523 /* UIView+Animations.swift */,
 				2FF1771C1E4F91A20005F026 /* ViewUtil.swift */,
+				D4A013031E7B181F00B3B811 /* CGOperations.swift */,
 				A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */,
 				A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */,
 				A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */,
@@ -675,6 +692,8 @@
 				A4FE06311DD09AA200BFDC4D /* HomeCollectionHeader.swift */,
 				A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */,
 				D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */,
+				D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */,
+				D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -708,8 +727,20 @@
 				A4FE06331DD09C7500BFDC4D /* BoomerThingCollection.xib */,
 				D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */,
 				D48735061E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib */,
+				D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */,
+				D4A012F81E7AC85600B3B811 /* PostTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		D4A013001E7B160B00B3B811 /* ScaledVisibleCellsCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D4A012FB1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift */,
+				D4A012FC1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.h */,
+				D4A012FD1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift */,
+			);
+			name = ScaledVisibleCellsCollectionView;
 			sourceTree = "<group>";
 		};
 		D4EEC1C21E6CAE4B00F5C1D6 /* PFObjects */ = {
@@ -842,6 +873,8 @@
 				A4E462F21DCAEA7F00A611C0 /* Main.storyboard in Resources */,
 				A44E0C671DD092650028F06C /* Montserrat-Black.otf in Resources */,
 				A4FE06341DD09C7500BFDC4D /* BoomerThingCollection.xib in Resources */,
+				D4A012FA1E7AC85600B3B811 /* PostTableViewCell.xib in Resources */,
+				D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */,
 				A4E463041DCAEC4F00A611C0 /* Assets.xcassets in Resources */,
 				D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */,
 				A4E463011DCAEB1500A611C0 /* RightMenu.storyboard in Resources */,
@@ -992,10 +1025,12 @@
 				2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */,
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
+				D4A012FF1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift in Sources */,
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
 				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
+				D4A012FE1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
 				2F2F07901E6733CC00C61A6D /* ThrowViewController.swift in Sources */,
@@ -1008,6 +1043,7 @@
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,
+				D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */,
 				D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */,
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
 				D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */,
@@ -1025,11 +1061,13 @@
 				D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */,
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
+				D4A012F51E7AC83900B3B811 /* PostCollectionViewCell.swift in Sources */,
 				2F2F07981E688DF400C61A6D /* DescriptionTextTableViewCell.swift in Sources */,
 				D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
+				D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */,
 				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
 				A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */,
 				D48735041E7885000065E13A /* UICollectionViewCell+Utils.swift in Sources */,

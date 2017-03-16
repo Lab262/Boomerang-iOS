@@ -48,6 +48,8 @@ class HomeMainViewController: UIViewController {
         self.tableView.register(UINib(nibName: HomeCollectionHeader.cellIdentifier, bundle: nil), forCellReuseIdentifier: HomeCollectionHeader.cellIdentifier)
         self.tableView.register(UINib(nibName: BoomerThingCollection.cellIdentifier, bundle: nil), forCellReuseIdentifier: BoomerThingCollection.cellIdentifier)
         tableView.registerNibFrom(RecommendedPostTableViewCell.self)
+        
+            tableView.registerNibFrom(PostTableViewCell.self)
     }
     
     func loadHomeData(homeBoomerThingsData: [String: [BoomerThing]]) {
@@ -66,7 +68,7 @@ extension HomeMainViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,7 +77,9 @@ extension HomeMainViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 0
+            return 1
+        case 2:
+            return 1
         default:
             return 0
         }
@@ -84,21 +88,13 @@ extension HomeMainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath)
-        //        let cell = tableView.dequeueReusableCell(
-        //            withIdentifier: BoomerThingCollection.cellIdentifier,
-        //            for: indexPath) as! BoomerThingCollection
-        //
-        //        cell.thingsData = self.homeBoomerThingsData.dataAtKeyAtIndex(
-        //            index: indexPath.section) as! [BoomerThing]
-        //
-        //        self.boomerThingDelegate = cell
-        //
-        //        cell.selectionDelegate = self
-        
-        return cell
+        switch indexPath.section {
+        case 0:
+            return generateRecommendedCell(tableView, cellForRowAt: indexPath)
+        default:
+            return generatePostCell(tableView, cellForRowAt: indexPath)
+        }
     }
-    
 }
 
 extension HomeMainViewController: UITableViewDelegate {
@@ -113,10 +109,10 @@ extension HomeMainViewController: UITableViewDelegate {
         let header = generateHeaderTitle(tableView, viewForHeaderInSection: section)
         
         switch section {
-        case 0:
-            return nil
         case 1:
             header?.titleLabel.text = "Meus migos"
+        case 2:
+            header?.titleLabel.text = "Em Brasília"
         default:
             return nil
             
@@ -134,13 +130,15 @@ extension HomeMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         switch section {
-        case 0:
-            return 0
-        case 1:
-            return 40
+        case 1, 2:
+            return 50
         default:
             return 0
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNonzeroMagnitude
     }
 }
 
@@ -242,6 +240,23 @@ extension HomeMainViewController {
         return header
         
     }
+    
+    func generateRecommendedCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath)
+        
+        return cell
+    }
+    
+    func generatePostCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath)
+        
+        return cell
+    }
+    
+    
+
 
 }
 

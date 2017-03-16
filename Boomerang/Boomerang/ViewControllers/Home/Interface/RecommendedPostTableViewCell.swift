@@ -51,6 +51,22 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
         
+      
+        cell.containerCellView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.07).cgColor
+        cell.containerCellView.layer.shadowOpacity = 0.9
+        
+        cell.containerCellView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        cell.containerCellView.layer.shadowRadius = 2
+        cell.containerCellView.layer.cornerRadius = 4
+        
+        cell.containerIconView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 4).cgColor
+        cell.containerIconView.layer.shadowOpacity = 10
+        
+        cell.containerIconView.layer.shadowOffset = CGSize(width: -10, height: 10)
+        cell.containerIconView.layer.shadowRadius = 7
+        cell.containerIconView.layer.cornerRadius = 4
+
+        
         return cell
     }
 }
@@ -59,7 +75,7 @@ extension RecommendedPostTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 345, height: 291)
+        return CGSize(width: 366, height: 306)
     }
     
 }

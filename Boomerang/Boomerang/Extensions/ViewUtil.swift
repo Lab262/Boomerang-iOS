@@ -70,6 +70,8 @@ extension UIView {
         self.layer.mask = mask
     }
     
+    //func add
+    
     func loadAnimation(_ duration: TimeInterval = 0.2) {
         
         if let _ = viewWithTag(10) {

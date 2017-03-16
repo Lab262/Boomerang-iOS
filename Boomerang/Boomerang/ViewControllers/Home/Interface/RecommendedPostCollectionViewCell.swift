@@ -10,6 +10,7 @@ import UIKit
 
 class RecommendedPostCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var containerCellView: UIView!
     @IBOutlet weak var containerIconView: UIView!
     
     static var identifier: String {
@@ -27,7 +28,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         containerIconView.roundCorners(corners: [.bottomLeft], radius: 100.0)
-        containerIconView.layer.shadowColor = UIColor.black.cgColor
+       
         
     }
 
