@@ -21,6 +21,7 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
+    let tableViewTopInset: CGFloat = 140.0
 
     var following = [User]()
     var posts = [Post]()
@@ -40,7 +41,7 @@ class HomeMainViewController: UIViewController {
             super.viewDidLoad()
             self.navigationController?.navigationBar.isHidden = true
             registerNib()
-            tableView.contentInset = UIEdgeInsetsMake(162, 0, 0, 0)
+            tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
         }
     
     func registerNib() {
@@ -65,12 +66,19 @@ extension HomeMainViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 0
+        default:
+            return 0
+        }
     }
     
     
@@ -98,60 +106,46 @@ extension HomeMainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
     }
     
-    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //
-    //        var headerData = (
-    //            title: self.homeBoomerThingsData.keyAtIndex(index: section), isLocation: false)
-    //        let locationsSectionNumber = 1
-    //        if section == locationsSectionNumber {
-    //
-    //            headerData.isLocation = true
-    //        } else {
-    //            headerData.isLocation = false
-    //
-    //        }
-    //
-    //        let header = tableView.dequeueReusableCell(withIdentifier:HomeCollectionHeader.cellIdentifier) as! HomeCollectionHeader
-    //
-    //        header.headerData = headerData
-    //
-    //
-    //        return header
-    //    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = generateHeaderTitle(tableView, viewForHeaderInSection: section)
+        
+        switch section {
+        case 0:
+            return nil
+        case 1:
+            header?.titleLabel.text = "Meus migos"
+        default:
+            return nil
+            
+        }
+        
+        return header
+    
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 300
-        //        if indexPath.section != 2 {
-        //            return 165
-        //        } else {
-        //            return 225
-        //        }
     }
     
-    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    //        return CGFloat(65)
-    //    }
-    
-    //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    //
-    //        let recomendationsSectionNumber = 2
-    //
-    //        if section != recomendationsSectionNumber {
-    //            return CGFloat(0)
-    //        } else {
-    //            return CGFloat(100)
-    //        }
-    //    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        switch section {
+        case 0:
+            return 0
+        case 1:
+            return 40
+        default:
+            return 0
+        }
+    }
 }
 
-// Pr
 
 extension HomeMainViewController {
-    
     
     func getFriends(){
         ParseRequest.queryEqualToValue(className: "Follow", key: "from", value: PFUser.current()!) { (success, msg, objects) in
@@ -236,6 +230,17 @@ extension HomeMainViewController {
             return
         }
         profileImage.image = image
+    }
+}
+
+extension HomeMainViewController {
+    
+    func generateHeaderTitle(_ tableView: UITableView, viewForHeaderInSection section: Int) -> HomeCollectionHeader? {
+        
+        let header = tableView.dequeueReusableCell(withIdentifier:HomeCollectionHeader.cellIdentifier) as! HomeCollectionHeader
+        
+        return header
+        
     }
 
 }

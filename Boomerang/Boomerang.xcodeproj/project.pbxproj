@@ -212,12 +212,12 @@
 		CE907A203F74C49B9DB89B40 /* Pods-Boomerang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.debug.xcconfig"; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
-		D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedPostTableViewCell.swift; sourceTree = "<group>"; };
+		D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommendedPostTableViewCell.swift; path = ../Interface/RecommendedPostTableViewCell.swift; sourceTree = "<group>"; };
 		D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
 		D48735001E7885000065E13A /* String+CharacterSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+CharacterSpacing.swift"; sourceTree = "<group>"; };
 		D48735011E7885000065E13A /* UICollectionViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Utils.swift"; sourceTree = "<group>"; };
-		D48735051E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		D48735051E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommendedPostCollectionViewCell.swift; path = ../Interface/RecommendedPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		D48735061E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostCollectionViewCell.xib; sourceTree = "<group>"; };
 		D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionDelegate.swift; sourceTree = "<group>"; };
 		D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
@@ -510,15 +510,9 @@
 		A4E462EB1DCAEA7F00A611C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */,
+				D4A012F21E7A482400B3B811 /* Cells */,
 				A4E462FC1DCAEAF800A611C0 /* Home.storyboard */,
 				A4FE062B1DD0965700BFDC4D /* BoomerThingCell.xib */,
-				A4FE062D1DD0967E00BFDC4D /* HomeCollectionHeader.xib */,
-				A4FE06331DD09C7500BFDC4D /* BoomerThingCollection.xib */,
-				D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */,
-				D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */,
-				D48735051E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift */,
-				D48735061E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -588,7 +582,6 @@
 				D48735001E7885000065E13A /* String+CharacterSpacing.swift */,
 				D48735011E7885000065E13A /* UICollectionViewCell+Utils.swift */,
 				2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */,
-
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -676,6 +669,8 @@
 		A4FE062A1DD0954400BFDC4D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */,
+				D48735051E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift */,
 				A4FE062F1DD09A1100BFDC4D /* BoomerThingCell.swift */,
 				A4FE06311DD09AA200BFDC4D /* HomeCollectionHeader.swift */,
 				A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */,
@@ -703,6 +698,18 @@
 				D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		D4A012F21E7A482400B3B811 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */,
+				A4FE062D1DD0967E00BFDC4D /* HomeCollectionHeader.xib */,
+				A4FE06331DD09C7500BFDC4D /* BoomerThingCollection.xib */,
+				D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */,
+				D48735061E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		D4EEC1C21E6CAE4B00F5C1D6 /* PFObjects */ = {
