@@ -33,14 +33,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="80Q-8i-h3n" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="9JB-oL-sIZ"/>
                             <constraint firstItem="80Q-8i-h3n" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tL1-GA-efK"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="iN0-l3-epB" firstAttribute="width" secondItem="W0u-Xd-c16" secondAttribute="width" id="BdR-tX-Rcm"/>
                     <constraint firstItem="iN0-l3-epB" firstAttribute="centerX" secondItem="W0u-Xd-c16" secondAttribute="centerX" id="C6n-8o-orK"/>
@@ -48,7 +48,7 @@
                     <constraint firstItem="iN0-l3-epB" firstAttribute="height" secondItem="W0u-Xd-c16" secondAttribute="height" id="xjd-MH-TYg"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="titleLabel" destination="80Q-8i-h3n" id="IBq-ov-Jbi"/>
             </connections>

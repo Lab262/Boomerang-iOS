@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pageControlCell" id="gTV-IL-0wX" customClass="PageControlCollectionViewCell" customModule="Boomerang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymx-MA-zzA">
+                        <rect key="frame" x="5" y="22" width="20" height="6"/>
+                        <color key="backgroundColor" red="0.40392156862745099" green="0.16078431372549018" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="6" id="Oxc-lR-ofD"/>
+                            <constraint firstAttribute="width" constant="20" id="gFG-0h-jiR"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="ymx-MA-zzA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="jqc-pr-w2o"/>
+                <constraint firstItem="ymx-MA-zzA" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="vo0-hF-Xhe"/>
+            </constraints>
+            <size key="customSize" width="34" height="47"/>
+            <connections>
+                <outlet property="heightPageConstraint" destination="Oxc-lR-ofD" id="1vm-pG-wsE"/>
+                <outlet property="pageView" destination="ymx-MA-zzA" id="6Mh-qc-Tu0"/>
+                <outlet property="widthPageConstraint" destination="gFG-0h-jiR" id="FXG-pg-kq6"/>
+            </connections>
+            <point key="canvasLocation" x="94" y="118"/>
+        </collectionViewCell>
+    </objects>
+</document>

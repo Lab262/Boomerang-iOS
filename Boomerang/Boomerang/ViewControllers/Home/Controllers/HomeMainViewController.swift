@@ -21,7 +21,7 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
-    let tableViewTopInset: CGFloat = 140.0
+    let tableViewTopInset: CGFloat = 120.0
 
     var following = [User]()
     var posts = [Post]()
@@ -124,7 +124,7 @@ extension HomeMainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 300
+        return 340
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -19,7 +19,7 @@ class HomeTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNib()
-        tableView.contentInset = UIEdgeInsetsMake(-80, 0, 0, 0)
+        tableView.contentInset = UIEdgeInsetsMake(-100, 0, 0, 0)
     }
     
     func registerNib() {

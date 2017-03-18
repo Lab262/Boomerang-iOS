@@ -107,6 +107,8 @@
 		D4A012FE1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012FB1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift */; };
 		D4A012FF1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012FD1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift */; };
 		D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A013031E7B181F00B3B811 /* CGOperations.swift */; };
+		D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */; };
+		D4A013081E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */; };
 		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */; };
@@ -236,6 +238,8 @@
 		D4A012FC1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScaledVisibleCellsCollectionView.h; path = NavigationBar/ScaledVisibleCellsCollectionView.h; sourceTree = "<group>"; };
 		D4A012FD1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScaledVisibleCellsCollectionView.swift; path = NavigationBar/ScaledVisibleCellsCollectionView.swift; sourceTree = "<group>"; };
 		D4A013031E7B181F00B3B811 /* CGOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGOperations.swift; sourceTree = "<group>"; };
+		D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlCollectionViewCell.swift; sourceTree = "<group>"; };
+		D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageControlCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -694,6 +698,8 @@
 				D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */,
 				D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */,
 				D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */,
+				D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */,
+				D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -864,6 +870,7 @@
 				A44E0C6A1DD092650028F06C /* Montserrat-Hairline.otf in Resources */,
 				2F2F079D1E6891A800C61A6D /* ThrowButtonTableViewCell.xib in Resources */,
 				A4E462FF1DCAEB0200A611C0 /* Profile.storyboard in Resources */,
+				D4A013081E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib in Resources */,
 				A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */,
 				A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */,
 				A4E462FB1DCAEAE800A611C0 /* Boomer.storyboard in Resources */,
@@ -1057,6 +1064,7 @@
 				A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */,
 				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
+				D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */,
 				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
 				D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */,
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
