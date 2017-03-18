@@ -94,6 +94,7 @@
                     </button>
                 </subviews>
             </view>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="oXk-FN-EMQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9EI-Au-PX9"/>
                 <constraint firstItem="oXk-FN-EMQ" firstAttribute="top" secondItem="y3L-vJ-N7h" secondAttribute="bottom" id="HxE-6h-utb"/>

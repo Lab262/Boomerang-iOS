@@ -13,6 +13,8 @@ class HomeMainViewController: UIViewController {
 
     internal var homeTableViewController: HomeTableViewController!
     internal var homeBoomerThingsData = [String: [BoomerThing]]()
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     internal var boomerThings = [BoomerThing]()
     
@@ -21,8 +23,9 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
-    let tableViewTopInset: CGFloat = 120.0
+    let tableViewTopInset: CGFloat = 5.0
 
+    @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     var following = [User]()
     var posts = [Post]()
     
@@ -32,17 +35,22 @@ class HomeMainViewController: UIViewController {
         TabBarController.showMenu()
     }
     
-        override func viewWillAppear(_ animated: Bool) {
-            self.setUserInformationsInHUD()
-            self.getFriends()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        self.setUserInformationsInHUD()
+        self.getFriends()
+    }
     
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            self.navigationController?.navigationBar.isHidden = true
-            registerNib()
-            tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
+        
+        self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
+        
+        
+        
+        registerNib()
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+    }
     
     func registerNib() {
         self.tableView.register(UINib(nibName: HomeCollectionHeader.cellIdentifier, bundle: nil), forCellReuseIdentifier: HomeCollectionHeader.cellIdentifier)
@@ -124,7 +132,7 @@ extension HomeMainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 340
+        return 350
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -254,10 +262,53 @@ extension HomeMainViewController {
         
         return cell
     }
+}
+
+extension HomeMainViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView){
+        let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
+    
+        updateNavigationBarAlpha(yOffset)
+        updateInformationsCell(yOffset)
+        
+        //let searchBarConstraintConstant = searchBar.frame.height + scrollView.contentOffset.y
+        
+       // searchBarTopConstraint?.constant = max(0, -searchBarConstraintConstant)
+        
+    }
+    
+    func scrollTableViewToTop() {
+        tableView.setContentOffset(CGPoint(x: 0, y: -44), animated: true)
+    }
     
     
-
-
+    func updateNavigationBarAlpha(_ yOffset: CGFloat) {
+        let navbarAlphaThreshold: CGFloat = 64.0
+        
+        if yOffset > (tableViewTopInset - navbarAlphaThreshold) {
+            
+            let alpha = (yOffset - tableViewTopInset + navbarAlphaThreshold)/navbarAlphaThreshold
+            
+            navigationBarView.backgroundColor = navigationBarView.backgroundColor?.withAlphaComponent(alpha)
+        } else {
+            navigationBarView.backgroundColor = navigationBarView.backgroundColor?.withAlphaComponent(0.0)
+        }
+    }
+    
+    func updateInformationsCell(_ yOffset: CGFloat) {
+        
+        let informationAlphaThreshold: CGFloat = 20.0
+        
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+    
+        if yOffset > 0 {
+            let alpha = (yOffset)/informationAlphaThreshold
+            cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(alpha)
+        } else {
+            cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(0.0)
+        }
+    }
 }
 
 //extension HomeTableViewController: CollectionViewSelectionDelegate {
