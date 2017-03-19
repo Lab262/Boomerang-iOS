@@ -45,8 +45,7 @@ class HomeMainViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
-        
-        
+        //self.searchBar.opacity
         
         registerNib()
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
