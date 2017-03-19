@@ -9,6 +9,11 @@
 import UIKit
 import Parse
 
+protocol HomeMainDelegate {
+    func showMessageError(msg: String)
+    func updatePosts(boomerThings: [BoomerThing])
+}
+
 class HomeMainViewController: UIViewController {
 
     internal var homeTableViewController: HomeTableViewController!
@@ -24,6 +29,7 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     let tableViewTopInset: CGFloat = 5.0
+    var presenter = HomePresenter()
 
     @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     var following = [User]()
@@ -37,15 +43,19 @@ class HomeMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.setUserInformationsInHUD()
-        self.getFriends()
+        presenter.getFriends { (success, msg, users) in
+            
+        }
+        //self.getFriends()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.setControllerDelegate(controller: self)
         self.navigationController?.navigationBar.isHidden = true
         
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
-        //self.searchBar.opacity
+        
         
         registerNib()
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -307,6 +317,18 @@ extension HomeMainViewController: UIScrollViewDelegate {
         } else {
             cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(0.0)
         }
+    }
+}
+
+extension HomeMainViewController: HomeMainDelegate {
+    
+    func showMessageError(msg: String) {
+        present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
+    }
+    
+    func updatePosts(boomerThings: [BoomerThing]) {
+        self.boomerThings = boomerThings
+        tableView.reloadData()
     }
 }
 

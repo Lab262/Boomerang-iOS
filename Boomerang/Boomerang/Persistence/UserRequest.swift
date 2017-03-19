@@ -49,4 +49,21 @@ class UserRequest: NSObject {
             }
         }
     }
+    
+    static func fetchFollowing(completionHandler: @escaping (_ success: Bool, _ msg: String, [User]?) -> Void) {
+        
+        var following: [User] = [User]()
+        
+        ParseRequest.queryEqualToValueWithInclude(className: "Follow", key: "from", include: "to", value: PFUser.current()!) { (success, msg, objects) in
+            
+            if success {
+                for object in objects! {
+                    following.append(User(user: object as! PFUser))
+                }
+                completionHandler(true, "Success", following)
+            } else {
+                completionHandler(false, msg.debugDescription, nil)
+            }
+        }
+    }
 }

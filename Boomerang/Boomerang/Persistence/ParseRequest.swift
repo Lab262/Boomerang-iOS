@@ -15,7 +15,21 @@ class ParseRequest: NSObject {
     
         let query = PFQuery(className: className)
         query.whereKey(key, equalTo: value)
+        query.findObjectsInBackground { (objects, error) in
+            
+            if error == nil {
+                completionHandler(true, "Success", objects)
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        }
+    }
+    
+    static func queryEqualToValueWithInclude(className: String, key: String, include: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
+        let query = PFQuery(className: className)
+        query.whereKey(key, equalTo: value)
+        query.includeKey(include)
         query.findObjectsInBackground { (objects, error) in
             
             if error == nil {

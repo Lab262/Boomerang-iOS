@@ -10,90 +10,101 @@ import Foundation
 import UIKit
 import Parse
 
-struct HomePresenter {
+class HomePresenter: NSObject {
     
-    func getFriends(){
-        ParseRequest.queryEqualToValue(className: "Follow", key: "from", value: PFUser.current()!) { (success, msg, objects) in
+    var following: [User] = [User]()
+    var posts: [Post] = [Post]()
+    var boomerThings: [BoomerThing] = [BoomerThing]()
+    var controller: HomeMainDelegate?
+    
+    func setControllerDelegate(controller: HomeMainViewController) {
+        self.controller = controller
+    }
+    
+    func updatePostsFriends(){
+        
+    }
+    
+    func getFriends(completionHandler: @escaping (_ success: Bool, _ msg: String, _ following: [User]?) -> Void) {
+        UserRequest.fetchFollowing(completionHandler: { (success, msg, following) in
             if success {
-                for object in objects! {
-                    object.fetchObjectInBackgroundBy(key: "to", completionHandler: { (success, msg, object) in
-                        
-                        if success {
-                            let user = User(user: object as! PFUser)
-                            self.following.append(user)
-                            self.getPostsOfFriends()
-                        } else {
-                            print ("ERROR IN FETCH FRIEND")
-                        }
-                    })
-                }
+                self.following = following!
+                completionHandler(true, "Success", self.following)
+            } else {
+                completionHandler(false, msg.debugDescription, nil)
+            }
+        })
+    }
+    
+    func getPostsByFriends(completionHandler: @escaping (_ success: Bool, _ msg: String, _ posts: [Post]?) -> Void) {
+        
+        PostRequest.fetchPostByFollowing(following: filterFollowing()) { (success, msg, posts) in
+            if success {
+                self.posts = posts!
+                completionHandler(true, "Success", self.posts)
+            } else {
+                completionHandler(false, "Success", nil)
             }
         }
     }
     
-    func getPostsOfFriends(){
-        
-        let filteredFollowing = (self.following.filter { follow in
+    func getBoomerThings() {
+        for post in filterPosts(){
+            boomerThings.append(BoomerThing(post: post, thingType: .have))
+        }
+        controller?.updatePosts(boomerThings: boomerThings)
+    }
+    
+    func filterFollowing() -> [User] {
+        let filteredFollowing = (following.filter { follow in
             return follow.alreadySearched == false
         })
         
         following.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
-        
-        ParseRequest.queryContainedIn(className: "Post", key: "author", value: filteredFollowing) { (success, msg, objects) in
-            
-            if success {
-                for obj in objects! {
-                    let post = Post(object: obj)
-                    self.setAuthorInFriendPost(post: post)
-                    self.posts.append(post)
-                    self.createBoomerThing()
-                    //self.getRelationDatas()
-                }
-            }
-            
-            
-        }
+        return filteredFollowing
     }
     
-    func createBoomerThing(){
+    func filterPosts() -> [Post] {
         let filteredPosts = (self.posts.filter { post in
             return post.alreadySearched == false
         })
         
         posts.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
-        
-        for post in filteredPosts {
-            self.boomerThings.append(BoomerThing(post: post, thingType: .have))
-        }
-        
-        // self.homeTableViewController.loadHomeData(homeBoomerThingsData: ["Meus Amigos" : self.boomerThings])
+        return filteredPosts
     }
     
-    func setAuthorInFriendPost(post: Post){
-        for follower in following {
-            if follower.objectId == post.author?.objectId {
-                post.author = follower
-                return
-            }
-        }
-    }
-    
-    
-    func setUserInformationsInHUD(){
-        greetingText.text = "Olar, \(user!.firstName!)"
-        
-        guard let image = user?.profileImage else {
-            self.profileImage.loadAnimation()
-            
-            user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
-                self.user?.profileImage = UIImage(data: data!)
-                self.profileImage.image = UIImage(data: data!)
-                self.profileImage.unload()
-                
-            })
-            
-            return
-        }
-        profileImage.image = image
-    }
+//
+//    func createBoomerThing(){
+//        let filteredPosts = (self.posts.filter { post in
+//            return post.alreadySearched == false
+//        })
+//        
+//        posts.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
+//        
+//        for post in filteredPosts {
+//            self.boomerThings.append(BoomerThing(post: post, thingType: .have))
+//        }
+//        
+//        // self.homeTableViewController.loadHomeData(homeBoomerThingsData: ["Meus Amigos" : self.boomerThings])
+//    }
+//
+//    
+//    
+//    func setUserInformationsInHUD(){
+//        greetingText.text = "Olar, \(user!.firstName!)"
+//        
+//        guard let image = user?.profileImage else {
+//            self.profileImage.loadAnimation()
+//            
+//            user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+//                self.user?.profileImage = UIImage(data: data!)
+//                self.profileImage.image = UIImage(data: data!)
+//                self.profileImage.unload()
+//                
+//            })
+//            
+//            return
+//        }
+//        profileImage.image = image
+//    }
 }
