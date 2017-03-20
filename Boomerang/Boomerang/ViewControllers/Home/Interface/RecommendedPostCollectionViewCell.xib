@@ -99,7 +99,7 @@ máximo de caracteres help in a numb</string>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7MN-AN-0MI">
-                                <rect key="frame" x="219" y="251" width="29" height="14"/>
+                                <rect key="frame" x="218.5" y="251" width="29" height="14"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="sharing-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Y4-Q2-fWk">
                                         <rect key="frame" x="0.0" y="0.0" width="16" height="14"/>

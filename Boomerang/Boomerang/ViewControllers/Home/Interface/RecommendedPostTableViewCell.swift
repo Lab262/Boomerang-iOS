@@ -62,6 +62,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        loadPlaceholderImage(#imageLiteral(resourceName: "placeholder_image"), CGRect(x: self.frame.origin.x+10, y: frame.origin.y, width: 345, height: 288))
         registerNib()
         
     }
@@ -77,6 +78,8 @@ class RecommendedPostTableViewCell: UITableViewCell {
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
         
         cell.thingData = boomerThings[indexPath.row]
+        
+        unloadPlaceholderImage()
         
         return cell
     }

@@ -48,7 +48,6 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     func setupCell() {
         descriptionPostLabel.text = thingData.post?.content
         userNameLabel.text = thingData.post!.author!.firstName! + " " + thingData.post!.author!.lastName!
-        
         self.getUserPhotoImage()
         self.getRelationPhotosByThing()
     }

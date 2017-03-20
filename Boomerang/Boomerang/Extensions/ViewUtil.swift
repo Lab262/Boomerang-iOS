@@ -72,6 +72,22 @@ extension UIView {
     
     //func add
     
+    func loadPlaceholderImage(_ placeHolderImage: UIImage, _ frame: CGRect){
+        
+        let imageView = UIImageView(image: placeHolderImage)
+        imageView.tag = 2
+        imageView.frame = frame
+        
+        self.addSubview(imageView)
+    }
+    
+    func unloadPlaceholderImage(){
+        
+        if let imageView = viewWithTag(2) {
+            imageView.removeFromSuperview()
+        }
+    }
+    
     func loadAnimation(_ duration: TimeInterval = 0.2) {
         
         if let _ = viewWithTag(10) {
