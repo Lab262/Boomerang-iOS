@@ -179,9 +179,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPH-Vm-UjT">
-                                <rect key="frame" x="-1" y="0.0" width="375" height="244"/>
+                                <rect key="frame" x="-1" y="0.0" width="375" height="192"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_post" translatesAutoresizingMaskIntoConstraints="NO" id="YPU-14-68s">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YPU-14-68s">
                                         <rect key="frame" x="0.0" y="-1" width="376" height="193"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ye-2U-s8l">
@@ -195,28 +195,29 @@
                                         <rect key="frame" x="182" y="205" width="22" height="20"/>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAZ-tQ-xVy">
-                                        <rect key="frame" x="148" y="159" width="81" height="66"/>
+                                        <rect key="frame" x="148" y="156" width="80" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="66" id="RfC-Ce-4i0"/>
-                                            <constraint firstAttribute="width" constant="81" id="f1G-cZ-qUe"/>
+                                            <constraint firstAttribute="height" constant="80" id="RfC-Ce-4i0"/>
+                                            <constraint firstAttribute="width" constant="80" id="f1G-cZ-qUe"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="ic_logoPost"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="2Q1-Lh-oy2" firstAttribute="top" secondItem="YPU-14-68s" secondAttribute="bottom" constant="13" id="74y-u2-hK0"/>
                                     <constraint firstItem="YPU-14-68s" firstAttribute="leading" secondItem="iPH-Vm-UjT" secondAttribute="leading" id="7KE-2N-O04"/>
                                     <constraint firstItem="YPU-14-68s" firstAttribute="top" secondItem="iPH-Vm-UjT" secondAttribute="top" constant="-1" id="7Y1-do-fBo"/>
                                     <constraint firstAttribute="trailing" secondItem="YPU-14-68s" secondAttribute="trailing" constant="-1" id="84Y-sL-Zdu"/>
                                     <constraint firstItem="HAZ-tQ-xVy" firstAttribute="centerX" secondItem="iPH-Vm-UjT" secondAttribute="centerX" constant="1" id="BIN-f9-NkK"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Q1-Lh-oy2" secondAttribute="bottom" constant="19" id="C4y-3B-PMj"/>
-                                    <constraint firstItem="HAZ-tQ-xVy" firstAttribute="bottom" secondItem="2Q1-Lh-oy2" secondAttribute="bottom" id="MFp-0T-ws1"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Q1-Lh-oy2" secondAttribute="bottom" constant="-33" id="C4y-3B-PMj"/>
+                                    <constraint firstItem="HAZ-tQ-xVy" firstAttribute="bottom" secondItem="2Q1-Lh-oy2" secondAttribute="bottom" constant="11" id="MFp-0T-ws1"/>
                                     <constraint firstItem="YPU-14-68s" firstAttribute="top" secondItem="6ye-2U-s8l" secondAttribute="bottom" constant="-58" id="PjL-xf-O8X"/>
                                     <constraint firstItem="2Q1-Lh-oy2" firstAttribute="centerX" secondItem="iPH-Vm-UjT" secondAttribute="centerX" constant="5" id="U8z-PQ-IiS"/>
                                     <constraint firstItem="YPU-14-68s" firstAttribute="leading" secondItem="6ye-2U-s8l" secondAttribute="trailing" constant="-29" id="WTk-iH-U1T"/>
+                                    <constraint firstAttribute="bottom" secondItem="YPU-14-68s" secondAttribute="bottom" id="lp3-nQ-l6b"/>
                                     <constraint firstItem="2Q1-Lh-oy2" firstAttribute="leading" secondItem="iPH-Vm-UjT" secondAttribute="leading" constant="182" id="t2A-ha-zJQ"/>
-                                    <constraint firstAttribute="height" constant="244" id="x4c-KA-9Te"/>
+                                    <constraint firstAttribute="height" constant="192" id="x4c-KA-9Te"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="ic_button_back"/>
@@ -245,7 +246,7 @@
                             <constraint firstItem="iPH-Vm-UjT" firstAttribute="centerX" secondItem="LFm-Ae-IOZ" secondAttribute="centerX" constant="-1" id="keu-8f-lqI"/>
                             <constraint firstItem="DzK-R5-V37" firstAttribute="centerX" secondItem="LFm-Ae-IOZ" secondAttribute="centerX" id="mDG-Fw-0Oa"/>
                             <constraint firstItem="iPH-Vm-UjT" firstAttribute="top" secondItem="pX8-ur-vWx" secondAttribute="bottom" constant="-20" id="rGB-M4-EAe"/>
-                            <constraint firstItem="DzK-R5-V37" firstAttribute="top" secondItem="iPH-Vm-UjT" secondAttribute="bottom" constant="-2" id="uj4-9V-fTe"/>
+                            <constraint firstItem="DzK-R5-V37" firstAttribute="top" secondItem="iPH-Vm-UjT" secondAttribute="bottom" constant="50" id="uj4-9V-fTe"/>
                             <constraint firstItem="iPH-Vm-UjT" firstAttribute="width" secondItem="LFm-Ae-IOZ" secondAttribute="width" id="zHH-y5-g7p"/>
                         </constraints>
                     </view>
@@ -261,7 +262,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg_post" width="375" height="193"/>
         <image name="ic_button_back" width="13" height="21"/>
         <image name="ic_button_back_white" width="13" height="21"/>
         <image name="ic_donate" width="45" height="44"/>
