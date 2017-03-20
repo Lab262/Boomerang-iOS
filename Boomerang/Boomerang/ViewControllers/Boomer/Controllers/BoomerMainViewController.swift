@@ -21,7 +21,7 @@ class BoomerMainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.getProfilePhoto()
+        //self.getProfilePhoto()
     }
     
     func getProfilePhoto(){

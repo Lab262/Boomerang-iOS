@@ -13,7 +13,7 @@ class ThrowViewController: UIViewController {
 
     @IBOutlet weak var bgPostImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-     let placeholder = ["Nome do Produto","Valor do Emprestimo","Periodo de disponibilidade","Quantidade disponível"]
+     let placeholder = ["Nome do Produto","Local Retirarda","placeholder","placeholder"]
     var fields:[String] = []
     var nameThing = String ()
     var descriptionThing = String ()
@@ -187,7 +187,7 @@ extension ThrowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 7
+        return 4
     }
     
     
@@ -197,15 +197,11 @@ extension ThrowViewController: UITableViewDataSource {
             case  0:
                 return generateNameProducTextCell(tableView, indexPath:indexPath)
             case 1:
-                return generateSimpleTextCell(tableView, indexPath:indexPath)
+                return generateDescriptionCell(tableView, indexPath: indexPath)
             case 2:
                 return generateSimpleTextCell(tableView, indexPath:indexPath)
             case 3:
                 return generateSimpleTextCell(tableView, indexPath:indexPath)
-            case 4:
-                return generateDescriptionCell(tableView, indexPath: indexPath)
-            case 5:
-                return generateThrowButtonCell(tableView, indexPath: indexPath)
             default:
                 return UITableViewCell()
         }
@@ -219,7 +215,7 @@ extension ThrowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 4 {
+        if indexPath.row == 1 {
             return CGFloat(180)
         }else {
             return CGFloat(100)
