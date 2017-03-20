@@ -58,7 +58,7 @@ class UserRequest: NSObject {
             
             if success {
                 for object in objects! {
-                    following.append(User(user: object as! PFUser))
+                    following.append(User(user: object.object(forKey: "to") as! PFUser))
                 }
                 completionHandler(true, "Success", following)
             } else {

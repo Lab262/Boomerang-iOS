@@ -20,9 +20,7 @@ class HomeMainViewController: UIViewController {
     internal var homeBoomerThingsData = [String: [BoomerThing]]()
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
     internal var boomerThings = [BoomerThing]()
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var greetingText: UILabel!
     @IBOutlet weak var navigationBarView: UIView!
@@ -32,26 +30,21 @@ class HomeMainViewController: UIViewController {
     var presenter = HomePresenter()
 
     @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
-    var following = [User]()
-    var posts = [Post]()
-    
-    var user = ApplicationState.sharedInstance.currentUser
     
     @IBAction func showMenu(_ sender: Any) {
         TabBarController.showMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.setUserInformationsInHUD()
-        presenter.getFriends { (success, msg, users) in
-            
-        }
-        //self.getFriends()
+        super.viewWillAppear(animated)
+        presenter.setControllerDelegate(controller: self)
+        setUserInformationsInHUD()
+        presenter.updatePostsFriends()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.setControllerDelegate(controller: self)
+        
         self.navigationController?.navigationBar.isHidden = true
         
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
@@ -85,7 +78,7 @@ extension HomeMainViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 3
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -162,89 +155,18 @@ extension HomeMainViewController: UITableViewDelegate {
 
 extension HomeMainViewController {
     
-    func getFriends(){
-        ParseRequest.queryEqualToValue(className: "Follow", key: "from", value: PFUser.current()!) { (success, msg, objects) in
-            if success {
-                for object in objects! {
-                    object.fetchObjectInBackgroundBy(key: "to", completionHandler: { (success, msg, object) in
-                        
-                        if success {
-                            let user = User(user: object as! PFUser)
-                            self.following.append(user)
-                            self.getPostsOfFriends()
-                        } else {
-                            print ("ERROR IN FETCH FRIEND")
-                        }
-                    })
-                }
-            }
-        }
-    }
-    
-    func getPostsOfFriends(){
-        
-        let filteredFollowing = (self.following.filter { follow in
-            return follow.alreadySearched == false
-        })
-        
-        following.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
-        
-        ParseRequest.queryContainedIn(className: "Post", key: "author", value: filteredFollowing) { (success, msg, objects) in
-            
-            if success {
-                for obj in objects! {
-                    let post = Post(object: obj)
-                    self.setAuthorInFriendPost(post: post)
-                    self.posts.append(post)
-                    self.createBoomerThing()
-                    //self.getRelationDatas()
-                }
-            }
-            
-            
-        }
-    }
-    
-    func createBoomerThing(){
-        let filteredPosts = (self.posts.filter { post in
-            return post.alreadySearched == false
-        })
-        
-        posts.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
-        
-        for post in filteredPosts {
-            self.boomerThings.append(BoomerThing(post: post, thingType: .have))
-        }
-        
-       // self.homeTableViewController.loadHomeData(homeBoomerThingsData: ["Meus Amigos" : self.boomerThings])
-    }
-    
-    func setAuthorInFriendPost(post: Post){
-        for follower in following {
-            if follower.objectId == post.author?.objectId {
-                post.author = follower
-                return
-            }
-        }
-    }
-    
-    
     func setUserInformationsInHUD(){
-        greetingText.text = "Olar, \(user!.firstName!)"
-        
-        guard let image = user?.profileImage else {
-            self.profileImage.loadAnimation()
-            
-            user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
-                self.user?.profileImage = UIImage(data: data!)
-                self.profileImage.image = UIImage(data: data!)
+        greetingText.text = "Olar, \(presenter.getUser().firstName!)"
+        self.profileImage.loadAnimation()
+        presenter.getUserImage { (success, msg, image) in
+            if success {
                 self.profileImage.unload()
-                
-            })
-            
-            return
+               self.profileImage.image = image
+            } else {
+                self.profileImage.unload()
+                self.showMessageError(msg: msg)
+            }
         }
-        profileImage.image = image
     }
 }
 
@@ -260,7 +182,9 @@ extension HomeMainViewController {
     
     func generateRecommendedCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath) as! RecommendedPostTableViewCell
+        
+        cell.boomerThings = boomerThings
         
         return cell
     }
@@ -328,6 +252,7 @@ extension HomeMainViewController: HomeMainDelegate {
     
     func updatePosts(boomerThings: [BoomerThing]) {
         self.boomerThings = boomerThings
+        
         tableView.reloadData()
     }
 }

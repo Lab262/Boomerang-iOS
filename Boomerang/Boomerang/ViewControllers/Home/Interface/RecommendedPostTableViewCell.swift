@@ -13,8 +13,15 @@ class RecommendedPostTableViewCell: UITableViewCell {
     @IBOutlet weak var postCollectionView: UICollectionView!
     @IBOutlet weak var indexCollectionView: UICollectionView!
     
+    let spaceCells: CGFloat = 2
+    let sizeCells: Int = 8
     
-    var arrayCells = [1, 1, 1]
+    
+    var boomerThings: [BoomerThing] = [BoomerThing]() {
+        didSet{
+            updateCell()
+        }
+    }
     
     static var identifier: String {
         return "recommendedCell"
@@ -28,28 +35,28 @@ class RecommendedPostTableViewCell: UITableViewCell {
         return "RecommendedPostTableViewCell"
     }
     
+    func updateCell(){
+        setInsetsInCollectionView()
+        postCollectionView.reloadData()
+        indexCollectionView.reloadData()
+    }
+    
+    func setInsetsInCollectionView(){
+        let totalWidth: CGFloat = CGFloat((self.boomerThings.count * sizeCells))
+        let totalSpacing = CGFloat(self.boomerThings.count-1) * spaceCells
+        let caculationFinal: CGFloat = (totalWidth + totalSpacing)/2
+    
+        (indexCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset = UIEdgeInsets(top: 0, left: self.bounds.width/2 - caculationFinal, bottom: 0, right: 0)
+    }
+    
     func registerNib(){
         postCollectionView.registerNibFrom(RecommendedPostCollectionViewCell.self)
         indexCollectionView.registerNibFrom(PageControlCollectionViewCell.self)
     }
     
-    let spaceCells: CGFloat = 2
-    let sizeCells: Int = 8
-    
-    
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        let totalWidth: CGFloat = CGFloat((self.arrayCells.count * sizeCells))
-        
-        let totalSpacing = CGFloat(self.arrayCells.count-1) * spaceCells
-        
-        let caculationFinal: CGFloat = (totalWidth + totalSpacing)/2
-        
         registerNib()
-        
-        (indexCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset = UIEdgeInsets(top: 0, left: self.bounds.width/2 - caculationFinal, bottom: 0, right: 0)
         
     }
 
@@ -62,6 +69,8 @@ class RecommendedPostTableViewCell: UITableViewCell {
     func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
+        
+        cell.thingData = boomerThings[indexPath.row]
         
         return cell
     }
@@ -83,7 +92,7 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.arrayCells.count
+        return self.boomerThings.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

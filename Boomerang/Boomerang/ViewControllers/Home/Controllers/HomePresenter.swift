@@ -12,41 +12,82 @@ import Parse
 
 class HomePresenter: NSObject {
     
-    var following: [User] = [User]()
-    var posts: [Post] = [Post]()
-    var boomerThings: [BoomerThing] = [BoomerThing]()
-    var controller: HomeMainDelegate?
+    fileprivate var following: [User] = [User]()
+    fileprivate var posts: [Post] = [Post]()
+    fileprivate var boomerThings: [BoomerThing] = [BoomerThing]()
+    fileprivate var controller: HomeMainDelegate?
+    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
     
     func setControllerDelegate(controller: HomeMainViewController) {
         self.controller = controller
     }
     
     func updatePostsFriends(){
-        
+        getFriends()
     }
     
-    func getFriends(completionHandler: @escaping (_ success: Bool, _ msg: String, _ following: [User]?) -> Void) {
+    func getFriends() {
         UserRequest.fetchFollowing(completionHandler: { (success, msg, following) in
             if success {
                 self.following = following!
-                completionHandler(true, "Success", self.following)
+                self.getPostsByFriends()
             } else {
-                completionHandler(false, msg.debugDescription, nil)
+                self.controller?.showMessageError(msg: msg)
             }
         })
     }
     
-    func getPostsByFriends(completionHandler: @escaping (_ success: Bool, _ msg: String, _ posts: [Post]?) -> Void) {
-        
+    func getPostsByFriends() {
         PostRequest.fetchPostByFollowing(following: filterFollowing()) { (success, msg, posts) in
             if success {
                 self.posts = posts!
-                completionHandler(true, "Success", self.posts)
+                self.getBoomerThings()
+                //completionHandler(true, "Success", self.posts)
             } else {
-                completionHandler(false, "Success", nil)
+                self.controller?.showMessageError(msg: msg)
             }
         }
     }
+    
+    func getUser() -> User{
+        return user
+    }
+    
+    func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
+        
+        guard let image = user.profileImage else {
+            user.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+                
+                if success {
+                    completionHandler(true, "Success", UIImage(data: data!)!)
+                } else {
+                    completionHandler(false, msg, nil)
+                }
+            })
+            return
+        }
+        completionHandler(true, "Success", image)
+    }
+    
+    
+    //    func setUserInformationsInHUD(){
+    //        greetingText.text = "Olar, \(user!.firstName!)"
+    //
+    //        guard let image = user?.profileImage else {
+    //            self.profileImage.loadAnimation()
+    //
+    //            user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+    //                self.user?.profileImage = UIImage(data: data!)
+    //                self.profileImage.image = UIImage(data: data!)
+    //                self.profileImage.unload()
+    //
+    //            })
+    //
+    //            return
+    //        }
+    //        profileImage.image = image
+    //    }
+
     
     func getBoomerThings() {
         for post in filterPosts(){
