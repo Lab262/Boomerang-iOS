@@ -185,6 +185,7 @@ extension HomeMainViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath) as! RecommendedPostTableViewCell
         
         cell.boomerThings = boomerThings
+        cell.delegate = self
         
         return cell
     }
@@ -201,14 +202,8 @@ extension HomeMainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView){
         let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
-    
         updateNavigationBarAlpha(yOffset)
         updateInformationsCell(yOffset)
-        
-        //let searchBarConstraintConstant = searchBar.frame.height + scrollView.contentOffset.y
-        
-       // searchBarTopConstraint?.constant = max(0, -searchBarConstraintConstant)
-        
     }
     
     func scrollTableViewToTop() {
@@ -252,8 +247,14 @@ extension HomeMainViewController: HomeMainDelegate {
     
     func updatePosts(boomerThings: [BoomerThing]) {
         self.boomerThings = boomerThings
-        
+        print ("UPDATE POST")
         tableView.reloadData()
+    }
+}
+
+extension HomeMainViewController: UpdateCellDelegate{
+    func updateCell(lastRowIndex: Int) {
+        presenter.updatePostsFriends(currentIndex: lastRowIndex)
     }
 }
 

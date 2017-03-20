@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol UpdateCellDelegate {
+    func updateCell(lastRowIndex: Int)
+}
+
 class RecommendedPostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postCollectionView: UICollectionView!
@@ -15,6 +19,8 @@ class RecommendedPostTableViewCell: UITableViewCell {
     
     let spaceCells: CGFloat = 2
     let sizeCells: Int = 8
+    
+    var delegate: UpdateCellDelegate?
     
     
     var boomerThings: [BoomerThing] = [BoomerThing]() {
@@ -146,101 +152,24 @@ extension RecommendedPostTableViewCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//extension ProductCatalogTableViewCell: UICollectionViewDataSource {
-//    
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 1
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return photos.count
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        
-//        let cell: UICollectionViewCell
-//        
-//        switch collectionView {
-//        case imagesCollectionView: cell = generateImageCell(collectionView, cellForItemAt: indexPath)
-//        case indexCollectionView: cell = generateIndexCell(collectionView, cellForItemAt: indexPath)
-//        default: cell = UICollectionViewCell()
-//        }
-//        
-//        return cell
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if collectionView == indexCollectionView {
-//            if indexPath.item == selectedPage {
-//                let cell = cell as! PageIndexCollectionViewCell
-//                cell.changeToSelectedStyle()
-//            }
-//        }
-//    }
-//}
-//
-//extension ProductCatalogTableViewCell: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if collectionView == indexCollectionView {
-//            (collectionView.cellForItem(at: indexPath) as! PageIndexCollectionViewCell).changeToSelectedStyle()
-//            selectedPage = indexPath.item
-//            isChangingPages = true
-//        }
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        if collectionView == indexCollectionView {
-//            if let cell = collectionView.cellForItem(at: indexPath) as? PageIndexCollectionViewCell {
-//                cell.changeToUnselectedStyle()
-//            }
-//        }
-//    }
-//    
-//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//        updatePageIndex()
-//        isChangingPages = false
-//    }
-//    
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        if imagesCollectionView.indexPathsForSelectedItems == nil {
-//            updatePageIndex()
-//        } else if imagesCollectionView.indexPathsForSelectedItems!.isEmpty {
-//            updatePageIndex()
-//        }
-//    }
-//    
-//    func updatePageIndex() {
-//        
-//        if let indexPath = (imagesCollectionView.collectionViewLayout as! CenterCellCollectionViewFlowLayout).currentIndexPath {
-//            
-//            let currentPage = indexPath.item
-//            if currentPage != selectedPage {
-//                selectedPage = currentPage
-//            }
-//        }
-//        
-//    }
-//    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if !isChangingPages {
-//            updatePageIndex()
-//        }
-//    }
-//}
-//
-//extension ProductCatalogTableViewCell: UICollectionViewDelegateFlowLayout {
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        
-//        let size: CGSize
-//        
-//        switch collectionView {
-//        case imagesCollectionView: size = sizeForImageCell
-//        case indexCollectionView: size = sizeForIndexCell
-//        default: size = CGSize()
-//        }
-//        
-//        return size
-//    }
-//}
+extension RecommendedPostTableViewCell: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        var visibleRect = CGRect()
+        
+        visibleRect.origin = postCollectionView.contentOffset
+        visibleRect.size = postCollectionView.bounds.size
+        
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        
+        let visibleIndexPath: IndexPath = postCollectionView.indexPathForItem(at: visiblePoint)!
+        
+        print(visibleIndexPath)
+        
+        if visibleIndexPath.row >= self.boomerThings.endIndex-1 {
+            delegate?.updateCell(lastRowIndex: boomerThings.endIndex)
+        }
+    }
+}
 

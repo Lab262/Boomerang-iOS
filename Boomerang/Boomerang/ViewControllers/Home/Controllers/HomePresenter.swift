@@ -12,37 +12,63 @@ import Parse
 
 class HomePresenter: NSObject {
     
+    
+    fileprivate let pagination = 3
+    fileprivate var skip = 0
+    fileprivate var currentIndex = 0
+
     fileprivate var following: [User] = [User]()
     fileprivate var posts: [Post] = [Post]()
     fileprivate var boomerThings: [BoomerThing] = [BoomerThing]()
     fileprivate var controller: HomeMainDelegate?
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate var postsCount = 0
     
     func setControllerDelegate(controller: HomeMainViewController) {
         self.controller = controller
     }
     
-    func updatePostsFriends(){
-        getFriends()
+    func updatePostsFriends(currentIndex: Int? = 0){
+        self.currentIndex = currentIndex!
+        
+        if following.count < 1 {
+            getFriends()
+        } else {
+            getPostsByFriends()
+        }
+
     }
     
     func getFriends() {
         UserRequest.fetchFollowing(completionHandler: { (success, msg, following) in
             if success {
                 self.following = following!
-                self.getPostsByFriends()
+                
+                self.getCountPostsByFriends()
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
         })
     }
     
+    func getCountPostsByFriends(){
+        PostRequest.getFollowingPostsCount(following: following) { (success, msg, count) in
+            
+            if success {
+                self.postsCount = count!
+                self.getPostsByFriends()
+            } else {
+                self.controller?.showMessageError(msg: msg)
+            }
+        }
+    }
+    
     func getPostsByFriends() {
-        PostRequest.fetchPostByFollowing(following: filterFollowing()) { (success, msg, posts) in
+        
+        PostRequest.fetchPostByFollowing(following: following, pagination: pagination, skip: currentIndex) { (success, msg, posts) in
             if success {
                 self.posts = posts!
                 self.getBoomerThings()
-                //completionHandler(true, "Success", self.posts)
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
@@ -69,26 +95,6 @@ class HomePresenter: NSObject {
         completionHandler(true, "Success", image)
     }
     
-    
-    //    func setUserInformationsInHUD(){
-    //        greetingText.text = "Olar, \(user!.firstName!)"
-    //
-    //        guard let image = user?.profileImage else {
-    //            self.profileImage.loadAnimation()
-    //
-    //            user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
-    //                self.user?.profileImage = UIImage(data: data!)
-    //                self.profileImage.image = UIImage(data: data!)
-    //                self.profileImage.unload()
-    //
-    //            })
-    //
-    //            return
-    //        }
-    //        profileImage.image = image
-    //    }
-
-    
     func getBoomerThings() {
         for post in filterPosts(){
             boomerThings.append(BoomerThing(post: post, thingType: .have))
@@ -113,39 +119,4 @@ class HomePresenter: NSObject {
         posts.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
         return filteredPosts
     }
-    
-//
-//    func createBoomerThing(){
-//        let filteredPosts = (self.posts.filter { post in
-//            return post.alreadySearched == false
-//        })
-//        
-//        posts.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
-//        
-//        for post in filteredPosts {
-//            self.boomerThings.append(BoomerThing(post: post, thingType: .have))
-//        }
-//        
-//        // self.homeTableViewController.loadHomeData(homeBoomerThingsData: ["Meus Amigos" : self.boomerThings])
-//    }
-//
-//    
-//    
-//    func setUserInformationsInHUD(){
-//        greetingText.text = "Olar, \(user!.firstName!)"
-//        
-//        guard let image = user?.profileImage else {
-//            self.profileImage.loadAnimation()
-//            
-//            user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
-//                self.user?.profileImage = UIImage(data: data!)
-//                self.profileImage.image = UIImage(data: data!)
-//                self.profileImage.unload()
-//                
-//            })
-//            
-//            return
-//        }
-//        profileImage.image = image
-//    }
 }

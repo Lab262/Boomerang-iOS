@@ -11,6 +11,34 @@ import Parse
 
 class ParseRequest: NSObject {
     
+    static func queryCountEqualToValue(className: String, key: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void) {
+        
+        let query = PFQuery(className: className)
+        query.whereKey(key, equalTo: value)
+        
+        query.countObjectsInBackground { (count, error) in
+            if error == nil {
+                completionHandler(true, "Success", Int(count))
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        }
+    }
+    
+    static func queryCountContainedIn(className: String, key: String, value: [Any], completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void) {
+        
+        let query = PFQuery(className: className)
+        query.whereKey(key, containedIn: value)
+        
+        query.countObjectsInBackground { (count, error) in
+            if error == nil {
+                completionHandler(true, "Success", Int(count))
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        }
+    }
+    
     static func queryEqualToValue(className: String, key: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
     
         let query = PFQuery(className: className)
@@ -41,10 +69,12 @@ class ParseRequest: NSObject {
     }
     
     
-    static func queryContainedIn(className: String, key: String, value: [Any], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    static func queryContainedIn(className: String, key: String, value: [Any], pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let query = PFQuery(className: className)
         query.whereKey(key, containedIn: value)
+        query.limit = pagination!
+        query.skip = skip!
         
         query.findObjectsInBackground { (objects, error) in
             

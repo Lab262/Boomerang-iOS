@@ -48,6 +48,7 @@ extension PostTableViewCell: UICollectionViewDataSource {
         
         return cell
     }
+
 }
 
 extension PostTableViewCell: UICollectionViewDelegateFlowLayout {
@@ -56,6 +57,22 @@ extension PostTableViewCell: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: 270, height: 227)
     }
-    
 }
+
+extension PostTableViewCell: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var visibleRect = CGRect()
+        
+        visibleRect.origin = collectionView.contentOffset
+        visibleRect.size = collectionView.bounds.size
+        
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        
+        let visibleIndexPath: IndexPath = collectionView.indexPathForItem(at: visiblePoint)!
+        
+        print(visibleIndexPath)
+    }
+}
+
 
