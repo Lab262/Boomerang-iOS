@@ -47,6 +47,10 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="PZM-9d-leP">
                                 <rect key="frame" x="11" y="28" width="62" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="Sbp-is-ZWO"/>
+                                    <constraint firstAttribute="height" constant="62" id="ydU-dQ-E9l"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maria Luice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yP-si-BYS">
                                 <rect key="frame" x="79" y="38" width="75" height="16"/>
@@ -63,10 +67,10 @@ máximo de caracteres help in a numb</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24k-AY-dHE">
-                                <rect key="frame" x="11" y="101" width="323" height="138.5"/>
+                                <rect key="frame" x="11" y="101" width="323" height="139"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-post-image1" translatesAutoresizingMaskIntoConstraints="NO" id="fBW-eY-Bzv">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="138.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="139"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.76462173460000005" green="0.764754355" blue="0.76461333040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,13 +82,16 @@ máximo de caracteres help in a numb</string>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="lHJ-gV-0Nq">
-                                <rect key="frame" x="97.5" y="250.5" width="29.5" height="13"/>
+                                <rect key="frame" x="98" y="251" width="30" height="13"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="like-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="PHb-g6-9Gy">
                                         <rect key="frame" x="0.0" y="0.0" width="15" height="13"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwm-Po-2Cu">
-                                        <rect key="frame" x="19" y="0.0" width="10.5" height="13"/>
+                                        <rect key="frame" x="19" y="0.0" width="11" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="11" id="ZJb-5v-ctv"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -92,7 +99,7 @@ máximo de caracteres help in a numb</string>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7MN-AN-0MI">
-                                <rect key="frame" x="219" y="250.5" width="29" height="14"/>
+                                <rect key="frame" x="218.5" y="251" width="29" height="14"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="sharing-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Y4-Q2-fWk">
                                         <rect key="frame" x="0.0" y="0.0" width="16" height="14"/>
@@ -112,13 +119,13 @@ máximo de caracteres help in a numb</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="u2J-nV-WwW">
-                                <rect key="frame" x="159" y="249.5" width="27" height="15"/>
+                                <rect key="frame" x="160" y="250" width="25" height="15"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="comment-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="wws-9K-gzf">
-                                        <rect key="frame" x="0.0" y="0.0" width="14" height="15"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="749" image="comment-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="wws-9K-gzf">
+                                        <rect key="frame" x="0.0" y="0.0" width="12" height="15"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKe-Kq-sTU">
-                                        <rect key="frame" x="18" y="0.0" width="9" height="15"/>
+                                        <rect key="frame" x="16" y="0.0" width="9" height="15"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -128,17 +135,19 @@ máximo de caracteres help in a numb</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="24k-AY-dHE" firstAttribute="top" secondItem="Ndy-iR-ir3" secondAttribute="bottom" constant="14" id="2am-bh-7ai"/>
                             <constraint firstItem="7MN-AN-0MI" firstAttribute="centerY" secondItem="lHJ-gV-0Nq" secondAttribute="centerY" id="3eR-ng-TRu"/>
                             <constraint firstItem="24k-AY-dHE" firstAttribute="height" secondItem="rnf-LL-onv" secondAttribute="height" multiplier="0.497" id="7j5-NZ-SrM"/>
                             <constraint firstItem="24k-AY-dHE" firstAttribute="leading" secondItem="rnf-LL-onv" secondAttribute="leading" constant="11" id="FCM-3L-dxK"/>
+                            <constraint firstItem="24k-AY-dHE" firstAttribute="top" secondItem="PZM-9d-leP" secondAttribute="bottom" constant="11" id="FOu-pd-1LL"/>
                             <constraint firstItem="Ndy-iR-ir3" firstAttribute="width" secondItem="rnf-LL-onv" secondAttribute="width" multiplier="0.62" id="JnG-h8-1IH"/>
                             <constraint firstAttribute="trailing" secondItem="ygh-1N-5PZ" secondAttribute="trailing" id="MXz-oD-f7k"/>
                             <constraint firstItem="PZM-9d-leP" firstAttribute="leading" secondItem="rnf-LL-onv" secondAttribute="leading" constant="11" id="MhQ-zf-AaR"/>
                             <constraint firstItem="lHJ-gV-0Nq" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" multiplier="0.65" id="Q9F-3U-VV5"/>
+                            <constraint firstItem="u2J-nV-WwW" firstAttribute="leading" secondItem="lHJ-gV-0Nq" secondAttribute="trailing" constant="32" id="XxY-8w-Zqz"/>
                             <constraint firstItem="7MN-AN-0MI" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" multiplier="1.35" id="aPT-oD-8Pl"/>
                             <constraint firstItem="NrV-zC-Hlh" firstAttribute="centerY" secondItem="4yP-si-BYS" secondAttribute="centerY" id="awr-6F-5Ei"/>
                             <constraint firstItem="PZM-9d-leP" firstAttribute="top" secondItem="rnf-LL-onv" secondAttribute="top" constant="28" id="d1m-2a-bEe"/>
+                            <constraint firstItem="lHJ-gV-0Nq" firstAttribute="leading" secondItem="rnf-LL-onv" secondAttribute="leading" constant="98" id="hBZ-sL-dbe"/>
                             <constraint firstItem="Ndy-iR-ir3" firstAttribute="leading" secondItem="4yP-si-BYS" secondAttribute="leading" id="hMe-br-0Bp"/>
                             <constraint firstItem="ygh-1N-5PZ" firstAttribute="top" secondItem="rnf-LL-onv" secondAttribute="top" id="hr7-eG-WLw"/>
                             <constraint firstItem="u2J-nV-WwW" firstAttribute="top" secondItem="24k-AY-dHE" secondAttribute="bottom" constant="10" id="jxq-qr-5sD"/>
@@ -176,8 +185,17 @@ máximo de caracteres help in a numb</string>
             </constraints>
             <size key="customSize" width="366" height="301"/>
             <connections>
+                <outlet property="commentAmountLabel" destination="NKe-Kq-sTU" id="pf5-wG-vPB"/>
                 <outlet property="containerCellView" destination="rnf-LL-onv" id="Naj-h8-47q"/>
                 <outlet property="containerIconView" destination="ygh-1N-5PZ" id="AbC-KH-VnT"/>
+                <outlet property="descriptionPostLabel" destination="Ndy-iR-ir3" id="Nc5-Mi-0SX"/>
+                <outlet property="likeAmountLabel" destination="Cwm-Po-2Cu" id="U3B-QK-kjU"/>
+                <outlet property="postImage" destination="fBW-eY-Bzv" id="kMN-zy-BcX"/>
+                <outlet property="sharedAmountLabel" destination="Fqu-NX-ikt" id="p4i-TD-5F3"/>
+                <outlet property="timeLabel" destination="NrV-zC-Hlh" id="VXJ-HQ-4wX"/>
+                <outlet property="typePostImage" destination="57Y-I8-iV6" id="QJt-nD-nXd"/>
+                <outlet property="userImage" destination="PZM-9d-leP" id="2bo-pP-KTg"/>
+                <outlet property="userNameLabel" destination="4yP-si-BYS" id="qiU-X2-IlC"/>
             </connections>
             <point key="canvasLocation" x="111" y="122.5"/>
         </collectionViewCell>
