@@ -194,6 +194,14 @@
                                     <stackView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Q1-Lh-oy2">
                                         <rect key="frame" x="182" y="205" width="22" height="20"/>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAZ-tQ-xVy">
+                                        <rect key="frame" x="148" y="159" width="81" height="66"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="RfC-Ce-4i0"/>
+                                            <constraint firstAttribute="width" constant="81" id="f1G-cZ-qUe"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="ic_logoPost"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -201,7 +209,9 @@
                                     <constraint firstItem="YPU-14-68s" firstAttribute="leading" secondItem="iPH-Vm-UjT" secondAttribute="leading" id="7KE-2N-O04"/>
                                     <constraint firstItem="YPU-14-68s" firstAttribute="top" secondItem="iPH-Vm-UjT" secondAttribute="top" constant="-1" id="7Y1-do-fBo"/>
                                     <constraint firstAttribute="trailing" secondItem="YPU-14-68s" secondAttribute="trailing" constant="-1" id="84Y-sL-Zdu"/>
+                                    <constraint firstItem="HAZ-tQ-xVy" firstAttribute="centerX" secondItem="iPH-Vm-UjT" secondAttribute="centerX" constant="1" id="BIN-f9-NkK"/>
                                     <constraint firstAttribute="bottom" secondItem="2Q1-Lh-oy2" secondAttribute="bottom" constant="19" id="C4y-3B-PMj"/>
+                                    <constraint firstItem="HAZ-tQ-xVy" firstAttribute="bottom" secondItem="2Q1-Lh-oy2" secondAttribute="bottom" id="MFp-0T-ws1"/>
                                     <constraint firstItem="YPU-14-68s" firstAttribute="top" secondItem="6ye-2U-s8l" secondAttribute="bottom" constant="-58" id="PjL-xf-O8X"/>
                                     <constraint firstItem="2Q1-Lh-oy2" firstAttribute="centerX" secondItem="iPH-Vm-UjT" secondAttribute="centerX" constant="5" id="U8z-PQ-IiS"/>
                                     <constraint firstItem="YPU-14-68s" firstAttribute="leading" secondItem="6ye-2U-s8l" secondAttribute="trailing" constant="-29" id="WTk-iH-U1T"/>
@@ -227,11 +237,6 @@
                                 <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAZ-tQ-xVy">
-                                <rect key="frame" x="156" y="152" width="63" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="ic_tabbar_boomer"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -263,6 +268,5 @@
         <image name="ic_have" width="33" height="53"/>
         <image name="ic_logoPost" width="71" height="71"/>
         <image name="ic_need" width="33" height="44"/>
-        <image name="ic_tabbar_boomer" width="51" height="51"/>
     </resources>
 </document>
