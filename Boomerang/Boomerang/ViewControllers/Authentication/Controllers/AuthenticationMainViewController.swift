@@ -71,16 +71,19 @@ class AuthenticationMainViewController: UIViewController {
         
         var photoInPFFile: PFFile?
         
-        if let url = URL(string: "https://graph.facebook.com/" + userId + "/picture?type=large") {
-            do {
-                let contents = try Data(contentsOf: url)
-                 photoInPFFile = PFFile(data: contents)
-            } catch {
-                // contents could not be loaded
+        DispatchQueue.main.async {
+            if let url = URL(string: "https://graph.facebook.com/" + userId + "/picture?type=large") {
+                do {
+                    let contents = try Data(contentsOf: url)
+                    photoInPFFile = PFFile(data: contents)
+                } catch {
+                    // contents could not be loaded
+                }
+            } else {
+                // the URL was bad!
             }
-        } else {
-            // the URL was bad!
         }
+      
         
         return photoInPFFile
         

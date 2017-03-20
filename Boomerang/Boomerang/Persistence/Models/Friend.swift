@@ -15,9 +15,11 @@ class Friend: PFObject {
     @NSManaged var lastName: String?
     @NSManaged var middleName: String?
     @NSManaged var email: String?
+    @NSManaged var location: String?
     @NSManaged var pictureURL: String?
     @NSManaged var photo: PFFile?
     @NSManaged var imageFile: PFFile?
+    
     
     var profileImage: UIImage?
     
@@ -54,6 +56,10 @@ class Friend: PFObject {
         if let imageFile = object["photo"] as? PFFile {
             
             self.imageFile = imageFile
+        }
+        if let location = object["location"] as? String {
+            
+            self.location = location
         }
     }
 

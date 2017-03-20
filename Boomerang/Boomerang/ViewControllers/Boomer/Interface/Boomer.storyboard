@@ -53,6 +53,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vz5-Qy-KGq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigationbar-color" translatesAutoresizingMaskIntoConstraints="NO" id="4kY-Yz-j2W">
+                                        <rect key="frame" x="-0.5" y="0.0" width="375" height="110"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2j-i3-WCm">
                                         <rect key="frame" x="20" y="25" width="243.5" height="60.5"/>
                                         <string key="text">O que você precisa,
@@ -83,15 +86,19 @@ migo? </string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="geN-yJ-E7g" secondAttribute="trailing" constant="20" id="6Bj-El-MLw"/>
+                                    <constraint firstItem="4kY-Yz-j2W" firstAttribute="width" secondItem="Vz5-Qy-KGq" secondAttribute="width" id="7y6-gJ-Ibg"/>
                                     <constraint firstItem="n2j-i3-WCm" firstAttribute="centerY" secondItem="Vz5-Qy-KGq" secondAttribute="centerY" id="8XZ-TI-mcP"/>
                                     <constraint firstItem="P1K-aJ-lzv" firstAttribute="width" secondItem="geN-yJ-E7g" secondAttribute="width" multiplier="1.5" id="GLJ-cM-ePA"/>
+                                    <constraint firstItem="4kY-Yz-j2W" firstAttribute="centerX" secondItem="Vz5-Qy-KGq" secondAttribute="centerX" id="I6b-eE-bvU"/>
                                     <constraint firstItem="P1K-aJ-lzv" firstAttribute="centerY" secondItem="geN-yJ-E7g" secondAttribute="centerY" id="P5h-ZK-pGk"/>
                                     <constraint firstItem="P1K-aJ-lzv" firstAttribute="centerX" secondItem="geN-yJ-E7g" secondAttribute="centerX" id="Veh-Bm-a42"/>
+                                    <constraint firstItem="4kY-Yz-j2W" firstAttribute="height" secondItem="Vz5-Qy-KGq" secondAttribute="height" id="Z4f-AS-yVs"/>
                                     <constraint firstItem="n2j-i3-WCm" firstAttribute="leading" secondItem="Vz5-Qy-KGq" secondAttribute="leading" constant="20" id="chv-SO-IX1"/>
                                     <constraint firstItem="P1K-aJ-lzv" firstAttribute="height" secondItem="geN-yJ-E7g" secondAttribute="height" multiplier="1.5" id="cly-ia-z5i"/>
                                     <constraint firstItem="P1K-aJ-lzv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n2j-i3-WCm" secondAttribute="trailing" constant="20" id="im6-l4-Dk3"/>
                                     <constraint firstItem="geN-yJ-E7g" firstAttribute="top" secondItem="Vz5-Qy-KGq" secondAttribute="top" constant="40" id="kVi-G5-FYZ"/>
                                     <constraint firstAttribute="height" constant="110" id="tLd-kx-PWG"/>
+                                    <constraint firstItem="4kY-Yz-j2W" firstAttribute="centerY" secondItem="Vz5-Qy-KGq" secondAttribute="centerY" id="yab-gk-SCE"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="O que você procura?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qj4-aH-teB">
@@ -375,6 +382,7 @@ migo? </string>
         <image name="ic_button_back" width="13" height="21"/>
         <image name="ic_button_back_white" width="13" height="21"/>
         <image name="ic_camera" width="22" height="20"/>
+        <image name="navigationbar-color" width="375" height="192"/>
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
 </document>

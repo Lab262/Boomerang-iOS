@@ -27,13 +27,14 @@ class AddBoomerMainViewController: UIViewController {
     
     func updateUserByFacebook(){
         
-        
+        self.view.loadAnimation()
         let requestParameters = ["fields":"id,name,email,location,picture.width(100).height(100)"]
-        let userDetails = FBSDKGraphRequest(graphPath: "/me/taggable_friends?limit=15", parameters: requestParameters)
+        let userDetails = FBSDKGraphRequest(graphPath: "/me/taggable_friends?limit=8", parameters: requestParameters)
         
         userDetails!.start { (connection, result, error) -> Void in
             if error != nil {
                 print(error.debugDescription)
+                 self.view.unload()
             }else {
                if let data = result as? [String: Any] {
                     if let data = data["data"] as? [[String: Any]] {
@@ -47,6 +48,8 @@ class AddBoomerMainViewController: UIViewController {
                 
                 }
             self.updateTableByAppendingUsers()
+                self.view.unload()
+
             }
            
         }
@@ -62,6 +65,7 @@ class AddBoomerMainViewController: UIViewController {
                     let contents = try Data(contentsOf: url)
                     let image = UIImage(data:contents)
                     requestCell.photoImageView.image = image
+                
                 }catch {
                     // contents could not be loaded
                 }
@@ -124,11 +128,10 @@ extension AddBoomerMainViewController: UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: AddBoomerCell.cellIdentifier, for: indexPath) as! AddBoomerCell
         cell.boomerCellData = self.cellDatas[indexPath.row]
         
-       
-            self.loadImage(urlImage: self.friendsArray[indexPath.row].pictureURL!, cell:cell, indexPath: indexPath)
+        self.loadImage(urlImage: self.friendsArray[indexPath.row].pictureURL!, cell:cell, indexPath: indexPath)
         
         
-        return cell;
+        return cell
     }
 
 }

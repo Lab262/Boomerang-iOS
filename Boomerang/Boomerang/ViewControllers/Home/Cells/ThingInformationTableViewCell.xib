@@ -100,7 +100,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="EIN-kg-ebd" secondAttribute="trailing" constant="23" id="xO0-fc-OlN"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="boomerUserLabel" destination="OeX-EM-2PT" id="IoS-W7-SAt"/>
                 <outlet property="descriptionThingLabel" destination="sZg-Vh-XX0" id="jZZ-mA-wTU"/>

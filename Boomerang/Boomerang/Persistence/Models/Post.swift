@@ -17,6 +17,7 @@ class Post: PFObject {
     @NSManaged var content: String?
     @NSManaged var thing: Thing?
     var alreadySearched = false
+    var downloadedImages = false
     
     var photos = [UIImage]()
     

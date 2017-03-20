@@ -18,15 +18,14 @@ class HomeTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.registerNib()
+        registerNib()
+        tableView.contentInset = UIEdgeInsetsMake(-100, 0, 0, 0)
     }
     
     func registerNib() {
-        
         self.tableView.register(UINib(nibName: HomeCollectionHeader.cellIdentifier, bundle: nil), forCellReuseIdentifier: HomeCollectionHeader.cellIdentifier)
          self.tableView.register(UINib(nibName: BoomerThingCollection.cellIdentifier, bundle: nil), forCellReuseIdentifier: BoomerThingCollection.cellIdentifier)
-        
+        tableView.registerNibFrom(RecommendedPostTableViewCell.self)
     }
 
     func loadHomeData(homeBoomerThingsData: [String: [BoomerThing]]) {
@@ -45,7 +44,7 @@ extension HomeTableViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return self.homeBoomerThingsData.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,16 +55,17 @@ extension HomeTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: BoomerThingCollection.cellIdentifier,
-            for: indexPath) as! BoomerThingCollection
-        
-        cell.thingsData = self.homeBoomerThingsData.dataAtKeyAtIndex(
-            index: indexPath.section) as! [BoomerThing]
-        
-        self.boomerThingDelegate = cell
-        
-        cell.selectionDelegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath)
+//        let cell = tableView.dequeueReusableCell(
+//            withIdentifier: BoomerThingCollection.cellIdentifier,
+//            for: indexPath) as! BoomerThingCollection
+//        
+//        cell.thingsData = self.homeBoomerThingsData.dataAtKeyAtIndex(
+//            index: indexPath.section) as! [BoomerThing]
+//        
+//        self.boomerThingDelegate = cell
+//        
+//        cell.selectionDelegate = self
         
         return cell
     }
@@ -80,50 +80,51 @@ extension HomeTableViewController: UITableViewDelegate {
      
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        var headerData = (
-            title: self.homeBoomerThingsData.keyAtIndex(index: section), isLocation: false)
-        let locationsSectionNumber = 1
-        if section == locationsSectionNumber {
-            
-            headerData.isLocation = true
-        } else {
-            headerData.isLocation = false
-
-        }
-        
-        let header = tableView.dequeueReusableCell(withIdentifier:HomeCollectionHeader.cellIdentifier) as! HomeCollectionHeader
-        
-        header.headerData = headerData
-        
-        
-        return header
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        var headerData = (
+//            title: self.homeBoomerThingsData.keyAtIndex(index: section), isLocation: false)
+//        let locationsSectionNumber = 1
+//        if section == locationsSectionNumber {
+//            
+//            headerData.isLocation = true
+//        } else {
+//            headerData.isLocation = false
+//
+//        }
+//        
+//        let header = tableView.dequeueReusableCell(withIdentifier:HomeCollectionHeader.cellIdentifier) as! HomeCollectionHeader
+//        
+//        header.headerData = headerData
+//        
+//        
+//        return header
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section != 2 {
-            return 165
-        } else {
-            return 225
-        }
+        return 300
+//        if indexPath.section != 2 {
+//            return 165
+//        } else {
+//            return 225
+//        }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(65)
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return CGFloat(65)
+//    }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        
-        let recomendationsSectionNumber = 2
-
-        if section != recomendationsSectionNumber {
-            return CGFloat(0)
-        } else {
-            return CGFloat(100)
-        }
-    }
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        
+//        let recomendationsSectionNumber = 2
+//
+//        if section != recomendationsSectionNumber {
+//            return CGFloat(0)
+//        } else {
+//            return CGFloat(100)
+//        }
+//    }
 }
 
 extension HomeTableViewController: CollectionViewSelectionDelegate {
@@ -135,7 +136,6 @@ extension HomeTableViewController: CollectionViewSelectionDelegate {
         } else {
             
         }
-        
     }
 }
 
