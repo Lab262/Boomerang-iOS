@@ -24,13 +24,14 @@ class TextInputTableView: UITableView {
                 
                 if (obj as AnyObject).responds(to: #selector(NSValue.getValue(_:))) {
                     (obj as AnyObject).getValue(&keyboardFrame)
+                    
                     UIView.animate(
                         withDuration: 0.25,
                         delay: 0.0,
                         options: UIViewAnimationOptions(),
                         animations: {
                             () -> Void in
-                            self.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height + 15, 0.0)
+                            self.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height + 300, 0.0)
                     },
                         completion: nil)
                 }
