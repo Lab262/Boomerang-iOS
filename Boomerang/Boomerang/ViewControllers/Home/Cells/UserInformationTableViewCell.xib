@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userInformationCell" rowHeight="75" id="KGk-i7-Jjw" customClass="UserInformationTableViewCell" customModule="Boomerang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VZ4-h4-kL1">
+                        <rect key="frame" x="24" y="14" width="46" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="ROv-nK-kCT"/>
+                            <constraint firstAttribute="height" constant="46" id="dFT-rO-IJl"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-o8-zd1">
+                        <rect key="frame" x="141.5" y="37" width="72" height="16"/>
+                        <string key="text">Água Claras   
+</string>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                        <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diO-X6-Aef">
+                        <rect key="frame" x="133.5" y="43" width="4" height="4"/>
+                        <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="C1K-YI-oXK"/>
+                            <constraint firstAttribute="height" constant="4" id="XCh-5g-qwx"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3p-iU-V4w">
+                        <rect key="frame" x="95" y="37" width="34.5" height="16"/>
+                        <string key="text">12 jan   
+</string>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                        <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ohq-5c-EJj">
+                        <rect key="frame" x="250.5" y="30.5" width="99" height="14"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-4U-rrd">
+                                <rect key="frame" x="0.0" y="0.0" width="15" height="14"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="wad-OZ-2Db">
+                                <rect key="frame" x="21" y="0.0" width="15" height="14"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="gbR-a2-HYY">
+                                <rect key="frame" x="42" y="0.0" width="15" height="14"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="nVF-6Q-ubr">
+                                <rect key="frame" x="63" y="0.0" width="15" height="14"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="qEy-gU-FXw">
+                                <rect key="frame" x="84" y="0.0" width="15" height="14"/>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csg-fj-fWw">
+                        <rect key="frame" x="95" y="15.5" width="43" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="diO-X6-Aef" firstAttribute="leading" secondItem="F3p-iU-V4w" secondAttribute="trailing" constant="4" id="5e2-eB-aV1"/>
+                    <constraint firstItem="VZ4-h4-kL1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="BUS-Ze-jQ1"/>
+                    <constraint firstItem="csg-fj-fWw" firstAttribute="leading" secondItem="VZ4-h4-kL1" secondAttribute="trailing" constant="25" id="IIM-F3-5sg"/>
+                    <constraint firstItem="Qi6-o8-zd1" firstAttribute="leading" secondItem="diO-X6-Aef" secondAttribute="trailing" constant="4" id="dEW-0x-cgm"/>
+                    <constraint firstItem="csg-fj-fWw" firstAttribute="top" secondItem="VZ4-h4-kL1" secondAttribute="top" multiplier="1.1" id="eld-2l-Rv2"/>
+                    <constraint firstItem="Qi6-o8-zd1" firstAttribute="centerY" secondItem="diO-X6-Aef" secondAttribute="centerY" id="gQc-KY-YSh"/>
+                    <constraint firstItem="Ohq-5c-EJj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.6" id="il6-Wf-OOr"/>
+                    <constraint firstItem="diO-X6-Aef" firstAttribute="centerY" secondItem="F3p-iU-V4w" secondAttribute="centerY" id="jrA-J6-ool"/>
+                    <constraint firstItem="F3p-iU-V4w" firstAttribute="top" secondItem="csg-fj-fWw" secondAttribute="bottom" constant="2" id="mk8-pZ-lus"/>
+                    <constraint firstItem="VZ4-h4-kL1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="nfN-Wc-cc7"/>
+                    <constraint firstItem="Ohq-5c-EJj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rve-6Y-aFe"/>
+                    <constraint firstItem="F3p-iU-V4w" firstAttribute="leading" secondItem="csg-fj-fWw" secondAttribute="leading" id="xCG-hT-JLr"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VZ4-h4-kL1" secondAttribute="bottom" constant="6" id="yiO-BJ-v7c"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cityLabel" destination="Qi6-o8-zd1" id="rJN-jB-DCB"/>
+                <outlet property="dateLabel" destination="F3p-iU-V4w" id="He9-bT-K7x"/>
+                <outlet property="userImage" destination="VZ4-h4-kL1" id="wdk-Up-Lyg"/>
+                <outlet property="userNameLabel" destination="csg-fj-fWw" id="KIf-jS-iG4"/>
+                <outletCollection property="evaluationStarImage" destination="HNI-4U-rrd" collectionClass="NSMutableArray" id="HwU-KA-zEF"/>
+                <outletCollection property="evaluationStarImage" destination="wad-OZ-2Db" collectionClass="NSMutableArray" id="57r-7p-6d3"/>
+                <outletCollection property="evaluationStarImage" destination="gbR-a2-HYY" collectionClass="NSMutableArray" id="NdP-rA-iVY"/>
+                <outletCollection property="evaluationStarImage" destination="nVF-6Q-ubr" collectionClass="NSMutableArray" id="ErY-rc-YPL"/>
+                <outletCollection property="evaluationStarImage" destination="qEy-gU-FXw" collectionClass="NSMutableArray" id="vUk-Oc-VPa"/>
+            </connections>
+            <point key="canvasLocation" x="38" y="129.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="selected-star-button" width="15" height="14"/>
+    </resources>
+</document>

@@ -130,12 +130,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thingPhoto_image" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-Hg-AW2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlc-vg-cyQ" customClass="ThingNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="209" id="DeH-8r-d8x"/>
+                                    <constraint firstAttribute="height" constant="192" id="eel-I3-H9L"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MYy-Ur-yOs">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -144,46 +145,45 @@
                                     <outlet property="delegate" destination="OAa-qd-sUY" id="Urf-KT-zuM"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deT-4j-zqa" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mm-y4-kUy" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="OPn-8h-bXf"/>
+                                    <constraint firstAttribute="height" constant="60" id="f9p-ea-uCE"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="white_back_button"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="back-button"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="rightBarIconImage" value="edit-button"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundViewColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="rightBarIconImage" value="like_disabled_button"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gWM-Hg-AW2" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="75C-Mf-gyz"/>
+                            <constraint firstItem="jlc-vg-cyQ" firstAttribute="top" secondItem="OWj-2H-2fc" secondAttribute="top" id="1Kt-NH-0ef"/>
+                            <constraint firstItem="MYy-Ur-yOs" firstAttribute="top" secondItem="OWj-2H-2fc" secondAttribute="top" id="9Ro-YH-zMo"/>
                             <constraint firstItem="MYy-Ur-yOs" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="9h1-NE-6Gi"/>
-                            <constraint firstItem="deT-4j-zqa" firstAttribute="top" secondItem="OWj-2H-2fc" secondAttribute="top" id="PgS-6f-q54"/>
+                            <constraint firstItem="jlc-vg-cyQ" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="BDc-sq-HXD"/>
+                            <constraint firstItem="1mm-y4-kUy" firstAttribute="top" secondItem="OWj-2H-2fc" secondAttribute="top" id="GGa-rf-nSL"/>
                             <constraint firstItem="c9M-eD-pal" firstAttribute="top" secondItem="MYy-Ur-yOs" secondAttribute="bottom" id="Qgv-Uz-eEG"/>
-                            <constraint firstAttribute="trailing" secondItem="gWM-Hg-AW2" secondAttribute="trailing" id="TcG-yQ-xtL"/>
-                            <constraint firstItem="deT-4j-zqa" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="kYe-Qc-Osx"/>
-                            <constraint firstItem="gWM-Hg-AW2" firstAttribute="top" secondItem="OWj-2H-2fc" secondAttribute="top" id="l5E-FC-fMO"/>
-                            <constraint firstAttribute="trailing" secondItem="deT-4j-zqa" secondAttribute="trailing" id="rNA-IB-rzd"/>
-                            <constraint firstItem="MYy-Ur-yOs" firstAttribute="top" secondItem="OWj-2H-2fc" secondAttribute="top" id="xUv-54-c65"/>
+                            <constraint firstItem="1mm-y4-kUy" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="ULY-qL-nod"/>
+                            <constraint firstAttribute="trailing" secondItem="1mm-y4-kUy" secondAttribute="trailing" id="fWG-0s-h6A"/>
+                            <constraint firstAttribute="trailing" secondItem="jlc-vg-cyQ" secondAttribute="trailing" id="ig2-xo-SJk"/>
                             <constraint firstAttribute="trailing" secondItem="MYy-Ur-yOs" secondAttribute="trailing" id="yO5-EI-MJj"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="navigationBarView" destination="deT-4j-zqa" id="1gS-KK-6yK"/>
+                        <outlet property="navigationBarView" destination="1mm-y4-kUy" id="qdl-pc-R5f"/>
+                        <outlet property="navigationInformationsView" destination="jlc-vg-cyQ" id="ECp-ER-mhE"/>
                         <outlet property="tableView" destination="MYy-Ur-yOs" id="m2r-me-coa"/>
-                        <outlet property="thingHeightConstraint" destination="DeH-8r-d8x" id="Mgk-NI-F0T"/>
-                        <outlet property="thingImage" destination="gWM-Hg-AW2" id="ZSB-cQ-dbM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZn-gt-8L5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2164" y="839.73013493253382"/>
+            <point key="canvasLocation" x="2164" y="891.90404797601207"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tvq-P3-wKn">
@@ -205,10 +205,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="like_disabled_button" width="22" height="20"/>
+        <image name="back-button" width="12" height="19"/>
+        <image name="edit-button" width="25" height="25"/>
         <image name="navigationbar-color" width="375" height="192"/>
         <image name="profile_dummy" width="53" height="53"/>
-        <image name="thingPhoto_image" width="375" height="209"/>
-        <image name="white_back_button" width="13" height="21"/>
     </resources>
 </document>

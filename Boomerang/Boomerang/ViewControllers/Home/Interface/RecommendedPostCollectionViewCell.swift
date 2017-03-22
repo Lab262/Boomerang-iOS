@@ -82,12 +82,13 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
             thingData.post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
                 
                 if success {
+                
                     self.thingData.post?.photos.append(UIImage(data: data!)!)
                     
                     if self.thingData.post!.photos.count < 2 {
                         self.postImage.image = UIImage(data: data!)!
                     }
-                    
+                    self.thingData.post?.downloadedImages = true
                     self.postImage.unload()
                     
                 } else {
@@ -97,5 +98,9 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         } else {
             self.postImage.image = UIImage(named: "foto_dummy")
         }
+    }
+    
+    override func prepareForReuse() {
+        
     }
 }

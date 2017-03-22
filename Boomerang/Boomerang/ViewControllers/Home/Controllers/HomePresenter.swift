@@ -12,7 +12,6 @@ import Parse
 
 class HomePresenter: NSObject {
     
-    
     fileprivate let pagination = 3
     fileprivate var skip = 0
     fileprivate var currentIndex = 0

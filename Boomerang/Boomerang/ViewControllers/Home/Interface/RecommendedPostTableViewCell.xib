@@ -33,10 +33,10 @@
                         </connections>
                     </collectionView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG2-YO-GEo">
-                        <rect key="frame" x="0.0" y="290" width="375" height="51"/>
+                        <rect key="frame" x="0.0" y="290" width="375" height="50"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2KF-jV-seG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hi1-QA-vDG">
                                     <size key="itemSize" width="50" height="50"/>
