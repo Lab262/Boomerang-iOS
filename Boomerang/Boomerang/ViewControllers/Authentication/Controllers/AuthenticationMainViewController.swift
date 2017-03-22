@@ -139,7 +139,7 @@ class AuthenticationMainViewController: UIViewController {
                     if let email = data ["email"] as? String {
                         newUser.setObject(email, forKey: "email")
                     }
-                    
+                
                     if let userId = data["id"] as? String {
                         if let userPhoto = self.getPhotoOfFacebookInPFFile(userId: userId) {
                             newUser.setObject(userPhoto, forKey: "photo")

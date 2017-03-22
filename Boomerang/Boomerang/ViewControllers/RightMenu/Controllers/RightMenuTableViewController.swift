@@ -69,10 +69,10 @@ extension RightMenuTableViewController: UITableViewDelegate, UITableViewDataSour
             cell.cellImage = #imageLiteral(resourceName: "ic_notification")
             return cell
         case rightMenuOptions.lovedTricks.rawValue:
-            cell.cellImage = #imageLiteral(resourceName: "ic_loved")
+            cell.cellImage = #imageLiteral(resourceName: "like_disabled_button")
             return cell
         case rightMenuOptions.myTricks.rawValue:
-            cell.cellImage = #imageLiteral(resourceName: "ic_my_things")
+            cell.cellImage = #imageLiteral(resourceName: "like_disabled_button")
             return cell
         case rightMenuOptions.logout.rawValue:
             cell.cellImage = #imageLiteral(resourceName: "ic_exit")

@@ -18,6 +18,7 @@ class AddBoomerMainViewController: UIViewController {
     
     var cellDatas = [BoomerCellData]()
     var friendsArray : [Friend] = []
+    var cache = false
     
     func loadDummyData() {
         self.updateUserByFacebook()
@@ -26,13 +27,14 @@ class AddBoomerMainViewController: UIViewController {
     
     func updateUserByFacebook(){
         
-        
-        let requestParameters = ["fields":"id,name,email,picture.width(500).height(500)"]
-        let userDetails = FBSDKGraphRequest(graphPath: "/me/taggable_friends?limit=25", parameters: requestParameters)
+        self.view.loadAnimation()
+        let requestParameters = ["fields":"id,name,email,location,picture.width(100).height(100)"]
+        let userDetails = FBSDKGraphRequest(graphPath: "/me/taggable_friends?limit=8", parameters: requestParameters)
         
         userDetails!.start { (connection, result, error) -> Void in
             if error != nil {
                 print(error.debugDescription)
+                 self.view.unload()
             }else {
                if let data = result as? [String: Any] {
                     if let data = data["data"] as? [[String: Any]] {
@@ -41,14 +43,35 @@ class AddBoomerMainViewController: UIViewController {
                                 self.friendsArray.append(friend)
                             }
                         }
-                          self.updateTableByAppendingUsers()
+                        
                     }
-                  
+                
                 }
+            self.updateTableByAppendingUsers()
+                self.view.unload()
+
             }
            
         }
-       
+      
+    }
+    
+    func loadImage(urlImage:String, cell: UITableViewCell, indexPath: IndexPath) {
+        
+        let requestCell = cell as! AddBoomerCell
+        
+        if let url = URL(string:urlImage) {
+                do {
+                    let contents = try Data(contentsOf: url)
+                    let image = UIImage(data:contents)
+                    requestCell.photoImageView.image = image
+                
+                }catch {
+                    // contents could not be loaded
+                }
+            } else {
+         
+            }
     }
     
     
@@ -58,6 +81,7 @@ class AddBoomerMainViewController: UIViewController {
            let boomer = BoomerCellData(dataPhoto:placeHolder!, dataDescription:"Brasilia-DF", dataTitle:friend.firstName!)
             cellDatas.append(boomer)
         }
+        
         self.tableView.reloadData()
     }
 
@@ -103,8 +127,11 @@ extension AddBoomerMainViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddBoomerCell.cellIdentifier, for: indexPath) as! AddBoomerCell
         cell.boomerCellData = self.cellDatas[indexPath.row]
-       
-        return cell;
+        
+        self.loadImage(urlImage: self.friendsArray[indexPath.row].pictureURL!, cell:cell, indexPath: indexPath)
+        
+        
+        return cell
     }
 
 }
