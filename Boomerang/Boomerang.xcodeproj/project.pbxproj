@@ -125,6 +125,12 @@
 		D4E4BEA61E822FBE00F8DC2E /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */; };
 		D4E4BEA91E8233EF00F8DC2E /* ThingConditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */; };
 		D4E4BEAA1E8233EF00F8DC2E /* ThingConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEA81E8233EF00F8DC2E /* ThingConditionTableViewCell.xib */; };
+		D4E4BEAD1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */; };
+		D4E4BEAE1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */; };
+		D4E4BEB81E8256B000F8DC2E /* PHFComposeBarView_Button.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEB31E8256B000F8DC2E /* PHFComposeBarView_Button.m */; };
+		D4E4BEB91E8256B000F8DC2E /* PHFComposeBarView_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEB51E8256B000F8DC2E /* PHFComposeBarView_TextView.m */; };
+		D4E4BEBA1E8256B000F8DC2E /* PHFComposeBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEB71E8256B000F8DC2E /* PHFComposeBarView.m */; };
+		D4E4BEBC1E8269F300F8DC2E /* TextInputTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEBB1E8269F300F8DC2E /* TextInputTableView.swift */; };
 		D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */; };
 		D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */; };
 		D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */; };
@@ -270,6 +276,16 @@
 		D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTableViewCell.xib; path = ../Cells/DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThingConditionTableViewCell.swift; path = ../Interface/ThingConditionTableViewCell.swift; sourceTree = "<group>"; };
 		D4E4BEA81E8233EF00F8DC2E /* ThingConditionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThingConditionTableViewCell.xib; sourceTree = "<group>"; };
+		D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldGroupTableViewCell.swift; sourceTree = "<group>"; };
+		D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldGroupTableViewCell.xib; sourceTree = "<group>"; };
+		D4E4BEB11E8256AF00F8DC2E /* Boomerang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Boomerang-Bridging-Header.h"; sourceTree = "<group>"; };
+		D4E4BEB21E8256B000F8DC2E /* PHFComposeBarView_Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHFComposeBarView_Button.h; sourceTree = "<group>"; };
+		D4E4BEB31E8256B000F8DC2E /* PHFComposeBarView_Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHFComposeBarView_Button.m; sourceTree = "<group>"; };
+		D4E4BEB41E8256B000F8DC2E /* PHFComposeBarView_TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHFComposeBarView_TextView.h; sourceTree = "<group>"; };
+		D4E4BEB51E8256B000F8DC2E /* PHFComposeBarView_TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHFComposeBarView_TextView.m; sourceTree = "<group>"; };
+		D4E4BEB61E8256B000F8DC2E /* PHFComposeBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHFComposeBarView.h; sourceTree = "<group>"; };
+		D4E4BEB71E8256B000F8DC2E /* PHFComposeBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHFComposeBarView.m; sourceTree = "<group>"; };
+		D4E4BEBB1E8269F300F8DC2E /* TextInputTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputTableView.swift; sourceTree = "<group>"; };
 		D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
 		D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -623,6 +639,7 @@
 				D4A013001E7B160B00B3B811 /* ScaledVisibleCellsCollectionView */,
 				A4CB02651DD261B200B01A6B /* NavigationBar */,
 				A40A25191DCB681A00DF9523 /* UIView+Animations.swift */,
+				D4E4BEBB1E8269F300F8DC2E /* TextInputTableView.swift */,
 				2FF1771C1E4F91A20005F026 /* ViewUtil.swift */,
 				D4A013031E7B181F00B3B811 /* CGOperations.swift */,
 				A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */,
@@ -696,6 +713,7 @@
 		A4F89B281DA809B100949A35 /* Boomerang */ = {
 			isa = PBXGroup;
 			children = (
+				D4E4BEAF1E82569300F8DC2E /* Frameworks */,
 				A4E462F41DCAEAC200A611C0 /* Constants */,
 				A4E462F51DCAEAC200A611C0 /* Extensions */,
 				A4E462F61DCAEAC200A611C0 /* Persistence */,
@@ -759,6 +777,8 @@
 				D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */,
 				D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */,
 				D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */,
+				D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */,
+				D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */,
 			);
 			name = UITableViewCell;
 			sourceTree = "<group>";
@@ -821,6 +841,28 @@
 				D4A012FD1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift */,
 			);
 			name = ScaledVisibleCellsCollectionView;
+			sourceTree = "<group>";
+		};
+		D4E4BEAF1E82569300F8DC2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4E4BEB01E82569A00F8DC2E /* PHFComposeBarView */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4E4BEB01E82569A00F8DC2E /* PHFComposeBarView */ = {
+			isa = PBXGroup;
+			children = (
+				D4E4BEB21E8256B000F8DC2E /* PHFComposeBarView_Button.h */,
+				D4E4BEB31E8256B000F8DC2E /* PHFComposeBarView_Button.m */,
+				D4E4BEB41E8256B000F8DC2E /* PHFComposeBarView_TextView.h */,
+				D4E4BEB51E8256B000F8DC2E /* PHFComposeBarView_TextView.m */,
+				D4E4BEB61E8256B000F8DC2E /* PHFComposeBarView.h */,
+				D4E4BEB71E8256B000F8DC2E /* PHFComposeBarView.m */,
+				D4E4BEB11E8256AF00F8DC2E /* Boomerang-Bridging-Header.h */,
+			);
+			name = PHFComposeBarView;
 			sourceTree = "<group>";
 		};
 		D4EEC1C21E6CAE4B00F5C1D6 /* PFObjects */ = {
@@ -894,7 +936,7 @@
 					A4F89B251DA809B100949A35 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = R6AP92RETV;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					A4F89B391DA809B100949A35 = {
@@ -946,6 +988,7 @@
 				2F2F079D1E6891A800C61A6D /* ThrowButtonTableViewCell.xib in Resources */,
 				A4E462FF1DCAEB0200A611C0 /* Profile.storyboard in Resources */,
 				D4A013081E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib in Resources */,
+				D4E4BEAE1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib in Resources */,
 				A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */,
 				D498F0371E808861002E8972 /* PhotoThingTableViewCell.xib in Resources */,
 				A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */,
@@ -1133,6 +1176,7 @@
 				D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */,
 				D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */,
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
+				D4E4BEAD1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift in Sources */,
 				D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */,
 				D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */,
 				D498F0311E7F334E002E8972 /* HomePresenter.swift in Sources */,
@@ -1140,6 +1184,7 @@
 				2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */,
+				D4E4BEB81E8256B000F8DC2E /* PHFComposeBarView_Button.m in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
 				A44967741DDA246100990008 /* BoomerChatData.swift in Sources */,
 				2FAE03071E78C3540062E155 /* Friend.swift in Sources */,
@@ -1157,6 +1202,7 @@
 				D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
+				D4E4BEBA1E8256B000F8DC2E /* PHFComposeBarView.m in Sources */,
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
 				D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */,
 				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
@@ -1168,8 +1214,10 @@
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
 				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
+				D4E4BEB91E8256B000F8DC2E /* PHFComposeBarView_TextView.m in Sources */,
 				D498F0411E81621F002E8972 /* ThingNavigationBar.swift in Sources */,
 				A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */,
+				D4E4BEBC1E8269F300F8DC2E /* TextInputTableView.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
@@ -1324,6 +1372,7 @@
 			baseConfigurationReference = CE907A203F74C49B9DB89B40 /* Pods-Boomerang.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = R6AP92RETV;
@@ -1333,6 +1382,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Boomerang/Boomerang-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1342,6 +1393,7 @@
 			baseConfigurationReference = 45F418024776342D46529DBE /* Pods-Boomerang.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = R6AP92RETV;
@@ -1351,6 +1403,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Boomerang/Boomerang-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

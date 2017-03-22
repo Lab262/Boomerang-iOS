@@ -34,6 +34,7 @@ class ThingDetailViewController: UIViewController {
         tableView.registerNibFrom(UserInformationTableViewCell.self)
         tableView.registerNibFrom(DescriptionTableViewCell.self)
         tableView.registerNibFrom(ThingConditionTableViewCell.self)
+        tableView.registerNibFrom(TextFieldGroupTableViewCell.self)
     }
     
     func configureTableView(){
@@ -75,6 +76,15 @@ class ThingDetailViewController: UIViewController {
         
         return cell
     }
+    
+    
+    func generateTextFieldCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldGroupTableViewCell.identifier, for: indexPath) as! TextFieldGroupTableViewCell
+        
+        
+        return cell
+    }
 }
 
 extension ThingDetailViewController: UITableViewDataSource {
@@ -89,13 +99,15 @@ extension ThingDetailViewController: UITableViewDataSource {
             return generateUserDescriptionCell(tableView, cellForRowAt: indexPath)
         case 3..<inputFieldsCondition.count+3:
             return generateConditionCell(tableView, cellForRowAt: indexPath)
+        case inputFieldsCondition.count+3:
+            return generateTextFieldCell(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return inputFieldsCondition.count+3
+        return inputFieldsCondition.count+4
     }
 }
 
