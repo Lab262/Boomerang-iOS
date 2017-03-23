@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="withdrawlCell" rowHeight="87" id="KGk-i7-Jjw" customClass="WithdrawalTableViewCell" customModule="Boomerang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="327" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctu-uJ-hpy">
+                        <rect key="frame" x="4" y="78" width="319" height="1"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Na base da conversa é o default" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dvy-uj-48Y">
+                        <rect key="frame" x="14" y="37" width="211" height="26"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local retirada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRX-3S-89d">
+                        <rect key="frame" x="14" y="8" width="188" height="21"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="uRX-3S-89d" secondAttribute="bottom" constant="49" id="1Nd-RB-fgC"/>
+                    <constraint firstItem="ctu-uJ-hpy" firstAttribute="top" secondItem="Dvy-uj-48Y" secondAttribute="bottom" constant="15" id="5Fn-wp-IE4"/>
+                    <constraint firstItem="Dvy-uj-48Y" firstAttribute="top" secondItem="uRX-3S-89d" secondAttribute="bottom" constant="8" id="5cE-ua-bnX"/>
+                    <constraint firstItem="ctu-uJ-hpy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-4" id="EJS-jP-Z9q"/>
+                    <constraint firstItem="ctu-uJ-hpy" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Lds-9k-dj1"/>
+                    <constraint firstItem="Dvy-uj-48Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="QU8-Ep-8eI"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uRX-3S-89d" secondAttribute="trailing" constant="117" id="WKl-VL-F0f"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Dvy-uj-48Y" secondAttribute="bottom" constant="15" id="dlI-xd-sPg"/>
+                    <constraint firstItem="uRX-3S-89d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="wGG-aM-SOn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ctu-uJ-hpy" secondAttribute="bottom" constant="-1" id="yVb-ps-AdS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-30.5" y="67.5"/>
+        </tableViewCell>
+    </objects>
+</document>

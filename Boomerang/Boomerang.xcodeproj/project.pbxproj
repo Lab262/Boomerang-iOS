@@ -16,6 +16,10 @@
 		2F2F07991E688DF400C61A6D /* DescriptionTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */; };
 		2F2F079C1E6891A800C61A6D /* ThrowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */; };
 		2F2F079D1E6891A800C61A6D /* ThrowButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */; };
+		2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */; };
+		2F79676D1E8357F700476D2D /* TypePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */; };
+		2F7967701E83871700476D2D /* WithdrawalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */; };
+		2F7967711E83871700476D2D /* WithdrawalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F79676F1E83871700476D2D /* WithdrawalTableViewCell.xib */; };
 		2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */; };
 		2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB341E6E590B00224284 /* TextViewHandler.swift */; };
 		2FA0CB381E6E5F1800224284 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB371E6E5F1800224284 /* AlertUtils.swift */; };
@@ -140,6 +144,10 @@
 		2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTextTableViewCell.xib; path = ../DescriptionTextTableViewCell.xib; sourceTree = "<group>"; };
 		2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThrowButtonTableViewCell.xib; path = ../ThrowButtonTableViewCell.xib; sourceTree = "<group>"; };
+		2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePostTableViewCell.swift; sourceTree = "<group>"; };
+		2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TypePostTableViewCell.xib; path = ../TypePostTableViewCell.xib; sourceTree = "<group>"; };
+		2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WithdrawalTableViewCell.swift; path = Interface/WithdrawalTableViewCell.swift; sourceTree = "<group>"; };
+		2F79676F1E83871700476D2D /* WithdrawalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithdrawalTableViewCell.xib; sourceTree = "<group>"; };
 		2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldHandler.swift; sourceTree = "<group>"; };
 		2FA0CB341E6E590B00224284 /* TextViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewHandler.swift; sourceTree = "<group>"; };
 		2FA0CB371E6E5F1800224284 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
@@ -289,6 +297,8 @@
 				2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */,
 				2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */,
 				2FA0CB341E6E590B00224284 /* TextViewHandler.swift */,
+				2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */,
+				2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -513,10 +523,12 @@
 		A4E462E91DCAEA7F00A611C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */,
 				2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */,
 				2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */,
 				2F2F07931E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib */,
 				A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */,
+				2F79676F1E83871700476D2D /* WithdrawalTableViewCell.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -868,6 +880,7 @@
 				A4FE062E1DD0967E00BFDC4D /* HomeCollectionHeader.xib in Resources */,
 				A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */,
 				A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */,
+				2F79676D1E8357F700476D2D /* TypePostTableViewCell.xib in Resources */,
 				A427680E1DD3DC4600363343 /* BoomerMyThingCell.xib in Resources */,
 				A4AFBB0F1DD3612F00F270C7 /* AddBoomerCell.xib in Resources */,
 				A42767FF1DD393D800363343 /* MyThings.storyboard in Resources */,
@@ -886,6 +899,7 @@
 				A4E462F21DCAEA7F00A611C0 /* Main.storyboard in Resources */,
 				A44E0C671DD092650028F06C /* Montserrat-Black.otf in Resources */,
 				A4FE06341DD09C7500BFDC4D /* BoomerThingCollection.xib in Resources */,
+				2F7967711E83871700476D2D /* WithdrawalTableViewCell.xib in Resources */,
 				D4A012FA1E7AC85600B3B811 /* PostTableViewCell.xib in Resources */,
 				D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */,
 				A4E463041DCAEC4F00A611C0 /* Assets.xcassets in Resources */,
@@ -1081,6 +1095,7 @@
 				D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
+				2F7967701E83871700476D2D /* WithdrawalTableViewCell.swift in Sources */,
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
 				D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */,
 				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
@@ -1092,6 +1107,7 @@
 				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
 				A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */,
+				2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
