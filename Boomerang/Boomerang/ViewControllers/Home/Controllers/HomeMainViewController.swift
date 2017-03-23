@@ -18,6 +18,7 @@ class HomeMainViewController: UIViewController {
 
     internal var homeTableViewController: HomeTableViewController!
     internal var homeBoomerThingsData = [String: [BoomerThing]]()
+    var boomerThingDelegate: UICollectionViewDelegate?
     @IBOutlet weak var searchBar: UISearchBar!
     
     internal var boomerThings = [BoomerThing]()
@@ -39,6 +40,7 @@ class HomeMainViewController: UIViewController {
         super.viewWillAppear(animated)
         presenter.setControllerDelegate(controller: self)
         setUserInformationsInHUD()
+        
         presenter.updatePostsFriends()
     }
     
@@ -70,6 +72,13 @@ class HomeMainViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.window?.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let controller = segue.destination as? ThingDetailViewController {
+            
+        }
     }
 }
 
@@ -162,6 +171,7 @@ extension HomeMainViewController {
             if success {
                 self.profileImage.unload()
                self.profileImage.image = image
+                self.presenter.getUser().profileImage = image
             } else {
                 self.profileImage.unload()
                 self.showMessageError(msg: msg)
@@ -186,6 +196,8 @@ extension HomeMainViewController {
         
         cell.boomerThings = boomerThings
         cell.delegate = self
+        cell.selectionDelegate = self
+        boomerThingDelegate = cell
         
         return cell
     }
@@ -257,6 +269,20 @@ extension HomeMainViewController: UpdateCellDelegate{
         presenter.updatePostsFriends(currentIndex: lastRowIndex)
     }
 }
+
+extension HomeMainViewController: CollectionViewSelectionDelegate {
+    
+    func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath) {
+        
+        if colletionViewDelegate === boomerThingDelegate {
+            print ("SHOW DETAIL")
+            self.performSegue(withIdentifier: "showDetailThing", sender: self)
+        } else {
+            
+        }
+    }
+}
+
 
 //extension HomeTableViewController: CollectionViewSelectionDelegate {
 //    

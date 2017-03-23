@@ -28,10 +28,9 @@ class PageControlCollectionViewCell: UICollectionViewCell {
         return "PageControlCollectionViewCell"
     }
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
 }
+

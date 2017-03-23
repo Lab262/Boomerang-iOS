@@ -16,6 +16,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postCollectionView: UICollectionView!
     @IBOutlet weak var indexCollectionView: UICollectionView!
+    weak var selectionDelegate: CollectionViewSelectionDelegate?
     
     let spaceCells: CGFloat = 2
     let sizeCells: Int = 8
@@ -88,6 +89,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageControlCollectionViewCell.identifier, for: indexPath) as! PageControlCollectionViewCell
         
+
         cell.widthPageConstraint.constant = 7
         cell.heightPageConstraint.constant = 6
         cell.layoutIfNeeded()
@@ -105,7 +107,6 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         
         switch collectionView {
         case postCollectionView:
@@ -134,6 +135,17 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
         
     }
 }
+
+
+extension RecommendedPostTableViewCell: UICollectionViewDelegate {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
+    }
+    
+}
+
 
 extension RecommendedPostTableViewCell: UICollectionViewDelegateFlowLayout {
     

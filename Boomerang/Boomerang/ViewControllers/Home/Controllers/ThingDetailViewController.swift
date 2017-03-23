@@ -11,39 +11,67 @@ import UIKit
 class ThingDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var thingImage: UIImageView!
-    
-    @IBOutlet weak var thingHeightConstraint: NSLayoutConstraint!
-   
+    @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: IconNavigationBar!
     
-    let thingImageViewHeight: CGFloat = 209.0
     let tableViewTopInset: CGFloat = 156.0
-    let bottomMargin: CGFloat = 10.0
+    let bottomMargin: CGFloat = 20.0
     
+    var inputFieldsCondition = [(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: "Posso trocar/emprestar", descriptionCondition: "Tenho uma mesa de ping pong aqui parada. ou então bora conversar.", constraintIconWidth: 14.0, constraintIconHeight: 15.0), (iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: "Tempo que preciso emprestado", descriptionCondition: "1 semana, mas a gente conversa.", constraintIconWidth: 16.0, constraintIconHeight: 16.0), (iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: "Local de retirada", descriptionCondition: "Qualquer lugar em Brasília.", constraintIconWidth: 15.0, constraintIconHeight: 18.0)]
+    
+    override func viewWillAppear(_ animated: Bool) {
+        TabBarController.mainTabBarController.removeTabBar()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        TabBarController.mainTabBarController.showTabBar()
+        
+    }
+
     func registerNibs(){
-        self.tableView.register(UINib(nibName: "RecommendedPost", bundle: nil), forCellReuseIdentifier: ThingInformationTableViewCell.identifier)
+        tableView.registerNibFrom(PhotoThingTableViewCell.self)
+        tableView.registerNibFrom(UserInformationTableViewCell.self)
+        tableView.registerNibFrom(DescriptionTableViewCell.self)
+        tableView.registerNibFrom(ThingConditionTableViewCell.self)
+    }
+    
+    func configureTableView(){
+        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, bottomMargin, 0)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerNibs()
-        
-        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, bottomMargin, 0)
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        registerNibs()
+        configureTableView()
     }
     
-    func generateInformationThingCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func generatePhotoThingCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PhotoThingTableViewCell.identifier, for: indexPath) as! PhotoThingTableViewCell
+        return cell
+    }
+    
+    func generateUserInformationsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: ThingInformationTableViewCell.identifier, for: indexPath) as! ThingInformationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserInformationTableViewCell.identifier, for: indexPath) as! UserInformationTableViewCell
         
-        cell.actionDelegate = self
+        return cell
+    }
+    
+    func generateUserDescriptionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier, for: indexPath) as! DescriptionTableViewCell
+        
+        return cell
+    }
+    
+    func generateConditionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: ThingConditionTableViewCell.identifier, for: indexPath) as! ThingConditionTableViewCell
+        
+        cell.cellData = inputFieldsCondition[indexPath.row-3]
         
         return cell
     }
@@ -52,21 +80,24 @@ class ThingDetailViewController: UIViewController {
 extension ThingDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return generateInformationThingCell(tableView, cellForRowAt: indexPath)
+        switch indexPath.row {
+        case 0:
+            return generatePhotoThingCell(tableView, cellForRowAt: indexPath)
+        case 1:
+            return generateUserInformationsCell(tableView, cellForRowAt: indexPath)
+        case 2:
+            return generateUserDescriptionCell(tableView, cellForRowAt: indexPath)
+        case 3..<inputFieldsCondition.count+3:
+            return generateConditionCell(tableView, cellForRowAt: indexPath)
+        default:
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return inputFieldsCondition.count+3
     }
 }
-
-extension ThingDetailViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 254
-    }
-}
-
 
 extension ThingDetailViewController: ButtonActionDelegate {
     
@@ -86,50 +117,19 @@ extension ThingDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
-        
-        updateImageScale(yOffset)
-        updateNavigationBarAlpha(yOffset)
         updateInformationsCell(yOffset)
     }
     
     func updateInformationsCell(_ yOffset: CGFloat) {
         
         let informationAlphaThreshold: CGFloat = 20.0
-        
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         
-        
         if yOffset > 0 {
-            
             let alpha = (yOffset)/informationAlphaThreshold
-            
-            print(alpha)
-            print("yofset \(yOffset)")
             cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(alpha)
-            
         } else {
             cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(0.0)
-        }
-    }
-    
-    func updateImageScale(_ yOffset: CGFloat) {
-        if yOffset < 0 {
-            thingHeightConstraint.constant = thingImageViewHeight - yOffset
-        } else if thingHeightConstraint.constant != thingImageViewHeight {
-            thingHeightConstraint.constant = thingImageViewHeight
-        }
-    }
-    
-    func updateNavigationBarAlpha(_ yOffset: CGFloat) {
-        let navbarAlphaThreshold: CGFloat = 64.0
-        
-        if yOffset > (thingImageViewHeight - navbarAlphaThreshold) {
-            
-            let alpha = (yOffset - thingImageViewHeight + navbarAlphaThreshold)/navbarAlphaThreshold
-            
-            navigationBarView.view.backgroundColor = navigationBarView.view.backgroundColor?.withAlphaComponent(alpha)
-        } else {
-            navigationBarView.view.backgroundColor = navigationBarView.view.backgroundColor?.withAlphaComponent(0.0)
         }
     }
 }
