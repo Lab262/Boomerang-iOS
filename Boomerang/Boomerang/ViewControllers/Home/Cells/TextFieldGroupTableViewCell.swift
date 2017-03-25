@@ -71,11 +71,7 @@ class TextFieldGroupTableViewCell: UITableViewCell {
             UIView.animate(withDuration: duration!, delay: 0, options: .curveEaseIn, animations: {
                 self.container?.frame = newContainerFrame!
             }, completion: nil)
-            
-            
         }
-        
-    
     }
     
     deinit {
@@ -116,6 +112,7 @@ class TextFieldGroupTableViewCell: UITableViewCell {
 }
 
 extension TextFieldGroupTableViewCell: PHFComposeBarViewDelegate {
+    
     
     func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
         

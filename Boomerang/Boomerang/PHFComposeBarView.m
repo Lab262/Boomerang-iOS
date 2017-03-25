@@ -287,11 +287,15 @@ static CGFloat kTextViewToSuperviewHeightDelta;
 @synthesize button = _button;
 - (UIButton *)button {
     if (!_button) {
+        
         _button = [PHFComposeBarView_Button buttonWithType:UIButtonTypeCustom];
+        
+        
         CGRect frame = CGRectMake([self bounds].size.width - kHorizontalSpacing - kButtonRightMargin - kButtonTouchableOverlap,
                                   [self bounds].size.height - kButtonBottomMargin - kButtonHeight,
                                   2 * kButtonTouchableOverlap,
                                   kButtonHeight);
+       
         [_button setFrame:frame];
         [_button setTitleEdgeInsets:UIEdgeInsetsMake(0.5f, 0, 0, 0)];
         [_button setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleTopMargin];
@@ -301,6 +305,7 @@ static CGFloat kTextViewToSuperviewHeightDelta;
         [_button setTitleColor:disabledColor forState:UIControlStateDisabled];
         UIColor *enabledColor = [UIColor colorWithHue:211.0f/360.0f saturation:1.0f brightness:1.0f alpha:1.0f];
         [_button setTitleColor:enabledColor forState:UIControlStateNormal];
+        
         [_button addTarget:self action:@selector(didPressButton) forControlEvents:UIControlEventTouchUpInside];
 
         UILabel *label = [_button titleLabel];

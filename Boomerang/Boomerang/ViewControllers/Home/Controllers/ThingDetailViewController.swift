@@ -15,9 +15,19 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var navigationBarView: IconNavigationBar!
     
     let tableViewTopInset: CGFloat = 156.0
+    
+    var composeBarView: PHFComposeBarView?
+    var container: UIView?
+    var keyboardFrameSize: CGRect?
+    var initialViewFrame: CGRect?
+    
+    
     //let bottomMargin: CGFloat = 20.0
     
+    
+    
     var inputFieldsCondition = [(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: "Posso trocar/emprestar", descriptionCondition: "Tenho uma mesa de ping pong aqui parada. ou então bora conversar.", constraintIconWidth: 14.0, constraintIconHeight: 15.0), (iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: "Tempo que preciso emprestado", descriptionCondition: "1 semana, mas a gente conversa.", constraintIconWidth: 16.0, constraintIconHeight: 16.0), (iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: "Local de retirada", descriptionCondition: "Qualquer lugar em Brasília.", constraintIconWidth: 15.0, constraintIconHeight: 18.0)]
+    
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.removeTabBar()
@@ -41,12 +51,124 @@ class ThingDetailViewController: UIViewController {
         tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
+        
     }
     
+    func configureKeyboardNotifications(){
+        let hideKeyboardBlock = {
+            UIView.animate(
+                withDuration: 0.25,
+                delay: 0.0,
+                options: UIViewAnimationOptions(),
+                animations: {
+                    () -> Void in
+                    self.container?.frame = CGRect(x: self.container!.frame.origin.x, y: 335, width: self.container!.frame.width, height: self.container!.frame.height)
+            },
+                completion: nil)
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: nil) { (notification) in
+            hideKeyboardBlock()
+        }
+    
+        let showKeyboardBlock = { (notification: Notification) in
+            if let  obj = notification.userInfo?["UIKeyboardFrameEndUserInfoKey"] {
+                self.keyboardFrameSize = CGRect.null
+                
+                if (obj as AnyObject).responds(to: #selector(NSValue.getValue(_:))) {
+                    (obj as AnyObject).getValue(&self.keyboardFrameSize)
+                    
+                    UIView.animate(
+                        withDuration: 0.25,
+                        delay: 0.0,
+                        options: UIViewAnimationOptions(),
+                        animations: {
+                            () -> Void in
+                            self.container?.frame = CGRect(x: self.container!.frame.origin.x, y: 75, width: self.container!.frame.width, height:  self.container!.frame.width)
+                    },
+                        completion: nil)
+                }
+            }
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: nil) { (notification) in
+            
+            showKeyboardBlock(notification)
+        }
+
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        UIView *view = [[UIView alloc] initWithFrame:kInitialViewFrame];
+//        [view setBackgroundColor:[UIColor whiteColor]];
+//        
+//        UIView *container = [self container];
+//        [container addSubview:[self textView]];
+//        [container addSubview:[self composeBarView]];
+//        [view addSubview:container];
+//        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+//        
+//        [self setView:view];
+        
+        
+        initializeContainer()
+        initializeComposeBar()
+        container?.addSubview(composeBarView!)
         registerNibs()
         configureTableView()
+        configureKeyboardNotifications()
+        self.view.addSubview(container!)
+    }
+    
+    func initializeContainer() {
+        container = UIView(frame: CGRect(x: 0.0, y: self.view.frame.height-40, width: 320.0, height: 30.0))
+        container?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+    
+    func initializeComposeBar(){
+        
+        composeBarView = PHFComposeBarView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.size.width, height: PHFComposeBarViewInitialHeight))
+        composeBarView?.maxCharCount = 160
+        composeBarView?.maxLinesCount = 5
+        composeBarView?.placeholder = "place holder"
+        composeBarView?.textView.accessibilityIdentifier = "Input"
+        composeBarView?.placeholderLabel.accessibilityIdentifier = "Placeholder"
+        composeBarView?.delegate = self
+        composeBarView?.buttonTitle = "Enviar"
+        composeBarView?.backgroundColor = UIColor.red
+        composeBarView?.utilityButton.accessibilityIdentifier = "Utility"
+        
+        //composeBarView?.button.contentEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+        //composeBarView?.button.frame = CGRect(x: 313, y: 10, width: 53, height: 26)
+        
+        
+        
+//        some : (313.0, 10.0, 62.0, 26.0)
+//        ▿ origin : (313.0, 10.0)
+//        - x : 313.0
+//        - y : 10.0
+//        ▿ size : (62.0, 26.0)
+//        - width : 62.0
+//        - height : 26.0
+        //rame = (267 10; 53 26)
+//        _composeBarView = [[PHFComposeBarView alloc] initWithFrame:frame];
+//        [_composeBarView setMaxCharCount:160];
+//        [_composeBarView setMaxLinesCount:5];
+//        [_composeBarView setPlaceholder:@"Type something..."];
+//        //    [_composeBarView setUtilityButtonImage:[UIImage imageNamed:@"Camera"]];
+//        [_composeBarView setDelegate:self];
+//        [[_composeBarView placeholderLabel] setAccessibilityIdentifier:@"Placeholder"];
+//        [[_composeBarView textView] setAccessibilityIdentifier:@"Input"];
+//        //[[_composeBarView button] setAccessibilityIdentifier:@"Submit"];
+//        [[_composeBarView utilityButton] setAccessibilityIdentifier:@"Utility"];
+//        
+    }
+    
+    func selectorTest(_ sender: UIButton) {
+        
     }
     
     func generatePhotoThingCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +229,7 @@ extension ThingDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return inputFieldsCondition.count+4
+        return inputFieldsCondition.count+3
     }
 }
 
@@ -143,6 +265,36 @@ extension ThingDetailViewController: UIScrollViewDelegate {
         } else {
             cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(0.0)
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        tableView.endEditing(true)
+    }
+}
+
+extension ThingDetailViewController: PHFComposeBarViewDelegate {
+    
+    
+    func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
+        
+        composeBarView.setText("", animated: true)
+        composeBarView.resignFirstResponder()
+    }
+    
+    func composeBarView(_ composeBarView: PHFComposeBarView!, didChangeFromFrame startFrame: CGRect, toFrame endFrame: CGRect) {
+        
+    }
+    
+    func composeBarViewDidPressUtilityButton(_ composeBarView: PHFComposeBarView!) {
+        
+    }
+    
+    func composeBarView(_ composeBarView: PHFComposeBarView!, willChangeFromFrame startFrame: CGRect, toFrame endFrame: CGRect, duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
+        
+        let insets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: endFrame.size.height, right: 0.0)
+        composeBarView.textView.contentInset = insets
+        composeBarView.textView.scrollIndicatorInsets = insets
     }
 }
 
