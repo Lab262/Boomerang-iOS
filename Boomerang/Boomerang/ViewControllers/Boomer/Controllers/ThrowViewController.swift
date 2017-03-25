@@ -65,8 +65,7 @@ class ThrowViewController: UIViewController {
     }
     
     func registerNib() {
-        
-        self.tableView.register(UINib(nibName: "ThrowButtonTableViewCell", bundle: nil), forCellReuseIdentifier: ThrowButtonTableViewCell.cellIdentifier)
+       
         
         self.tableView.register(UINib(nibName: "SimpleTextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: SimpleTextFieldTableViewCell.cellIdentifier)
         
@@ -75,17 +74,10 @@ class ThrowViewController: UIViewController {
         self.tableView.register(UINib(nibName: "TypePostTableViewCell", bundle: nil), forCellReuseIdentifier: TypePostTableViewCell.cellIdentifier)
     
           self.tableView.register(UINib(nibName: "WithdrawalTableViewCell", bundle: nil), forCellReuseIdentifier: WithdrawalTableViewCell.cellIdentifier)
-    }
     
-    func generateThrowButtonCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier:ThrowButtonTableViewCell.cellIdentifier, for: indexPath) as! ThrowButtonTableViewCell
-        cell.selectionStyle = .none
-        cell.throwButton.addTarget(self, action: #selector(throwAction(_:)), for: .touchUpInside)
-        
-        return cell
-        
+        self.tableView.register(UINib(nibName: "HeaderPostTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderPostTableViewCell.cellIdentifier)
     }
+
     
     
     @IBAction func throwAction(_ sender: Any) {
@@ -121,6 +113,14 @@ class ThrowViewController: UIViewController {
         
     }
     
+    func generateNavigation(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier:HeaderPostTableViewCell.cellIdentifier, for: indexPath) as! HeaderPostTableViewCell
+        cell.selectionStyle = .none
+        cell.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
+        return cell
+        
+    }
+    
     func generateDescriptionCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.cellIdentifier, for: indexPath) as! DescriptionTextTableViewCell
@@ -148,7 +148,7 @@ class ThrowViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
          cell.selectionStyle = .none
-        cell.textField.placeholder = placeholder[indexPath.row]
+        cell.textField.placeholder = "Nome do Produto"
         
         cell.handler!.completation = { (text) -> Void in
             self.nameThing = text
@@ -239,7 +239,7 @@ extension ThrowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return 6
     }
     
     
@@ -247,15 +247,15 @@ extension ThrowViewController: UITableViewDataSource {
         
         switch indexPath.row {
             case  0:
-                return generateHeadPostCell(tableView, indexPath:indexPath)
+                return generateNavigation(tableView, indexPath:indexPath)
             case  1:
+                return generateHeadPostCell(tableView, indexPath:indexPath)
+            case  2:
                 return generateNameProducTextCell(tableView, indexPath:indexPath)
-            case 2:
-                return generateDescriptionCell(tableView, indexPath: indexPath)
             case 3:
-                return generateWithDrawalCell(tableView, indexPath:indexPath)
+                return generateDescriptionCell(tableView, indexPath: indexPath)
             case 4:
-                return generateSimpleTextCell(tableView, indexPath:indexPath)
+                return generateWithDrawalCell(tableView, indexPath:indexPath)
             default:
                 return UITableViewCell()
         }
@@ -269,11 +269,13 @@ extension ThrowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return CGFloat(55)
+            return CGFloat(250)
         }else if indexPath.row == 1 {
             return CGFloat(100)
         }else if indexPath.row == 2 {
-            return CGFloat(180)
+            return CGFloat(100)
+        }else if indexPath.row == 3 {
+            return CGFloat(175)
         }else {
             return CGFloat(100)
         }
