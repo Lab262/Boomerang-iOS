@@ -138,7 +138,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MYy-Ur-yOs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="OAa-qd-sUY" id="tqs-LM-KVh"/>
@@ -167,7 +167,7 @@
                             <constraint firstItem="MYy-Ur-yOs" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="9h1-NE-6Gi"/>
                             <constraint firstItem="jlc-vg-cyQ" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="BDc-sq-HXD"/>
                             <constraint firstItem="1mm-y4-kUy" firstAttribute="top" secondItem="OWj-2H-2fc" secondAttribute="top" id="GGa-rf-nSL"/>
-                            <constraint firstItem="c9M-eD-pal" firstAttribute="top" secondItem="MYy-Ur-yOs" secondAttribute="bottom" constant="60" id="Qgv-Uz-eEG"/>
+                            <constraint firstItem="c9M-eD-pal" firstAttribute="top" secondItem="MYy-Ur-yOs" secondAttribute="bottom" id="Qgv-Uz-eEG"/>
                             <constraint firstItem="1mm-y4-kUy" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="ULY-qL-nod"/>
                             <constraint firstAttribute="trailing" secondItem="1mm-y4-kUy" secondAttribute="trailing" id="fWG-0s-h6A"/>
                             <constraint firstAttribute="trailing" secondItem="jlc-vg-cyQ" secondAttribute="trailing" id="ig2-xo-SJk"/>
@@ -190,7 +190,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcr-AS-ZtQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n0d-99-g7M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0d-99-g7M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

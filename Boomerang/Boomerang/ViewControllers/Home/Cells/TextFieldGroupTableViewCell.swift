@@ -25,7 +25,7 @@ class TextFieldGroupTableViewCell: UITableViewCell {
     
     var composeBarView: PHFComposeBarView?
     var container: UIView?
-    
+    var delegate: UpdateCellHeightDelegate?
     var initialViewFrame = CGRect(x: 0.0, y: 0.0, width: 320.0, height: 480.0)
     
     @IBOutlet weak var textView: UITextView!
@@ -89,7 +89,7 @@ class TextFieldGroupTableViewCell: UITableViewCell {
         composeBarView = PHFComposeBarView(frame: frame)
         composeBarView?.maxCharCount = 160
         composeBarView?.maxLinesCount = 5
-        composeBarView?.placeholder = "place holder"
+        composeBarView?.placeholder = "Comente"
         composeBarView?.delegate = self
         
         let view = UIView(frame: initialViewFrame)
@@ -98,10 +98,10 @@ class TextFieldGroupTableViewCell: UITableViewCell {
         initializeContainer()
         
         let container = self.container
-        container?.addSubview(textView)
         container?.addSubview(composeBarView!)
+        
         self.addSubview(container!)
-
+        
     }
     
     func initializeContainer() {
@@ -125,6 +125,7 @@ extension TextFieldGroupTableViewCell: PHFComposeBarViewDelegate {
         let insets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: endFrame.size.height, right: 0.0)
         textView.contentInset = insets
         textView.scrollIndicatorInsets = insets
+        self.delegate?.updateCellBy(height: endFrame.size.height)
         self.layoutIfNeeded()
         self.layoutSubviews()
     }    

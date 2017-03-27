@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+protocol UpdateCellHeightDelegate {
+    func updateCellBy(height: CGFloat)
+}
+
 class ThingDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -15,7 +20,7 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var navigationBarView: IconNavigationBar!
     
     let tableViewTopInset: CGFloat = 156.0
-    
+    var textFieldHeight: CGFloat = 60
     var composeBarView: PHFComposeBarView?
     var container: UIView?
     var keyboardFrameSize: CGRect?
@@ -45,6 +50,7 @@ class ThingDetailViewController: UIViewController {
         tableView.registerNibFrom(DescriptionTableViewCell.self)
         tableView.registerNibFrom(ThingConditionTableViewCell.self)
         tableView.registerNibFrom(TextFieldGroupTableViewCell.self)
+        tableView.registerNibFrom(UserCommentTableViewCell.self)
     }
     
     func configureTableView(){
@@ -114,13 +120,13 @@ class ThingDetailViewController: UIViewController {
 //        [self setView:view];
         
         
-        initializeContainer()
-        initializeComposeBar()
-        container?.addSubview(composeBarView!)
+     //   initializeContainer()
+       // initializeComposeBar()
+        //container?.addSubview(composeBarView!)
         registerNibs()
         configureTableView()
-        configureKeyboardNotifications()
-        self.view.addSubview(container!)
+       // configureKeyboardNotifications()
+        //self.view.addSubview(container!)
     }
     
     func initializeContainer() {
@@ -136,7 +142,7 @@ class ThingDetailViewController: UIViewController {
         composeBarView?.placeholder = "place holder"
         composeBarView?.textView.accessibilityIdentifier = "Input"
         composeBarView?.placeholderLabel.accessibilityIdentifier = "Placeholder"
-        composeBarView?.delegate = self
+        
         composeBarView?.buttonTitle = "Enviar"
         composeBarView?.backgroundColor = UIColor.red
         composeBarView?.utilityButton.accessibilityIdentifier = "Utility"
@@ -194,7 +200,16 @@ class ThingDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ThingConditionTableViewCell.identifier, for: indexPath) as! ThingConditionTableViewCell
         
-        cell.cellData = inputFieldsCondition[indexPath.row-3]
+        cell.cellData = inputFieldsCondition[indexPath.row-4]
+        
+        return cell
+    }
+    
+    func generateUserCommentCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserCommentTableViewCell.identifier, for: indexPath) as! UserCommentTableViewCell
+        
+        //cell.comment = self.allComments[indexPath.row-5]
         
         return cell
     }
@@ -204,12 +219,23 @@ class ThingDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldGroupTableViewCell.identifier, for: indexPath) as! TextFieldGroupTableViewCell
         
+        cell.delegate = self
         
         return cell
     }
 }
 
-extension ThingDetailViewController: UITableViewDataSource {
+extension ThingDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 3:
+            return textFieldHeight
+        default:
+            return UITableViewAutomaticDimension
+        }
+    }
+}
+ extension ThingDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
@@ -219,17 +245,19 @@ extension ThingDetailViewController: UITableViewDataSource {
             return generateUserInformationsCell(tableView, cellForRowAt: indexPath)
         case 2:
             return generateUserDescriptionCell(tableView, cellForRowAt: indexPath)
-        case 3..<inputFieldsCondition.count+3:
-            return generateConditionCell(tableView, cellForRowAt: indexPath)
-        case inputFieldsCondition.count+3:
+        case 3:
             return generateTextFieldCell(tableView, cellForRowAt: indexPath)
+        case 4..<inputFieldsCondition.count+4:
+            return generateConditionCell(tableView, cellForRowAt: indexPath)
+        case inputFieldsCondition.count+4:
+            return generateUserCommentCell(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return inputFieldsCondition.count+3
+        return inputFieldsCondition.count+5
     }
 }
 
@@ -273,28 +301,10 @@ extension ThingDetailViewController: UIScrollViewDelegate {
     }
 }
 
-extension ThingDetailViewController: PHFComposeBarViewDelegate {
-    
-    
-    func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
-        
-        composeBarView.setText("", animated: true)
-        composeBarView.resignFirstResponder()
-    }
-    
-    func composeBarView(_ composeBarView: PHFComposeBarView!, didChangeFromFrame startFrame: CGRect, toFrame endFrame: CGRect) {
-        
-    }
-    
-    func composeBarViewDidPressUtilityButton(_ composeBarView: PHFComposeBarView!) {
-        
-    }
-    
-    func composeBarView(_ composeBarView: PHFComposeBarView!, willChangeFromFrame startFrame: CGRect, toFrame endFrame: CGRect, duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
-        
-        let insets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: endFrame.size.height, right: 0.0)
-        composeBarView.textView.contentInset = insets
-        composeBarView.textView.scrollIndicatorInsets = insets
+extension ThingDetailViewController: UpdateCellHeightDelegate {
+    func updateCellBy(height: CGFloat) {
+        self.textFieldHeight = height
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }
-

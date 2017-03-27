@@ -91,6 +91,8 @@
 		BA455F8AF71EF03037491F19 /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */; };
 		D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
+		D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */; };
+		D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */; };
 		D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */; };
 		D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */; };
 		D48735021E7885000065E13A /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */; };
@@ -241,6 +243,8 @@
 		CE907A203F74C49B9DB89B40 /* Pods-Boomerang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.debug.xcconfig"; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
+		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCommentTableViewCell.swift; sourceTree = "<group>"; };
+		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCommentTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommendedPostTableViewCell.swift; path = ../Interface/RecommendedPostTableViewCell.swift; sourceTree = "<group>"; };
 		D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
@@ -713,6 +717,8 @@
 		A4F89B281DA809B100949A35 /* Boomerang */ = {
 			isa = PBXGroup;
 			children = (
+				D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */,
+				D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */,
 				D4E4BEAF1E82569300F8DC2E /* Frameworks */,
 				A4E462F41DCAEAC200A611C0 /* Constants */,
 				A4E462F51DCAEAC200A611C0 /* Extensions */,
@@ -993,6 +999,7 @@
 				D498F0371E808861002E8972 /* PhotoThingTableViewCell.xib in Resources */,
 				A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */,
 				D498F0431E816243002E8972 /* ThingNavigationBar.xib in Resources */,
+				D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */,
 				A4E462FB1DCAEAE800A611C0 /* Boomer.storyboard in Resources */,
 				D498F04B1E820EA1002E8972 /* UserInformationTableViewCell.xib in Resources */,
 				D4E4BEA61E822FBE00F8DC2E /* DescriptionTableViewCell.xib in Resources */,
@@ -1182,6 +1189,7 @@
 				D498F0311E7F334E002E8972 /* HomePresenter.swift in Sources */,
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
 				2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */,
+				D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */,
 				D4E4BEB81E8256B000F8DC2E /* PHFComposeBarView_Button.m in Sources */,
