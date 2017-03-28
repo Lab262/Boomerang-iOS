@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,8 +44,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dk4-WL-Zzq">
-                        <rect key="frame" x="84" y="31" width="34.5" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dk4-WL-Zzq">
+                        <rect key="frame" x="84" y="31" width="262" height="16"/>
                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -61,10 +62,11 @@
                     <constraint firstItem="eNU-mo-uPw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.22" id="LKB-C0-kBK"/>
                     <constraint firstItem="eNU-mo-uPw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MaO-6D-fnk"/>
                     <constraint firstItem="AVr-0K-ecW" firstAttribute="top" secondItem="eNU-mo-uPw" secondAttribute="top" multiplier="1.2" id="ZsC-FL-l4q"/>
-                    <constraint firstAttribute="bottom" secondItem="dk4-WL-Zzq" secondAttribute="bottom" constant="22.5" id="eaO-YF-egQ"/>
+                    <constraint firstAttribute="bottom" secondItem="dk4-WL-Zzq" secondAttribute="bottom" constant="22" id="eaO-YF-egQ"/>
                     <constraint firstItem="Osi-Ay-Sg9" firstAttribute="leading" secondItem="AVr-0K-ecW" secondAttribute="trailing" constant="3" id="gMR-5R-E9c"/>
                     <constraint firstItem="dk4-WL-Zzq" firstAttribute="top" secondItem="AVr-0K-ecW" secondAttribute="bottom" constant="2" id="kTb-bl-y88"/>
                     <constraint firstItem="dk4-WL-Zzq" firstAttribute="leading" secondItem="AVr-0K-ecW" secondAttribute="leading" id="mRs-E5-GvV"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dk4-WL-Zzq" secondAttribute="trailing" constant="21" id="ocZ-de-Lwa"/>
                     <constraint firstItem="Osi-Ay-Sg9" firstAttribute="centerY" secondItem="AVr-0K-ecW" secondAttribute="centerY" id="pjG-zj-hGa"/>
                 </constraints>
             </tableViewCellContentView>

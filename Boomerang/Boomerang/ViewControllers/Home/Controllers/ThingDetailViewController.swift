@@ -27,14 +27,17 @@ class ThingDetailViewController: UIViewController {
     var container: UIView?
     var keyboardFrameSize: CGRect?
     var initialViewFrame: CGRect?
-    
+    var currentCommentsCount = 0
     
     var inputFieldsCondition = [(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: "Posso trocar/emprestar", descriptionCondition: "Tenho uma mesa de ping pong aqui parada. ou então bora conversar.", constraintIconWidth: 14.0, constraintIconHeight: 15.0), (iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: "Tempo que preciso emprestado", descriptionCondition: "1 semana, mas a gente conversa.", constraintIconWidth: 16.0, constraintIconHeight: 16.0), (iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: "Local de retirada", descriptionCondition: "Qualquer lugar em Brasília.", constraintIconWidth: 15.0, constraintIconHeight: 18.0)]
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.removeTabBar()
+        updateComments()
+    }
+    
+    func updateComments(){
         presenter.updateComments()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,7 +58,7 @@ class ThingDetailViewController: UIViewController {
         tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-        
+        tableView.tableFooterView = refreshIndicatorInTableViewFooter()
     }
     
     override func viewDidLoad() {
@@ -63,6 +66,12 @@ class ThingDetailViewController: UIViewController {
         presenter.setControllerDelegate(controller: self)
         registerNibs()
         configureTableView()
+    }
+    
+    func refreshIndicatorInTableViewFooter() -> UIView {
+        let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
+        viewIndicator.backgroundColor = .white
+        return viewIndicator
     }
     
     func generatePhotoThingCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -169,6 +178,15 @@ extension ThingDetailViewController: UIScrollViewDelegate {
         updateInformationsCell(yOffset)
     }
     
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
+            tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, 0.0)
+            updateComments()
+        }
+    }
+    
     func updateInformationsCell(_ yOffset: CGFloat) {
         
         let informationAlphaThreshold: CGFloat = 20.0
@@ -212,7 +230,11 @@ extension ThingDetailViewController: UpdateInformationsDelegate {
 extension ThingDetailViewController: ViewControllerDelegate {
     
     func updateView(array: [Any]) {
-        tableView.reloadData()
+        if array.count != currentCommentsCount {
+            currentCommentsCount = array.count
+            tableView.reloadData()
+        }
+        tableView.tableFooterView?.unload()
     }
     
     func showMessageError(msg: String) {
