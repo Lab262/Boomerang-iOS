@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,33 +21,36 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="85" id="KGk-i7-Jjw" customClass="UserCommentTableViewCell" customModule="Boomerang" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="eNU-mo-uPw">
-                        <rect key="frame" x="16.5" y="17" width="50" height="50"/>
+                        <rect key="frame" x="16.5" y="10" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="Jar-z1-sPn"/>
                             <constraint firstAttribute="height" constant="50" id="xda-G2-dD7"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVr-0K-ecW">
-                        <rect key="frame" x="84.5" y="20.5" width="39" height="17"/>
+                        <rect key="frame" x="84.5" y="12" width="39" height="17"/>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dk4-WL-Zzq">
-                        <rect key="frame" x="84" y="39.5" width="34.5" height="16"/>
+                        <rect key="frame" x="84" y="31" width="34.5" height="16"/>
                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-Ay-Sg9">
-                        <rect key="frame" x="126.5" y="22.5" width="29" height="13.5"/>
+                        <rect key="frame" x="126.5" y="14.5" width="29" height="13"/>
                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -56,10 +58,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="AVr-0K-ecW" firstAttribute="leading" secondItem="eNU-mo-uPw" secondAttribute="trailing" constant="18" id="5A9-Qi-BAh"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="dk4-WL-Zzq" secondAttribute="bottom" constant="20.5" id="IPv-GM-8ik"/>
                     <constraint firstItem="eNU-mo-uPw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.22" id="LKB-C0-kBK"/>
                     <constraint firstItem="eNU-mo-uPw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MaO-6D-fnk"/>
                     <constraint firstItem="AVr-0K-ecW" firstAttribute="top" secondItem="eNU-mo-uPw" secondAttribute="top" multiplier="1.2" id="ZsC-FL-l4q"/>
+                    <constraint firstAttribute="bottom" secondItem="dk4-WL-Zzq" secondAttribute="bottom" constant="22.5" id="eaO-YF-egQ"/>
                     <constraint firstItem="Osi-Ay-Sg9" firstAttribute="leading" secondItem="AVr-0K-ecW" secondAttribute="trailing" constant="3" id="gMR-5R-E9c"/>
                     <constraint firstItem="dk4-WL-Zzq" firstAttribute="top" secondItem="AVr-0K-ecW" secondAttribute="bottom" constant="2" id="kTb-bl-y88"/>
                     <constraint firstItem="dk4-WL-Zzq" firstAttribute="leading" secondItem="AVr-0K-ecW" secondAttribute="leading" id="mRs-E5-GvV"/>

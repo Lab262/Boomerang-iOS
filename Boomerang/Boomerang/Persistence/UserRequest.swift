@@ -15,7 +15,6 @@ class UserRequest: NSObject {
         
         let pfUser = PFUser()
         
-        pfUser.username = user.name
         pfUser.password = pass
         pfUser.email = user.email
         pfUser["emailVerified"] = false

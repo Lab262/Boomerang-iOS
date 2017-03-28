@@ -14,7 +14,7 @@ class DetailThingPresenter: NSObject {
     fileprivate var post:Post? = nil
     fileprivate let pagination = 3
     fileprivate var skip = 0
-    fileprivate let comments = [Comment]()
+    fileprivate var comments = [Comment]()
     var controller: ViewControllerDelegate?
     
     
@@ -27,7 +27,10 @@ class DetailThingPresenter: NSObject {
 
         CommentRequest.fetchCommentsBy(post: self.post!, pagination: pagination, skip: self.skip) { (success, msg, comments) in
             if success {
-                self.controller?.updateView(array: comments!)
+                for comment in comments! {
+                    self.comments.append(comment)
+                }
+                self.controller?.updateView(array: self.comments)
             } else {
                 self.controller?.showMessageError(msg: msg)
             }

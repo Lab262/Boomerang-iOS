@@ -38,10 +38,16 @@ class UserCommentTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    
 
     func updateCellUI(){
-        userNameLabel.text = comment!.author!.name
+        
+        userNameLabel.text = comment!.author!.fullName
         userDescriptionLabel.text = comment!.content
+        dateLabel.text = comment!.createdDate!.getStringToDate(dateFormat: "dd/MM/yyyy")
+        
+        
         getUserPhotoImage()
     }
     

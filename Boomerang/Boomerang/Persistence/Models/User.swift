@@ -11,15 +11,10 @@ import Parse
 
 class User: PFUser {
     
-    var name: String? = ""
-   // var password: String? = ""
-    var cpf: String? = ""
-    var accessLevel: Int? = 0
-    var gender: Int? = 0
-    
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
     @NSManaged var imageFile: PFFile?
+    var fullName: String?
     var profileImage: UIImage?
     var alreadySearched = false
     
@@ -36,12 +31,12 @@ class User: PFUser {
         self.objectId = user.objectId
         
         if let firstName = user["firstName"] as? String {
-            
+            self.fullName = firstName
             self.firstName = firstName
         }
         
         if let lastName = user["lastName"] as? String {
-            
+            self.fullName?.append(" \(lastName)")
             self.lastName = lastName
         }
         
@@ -50,10 +45,12 @@ class User: PFUser {
             self.email = email
         }
         
-         if let imageFile = user["photo"] as? PFFile {
+        if let imageFile = user["photo"] as? PFFile {
             
             self.imageFile = imageFile
         }
+        
+        
     }
 }
 

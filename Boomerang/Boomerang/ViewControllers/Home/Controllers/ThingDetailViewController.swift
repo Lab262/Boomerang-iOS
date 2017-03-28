@@ -97,7 +97,7 @@ class ThingDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: UserCommentTableViewCell.identifier, for: indexPath) as! UserCommentTableViewCell
         
-        cell.comment = presenter.getComments()[indexPath.row]
+        cell.comment = presenter.getComments()[indexPath.row-inputFieldsCondition.count-4]
         
         return cell
     }
@@ -116,7 +116,7 @@ class ThingDetailViewController: UIViewController {
 extension ThingDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 3:
+        case inputFieldsCondition.count+3:
             return textFieldHeight
         default:
             return UITableViewAutomaticDimension
@@ -143,6 +143,7 @@ extension ThingDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return inputFieldsCondition.count + 4 + presenter.getComments().count
     }
 }
