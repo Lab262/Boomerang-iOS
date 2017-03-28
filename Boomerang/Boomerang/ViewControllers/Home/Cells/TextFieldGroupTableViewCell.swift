@@ -119,7 +119,9 @@ class TextFieldGroupTableViewCell: UITableViewCell {
 extension TextFieldGroupTableViewCell: PHFComposeBarViewDelegate {
     
     func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
-        
+        if composeBarView.text != "" {
+            delegate?.sendTextByField(text: composeBarView.text)
+        }
         composeBarView.setText("", animated: true)
         composeBarView.resignFirstResponder()
     }

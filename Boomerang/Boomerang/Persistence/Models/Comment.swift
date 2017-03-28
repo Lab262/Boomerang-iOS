@@ -20,6 +20,13 @@ class Comment: PFObject {
         super.init()
     }
     
+    init(post: Post, content: String, author: User) {
+        super.init()
+        self.post = post
+        self.content = content
+        self.author = author
+    }
+    
     convenience init(object: PFObject) {
         self.init()
         

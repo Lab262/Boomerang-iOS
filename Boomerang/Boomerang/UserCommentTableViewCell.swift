@@ -42,5 +42,27 @@ class UserCommentTableViewCell: UITableViewCell {
     func updateCellUI(){
         userNameLabel.text = comment!.author!.name
         userDescriptionLabel.text = comment!.content
+        getUserPhotoImage()
+    }
+    
+    func getUserPhotoImage() {
+        guard let image = comment?.author?.profileImage else {
+            userPhotoImage.loadAnimation()
+            
+            comment?.author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+                
+                if success {
+                    self.comment?.author?.profileImage = UIImage(data: data!)
+                    self.userPhotoImage.image = UIImage(data: data!)
+                    self.userPhotoImage.unload()
+                } else {
+                    // error
+                }
+            })
+            
+            return
+        }
+        
+        userPhotoImage.image = image
     }
 }

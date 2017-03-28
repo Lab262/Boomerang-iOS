@@ -204,7 +204,7 @@ extension ThingDetailViewController: UpdateInformationsDelegate {
     }
     
     func sendTextByField(text: String) {
-        
+        presenter.createComment(text: text)
     }
 }
 

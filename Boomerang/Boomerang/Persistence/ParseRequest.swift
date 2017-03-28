@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Foundation
 
 class ParseRequest: NSObject {
     
@@ -260,6 +261,9 @@ extension PFObject {
         let mirror = Mirror(reflecting: self)
         
         for case let (label?, value) in mirror.children {
+            print ("LABEL: \(label)")
+            print ("VALUE: \(value)")
+            
             object[label] = value
         }
         

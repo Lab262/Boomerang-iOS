@@ -27,4 +27,22 @@ class CommentRequest: NSObject {
             }
         }
     }
+    
+    static func saveComment(comment: Comment, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+        
+        
+        let newComment = PFObject(className: "Comment")
+        newComment["post"] = PFObject(withoutDataWithClassName: "Post", objectId: comment.post?.objectId)
+        newComment["content"] = comment.content
+        newComment["author"] = PFObject(withoutDataWithClassName: "_User", objectId: comment.author?.objectId)
+        
+        newComment.saveInBackground { (success, error) in
+            if success {
+                completionHandler(true, "success")
+            } else {
+                completionHandler(false, error.debugDescription)
+                
+            }
+        }
+    }
 }

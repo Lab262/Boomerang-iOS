@@ -255,8 +255,8 @@
 		D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
-		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCommentTableViewCell.swift; sourceTree = "<group>"; };
-		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCommentTableViewCell.xib; sourceTree = "<group>"; };
+		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCommentTableViewCell.swift; path = ../../../UserCommentTableViewCell.swift; sourceTree = "<group>"; };
+		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCommentTableViewCell.xib; path = ../../../UserCommentTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommendedPostTableViewCell.swift; path = ../Interface/RecommendedPostTableViewCell.swift; sourceTree = "<group>"; };
 		D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
@@ -436,6 +436,7 @@
 				A4FE06281DD0953200BFDC4D /* HomeTableViewController.swift */,
 				D43DF1311E66970400397251 /* ThingDetailViewController.swift */,
 				D498F0301E7F334E002E8972 /* HomePresenter.swift */,
+				D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */,
 				D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */,
 			);
 			path = Controllers;
@@ -735,8 +736,6 @@
 		A4F89B281DA809B100949A35 /* Boomerang */ = {
 			isa = PBXGroup;
 			children = (
-				D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */,
-				D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */,
 				D4E4BEAF1E82569300F8DC2E /* Frameworks */,
 				A4E462F41DCAEAC200A611C0 /* Constants */,
 				A4E462F51DCAEAC200A611C0 /* Extensions */,
@@ -823,6 +822,7 @@
 		D498F0461E820DC5002E8972 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */,
 				D498F0351E808861002E8972 /* PhotoThingTableViewCell.xib */,
 				D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */,
 				D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */,
