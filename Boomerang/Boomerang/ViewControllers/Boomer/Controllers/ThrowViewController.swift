@@ -9,15 +9,17 @@
 import UIKit
 import Parse
 
+
 class ThrowViewController: UIViewController {
 
     @IBOutlet weak var bgPostImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-     let placeholder = ["Nome do Produto","Local Retirarda","placeholder","placeholder"]
+     let placeholder = ["Nome do Produto","Nome do Produto","Local de retirada","placeholder"]
     var fields:[String] = []
     var nameThing = String ()
     var descriptionThing = String ()
-    
+    var type = PostType.have
+    var titleHeader = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +29,10 @@ class ThrowViewController: UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
        _ = navigationController?.popViewController(animated: true)
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.removeTabBar()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,6 +71,10 @@ class ThrowViewController: UIViewController {
         self.tableView.register(UINib(nibName: "SimpleTextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: SimpleTextFieldTableViewCell.cellIdentifier)
         
         self.tableView.register(UINib(nibName: "DescriptionTextTableViewCell", bundle: nil), forCellReuseIdentifier: DescriptionTextTableViewCell.cellIdentifier)
+        
+        self.tableView.register(UINib(nibName: "TypePostTableViewCell", bundle: nil), forCellReuseIdentifier: TypePostTableViewCell.cellIdentifier)
+    
+          self.tableView.register(UINib(nibName: "WithdrawalTableViewCell", bundle: nil), forCellReuseIdentifier: WithdrawalTableViewCell.cellIdentifier)
     }
     
     func generateThrowButtonCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +82,6 @@ class ThrowViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier:ThrowButtonTableViewCell.cellIdentifier, for: indexPath) as! ThrowButtonTableViewCell
         cell.selectionStyle = .none
         cell.throwButton.addTarget(self, action: #selector(throwAction(_:)), for: .touchUpInside)
-        
         
         return cell
         
@@ -91,6 +94,33 @@ class ThrowViewController: UIViewController {
     }
     
     
+    func generateHeadPostCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier:TypePostTableViewCell.cellIdentifier, for: indexPath) as! TypePostTableViewCell
+        cell.selectionStyle = .none
+        
+        switch  type.hashValue {
+        case 0 :
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_need_post")
+            cell.titlePost.text = titleHeader
+            break
+        case  1 :
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_have_post")
+            cell.titlePost.text = titleHeader
+            break
+        case  2 :
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_donate_post")
+            cell.titlePost.text = titleHeader
+            break
+        default:
+            cell.titlePost.text = titleHeader
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_donate_post")
+        }
+        
+        return cell
+        
+    }
+    
     func generateDescriptionCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.cellIdentifier, for: indexPath) as! DescriptionTextTableViewCell
@@ -99,12 +129,20 @@ class ThrowViewController: UIViewController {
         cell.handler!.completation = { (text) -> Void in
             self.descriptionThing = text
         }
-        
-        
         return cell
         
     }
     
+    
+    func generateWithDrawalCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier:WithdrawalTableViewCell.cellIdentifier, for: indexPath) as! WithdrawalTableViewCell
+        cell.selectionStyle = .none
+        
+     
+        return cell
+        
+    }
     
     func generateNameProducTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
@@ -128,6 +166,20 @@ class ThrowViewController: UIViewController {
         
         cell.handler!.completation = { (text) -> Void in
            
+        }
+        return cell
+        
+    }
+    
+    
+    func generateWithDrawTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
+        cell.selectionStyle = .none
+        cell.textField.placeholder = placeholder[indexPath.row]
+        
+        cell.handler!.completation = { (text) -> Void in
+            
         }
         return cell
         
@@ -195,12 +247,14 @@ extension ThrowViewController: UITableViewDataSource {
         
         switch indexPath.row {
             case  0:
+                return generateHeadPostCell(tableView, indexPath:indexPath)
+            case  1:
                 return generateNameProducTextCell(tableView, indexPath:indexPath)
-            case 1:
-                return generateDescriptionCell(tableView, indexPath: indexPath)
             case 2:
-                return generateSimpleTextCell(tableView, indexPath:indexPath)
+                return generateDescriptionCell(tableView, indexPath: indexPath)
             case 3:
+                return generateWithDrawalCell(tableView, indexPath:indexPath)
+            case 4:
                 return generateSimpleTextCell(tableView, indexPath:indexPath)
             default:
                 return UITableViewCell()
@@ -214,8 +268,11 @@ extension ThrowViewController: UITableViewDelegate {
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.row == 1 {
+        if indexPath.row == 0 {
+            return CGFloat(55)
+        }else if indexPath.row == 1 {
+            return CGFloat(100)
+        }else if indexPath.row == 2 {
             return CGFloat(180)
         }else {
             return CGFloat(100)
