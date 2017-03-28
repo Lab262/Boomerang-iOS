@@ -25,8 +25,8 @@ class TextFieldGroupTableViewCell: UITableViewCell {
     
     var composeBarView: PHFComposeBarView?
     var container: UIView?
-    var delegate: UpdateCellHeightDelegate?
-    var initialViewFrame = CGRect(x: 0.0, y: 0.0, width: 320.0, height: 480.0)
+    var delegate: UpdateInformationsDelegate?
+    var initialViewFrame = CGRect(x: 0.0, y: 0.0, width: 320.0, height: 60.0)
     
     @IBOutlet weak var textView: UITextView!
     
@@ -92,27 +92,31 @@ class TextFieldGroupTableViewCell: UITableViewCell {
         composeBarView?.placeholder = "Comente"
         composeBarView?.delegate = self
         
-        let view = UIView(frame: initialViewFrame)
-        view.backgroundColor = UIColor.white
-        
         initializeContainer()
         
         let container = self.container
         container?.addSubview(composeBarView!)
         
+        //composeBarView?.backgroundColor = .yellow
         self.addSubview(container!)
-        
+      
     }
     
     func initializeContainer() {
         container = UIView(frame: initialViewFrame)
         container?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
+    
+    override func layoutSubviews() {
+        
+        self.composeBarView?.setY(y: 0)
+        
+    }
+
 
 }
 
 extension TextFieldGroupTableViewCell: PHFComposeBarViewDelegate {
-    
     
     func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
         
@@ -123,10 +127,13 @@ extension TextFieldGroupTableViewCell: PHFComposeBarViewDelegate {
     func composeBarView(_ composeBarView: PHFComposeBarView!, willChangeFromFrame startFrame: CGRect, toFrame endFrame: CGRect, duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
         
         let insets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: endFrame.size.height, right: 0.0)
+        
         textView.contentInset = insets
         textView.scrollIndicatorInsets = insets
+        
         self.delegate?.updateCellBy(height: endFrame.size.height)
-        self.layoutIfNeeded()
-        self.layoutSubviews()
-    }    
+        
+        
+        
+    }
 }

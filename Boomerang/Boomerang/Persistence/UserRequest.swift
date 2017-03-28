@@ -54,7 +54,7 @@ class UserRequest: NSObject {
         
         var following: [User] = [User]()
         
-        ParseRequest.queryEqualToValueWithInclude(className: "Follow", key: "from", include: "to", value: PFUser.current()!) { (success, msg, objects) in
+        ParseRequest.queryEqualToValueWithInclude(className: "Follow", key: "from", value: PFUser.current()!, include: "to") { (success, msg, objects) in
             
             if success {
                 for object in objects! {

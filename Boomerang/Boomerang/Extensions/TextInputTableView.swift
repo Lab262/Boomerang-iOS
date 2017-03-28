@@ -25,15 +25,18 @@ class TextInputTableView: UITableView {
                 if (obj as AnyObject).responds(to: #selector(NSValue.getValue(_:))) {
                     (obj as AnyObject).getValue(&keyboardFrame)
                     
-                    UIView.animate(
-                        withDuration: 0.25,
-                        delay: 0.0,
-                        options: UIViewAnimationOptions(),
-                        animations: {
-                            () -> Void in
-                            self.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height + 300, 0.0)
-                    },
-                        completion: nil)
+                    UIView.animate(withDuration: 0.25, delay: 0.0, options: UIViewAnimationOptions(), animations: { 
+                        self.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height, 0.0)
+                        self.scrollIndicatorInsets = self.contentInset
+                        self.scrollToRow(at: IndexPath.init(row: 3, section: 0) , at: .bottom, animated: true)
+                    }, completion: { (success) in
+                        if success {
+                            
+//                            self.scrollToRow(at: IndexPath.init(row: 3, section: 0) , at: .bottom, animated: true)
+                            
+                        }
+                    })
+                    
                 }
             }
             
@@ -52,7 +55,7 @@ class TextInputTableView: UITableView {
                 options: UIViewAnimationOptions(),
                 animations: {
                     () -> Void in
-                    self.contentInset = UIEdgeInsets.zero
+                    self.contentInset = UIEdgeInsetsMake(156, 0, 0, 0)
             },
                 completion: nil)
             

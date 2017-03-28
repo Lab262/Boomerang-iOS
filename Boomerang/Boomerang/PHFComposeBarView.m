@@ -403,7 +403,7 @@ static CGFloat kTextViewToSuperviewHeightDelta;
 
 @synthesize textView = _textView;
 - (UITextView *)textView {
-    if (!_textView) {
+    if (!_textView){
         _textView = [[PHFComposeBarView_TextView alloc] initWithFrame:CGRectZero];
         [_textView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         [_textView setScrollIndicatorInsets:UIEdgeInsetsMake(8.0f, 0.0f, 8.0f, 0.5f)];

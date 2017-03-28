@@ -34,7 +34,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         return "RecommendedPostCollectionViewCell"
     }
     
-    var thingData: BoomerThing! {
+    var post: Post! {
         didSet {
             setupCell()
         }
@@ -46,21 +46,21 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell() {
-        descriptionPostLabel.text = thingData.post?.content
-        userNameLabel.text = thingData.post!.author!.firstName! + " " + thingData.post!.author!.lastName!
+        descriptionPostLabel.text = post?.content
+        userNameLabel.text = post!.author!.firstName! + " " + post!.author!.lastName!
         self.getUserPhotoImage()
         self.getRelationPhotosByThing()
     }
     
     
     func getUserPhotoImage() {
-        guard let image = thingData.post?.author?.profileImage else {
+        guard let image = post?.author?.profileImage else {
             userImage.loadAnimation()
             
-            thingData.post?.author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            post?.author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
                 
                 if success {
-                    self.thingData.post?.author?.profileImage = UIImage(data: data!)
+                    self.post?.author?.profileImage = UIImage(data: data!)
                     self.userImage.image = UIImage(data: data!)
                     self.userImage.unload()
                 } else {
@@ -75,20 +75,20 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     
     func getRelationPhotosByThing(){
         
-        if thingData.post!.photos.count > 0 {
-            postImage.image = thingData.post?.photos[0]
+        if post!.photos.count > 0 {
+            postImage.image = post?.photos[0]
             
-        } else if !thingData.post!.downloadedImages {
-            thingData.post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
+        } else if !post!.downloadedImages {
+            post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
                 
                 if success {
                 
-                    self.thingData.post?.photos.append(UIImage(data: data!)!)
+                    self.post?.photos.append(UIImage(data: data!)!)
                     
-                    if self.thingData.post!.photos.count < 2 {
+                    if self.post!.photos.count < 2 {
                         self.postImage.image = UIImage(data: data!)!
                     }
-                    self.thingData.post?.downloadedImages = true
+                    self.post?.downloadedImages = true
                     self.postImage.unload()
                     
                 } else {

@@ -18,12 +18,11 @@ class HomePresenter: NSObject {
 
     fileprivate var following: [User] = [User]()
     fileprivate var posts: [Post] = [Post]()
-    fileprivate var boomerThings: [BoomerThing] = [BoomerThing]()
-    fileprivate var controller: HomeMainDelegate?
+    fileprivate var controller: ViewControllerDelegate?
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
     fileprivate var postsCount = 0
     
-    func setControllerDelegate(controller: HomeMainViewController) {
+    func setControllerDelegate(controller: ViewControllerDelegate) {
         self.controller = controller
     }
     
@@ -67,7 +66,7 @@ class HomePresenter: NSObject {
         PostRequest.fetchPostByFollowing(following: following, pagination: pagination, skip: currentIndex) { (success, msg, posts) in
             if success {
                 self.posts = posts!
-                self.getBoomerThings()
+                self.getPosts()
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
@@ -94,11 +93,8 @@ class HomePresenter: NSObject {
         completionHandler(true, "Success", image)
     }
     
-    func getBoomerThings() {
-        for post in filterPosts(){
-            boomerThings.append(BoomerThing(post: post, thingType: .have))
-        }
-        controller?.updatePosts(boomerThings: boomerThings)
+    func getPosts() {
+        controller?.updateView(array: filterPosts())
     }
     
     func filterFollowing() -> [User] {

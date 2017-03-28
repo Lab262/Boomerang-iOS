@@ -89,6 +89,8 @@
 		A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */; };
 		A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */; };
 		BA455F8AF71EF03037491F19 /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */; };
+		D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */; };
+		D40C0E4C1E8AAD58008174D2 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */; };
 		D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
 		D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */; };
@@ -241,6 +243,8 @@
 		A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Indexable.swift"; sourceTree = "<group>"; };
 		CCF6CC3F0FDD1FD115C7BD92 /* Pods-BoomerangTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE907A203F74C49B9DB89B40 /* Pods-Boomerang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.debug.xcconfig"; sourceTree = "<group>"; };
+		D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailThingPresenter.swift; sourceTree = "<group>"; };
+		D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
 		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 				2FA93B281E4A881E0080F99A /* UserRequest.swift */,
 				D42443F31E6DFB1100620441 /* ParseRequest.swift */,
 				D498F0321E7F43EF002E8972 /* PostRequest.swift */,
+				D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				A4FE06281DD0953200BFDC4D /* HomeTableViewController.swift */,
 				D43DF1311E66970400397251 /* ThingDetailViewController.swift */,
 				D498F0301E7F334E002E8972 /* HomePresenter.swift */,
+				D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1170,11 +1176,13 @@
 				D4A012FE1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
+				D40C0E4C1E8AAD58008174D2 /* CommentRequest.swift in Sources */,
 				2F2F07901E6733CC00C61A6D /* ThrowViewController.swift in Sources */,
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
 				2F2F07941E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift in Sources */,
 				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
 				2FA0CB381E6E5F1800224284 /* AlertUtils.swift in Sources */,
+				D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
 				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,

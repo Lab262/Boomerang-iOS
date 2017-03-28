@@ -88,20 +88,25 @@ class BoomerThingCell: UICollectionViewCell {
     
     func setupProfilePhotoData() {
         
-        if thingData.thingType != .experience {
-            self.profilePhotoImgView0.isHidden = true
-            self.profilePhotoImgView2.isHidden = true
-            self.profilePhotosConstraint.isActive = true
-            self.profilePhotosConstaintExperience.isActive = false
-            
-        } else {
-            
-            self.profilePhotoImgView0.isHidden = false
-            self.profilePhotoImgView2.isHidden = false
-            self.profilePhotosConstraint.isActive = false
-            self.profilePhotosConstaintExperience.isActive = true
-            
-        }
+        self.profilePhotoImgView0.isHidden = true
+        self.profilePhotoImgView2.isHidden = true
+        self.profilePhotosConstraint.isActive = true
+        self.profilePhotosConstaintExperience.isActive = false
+        
+//        if thingData.thingType != .experience {
+//            self.profilePhotoImgView0.isHidden = true
+//            self.profilePhotoImgView2.isHidden = true
+//            self.profilePhotosConstraint.isActive = true
+//            self.profilePhotosConstaintExperience.isActive = false
+//            
+//        } else {
+//            
+//            self.profilePhotoImgView0.isHidden = false
+//            self.profilePhotoImgView2.isHidden = false
+//            self.profilePhotosConstraint.isActive = false
+//            self.profilePhotosConstaintExperience.isActive = true
+//            
+//        }
         
     }
     

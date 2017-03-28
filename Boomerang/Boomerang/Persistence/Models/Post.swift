@@ -9,13 +9,21 @@
 import UIKit
 import Parse
 
+enum postType: String {
+    case have = "Have"
+    case need = "Need"
+    case donate = "Donate"
+}
+
 class Post: PFObject {
     
     @NSManaged var id: String?
+    @NSManaged var type: String?
     @NSManaged var author: User?
     @NSManaged var title: String?
     @NSManaged var content: String?
     @NSManaged var thing: Thing?
+    
     var alreadySearched = false
     var downloadedImages = false
     
@@ -25,10 +33,6 @@ class Post: PFObject {
     override init(){
         super.init()
     }
-    
-//    override class func initialize() {
-//        self.registerSubclass()
-//    }
     
     convenience init(object: PFObject) {
         self.init()
