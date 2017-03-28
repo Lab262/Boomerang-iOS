@@ -88,7 +88,7 @@ extension UIView {
         }
     }
     
-    func loadAnimation(_ duration: TimeInterval = 0.2, _ backgroundColor: UIColor = UIColor(white: 0.0, alpha: 0.75), _ alpha: CGFloat = 0.0) {
+    func loadAnimation(_ duration: TimeInterval = 0.2, _ backgroundColor: UIColor = UIColor(white: 0.0, alpha: 0.75), _ indicatorStyle: UIActivityIndicatorViewStyle = .white, _ alpha: CGFloat = 0.0) {
         
         if let _ = viewWithTag(10) {
             //View is already locked
@@ -98,7 +98,8 @@ extension UIView {
             lockView.backgroundColor = backgroundColor
             lockView.tag = 10
             lockView.alpha = alpha
-            let activity = UIActivityIndicatorView(activityIndicatorStyle: .white)
+            let activity = UIActivityIndicatorView(activityIndicatorStyle: indicatorStyle)
+            
             activity.hidesWhenStopped = true
             
             activity.center = lockView.center

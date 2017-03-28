@@ -20,7 +20,7 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: IconNavigationBar!
     
-    let tableViewTopInset: CGFloat = 156.0
+    let tableViewTopInset: CGFloat = 196.0
     var presenter = DetailThingPresenter()
     var textFieldHeight: CGFloat = 60
     var composeBarView: PHFComposeBarView?
@@ -70,7 +70,7 @@ class ThingDetailViewController: UIViewController {
     
     func refreshIndicatorInTableViewFooter() -> UIView {
         let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
-        viewIndicator.backgroundColor = .white
+        viewIndicator.backgroundColor = UIColor.white
         return viewIndicator
     }
     
@@ -182,7 +182,8 @@ extension ThingDetailViewController: UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
-            tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, 0.0)
+            tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
+            
             updateComments()
         }
     }
