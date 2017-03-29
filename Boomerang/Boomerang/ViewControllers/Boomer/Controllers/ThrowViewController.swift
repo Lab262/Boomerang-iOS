@@ -12,6 +12,7 @@ import Parse
 
 class ThrowViewController: UIViewController {
 
+    @IBOutlet weak var navigationBar: IconNavigationBar!
     @IBOutlet weak var bgPostImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
      let placeholder = ["Nome do Produto","Nome do Produto","Local de retirada","placeholder"]
@@ -247,14 +248,12 @@ extension ThrowViewController: UITableViewDataSource {
         
         switch indexPath.row {
             case  0:
-                return generateNavigation(tableView, indexPath:indexPath)
-            case  1:
                 return generateHeadPostCell(tableView, indexPath:indexPath)
-            case  2:
+            case  1:
                 return generateNameProducTextCell(tableView, indexPath:indexPath)
-            case 3:
+            case 2:
                 return generateDescriptionCell(tableView, indexPath: indexPath)
-            case 4:
+            case 3:
                 return generateWithDrawalCell(tableView, indexPath:indexPath)
             default:
                 return UITableViewCell()
@@ -269,7 +268,7 @@ extension ThrowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return CGFloat(250)
+            return CGFloat(100)
         }else if indexPath.row == 1 {
             return CGFloat(100)
         }else if indexPath.row == 2 {

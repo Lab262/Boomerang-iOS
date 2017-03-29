@@ -22,10 +22,6 @@ class IconNavigationBar: UIView {
         
         if let navController = UIApplication.topViewController()?.navigationController {
             navController.popViewController(animated: true)
-            
-        
-            
-            
         }
         
     }

@@ -98,19 +98,19 @@
                                 <state key="normal" image="ic_logoPost"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preciso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23a-3b-PxO">
-                                <rect key="frame" x="21.5" y="338" width="63.5" height="20"/>
+                                <rect key="frame" x="21" y="338" width="63.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tenho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCj-74-XjJ">
-                                <rect key="frame" x="160.5" y="338" width="53.5" height="20"/>
+                                <rect key="frame" x="161" y="338" width="53.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xa-m8-EDj">
-                                <rect key="frame" x="295.5" y="338" width="64.5" height="20"/>
+                                <rect key="frame" x="296" y="338" width="64.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -151,52 +151,85 @@
                     </view>
                     <navigationItem key="navigationItem" id="k2Y-I1-7H2"/>
                     <connections>
-                        <segue destination="d9x-FE-3gw" kind="show" identifier="goThrowVC" id="zg2-c4-Now"/>
+                        <segue destination="shC-dA-vya" kind="show" identifier="goThrowVC" id="wy5-Px-NWb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00X-Ov-4Os" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="544.79999999999995" y="143.47826086956522"/>
         </scene>
-        <!--Mensagens-->
-        <scene sceneID="y7C-2z-d8V">
+        <!--Throw View Controller-->
+        <scene sceneID="3fS-r7-hJz">
             <objects>
-                <viewController storyboardIdentifier="ThrowViewController" title="Mensagens" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d9x-FE-3gw" customClass="ThrowViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThrowViewController" automaticallyAdjustsScrollViewInsets="NO" id="shC-dA-vya" customClass="ThrowViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pX8-ur-vWx"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hs9-hX-o66"/>
+                        <viewControllerLayoutGuide type="top" id="6Sd-Iz-Jb3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kc3-A7-MHE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LFm-Ae-IOZ">
+                    <view key="view" contentMode="scaleToFill" id="ebX-LI-CWe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2wi-z1-XFq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7w-wy-97T" customClass="PhotoNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="192" id="Q1M-h9-QGv"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Jo-pP-gMf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="d9x-FE-3gw" id="Q7b-zC-gLt"/>
-                                    <outlet property="delegate" destination="d9x-FE-3gw" id="hsO-FS-0hI"/>
+                                    <outlet property="dataSource" destination="shC-dA-vya" id="NOf-oc-svN"/>
+                                    <outlet property="delegate" destination="shC-dA-vya" id="8GO-3q-FSW"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50K-Qp-JEN" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="u4T-7L-KJD"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="back-button"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="rightBarIconImage" value="edit-button"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundViewColor">
+                                        <color key="value" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2wi-z1-XFq" firstAttribute="width" secondItem="LFm-Ae-IOZ" secondAttribute="width" id="D6A-27-VT1"/>
-                            <constraint firstItem="2wi-z1-XFq" firstAttribute="centerX" secondItem="LFm-Ae-IOZ" secondAttribute="centerX" id="Nq3-lL-ApX"/>
-                            <constraint firstItem="2wi-z1-XFq" firstAttribute="height" secondItem="LFm-Ae-IOZ" secondAttribute="height" id="T4e-pT-GmX"/>
-                            <constraint firstItem="2wi-z1-XFq" firstAttribute="centerY" secondItem="LFm-Ae-IOZ" secondAttribute="centerY" id="mpI-0J-PFh"/>
+                            <constraint firstAttribute="trailing" secondItem="g7w-wy-97T" secondAttribute="trailing" id="3p5-Oq-1Ij"/>
+                            <constraint firstItem="7Jo-pP-gMf" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="91W-PQ-76D"/>
+                            <constraint firstItem="Kc3-A7-MHE" firstAttribute="top" secondItem="7Jo-pP-gMf" secondAttribute="bottom" id="DEF-5k-jlt"/>
+                            <constraint firstItem="g7w-wy-97T" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="FJY-Uc-zbv"/>
+                            <constraint firstItem="g7w-wy-97T" firstAttribute="top" secondItem="ebX-LI-CWe" secondAttribute="top" id="Fl7-Jd-NaM"/>
+                            <constraint firstItem="50K-Qp-JEN" firstAttribute="top" secondItem="ebX-LI-CWe" secondAttribute="top" id="X6b-Vg-fkE"/>
+                            <constraint firstItem="50K-Qp-JEN" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="aOD-gF-ZkV"/>
+                            <constraint firstAttribute="trailing" secondItem="50K-Qp-JEN" secondAttribute="trailing" id="nLO-DG-VUX"/>
+                            <constraint firstAttribute="trailing" secondItem="7Jo-pP-gMf" secondAttribute="trailing" id="rSt-WV-kVH"/>
+                            <constraint firstItem="7Jo-pP-gMf" firstAttribute="top" secondItem="ebX-LI-CWe" secondAttribute="top" id="wQC-AQ-04x"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="2wi-z1-XFq" id="ldY-Mq-N55"/>
+                        <outlet property="navigationBar" destination="50K-Qp-JEN" id="wTw-Rp-pUC"/>
+                        <outlet property="navigationBarView" destination="50K-Qp-JEN" id="rn2-g7-55f"/>
+                        <outlet property="navigationInformationsView" destination="g7w-wy-97T" id="73d-u5-ZfO"/>
+                        <outlet property="tableView" destination="7Jo-pP-gMf" id="fIB-8k-lKg"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lbJ-Dc-ELd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g1n-i6-6wA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408.8" y="142.57871064467767"/>
+            <point key="canvasLocation" x="1311" y="143"/>
         </scene>
     </scenes>
     <resources>
+        <image name="back-button" width="12" height="19"/>
+        <image name="edit-button" width="25" height="25"/>
         <image name="ic_donate" width="45" height="44"/>
         <image name="ic_have" width="33" height="53"/>
         <image name="ic_logoPost" width="71" height="71"/>

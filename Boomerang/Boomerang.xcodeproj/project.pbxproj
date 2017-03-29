@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		29CD695537BA0D4217861ECD /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */; };
+		2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */; };
+		2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */; };
 		2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */; };
 		2F2F07901E6733CC00C61A6D /* ThrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */; };
 		2F2F07941E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F07921E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift */; };
@@ -150,6 +152,8 @@
 
 /* Begin PBXFileReference section */
 		1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boomerang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoNavigationBar.swift; sourceTree = "<group>"; };
+		2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoNavigationBar.xib; sourceTree = "<group>"; };
 		2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
 		2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowViewController.swift; sourceTree = "<group>"; };
 		2F2F07921E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTextFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -504,6 +508,8 @@
 				A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */,
 				D498F0401E81621F002E8972 /* ThingNavigationBar.swift */,
 				D498F0421E816243002E8972 /* ThingNavigationBar.xib */,
+				2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */,
+				2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */,
 			);
 			path = NavigationBar;
 			sourceTree = "<group>";
@@ -977,6 +983,7 @@
 				D48735081E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib in Resources */,
 				2F79677B1E86FA7E00476D2D /* HeaderPostTableViewCell.xib in Resources */,
 				A4E462F21DCAEA7F00A611C0 /* Main.storyboard in Resources */,
+				2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */,
 				A44E0C671DD092650028F06C /* Montserrat-Black.otf in Resources */,
 				A4FE06341DD09C7500BFDC4D /* BoomerThingCollection.xib in Resources */,
 				2F7967711E83871700476D2D /* WithdrawalTableViewCell.xib in Resources */,
@@ -1168,6 +1175,7 @@
 				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
 				D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */,
+				2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */,
 				D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */,
 				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
 				D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */,
