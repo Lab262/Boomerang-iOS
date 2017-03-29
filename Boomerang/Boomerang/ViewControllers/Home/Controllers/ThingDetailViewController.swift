@@ -20,7 +20,7 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: IconNavigationBar!
     
-    let tableViewTopInset: CGFloat = 196.0
+    let tableViewTopInset: CGFloat = 156.0
     var presenter = DetailThingPresenter()
     var textFieldHeight: CGFloat = 60
     var composeBarView: PHFComposeBarView?
@@ -224,7 +224,7 @@ extension ThingDetailViewController: UpdateInformationsDelegate {
     }
     
     func sendTextByField(text: String) {
-        presenter.createComment(text: text)
+        presenter.createComment(text: text.trimmingCharacters(in: .whitespacesAndNewlines))
     }
 }
 
