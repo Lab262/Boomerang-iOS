@@ -248,12 +248,14 @@ extension ThrowViewController: UITableViewDataSource {
         
         switch indexPath.row {
             case  0:
-                return generateHeadPostCell(tableView, indexPath:indexPath)
+                return generateNavigation(tableView, indexPath:indexPath)
             case  1:
+                return generateHeadPostCell(tableView, indexPath:indexPath)
+            case  2:
                 return generateNameProducTextCell(tableView, indexPath:indexPath)
-            case 2:
-                return generateDescriptionCell(tableView, indexPath: indexPath)
             case 3:
+                return generateDescriptionCell(tableView, indexPath: indexPath)
+            case 4:
                 return generateWithDrawalCell(tableView, indexPath:indexPath)
             default:
                 return UITableViewCell()
