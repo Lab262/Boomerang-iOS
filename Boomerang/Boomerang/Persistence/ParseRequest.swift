@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Foundation
 
 class ParseRequest: NSObject {
     
@@ -53,10 +54,12 @@ class ParseRequest: NSObject {
         }
     }
     
-    static func queryEqualToValueWithInclude(className: String, key: String, include: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    static func queryEqualToValueWithInclude(className: String, key: String, value: Any, include: String, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let query = PFQuery(className: className)
         query.whereKey(key, equalTo: value)
+        query.limit = pagination!
+        query.skip = skip!
         query.includeKey(include)
         query.findObjectsInBackground { (objects, error) in
             
@@ -73,6 +76,25 @@ class ParseRequest: NSObject {
         
         let query = PFQuery(className: className)
         query.whereKey(key, containedIn: value)
+        query.limit = pagination!
+        query.skip = skip!
+        
+        query.findObjectsInBackground { (objects, error) in
+            
+            if error == nil {
+                completionHandler(true, "Success", objects)
+                
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        }
+    }
+    
+    static func queryContainedInWithInclude(className: String, key: String, value: [Any], include: String, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+        
+        let query = PFQuery(className: className)
+        query.whereKey(key, containedIn: value)
+        query.includeKey(include)
         query.limit = pagination!
         query.skip = skip!
         
@@ -232,6 +254,28 @@ extension PFObject {
     }
     
     
+    func saveObjectInBackground(completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+        
+        let object = PFObject(className: self.parseClassName)
+        
+        let mirror = Mirror(reflecting: self)
+        
+        for case let (label?, value) in mirror.children {
+            print ("LABEL: \(label)")
+            print ("VALUE: \(value)")
+            
+            object[label] = value
+        }
+        
+        object.saveInBackground { (success, error) in
+            if success {
+                completionHandler(true, "SUCCESS")
+            } else {
+                completionHandler(false, error.debugDescription)
+            }
+        }
+    }
+        
     
     func fetchObjectInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: PFObject?) -> Void) {
         

@@ -12,6 +12,9 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.20.1):
     - FBSDKCoreKit
+  - JSQMessagesViewController (7.3.4):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - Kingfisher (3.5.2)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
@@ -21,14 +24,19 @@ PODS:
     - FBSDKLoginKit (~> 4.10)
     - FBSDKTVOSKit (~> 4.10)
     - Parse (~> 1.12)
+  - PHFComposeBarView (2.0.2):
+    - PHFDelegateChain (~> 1.0)
+  - PHFDelegateChain (1.0.1)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - JSQMessagesViewController
   - Kingfisher (~> 3.0)
   - Parse
   - ParseFacebookUtilsV4
+  - PHFComposeBarView (~> 2.0.1)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -37,11 +45,15 @@ SPEC CHECKSUMS:
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FBSDKCoreKit: 39a3569652983bf8666620dd334804c9057ae9b2
   FBSDKLoginKit: 17092ff61a18c54ca423aebc18c5acc2e5a4a728
+  JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
+  PHFComposeBarView: 758c73ce54be681df97223bc61543dd8828ae0d3
+  PHFDelegateChain: 491f9cd8a3fb8761f390ff05f74a0e168d48d285
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 1529ad8155cdbc01f8eea2fef93304ee6bd4e4d5
+PODFILE CHECKSUM: 2611bea28644429a4e28f6ce1a7374bc0324a827
 
 COCOAPODS: 1.1.1

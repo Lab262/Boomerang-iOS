@@ -88,17 +88,18 @@ extension UIView {
         }
     }
     
-    func loadAnimation(_ duration: TimeInterval = 0.2) {
+    func loadAnimation(_ duration: TimeInterval = 0.2, _ backgroundColor: UIColor = UIColor(white: 0.0, alpha: 0.75), _ indicatorStyle: UIActivityIndicatorViewStyle = .white, _ alpha: CGFloat = 0.0) {
         
         if let _ = viewWithTag(10) {
             //View is already locked
         }
         else {
             let lockView = UIView(frame: bounds)
-            lockView.backgroundColor = UIColor(white: 0.0, alpha: 0.75)
+            lockView.backgroundColor = backgroundColor
             lockView.tag = 10
-            lockView.alpha = 0.0
-            let activity = UIActivityIndicatorView(activityIndicatorStyle: .white)
+            lockView.alpha = alpha
+            let activity = UIActivityIndicatorView(activityIndicatorStyle: indicatorStyle)
+            
             activity.hidesWhenStopped = true
             
             activity.center = lockView.center
@@ -132,5 +133,29 @@ extension UIView {
                 lockView.removeFromSuperview()
             })
         }
+    }
+    
+    func setX(x:CGFloat) {
+        var frame:CGRect = self.frame
+        frame.origin.x = x
+        self.frame = frame
+    }
+   
+    func setY(y:CGFloat) {
+        var frame:CGRect = self.frame
+        frame.origin.y = y
+        self.frame = frame
+    }
+  
+    func setWidth(width:CGFloat) {
+        var frame:CGRect = self.frame
+        frame.size.width = width
+        self.frame = frame
+    }
+    
+    func setHeight(height:CGFloat) {
+        var frame:CGRect = self.frame
+        frame.size.height = height
+        self.frame = frame
     }
 }

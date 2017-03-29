@@ -12,18 +12,20 @@ target 'Boomerang' do
     pod 'Parse'
     pod 'ParseFacebookUtilsV4'
     pod 'SwiftyJSON'
+    pod 'JSQMessagesViewController'
     pod 'Kingfisher', '~> 3.0'
+    pod 'PHFComposeBarView', '~> 2.0.1'
    # Pods for Boomerang
 
   target 'BoomerangTests' do
     inherit! :search_paths
     # Pods for testing
   end
- 
 
-     
-     
-  
+
+
+
+
 
 
 end

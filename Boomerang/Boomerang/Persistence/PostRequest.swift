@@ -21,9 +21,8 @@ class PostRequest: NSObject {
                     let post = Post(object: obj)
                     post.author = findAuthorByPost(following: following, authorId: post.author!.objectId!)
                     posts.append(post)
-                    
-                    completionHandler(true, msg, posts)
                 }
+                completionHandler(true, msg, posts)
             } else {
                 completionHandler(false, msg, nil)
             }

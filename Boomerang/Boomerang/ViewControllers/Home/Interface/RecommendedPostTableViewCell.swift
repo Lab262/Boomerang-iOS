@@ -24,7 +24,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
     var delegate: UpdateCellDelegate?
     
     
-    var boomerThings: [BoomerThing] = [BoomerThing]() {
+    var posts: [Post] = [Post]() {
         didSet{
             updateCell()
         }
@@ -49,8 +49,8 @@ class RecommendedPostTableViewCell: UITableViewCell {
     }
     
     func setInsetsInCollectionView(){
-        let totalWidth: CGFloat = CGFloat((self.boomerThings.count * sizeCells))
-        let totalSpacing = CGFloat(self.boomerThings.count-1) * spaceCells
+        let totalWidth: CGFloat = CGFloat((self.posts.count * sizeCells))
+        let totalSpacing = CGFloat(self.posts.count-1) * spaceCells
         let caculationFinal: CGFloat = (totalWidth + totalSpacing)/2
     
         (indexCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset = UIEdgeInsets(top: 0, left: self.bounds.width/2 - caculationFinal, bottom: 0, right: 0)
@@ -78,7 +78,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
         
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
         
-        cell.thingData = boomerThings[indexPath.row]
+        cell.post = posts[indexPath.row]
         
         unloadPlaceholderImage()
         
@@ -103,7 +103,7 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.boomerThings.count
+        return self.posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -182,8 +182,8 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
         
         print(visibleIndexPath)
         
-        if visibleIndexPath.row >= self.boomerThings.endIndex-1 {
-            delegate?.updateCell(lastRowIndex: boomerThings.endIndex)
+        if visibleIndexPath.row >= self.posts.endIndex-1 {
+            delegate?.updateCell(lastRowIndex: posts.endIndex)
         }
     }
 }

@@ -9,9 +9,9 @@
 import UIKit
 import Parse
 
-protocol HomeMainDelegate {
+protocol ViewControllerDelegate {
     func showMessageError(msg: String)
-    func updatePosts(boomerThings: [BoomerThing])
+    func updateView(array: [Any])
 }
 
 class HomeMainViewController: UIViewController {
@@ -21,11 +21,12 @@ class HomeMainViewController: UIViewController {
     var boomerThingDelegate: UICollectionViewDelegate?
     @IBOutlet weak var searchBar: UISearchBar!
     
-    internal var boomerThings = [BoomerThing]()
+    internal var posts = [Post]()
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var greetingText: UILabel!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    var currentIndex: IndexPath?
 
     let tableViewTopInset: CGFloat = 5.0
     var presenter = HomePresenter()
@@ -77,7 +78,7 @@ class HomeMainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let controller = segue.destination as? ThingDetailViewController {
-            
+            controller.presenter.setPost(post: self.posts[currentIndex!.row])
         }
     }
 }
@@ -194,7 +195,7 @@ extension HomeMainViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath) as! RecommendedPostTableViewCell
         
-        cell.boomerThings = boomerThings
+        cell.posts = posts
         cell.delegate = self
         cell.selectionDelegate = self
         boomerThingDelegate = cell
@@ -251,17 +252,19 @@ extension HomeMainViewController: UIScrollViewDelegate {
     }
 }
 
-extension HomeMainViewController: HomeMainDelegate {
+extension HomeMainViewController: ViewControllerDelegate {
+    
+    func updateView(array: [Any]) {
+        self.posts = array as! [Post]
+        print ("UPDATE POST")
+        tableView.reloadData()
+    }
+
     
     func showMessageError(msg: String) {
         present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
     }
     
-    func updatePosts(boomerThings: [BoomerThing]) {
-        self.boomerThings = boomerThings
-        print ("UPDATE POST")
-        tableView.reloadData()
-    }
 }
 
 extension HomeMainViewController: UpdateCellDelegate{
@@ -276,6 +279,7 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
         
         if colletionViewDelegate === boomerThingDelegate {
             print ("SHOW DETAIL")
+            self.currentIndex = indexPath
             self.performSegue(withIdentifier: "showDetailThing", sender: self)
         } else {
             
@@ -283,40 +287,5 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
     }
 }
 
-
-//extension HomeTableViewController: CollectionViewSelectionDelegate {
-//    
-//    func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath) {
-//        
-//        if colletionViewDelegate === boomerThingDelegate {
-//            self.performSegue(withIdentifier: "showDetailThing", sender: self)
-//        } else {
-//            
-//        }
-//    }
-//}
-
-
-
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.setUserInformationsInHUD()
-//        self.getFriends()
-//    }
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.navigationController?.navigationBar.isHidden = true
-//    }
-//
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.window?.endEditing(true)
-//    }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if let controller = segue.destination as? HomeTableViewController {
-//            self.homeTableViewController = controller
-//        }
-//    }
 
 
