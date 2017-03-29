@@ -49,9 +49,22 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         descriptionPostLabel.text = post?.content
         userNameLabel.text = post!.author!.firstName! + " " + post!.author!.lastName!
         self.getUserPhotoImage()
+        self.getCountPhotos()
         self.getRelationPhotosByThing()
     }
     
+    func getCountPhotos() {
+        if post.countPhotos < 1 {
+            post.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
+                
+                if success {
+                    self.post.countPhotos = count!
+                } else {
+                    
+                }
+            })
+        }
+    }
     
     func getUserPhotoImage() {
         guard let image = post?.author?.profileImage else {
@@ -74,17 +87,13 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     }
     
     func getRelationPhotosByThing(){
-        
         if post!.photos.count > 0 {
             postImage.image = post?.photos[0]
-            
         } else if !post!.downloadedImages {
             post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
                 
                 if success {
-                
                     self.post?.photos.append(UIImage(data: data!)!)
-                    
                     if self.post!.photos.count < 2 {
                         self.postImage.image = UIImage(data: data!)!
                     }

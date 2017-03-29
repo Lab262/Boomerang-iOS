@@ -9,7 +9,7 @@
 import UIKit
 
 protocol UpdateCellDelegate {
-    func updateCell(lastRowIndex: Int)
+    func updateCell()
 }
 
 class RecommendedPostTableViewCell: UITableViewCell {
@@ -183,7 +183,7 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
         print(visibleIndexPath)
         
         if visibleIndexPath.row >= self.posts.endIndex-1 {
-            delegate?.updateCell(lastRowIndex: posts.endIndex)
+            delegate?.updateCell()
         }
     }
 }

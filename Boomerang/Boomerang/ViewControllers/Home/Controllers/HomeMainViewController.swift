@@ -21,12 +21,12 @@ class HomeMainViewController: UIViewController {
     var boomerThingDelegate: UICollectionViewDelegate?
     @IBOutlet weak var searchBar: UISearchBar!
     
-    internal var posts = [Post]()
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var greetingText: UILabel!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var currentIndex: IndexPath?
+    var currentPostsFriendsCount = 0
 
     let tableViewTopInset: CGFloat = 5.0
     var presenter = HomePresenter()
@@ -78,7 +78,7 @@ class HomeMainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let controller = segue.destination as? ThingDetailViewController {
-            controller.presenter.setPost(post: self.posts[currentIndex!.row])
+            controller.presenter.setPost(post: presenter.getPosts()[currentIndex!.row])
         }
     }
 }
@@ -195,7 +195,7 @@ extension HomeMainViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath) as! RecommendedPostTableViewCell
         
-        cell.posts = posts
+        cell.posts = presenter.getPosts()
         cell.delegate = self
         cell.selectionDelegate = self
         boomerThingDelegate = cell
@@ -254,13 +254,13 @@ extension HomeMainViewController: UIScrollViewDelegate {
 
 extension HomeMainViewController: ViewControllerDelegate {
     
-    func updateView(array: [Any]) {
-        self.posts = array as! [Post]
-        print ("UPDATE POST")
-        tableView.reloadData()
+    func updateView(array: [Any]){
+        if array.count != currentPostsFriendsCount {
+            currentPostsFriendsCount = array.count
+            tableView.reloadData()
+        }
     }
 
-    
     func showMessageError(msg: String) {
         present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
     }
@@ -268,8 +268,8 @@ extension HomeMainViewController: ViewControllerDelegate {
 }
 
 extension HomeMainViewController: UpdateCellDelegate{
-    func updateCell(lastRowIndex: Int) {
-        presenter.updatePostsFriends(currentIndex: lastRowIndex)
+    func updateCell() {
+        presenter.updatePostsFriends()
     }
 }
 

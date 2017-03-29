@@ -10,6 +10,8 @@ import UIKit
 
 class UserInformationTableViewCell: UITableViewCell {
     
+    
+    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -17,6 +19,11 @@ class UserInformationTableViewCell: UITableViewCell {
     
     @IBOutlet var evaluationStarImage: [UIImageView]!
     
+    var post: Post? {
+        didSet{
+            updateCellUI()
+        }
+    }
     
     static var identifier: String {
         return "userInformationCell"
@@ -34,16 +41,35 @@ class UserInformationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
-        userImage.image = ApplicationState.sharedInstance.currentUser?.profileImage
-        
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateCellUI(){
+        userNameLabel.text = post!.author!.fullName
+        //dateLabel.text = post!.createdDate!.getStringToDate(dateFormat: "dd/MM/yyyy")
+        dateLabel.text = post?.createdDate?.getFormatterDate()
+        getUserPhotoImage()
+    }
+    
+    func getUserPhotoImage() {
+        guard let image = post?.author?.profileImage else {
+            userImage.loadAnimation()
+            
+            post?.author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+                
+                if success {
+                    self.post?.author?.profileImage = UIImage(data: data!)
+                    self.userImage.image = UIImage(data: data!)
+                    self.userImage.unload()
+                } else {
+                    // error
+                }
+            })
+            
+            return
+        }
+        
+        userImage.image = image
     }
     
 }

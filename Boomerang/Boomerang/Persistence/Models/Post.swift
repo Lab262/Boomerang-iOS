@@ -23,9 +23,12 @@ class Post: PFObject {
     @NSManaged var title: String?
     @NSManaged var content: String?
     @NSManaged var thing: Thing?
+    @NSManaged var createdDate: Date?
+    @NSManaged var relations: [Photo]?
     
     var alreadySearched = false
     var downloadedImages = false
+    var countPhotos = 0
     
     var photos = [UIImage]()
     
@@ -44,6 +47,8 @@ class Post: PFObject {
     func setInformationsUserByPFObject(object: PFObject){
         
         self.objectId = object.objectId
+        self.createdDate = object.createdAt
+        
         
         if let title = object["title"] as? String {
             

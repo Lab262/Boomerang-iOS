@@ -13,9 +13,8 @@ import Parse
 class HomePresenter: NSObject {
     
     fileprivate let pagination = 3
-    fileprivate var skip = 0
-    fileprivate var currentIndex = 0
-
+    fileprivate var skipPosts = 0
+    fileprivate var skipUsers = 0
     fileprivate var following: [User] = [User]()
     fileprivate var posts: [Post] = [Post]()
     fileprivate var controller: ViewControllerDelegate?
@@ -26,47 +25,47 @@ class HomePresenter: NSObject {
         self.controller = controller
     }
     
-    func updatePostsFriends(currentIndex: Int? = 0){
-        self.currentIndex = currentIndex!
+    func updatePostsFriends(){
+        skipPosts = posts.endIndex
+        skipUsers = following.endIndex
         
-        if following.count < 1 {
-            getFriends()
-        } else {
-            getPostsByFriends()
-        }
-
+        getFriends()
+        
     }
     
     func getFriends() {
-        UserRequest.fetchFollowing(completionHandler: { (success, msg, following) in
+        skipUsers = following.endIndex
+        
+        UserRequest.fetchFollowing(pagination: pagination, skip: skipUsers, completionHandler: { (success, msg, following) in
             if success {
                 self.following = following!
-                
-                self.getCountPostsByFriends()
+                self.getPostsByFriends()
+                //self.getCountPostsByFriends()
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
         })
     }
     
-    func getCountPostsByFriends(){
-        PostRequest.getFollowingPostsCount(following: following) { (success, msg, count) in
-            
-            if success {
-                self.postsCount = count!
-                self.getPostsByFriends()
-            } else {
-                self.controller?.showMessageError(msg: msg)
-            }
-        }
-    }
+//    func getCountPostsByFriends(){
+//        PostRequest.getFollowingPostsCount(following: following) { (success, msg, count) in
+//            
+//            if success {
+//                self.postsCount = count!
+//                self.getPostsByFriends()
+//            } else {
+//                self.controller?.showMessageError(msg: msg)
+//            }
+//        }
+//    }
     
-    func getPostsByFriends() {
-        
-        PostRequest.fetchPostByFollowing(following: following, pagination: pagination, skip: currentIndex) { (success, msg, posts) in
+    func getPostsByFriends(){
+        PostRequest.fetchPostByFollowing(following: following, pagination: pagination, skip: skipPosts) { (success, msg, posts) in
             if success {
-                self.posts = posts!
-                self.getPosts()
+                for post in posts! {
+                    self.posts.append(post)
+                }
+                self.controller?.updateView(array: self.posts)
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
@@ -75,6 +74,10 @@ class HomePresenter: NSObject {
     
     func getUser() -> User{
         return user
+    }
+    
+    func getPosts() -> [Post] {
+        return posts
     }
     
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
@@ -93,25 +96,21 @@ class HomePresenter: NSObject {
         completionHandler(true, "Success", image)
     }
     
-    func getPosts() {
-        controller?.updateView(array: filterPosts())
-    }
-    
-    func filterFollowing() -> [User] {
-        let filteredFollowing = (following.filter { follow in
-            return follow.alreadySearched == false
-        })
-        
-        following.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
-        return filteredFollowing
-    }
-    
-    func filterPosts() -> [Post] {
-        let filteredPosts = (self.posts.filter { post in
-            return post.alreadySearched == false
-        })
-        
-        posts.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
-        return filteredPosts
-    }
+//    func filterFollowing() -> [User] {
+//        let filteredFollowing = (following.filter { follow in
+//            return follow.alreadySearched == false
+//        })
+//        
+//        following.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
+//        return filteredFollowing
+//    }
+//    
+//    func filterPosts() -> [Post] {
+//        let filteredPosts = (self.posts.filter { post in
+//            return post.alreadySearched == false
+//        })
+//        
+//        posts.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
+//        return filteredPosts
+//    }
 }
