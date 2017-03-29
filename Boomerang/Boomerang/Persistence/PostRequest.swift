@@ -13,7 +13,7 @@ class PostRequest: NSObject {
     static func fetchPostByFollowing(following: [User], pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
-        
+ 
         ParseRequest.queryContainedIn(className: "Post", key: "author", value: following, pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {

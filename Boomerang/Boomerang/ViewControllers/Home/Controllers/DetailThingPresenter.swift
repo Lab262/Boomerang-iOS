@@ -43,6 +43,11 @@ class DetailThingPresenter: NSObject {
     
     func setPost(post: Post) {
         self.post = post
+        
+    }
+    
+    func getPost() -> Post {
+        return post!
     }
     
     func saveComment(comment: Comment) {

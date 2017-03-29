@@ -47,7 +47,6 @@ class Comment: PFObject {
         if let author = object["author"] as? User {
             self.author = User(user: author)
         }
-        
     }
 }
 

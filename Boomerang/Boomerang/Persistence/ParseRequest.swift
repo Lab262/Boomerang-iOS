@@ -98,6 +98,8 @@ class ParseRequest: NSObject {
         query.limit = pagination!
         query.skip = skip!
         
+        
+        
         query.findObjectsInBackground { (objects, error) in
             
             if error == nil {
@@ -127,26 +129,44 @@ class ParseRequest: NSObject {
 
 extension PFObject {
     
-    func getRelationInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: [PFObject]?) -> Void) {
-
+//    func getRelationInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: [PFObject]?) -> Void) {
+//
+//        let relation = self.relation(forKey: key)
+//        let query = relation.query()
+//        
+//        query.findObjectsInBackground(block: { (objects, error) in
+//            if error == nil {
+//                completionHandler(true, "Success", objects)
+//            } else{
+//                completionHandler(false, error.debugDescription, nil)
+//            }
+//        })
+//    }
+    
+    func getRelationCountInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void) {
+     
         let relation = self.relation(forKey: key)
         let query = relation.query()
-        
-        query.findObjectsInBackground(block: { (objects, error) in
+
+        query.countObjectsInBackground { (count, error) in
             if error == nil {
-                completionHandler(true, "Success", objects)
-            } else{
+                completionHandler(true, "Success", Int(count))
+            } else {
                 completionHandler(false, error.debugDescription, nil)
             }
-        })
+        }
+        
     }
     
-    
-    func getRelationsInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    func getRelationsInBackgroundBy(key: String, keyColunm: String = "", isNotContained: Bool = false, notContainedKeys: [Any] = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let relation = self.relation(forKey: key)
         let query = relation.query()
         
+        if isNotContained {
+            query.whereKey(keyColunm, notContainedIn: notContainedKeys)
+        }
+
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
                 completionHandler(true, "Success", objects)
@@ -154,9 +174,9 @@ extension PFObject {
         }
     }
     
-    func getRelationsInBackgroundWithDataBy(key: String, keyFile: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ relations: [PFObject]?, _ data: Data?) -> Void) {
+    func getRelationsInBackgroundWithDataBy(key: String, keyFile: String, isNotContained: Bool = false, notContainedKeys: [Any] = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ relations: [PFObject]?, _ data: Data?) -> Void) {
         
-        getRelationsInBackgroundBy(key: key) { (success, msg, relations) in
+        getRelationsInBackgroundBy(key: key, keyColunm: keyFile, isNotContained: isNotContained, notContainedKeys: notContainedKeys) { (success, msg, relations) in
             if success {
                 for relation in relations! {
                     relation.getDataInBackgroundBy(key: keyFile, completionHandler: { (success, msg, data) in
