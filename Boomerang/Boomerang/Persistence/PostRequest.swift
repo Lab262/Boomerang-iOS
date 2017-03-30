@@ -43,11 +43,76 @@ class PostRequest: NSObject {
     }
     
     static func findAuthorByPost(following: [User], authorId: String) -> User? {
-        for follow in following {
-            if follow.objectId == authorId {
-                return follow
-            }
+        for follow in following where follow.objectId == authorId {
+            return follow
         }
         return nil
+    }
+    
+    static func getRelationsInBackground(post: Post,completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+        
+        var notContainedKeys = [Photo]()
+        
+        if let relations = post.relations {
+            for relation in relations where relation.isDownloadedImage {
+                notContainedKeys.append(relation)
+            }
+        }
+        
+        post.getRelationsInBackgroundBy(key: "photos", keyColunm: "imageFile", isNotContained: true, notContainedKeys: notContainedKeys ) { (success, msg, objects) in
+            
+            if success {
+                if post.relations == nil {
+                    post.relations = [Photo]()
+                }
+                
+                for object in objects! {
+                    let relation = Photo(object: object)
+                    post.relations?.append(relation)
+                }
+                completionHandler(true, "Success")
+            } else {
+                completionHandler(false, msg)
+            }
+        }
+//                    
+//                    for photo in self.post!.relations! {
+//                        photo.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+//                            if success{
+//                                photo.photo = UIImage(data: data!)
+//                                cell.thingImage.image = UIImage(data: data!)
+//                            } else {
+//                                print ("NO SUCCESS IN DOWNLOAD")
+//                            }
+//                        })
+//                    }
+//                } else {
+//                    print ("NO SUCCESS IN RELATION")
+//                }
+//                
+//            })
+//        }
+
+        
+//        if post!.photos.count > 0 {
+//            postImage.image = post?.photos[0]
+//        } else if !post!.downloadedImages {
+//            post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
+//                
+//                if success {
+//                    self.post?.photos.append(UIImage(data: data!)!)
+//                    if self.post!.photos.count < 2 {
+//                        self.postImage.image = UIImage(data: data!)!
+//                    }
+//                    self.post?.downloadedImages = true
+//                    self.postImage.unload()
+//                    
+//                } else {
+//                    
+//                }
+//            })
+//        } else {
+//            self.postImage.image = UIImage(named: "foto_dummy")
+//        }
     }
 }

@@ -22,6 +22,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeAmountLabel: UILabel!
     @IBOutlet weak var sharedAmountLabel: UILabel!
     
+    
     static var identifier: String {
         return "recommendedCollectionCell"
     }
@@ -45,7 +46,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         containerIconView.roundCorners(corners: [.bottomLeft], radius: 100.0)
     }
     
-    func setupCell() {
+    func setupCell(){
         descriptionPostLabel.text = post?.content
         userNameLabel.text = post!.author!.firstName! + " " + post!.author!.lastName!
         self.getUserPhotoImage()
@@ -53,18 +54,19 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         self.getRelationPhotosByThing()
     }
     
-    func getCountPhotos() {
+    func getCountPhotos(){
         if post.countPhotos < 1 {
             post.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
-                
                 if success {
                     self.post.countPhotos = count!
+                    ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: true, updateType: .amount)
                 } else {
-                    
+                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: true, updateType: .amount)
                 }
             })
         }
     }
+    
     
     func getUserPhotoImage() {
         guard let image = post?.author?.profileImage else {
@@ -87,25 +89,31 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     }
     
     func getRelationPhotosByThing(){
-        if post!.photos.count > 0 {
-            postImage.image = post?.photos[0]
-        } else if !post!.downloadedImages {
-            post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
-                
+        
+        if let relations = post.relations {
+            for relation in relations where relation.isDownloadedImage {
+                postImage.image = relation.photo
+                return
+            }
+        } else {
+            PostRequest.getRelationsInBackground(post: post, completionHandler: { (success, msg) in
                 if success {
-                    self.post?.photos.append(UIImage(data: data!)!)
-                    if self.post!.photos.count < 2 {
-                        self.postImage.image = UIImage(data: data!)!
-                    }
-                    self.post?.downloadedImages = true
-                    self.postImage.unload()
-                    
+                    self.post.relations!.first!.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+                        if success {
+                            self.post.relations!.first!.photo = UIImage(data: data!)
+                            self.post.relations!.first!.isDownloadedImage = true
+                            self.postImage.image = UIImage(data: data!)
+                            ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: true, updateType: .download)
+                        } else {
+                            ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: false, updateType: .download)
+                            print ("NO SUCCESS IN DOWNLOAD")
+                        }
+                    })
                 } else {
-                    
+                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: false, updateType: .relation)
+                    print ("NO SUCCESS IN DOWNLOAD")
                 }
             })
-        } else {
-            self.postImage.image = UIImage(named: "foto_dummy")
         }
     }
     

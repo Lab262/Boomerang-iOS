@@ -40,24 +40,11 @@ class HomePresenter: NSObject {
             if success {
                 self.following = following!
                 self.getPostsByFriends()
-                //self.getCountPostsByFriends()
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
         })
     }
-    
-//    func getCountPostsByFriends(){
-//        PostRequest.getFollowingPostsCount(following: following) { (success, msg, count) in
-//            
-//            if success {
-//                self.postsCount = count!
-//                self.getPostsByFriends()
-//            } else {
-//                self.controller?.showMessageError(msg: msg)
-//            }
-//        }
-//    }
     
     func getPostsByFriends(){
         PostRequest.fetchPostByFollowing(following: following, pagination: pagination, skip: skipPosts) { (success, msg, posts) in
@@ -81,7 +68,6 @@ class HomePresenter: NSObject {
     }
     
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
-        
         guard let image = user.profileImage else {
             user.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
                 
@@ -95,22 +81,4 @@ class HomePresenter: NSObject {
         }
         completionHandler(true, "Success", image)
     }
-    
-//    func filterFollowing() -> [User] {
-//        let filteredFollowing = (following.filter { follow in
-//            return follow.alreadySearched == false
-//        })
-//        
-//        following.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
-//        return filteredFollowing
-//    }
-//    
-//    func filterPosts() -> [Post] {
-//        let filteredPosts = (self.posts.filter { post in
-//            return post.alreadySearched == false
-//        })
-//        
-//        posts.filter({$0.alreadySearched == false}).forEach { $0.alreadySearched = true }
-//        return filteredPosts
-//    }
 }

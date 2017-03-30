@@ -38,27 +38,5 @@ class PhotoThingWithPageControlCollectionViewCell: UICollectionViewCell {
     func updateCellUI(){
         
     }
-    
-    func getRelationPhotosByThing(){
-        if post!.photos.count > 0 {
-            thingImage.image = post?.photos[0]
-        } else if !post!.downloadedImages {
-            post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
-                
-                if success {
-                    self.post?.photos.append(UIImage(data: data!)!)
-                    if self.post!.photos.count < 2 {
-                        self.thingImage.image = UIImage(data: data!)!
-                    }
-                    self.post?.downloadedImages = true
-                } else {
-                    
-                }
-            })
-        } else {
-            self.thingImage.image = UIImage(named: "foto_dummy")
-        }
-    }
-
 }
 
