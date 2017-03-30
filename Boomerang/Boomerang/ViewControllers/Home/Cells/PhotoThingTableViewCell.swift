@@ -144,7 +144,4 @@ extension PhotoThingTableViewCell: UpdatePostDelegate {
             downloadImagesPost(success: success)
         }
     }
-    
 }
-
-
