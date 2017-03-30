@@ -77,7 +77,8 @@ class ThingDetailViewController: UIViewController {
     func generatePhotoThingCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PhotoThingTableViewCell.identifier, for: indexPath) as! PhotoThingTableViewCell
         
-        cell.post = presenter.getPost()
+        cell.presenter.setPost(post: presenter.getPost())
+        cell.presenter.downloadImagesPost(success: true)
         
         return cell
     }
@@ -235,9 +236,9 @@ extension ThingDetailViewController: UpdateInformationsDelegate {
 
 extension ThingDetailViewController: ViewControllerDelegate {
     
-    func updateView(array: [Any]) {
-        if array.count != currentCommentsCount {
-            currentCommentsCount = array.count
+    func reload(array: [Any]?) {
+        if array?.count != currentCommentsCount {
+            currentCommentsCount = array!.count
             tableView.reloadData()
         }
         tableView.tableFooterView?.unload()

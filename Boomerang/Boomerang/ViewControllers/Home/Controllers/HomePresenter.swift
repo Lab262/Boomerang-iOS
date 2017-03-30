@@ -52,7 +52,7 @@ class HomePresenter: NSObject {
                 for post in posts! {
                     self.posts.append(post)
                 }
-                self.controller?.updateView(array: self.posts)
+                self.controller?.reload(array: self.posts)
             } else {
                 self.controller?.showMessageError(msg: msg)
             }

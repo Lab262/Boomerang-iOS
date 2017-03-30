@@ -65,7 +65,6 @@ class Post: PFObject {
             self.author = author
         }
         
-        
         if let thing = object["thing"] as? Thing {
             
             self.thing = thing

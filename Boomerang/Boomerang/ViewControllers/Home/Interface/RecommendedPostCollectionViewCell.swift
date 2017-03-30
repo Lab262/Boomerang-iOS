@@ -23,6 +23,10 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sharedAmountLabel: UILabel!
     
     
+    var presenter: HomeMainViewController?
+    
+    
+    
     static var identifier: String {
         return "recommendedCollectionCell"
     }

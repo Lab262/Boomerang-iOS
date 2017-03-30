@@ -11,7 +11,7 @@ import Parse
 
 protocol ViewControllerDelegate {
     func showMessageError(msg: String)
-    func updateView(array: [Any])
+    func reload(array: [Any]?)
 }
 
 class HomeMainViewController: UIViewController {
@@ -51,7 +51,6 @@ class HomeMainViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
-        
         
         registerNib()
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -254,9 +253,9 @@ extension HomeMainViewController: UIScrollViewDelegate {
 
 extension HomeMainViewController: ViewControllerDelegate {
     
-    func updateView(array: [Any]){
-        if array.count != currentPostsFriendsCount {
-            currentPostsFriendsCount = array.count
+    func reload(array: [Any]?){
+        if array?.count != currentPostsFriendsCount {
+            currentPostsFriendsCount = array!.count
             tableView.reloadData()
         }
     }

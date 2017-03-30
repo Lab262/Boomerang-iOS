@@ -11,7 +11,7 @@ import Parse
 
 class DetailThingPresenter: NSObject {
     
-    fileprivate var post:Post? = nil
+    fileprivate var post:Post? = Post()
     fileprivate let pagination = 3
     fileprivate var skip = 0
     fileprivate var comments = [Comment]()
@@ -30,7 +30,7 @@ class DetailThingPresenter: NSObject {
                 for comment in comments! {
                     self.comments.append(comment)
                 }
-                self.controller?.updateView(array: self.comments)
+                self.controller?.reload(array: self.comments)
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
@@ -43,7 +43,6 @@ class DetailThingPresenter: NSObject {
     
     func setPost(post: Post) {
         self.post = post
-        
     }
     
     func getPost() -> Post {
@@ -67,6 +66,65 @@ class DetailThingPresenter: NSObject {
         let comment = Comment(post: self.post!, content: text, author: PFUser.current()! as! User)
         
         saveComment(comment: comment)
+    }
+    
+    func getRelationsImages(success: Bool){
+        if !success {
+            PostRequest.getRelationsInBackground(post: post!, completionHandler: { (success, msg) in
+                if success {
+                    self.downloadImagesPost(success: true)
+                } else {
+                    print ("RELATIONS REQUEST ERROR")
+                }
+            })
+        }
+    }
+    
+    func downloadImagesPost(success:Bool) {
+        if let relations = getPost().relations {
+            for relation in relations where !relation.isDownloadedImage {
+                relation.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+                    if success {
+                        relation.photo = UIImage(data: data!)
+                        relation.isDownloadedImage = true
+                        self.controller?.reload(array: nil)
+                    } else {
+                        print ("DOWNLOAD IMAGES ERRO")
+                    }
+                })
+            }
+        }
+    }
+    
+    func getImagePostByIndex(_ index: Int) -> UIImage {
+        if let relations = self.post?.relations {
+            if relations.count >= index+1 {
+                if let photo = relations[index].photo {
+                    return photo
+                } else {
+                    return #imageLiteral(resourceName: "placeholder_image")
+                }
+            } else {
+                return #imageLiteral(resourceName: "placeholder_image")
+            }
+        } else {
+            return #imageLiteral(resourceName: "placeholder_image")
+        }
+    }
+    
+    func getCountPhotos(success: Bool){
+        if success {
+            controller?.reload(array: nil)
+        } else {
+            post!.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
+                if success {
+                    self.post!.countPhotos = count!
+                    self.controller?.reload(array: nil)
+                } else {
+                    print ("COUNT PHOTOS REQUEST ERROR")
+                }
+            })
+        }
     }
     
 }

@@ -24,75 +24,17 @@ class PhotoThingTableViewCell: UITableViewCell {
         return "PhotoThingTableViewCell"
     }
     
-    var post: Post?
-
+    var presenter: DetailThingPresenter = DetailThingPresenter()
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNib()
         ApplicationState.sharedInstance.delegate = self
+        presenter.setControllerDelegate(controller: self)
     }
     
     func registerNib(){
         collectionView.registerNibFrom(PhotoThingWithPageControlCollectionViewCell.self)
-    }
-    
-    func getRelationsImages(success: Bool){
-        if !success {
-            PostRequest.getRelationsInBackground(post: post!, completionHandler: { (success, msg) in
-                if success {
-                    self.downloadImagesPost(success: true)
-                } else {
-                    print ("RELATIONS REQUEST ERROR")
-                }
-            })
-        }
-    }
-    
-    func getCountPhotos(success: Bool){
-        if success {
-            collectionView.reloadData()
-        } else {
-            post!.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
-                if success {
-                    self.post!.countPhotos = count!
-                    self.collectionView.reloadData()
-                } else {
-                    print ("COUNT PHOTOS REQUEST ERROR")
-                }
-            })
-        }
-    }
-    
-    func downloadImagesPost(success:Bool) {
-        if let relations = post!.relations {
-            for relation in relations where !relation.isDownloadedImage {
-                relation.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
-                    if success {
-                        relation.photo = UIImage(data: data!)
-                        relation.isDownloadedImage = true
-                        self.collectionView.reloadData()
-                    } else {
-                        print ("DOWNLOAD IMAGES ERRO")
-                    }
-                })
-            }
-        }
-    }
-
-    func getImagePostByIndex(_ index: Int) -> UIImage {
-        if let relations = self.post?.relations {
-            if relations.count >= index+1 {
-                if let photo = relations[index].photo {
-                    return photo
-                } else {
-                    return #imageLiteral(resourceName: "placeholder_image")
-                }
-            } else {
-                return #imageLiteral(resourceName: "placeholder_image")
-            }
-        } else {
-            return #imageLiteral(resourceName: "placeholder_image")
-        }
     }
 }
 
@@ -102,13 +44,13 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoThingWithPageControlCollectionViewCell.identifier, for: indexPath) as! PhotoThingWithPageControlCollectionViewCell
         
-        cell.thingImage.image = getImagePostByIndex(indexPath.row)
+        cell.thingImage.image = presenter.getImagePostByIndex(indexPath.row)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return post!.countPhotos
+        return presenter.getPost().countPhotos
     }
 }
 
@@ -132,16 +74,27 @@ extension PhotoThingTableViewCell: UpdatePostDelegate {
     func updateRelationsPost(post: Post?, success: Bool, updateType: UpdateType) {
         
         if let postUpdated = post {
-            self.post = postUpdated
+            presenter.setPost(post: postUpdated)
         }
         
         switch updateType {
         case .amount:
-            getCountPhotos(success: success)
+            presenter.getCountPhotos(success: success)
         case .relation:
-            getRelationsImages(success: success)
+            presenter.getRelationsImages(success: success)
         case .download:
-            downloadImagesPost(success: success)
+            presenter.downloadImagesPost(success: success)
         }
+    }
+}
+
+extension PhotoThingTableViewCell: ViewControllerDelegate {
+    
+    func reload(array: [Any]?) {
+        collectionView.reloadData()
+    }
+    
+    func showMessageError(msg: String) {
+        
     }
 }
