@@ -30,6 +30,10 @@
 		2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA93B281E4A881E0080F99A /* UserRequest.swift */; };
 		2FAE03071E78C3540062E155 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE03061E78C3540062E155 /* Friend.swift */; };
 		2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */; };
+		2FC9E0561E8CA02200A048A4 /* WantBorrowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E0541E8CA02200A048A4 /* WantBorrowTableViewCell.swift */; };
+		2FC9E0571E8CA02200A048A4 /* WantBorrowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9E0551E8CA02200A048A4 /* WantBorrowTableViewCell.xib */; };
+		2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E0691E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift */; };
+		2FC9E06C1E8CB7A100A048A4 /* SwitchButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */; };
 		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
 		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
 		2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771E1E4F998A0005F026 /* URLS.swift */; };
@@ -186,6 +190,10 @@
 		2FA93B281E4A881E0080F99A /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		2FAE03061E78C3540062E155 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		2FC9E0541E8CA02200A048A4 /* WantBorrowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WantBorrowTableViewCell.swift; sourceTree = "<group>"; };
+		2FC9E0551E8CA02200A048A4 /* WantBorrowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WantBorrowTableViewCell.xib; path = ../WantBorrowTableViewCell.xib; sourceTree = "<group>"; };
+		2FC9E0691E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchButtonTableViewCell.swift; path = Interface/SwitchButtonTableViewCell.swift; sourceTree = "<group>"; };
+		2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchButtonTableViewCell.xib; sourceTree = "<group>"; };
 		2FF1771A1E4F60650005F026 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF1771C1E4F91A20005F026 /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		2FF1771E1E4F998A0005F026 /* URLS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
@@ -360,6 +368,8 @@
 				2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */,
 				2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */,
 				2F7967781E86FA7E00476D2D /* HeaderPostTableViewCell.swift */,
+				2FC9E0691E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift */,
+				2FC9E0541E8CA02200A048A4 /* WantBorrowTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -590,6 +600,7 @@
 		A4E462E91DCAEA7F00A611C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2FC9E0551E8CA02200A048A4 /* WantBorrowTableViewCell.xib */,
 				2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */,
 				2F7967791E86FA7E00476D2D /* HeaderPostTableViewCell.xib */,
 				2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */,
@@ -597,6 +608,7 @@
 				2F2F07931E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib */,
 				A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */,
 				2F79676F1E83871700476D2D /* WithdrawalTableViewCell.xib */,
+				2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1022,7 +1034,6 @@
 				A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */,
 				A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */,
 				2F79676D1E8357F700476D2D /* TypePostTableViewCell.xib in Resources */,
-				D498F03F1E808A95002E8972 /* PhotoThingWithPageControlCollectionViewCell.xib in Resources */,
 				A427680E1DD3DC4600363343 /* BoomerMyThingCell.xib in Resources */,
 				A4AFBB0F1DD3612F00F270C7 /* AddBoomerCell.xib in Resources */,
 				A42767FF1DD393D800363343 /* MyThings.storyboard in Resources */,
@@ -1053,6 +1064,7 @@
 				D4A012FA1E7AC85600B3B811 /* PostTableViewCell.xib in Resources */,
 				D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */,
 				D4E4BEAA1E8233EF00F8DC2E /* ThingConditionTableViewCell.xib in Resources */,
+				2FC9E0571E8CA02200A048A4 /* WantBorrowTableViewCell.xib in Resources */,
 				A4E463041DCAEC4F00A611C0 /* Assets.xcassets in Resources */,
 				D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */,
 				A4E463011DCAEB1500A611C0 /* RightMenu.storyboard in Resources */,
@@ -1060,6 +1072,7 @@
 				A44E0C681DD092650028F06C /* Montserrat-Bold.otf in Resources */,
 				A44E0C6B1DD092650028F06C /* Montserrat-Light.otf in Resources */,
 				2F2F07951E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib in Resources */,
+				2FC9E06C1E8CB7A100A048A4 /* SwitchButtonTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,6 +1213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FC9E0561E8CA02200A048A4 /* WantBorrowTableViewCell.swift in Sources */,
 				2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */,
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
@@ -1274,6 +1288,7 @@
 				A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */,
 				D4E4BEBC1E8269F300F8DC2E /* TextInputTableView.swift in Sources */,
 				2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */,
+				2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
