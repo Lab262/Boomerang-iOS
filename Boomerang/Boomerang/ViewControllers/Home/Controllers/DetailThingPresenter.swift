@@ -15,10 +15,10 @@ class DetailThingPresenter: NSObject {
     fileprivate let pagination = 3
     fileprivate var skip = 0
     fileprivate var comments = [Comment]()
-    var controller: ViewControllerDelegate?
+    var controller: ViewDelegate?
     
     
-    func setControllerDelegate(controller: ViewControllerDelegate) {
+    func setControllerDelegate(controller: ViewDelegate) {
         self.controller = controller
     }
     
@@ -67,6 +67,36 @@ class DetailThingPresenter: NSObject {
         
         saveComment(comment: comment)
     }
+    
+//    
+//    func getRelationPhotosByThing(){
+//        if let relations = post.relations {
+//            for relation in relations where relation.isDownloadedImage {
+//                postImage.image = relation.photo
+//                return
+//            }
+//        } else {
+//            PostRequest.getRelationsInBackground(post: post, completionHandler: { (success, msg) in
+//                if success {
+//                    self.post.relations!.first!.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+//                        if success {
+//                            self.post.relations!.first!.photo = UIImage(data: data!)
+//                            self.post.relations!.first!.isDownloadedImage = true
+//                            self.postImage.image = UIImage(data: data!)
+//                            ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: true, updateType: .download)
+//                        } else {
+//                            ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: false, updateType: .download)
+//                            print ("NO SUCCESS IN DOWNLOAD")
+//                        }
+//                    })
+//                } else {
+//                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: false, updateType: .relation)
+//                    print ("NO SUCCESS IN DOWNLOAD")
+//                }
+//            })
+//        }
+//    }
+    
     
     func getRelationsImages(success: Bool){
         if !success {
@@ -125,6 +155,23 @@ class DetailThingPresenter: NSObject {
                 }
             })
         }
+    }
+    
+    func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
+        
+        guard let image = getPost().author?.profileImage else {
+            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+                
+                if success {
+                    self.getPost().author?.profileImage = UIImage(data: data!)
+                    completionHandler(true, msg, self.getPost().author?.profileImage)
+                } else {
+                    completionHandler(false, msg, nil)
+                }
+            })
+            return
+        }
+        completionHandler(true, "Success", image)
     }
     
 }

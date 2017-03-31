@@ -88,7 +88,7 @@ extension PhotoThingTableViewCell: UpdatePostDelegate {
     }
 }
 
-extension PhotoThingTableViewCell: ViewControllerDelegate {
+extension PhotoThingTableViewCell: ViewDelegate {
     
     func reload(array: [Any]?) {
         collectionView.reloadData()

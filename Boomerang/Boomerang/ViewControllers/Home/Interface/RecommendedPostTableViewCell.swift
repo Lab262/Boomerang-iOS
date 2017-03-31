@@ -23,12 +23,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
     
     var delegate: UpdateCellDelegate?
     
-    
-    var posts: [Post] = [Post]() {
-        didSet{
-            updateCell()
-        }
-    }
+    var presenter = HomePresenter()
     
     static var identifier: String {
         return "recommendedCell"
@@ -49,10 +44,9 @@ class RecommendedPostTableViewCell: UITableViewCell {
     }
     
     func setInsetsInCollectionView(){
-        let totalWidth: CGFloat = CGFloat((self.posts.count * sizeCells))
-        let totalSpacing = CGFloat(self.posts.count-1) * spaceCells
+        let totalWidth: CGFloat = CGFloat((presenter.getPosts().count * sizeCells))
+        let totalSpacing = CGFloat(presenter.getPosts().count-1) * spaceCells
         let caculationFinal: CGFloat = (totalWidth + totalSpacing)/2
-    
         (indexCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset = UIEdgeInsets(top: 0, left: self.bounds.width/2 - caculationFinal, bottom: 0, right: 0)
     }
     
@@ -75,10 +69,10 @@ class RecommendedPostTableViewCell: UITableViewCell {
     }
     
     func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
         
-         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
-        
-        cell.post = posts[indexPath.row]
+        cell.presenter.setPost(post: presenter.getPosts()[indexPath.row])
+        cell.setupCell()
         
         unloadPlaceholderImage()
         
@@ -89,11 +83,11 @@ class RecommendedPostTableViewCell: UITableViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageControlCollectionViewCell.identifier, for: indexPath) as! PageControlCollectionViewCell
         
-
         cell.widthPageConstraint.constant = 7
         cell.heightPageConstraint.constant = 6
         cell.layoutIfNeeded()
         collectionView.layoutIfNeeded()
+        
         return cell
         
     }
@@ -103,7 +97,7 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.posts.count
+        return presenter.getPosts().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -172,17 +166,13 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         var visibleRect = CGRect()
-        
         visibleRect.origin = postCollectionView.contentOffset
         visibleRect.size = postCollectionView.bounds.size
         
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        
         let visibleIndexPath: IndexPath = postCollectionView.indexPathForItem(at: visiblePoint)!
         
-        print(visibleIndexPath)
-        
-        if visibleIndexPath.row >= self.posts.endIndex-1 {
+        if visibleIndexPath.row >= presenter.getPosts().endIndex-1 {
             delegate?.updateCell()
         }
     }

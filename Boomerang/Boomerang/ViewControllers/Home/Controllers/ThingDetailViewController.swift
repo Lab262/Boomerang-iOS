@@ -87,7 +87,8 @@ class ThingDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: UserInformationTableViewCell.identifier, for: indexPath) as! UserInformationTableViewCell
         
-        cell.post = presenter.getPost()
+        cell.presenter.setPost(post: presenter.getPost())
+        cell.updateCellUI()
         
         return cell
     }
@@ -234,7 +235,7 @@ extension ThingDetailViewController: UpdateInformationsDelegate {
     }
 }
 
-extension ThingDetailViewController: ViewControllerDelegate {
+extension ThingDetailViewController: ViewDelegate {
     
     func reload(array: [Any]?) {
         if array?.count != currentCommentsCount {

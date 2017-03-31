@@ -10,8 +10,6 @@ import UIKit
 
 class UserInformationTableViewCell: UITableViewCell {
     
-    
-    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -19,11 +17,9 @@ class UserInformationTableViewCell: UITableViewCell {
     
     @IBOutlet var evaluationStarImage: [UIImageView]!
     
-    var post: Post? {
-        didSet{
-            updateCellUI()
-        }
-    }
+    
+    
+    var presenter: DetailThingPresenter = DetailThingPresenter()
     
     static var identifier: String {
         return "userInformationCell"
@@ -45,31 +41,19 @@ class UserInformationTableViewCell: UITableViewCell {
     }
 
     func updateCellUI(){
-        userNameLabel.text = post!.author!.fullName
+        userNameLabel.text = presenter.getPost().author!.fullName
         //dateLabel.text = post!.createdDate!.getStringToDate(dateFormat: "dd/MM/yyyy")
-        dateLabel.text = post?.createdDate?.getFormatterDate()
-        getUserPhotoImage()
-    }
-    
-    func getUserPhotoImage() {
-        guard let image = post?.author?.profileImage else {
-            userImage.loadAnimation()
-            
-            post?.author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
-                
-                if success {
-                    self.post?.author?.profileImage = UIImage(data: data!)
-                    self.userImage.image = UIImage(data: data!)
-                    self.userImage.unload()
-                } else {
-                    // error
-                }
-            })
-            
-            return
-        }
+        dateLabel.text = presenter.getPost().createdDate?.getFormatterDate()
         
-        userImage.image = image
+        userImage.loadAnimation()
+        
+        presenter.getUserPhotoImage { (success, msg, image) in
+            if success {
+                self.userImage.image = image
+                self.userImage.unload()
+            } else {
+                print ("ERROR DOWNLOAD IMAGE")
+            }
+        }
     }
-    
 }
