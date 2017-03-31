@@ -19,8 +19,9 @@ class ThrowViewController: UIViewController {
     var fields:[String] = []
     var nameThing = String ()
     var descriptionThing = String ()
-    var type = PostType.have
+    var typeVC = PostType.have
     var titleHeader = String()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,7 @@ class ThrowViewController: UIViewController {
     
     func registerNib() {
        
+         self.tableView.register(UINib(nibName: "SwitchButtonTableViewCell", bundle: nil), forCellReuseIdentifier: SwitchButtonTableViewCell.cellIdentifier)
         
         self.tableView.register(UINib(nibName: "SimpleTextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: SimpleTextFieldTableViewCell.cellIdentifier)
         
@@ -92,7 +94,7 @@ class ThrowViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier:TypePostTableViewCell.cellIdentifier, for: indexPath) as! TypePostTableViewCell
         cell.selectionStyle = .none
         
-        switch  type.hashValue {
+        switch  typeVC.hashValue {
         case 0 :
             cell.imagePost.image = #imageLiteral(resourceName: "ic_need_post")
             cell.titlePost.text = titleHeader
@@ -133,6 +135,16 @@ class ThrowViewController: UIViewController {
         return cell
         
     }
+    
+    func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.cellIdentifier, for: indexPath) as! SwitchButtonTableViewCell
+        cell.selectionStyle = .none
+        
+        return cell
+        
+    }
+    
     
     
     func generateWithDrawalCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -240,27 +252,51 @@ extension ThrowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 6
+        return 7
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
-            case  0:
-                return generateNavigation(tableView, indexPath:indexPath)
+            case 0:
+                  return generateNavigation(tableView, indexPath:indexPath)
             case  1:
                 return generateHeadPostCell(tableView, indexPath:indexPath)
             case  2:
-                return generateNameProducTextCell(tableView, indexPath:indexPath)
+                switch typeVC {
+                    case .donate:
+                       return generateNameProducTextCell(tableView, indexPath:indexPath)
+                    case .have:
+                       return generateSwitchButtonCell(tableView, indexPath:indexPath)
+                    case .need:
+                        return generateSwitchButtonCell(tableView, indexPath:indexPath)
+
+                }
             case 3:
-                return generateDescriptionCell(tableView, indexPath: indexPath)
+                switch typeVC {
+                    case .donate:
+                        return generateDescriptionCell(tableView, indexPath:indexPath)
+                    case .have:
+                        return generateNameProducTextCell(tableView, indexPath:indexPath)
+                    case .need:
+                        return generateNameProducTextCell(tableView, indexPath:indexPath)
+                }
             case 4:
-                return generateWithDrawalCell(tableView, indexPath:indexPath)
-            default:
+                switch typeVC {
+                case .donate:
+                    return generateWithDrawalCell(tableView, indexPath:indexPath)
+                case .have:
+                    return generateDescriptionCell(tableView, indexPath:indexPath)
+                case .need:
+                    return generateDescriptionCell(tableView, indexPath:indexPath)
+                }
+        default:
                 return UITableViewCell()
         }
     }
+    
+  
     
 }
 
@@ -270,7 +306,7 @@ extension ThrowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return CGFloat(100)
+            return CGFloat(200)
         }else if indexPath.row == 1 {
             return CGFloat(100)
         }else if indexPath.row == 2 {

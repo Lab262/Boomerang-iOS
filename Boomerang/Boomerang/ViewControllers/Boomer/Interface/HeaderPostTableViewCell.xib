@@ -52,6 +52,7 @@
                         <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="LfH-GY-6KQ" secondAttribute="trailing" id="7vf-Wn-0F8"/>
+                            <constraint firstItem="gyV-vP-RQz" firstAttribute="top" secondItem="1Ru-Mz-kPg" secondAttribute="top" constant="85" id="8yl-3T-JIy"/>
                             <constraint firstItem="gyV-vP-RQz" firstAttribute="centerX" secondItem="1Ru-Mz-kPg" secondAttribute="centerX" id="Aox-nq-qB6"/>
                             <constraint firstItem="LfH-GY-6KQ" firstAttribute="top" secondItem="d7h-k2-4IN" secondAttribute="bottom" constant="-58" id="BnJ-c3-MgQ"/>
                             <constraint firstItem="oTJ-nj-UNh" firstAttribute="leading" secondItem="1Ru-Mz-kPg" secondAttribute="leading" constant="182" id="Cn1-gC-BHP"/>
@@ -59,7 +60,7 @@
                             <constraint firstItem="oTJ-nj-UNh" firstAttribute="top" secondItem="LfH-GY-6KQ" secondAttribute="bottom" constant="13" id="Gxb-Mr-J2Z"/>
                             <constraint firstItem="LfH-GY-6KQ" firstAttribute="top" secondItem="1Ru-Mz-kPg" secondAttribute="top" constant="-1" id="Rqw-gA-TOQ"/>
                             <constraint firstItem="FzZ-Et-e6V" firstAttribute="centerX" secondItem="1Ru-Mz-kPg" secondAttribute="centerX" constant="1" id="TNg-dn-vVB"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="192" id="gi5-b0-2Ax"/>
+                            <constraint firstAttribute="height" constant="192" id="gi5-b0-2Ax"/>
                             <constraint firstItem="LfH-GY-6KQ" firstAttribute="leading" secondItem="1Ru-Mz-kPg" secondAttribute="leading" id="kj6-v6-6hV"/>
                             <constraint firstItem="FzZ-Et-e6V" firstAttribute="bottom" secondItem="oTJ-nj-UNh" secondAttribute="bottom" constant="11" id="m9m-xt-yxh"/>
                             <constraint firstItem="LfH-GY-6KQ" firstAttribute="leading" secondItem="d7h-k2-4IN" secondAttribute="trailing" constant="-29" id="o8f-9F-ZKr"/>

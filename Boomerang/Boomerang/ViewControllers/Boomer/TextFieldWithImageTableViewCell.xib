@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="textFieldWithImageCell" rowHeight="103" id="BgI-Z2-zqW" customClass="TextFieldWithImageTableViewCell" customModule="Boomerang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BgI-Z2-zqW" id="fnd-7T-0pb">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBm-C3-q1A">
+                        <rect key="frame" x="31" y="21" width="30" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.26274509800000001" green="0.031372549020000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTL-lU-jtX">
+                        <rect key="frame" x="31" y="73" width="313" height="2"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="oww-LJ-K7F"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H05-SJ-cFV" customClass="UIButtonWithPicker" customModule="Boomerang" customModuleProvider="target">
+                        <rect key="frame" x="31" y="43" width="83" height="30"/>
+                        <state key="normal" title="Anexar Foto"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bDE-eX-eHe">
+                        <rect key="frame" x="304" y="26" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="hI2-FE-9qj"/>
+                            <constraint firstAttribute="height" constant="40" id="tCd-xr-TM8"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="HTL-lU-jtX" secondAttribute="trailing" constant="23" id="4nM-Pe-J0V"/>
+                    <constraint firstItem="H05-SJ-cFV" firstAttribute="top" secondItem="fBm-C3-q1A" secondAttribute="bottom" constant="2.5" id="8K0-AP-pS6"/>
+                    <constraint firstItem="bDE-eX-eHe" firstAttribute="top" secondItem="fnd-7T-0pb" secondAttribute="topMargin" constant="18" id="JvK-jK-Exm"/>
+                    <constraint firstItem="fBm-C3-q1A" firstAttribute="top" secondItem="fnd-7T-0pb" secondAttribute="topMargin" constant="13" id="V7Z-O3-Y2V"/>
+                    <constraint firstItem="HTL-lU-jtX" firstAttribute="top" secondItem="bDE-eX-eHe" secondAttribute="bottom" constant="7" id="are-fL-RJ7"/>
+                    <constraint firstItem="bDE-eX-eHe" firstAttribute="trailing" secondItem="HTL-lU-jtX" secondAttribute="trailing" id="cds-zP-AAB"/>
+                    <constraint firstItem="HTL-lU-jtX" firstAttribute="leading" secondItem="H05-SJ-cFV" secondAttribute="leading" id="eNG-k6-uIa"/>
+                    <constraint firstItem="HTL-lU-jtX" firstAttribute="top" secondItem="H05-SJ-cFV" secondAttribute="bottom" id="lBX-HR-BQJ"/>
+                    <constraint firstItem="H05-SJ-cFV" firstAttribute="leading" secondItem="fBm-C3-q1A" secondAttribute="leading" id="nvd-dD-Qtm"/>
+                    <constraint firstItem="fBm-C3-q1A" firstAttribute="leading" secondItem="fnd-7T-0pb" secondAttribute="leadingMargin" constant="23" id="qgB-3P-pdf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="annexButton" destination="H05-SJ-cFV" id="cX2-Ur-Aaf"/>
+                <outlet property="photoImage" destination="bDE-eX-eHe" id="9j5-X8-z5m"/>
+                <outlet property="titleFieldLabel" destination="fBm-C3-q1A" id="rvJ-lY-oT3"/>
+            </connections>
+            <point key="canvasLocation" x="87.5" y="-100.5"/>
+        </tableViewCell>
+    </objects>
+</document>
