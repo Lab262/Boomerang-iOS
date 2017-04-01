@@ -9,7 +9,27 @@
 import UIKit
 import Parse
 
+
+enum UpdateType {
+    case amount
+    case relation
+    case download
+}
+
+protocol UpdatePostDelegate {
+    func updateRelationsPost(post: Post?, success: Bool, updateType: UpdateType)
+}
+
+
 class ApplicationState: NSObject {
+    
+    var delegate: UpdatePostDelegate?
+    
+    var currentPost: Post? {
+        didSet{
+            
+        }
+    }
     
     var currentUser: User? {
         didSet {
@@ -17,6 +37,9 @@ class ApplicationState: NSObject {
         }
     }
     
+    func callDelegateUpdate(post: Post?, success: Bool, updateType: UpdateType){
+        ApplicationState.sharedInstance.delegate?.updateRelationsPost(post: post, success: success, updateType: updateType)
+    }
     
     static let sharedInstance : ApplicationState = {
         let instance = ApplicationState(singleton: true)

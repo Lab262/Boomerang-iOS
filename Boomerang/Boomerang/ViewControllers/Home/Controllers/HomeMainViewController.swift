@@ -9,9 +9,9 @@
 import UIKit
 import Parse
 
-protocol ViewControllerDelegate {
+protocol ViewDelegate {
     func showMessageError(msg: String)
-    func updateView(array: [Any])
+    func reload(array: [Any]?)
 }
 
 class HomeMainViewController: UIViewController {
@@ -27,7 +27,6 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var currentIndex: IndexPath?
     var currentPostsFriendsCount = 0
-
     let tableViewTopInset: CGFloat = 5.0
     var presenter = HomePresenter()
 
@@ -52,7 +51,6 @@ class HomeMainViewController: UIViewController {
         
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
         
-        
         registerNib()
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
@@ -60,9 +58,10 @@ class HomeMainViewController: UIViewController {
     func registerNib() {
         self.tableView.register(UINib(nibName: HomeCollectionHeader.cellIdentifier, bundle: nil), forCellReuseIdentifier: HomeCollectionHeader.cellIdentifier)
         self.tableView.register(UINib(nibName: BoomerThingCollection.cellIdentifier, bundle: nil), forCellReuseIdentifier: BoomerThingCollection.cellIdentifier)
+        
         tableView.registerNibFrom(RecommendedPostTableViewCell.self)
         
-            tableView.registerNibFrom(PostTableViewCell.self)
+        tableView.registerNibFrom(PostTableViewCell.self)
     }
     
     func loadHomeData(homeBoomerThingsData: [String: [BoomerThing]]) {
@@ -184,18 +183,16 @@ extension HomeMainViewController {
 extension HomeMainViewController {
     
     func generateHeaderTitle(_ tableView: UITableView, viewForHeaderInSection section: Int) -> HomeCollectionHeader? {
-        
         let header = tableView.dequeueReusableCell(withIdentifier:HomeCollectionHeader.cellIdentifier) as! HomeCollectionHeader
         
         return header
-        
     }
     
     func generateRecommendedCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath) as! RecommendedPostTableViewCell
         
-        cell.posts = presenter.getPosts()
+        cell.presenter.setPosts(posts: presenter.getPosts())
+        cell.updateCell()
         cell.delegate = self
         cell.selectionDelegate = self
         boomerThingDelegate = cell
@@ -204,7 +201,6 @@ extension HomeMainViewController {
     }
     
     func generatePostCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath)
         
         return cell
@@ -232,13 +228,13 @@ extension HomeMainViewController: UIScrollViewDelegate {
             let alpha = (yOffset - tableViewTopInset + navbarAlphaThreshold)/navbarAlphaThreshold
             
             navigationBarView.backgroundColor = navigationBarView.backgroundColor?.withAlphaComponent(alpha)
+            
         } else {
             navigationBarView.backgroundColor = navigationBarView.backgroundColor?.withAlphaComponent(0.0)
         }
     }
     
     func updateInformationsCell(_ yOffset: CGFloat) {
-        
         let informationAlphaThreshold: CGFloat = 20.0
         
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
@@ -252,11 +248,12 @@ extension HomeMainViewController: UIScrollViewDelegate {
     }
 }
 
-extension HomeMainViewController: ViewControllerDelegate {
+extension HomeMainViewController: ViewDelegate {
     
-    func updateView(array: [Any]){
-        if array.count != currentPostsFriendsCount {
-            currentPostsFriendsCount = array.count
+    func reload(array: [Any]?){
+        
+        if array?.count != currentPostsFriendsCount {
+            currentPostsFriendsCount = array!.count
             tableView.reloadData()
         }
     }

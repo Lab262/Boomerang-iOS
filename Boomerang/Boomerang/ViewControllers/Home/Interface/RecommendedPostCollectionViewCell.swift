@@ -22,6 +22,9 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeAmountLabel: UILabel!
     @IBOutlet weak var sharedAmountLabel: UILabel!
     
+    
+    var presenter: HomePresenter = HomePresenter()
+    
     static var identifier: String {
         return "recommendedCollectionCell"
     }
@@ -34,82 +37,32 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         return "RecommendedPostCollectionViewCell"
     }
     
-    var post: Post! {
-        didSet {
-            setupCell()
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         containerIconView.roundCorners(corners: [.bottomLeft], radius: 100.0)
     }
     
-    func setupCell() {
-        descriptionPostLabel.text = post?.content
-        userNameLabel.text = post!.author!.firstName! + " " + post!.author!.lastName!
-        self.getUserPhotoImage()
-        self.getCountPhotos()
-        self.getRelationPhotosByThing()
-    }
-    
-    func getCountPhotos() {
-        if post.countPhotos < 1 {
-            post.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
-                
-                if success {
-                    self.post.countPhotos = count!
-                } else {
-                    
-                }
-            })
+    func setupCell(){
+        descriptionPostLabel.text = presenter.getPost().content
+        userNameLabel.text = presenter.getPost().author!.fullName
+        
+        presenter.getAuthorPhotoOfPost { (success, msg, image) in
+            if success {
+                self.userImage.image = image
+            } else {
+                print ("Error image user")
+            }
         }
-    }
-    
-    func getUserPhotoImage() {
-        guard let image = post?.author?.profileImage else {
-            userImage.loadAnimation()
-            
-            post?.author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
-                
-                if success {
-                    self.post?.author?.profileImage = UIImage(data: data!)
-                    self.userImage.image = UIImage(data: data!)
-                    self.userImage.unload()
-                } else {
-                    // error
-                }
-            })
-            
-            return
+        
+        presenter.getCountPhotos()
+        
+        presenter.getCoverOfPost { (success, msg, image) in
+            if success {
+                self.postImage.image = image!
+            } else {
+                print ("FAIL COVER POST")
+            }
         }
-        userImage.image = image
-    }
-    
-    func getRelationPhotosByThing(){
-        if post!.photos.count > 0 {
-            postImage.image = post?.photos[0]
-        } else if !post!.downloadedImages {
-            post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
-                
-                if success {
-                    self.post?.photos.append(UIImage(data: data!)!)
-                    if self.post!.photos.count < 2 {
-                        self.postImage.image = UIImage(data: data!)!
-                    }
-                    self.post?.downloadedImages = true
-                    self.postImage.unload()
-                    
-                } else {
-                    
-                }
-            })
-        } else {
-            self.postImage.image = UIImage(named: "foto_dummy")
-        }
-    }
-    
-    override func prepareForReuse() {
         
     }
 }

@@ -13,16 +13,20 @@ class Photo: PFObject {
     
     @NSManaged var imageFile: PFFile?
     var photo: UIImage?
+    var isDownloadedImage = false
     
     convenience init(object: PFObject) {
         self.init()
-        
         setInformationsUserByPFObject(object: object)
     }
     
     
     func setInformationsUserByPFObject(object: PFObject){
         self.objectId = object.objectId
+        
+        if let imageFile = object["imageFile"] as? PFFile {
+            self.imageFile = imageFile
+        }
     }
 
 }

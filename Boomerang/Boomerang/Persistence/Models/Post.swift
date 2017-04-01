@@ -26,8 +26,8 @@ class Post: PFObject {
     @NSManaged var createdDate: Date?
     @NSManaged var relations: [Photo]?
     
-    var alreadySearched = false
-    var downloadedImages = false
+    //var alreadySearched = false
+    //var downloadedImages = false
     var countPhotos = 0
     
     var photos = [UIImage]()
@@ -64,7 +64,6 @@ class Post: PFObject {
             
             self.author = author
         }
-        
         
         if let thing = object["thing"] as? Thing {
             

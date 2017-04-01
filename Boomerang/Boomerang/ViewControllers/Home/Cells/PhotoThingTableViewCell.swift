@@ -12,7 +12,6 @@ class PhotoThingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     static var identifier: String {
         return "photoThingCell"
     }
@@ -25,71 +24,17 @@ class PhotoThingTableViewCell: UITableViewCell {
         return "PhotoThingTableViewCell"
     }
     
-    var post: Post? {
-        didSet{
-            getCountPhotos()
-        }
-    }
-
+    var presenter: DetailThingPresenter = DetailThingPresenter()
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNib()
-        // Initialization code
+        ApplicationState.sharedInstance.delegate = self
+        presenter.setControllerDelegate(controller: self)
     }
     
     func registerNib(){
         collectionView.registerNibFrom(PhotoThingWithPageControlCollectionViewCell.self)
-    }
-    
-    
-    func getCountPhotos() {
-        if post!.countPhotos < 1 {
-            post!.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
-                if success {
-                    self.post!.countPhotos = count!
-                    self.collectionView.reloadData()
-                } else {
-                    
-                }
-            })
-        }
-    }
-    
-    func getRelationPhotosByThing(){
-        var doNotDownload = [Photo]()
-        if post!.relations != nil {
-            for relation in post!.relations! {
-                if relation.photo != nil {
-                    doNotDownload.append(relation)
-                }
-            }
-        }
-        
-        post?.getRelationsInBackgroundBy(key: "photos", keyColunm: "photos", isNotContained: true, notContainedKeys: doNotDownload, completionHandler: { (success, msg, objects) in
-            
-            if success {
-                self.post?.relations = [Photo]()
-                for object in objects! {
-                    let relation = Photo(object: object)
-                    self.post?.relations?.append(relation)
-                }
-                
-            } else {
-                
-            }
-            
-        })
-    }
-    
-    
-    func getImagePostByIndex(_ index: Int) -> UIImage {
-        
-        if post!.photos.count > 0 && post!.photos.count >= index+1 {
-            return post!.photos[index]
-        } else {
-            return #imageLiteral(resourceName: "placeholder_image")
-        }
-        
     }
 }
 
@@ -99,53 +44,13 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoThingWithPageControlCollectionViewCell.identifier, for: indexPath) as! PhotoThingWithPageControlCollectionViewCell
         
-        cell.thingImage.image = getImagePostByIndex(indexPath.row)
+        cell.thingImage.image = presenter.getImagePostByIndex(indexPath.row)
         
-        if cell.thingImage.image == #imageLiteral(resourceName: "placeholder_image") {
-            self.getRelationPhotosByThing()
-        }
-        
-        func getRelationPhotosByThing(){
-            var doNotDownload = [Photo]()
-            
-            if post!.relations != nil {
-                for relation in post!.relations! {
-                    if relation.photo != nil {
-                        doNotDownload.append(relation)
-                    }
-                }
-            }
-            
-            post?.getRelationsInBackgroundBy(key: "photos", keyColunm: "photos", isNotContained: true, notContainedKeys: doNotDownload, completionHandler: { (success, msg, objects) in
-                
-                if success {
-                    self.post?.relations = [Photo]()
-                    for object in objects! {
-                        let relation = Photo(object: object)
-                        self.post?.relations?.append(relation)
-                    }
-                    
-                    for photo in self.post!.relations! {
-                        photo.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
-                            if success{
-                                photo.photo = UIImage(data: data!)
-                                cell.thingImage.image = UIImage(data: data!)
-                            } else {
-                                print ("NO SUCCESS IN DOWNLOAD")
-                            }
-                        })
-                    }
-                } else {
-                 print ("NO SUCCESS IN RELATION")
-                }
-                
-            })
-        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return post!.countPhotos
+        return presenter.getPost().countPhotos
     }
 }
 
@@ -164,4 +69,32 @@ extension PhotoThingTableViewCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension PhotoThingTableViewCell: UpdatePostDelegate {
+    
+    func updateRelationsPost(post: Post?, success: Bool, updateType: UpdateType) {
+        
+        if let postUpdated = post {
+            presenter.setPost(post: postUpdated)
+        }
+        
+        switch updateType {
+        case .amount:
+            presenter.getCountPhotos(success: success)
+        case .relation:
+            presenter.getRelationsImages(success: success)
+        case .download:
+            presenter.downloadImagesPost(success: success)
+        }
+    }
+}
 
+extension PhotoThingTableViewCell: ViewDelegate {
+    
+    func reload(array: [Any]?) {
+        collectionView.reloadData()
+    }
+    
+    func showMessageError(msg: String) {
+        
+    }
+}
