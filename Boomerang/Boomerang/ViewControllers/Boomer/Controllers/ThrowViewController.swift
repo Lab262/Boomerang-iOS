@@ -21,12 +21,12 @@ class ThrowViewController: UIViewController {
     var descriptionThing = String ()
     var typeVC = PostType.have
     var titleHeader = String()
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
-    }
+        }
     
     
     @IBAction func backAction(_ sender: Any) {
@@ -79,6 +79,9 @@ class ThrowViewController: UIViewController {
           self.tableView.register(UINib(nibName: "WithdrawalTableViewCell", bundle: nil), forCellReuseIdentifier: WithdrawalTableViewCell.cellIdentifier)
     
         self.tableView.register(UINib(nibName: "HeaderPostTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderPostTableViewCell.cellIdentifier)
+    
+    self.tableView.register(UINib(nibName: "TextFieldWithImageTableViewCell", bundle: nil), forCellReuseIdentifier: TextFieldWithImageTableViewCell.identifier)
+    
     }
 
     
@@ -116,6 +119,13 @@ class ThrowViewController: UIViewController {
         
     }
     
+    func generateTextFieldWithImageCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier:TextFieldWithImageTableViewCell.identifier, for: indexPath) as! TextFieldWithImageTableViewCell
+      
+        
+        return cell
+        
+    }
     func generateNavigation(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:HeaderPostTableViewCell.cellIdentifier, for: indexPath) as! HeaderPostTableViewCell
         cell.selectionStyle = .none
@@ -291,6 +301,17 @@ extension ThrowViewController: UITableViewDataSource {
                 case .need:
                     return generateDescriptionCell(tableView, indexPath:indexPath)
                 }
+            case 5:
+                switch typeVC {
+                    case .donate:
+                        return  UITableViewCell()
+                    case .have:
+                        return generateTextFieldWithImageCell(tableView, indexPath:indexPath)
+                    case .need:
+                        return generateTextFieldWithImageCell(tableView, indexPath:indexPath)
+                    
+                }
+        
         default:
                 return UITableViewCell()
         }
@@ -313,6 +334,8 @@ extension ThrowViewController: UITableViewDelegate {
             return CGFloat(100)
         }else if indexPath.row == 3 {
             return CGFloat(175)
+        }else if indexPath.row == 5 {
+            return CGFloat(250)
         }else {
             return CGFloat(100)
         }

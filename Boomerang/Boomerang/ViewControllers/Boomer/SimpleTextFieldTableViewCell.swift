@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SimpleTextFieldTableViewCell: UITableViewCell {
     static var cellIdentifier = "simpleTextCell"
     @IBOutlet weak var textField: UITextField!

@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import ImagePicker
+
 
 protocol UIIButtonWithPickerDelegate {
-    func didPickEditedImage(image: UIImage, typeFieldTag: Int)
+    func didPickEditedImage(image: [UIImage])
 }
 
 class UIButtonWithPicker: UIButton {
     
-    let imagePicker = UIImagePickerController()
     var currentVC: UIViewController?
     var delegate: UIIButtonWithPickerDelegate?
     
@@ -24,10 +25,10 @@ class UIButtonWithPicker: UIButton {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
+        //imagePicker.allowsEditing = true
         self.currentVC = UIApplication.topViewController()
-        self.isUserInteractionEnabled = true
+       // self.isUserInteractionEnabled = true
+      
     }
     
     override func willMove(toWindow newWindow: UIWindow?) {
@@ -37,43 +38,32 @@ class UIButtonWithPicker: UIButton {
     }
     
     func changePhoto() {
+       
         
-        let pickerActionSheet = UIAlertController(title: "Fonte das imagens", message: nil, preferredStyle: .actionSheet)
-        pickerActionSheet.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        pickerActionSheet.addAction(UIAlertAction(title: "Tirar foto", style: .default, handler: { (action) -> Void in
-            
-            self.showCameraPicker()
-        }))
-        pickerActionSheet.addAction(UIAlertAction(title: "Pegar da biblioteca de fotos", style: .default, handler: { (action) -> Void in
-            
-            self.showPhotoLibraryPicker()
-        }))
-        
-        self.currentVC!.present(pickerActionSheet, animated: true, completion: nil)
+        let imagePicker = ImagePickerController()
+        imagePicker.imageLimit = 5
+        imagePicker.delegate = self
+
+        self.currentVC!.present(imagePicker, animated: true, completion: nil)
     }
 }
 
-extension UIButtonWithPicker: UIImagePickerControllerDelegate {
+extension UIButtonWithPicker: ImagePickerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        let image = info[UIImagePickerControllerEditedImage] as! UIImage
-        //self.ima = image
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+          self.currentVC?.dismiss(animated: true, completion: nil)
+    }
+    
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+        self.delegate?.didPickEditedImage(image: images)
         self.currentVC?.dismiss(animated: true, completion: nil)
-        self.delegate?.didPickEditedImage(image: image, typeFieldTag: self.tag)
     }
     
-    func showPhotoLibraryPicker() {
-        
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        self.currentVC!.present(self.imagePicker, animated: true, completion: nil)
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController){
+          self.currentVC?.dismiss(animated: true, completion: nil)
     }
-    
-    func showCameraPicker () {
-        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-        imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureMode.photo
-        self.currentVC!.present(self.imagePicker, animated: true, completion: nil)
-    }
+  
+
 }
 
 extension UIButtonWithPicker: UINavigationControllerDelegate {}

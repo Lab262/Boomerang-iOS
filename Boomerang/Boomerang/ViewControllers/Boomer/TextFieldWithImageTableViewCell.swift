@@ -9,15 +9,15 @@
 import UIKit
 
 class TextFieldWithImageTableViewCell: UITableViewCell {
+  
+    @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
     
     var fieldCellData: FieldCellData? {
         didSet {
             self.updateCell()
         }
     }
-    
-    @IBOutlet weak var annexButton: UIButtonWithPicker!
-    
+
     var annexImage: UIImage? {
         didSet{
             self.updateImage()
@@ -28,7 +28,7 @@ class TextFieldWithImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tex: UIButton!
     
-    @IBOutlet weak var photoImage: UIImageView!
+    //@IBOutlet weak var photoImage: UIImageView!
     
     static let identifier = "textFieldWithImageCell"
     
@@ -36,10 +36,11 @@ class TextFieldWithImageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.photoImage.layer.cornerRadius = self.photoImage.frame.width/2
-        self.photoImage.layer.masksToBounds = true
-        self.photoImage.layer.borderWidth = 1
-        self.photoImage.layer.borderColor = UIColor.white.cgColor
+     
+        // self.photoImage.layer.cornerRadius = self.photoImage.frame.width/2
+      //  self.photoImage.layer.masksToBounds = true
+        //self.photoImage.layer.borderWidth = 1
+       // self.photoImage.layer.borderColor = UIColor.white.cgColor
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,11 +52,11 @@ class TextFieldWithImageTableViewCell: UITableViewCell {
     func updateImage(){
     
         if let image = self.annexImage {
-            self.annexButton.titleLabel?.text = "Alterar foto"
-            self.photoImage.isHidden = false
-            self.photoImage.image = image
+                     
+            //self.photoImage.isHidden = false
+            //self.photoImage.image = image
         } else {
-            self.photoImage.isHidden = true
+           // self.photoImage.isHidden = true
         }
     }
     
@@ -63,7 +64,8 @@ class TextFieldWithImageTableViewCell: UITableViewCell {
         
         self.titleFieldLabel.text = self.fieldCellData?.titleField
         
-        self.annexButton.tag = self.fieldCellData?.typeField?.rawValue ?? 0
+      
+        
     }
 
     
