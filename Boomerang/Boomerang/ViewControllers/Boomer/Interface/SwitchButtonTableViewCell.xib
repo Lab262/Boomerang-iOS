@@ -55,6 +55,7 @@
                 <constraints>
                     <constraint firstItem="mNS-pc-4z6" firstAttribute="height" secondItem="HBy-Ql-ODd" secondAttribute="height" id="6bd-0h-kWk"/>
                     <constraint firstItem="mNS-pc-4z6" firstAttribute="leading" secondItem="HBy-Ql-ODd" secondAttribute="trailing" constant="33" id="Cvk-Ga-EHX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="mNS-pc-4z6" secondAttribute="trailing" id="GSs-B5-WY1"/>
                     <constraint firstItem="HBy-Ql-ODd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MSV-xb-CL3"/>
                     <constraint firstItem="HBy-Ql-ODd" firstAttribute="baseline" secondItem="mNS-pc-4z6" secondAttribute="baseline" id="X38-KK-qcU"/>
                     <constraint firstItem="mNS-pc-4z6" firstAttribute="width" secondItem="HBy-Ql-ODd" secondAttribute="width" id="p11-qU-iFu"/>

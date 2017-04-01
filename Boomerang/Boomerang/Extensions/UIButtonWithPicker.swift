@@ -16,6 +16,7 @@ protocol UIIButtonWithPickerDelegate {
 
 class UIButtonWithPicker: UIButton {
     
+    let imagePicker = ImagePickerController()
     var currentVC: UIViewController?
     var delegate: UIIButtonWithPickerDelegate?
     
@@ -32,15 +33,12 @@ class UIButtonWithPicker: UIButton {
     }
     
     override func willMove(toWindow newWindow: UIWindow?) {
-        self.layoutIfNeeded()
-        self.layer.cornerRadius = self.bounds.height/2
-        self.clipsToBounds = true
+   
     }
     
     func changePhoto() {
        
-        
-        let imagePicker = ImagePickerController()
+       
         imagePicker.imageLimit = 5
         imagePicker.delegate = self
 
@@ -51,7 +49,7 @@ class UIButtonWithPicker: UIButton {
 extension UIButtonWithPicker: ImagePickerDelegate {
     
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
-          self.currentVC?.dismiss(animated: true, completion: nil)
+        
     }
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){

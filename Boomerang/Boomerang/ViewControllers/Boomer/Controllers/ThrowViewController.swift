@@ -123,6 +123,7 @@ class ThrowViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier:TextFieldWithImageTableViewCell.identifier, for: indexPath) as! TextFieldWithImageTableViewCell
       
         
+        
         return cell
         
     }
@@ -262,7 +263,7 @@ extension ThrowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 7
+        return 8
     }
     
     
@@ -311,7 +312,17 @@ extension ThrowViewController: UITableViewDataSource {
                         return generateTextFieldWithImageCell(tableView, indexPath:indexPath)
                     
                 }
-        
+            case 6:
+                switch typeVC {
+                case .donate:
+                    return  UITableViewCell()
+                case .have:
+                    return generateWithDrawalCell(tableView, indexPath:indexPath)
+                case .need:
+                    return generateWithDrawalCell(tableView, indexPath:indexPath)
+                
+            }
+            
         default:
                 return UITableViewCell()
         }
@@ -333,11 +344,23 @@ extension ThrowViewController: UITableViewDelegate {
         }else if indexPath.row == 2 {
             return CGFloat(100)
         }else if indexPath.row == 3 {
-            return CGFloat(175)
+            switch typeVC {
+                case .donate:
+                    return CGFloat(175)
+                case .have:
+                    return CGFloat(80)
+                case .need:
+                    return CGFloat(80)
+            }
+            
+        }else if indexPath.row == 4 {
+            return CGFloat(150)
         }else if indexPath.row == 5 {
             return CGFloat(250)
-        }else {
+        }else if indexPath.row == 6 {
             return CGFloat(100)
+        }else {
+            return CGFloat(10)
         }
         
        
