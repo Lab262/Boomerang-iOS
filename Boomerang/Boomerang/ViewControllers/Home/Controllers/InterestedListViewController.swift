@@ -15,7 +15,7 @@ class InterestedListViewController: UIViewController {
     let tableViewTopInset: CGFloat = 94.0
     
     override func viewWillAppear(_ animated: Bool) {
-        TabBarController.mainTabBarController.removeTabBar()
+        TabBarController.mainTabBarController.hideTabBar()
         presenter.setControllerDelegate(controller: self)
         self.view.loadAnimation()
         updateInteresteds()

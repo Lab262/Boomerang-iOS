@@ -22,11 +22,12 @@ class BoomerMainViewController: UIViewController {
     var titlePost = String()
     @IBAction func showMenu(_ sender: Any) {
         
-        TabBarController.showMenu()
+        //TabBarController.showMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //self.getProfilePhoto()
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goThrowVC") {

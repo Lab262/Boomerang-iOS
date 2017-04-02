@@ -33,7 +33,7 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     
     @IBAction func showMenu(_ sender: Any) {
-        TabBarController.showMenu()
+        //TabBarController.mainTabBarController.showTabBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {

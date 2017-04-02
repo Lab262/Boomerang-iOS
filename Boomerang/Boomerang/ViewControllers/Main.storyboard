@@ -41,7 +41,7 @@
                                                         <rect key="frame" x="0.5" y="0.0" width="75" height="50"/>
                                                         <state key="normal" image="tabbar_home_icon"/>
                                                         <connections>
-                                                            <action selector="selectFirstOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="RAT-Cf-Ggq"/>
+                                                            <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="FdC-mD-2Ly"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -71,7 +71,7 @@
                                                         <rect key="frame" x="0.5" y="0.0" width="75" height="50"/>
                                                         <state key="normal" image="tabbar_profile_icon"/>
                                                         <connections>
-                                                            <action selector="selectSecondOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="DzI-OR-FEj"/>
+                                                            <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="9gZ-ez-Tzy"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -117,8 +117,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" image="tabbar_schemas_icon"/>
                                                         <connections>
-                                                            <action selector="selectFourthOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="MUF-JG-gAb"/>
-                                                            <action selector="selectLeftOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="87e-e1-a5N"/>
+                                                            <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="Dqe-pa-ve0"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -143,8 +142,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" image="tabbar_notifications_icon"/>
                                                         <connections>
-                                                            <action selector="selectFifthOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="WB2-xz-Tvx"/>
-                                                            <action selector="selectLeftOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="7yj-Gh-Wtu"/>
+                                                            <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="di8-Tp-mcv"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -199,13 +197,13 @@
                                         <rect key="frame" x="151.5" y="-8" width="75" height="83"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="selectThirdOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="EOr-cU-cb8"/>
+                                            <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="TX0-Kf-do1"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSn-dh-iPd">
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSn-dh-iPd">
                                         <rect key="frame" x="157.5" y="-7" width="63" height="63"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTL-uU-asz">
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTL-uU-asz">
                                                 <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_boomer_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TKu-lQ-7zT">
@@ -275,14 +273,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fifthButton" destination="qHB-fO-sa0" id="Avk-af-Dl6"/>
-                        <outlet property="firstButton" destination="JWU-WC-btn" id="qX9-4U-Kq3"/>
-                        <outlet property="fourthButton" destination="WSd-zk-gdC" id="uyG-fp-9We"/>
                         <outlet property="imgViewCenterOption" destination="TKu-lQ-7zT" id="sSQ-qz-oTM"/>
-                        <outlet property="secondButton" destination="uEr-jD-ohM" id="FXR-HX-kaV"/>
-                        <outlet property="thirdButton" destination="aso-9Q-Mwh" id="g6m-J4-sV0"/>
-                        <outlet property="viewContainerCenterOption" destination="P7C-i0-HUo" id="2aH-c6-6hW"/>
+                        <outlet property="viewContainerCenterOption" destination="BTL-uU-asz" id="XMr-sl-CCb"/>
                         <outlet property="viewContainerTabBar" destination="BvM-S8-hCt" id="Dm8-Xj-VDU"/>
+                        <outletCollection property="buttons" destination="JWU-WC-btn" collectionClass="NSMutableArray" id="6j7-Vj-rkb"/>
+                        <outletCollection property="buttons" destination="uEr-jD-ohM" collectionClass="NSMutableArray" id="Xv6-Ai-vCU"/>
+                        <outletCollection property="buttons" destination="aso-9Q-Mwh" collectionClass="NSMutableArray" id="Glo-lh-Pa3"/>
+                        <outletCollection property="buttons" destination="WSd-zk-gdC" collectionClass="NSMutableArray" id="ftW-ok-11f"/>
+                        <outletCollection property="buttons" destination="qHB-fO-sa0" collectionClass="NSMutableArray" id="5jn-12-R0L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="97h-0O-ota" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,9 +297,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Qh6-vl-7n5" kind="relationship" relationship="viewControllers" id="WdP-bA-Mxl"/>
-                        <segue destination="RCH-ag-j8o" kind="relationship" relationship="viewControllers" id="nQl-eb-gRI"/>
-                        <segue destination="cYo-6F-WYv" kind="relationship" relationship="viewControllers" id="Oxb-Ea-oy2"/>
+                        <segue destination="Qh6-vl-7n5" kind="relationship" relationship="viewControllers" id="3Al-LF-sfS"/>
+                        <segue destination="cYo-6F-WYv" kind="relationship" relationship="viewControllers" id="xSd-QT-3F0"/>
+                        <segue destination="RCH-ag-j8o" kind="relationship" relationship="viewControllers" id="xSI-RN-pwo"/>
+                        <segue destination="ALK-V7-Y3E" kind="relationship" relationship="viewControllers" id="Ezj-aH-Vzl"/>
+                        <segue destination="kKk-P2-pKs" kind="relationship" relationship="viewControllers" id="79N-nP-Aqt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z14-Wg-x3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -316,7 +316,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMr-cV-ihr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-392" y="137"/>
+            <point key="canvasLocation" x="-313" y="124"/>
         </scene>
         <!--Home-->
         <scene sceneID="fVT-gv-CCs">
@@ -328,6 +328,26 @@
             </objects>
             <point key="canvasLocation" x="-887" y="125"/>
         </scene>
+        <!--MyThings-->
+        <scene sceneID="mcd-hg-BDj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyThings" id="kKk-P2-pKs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="yvi-Xg-DTv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ubE-j1-HX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="270" y="123"/>
+        </scene>
+        <!--RightMenu-->
+        <scene sceneID="Hp5-Kf-koc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RightMenu" id="ALK-V7-Y3E" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="6xD-Xb-uWh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zep-tw-wFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-56" y="123"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="u73-By-o0K">
             <objects>
@@ -336,7 +356,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDA-79-JTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="125"/>
+            <point key="canvasLocation" x="-618" y="124"/>
         </scene>
     </scenes>
     <resources>
