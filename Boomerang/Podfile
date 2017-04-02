@@ -15,7 +15,8 @@ target 'Boomerang' do
     pod 'JSQMessagesViewController'
     pod 'Kingfisher', '~> 3.0'
     pod 'PHFComposeBarView', '~> 2.0.1'
-   # Pods for Boomerang
+    pod 'ImagePicker'
+  # Pods for Boomerang
 
   target 'BoomerangTests' do
     inherit! :search_paths

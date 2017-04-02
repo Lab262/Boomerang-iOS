@@ -30,6 +30,14 @@
 		2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA93B281E4A881E0080F99A /* UserRequest.swift */; };
 		2FAE03071E78C3540062E155 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE03061E78C3540062E155 /* Friend.swift */; };
 		2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */; };
+		2FC9E0561E8CA02200A048A4 /* WantBorrowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E0541E8CA02200A048A4 /* WantBorrowTableViewCell.swift */; };
+		2FC9E0571E8CA02200A048A4 /* WantBorrowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9E0551E8CA02200A048A4 /* WantBorrowTableViewCell.xib */; };
+		2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E0691E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift */; };
+		2FC9E06C1E8CB7A100A048A4 /* SwitchButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */; };
+		2FC9E06E1E8EFBCA00A048A4 /* TextFieldWithImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9E06D1E8EFBCA00A048A4 /* TextFieldWithImageTableViewCell.xib */; };
+		2FC9E0701E8EFBEB00A048A4 /* TextFieldWithImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E06F1E8EFBEB00A048A4 /* TextFieldWithImageTableViewCell.swift */; };
+		2FC9E0721E8EFCE200A048A4 /* FieldCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E0711E8EFCE200A048A4 /* FieldCellData.swift */; };
+		2FC9E0741E8EFDE200A048A4 /* UIButtonWithPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E0731E8EFDE200A048A4 /* UIButtonWithPicker.swift */; };
 		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
 		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
 		2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771E1E4F998A0005F026 /* URLS.swift */; };
@@ -192,6 +200,14 @@
 		2FA93B281E4A881E0080F99A /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		2FAE03061E78C3540062E155 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		2FC9E0541E8CA02200A048A4 /* WantBorrowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WantBorrowTableViewCell.swift; sourceTree = "<group>"; };
+		2FC9E0551E8CA02200A048A4 /* WantBorrowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WantBorrowTableViewCell.xib; path = ../WantBorrowTableViewCell.xib; sourceTree = "<group>"; };
+		2FC9E0691E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchButtonTableViewCell.swift; path = Interface/SwitchButtonTableViewCell.swift; sourceTree = "<group>"; };
+		2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchButtonTableViewCell.xib; sourceTree = "<group>"; };
+		2FC9E06D1E8EFBCA00A048A4 /* TextFieldWithImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldWithImageTableViewCell.xib; path = ../TextFieldWithImageTableViewCell.xib; sourceTree = "<group>"; };
+		2FC9E06F1E8EFBEB00A048A4 /* TextFieldWithImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldWithImageTableViewCell.swift; sourceTree = "<group>"; };
+		2FC9E0711E8EFCE200A048A4 /* FieldCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldCellData.swift; sourceTree = "<group>"; };
+		2FC9E0731E8EFDE200A048A4 /* UIButtonWithPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonWithPicker.swift; sourceTree = "<group>"; };
 		2FF1771A1E4F60650005F026 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF1771C1E4F91A20005F026 /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		2FF1771E1E4F998A0005F026 /* URLS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
@@ -372,6 +388,9 @@
 				2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */,
 				2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */,
 				2F7967781E86FA7E00476D2D /* HeaderPostTableViewCell.swift */,
+				2FC9E0691E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift */,
+				2FC9E0541E8CA02200A048A4 /* WantBorrowTableViewCell.swift */,
+				2FC9E06F1E8EFBEB00A048A4 /* TextFieldWithImageTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -602,6 +621,8 @@
 		A4E462E91DCAEA7F00A611C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2FC9E06D1E8EFBCA00A048A4 /* TextFieldWithImageTableViewCell.xib */,
+				2FC9E0551E8CA02200A048A4 /* WantBorrowTableViewCell.xib */,
 				2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */,
 				2F7967791E86FA7E00476D2D /* HeaderPostTableViewCell.xib */,
 				2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */,
@@ -609,6 +630,7 @@
 				2F2F07931E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib */,
 				A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */,
 				2F79676F1E83871700476D2D /* WithdrawalTableViewCell.xib */,
+				2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -695,6 +717,7 @@
 				D4A013031E7B181F00B3B811 /* CGOperations.swift */,
 				A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */,
 				A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */,
+				2FC9E0731E8EFDE200A048A4 /* UIButtonWithPicker.swift */,
 				A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */,
 				A427680B1DD3A09D00363343 /* UIColorExtension.swift */,
 				2FA0CB371E6E5F1800224284 /* AlertUtils.swift */,
@@ -803,6 +826,7 @@
 				D4EEC1C21E6CAE4B00F5C1D6 /* PFObjects */,
 				2F2F078A1E64CA0800C61A6D /* Enum */,
 				A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */,
+				2FC9E0711E8EFCE200A048A4 /* FieldCellData.swift */,
 				A4AFBB071DD2C3C700F270C7 /* BoomerCellData.swift */,
 				A44967731DDA246100990008 /* BoomerChatData.swift */,
 			);
@@ -1003,7 +1027,7 @@
 				TargetAttributes = {
 					A4F89B251DA809B100949A35 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = R6AP92RETV;
+						DevelopmentTeam = V927RLF8V5;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -1079,13 +1103,16 @@
 				D4A012FA1E7AC85600B3B811 /* PostTableViewCell.xib in Resources */,
 				D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */,
 				D4E4BEAA1E8233EF00F8DC2E /* ThingConditionTableViewCell.xib in Resources */,
+				2FC9E0571E8CA02200A048A4 /* WantBorrowTableViewCell.xib in Resources */,
 				A4E463041DCAEC4F00A611C0 /* Assets.xcassets in Resources */,
 				D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */,
 				A4E463011DCAEB1500A611C0 /* RightMenu.storyboard in Resources */,
 				A4F89B341DA809B100949A35 /* LaunchScreen.storyboard in Resources */,
 				A44E0C681DD092650028F06C /* Montserrat-Bold.otf in Resources */,
+				2FC9E06E1E8EFBCA00A048A4 /* TextFieldWithImageTableViewCell.xib in Resources */,
 				A44E0C6B1DD092650028F06C /* Montserrat-Light.otf in Resources */,
 				2F2F07951E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib in Resources */,
+				2FC9E06C1E8CB7A100A048A4 /* SwitchButtonTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1226,6 +1253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FC9E0561E8CA02200A048A4 /* WantBorrowTableViewCell.swift in Sources */,
 				2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */,
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
@@ -1252,6 +1280,7 @@
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,
 				D4FBBCEF1E908E0F00611F63 /* Interested.swift in Sources */,
 				D40C0E4F1E8B1490008174D2 /* Date+Utils.swift in Sources */,
+				2FC9E0721E8EFCE200A048A4 /* FieldCellData.swift in Sources */,
 				D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */,
 				D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */,
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
@@ -1262,6 +1291,7 @@
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
 				2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */,
 				D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */,
+				2FC9E0741E8EFDE200A048A4 /* UIButtonWithPicker.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */,
 				D4E4BEB81E8256B000F8DC2E /* PHFComposeBarView_Button.m in Sources */,
@@ -1271,6 +1301,7 @@
 				A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */,
 				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
+				2FC9E0701E8EFBEB00A048A4 /* TextFieldWithImageTableViewCell.swift in Sources */,
 				D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */,
 				2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */,
 				D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */,
@@ -1303,6 +1334,7 @@
 				A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */,
 				D4E4BEBC1E8269F300F8DC2E /* TextInputTableView.swift in Sources */,
 				2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */,
+				2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
@@ -1463,7 +1495,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R6AP92RETV;
+				DEVELOPMENT_TEAM = V927RLF8V5;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;
@@ -1484,7 +1516,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R6AP92RETV;
+				DEVELOPMENT_TEAM = V927RLF8V5;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;

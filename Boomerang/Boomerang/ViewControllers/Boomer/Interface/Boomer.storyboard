@@ -98,19 +98,19 @@
                                 <state key="normal" image="ic_logoPost"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preciso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23a-3b-PxO">
-                                <rect key="frame" x="21.5" y="338" width="63.5" height="20"/>
+                                <rect key="frame" x="21" y="338" width="63.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tenho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCj-74-XjJ">
-                                <rect key="frame" x="161.5" y="338" width="53.5" height="20"/>
+                                <rect key="frame" x="161" y="338" width="53.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xa-m8-EDj">
-                                <rect key="frame" x="295.5" y="338" width="64.5" height="20"/>
+                                <rect key="frame" x="296" y="338" width="64.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -170,48 +170,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7w-wy-97T" customClass="PhotoNavigationBar" customModule="Boomerang" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="192" id="Q1M-h9-QGv"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Jo-pP-gMf">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="667" id="Wvx-uG-0HN"/>
+                                    <constraint firstAttribute="width" constant="375" id="zie-RL-yxB"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="shC-dA-vya" id="NOf-oc-svN"/>
                                     <outlet property="delegate" destination="shC-dA-vya" id="8GO-3q-FSW"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50K-Qp-JEN" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="u4T-7L-KJD"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="back-button"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="rightBarIconImage" value="edit-button"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundViewColor">
-                                        <color key="value" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="g7w-wy-97T" secondAttribute="trailing" id="3p5-Oq-1Ij"/>
-                            <constraint firstItem="7Jo-pP-gMf" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="91W-PQ-76D"/>
-                            <constraint firstItem="Kc3-A7-MHE" firstAttribute="top" secondItem="7Jo-pP-gMf" secondAttribute="bottom" id="DEF-5k-jlt"/>
-                            <constraint firstItem="g7w-wy-97T" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="FJY-Uc-zbv"/>
-                            <constraint firstItem="g7w-wy-97T" firstAttribute="top" secondItem="ebX-LI-CWe" secondAttribute="top" id="Fl7-Jd-NaM"/>
-                            <constraint firstItem="50K-Qp-JEN" firstAttribute="top" secondItem="ebX-LI-CWe" secondAttribute="top" id="X6b-Vg-fkE"/>
-                            <constraint firstItem="50K-Qp-JEN" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="aOD-gF-ZkV"/>
-                            <constraint firstAttribute="trailing" secondItem="50K-Qp-JEN" secondAttribute="trailing" id="nLO-DG-VUX"/>
-                            <constraint firstAttribute="trailing" secondItem="7Jo-pP-gMf" secondAttribute="trailing" id="rSt-WV-kVH"/>
-                            <constraint firstItem="7Jo-pP-gMf" firstAttribute="top" secondItem="ebX-LI-CWe" secondAttribute="top" id="wQC-AQ-04x"/>
+                            <constraint firstItem="Kc3-A7-MHE" firstAttribute="top" secondItem="7Jo-pP-gMf" secondAttribute="bottom" id="PVy-va-b01"/>
+                            <constraint firstItem="7Jo-pP-gMf" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="RQj-ko-5iZ"/>
+                            <constraint firstItem="7Jo-pP-gMf" firstAttribute="top" secondItem="ebX-LI-CWe" secondAttribute="top" id="Y9k-6M-LYd"/>
+                            <constraint firstAttribute="trailing" secondItem="7Jo-pP-gMf" secondAttribute="trailing" id="cTx-Fc-gc3"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
@@ -225,8 +202,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back-button" width="12" height="19"/>
-        <image name="edit-button" width="25" height="25"/>
         <image name="ic_donate" width="45" height="44"/>
         <image name="ic_have" width="33" height="53"/>
         <image name="ic_logoPost" width="71" height="71"/>
