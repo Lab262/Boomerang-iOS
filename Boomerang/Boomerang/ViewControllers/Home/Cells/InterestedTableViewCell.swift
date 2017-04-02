@@ -10,12 +10,17 @@ import UIKit
 
 class InterestedTableViewCell: UITableViewCell {
     
+    
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var interestedImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var markerImage: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
+    
+    @IBOutlet weak var containerInformationsView: UIView!
+    
     
     static var identifier: String {
         return "interestedCell"

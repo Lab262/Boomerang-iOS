@@ -56,6 +56,7 @@ extension InterestedListViewController : UITableViewDataSource {
         
         cell.presenter.setInterested(interested: presenter.getInteresteds()[indexPath.row])
         cell.loadViewCell()
+        cell.countLabel.text = "\(indexPath.row)"
         
         return cell
     }

@@ -76,6 +76,7 @@ extension UIView {
         }
     }
     
+    
     @IBInspectable var shouldRasterize: Bool {
         get {
             return self.layer.shouldRasterize
