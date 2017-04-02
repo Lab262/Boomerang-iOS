@@ -26,15 +26,17 @@ class Interested: PFObject {
         self.objectId = object.objectId
         
         if let user = object["user"] as? User {
-            self.user = user
-        }
-        
-        if let post = object["post"] as? Post {
-            self.post = post
+            self.user = User(user: user)
         }
         
         if let currentMessage = object["currentMessage"] as? String {
             self.currentMessage = currentMessage
         }
+    }
+}
+
+extension Interested: PFSubclassing {
+    static func parseClassName() -> String {
+        return "Interested"
     }
 }

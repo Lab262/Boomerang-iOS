@@ -106,7 +106,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="ZJP-ww-gBe" firstAttribute="centerY" secondItem="IrZ-Xx-lk4" secondAttribute="centerY" id="4Gg-2v-Jn1"/>
                     <constraint firstItem="IrZ-Xx-lk4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="4Jb-va-wjr"/>
@@ -126,6 +126,7 @@
                     <constraint firstItem="N0I-OL-8ge" firstAttribute="centerY" secondItem="EcP-UR-3Fk" secondAttribute="centerY" id="rla-73-zJC"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="cityLabel" destination="N0I-OL-8ge" id="h6A-ca-TQg"/>
                 <outlet property="dateLabel" destination="vwM-pu-Qey" id="dzY-EF-I3S"/>

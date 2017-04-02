@@ -53,13 +53,16 @@ class InterestedPresenter: NSObject {
         return post
     }
     
-    func getInterestedsByPost(){
+    func updateInteresteds(){
         self.skip = interesteds.endIndex
         
         PostRequest.fetchInterestedOf(post: getPost(), selectKeys: ["user", "currentMessage"], pagination: pagination, skip: skip) { (success, msg, interesteds) in
             
             if success {
-                self.interesteds = interesteds!
+                for interested in interesteds! {
+                    self.interesteds.append(interested)
+                }
+                
                 self.controller?.reload()
                 self.currentInterestedsCount = self.getInteresteds().count
             } else {
@@ -69,12 +72,12 @@ class InterestedPresenter: NSObject {
     }
     
     func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
-        guard let image = getPost().author?.profileImage else {
-            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+        guard let image = getInterested().user?.profileImage else {
+            getInterested().user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
                 
                 if success {
-                    self.getPost().author?.profileImage = UIImage(data: data!)
-                    completionHandler(true, msg, self.getPost().author?.profileImage)
+                    self.getInterested().user?.profileImage = UIImage(data: data!)
+                    completionHandler(true, msg, self.getInterested().user?.profileImage)
                 } else {
                     completionHandler(false, msg, nil)
                 }

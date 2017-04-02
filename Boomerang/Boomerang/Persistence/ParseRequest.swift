@@ -62,6 +62,8 @@ class ParseRequest: NSObject {
         if let keys = selectKeys {
             query.selectKeys(keys)
         }
+        
+        
         query.skip = skip!
         query.includeKey(include)
         query.findObjectsInBackground { (objects, error) in

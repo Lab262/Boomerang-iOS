@@ -25,6 +25,10 @@ class InterestedTableViewCell: UITableViewCell {
         return 108.0
     }
     
+    static var nibName: String {
+        return "InterestedTableViewCell"
+    }
+    
     var presenter = InterestedPresenter()
 
     override func awakeFromNib() {
@@ -33,8 +37,18 @@ class InterestedTableViewCell: UITableViewCell {
     }
     
     func loadViewCell(){
-        self.nameLabel.text = presenter.getInterested().user!.fullName!
-        //self.messageLabel.text
+        nameLabel.text = presenter.getInterested().user!.fullName!
+        messageLabel.text = presenter.getInterested().currentMessage!
+        
+        interestedImage.loadAnimation()
+        presenter.getUserPhotoImage { (success, msg, image) in
+            if success {
+                self.interestedImage.image = image
+                self.interestedImage.unload()
+            } else {
+                print ("ERROR INTERESTED IMAGE DOWNLOAD")
+            }
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

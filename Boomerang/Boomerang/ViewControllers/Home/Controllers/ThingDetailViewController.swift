@@ -82,8 +82,7 @@ class ThingDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let controller = segue.destination as? InterestedListViewController {
-            
-            
+            controller.presenter.setPost(post: presenter.getPost())
         }
     }
     

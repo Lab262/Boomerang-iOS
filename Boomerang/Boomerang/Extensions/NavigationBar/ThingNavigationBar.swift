@@ -15,6 +15,7 @@ class ThingNavigationBar: UIView {
     @IBOutlet weak var titleTransactionLabel: UILabel!
     @IBOutlet weak var thingNameLabel: UILabel!
     
+    @IBOutlet weak var containerIconImage: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,12 +41,7 @@ class ThingNavigationBar: UIView {
             return titleTransactionLabel.isHidden
         }
         set {
-            if newValue == true {
-                titleTransactionLabel.isHidden = true
-            } else {
-                titleTransactionLabel.isHidden = false
-            }
-            
+            titleTransactionLabel.isHidden = newValue
         }
     }
     
@@ -54,25 +50,27 @@ class ThingNavigationBar: UIView {
             return thingNameLabel.isHidden
         }
         set {
-            if newValue == true {
-                thingNameLabel.isHidden = true
-            } else {
-                thingNameLabel.isHidden = false
-            }
+            thingNameLabel.isHidden = newValue
             
         }
     }
     
+    
+    @IBInspectable var containerIconImageHidden: Bool {
+        get {
+            return containerIconImage.isHidden
+        }
+        set {
+            containerIconImage.isHidden = newValue
+            
+        }
+    }
     @IBInspectable var typeImageHidden: Bool {
         get {
             return typeImage.isHidden
         }
         set {
-            if newValue == true {
-                typeImage.isHidden = true
-            } else {
-                typeImage.isHidden = false
-            }
+            typeImage.isHidden = newValue
             
         }
     }

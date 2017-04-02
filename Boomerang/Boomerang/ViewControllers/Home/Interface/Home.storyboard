@@ -218,10 +218,10 @@
             </objects>
             <point key="canvasLocation" x="2246" y="892"/>
         </scene>
-        <!--Interested View Controller-->
+        <!--Interested List View Controller-->
         <scene sceneID="C9b-vo-CFc">
             <objects>
-                <viewController id="nqi-1T-dTg" customClass="InterestedViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nqi-1T-dTg" customClass="InterestedListViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="99j-RH-3ss"/>
                         <viewControllerLayoutGuide type="bottom" id="hpc-Xh-0FE"/>
@@ -232,7 +232,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dc-WD-jNs" customClass="ThingNavigationBar" customModule="Boomerang" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="137"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="137" id="1Iu-9h-kEw"/>
                                 </constraints>
@@ -240,12 +240,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="titleTransactionLabelHidden" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="thingNameLabelHidden" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="typeImageHidden" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="containerIconImageHidden" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wep-AY-WV6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wep-AY-WV6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="nqi-1T-dTg" id="ldI-wT-9uv"/>
                                     <outlet property="delegate" destination="nqi-1T-dTg" id="tmk-if-EnH"/>
@@ -277,7 +278,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="navigationBarExtensionView" destination="6dc-WD-jNs" id="sYL-jR-XGs"/>
                         <outlet property="tableView" destination="Wep-AY-WV6" id="N5v-0o-oMj"/>
                     </connections>
                 </viewController>
