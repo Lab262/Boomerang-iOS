@@ -96,14 +96,15 @@ extension InterestedListViewController: ViewDelegate {
     
     func reload() {
         if presenter.getInteresteds().count != presenter.getCurrentInterestedsCount() {
-            self.view.unload()
             tableView.reloadData()
         }
         
+        self.view.unload()
         tableView.tableFooterView?.unload()
     }
     
     func showMessageError(msg: String) {
+        self.view.unload()
         self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
     }
 }

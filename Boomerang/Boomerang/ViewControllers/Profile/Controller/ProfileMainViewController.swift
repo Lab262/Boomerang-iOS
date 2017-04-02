@@ -34,6 +34,10 @@ class ProfileMainViewController: UIViewController {
             BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY")
         ]    }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        TabBarController.mainTabBarController.showTabBar()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
