@@ -17,6 +17,7 @@ class InterestedListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.removeTabBar()
         presenter.setControllerDelegate(controller: self)
+        self.view.loadAnimation()
         updateInteresteds()
     }
     
@@ -94,8 +95,8 @@ extension InterestedListViewController: UIScrollViewDelegate {
 extension InterestedListViewController: ViewDelegate {
     
     func reload() {
-        
         if presenter.getInteresteds().count != presenter.getCurrentInterestedsCount() {
+            self.view.unload()
             tableView.reloadData()
         }
         

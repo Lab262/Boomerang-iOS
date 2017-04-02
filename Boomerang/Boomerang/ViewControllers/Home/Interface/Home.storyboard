@@ -34,7 +34,7 @@
                                         <rect key="frame" x="-0.5" y="0.0" width="375" height="192"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olar, Amanda" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rk-n9-dAq">
-                                        <rect key="frame" x="118" y="34" width="140" height="24"/>
+                                        <rect key="frame" x="127.5" y="34" width="121" height="24"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YTg-zH-wsh">
-                                <rect key="frame" x="0.0" y="123" width="375" height="544"/>
+                                <rect key="frame" x="0.0" y="123" width="375" height="494"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y4o-Ot-Hoh" id="JdK-QF-vMc"/>
@@ -97,7 +97,7 @@
                             <constraint firstAttribute="trailing" secondItem="YTg-zH-wsh" secondAttribute="trailing" id="1jI-Wh-92I"/>
                             <constraint firstItem="whq-g7-neK" firstAttribute="top" secondItem="6nA-1m-uaN" secondAttribute="bottom" constant="-20" id="A0R-tJ-G1X"/>
                             <constraint firstItem="whq-g7-neK" firstAttribute="width" secondItem="78E-60-gc8" secondAttribute="width" id="Pui-3H-xNT"/>
-                            <constraint firstItem="PbL-Ml-ivy" firstAttribute="top" secondItem="YTg-zH-wsh" secondAttribute="bottom" id="Puu-C4-lXL"/>
+                            <constraint firstItem="PbL-Ml-ivy" firstAttribute="top" secondItem="YTg-zH-wsh" secondAttribute="bottom" constant="50" id="Puu-C4-lXL"/>
                             <constraint firstItem="YTg-zH-wsh" firstAttribute="leading" secondItem="78E-60-gc8" secondAttribute="leading" id="TJs-Wc-44T"/>
                             <constraint firstItem="YTg-zH-wsh" firstAttribute="top" secondItem="8NO-f7-jeX" secondAttribute="bottom" id="huQ-r3-Uir"/>
                             <constraint firstItem="8NO-f7-jeX" firstAttribute="top" secondItem="6nA-1m-uaN" secondAttribute="bottom" constant="59" id="peM-Fi-Pbi"/>
@@ -293,7 +293,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcr-AS-ZtQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n0d-99-g7M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0d-99-g7M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
