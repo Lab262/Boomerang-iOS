@@ -41,7 +41,7 @@
                                                         <rect key="frame" x="0.5" y="0.0" width="75" height="50"/>
                                                         <state key="normal" image="tabbar_home_icon"/>
                                                         <connections>
-                                                            <action selector="selectLeftOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="jeP-HV-cGA"/>
+                                                            <action selector="selectFirstOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="RAT-Cf-Ggq"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -71,7 +71,7 @@
                                                         <rect key="frame" x="0.5" y="0.0" width="75" height="50"/>
                                                         <state key="normal" image="tabbar_profile_icon"/>
                                                         <connections>
-                                                            <action selector="selectLeftOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="LBT-x4-a7m"/>
+                                                            <action selector="selectSecondOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="DzI-OR-FEj"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -117,6 +117,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" image="tabbar_schemas_icon"/>
                                                         <connections>
+                                                            <action selector="selectFourthOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="MUF-JG-gAb"/>
                                                             <action selector="selectLeftOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="87e-e1-a5N"/>
                                                         </connections>
                                                     </button>
@@ -142,6 +143,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" image="tabbar_notifications_icon"/>
                                                         <connections>
+                                                            <action selector="selectFifthOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="WB2-xz-Tvx"/>
                                                             <action selector="selectLeftOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="7yj-Gh-Wtu"/>
                                                         </connections>
                                                     </button>
@@ -197,7 +199,7 @@
                                         <rect key="frame" x="151.5" y="-8" width="75" height="83"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="selectCenterOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="qin-O8-Mxy"/>
+                                            <action selector="selectThirdOption:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="EOr-cU-cb8"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSn-dh-iPd">
@@ -273,7 +275,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fifthButton" destination="qHB-fO-sa0" id="Avk-af-Dl6"/>
+                        <outlet property="firstButton" destination="JWU-WC-btn" id="qX9-4U-Kq3"/>
+                        <outlet property="fourthButton" destination="WSd-zk-gdC" id="uyG-fp-9We"/>
                         <outlet property="imgViewCenterOption" destination="TKu-lQ-7zT" id="sSQ-qz-oTM"/>
+                        <outlet property="secondButton" destination="uEr-jD-ohM" id="FXR-HX-kaV"/>
+                        <outlet property="thirdButton" destination="aso-9Q-Mwh" id="g6m-J4-sV0"/>
                         <outlet property="viewContainerCenterOption" destination="P7C-i0-HUo" id="2aH-c6-6hW"/>
                         <outlet property="viewContainerTabBar" destination="BvM-S8-hCt" id="Dm8-Xj-VDU"/>
                     </connections>

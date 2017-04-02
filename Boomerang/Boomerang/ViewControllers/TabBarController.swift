@@ -19,6 +19,13 @@ class TabBarController: UIViewController {
     static var mainTabBarController: TabBarController!
     
     
+    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var secondButton: UIButton!
+    @IBOutlet weak var thirdButton: UIButton!
+    @IBOutlet weak var fourthButton: UIButton!
+    
+    @IBOutlet weak var fifthButton: UIButton!
+    
     var leftIsSelected: Bool = false {
         didSet {
             let stateImage = self.leftIsSelected ? UIImage() : #imageLiteral(resourceName: "ic_tabbar_boomer")
@@ -39,6 +46,32 @@ class TabBarController: UIViewController {
             self.imgViewRightOption.image = stateImage
         }
     }
+    @IBAction func selectFirstOption(_ sender: UIButton) {
+        
+    }
+   
+    
+    @IBAction func selectSecondOption(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func selectThirdOption(_ sender: UIButton) {
+        
+    }
+    
+    
+    
+    @IBAction func selectFourthOption(_ sender: UIButton) {
+        
+    }
+    
+    
+    @IBAction func selectFifthOption(_ sender: UIButton) {
+    }
+    
+    
+    
+    
     
     @IBAction func selectLeftOption(_ sender: UIButton) {
         
