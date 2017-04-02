@@ -39,15 +39,13 @@ class HomeMainViewController: UIViewController {
         super.viewWillAppear(animated)
         presenter.setControllerDelegate(controller: self)
         setUserInformationsInHUD()
-        
         presenter.updatePostsFriends()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.isHidden = true
-        
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
         
         registerNib()

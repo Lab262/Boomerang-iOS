@@ -37,6 +37,7 @@ class ThingDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.removeTabBar()
+    
         updateComments()
     }
     
