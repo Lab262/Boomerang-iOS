@@ -38,7 +38,7 @@ class HomeMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        TabBarController.mainTabBarController.showTabBar()
         presenter.updatePostsFriends()
     }
     

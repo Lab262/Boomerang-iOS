@@ -64,11 +64,20 @@ class TabBarController: UIViewController {
 
 
     func hideTabBar() {
-        viewContainerTabBar.isHidden = true
+        UIView.animate(withDuration: 0.5, animations: {
+            self.viewContainerTabBar.alpha = 0.0
+        }) { (success) in
+            self.viewContainerTabBar.isHidden = true
+        }
     }
 
     func showTabBar() {
-        viewContainerTabBar.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: { 
+            self.viewContainerTabBar.isHidden = false
+            self.viewContainerTabBar.alpha = 1.0
+        }, completion: nil)
+
+        
     }
 
 }
