@@ -20,7 +20,7 @@ class HomePresenter: NSObject {
     fileprivate var post: Post = Post()
     fileprivate var controller: ViewDelegate?
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
-    fileprivate var postsCount = 0
+    fileprivate var currentPostsFriendsCount = 0
     
     func setControllerDelegate(controller: ViewDelegate) {
         self.controller = controller
@@ -29,9 +29,7 @@ class HomePresenter: NSObject {
     func updatePostsFriends(){
         skipPosts = getPosts().endIndex
         skipUsers = following.endIndex
-        
         getFriends()
-        
     }
     
     func getFriends() {
@@ -54,7 +52,8 @@ class HomePresenter: NSObject {
                     self.posts.append(post)
                 }
                 
-                self.controller?.reload(array: self.getPosts())
+                self.controller?.reload()
+                self.currentPostsFriendsCount = self.getPosts().count
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
@@ -79,6 +78,10 @@ class HomePresenter: NSObject {
     
     func setPost(post: Post){
         self.post = post
+    }
+    
+    func getCurrentPostsFriendsCount() -> Int {
+        return currentPostsFriendsCount
     }
     
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {

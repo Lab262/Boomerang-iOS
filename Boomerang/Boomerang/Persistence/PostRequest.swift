@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PostRequest: NSObject {
     
@@ -75,44 +76,26 @@ class PostRequest: NSObject {
                 completionHandler(false, msg)
             }
         }
-//                    
-//                    for photo in self.post!.relations! {
-//                        photo.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
-//                            if success{
-//                                photo.photo = UIImage(data: data!)
-//                                cell.thingImage.image = UIImage(data: data!)
-//                            } else {
-//                                print ("NO SUCCESS IN DOWNLOAD")
-//                            }
-//                        })
-//                    }
-//                } else {
-//                    print ("NO SUCCESS IN RELATION")
-//                }
-//                
-//            })
-//        }
-
+    }
+    
+    static func fetchInterestedOf(post: Post, selectKeys: [String]?, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Interested]?) -> Void) {
         
-//        if post!.photos.count > 0 {
-//            postImage.image = post?.photos[0]
-//        } else if !post!.downloadedImages {
-//            post?.getRelationsInBackgroundWithDataBy(key: "photos", keyFile: "imageFile", completionHandler: { (success, msg, objects, data) in
-//                
-//                if success {
-//                    self.post?.photos.append(UIImage(data: data!)!)
-//                    if self.post!.photos.count < 2 {
-//                        self.postImage.image = UIImage(data: data!)!
-//                    }
-//                    self.post?.downloadedImages = true
-//                    self.postImage.unload()
-//                    
-//                } else {
-//                    
-//                }
-//            })
-//        } else {
-//            self.postImage.image = UIImage(named: "foto_dummy")
-//        }
+        var interesteds: [Interested] = [Interested]()
+        
+        ParseRequest.queryEqualToValueWithInclude(className: "Interested", key: "post", value: post, include: "user", selectKeys: selectKeys, pagination: pagination, skip: skip) { (success, msg, objects) in
+            
+            if success {
+                for object in objects! {
+                    let interested = Interested(object: object)
+                    interested.post = post
+                    interesteds.append(interested)
+                }
+                
+                completionHandler(true, msg, interesteds)
+                
+            } else {
+                completionHandler(false, msg, nil)
+            }
+        }
     }
 }

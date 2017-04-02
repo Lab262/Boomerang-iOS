@@ -17,14 +17,12 @@ class User: PFUser {
     var fullName: String?
     var profileImage: UIImage?
     var alreadySearched = false
-    
-    
+
     convenience init(user: PFUser) {
         self.init()
         
         self.setInformationsUserByPFUser(user: user)
     }
-    
     
     func setInformationsUserByPFUser(user: PFUser){
         
@@ -49,8 +47,6 @@ class User: PFUser {
             
             self.imageFile = imageFile
         }
-        
-        
     }
 }
 

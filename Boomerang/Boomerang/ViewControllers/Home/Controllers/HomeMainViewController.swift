@@ -11,7 +11,7 @@ import Parse
 
 protocol ViewDelegate {
     func showMessageError(msg: String)
-    func reload(array: [Any]?)
+    func reload()
 }
 
 class HomeMainViewController: UIViewController {
@@ -26,7 +26,6 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var currentIndex: IndexPath?
-    var currentPostsFriendsCount = 0
     let tableViewTopInset: CGFloat = 5.0
     var presenter = HomePresenter()
 
@@ -250,10 +249,8 @@ extension HomeMainViewController: UIScrollViewDelegate {
 
 extension HomeMainViewController: ViewDelegate {
     
-    func reload(array: [Any]?){
-        
-        if array?.count != currentPostsFriendsCount {
-            currentPostsFriendsCount = array!.count
+    func reload(){
+        if presenter.getPosts().count != presenter.getCurrentPostsFriendsCount(){
             tableView.reloadData()
         }
     }

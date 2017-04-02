@@ -11,9 +11,6 @@ import UIKit
 class ThingNavigationBar: UIView {
     
     @IBOutlet var view: UIView!
-    
-    
-    @IBOutlet weak var navigationView: IconNavigationBar!
     @IBOutlet weak var typeImage: UIImageView!
     @IBOutlet weak var titleTransactionLabel: UILabel!
     @IBOutlet weak var thingNameLabel: UILabel!
@@ -36,6 +33,48 @@ class ThingNavigationBar: UIView {
     
     override func awakeFromNib() {
         
+    }
+    
+    @IBInspectable var titleTransactionLabelHidden: Bool {
+        get {
+            return titleTransactionLabel.isHidden
+        }
+        set {
+            if newValue == true {
+                titleTransactionLabel.isHidden = true
+            } else {
+                titleTransactionLabel.isHidden = false
+            }
+            
+        }
+    }
+    
+    @IBInspectable var thingNameLabelHidden: Bool {
+        get {
+            return thingNameLabel.isHidden
+        }
+        set {
+            if newValue == true {
+                thingNameLabel.isHidden = true
+            } else {
+                thingNameLabel.isHidden = false
+            }
+            
+        }
+    }
+    
+    @IBInspectable var typeImageHidden: Bool {
+        get {
+            return typeImage.isHidden
+        }
+        set {
+            if newValue == true {
+                typeImage.isHidden = true
+            } else {
+                typeImage.isHidden = false
+            }
+            
+        }
     }
    
 }

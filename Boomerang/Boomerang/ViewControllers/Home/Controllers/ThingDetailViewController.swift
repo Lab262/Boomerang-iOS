@@ -16,6 +16,8 @@ protocol UpdateInformationsDelegate {
 
 class ThingDetailViewController: UIViewController {
     
+    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: IconNavigationBar!
@@ -28,6 +30,8 @@ class ThingDetailViewController: UIViewController {
     var keyboardFrameSize: CGRect?
     var initialViewFrame: CGRect?
     var currentCommentsCount = 0
+    
+    
     
     var inputFieldsCondition = [(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: "Posso trocar/emprestar", descriptionCondition: "Tenho uma mesa de ping pong aqui parada. ou então bora conversar.", constraintIconWidth: 14.0, constraintIconHeight: 15.0), (iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: "Tempo que preciso emprestado", descriptionCondition: "1 semana, mas a gente conversa.", constraintIconWidth: 16.0, constraintIconHeight: 16.0), (iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: "Local de retirada", descriptionCondition: "Qualquer lugar em Brasília.", constraintIconWidth: 15.0, constraintIconHeight: 18.0)]
     
@@ -63,10 +67,26 @@ class ThingDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        secondButton.isHidden = !presenter.authorPostIsCurrent()
+        
         presenter.setControllerDelegate(controller: self)
         registerNibs()
         configureTableView()
     }
+    
+    @IBAction func firstButtonAction(_ sender: Any) {
+        self.performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let controller = segue.destination as? InterestedListViewController {
+            
+            
+        }
+    }
+    
     
     func refreshIndicatorInTableViewFooter() -> UIView {
         let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
@@ -212,6 +232,8 @@ extension ThingDetailViewController: UIScrollViewDelegate {
         self.view.endEditing(true)
         tableView.endEditing(true)
     }
+    
+    
 }
 
 extension ThingDetailViewController: UpdateInformationsDelegate {
@@ -237,9 +259,8 @@ extension ThingDetailViewController: UpdateInformationsDelegate {
 
 extension ThingDetailViewController: ViewDelegate {
     
-    func reload(array: [Any]?) {
-        if array?.count != currentCommentsCount {
-            currentCommentsCount = array!.count
+    func reload() {
+        if presenter.getComments().count != presenter.getCurrentCommentsCount() {
             tableView.reloadData()
         }
         tableView.tableFooterView?.unload()

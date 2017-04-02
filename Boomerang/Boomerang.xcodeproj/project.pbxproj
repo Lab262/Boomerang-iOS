@@ -150,6 +150,12 @@
 		D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */; };
 		D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C71E6CE67E00F5C1D6 /* ApplicationState.swift */; };
 		D4EEC1CA1E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */; };
+		D4FBBCE51E90706400611F63 /* InterestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCE31E90706400611F63 /* InterestedTableViewCell.swift */; };
+		D4FBBCE61E90706400611F63 /* InterestedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FBBCE41E90706400611F63 /* InterestedTableViewCell.xib */; };
+		D4FBBCE81E907BF700611F63 /* InterestedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCE71E907BF700611F63 /* InterestedListViewController.swift */; };
+		D4FBBCEB1E907D5400611F63 /* InterestedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCEA1E907D5400611F63 /* InterestedPresenter.swift */; };
+		D4FBBCED1E90818A00611F63 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCEC1E90818A00611F63 /* Constants.swift */; };
+		D4FBBCEF1E908E0F00611F63 /* Interested.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCEE1E908E0F00611F63 /* Interested.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -319,6 +325,12 @@
 		D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D4EEC1C71E6CE67E00F5C1D6 /* ApplicationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
 		D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileCollectionReusableView.swift; path = Boomerang/Persistence/Local/ProfileCollectionReusableView.swift; sourceTree = SOURCE_ROOT; };
+		D4FBBCE31E90706400611F63 /* InterestedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedTableViewCell.swift; sourceTree = "<group>"; };
+		D4FBBCE41E90706400611F63 /* InterestedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterestedTableViewCell.xib; sourceTree = "<group>"; };
+		D4FBBCE71E907BF700611F63 /* InterestedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedListViewController.swift; sourceTree = "<group>"; };
+		D4FBBCEA1E907D5400611F63 /* InterestedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedPresenter.swift; sourceTree = "<group>"; };
+		D4FBBCEC1E90818A00611F63 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D4FBBCEE1E908E0F00611F63 /* Interested.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interested.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,11 +457,11 @@
 		A40A25291DCBD4B500DF9523 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBBCE91E907D2A00611F63 /* Presenters */,
 				A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */,
 				A4FE06281DD0953200BFDC4D /* HomeTableViewController.swift */,
 				D43DF1311E66970400397251 /* ThingDetailViewController.swift */,
-				D498F0301E7F334E002E8972 /* HomePresenter.swift */,
-				D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */,
+				D4FBBCE71E907BF700611F63 /* InterestedListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -667,6 +679,7 @@
 			children = (
 				A4AFBB0C1DD35D4600F270C7 /* Colors.swift */,
 				2FF1771E1E4F998A0005F026 /* URLS.swift */,
+				D4FBBCEC1E90818A00611F63 /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -818,6 +831,8 @@
 				D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */,
 				D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */,
 				D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */,
+				D4FBBCE31E90706400611F63 /* InterestedTableViewCell.swift */,
+				D4FBBCE41E90706400611F63 /* InterestedTableViewCell.xib */,
 			);
 			name = UITableViewCell;
 			sourceTree = "<group>";
@@ -915,8 +930,19 @@
 				D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */,
 				2FAE03061E78C3540062E155 /* Friend.swift */,
 				D40C0E501E8B9A93008174D2 /* Photo.swift */,
+				D4FBBCEE1E908E0F00611F63 /* Interested.swift */,
 			);
 			name = PFObjects;
+			sourceTree = "<group>";
+		};
+		D4FBBCE91E907D2A00611F63 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				D498F0301E7F334E002E8972 /* HomePresenter.swift */,
+				D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */,
+				D4FBBCEA1E907D5400611F63 /* InterestedPresenter.swift */,
+			);
+			name = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1022,10 +1048,10 @@
 				A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */,
 				A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */,
 				2F79676D1E8357F700476D2D /* TypePostTableViewCell.xib in Resources */,
-				D498F03F1E808A95002E8972 /* PhotoThingWithPageControlCollectionViewCell.xib in Resources */,
 				A427680E1DD3DC4600363343 /* BoomerMyThingCell.xib in Resources */,
 				A4AFBB0F1DD3612F00F270C7 /* AddBoomerCell.xib in Resources */,
 				A42767FF1DD393D800363343 /* MyThings.storyboard in Resources */,
+				D4FBBCE61E90706400611F63 /* InterestedTableViewCell.xib in Resources */,
 				A4FE062C1DD0965700BFDC4D /* BoomerThingCell.xib in Resources */,
 				A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */,
 				A44E0C6A1DD092650028F06C /* Montserrat-Hairline.otf in Resources */,
@@ -1224,6 +1250,7 @@
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,
+				D4FBBCEF1E908E0F00611F63 /* Interested.swift in Sources */,
 				D40C0E4F1E8B1490008174D2 /* Date+Utils.swift in Sources */,
 				D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */,
 				D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */,
@@ -1248,9 +1275,11 @@
 				2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */,
 				D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */,
 				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
+				D4FBBCEB1E907D5400611F63 /* InterestedPresenter.swift in Sources */,
 				D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */,
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
+				D4FBBCE51E90706400611F63 /* InterestedTableViewCell.swift in Sources */,
 				D4A012F51E7AC83900B3B811 /* PostCollectionViewCell.swift in Sources */,
 				2F2F07981E688DF400C61A6D /* DescriptionTextTableViewCell.swift in Sources */,
 				D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */,
@@ -1278,6 +1307,7 @@
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
+				D4FBBCE81E907BF700611F63 /* InterestedListViewController.swift in Sources */,
 				D4EEC1CA1E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift in Sources */,
 				2F79677A1E86FA7E00476D2D /* HeaderPostTableViewCell.swift in Sources */,
 				D48735021E7885000065E13A /* UITableViewCell+Utils.swift in Sources */,
@@ -1292,6 +1322,7 @@
 				D498F0361E808861002E8972 /* PhotoThingTableViewCell.swift in Sources */,
 				D48C99B21E68C7FF00A17E71 /* ActionDelegate.swift in Sources */,
 				2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */,
+				D4FBBCED1E90818A00611F63 /* Constants.swift in Sources */,
 				A42767FD1DD3630400363343 /* AddBoomerMainViewController.swift in Sources */,
 				D48C99AF1E68B67100A17E71 /* SelectionDelegate.swift in Sources */,
 			);
