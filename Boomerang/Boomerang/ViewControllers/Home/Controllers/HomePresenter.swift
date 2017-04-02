@@ -131,6 +131,7 @@ class HomePresenter: NSObject {
     }
     
     func getCoverOfPost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
+        
         PostRequest.getRelationsInBackground(post: getPost()) { (success, msg) in
             if success {
                 self.downloadCoverImagePost(completionHandler: { (success, msg, image) in
@@ -144,17 +145,21 @@ class HomePresenter: NSObject {
     
     func downloadCoverImagePost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
         if let relations = getPost().relations {
-            for relation in relations where !relation.isDownloadedImage {
-                relation.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+            guard let cover = relations.first?.photo else {
+                relations.first?.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+                    
                     if success {
-                        relation.photo = UIImage(data: data!)
-                        relation.isDownloadedImage = true
-                        completionHandler(success, msg, relation.photo)
+                        relations.first?.photo = UIImage(data: data!)
+                        relations.first?.isDownloadedImage = true
+                        completionHandler(success, msg, relations.first?.photo)
                     } else {
                         completionHandler(success, msg, nil)
                     }
                 })
+                return
             }
+            
+            completionHandler(true, "success", cover)
         }
     }
 }

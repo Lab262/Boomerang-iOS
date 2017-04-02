@@ -1027,7 +1027,7 @@
 				TargetAttributes = {
 					A4F89B251DA809B100949A35 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = V927RLF8V5;
+						DevelopmentTeam = R6AP92RETV;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -1495,7 +1495,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = V927RLF8V5;
+				DEVELOPMENT_TEAM = R6AP92RETV;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;
@@ -1516,7 +1516,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = V927RLF8V5;
+				DEVELOPMENT_TEAM = R6AP92RETV;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;
