@@ -41,7 +41,7 @@ extension ProfileMainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return presenter.getAllPosts().count
+        return presenter.getPostsForCurrentFilter().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,7 +58,11 @@ extension ProfileMainViewController: UICollectionViewDataSource {
         
         if kind == UICollectionElementKindSectionHeader {
             
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileCollectionReusableView
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ProfileCollectionReusableView.identifier, for: indexPath) as! ProfileCollectionReusableView
+            
+            headerView.delegate = self
+            headerView.presenter = presenter
+            headerView.updateCell()
             
             return headerView
         }
@@ -133,6 +137,11 @@ extension ProfileMainViewController: ViewDelegate {
     
     func showMessageError(msg: String) {
         
+    }
+}
+extension ProfileMainViewController: UpdateCellDelegate {
+    func updateCell() {
+        collectionView.reloadData()
     }
 }
 

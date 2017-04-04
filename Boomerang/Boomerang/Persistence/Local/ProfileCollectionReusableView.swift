@@ -10,6 +10,10 @@ import UIKit
 
 class ProfileCollectionReusableView: UICollectionReusableView {
     
+    static var identifier: String {
+        return "ProfileHeaderView"
+    }
+    
     @IBOutlet weak var filterAllButton: UIButton!
     @IBOutlet weak var filterHaveButton: UIButton!
     @IBOutlet weak var filterNeedButton: UIButton!
@@ -24,15 +28,15 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var presenter: ProfilePresenter = ProfilePresenter()
-    
-    override func awakeFromNib() {
-        updateCell()
-    }
+    var presenter: ProfilePresenter!
+    var delegate: UpdateCellDelegate?
     
     func updateCell(){
         self.nameLabel.text = presenter.getUser().fullName
-        profileImage.loadAnimation()
+        
+        if presenter.getUser().profileImage == nil {
+            profileImage.loadAnimation()
+        }
         presenter.getUserImage { (success, msg, image) in
             if success {
                 self.profileImage.image = image
@@ -44,23 +48,24 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     }
     
     @IBAction func filterForAllPosts(_ sender: Any) {
-        
+        presenter.setCurrentPostType(postType: nil)
+        delegate?.updateCell()
     }
     
     
     @IBAction func filterForNeedPosts(_ sender: Any) {
-        
+        presenter.setCurrentPostType(postType: .need)
+        delegate?.updateCell()
     }
     
     @IBAction func filterForHavePosts(_ sender: Any) {
-        
+        presenter.setCurrentPostType(postType: .have)
+        delegate?.updateCell()
     }
     
     @IBAction func filterForDonationPosts(_ sender: Any) {
-        
+        presenter.setCurrentPostType(postType: .donate)
+        delegate?.updateCell()
     }
-    
-    
-    
-    
 }
+

@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class ProfilePresenter: NSObject {
-
+    
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
     fileprivate let pagination = 3
     fileprivate var skip = 0
@@ -56,6 +56,10 @@ class ProfilePresenter: NSObject {
     
     func setCurrentPostType(postType: PostType?) {
         currentPostType = postType
+    }
+    
+    func getCurrentPostType() -> PostType? {
+        return currentPostType
     }
     
     func getPostsBy(postType: PostType?) -> [Post] {
@@ -157,5 +161,5 @@ class ProfilePresenter: NSObject {
             completionHandler(true, "success", cover)
         }
     }
-
+    
 }
