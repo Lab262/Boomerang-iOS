@@ -8,11 +8,11 @@
 
 import UIKit
 
-enum PostType {
-    case need
-    case have
-    case donate
-}
+//enum PostType {
+//    case need: "need"
+//    case have: "have"
+//    case donate: "donate"
+//}
 class BoomerMainViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!

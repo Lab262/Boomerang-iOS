@@ -23,6 +23,7 @@ class ProfileMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.setControllerDelegate(controller: self)
+        presenter.getPostsOfUser()
         
     }
     
@@ -40,12 +41,15 @@ extension ProfileMainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return presenter.getPosts().count
+        return presenter.getAllPosts().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfilePostCollectionViewCell.identifier, for: indexPath) as! ProfilePostCollectionViewCell
+        
+        cell.presenter.setPost(post: presenter.getAllPosts()[indexPath.row])
+        cell.updatePostCell()
         
         return cell
     }
@@ -75,6 +79,20 @@ extension ProfileMainViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ProfileMainViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        var visibleRect = CGRect()
+        visibleRect.origin = collectionView.contentOffset
+        visibleRect.size = collectionView.bounds.size
+        
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        let visibleIndexPath: IndexPath = collectionView.indexPathForItem(at: visiblePoint)!
+        
+        if visibleIndexPath.row >= presenter.getAllPosts().endIndex-1 {
+            presenter.updatePosts()
+        }
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -108,10 +126,11 @@ extension ProfileMainViewController: UIScrollViewDelegate {
 extension ProfileMainViewController: ViewDelegate {
     
     func reload() {
-        if presenter.getPosts().count != presenter.getCurrentPostsCount(){
+        if presenter.getAllPosts().count != presenter.getCurrentPostsCount(){
             collectionView.reloadData()
         }
     }
+    
     func showMessageError(msg: String) {
         
     }

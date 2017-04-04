@@ -14,7 +14,11 @@ class ProfilePresenter: NSObject {
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
     fileprivate let pagination = 3
     fileprivate var skip = 0
-    fileprivate var posts: [Post] = [Post]()
+    fileprivate var allPosts: [Post] = [Post]()
+    fileprivate var needPosts: [Post] = [Post]()
+    fileprivate var havePosts: [Post] = [Post]()
+    fileprivate var donatePosts: [Post] = [Post]()
+    fileprivate var currentPostType: PostType? = nil
     fileprivate var post: Post = Post()
     fileprivate var currentPostsCount = 0
     fileprivate var controller: ViewDelegate?
@@ -46,12 +50,28 @@ class ProfilePresenter: NSObject {
         return user
     }
     
-    func getPosts() -> [Post] {
-        return posts
+    func getAllPosts() -> [Post] {
+        return allPosts
     }
     
-    func setPosts(posts: [Post]){
-        self.posts = posts
+    func setCurrentPostType(postType: PostType?) {
+        currentPostType = postType
+    }
+    
+    func getPostsBy(postType: PostType?) -> [Post] {
+        if let type = postType {
+            return filterPostsFor(postType:type)
+        } else {
+            return allPosts
+        }
+    }
+    
+    func getPostsForCurrentFilter() -> [Post] {
+        return getPostsBy(postType: currentPostType)
+    }
+    
+    func setAllPosts(posts: [Post]){
+        self.allPosts = posts
     }
     
     func getPost() -> Post {
@@ -63,21 +83,78 @@ class ProfilePresenter: NSObject {
     }
     
     func updatePosts(){
-        skip = getPosts().endIndex
-        getPostsUser()
+        skip = allPosts.endIndex
+        getPostsOfUser()
     }
     
-    func getPostsUser(){
+    func getPostsOfUser(){
         PostRequest.getPostsFor(user: getUser(), pagination: pagination, skip: skip) { (success, msg, posts) in
             if success {
                 for post in posts! {
-                    self.posts.append(post)
+                    self.allPosts.append(post)
                 }
                 self.controller?.reload()
-                self.currentPostsCount = self.getPosts().count
+                self.currentPostsCount = self.getPostsBy(postType: self.currentPostType).count
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
+        }
+    }
+    
+    func filterPostsFor(postType: PostType) -> [Post] {
+        let filteredPosts = (self.allPosts.filter { post in
+            return post.postType == postType
+        })
+        
+        currentPostType = postType
+        
+        return filteredPosts
+    }
+    
+    func getCountPhotos(){
+        if getPost().countPhotos < 1 {
+            getPost().getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
+                if success {
+                    self.getPost().countPhotos = count!
+                    ApplicationState.sharedInstance.callDelegateUpdate(post: self.getPost(), success: true, updateType: .amount)
+                } else {
+                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: true, updateType: .amount)
+                }
+            })
+        }
+    }
+    
+    
+    func getCoverOfPost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
+        
+        PostRequest.getRelationsInBackground(post: getPost()) { (success, msg) in
+            if success {
+                self.downloadCoverImagePost(completionHandler: { (success, msg, image) in
+                    completionHandler(success, msg, image)
+                })
+            } else {
+                completionHandler(false, msg, nil)
+            }
+        }
+    }
+    
+    func downloadCoverImagePost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
+        if let relations = getPost().relations {
+            guard let cover = relations.first?.photo else {
+                relations.first?.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+                    
+                    if success {
+                        relations.first?.photo = UIImage(data: data!)
+                        relations.first?.isDownloadedImage = true
+                        completionHandler(success, msg, relations.first?.photo)
+                    } else {
+                        completionHandler(success, msg, nil)
+                    }
+                })
+                return
+            }
+            
+            completionHandler(true, "success", cover)
         }
     }
 

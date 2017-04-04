@@ -10,6 +10,12 @@ import UIKit
 
 class ProfileCollectionReusableView: UICollectionReusableView {
     
+    @IBOutlet weak var filterAllButton: UIButton!
+    @IBOutlet weak var filterHaveButton: UIButton!
+    @IBOutlet weak var filterNeedButton: UIButton!
+    @IBOutlet weak var filterDonationButton: UIButton!
+    
+    
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -36,4 +42,25 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             }
         }
     }
+    
+    @IBAction func filterForAllPosts(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func filterForNeedPosts(_ sender: Any) {
+        
+    }
+    
+    @IBAction func filterForHavePosts(_ sender: Any) {
+        
+    }
+    
+    @IBAction func filterForDonationPosts(_ sender: Any) {
+        
+    }
+    
+    
+    
+    
 }

@@ -114,6 +114,7 @@
 		D433D07F1E91D8E700112B32 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */; };
 		D433D0801E91D8E700112B32 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */; };
 		D433D0821E93E59600112B32 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433D0811E93E59600112B32 /* ProfilePresenter.swift */; };
+		D436BF221E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436BF211E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift */; };
 		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
 		D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */; };
 		D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */; };
@@ -294,6 +295,7 @@
 		D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
 		D433D0811E93E59600112B32 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		D436BF211E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePostCollectionViewCell.swift; path = Boomerang/ViewControllers/Profile/Controller/ProfilePostCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
 		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCommentTableViewCell.swift; path = ../../../UserCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCommentTableViewCell.xib; path = ../../../UserCommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */,
+				D436BF211E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1328,6 +1331,7 @@
 				D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
+				D436BF221E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift in Sources */,
 				D4E4BEBA1E8256B000F8DC2E /* PHFComposeBarView.m in Sources */,
 				2F7967701E83871700476D2D /* WithdrawalTableViewCell.swift in Sources */,
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
