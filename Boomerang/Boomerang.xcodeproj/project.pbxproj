@@ -111,6 +111,8 @@
 		D40C0E4F1E8B1490008174D2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E4E1E8B1490008174D2 /* Date+Utils.swift */; };
 		D40C0E511E8B9A93008174D2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E501E8B9A93008174D2 /* Photo.swift */; };
 		D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
+		D433D07F1E91D8E700112B32 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */; };
+		D433D0801E91D8E700112B32 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */; };
 		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
 		D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */; };
 		D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */; };
@@ -288,6 +290,8 @@
 		D40C0E4E1E8B1490008174D2 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		D40C0E501E8B9A93008174D2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
+		D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
 		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCommentTableViewCell.swift; path = ../../../UserCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCommentTableViewCell.xib; path = ../../../UserCommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -509,6 +513,8 @@
 			isa = PBXGroup;
 			children = (
 				A44E0C5F1DD092650028F06C /* Montserrat-Black.otf */,
+				D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */,
+				D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */,
 				A44E0C601DD092650028F06C /* Montserrat-Bold.otf */,
 				A44E0C611DD092650028F06C /* Montserrat-ExtraBold.otf */,
 				A44E0C621DD092650028F06C /* Montserrat-Hairline.otf */,
@@ -1067,6 +1073,7 @@
 				A44E0C691DD092650028F06C /* Montserrat-ExtraBold.otf in Resources */,
 				D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */,
 				2F2F07991E688DF400C61A6D /* DescriptionTextTableViewCell.xib in Resources */,
+				D433D07F1E91D8E700112B32 /* Montserrat-Medium.ttf in Resources */,
 				A449676E1DDA1F4600990008 /* ChatTableViewCell.xib in Resources */,
 				A4FE062E1DD0967E00BFDC4D /* HomeCollectionHeader.xib in Resources */,
 				A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */,
@@ -1076,6 +1083,7 @@
 				A4AFBB0F1DD3612F00F270C7 /* AddBoomerCell.xib in Resources */,
 				A42767FF1DD393D800363343 /* MyThings.storyboard in Resources */,
 				D4FBBCE61E90706400611F63 /* InterestedTableViewCell.xib in Resources */,
+				D433D0801E91D8E700112B32 /* Montserrat-MediumItalic.ttf in Resources */,
 				A4FE062C1DD0965700BFDC4D /* BoomerThingCell.xib in Resources */,
 				A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */,
 				A44E0C6A1DD092650028F06C /* Montserrat-Hairline.otf in Resources */,
