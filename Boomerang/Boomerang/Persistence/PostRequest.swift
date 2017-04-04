@@ -40,6 +40,10 @@ class PostRequest: NSObject {
                 completionHandler(true, msg, nil)
             }
         }
+    }
+    
+    static func getPostFor(user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
         
     }
     
@@ -77,6 +81,8 @@ class PostRequest: NSObject {
             }
         }
     }
+    
+    
     
     static func fetchInterestedOf(post: Post, selectKeys: [String]?, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Interested]?) -> Void) {
         

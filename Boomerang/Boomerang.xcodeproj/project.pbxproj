@@ -113,6 +113,7 @@
 		D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D433D07F1E91D8E700112B32 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */; };
 		D433D0801E91D8E700112B32 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */; };
+		D433D0821E93E59600112B32 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433D0811E93E59600112B32 /* ProfilePresenter.swift */; };
 		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
 		D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */; };
 		D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */; };
@@ -292,6 +293,7 @@
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		D433D0811E93E59600112B32 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
 		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCommentTableViewCell.swift; path = ../../../UserCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCommentTableViewCell.xib; path = ../../../UserCommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */,
+				D433D0811E93E59600112B32 /* ProfilePresenter.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1299,6 +1302,7 @@
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
 				2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */,
 				D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */,
+				D433D0821E93E59600112B32 /* ProfilePresenter.swift in Sources */,
 				2FC9E0741E8EFDE200A048A4 /* UIButtonWithPicker.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */,
