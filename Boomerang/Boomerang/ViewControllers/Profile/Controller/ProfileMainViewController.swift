@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileMainViewController: UIViewController {
 
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var parallaxBackgroundHeightConstraint: NSLayoutConstraint!
     internal var lastContentOffset: CGFloat = 0
@@ -18,30 +17,13 @@ class ProfileMainViewController: UIViewController {
     
     var presenter = ProfilePresenter()
     
-    var inventoryData = [BoomerCellData]()
-    
-    func loadData() {
-        inventoryData = [
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY")
-        ]    }
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.showTabBar()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.setControllerDelegate(controller: self)
         
-        self.loadData()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -57,12 +39,14 @@ extension ProfileMainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.inventoryData.count
+        
+        return presenter.getPosts().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        
         return cell
     }
     
@@ -119,7 +103,17 @@ extension ProfileMainViewController: UIScrollViewDelegate {
         self.lastContentOffset = scrollView.contentOffset.y
    
     }
+}
 
+extension ProfileMainViewController: ViewDelegate {
     
+    func reload() {
+        if presenter.getPosts().count != presenter.getCurrentPostsCount(){
+            collectionView.reloadData()
+        }
+    }
+    func showMessageError(msg: String) {
+        
+    }
 }
 

@@ -42,9 +42,23 @@ class PostRequest: NSObject {
         }
     }
     
-    static func getPostFor(user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+    static func getPostsFor(user: User, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
+        var posts: [Post] = [Post]()
         
+        ParseRequest.queryEqualToValue(className: "Post", key: "author", value: user, include: nil, selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
+            
+            if success {
+                for obj in objects! {
+                    let post = Post(object: obj)
+                    post.author = user
+                    posts.append(post)
+                }
+                completionHandler(true, msg, posts)
+            } else {
+                completionHandler(false, msg, nil)
+            }
+        }
     }
     
     static func findAuthorByPost(following: [User], authorId: String) -> User? {
@@ -88,7 +102,7 @@ class PostRequest: NSObject {
         
         var interesteds: [Interested] = [Interested]()
         
-        ParseRequest.queryEqualToValueWithInclude(className: "Interested", key: "post", value: post, include: "user", selectKeys: selectKeys, pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Interested", key: "post", value: post, include: "user", selectKeys: selectKeys, pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {
                 for object in objects! {

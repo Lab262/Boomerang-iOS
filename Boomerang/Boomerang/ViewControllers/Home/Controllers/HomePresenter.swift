@@ -51,7 +51,6 @@ class HomePresenter: NSObject {
                 for post in posts! {
                     self.posts.append(post)
                 }
-                
                 self.controller?.reload()
                 self.currentPostsFriendsCount = self.getPosts().count
             } else {

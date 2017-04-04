@@ -40,21 +40,7 @@ class ParseRequest: NSObject {
         }
     }
     
-    static func queryEqualToValue(className: String, key: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
-    
-        let query = PFQuery(className: className)
-        query.whereKey(key, equalTo: value)
-        query.findObjectsInBackground { (objects, error) in
-            
-            if error == nil {
-                completionHandler(true, "Success", objects)
-            } else {
-                completionHandler(false, error.debugDescription, nil)
-            }
-        }
-    }
-    
-    static func queryEqualToValueWithInclude(className: String, key: String, value: Any, include: String, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    static func queryEqualToValue(className: String, key: String, value: Any, include: String?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let query = PFQuery(className: className)
         query.whereKey(key, equalTo: value)
@@ -65,7 +51,9 @@ class ParseRequest: NSObject {
         
         
         query.skip = skip!
-        query.includeKey(include)
+        if let include = include {
+            query.includeKey(include)
+        }
         query.findObjectsInBackground { (objects, error) in
             
             if error == nil {
