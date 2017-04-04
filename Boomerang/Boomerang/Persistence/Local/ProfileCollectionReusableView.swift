@@ -48,24 +48,32 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     }
     
     @IBAction func filterForAllPosts(_ sender: Any) {
-        presenter.setCurrentPostType(postType: nil)
-        delegate?.updateCell()
+        if presenter.getCurrentPostType() != nil {
+            presenter.setCurrentPostType(postType: nil)
+            delegate?.updateCell()
+        }
     }
     
     
     @IBAction func filterForNeedPosts(_ sender: Any) {
-        presenter.setCurrentPostType(postType: .need)
-        delegate?.updateCell()
+        if presenter.getCurrentPostType() != .need {
+            presenter.setCurrentPostType(postType: .need)
+            delegate?.updateCell()
+        }
     }
     
     @IBAction func filterForHavePosts(_ sender: Any) {
-        presenter.setCurrentPostType(postType: .have)
-        delegate?.updateCell()
+        if presenter.getCurrentPostType() != .have {
+            presenter.setCurrentPostType(postType: .have)
+            delegate?.updateCell()
+        }
     }
     
     @IBAction func filterForDonationPosts(_ sender: Any) {
-        presenter.setCurrentPostType(postType: .donate)
-        delegate?.updateCell()
+        if presenter.getCurrentPostType() != .donate {
+            presenter.setCurrentPostType(postType: .donate)
+            delegate?.updateCell()
+        }
     }
 }
 
