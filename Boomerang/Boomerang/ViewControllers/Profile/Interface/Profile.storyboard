@@ -150,7 +150,7 @@
                                                                         </imageView>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.000 arremessos " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="t4a-Fg-1cD">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.000 arremessos " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="t4a-Fg-1cD" userLabel="2.000 arremessos">
                                                                     <rect key="frame" x="0.0" y="15" width="110" height="19"/>
                                                                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                                     <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -317,12 +317,15 @@
                                         <constraint firstItem="lZD-VT-nXX" firstAttribute="top" secondItem="iwe-rX-zr5" secondAttribute="topMargin" constant="120" id="ps9-2e-6Ls"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="boomerAmountLabel" destination="t4a-Fg-1cD" id="wdT-6G-f0D"/>
                                         <outlet property="cityAndUFLabel" destination="YaF-BZ-8Hf" id="Mtz-Th-AwH"/>
                                         <outlet property="descriptionLabel" destination="Q9O-Qv-ey8" id="rgA-oW-MvT"/>
                                         <outlet property="filterAllButton" destination="Qb0-pq-TnZ" id="7Sz-vB-jDs"/>
                                         <outlet property="filterDonationButton" destination="cfF-N9-seD" id="7dg-gn-k0U"/>
                                         <outlet property="filterHaveButton" destination="Pd4-OJ-a5N" id="hjU-6D-yvO"/>
                                         <outlet property="filterNeedButton" destination="QBk-Ss-2Af" id="0IA-jo-IwN"/>
+                                        <outlet property="followersLabel" destination="Ba1-Ob-SNs" id="YBM-ED-RdS"/>
+                                        <outlet property="followingLabel" destination="zcl-k0-QsP" id="44I-Q8-ofI"/>
                                         <outlet property="nameLabel" destination="CSD-eb-DMq" id="jKq-u2-0rX"/>
                                         <outlet property="profileImage" destination="eM7-CP-yPq" id="lgs-q0-POw"/>
                                     </connections>
@@ -372,7 +375,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E38-Ke-vlF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yy6-WV-5uk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Yy6-WV-5uk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

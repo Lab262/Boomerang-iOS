@@ -49,6 +49,17 @@ class UserRequest: NSObject {
         }
     }
     
+    static func getUserCountOf(key: String, user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
+        ParseRequest.queryCountEqualToValue(className: "Follow", key: key, value: user) { (success, msg, count) in
+            if success {
+                completionHandler(true, msg, count)
+            } else {
+                completionHandler(true, msg, nil)
+            }
+        }
+    }
+
     static func fetchFollowing(pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [User]?) -> Void) {
         
         var following: [User] = [User]()

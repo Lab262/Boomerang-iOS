@@ -19,14 +19,15 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var filterNeedButton: UIButton!
     @IBOutlet weak var filterDonationButton: UIButton!
     
-    
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var cityAndUFLabel: UILabel!
-    
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var boomerAmountLabel: UILabel!
+    
     
     var presenter: ProfilePresenter!
     var delegate: UpdateCellDelegate?
@@ -43,6 +44,22 @@ class ProfileCollectionReusableView: UICollectionReusableView {
                 self.profileImage.unload()
             } else {
                 print ("ERROR DOWNLOAD IMAGE")
+            }
+        }
+        
+        presenter.getUserCountOf(key: "to") { (success, msg, count) in
+            if success {
+                self.followersLabel.text = count?.description
+            } else {
+                print ("ERROR COUNT FOLLOWERS")
+            }
+        }
+        
+        presenter.getUserCountOf(key: "from") { (success, msg, count) in
+            if success {
+                self.followingLabel.text = count?.description
+            } else {
+                print ("ERROR COUNT FOLLOWING")
             }
         }
     }

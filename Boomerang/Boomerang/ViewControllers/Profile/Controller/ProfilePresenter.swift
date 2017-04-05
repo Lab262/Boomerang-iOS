@@ -91,6 +91,16 @@ class ProfilePresenter: NSObject {
         getPostsOfUser()
     }
     
+    func getUserCountOf(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void){
+        UserRequest.getUserCountOf(key: key, user: self.user) { (success, msg, count) in
+            if success {
+                completionHandler(true, msg, count)
+            } else {
+                completionHandler(false, msg, nil)
+            }
+        }
+    }
+    
     func getPostsOfUser(){
         PostRequest.getPostsFor(user: getUser(), pagination: pagination, skip: skip) { (success, msg, posts) in
             if success {
