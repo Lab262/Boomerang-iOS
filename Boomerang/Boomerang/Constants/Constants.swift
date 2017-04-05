@@ -11,6 +11,13 @@ import Foundation
 //MARK - Segue Identifiers
 struct SegueIdentifiers {
     static let detailThingToInterestedList = "goToInterestedList"
+    static let profileToDetailThing = "goToDetailThing"
+}
+
+//MARK - Storyboard Ids
+
+struct StoryboardIds {
+    static let detailView = "detailThingView"
 }
 
 

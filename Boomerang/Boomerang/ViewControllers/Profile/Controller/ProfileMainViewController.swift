@@ -16,9 +16,11 @@ class ProfileMainViewController: UIViewController {
     internal var backgroundIsFreezy = false
     
     var presenter = ProfilePresenter()
+    var currentIndex: IndexPath?
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.showTabBar()
+        self.navigationController?.navigationBar.isHidden = true
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,14 @@ class ProfileMainViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let controller = segue.destination as? ThingDetailViewController {
+            controller.presenter.setPost(post: presenter.getPostsForCurrentFilter()[currentIndex!.row])
+        }
     }
     
 }
@@ -72,6 +82,15 @@ extension ProfileMainViewController: UICollectionViewDataSource {
     }
 }
 
+extension ProfileMainViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.currentIndex = indexPath
+        self.performSegue(withIdentifier: SegueIdentifiers.profileToDetailThing, sender: self)
+    }
+}
+
 extension ProfileMainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -107,6 +126,7 @@ extension ProfileMainViewController: UIScrollViewDelegate {
 //            print("up")
  
         }
+        
 
         if scrollView.contentOffset.y <= 0 {
             self.parallaxBackgroundHeightConstraint.constant = self.parallaxBackgroundHeightConstraint.constant + (self.lastContentOffset - scrollView.contentOffset.y)
