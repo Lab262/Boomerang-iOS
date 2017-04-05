@@ -78,7 +78,7 @@ class DetailThingPresenter: NSObject {
     
     func saveComment(comment: Comment) {
         
-        CommentRequest.saveComment(comment: comment) { (success, msg) in
+        comment.saveObjectInBackground { (success, msg) in
             if success {
                 self.skip = self.comments.endIndex
                 self.updateComments()
@@ -86,6 +86,14 @@ class DetailThingPresenter: NSObject {
                 self.controller?.showMessageError(msg: msg)
             }
         }
+//        CommentRequest.saveComment(comment: comment) { (success, msg) in
+//            if success {
+//                self.skip = self.comments.endIndex
+//                self.updateComments()
+//            } else {
+//                self.controller?.showMessageError(msg: msg)
+//            }
+//        }
     }
     
     func createComment(text: String) {

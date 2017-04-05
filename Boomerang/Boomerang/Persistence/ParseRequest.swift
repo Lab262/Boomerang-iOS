@@ -122,20 +122,6 @@ class ParseRequest: NSObject {
 
 extension PFObject {
     
-//    func getRelationInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: [PFObject]?) -> Void) {
-//
-//        let relation = self.relation(forKey: key)
-//        let query = relation.query()
-//        
-//        query.findObjectsInBackground(block: { (objects, error) in
-//            if error == nil {
-//                completionHandler(true, "Success", objects)
-//            } else{
-//                completionHandler(false, error.debugDescription, nil)
-//            }
-//        })
-//    }
-    
     func getRelationCountInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void) {
      
         let relation = self.relation(forKey: key)
@@ -214,7 +200,6 @@ extension PFObject {
     }
     
     func getDataBy(key: String) -> Data? {
-        
         let file = self.object(forKey: key) as? PFFile
         
         do {
@@ -270,14 +255,11 @@ extension PFObject {
     func saveObjectInBackground(completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
         
         let object = PFObject(className: self.parseClassName)
+        let keys = self.allKeys
+        let values = keys.map { self.value(forKey: $0) }
         
-        let mirror = Mirror(reflecting: self)
-        
-        for case let (label?, value) in mirror.children {
-            print ("LABEL: \(label)")
-            print ("VALUE: \(value)")
-            
-            object[label] = value
+        for case let (i, value?) in values.enumerated() {
+            object[keys[i]] = value
         }
         
         object.saveInBackground { (success, error) in
@@ -288,7 +270,6 @@ extension PFObject {
             }
         }
     }
-        
     
     func fetchObjectInBackgroundBy(key: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ data: PFObject?) -> Void) {
         
