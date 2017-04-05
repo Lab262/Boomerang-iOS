@@ -47,7 +47,12 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             }
         }
         
-        presenter.getUserCountOf(key: "to") { (success, msg, count) in
+        getAmountInformations()
+    }
+    
+    func getAmountInformations(){
+        
+        presenter.getUserCountOf(key: "to", className: "Follow") { (success, msg, count) in
             if success {
                 self.followersLabel.text = count?.description
             } else {
@@ -55,11 +60,29 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             }
         }
         
-        presenter.getUserCountOf(key: "from") { (success, msg, count) in
+        presenter.getUserCountOf(key: "from", className: "Follow") { (success, msg, count) in
             if success {
                 self.followingLabel.text = count?.description
             } else {
                 print ("ERROR COUNT FOLLOWING")
+            }
+        }
+        
+        presenter.getUserCountOf(key: "from", className: "Scheme") { (success, msg, count) in
+            if success {
+                
+                var text: String?
+                
+                if count == 0 {
+                    text = "Nenhum arremesso."
+                } else if count == 1 {
+                    text = "\(String(describing: count)) arremesso."
+                } else {
+                    text = "\(String(describing: count)) arremessos."
+                }
+                self.boomerAmountLabel.text = text
+            } else {
+                print ("ERROR COUNT SCHEME")
             }
         }
     }
