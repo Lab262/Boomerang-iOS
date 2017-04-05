@@ -65,6 +65,17 @@ class DetailThingPresenter: NSObject {
         return currentCommentsCount
     }
     
+    func getCurrentType() -> String {
+        switch self.getPost().postType! {
+        case .have:
+            return "Tenho"
+        case .need:
+            return "Preciso"
+        case .donate:
+            return "Doação"
+        }
+    }
+    
     func saveComment(comment: Comment) {
         
         CommentRequest.saveComment(comment: comment) { (success, msg) in

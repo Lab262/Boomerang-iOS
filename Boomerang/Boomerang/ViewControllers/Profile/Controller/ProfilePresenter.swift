@@ -12,7 +12,7 @@ import Parse
 class ProfilePresenter: NSObject {
     
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
-    fileprivate let pagination = 3
+    fileprivate let pagination = 20
     fileprivate var skip = 0
     fileprivate var allPosts: [Post] = [Post]()
     fileprivate var needPosts: [Post] = [Post]()

@@ -111,11 +111,13 @@ extension ProfileMainViewController: UIScrollViewDelegate {
         visibleRect.size = collectionView.bounds.size
         
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        let visibleIndexPath: IndexPath = collectionView.indexPathForItem(at: visiblePoint)!
-        
-        if visibleIndexPath.row >= presenter.getAllPosts().endIndex-1 {
-            presenter.updatePosts()
+        if let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint) {
+            if visibleIndexPath.row >= presenter.getAllPosts().endIndex-1 {
+                presenter.updatePosts()
+            }
         }
+        
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

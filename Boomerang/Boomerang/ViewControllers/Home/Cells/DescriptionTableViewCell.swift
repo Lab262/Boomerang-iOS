@@ -22,9 +22,16 @@ class DescriptionTableViewCell: UITableViewCell {
         return "DescriptionTableViewCell"
     }
     
+    @IBOutlet weak var descriptionPostLabel: UILabel!
+    var presenter = DetailThingPresenter()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func updateCell(){
+        descriptionPostLabel.text = presenter.getPost().content
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

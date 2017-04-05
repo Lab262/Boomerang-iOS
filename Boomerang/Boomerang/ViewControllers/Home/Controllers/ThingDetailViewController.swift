@@ -70,6 +70,13 @@ class ThingDetailViewController: UIViewController {
         presenter.setControllerDelegate(controller: self)
         registerNibs()
         configureTableView()
+        setNavigationInformations()
+    }
+    
+    func setNavigationInformations(){
+        navigationInformationsView.titleTransactionLabel.text = presenter.getCurrentType()
+        navigationInformationsView.thingNameLabel.text = presenter.getPost().title
+        
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
@@ -112,6 +119,9 @@ class ThingDetailViewController: UIViewController {
     func generateUserDescriptionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier, for: indexPath) as! DescriptionTableViewCell
+        
+        cell.presenter.setPost(post: presenter.getPost())
+        cell.updateCell()
         
         return cell
     }
