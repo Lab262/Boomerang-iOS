@@ -25,6 +25,7 @@ class ProfileMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.setControllerDelegate(controller: self)
+        self.view.loadAnimation()
         presenter.getPostsOfUser()
         
     }
@@ -162,6 +163,10 @@ extension ProfileMainViewController: ViewDelegate {
 extension ProfileMainViewController: UpdateCellDelegate {
     func updateCell() {
         collectionView.reloadData()
+    }
+    
+    func unload() {
+        self.view.unload()
     }
 }
 

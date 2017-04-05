@@ -49,6 +49,13 @@ class UserRequest: NSObject {
         }
     }
     
+    
+    static func getUserCountOfDictionary(keysCount: [String: [String]], user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
+        
+    }
+    
+    
     static func getUserCountOf(key: String, className: String, user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         
         ParseRequest.queryCountEqualToValue(className: className, key: key, value: user) { (success, msg, count) in

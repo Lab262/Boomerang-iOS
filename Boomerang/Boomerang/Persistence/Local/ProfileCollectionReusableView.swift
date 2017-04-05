@@ -81,6 +81,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
                     text = "\(String(describing: count)) arremessos."
                 }
                 self.boomerAmountLabel.text = text
+                self.delegate?.unload()
             } else {
                 print ("ERROR COUNT SCHEME")
             }

@@ -269,6 +269,10 @@ extension HomeMainViewController: ViewDelegate {
 }
 
 extension HomeMainViewController: UpdateCellDelegate{
+    func unload() {
+        
+    }
+
     func updateCell() {
         presenter.updatePostsFriends()
     }
