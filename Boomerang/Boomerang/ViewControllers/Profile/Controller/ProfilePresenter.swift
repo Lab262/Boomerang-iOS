@@ -70,6 +70,14 @@ class ProfilePresenter: NSObject {
         }
     }
     
+    func authorPostIsCurrent() -> Bool {
+        if getPost().author?.objectId == PFUser.current()?.objectId {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func getPostsForCurrentFilter() -> [Post] {
         return getPostsBy(postType: currentPostType)
     }
@@ -89,6 +97,10 @@ class ProfilePresenter: NSObject {
     func updatePosts(){
         skip = allPosts.endIndex
         getPostsOfUser()
+    }
+    
+    func alreadyFollowing(){
+        
     }
     
     func getUserCountOf(key: String, className: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void){

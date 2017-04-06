@@ -110,6 +110,7 @@
 		D40C0E4D1E8B020A008174D2 /* PhotoThingWithPageControlCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingWithPageControlCollectionViewCell.xib */; };
 		D40C0E4F1E8B1490008174D2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E4E1E8B1490008174D2 /* Date+Utils.swift */; };
 		D40C0E511E8B9A93008174D2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E501E8B9A93008174D2 /* Photo.swift */; };
+		D40DBB9D1E9684000075E74B /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40DBB9C1E9684000075E74B /* Follow.swift */; };
 		D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D433D07F1E91D8E700112B32 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */; };
 		D433D0801E91D8E700112B32 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */; };
@@ -299,6 +300,7 @@
 		D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
 		D40C0E4E1E8B1490008174D2 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		D40C0E501E8B9A93008174D2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		D40DBB9C1E9684000075E74B /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -1023,6 +1025,7 @@
 				2FAE03061E78C3540062E155 /* Friend.swift */,
 				D40C0E501E8B9A93008174D2 /* Photo.swift */,
 				D4FBBCEE1E908E0F00611F63 /* Interested.swift */,
+				D40DBB9C1E9684000075E74B /* Follow.swift */,
 			);
 			name = PFObjects;
 			sourceTree = "<group>";
@@ -1402,6 +1405,7 @@
 				A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */,
 				D48735041E7885000065E13A /* UICollectionViewCell+Utils.swift in Sources */,
 				D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */,
+				D40DBB9D1E9684000075E74B /* Follow.swift in Sources */,
 				D48735031E7885000065E13A /* String+CharacterSpacing.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
 				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,

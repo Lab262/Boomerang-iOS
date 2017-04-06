@@ -40,16 +40,19 @@ class ParseRequest: NSObject {
         }
     }
     
-    static func queryEqualToValue(className: String, key: String, value: Any, include: String?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    static func queryEqualToValue(className: String, queryParams: [String: Any], include: String?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let query = PFQuery(className: className)
-        query.whereKey(key, equalTo: value)
+        
+        for queryParam in queryParams {
+            query.whereKey(queryParam.key, equalTo: queryParam.value)
+        }
+        
         query.limit = pagination!
+        
         if let keys = selectKeys {
             query.selectKeys(keys)
         }
-        
-        
         query.skip = skip!
         if let include = include {
             query.includeKey(include)

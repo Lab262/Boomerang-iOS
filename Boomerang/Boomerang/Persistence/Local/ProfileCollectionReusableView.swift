@@ -52,6 +52,15 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         buttons[0]?.isSelected = true
     }
     
+    @IBAction func buttonAction(_ sender: Any) {
+        if presenter.authorPostIsCurrent() {
+            button.setTitle("Editar", for: .normal)
+        } else {
+            button.setTitle("Seguir", for: .normal)
+        }
+    }
+    
+    
     func updateCell(){
         self.nameLabel.text = presenter.getUser().fullName
         
