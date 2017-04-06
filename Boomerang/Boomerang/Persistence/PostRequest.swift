@@ -48,7 +48,7 @@ class PostRequest: NSObject {
         var queryParams = [String : Any]()
         queryParams["author"] = user
         
-        ParseRequest.queryEqualToValue(className: "post", queryParams: queryParams, include: nil) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Post", queryParams: queryParams, include: nil) { (success, msg, objects) in
             
             if success {
                 for obj in objects! {

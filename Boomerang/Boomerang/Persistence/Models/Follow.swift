@@ -16,7 +16,7 @@ class Follow: PFObject {
     
     override init() {
         super.init()
-        self.to = [User]()
+       // self.to = [User]()
         
     }
     

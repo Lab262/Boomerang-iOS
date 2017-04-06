@@ -19,10 +19,13 @@ class ProfilePresenter: NSObject {
     fileprivate var havePosts: [Post] = [Post]()
     fileprivate var donatePosts: [Post] = [Post]()
     fileprivate var currentPostType: PostType? = nil
-    fileprivate var post: Post = Post()
+    fileprivate var post: Post = Post() {
+        didSet{
+            user = post.author!
+        }
+    }
     fileprivate var currentPostsCount = 0
     fileprivate var controller: ViewDelegate?
-    fileprivate var currentUser = ApplicationState.sharedInstance.currentUser
     
     
     func setControllerDelegate(controller: ViewDelegate) {
@@ -73,7 +76,7 @@ class ProfilePresenter: NSObject {
     
     func authorPostIsCurrent() -> Bool {
         
-        if getPost().author?.objectId == PFUser.current()?.objectId {
+        if self.user.objectId == PFUser.current()?.objectId {
             return true
         } else {
             return false
@@ -103,7 +106,7 @@ class ProfilePresenter: NSObject {
     
     func alreadyFollowing(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool?) -> ()){
         
-        UserRequest.verifyAlreadyFollowingFor(currentUser: currentUser!, otherUser: self.post.author!) { (success, msg, alreadyFollow) in
+        UserRequest.verifyAlreadyFollowingFor(currentUser: (PFUser.current()! as? User)!, otherUser: user) { (success, msg, alreadyFollow) in
             
             if success {
                 completionHandler(true, msg, alreadyFollow)
@@ -124,6 +127,7 @@ class ProfilePresenter: NSObject {
     }
     
     func getPostsOfUser(){
+        
         PostRequest.getPostsFor(user: getUser(), pagination: pagination, skip: skip) { (success, msg, posts) in
             if success {
                 for post in posts! {
