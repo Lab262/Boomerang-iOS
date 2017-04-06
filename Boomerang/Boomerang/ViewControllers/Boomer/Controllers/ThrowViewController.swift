@@ -34,7 +34,7 @@ class ThrowViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        TabBarController.mainTabBarController.removeTabBar()
+        TabBarController.mainTabBarController.hideTabBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

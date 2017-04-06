@@ -10,38 +10,36 @@ import UIKit
 
 class ProfileMainViewController: UIViewController {
 
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var parallaxBackgroundHeightConstraint: NSLayoutConstraint!
     internal var lastContentOffset: CGFloat = 0
     internal var backgroundIsFreezy = false
     
-    var user = ApplicationState.sharedInstance.currentUser
+    var presenter = ProfilePresenter()
+    var currentIndex: IndexPath?
     
-    var inventoryData = [BoomerCellData]()
-    
-    func loadData() {
-        inventoryData = [
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Shirley Schimidt", dataTitle: "São Paulo, SP"),
-            BoomerCellData(dataPhoto: #imageLiteral(resourceName: "profile_dummy"), dataDescription: "Donald Trump", dataTitle: "Nova York, NY")
-        ]    }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        TabBarController.mainTabBarController.showTabBar()
+        self.navigationController?.navigationBar.isHidden = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.setControllerDelegate(controller: self)
+        self.view.loadAnimation()
+        presenter.getPostsOfUser()
         
-        self.loadData()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let controller = segue.destination as? ThingDetailViewController {
+            controller.presenter.setPost(post: presenter.getPostsForCurrentFilter()[currentIndex!.row])
+        }
     }
     
 }
@@ -53,12 +51,17 @@ extension ProfileMainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.inventoryData.count
+        
+        return presenter.getPostsForCurrentFilter().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfilePostCollectionViewCell.identifier, for: indexPath) as! ProfilePostCollectionViewCell
+        
+        cell.presenter.setPost(post: presenter.getAllPosts()[indexPath.row])
+        cell.updatePostCell()
+        
         return cell
     }
     
@@ -66,15 +69,26 @@ extension ProfileMainViewController: UICollectionViewDataSource {
         
         if kind == UICollectionElementKindSectionHeader {
             
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileCollectionReusableView
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ProfileCollectionReusableView.identifier, for: indexPath) as! ProfileCollectionReusableView
             
-            headerView.user = user
+            headerView.delegate = self
+            headerView.presenter = presenter
+            headerView.updateCell()
             
             return headerView
         }
         
        return UICollectionReusableView()
         
+    }
+}
+
+extension ProfileMainViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.currentIndex = indexPath
+        self.performSegue(withIdentifier: SegueIdentifiers.profileToDetailThing, sender: self)
     }
 }
 
@@ -90,6 +104,22 @@ extension ProfileMainViewController: UICollectionViewDelegateFlowLayout {
 
 extension ProfileMainViewController: UIScrollViewDelegate {
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        var visibleRect = CGRect()
+        visibleRect.origin = collectionView.contentOffset
+        visibleRect.size = collectionView.bounds.size
+        
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        if let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint) {
+            if visibleIndexPath.row >= presenter.getAllPosts().endIndex-1 {
+                presenter.updatePosts()
+            }
+        }
+        
+        
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if (self.lastContentOffset > scrollView.contentOffset.y) {
@@ -99,6 +129,7 @@ extension ProfileMainViewController: UIScrollViewDelegate {
 //            print("up")
  
         }
+        
 
         if scrollView.contentOffset.y <= 0 {
             self.parallaxBackgroundHeightConstraint.constant = self.parallaxBackgroundHeightConstraint.constant + (self.lastContentOffset - scrollView.contentOffset.y)
@@ -117,7 +148,27 @@ extension ProfileMainViewController: UIScrollViewDelegate {
         self.lastContentOffset = scrollView.contentOffset.y
    
     }
+}
 
+extension ProfileMainViewController: ViewDelegate {
     
+    func reload() {
+        if presenter.getAllPosts().count != presenter.getCurrentPostsCount(){
+            collectionView.reloadData()
+        }
+    }
+    
+    func showMessageError(msg: String) {
+        
+    }
+}
+extension ProfileMainViewController: UpdateCellDelegate {
+    func updateCell() {
+        collectionView.reloadData()
+    }
+    
+    func unload() {
+        self.view.unload()
+    }
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-enum postType: String {
+enum PostType: String {
     case have = "Have"
     case need = "Need"
     case donate = "Donate"
@@ -29,7 +29,7 @@ class Post: PFObject {
     //var alreadySearched = false
     //var downloadedImages = false
     var countPhotos = 0
-    
+    var postType: PostType?
     var photos = [UIImage]()
     
     
@@ -58,6 +58,11 @@ class Post: PFObject {
         if let content = object["content"] as? String {
             
             self.content = content
+        }
+        
+        if let type = object["type"] as? String {
+            
+            self.postType = PostType(rawValue: type)
         }
         
         if let author = object["author"] as? User {

@@ -8,11 +8,11 @@
 
 import UIKit
 
-enum PostType {
-    case need
-    case have
-    case donate
-}
+//enum PostType {
+//    case need: "need"
+//    case have: "have"
+//    case donate: "donate"
+//}
 class BoomerMainViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -22,11 +22,12 @@ class BoomerMainViewController: UIViewController {
     var titlePost = String()
     @IBAction func showMenu(_ sender: Any) {
         
-        TabBarController.showMenu()
+        //TabBarController.showMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //self.getProfilePhoto()
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goThrowVC") {

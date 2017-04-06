@@ -15,7 +15,7 @@ class CommentRequest: NSObject {
         
         var comments: [Comment] = [Comment]()
         
-        ParseRequest.queryEqualToValueWithInclude(className: "Comment", key: "post", value: post, include: "author", pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Comment", key: "post", value: post, include: "author", pagination: pagination, skip: skip) { (success, msg, objects) in
         
              if success {
                  for object in objects! {

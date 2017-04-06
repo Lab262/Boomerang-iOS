@@ -11,12 +11,12 @@ import UIKit
 class ThingNavigationBar: UIView {
     
     @IBOutlet var view: UIView!
-    
-    
-    @IBOutlet weak var navigationView: IconNavigationBar!
     @IBOutlet weak var typeImage: UIImageView!
     @IBOutlet weak var titleTransactionLabel: UILabel!
     @IBOutlet weak var thingNameLabel: UILabel!
+    
+    @IBOutlet weak var containerIconImage: UIImageView!
+    
     
     
     override init(frame: CGRect) {
@@ -36,6 +36,45 @@ class ThingNavigationBar: UIView {
     
     override func awakeFromNib() {
         
+    }
+    
+    @IBInspectable var titleTransactionLabelHidden: Bool {
+        get {
+            return titleTransactionLabel.isHidden
+        }
+        set {
+            titleTransactionLabel.isHidden = newValue
+        }
+    }
+    
+    @IBInspectable var thingNameLabelHidden: Bool {
+        get {
+            return thingNameLabel.isHidden
+        }
+        set {
+            thingNameLabel.isHidden = newValue
+            
+        }
+    }
+    
+    
+    @IBInspectable var containerIconImageHidden: Bool {
+        get {
+            return containerIconImage.isHidden
+        }
+        set {
+            containerIconImage.isHidden = newValue
+            
+        }
+    }
+    @IBInspectable var typeImageHidden: Bool {
+        get {
+            return typeImage.isHidden
+        }
+        set {
+            typeImage.isHidden = newValue
+            
+        }
     }
    
 }

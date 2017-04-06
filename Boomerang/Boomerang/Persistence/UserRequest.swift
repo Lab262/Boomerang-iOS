@@ -49,11 +49,29 @@ class UserRequest: NSObject {
         }
     }
     
+    
+    static func getUserCountOfDictionary(keysCount: [String: [String]], user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
+        
+    }
+    
+    
+    static func getUserCountOf(key: String, className: String, user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
+        ParseRequest.queryCountEqualToValue(className: className, key: key, value: user) { (success, msg, count) in
+            if success {
+                completionHandler(true, msg, count)
+            } else {
+                completionHandler(true, msg, nil)
+            }
+        }
+    }
+
     static func fetchFollowing(pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [User]?) -> Void) {
         
         var following: [User] = [User]()
         
-        ParseRequest.queryEqualToValueWithInclude(className: "Follow", key: "from", value: PFUser.current()!, include: "to", pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Follow", key: "from", value: PFUser.current()!, include: "to", pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {
                 for object in objects! {

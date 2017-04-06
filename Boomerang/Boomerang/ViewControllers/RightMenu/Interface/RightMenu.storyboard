@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4j5-QE-t7v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="obE-ua-UmT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -342,6 +342,25 @@ FACEBOOK</string>
             </objects>
             <point key="canvasLocation" x="-231.19999999999999" y="-104.7976011994003"/>
         </scene>
+        <!--ESQUEMAS-->
+        <scene sceneID="MXb-hn-9mw">
+            <objects>
+                <viewController id="yfD-bC-I5M" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5q0-ts-3rF"/>
+                        <viewControllerLayoutGuide type="bottom" id="dKa-LT-aJj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iJM-kS-XcD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ESQUEMAS" id="l0t-m3-7of"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ub9-a2-4Xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="589.65517241379314"/>
+        </scene>
         <!--Mensagens-->
         <scene sceneID="wXY-ph-Id8">
             <objects>
@@ -393,7 +412,7 @@ FACEBOOK</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02q-DR-4dt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2076" y="652"/>
+            <point key="canvasLocation" x="3015.1999999999998" y="651.72413793103453"/>
         </scene>
         <!--Chat-->
         <scene sceneID="ZKV-c9-vE8">
@@ -491,7 +510,25 @@ FACEBOOK</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVc-16-fu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776.8000000000002" y="660.71964017991013"/>
+            <point key="canvasLocation" x="3716" y="660.71964017991013"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Fej-iW-KVw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obE-ua-UmT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vbn-Kd-cio">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yfD-bC-I5M" kind="relationship" relationship="rootViewController" id="0FI-fc-QPK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fJ9-W4-R6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231.19999999999999" y="589.65517241379314"/>
         </scene>
     </scenes>
     <resources>

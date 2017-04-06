@@ -20,7 +20,7 @@ class HomePresenter: NSObject {
     fileprivate var post: Post = Post()
     fileprivate var controller: ViewDelegate?
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
-    fileprivate var postsCount = 0
+    fileprivate var currentPostsFriendsCount = 0
     
     func setControllerDelegate(controller: ViewDelegate) {
         self.controller = controller
@@ -29,9 +29,7 @@ class HomePresenter: NSObject {
     func updatePostsFriends(){
         skipPosts = getPosts().endIndex
         skipUsers = following.endIndex
-        
         getFriends()
-        
     }
     
     func getFriends() {
@@ -53,8 +51,8 @@ class HomePresenter: NSObject {
                 for post in posts! {
                     self.posts.append(post)
                 }
-                
-                self.controller?.reload(array: self.getPosts())
+                self.controller?.reload()
+                self.currentPostsFriendsCount = self.getPosts().count
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
@@ -79,6 +77,10 @@ class HomePresenter: NSObject {
     
     func setPost(post: Post){
         self.post = post
+    }
+    
+    func getCurrentPostsFriendsCount() -> Int {
+        return currentPostsFriendsCount
     }
     
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
@@ -128,6 +130,7 @@ class HomePresenter: NSObject {
     }
     
     func getCoverOfPost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
+        
         PostRequest.getRelationsInBackground(post: getPost()) { (success, msg) in
             if success {
                 self.downloadCoverImagePost(completionHandler: { (success, msg, image) in
@@ -141,17 +144,21 @@ class HomePresenter: NSObject {
     
     func downloadCoverImagePost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
         if let relations = getPost().relations {
-            for relation in relations where !relation.isDownloadedImage {
-                relation.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+            guard let cover = relations.first?.photo else {
+                relations.first?.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+                    
                     if success {
-                        relation.photo = UIImage(data: data!)
-                        relation.isDownloadedImage = true
-                        completionHandler(success, msg, relation.photo)
+                        relations.first?.photo = UIImage(data: data!)
+                        relations.first?.isDownloadedImage = true
+                        completionHandler(success, msg, relations.first?.photo)
                     } else {
                         completionHandler(success, msg, nil)
                     }
                 })
+                return
             }
+            
+            completionHandler(true, "success", cover)
         }
     }
 }

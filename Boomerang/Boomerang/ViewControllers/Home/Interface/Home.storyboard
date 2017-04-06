@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lcr-AS-ZtQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lcr-AS-ZtQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -83,7 +83,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YTg-zH-wsh">
-                                <rect key="frame" x="0.0" y="123" width="375" height="544"/>
+                                <rect key="frame" x="0.0" y="123" width="375" height="494"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y4o-Ot-Hoh" id="JdK-QF-vMc"/>
@@ -97,7 +97,7 @@
                             <constraint firstAttribute="trailing" secondItem="YTg-zH-wsh" secondAttribute="trailing" id="1jI-Wh-92I"/>
                             <constraint firstItem="whq-g7-neK" firstAttribute="top" secondItem="6nA-1m-uaN" secondAttribute="bottom" constant="-20" id="A0R-tJ-G1X"/>
                             <constraint firstItem="whq-g7-neK" firstAttribute="width" secondItem="78E-60-gc8" secondAttribute="width" id="Pui-3H-xNT"/>
-                            <constraint firstItem="PbL-Ml-ivy" firstAttribute="top" secondItem="YTg-zH-wsh" secondAttribute="bottom" id="Puu-C4-lXL"/>
+                            <constraint firstItem="PbL-Ml-ivy" firstAttribute="top" secondItem="YTg-zH-wsh" secondAttribute="bottom" constant="50" id="Puu-C4-lXL"/>
                             <constraint firstItem="YTg-zH-wsh" firstAttribute="leading" secondItem="78E-60-gc8" secondAttribute="leading" id="TJs-Wc-44T"/>
                             <constraint firstItem="YTg-zH-wsh" firstAttribute="top" secondItem="8NO-f7-jeX" secondAttribute="bottom" id="huQ-r3-Uir"/>
                             <constraint firstItem="8NO-f7-jeX" firstAttribute="top" secondItem="6nA-1m-uaN" secondAttribute="bottom" constant="59" id="peM-Fi-Pbi"/>
@@ -121,7 +121,7 @@
         <!--Thing Detail View Controller-->
         <scene sceneID="yTL-aV-yR5">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="OAa-qd-sUY" customClass="ThingDetailViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailThingView" automaticallyAdjustsScrollViewInsets="NO" id="OAa-qd-sUY" customClass="ThingDetailViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gsM-3m-uNa"/>
                         <viewControllerLayoutGuide type="bottom" id="c9M-eD-pal"/>
@@ -138,7 +138,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MYy-Ur-yOs" customClass="TextInputTableView" customModule="Boomerang" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="OAa-qd-sUY" id="tqs-LM-KVh"/>
@@ -159,6 +159,33 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fG7-aM-5eK">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obP-At-Mt8">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
+                                        <color key="backgroundColor" red="0.23137254901960785" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                        <state key="normal" title="Lista de Interessados">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="firstButtonAction:" destination="OAa-qd-sUY" eventType="touchUpInside" id="wqF-gS-Q44"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyM-Z3-cUg">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
+                                        <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                        <state key="normal" title="Segunda ação">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="heV-5w-cFa"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -166,31 +193,107 @@
                             <constraint firstItem="MYy-Ur-yOs" firstAttribute="top" secondItem="OWj-2H-2fc" secondAttribute="top" id="9Ro-YH-zMo"/>
                             <constraint firstItem="MYy-Ur-yOs" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="9h1-NE-6Gi"/>
                             <constraint firstItem="jlc-vg-cyQ" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="BDc-sq-HXD"/>
+                            <constraint firstAttribute="trailing" secondItem="fG7-aM-5eK" secondAttribute="trailing" id="G0y-0S-hRy"/>
                             <constraint firstItem="1mm-y4-kUy" firstAttribute="top" secondItem="OWj-2H-2fc" secondAttribute="top" id="GGa-rf-nSL"/>
-                            <constraint firstItem="c9M-eD-pal" firstAttribute="top" secondItem="MYy-Ur-yOs" secondAttribute="bottom" id="Qgv-Uz-eEG"/>
                             <constraint firstItem="1mm-y4-kUy" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="ULY-qL-nod"/>
                             <constraint firstAttribute="trailing" secondItem="1mm-y4-kUy" secondAttribute="trailing" id="fWG-0s-h6A"/>
                             <constraint firstAttribute="trailing" secondItem="jlc-vg-cyQ" secondAttribute="trailing" id="ig2-xo-SJk"/>
+                            <constraint firstItem="fG7-aM-5eK" firstAttribute="leading" secondItem="OWj-2H-2fc" secondAttribute="leading" id="uPO-Z3-1Ju"/>
+                            <constraint firstItem="fG7-aM-5eK" firstAttribute="top" secondItem="MYy-Ur-yOs" secondAttribute="bottom" id="uyr-X8-VrW"/>
                             <constraint firstAttribute="trailing" secondItem="MYy-Ur-yOs" secondAttribute="trailing" id="yO5-EI-MJj"/>
+                            <constraint firstItem="c9M-eD-pal" firstAttribute="top" secondItem="fG7-aM-5eK" secondAttribute="bottom" id="yn9-gQ-Odb"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="firstButton" destination="obP-At-Mt8" id="8zI-yZ-3jD"/>
                         <outlet property="navigationBarView" destination="1mm-y4-kUy" id="qdl-pc-R5f"/>
                         <outlet property="navigationInformationsView" destination="jlc-vg-cyQ" id="ECp-ER-mhE"/>
+                        <outlet property="secondButton" destination="eyM-Z3-cUg" id="Ve1-73-kpn"/>
                         <outlet property="tableView" destination="MYy-Ur-yOs" id="m2r-me-coa"/>
+                        <segue destination="nqi-1T-dTg" kind="show" identifier="goToInterestedList" id="XQL-ae-FkL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZn-gt-8L5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2164" y="891.90404797601207"/>
+            <point key="canvasLocation" x="2246" y="892"/>
+        </scene>
+        <!--Interested List View Controller-->
+        <scene sceneID="C9b-vo-CFc">
+            <objects>
+                <viewController id="nqi-1T-dTg" customClass="InterestedListViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="99j-RH-3ss"/>
+                        <viewControllerLayoutGuide type="bottom" id="hpc-Xh-0FE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rab-6R-rkf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dc-WD-jNs" customClass="ThingNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="137"/>
+                                <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137" id="1Iu-9h-kEw"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="titleTransactionLabelHidden" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="thingNameLabelHidden" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="typeImageHidden" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="containerIconImageHidden" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wep-AY-WV6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nqi-1T-dTg" id="ldI-wT-9uv"/>
+                                    <outlet property="delegate" destination="nqi-1T-dTg" id="tmk-if-EnH"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sew-gA-pil" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="YUE-5O-HlY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="back-button"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundViewColor">
+                                        <color key="value" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Lista de Interessados"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6dc-WD-jNs" secondAttribute="trailing" id="FFh-MW-i3b"/>
+                            <constraint firstAttribute="trailing" secondItem="Sew-gA-pil" secondAttribute="trailing" id="OeA-q5-evf"/>
+                            <constraint firstItem="Sew-gA-pil" firstAttribute="top" secondItem="Rab-6R-rkf" secondAttribute="top" id="d6U-7z-w1T"/>
+                            <constraint firstItem="6dc-WD-jNs" firstAttribute="top" secondItem="Rab-6R-rkf" secondAttribute="top" id="ltE-nS-mNN"/>
+                            <constraint firstItem="6dc-WD-jNs" firstAttribute="leading" secondItem="Rab-6R-rkf" secondAttribute="leading" id="tbf-Ga-Oa3"/>
+                            <constraint firstItem="Sew-gA-pil" firstAttribute="leading" secondItem="Rab-6R-rkf" secondAttribute="leading" id="z1X-WX-wjq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Wep-AY-WV6" id="N5v-0o-oMj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tTA-xV-YZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3172" y="892"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tvq-P3-wKn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcr-AS-ZtQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0d-99-g7M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n0d-99-g7M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

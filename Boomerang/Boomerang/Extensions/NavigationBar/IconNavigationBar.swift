@@ -89,6 +89,16 @@ class IconNavigationBar: UIView {
         }
     }
     
+    
+    @IBInspectable var backgroundTitleColor: UIColor? {
+        set {
+            self.titleLabel.textColor = newValue
+        }
+        get {
+            return self.titleLabel.textColor
+        }
+    }
+    
 }
 
 

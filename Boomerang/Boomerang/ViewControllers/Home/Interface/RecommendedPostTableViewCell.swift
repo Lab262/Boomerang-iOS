@@ -10,6 +10,7 @@ import UIKit
 
 protocol UpdateCellDelegate {
     func updateCell()
+    func unload()
 }
 
 class RecommendedPostTableViewCell: UITableViewCell {

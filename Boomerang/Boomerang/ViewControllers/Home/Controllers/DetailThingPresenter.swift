@@ -15,11 +15,21 @@ class DetailThingPresenter: NSObject {
     fileprivate let pagination = 3
     fileprivate var skip = 0
     fileprivate var comments = [Comment]()
+    fileprivate var currentCommentsCount = 0
+    
     var controller: ViewDelegate?
     
     
     func setControllerDelegate(controller: ViewDelegate) {
         self.controller = controller
+    }
+    
+    func authorPostIsCurrent() -> Bool {
+        if getPost().author == PFUser.current() {
+            return true
+        } else {
+            return false
+        }
     }
     
     func updateComments() {
@@ -30,7 +40,9 @@ class DetailThingPresenter: NSObject {
                 for comment in comments! {
                     self.comments.append(comment)
                 }
-                self.controller?.reload(array: self.comments)
+                self.controller?.reload()
+                self.currentCommentsCount = self.getComments().count
+                
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
@@ -49,9 +61,24 @@ class DetailThingPresenter: NSObject {
         return post!
     }
     
+    func getCurrentCommentsCount() -> Int {
+        return currentCommentsCount
+    }
+    
+    func getCurrentType() -> String {
+        switch self.getPost().postType! {
+        case .have:
+            return "Tenho"
+        case .need:
+            return "Preciso"
+        case .donate:
+            return "Doação"
+        }
+    }
+    
     func saveComment(comment: Comment) {
         
-        CommentRequest.saveComment(comment: comment) { (success, msg) in
+        comment.saveObjectInBackground { (success, msg) in
             if success {
                 self.skip = self.comments.endIndex
                 self.updateComments()
@@ -59,6 +86,14 @@ class DetailThingPresenter: NSObject {
                 self.controller?.showMessageError(msg: msg)
             }
         }
+//        CommentRequest.saveComment(comment: comment) { (success, msg) in
+//            if success {
+//                self.skip = self.comments.endIndex
+//                self.updateComments()
+//            } else {
+//                self.controller?.showMessageError(msg: msg)
+//            }
+//        }
     }
     
     func createComment(text: String) {
@@ -68,35 +103,7 @@ class DetailThingPresenter: NSObject {
         saveComment(comment: comment)
     }
     
-//    
-//    func getRelationPhotosByThing(){
-//        if let relations = post.relations {
-//            for relation in relations where relation.isDownloadedImage {
-//                postImage.image = relation.photo
-//                return
-//            }
-//        } else {
-//            PostRequest.getRelationsInBackground(post: post, completionHandler: { (success, msg) in
-//                if success {
-//                    self.post.relations!.first!.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
-//                        if success {
-//                            self.post.relations!.first!.photo = UIImage(data: data!)
-//                            self.post.relations!.first!.isDownloadedImage = true
-//                            self.postImage.image = UIImage(data: data!)
-//                            ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: true, updateType: .download)
-//                        } else {
-//                            ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: false, updateType: .download)
-//                            print ("NO SUCCESS IN DOWNLOAD")
-//                        }
-//                    })
-//                } else {
-//                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: false, updateType: .relation)
-//                    print ("NO SUCCESS IN DOWNLOAD")
-//                }
-//            })
-//        }
-//    }
-    
+
     
     func getRelationsImages(success: Bool){
         if !success {
@@ -117,7 +124,7 @@ class DetailThingPresenter: NSObject {
                     if success {
                         relation.photo = UIImage(data: data!)
                         relation.isDownloadedImage = true
-                        self.controller?.reload(array: nil)
+                        self.controller?.reload()
                     } else {
                         print ("DOWNLOAD IMAGES ERRO")
                     }
@@ -144,12 +151,12 @@ class DetailThingPresenter: NSObject {
     
     func getCountPhotos(success: Bool){
         if success {
-            controller?.reload(array: nil)
+            controller?.reload()
         } else {
             post!.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
                 if success {
                     self.post!.countPhotos = count!
-                    self.controller?.reload(array: nil)
+                    self.controller?.reload()
                 } else {
                     print ("COUNT PHOTOS REQUEST ERROR")
                 }

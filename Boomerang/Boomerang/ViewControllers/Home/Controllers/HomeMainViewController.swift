@@ -11,7 +11,7 @@ import Parse
 
 protocol ViewDelegate {
     func showMessageError(msg: String)
-    func reload(array: [Any]?)
+    func reload()
 }
 
 class HomeMainViewController: UIViewController {
@@ -26,33 +26,33 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var currentIndex: IndexPath?
-    var currentPostsFriendsCount = 0
     let tableViewTopInset: CGFloat = 5.0
+    let tableViewBottomInset: CGFloat = 20.0
     var presenter = HomePresenter()
 
     @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     
     @IBAction func showMenu(_ sender: Any) {
-        TabBarController.showMenu()
+        //TabBarController.mainTabBarController.showTabBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.setControllerDelegate(controller: self)
-        setUserInformationsInHUD()
-        
+        TabBarController.mainTabBarController.showTabBar()
         presenter.updatePostsFriends()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.isHidden = true
-        
+        presenter.setControllerDelegate(controller: self)
+        setUserInformationsInHUD()
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
         
         registerNib()
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+     
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
     }
     
     func registerNib() {
@@ -87,7 +87,7 @@ extension HomeMainViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -143,7 +143,13 @@ extension HomeMainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 350
+        switch indexPath.section {
+        case 0:
+            return 350
+        default:
+            return 250
+        }
+ 
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -250,10 +256,8 @@ extension HomeMainViewController: UIScrollViewDelegate {
 
 extension HomeMainViewController: ViewDelegate {
     
-    func reload(array: [Any]?){
-        
-        if array?.count != currentPostsFriendsCount {
-            currentPostsFriendsCount = array!.count
+    func reload(){
+        if presenter.getPosts().count != presenter.getCurrentPostsFriendsCount(){
             tableView.reloadData()
         }
     }
@@ -265,6 +269,10 @@ extension HomeMainViewController: ViewDelegate {
 }
 
 extension HomeMainViewController: UpdateCellDelegate{
+    func unload() {
+        
+    }
+
     func updateCell() {
         presenter.updatePostsFriends()
     }
