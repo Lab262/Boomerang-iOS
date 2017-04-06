@@ -22,9 +22,8 @@ class Post: PFObject {
     @NSManaged var author: User?
     @NSManaged var title: String?
     @NSManaged var content: String?
-    @NSManaged var thing: Thing?
-    @NSManaged var createdDate: Date?
-    @NSManaged var relations: [Photo]?
+    var createdDate: Date?
+    var relations: [Photo]?
     
     //var alreadySearched = false
     //var downloadedImages = false
@@ -68,11 +67,6 @@ class Post: PFObject {
         if let author = object["author"] as? User {
             
             self.author = author
-        }
-        
-        if let thing = object["thing"] as? Thing {
-            
-            self.thing = thing
         }
        
     }

@@ -65,7 +65,14 @@ class ThingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        secondButton.isHidden = !presenter.authorPostIsCurrent()
+        if !presenter.authorPostIsCurrent() {
+            secondButton.isHidden = false
+            firstButton.setTitle("Entrar na fila", for: .normal)
+            secondButton.setTitle("Recomendar", for: .normal)
+        } else {
+            secondButton.isHidden = true
+            firstButton.setTitle("Lista de Interessados", for: .normal)
+        }
         
         presenter.setControllerDelegate(controller: self)
         registerNibs()

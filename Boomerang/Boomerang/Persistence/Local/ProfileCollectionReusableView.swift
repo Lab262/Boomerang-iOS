@@ -31,12 +31,25 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var boomerAmountLabel: UILabel!
     
+    var inputConfigurationButtons = [(deselectedImage: #imageLiteral(resourceName: "inventory_all_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_all_icon_selected")), (deselectedImage: #imageLiteral(resourceName: "inventory_need_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_need_icon_selected")), (deselectedImage: #imageLiteral(resourceName: "inventory_have_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_have_icon_selected")), (deselectedImage: #imageLiteral(resourceName: "inventory_donation_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_donation_icon_selected"))]
+    
     
     var presenter: ProfilePresenter!
     var delegate: UpdateCellDelegate?
     
     override func awakeFromNib() {
         button.layer.cornerRadius = 20
+        configureButtons()
+    }
+    
+    func configureButtons(){
+        let buttons = [filterAllButton, filterNeedButton, filterHaveButton, filterDonationButton]
+        for (i, button) in buttons.enumerated() {
+            button?.setImage(inputConfigurationButtons[i].deselectedImage, for: .normal)
+            button?.setImage(inputConfigurationButtons[i].selectedImage, for: .selected)
+        }
+        
+        buttons[0]?.isSelected = true
     }
     
     func updateCell(){
@@ -98,6 +111,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBAction func filterForAllPosts(_ sender: Any) {
         if presenter.getCurrentPostType() != nil {
             presenter.setCurrentPostType(postType: nil)
+            filterAllButton.isSelected = true
+            filterNeedButton.isSelected = false
+            filterHaveButton.isSelected = false
+            filterDonationButton.isSelected = false
             delegate?.updateCell()
         }
     }
@@ -106,6 +123,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBAction func filterForNeedPosts(_ sender: Any) {
         if presenter.getCurrentPostType() != .need {
             presenter.setCurrentPostType(postType: .need)
+            filterAllButton.isSelected = false
+            filterNeedButton.isSelected = true
+            filterHaveButton.isSelected = false
+            filterDonationButton.isSelected = false
             delegate?.updateCell()
         }
     }
@@ -113,6 +134,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBAction func filterForHavePosts(_ sender: Any) {
         if presenter.getCurrentPostType() != .have {
             presenter.setCurrentPostType(postType: .have)
+            filterAllButton.isSelected = false
+            filterNeedButton.isSelected = false
+            filterHaveButton.isSelected = true
+            filterDonationButton.isSelected = false
             delegate?.updateCell()
         }
     }
@@ -120,6 +145,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBAction func filterForDonationPosts(_ sender: Any) {
         if presenter.getCurrentPostType() != .donate {
             presenter.setCurrentPostType(postType: .donate)
+            filterAllButton.isSelected = false
+            filterNeedButton.isSelected = false
+            filterHaveButton.isSelected = false
+            filterDonationButton.isSelected = true
             delegate?.updateCell()
         }
     }
