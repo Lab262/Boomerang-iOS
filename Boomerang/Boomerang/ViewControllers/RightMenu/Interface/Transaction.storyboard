@@ -442,14 +442,15 @@ FACEBOOK</string>
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D9Q-Ac-VWH">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9Q-Ac-VWH">
                                 <rect key="frame" x="0.0" y="120" width="375" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="xk4-9c-Z2F"/>
+                                </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9mq-8h-9jC">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mq-8h-9jC">
                                 <rect key="frame" x="0.0" y="128" width="375" height="539"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="PoE-sV-9Kb" kind="embed" id="kYF-IT-WU3"/>
@@ -458,10 +459,17 @@ FACEBOOK</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="D9Q-Ac-VWH" firstAttribute="top" secondItem="DKf-7U-gkP" secondAttribute="bottom" id="Ags-hF-p5v"/>
+                            <constraint firstItem="9mq-8h-9jC" firstAttribute="top" secondItem="DKf-7U-gkP" secondAttribute="bottom" constant="8" id="Bzw-pb-jS1"/>
                             <constraint firstItem="eyQ-FR-Ndw" firstAttribute="top" secondItem="iJM-kS-XcD" secondAttribute="top" id="JXb-Te-4S5"/>
+                            <constraint firstAttribute="trailing" secondItem="D9Q-Ac-VWH" secondAttribute="trailing" id="K2W-rc-xKn"/>
                             <constraint firstAttribute="trailing" secondItem="DKf-7U-gkP" secondAttribute="trailing" id="LRX-5s-w50"/>
+                            <constraint firstItem="9mq-8h-9jC" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="Y2D-mK-GoZ"/>
                             <constraint firstAttribute="trailing" secondItem="eyQ-FR-Ndw" secondAttribute="trailing" id="Y5F-XO-U30"/>
                             <constraint firstItem="eyQ-FR-Ndw" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="YDi-n8-sha"/>
+                            <constraint firstAttribute="trailing" secondItem="9mq-8h-9jC" secondAttribute="trailing" id="YRW-vT-H4k"/>
+                            <constraint firstItem="D9Q-Ac-VWH" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="a1N-qe-ItB"/>
+                            <constraint firstItem="dKa-LT-aJj" firstAttribute="top" secondItem="9mq-8h-9jC" secondAttribute="bottom" id="i6S-hE-UfX"/>
                             <constraint firstItem="DKf-7U-gkP" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="iub-WA-B18"/>
                             <constraint firstItem="DKf-7U-gkP" firstAttribute="top" secondItem="eyQ-FR-Ndw" secondAttribute="bottom" id="ove-0I-hO6"/>
                         </constraints>
@@ -481,7 +489,7 @@ FACEBOOK</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ub9-a2-4Xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="589.65517241379314"/>
+            <point key="canvasLocation" x="321" y="590"/>
         </scene>
         <!--Mensagens-->
         <scene sceneID="wXY-ph-Id8">
