@@ -25,10 +25,15 @@ class TransactionTableViewCell: UITableViewCell {
     static var cellHeight: CGFloat {
         return 120.0
     }
+    
+    static var nibName: String {
+        return "TransactionTableViewCell"
+    }
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.cornerRadius = 9
+        containerView.layer.cornerRadius = 9
     }
     
     

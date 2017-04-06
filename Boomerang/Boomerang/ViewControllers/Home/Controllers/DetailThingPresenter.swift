@@ -16,6 +16,7 @@ class DetailThingPresenter: NSObject {
     fileprivate var skip = 0
     fileprivate var comments = [Comment]()
     fileprivate var currentCommentsCount = 0
+    fileprivate var user = ApplicationState.sharedInstance.currentUser
     
     var controller: ViewDelegate?
     
@@ -25,7 +26,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func authorPostIsCurrent() -> Bool {
-        if getPost().author == PFUser.current() {
+        if getPost().author == user {
             return true
         } else {
             return false

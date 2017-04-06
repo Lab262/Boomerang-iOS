@@ -12,10 +12,13 @@ class LoanTransactionViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        registerNib()
+    }
+    
+    func registerNib(){
+        tableView.registerNibFrom(TransactionTableViewCell.self)
     }
 }
 
