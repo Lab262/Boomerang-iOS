@@ -14,6 +14,9 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         return "ProfileHeaderView"
     }
     
+    @IBOutlet weak var button: UIButton!
+    
+    
     @IBOutlet weak var filterAllButton: UIButton!
     @IBOutlet weak var filterHaveButton: UIButton!
     @IBOutlet weak var filterNeedButton: UIButton!
@@ -31,6 +34,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     var presenter: ProfilePresenter!
     var delegate: UpdateCellDelegate?
+    
+    override func awakeFromNib() {
+        button.layer.cornerRadius = 20
+    }
     
     func updateCell(){
         self.nameLabel.text = presenter.getUser().fullName

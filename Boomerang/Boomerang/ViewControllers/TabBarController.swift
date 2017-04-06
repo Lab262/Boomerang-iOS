@@ -34,7 +34,6 @@ class TabBarController: UIViewController {
                 button.setImage(inputConfigurationButtons[index].deselectedImage, for: .normal)
                 button.setImage(inputConfigurationButtons[index].selectedImage, for: .selected)
             }
-            button.tag = inputConfigurationButtons[index].selectIndex
         }
         
         uiTabBarController.selectedIndex = 0
@@ -49,7 +48,7 @@ class TabBarController: UIViewController {
     
     @IBAction func selectButton(_ sender: UIButton) {
         for button in buttons {
-            if sender.tag == 2 {
+            if buttons.index(of: sender)! == 2 {
                 self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
             } else {
                 if button.tag == sender.tag {

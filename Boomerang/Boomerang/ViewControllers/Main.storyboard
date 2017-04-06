@@ -338,10 +338,10 @@
             </objects>
             <point key="canvasLocation" x="270" y="123"/>
         </scene>
-        <!--RightMenu-->
+        <!--Transaction-->
         <scene sceneID="Hp5-Kf-koc">
             <objects>
-                <viewControllerPlaceholder storyboardName="RightMenu" id="ALK-V7-Y3E" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Transaction" id="ALK-V7-Y3E" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="6xD-Xb-uWh"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zep-tw-wFe" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,11 +17,8 @@ class UserRequest: NSObject {
         
         pfUser.password = pass
         pfUser.email = user.email
-        pfUser["emailVerified"] = false
-        
         
         pfUser.signUpInBackground { (success, error) in
-            
             if error == nil {
                 completionHandler(true, "Sucesso")
             } else {
