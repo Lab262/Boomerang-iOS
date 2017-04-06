@@ -45,8 +45,10 @@ class PostRequest: NSObject {
     static func getPostsFor(user: User, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
+        var queryParams = [String : Any]()
+        queryParams["author"] = user
         
-        ParseRequest.queryEqualToValue(className: "Post", key: "author", value: user, include: nil, selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "post", queryParams: queryParams, include: nil) { (success, msg, objects) in
             
             if success {
                 for obj in objects! {
@@ -84,7 +86,6 @@ class PostRequest: NSObject {
                 if post.relations == nil {
                     post.relations = [Photo]()
                 }
-                
                 for object in objects! {
                     let relation = Photo(object: object)
                     post.relations?.append(relation)
@@ -101,18 +102,17 @@ class PostRequest: NSObject {
     static func fetchInterestedOf(post: Post, selectKeys: [String]?, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Interested]?) -> Void) {
         
         var interesteds: [Interested] = [Interested]()
+        var queryParams = [String : Any]()
+        queryParams["post"] = post
         
-        ParseRequest.queryEqualToValue(className: "Interested", key: "post", value: post, include: "user", selectKeys: selectKeys, pagination: pagination, skip: skip) { (success, msg, objects) in
-            
+        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, include: "user") { (success, msg, objects) in
             if success {
                 for object in objects! {
                     let interested = Interested(object: object)
                     interested.post = post
                     interesteds.append(interested)
                 }
-                
                 completionHandler(true, msg, interesteds)
-                
             } else {
                 completionHandler(false, msg, nil)
             }

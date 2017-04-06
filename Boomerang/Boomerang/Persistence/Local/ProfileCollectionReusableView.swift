@@ -42,6 +42,23 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         configureButtons()
     }
     
+    func configureButtonAction() {
+        if presenter.authorPostIsCurrent() {
+            button.setTitle("Editar", for: .normal)
+        } else {
+            presenter.alreadyFollowing(completionHandler: { (success, msg, alreadyFollowing) in
+                if success {
+                    if alreadyFollowing! {
+                        self.button.setTitle("Unfollow", for: .normal)
+                    } else {
+                        self.button.setTitle("Follow", for: .normal)
+                    }
+                    
+                }
+            })
+        }
+    }
+    
     func configureButtons(){
         let buttons = [filterAllButton, filterNeedButton, filterHaveButton, filterDonationButton]
         for (i, button) in buttons.enumerated() {
@@ -53,10 +70,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     }
     
     @IBAction func buttonAction(_ sender: Any) {
-        if presenter.authorPostIsCurrent() {
-            button.setTitle("Editar", for: .normal)
+        if button.currentTitle == "Unfollow" {
+            print ("FOLLOW")
         } else {
-            button.setTitle("Seguir", for: .normal)
+            print ("UNFOLLOW")
         }
     }
     
@@ -77,6 +94,14 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         }
         
         getAmountInformations()
+        
+        configureButtonAction()
+        
+        if presenter.authorPostIsCurrent() {
+            button.setTitle("Editar", for: .normal)
+        } else {
+            button.setTitle("Seguir", for: .normal)
+        }
     }
     
     func getAmountInformations(){

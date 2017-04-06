@@ -47,7 +47,7 @@ class ParseRequest: NSObject {
         for queryParam in queryParams {
             query.whereKey(queryParam.key, equalTo: queryParam.value)
         }
-        
+
         query.limit = pagination!
         
         if let keys = selectKeys {

@@ -12,10 +12,11 @@ import Parse
 class Follow: PFObject {
     
     var followers = [User]()
-    var following = [User]()
+    @NSManaged var to: [User]
     
     override init() {
         super.init()
+        self.to = [User]()
         
     }
     

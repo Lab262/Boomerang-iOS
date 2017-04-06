@@ -66,7 +66,7 @@ class UserRequest: NSObject {
     static func verifyAlreadyFollowingFor(currentUser: User, otherUser: User, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool) -> ()) {
         
         var queryParams = [String : Any]()
-        queryParams["from"] = PFUser.current()!
+        queryParams["from"] = currentUser
         queryParams["to"] = otherUser
         
         ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, include: nil) { (success, msg, objects) in

@@ -22,6 +22,7 @@ class ProfilePresenter: NSObject {
     fileprivate var post: Post = Post()
     fileprivate var currentPostsCount = 0
     fileprivate var controller: ViewDelegate?
+    fileprivate var currentUser = ApplicationState.sharedInstance.currentUser
     
     
     func setControllerDelegate(controller: ViewDelegate) {
@@ -71,6 +72,7 @@ class ProfilePresenter: NSObject {
     }
     
     func authorPostIsCurrent() -> Bool {
+        
         if getPost().author?.objectId == PFUser.current()?.objectId {
             return true
         } else {
@@ -99,8 +101,16 @@ class ProfilePresenter: NSObject {
         getPostsOfUser()
     }
     
-    func alreadyFollowing(){
+    func alreadyFollowing(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool?) -> ()){
         
+        UserRequest.verifyAlreadyFollowingFor(currentUser: currentUser!, otherUser: self.post.author!) { (success, msg, alreadyFollow) in
+            
+            if success {
+                completionHandler(true, msg, alreadyFollow)
+            } else {
+                completionHandler(false, msg, alreadyFollow)
+            }
+        }
     }
     
     func getUserCountOf(key: String, className: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void){
