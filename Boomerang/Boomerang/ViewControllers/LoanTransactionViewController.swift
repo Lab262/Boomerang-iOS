@@ -1,5 +1,5 @@
 //
-//  TransactionViewController.swift
+//  LoanTransactionViewController.swift
 //  Boomerang
 //
 //  Created by Huallyd Smadi on 05/04/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionViewController: UIViewController {
+class LoanTransactionViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,18 +16,10 @@ class TransactionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }
 
-extension TransactionViewController : UITableViewDataSource {
+extension LoanTransactionViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -42,7 +34,7 @@ extension TransactionViewController : UITableViewDataSource {
     }
 }
 
-extension TransactionViewController: UITableViewDelegate {
+extension LoanTransactionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

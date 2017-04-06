@@ -115,7 +115,7 @@
 		D433D0801E91D8E700112B32 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */; };
 		D433D0821E93E59600112B32 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433D0811E93E59600112B32 /* ProfilePresenter.swift */; };
 		D436BF221E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436BF211E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift */; };
-		D436BF251E95A68B00BC7F00 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436BF241E95A68B00BC7F00 /* TransactionViewController.swift */; };
+		D436BF251E95A68B00BC7F00 /* LoanTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436BF241E95A68B00BC7F00 /* LoanTransactionViewController.swift */; };
 		D436BF2A1E95A97300BC7F00 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436BF291E95A97300BC7F00 /* TransactionTableViewCell.swift */; };
 		D436BF2C1E95B19500BC7F00 /* TransactionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */; };
 		D436BF2E1E95B50E00BC7F00 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D436BF2D1E95B50E00BC7F00 /* TransactionTableViewCell.xib */; };
@@ -162,6 +162,9 @@
 		D4E4BEBA1E8256B000F8DC2E /* PHFComposeBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEB71E8256B000F8DC2E /* PHFComposeBarView.m */; };
 		D4E4BEBC1E8269F300F8DC2E /* TextInputTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEBB1E8269F300F8DC2E /* TextInputTableView.swift */; };
 		D4E6A28A1E95C5D1005B4E34 /* TransactionMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6A2891E95C5D1005B4E34 /* TransactionMainViewController.swift */; };
+		D4E6A28C1E95CF00005B4E34 /* ExchangeTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6A28B1E95CF00005B4E34 /* ExchangeTransactionViewController.swift */; };
+		D4E6A28E1E95CF25005B4E34 /* DonationTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6A28D1E95CF25005B4E34 /* DonationTransactionViewController.swift */; };
+		D4E6A2901E95D0E5005B4E34 /* TransactionSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6A28F1E95D0E5005B4E34 /* TransactionSegmentViewController.swift */; };
 		D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */; };
 		D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */; };
 		D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */; };
@@ -301,7 +304,7 @@
 		D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
 		D433D0811E93E59600112B32 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		D436BF211E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePostCollectionViewCell.swift; path = Boomerang/ViewControllers/Profile/Controller/ProfilePostCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
-		D436BF241E95A68B00BC7F00 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		D436BF241E95A68B00BC7F00 /* LoanTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanTransactionViewController.swift; sourceTree = "<group>"; };
 		D436BF291E95A97300BC7F00 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionPresenter.swift; sourceTree = "<group>"; };
 		D436BF2D1E95B50E00BC7F00 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
@@ -354,6 +357,9 @@
 		D4E4BEB71E8256B000F8DC2E /* PHFComposeBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHFComposeBarView.m; sourceTree = "<group>"; };
 		D4E4BEBB1E8269F300F8DC2E /* TextInputTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputTableView.swift; sourceTree = "<group>"; };
 		D4E6A2891E95C5D1005B4E34 /* TransactionMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionMainViewController.swift; sourceTree = "<group>"; };
+		D4E6A28B1E95CF00005B4E34 /* ExchangeTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeTransactionViewController.swift; sourceTree = "<group>"; };
+		D4E6A28D1E95CF25005B4E34 /* DonationTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationTransactionViewController.swift; sourceTree = "<group>"; };
+		D4E6A28F1E95D0E5005B4E34 /* TransactionSegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionSegmentViewController.swift; sourceTree = "<group>"; };
 		D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
 		D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -869,9 +875,12 @@
 		D436BF261E95A69400BC7F00 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D436BF241E95A68B00BC7F00 /* TransactionViewController.swift */,
+				D436BF241E95A68B00BC7F00 /* LoanTransactionViewController.swift */,
 				D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */,
 				D4E6A2891E95C5D1005B4E34 /* TransactionMainViewController.swift */,
+				D4E6A28B1E95CF00005B4E34 /* ExchangeTransactionViewController.swift */,
+				D4E6A28D1E95CF25005B4E34 /* DonationTransactionViewController.swift */,
+				D4E6A28F1E95D0E5005B4E34 /* TransactionSegmentViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1324,6 +1333,7 @@
 				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
+				D4E6A28C1E95CF00005B4E34 /* ExchangeTransactionViewController.swift in Sources */,
 				D4A012FE1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
@@ -1365,6 +1375,7 @@
 				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
 				2FC9E0701E8EFBEB00A048A4 /* TextFieldWithImageTableViewCell.swift in Sources */,
+				D4E6A28E1E95CF25005B4E34 /* DonationTransactionViewController.swift in Sources */,
 				D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */,
 				2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */,
 				D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */,
@@ -1402,7 +1413,7 @@
 				2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */,
 				2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */,
 				D4E6A28A1E95C5D1005B4E34 /* TransactionMainViewController.swift in Sources */,
-				D436BF251E95A68B00BC7F00 /* TransactionViewController.swift in Sources */,
+				D436BF251E95A68B00BC7F00 /* LoanTransactionViewController.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
@@ -1420,6 +1431,7 @@
 				2F2F079C1E6891A800C61A6D /* ThrowButtonTableViewCell.swift in Sources */,
 				A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */,
 				D498F0361E808861002E8972 /* PhotoThingTableViewCell.swift in Sources */,
+				D4E6A2901E95D0E5005B4E34 /* TransactionSegmentViewController.swift in Sources */,
 				D48C99B21E68C7FF00A17E71 /* ActionDelegate.swift in Sources */,
 				2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */,
 				D4FBBCED1E90818A00611F63 /* Constants.swift in Sources */,
