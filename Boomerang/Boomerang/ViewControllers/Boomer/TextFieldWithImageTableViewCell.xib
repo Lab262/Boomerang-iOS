@@ -17,18 +17,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="textFieldWithImageCell" rowHeight="234" id="BgI-Z2-zqW" customClass="TextFieldWithImageTableViewCell" customModule="Boomerang" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="234"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="textFieldWithImageCell" rowHeight="338" id="BgI-Z2-zqW" customClass="TextFieldWithImageTableViewCell" customModule="Boomerang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="338"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BgI-Z2-zqW" id="fnd-7T-0pb">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="337.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9U-0Y-f5d">
-                        <rect key="frame" x="16" y="51" width="343" height="165"/>
+                        <rect key="frame" x="16" y="51" width="343" height="269"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLi-yI-2d0" customClass="UIButtonWithPicker" customModule="Boomerang" customModuleProvider="target">
-                                <rect key="frame" x="303" y="126" width="22" height="22"/>
+                                <rect key="frame" x="303" y="230" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="22" id="2AD-4H-Rpd"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="6xT-LU-cGk"/>
@@ -38,14 +38,14 @@
                                 <state key="normal" image="ic_camera_black"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FyF-FH-7cq">
-                                <rect key="frame" x="0.0" y="109" width="343" height="1"/>
+                                <rect key="frame" x="0.0" y="213" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="CLa-Kl-7Fn"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add fotos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jn-Qj-yNb">
-                                <rect key="frame" x="214" y="127" width="86" height="21"/>
+                                <rect key="frame" x="214" y="231" width="86" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="MpV-Cf-Ph4"/>
                                 </constraints>
@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Maximo de 140 caracteres, tá bom, migo?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d5b-JJ-kM8">
-                                <rect key="frame" x="13" y="8" width="317" height="86"/>
+                                <rect key="frame" x="13" y="8" width="317" height="190"/>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -82,29 +82,30 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O que eu quero em troca ou emprestado?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAm-oz-fa4">
-                        <rect key="frame" x="13" y="10" width="348" height="19"/>
-                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
+                        <rect key="frame" x="13" y="8" width="348" height="35"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="N9U-0Y-f5d" firstAttribute="top" secondItem="fnd-7T-0pb" secondAttribute="topMargin" constant="43" id="3TM-I8-e0r"/>
+                    <constraint firstItem="d5b-JJ-kM8" firstAttribute="top" secondItem="SAm-oz-fa4" secondAttribute="bottom" constant="16" id="CB9-1E-43Q"/>
                     <constraint firstAttribute="trailingMargin" secondItem="N9U-0Y-f5d" secondAttribute="trailing" constant="8" id="GNp-go-WJR"/>
-                    <constraint firstItem="SAm-oz-fa4" firstAttribute="leading" secondItem="fnd-7T-0pb" secondAttribute="leadingMargin" constant="5" id="Ig7-RY-Wnz"/>
+                    <constraint firstItem="SAm-oz-fa4" firstAttribute="leading" secondItem="fnd-7T-0pb" secondAttribute="leadingMargin" constant="5" id="Irp-g8-rZ3"/>
                     <constraint firstAttribute="bottomMargin" secondItem="N9U-0Y-f5d" secondAttribute="bottom" constant="9" id="Jjf-Ln-kPk"/>
                     <constraint firstAttribute="trailingMargin" secondItem="N9U-0Y-f5d" secondAttribute="trailing" constant="8" id="LVY-TU-Lxo"/>
                     <constraint firstItem="N9U-0Y-f5d" firstAttribute="leading" secondItem="fnd-7T-0pb" secondAttribute="leadingMargin" constant="8" id="M9d-iD-urD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="SAm-oz-fa4" secondAttribute="trailing" constant="6" id="PZR-Z9-peQ"/>
                     <constraint firstItem="N9U-0Y-f5d" firstAttribute="leading" secondItem="fnd-7T-0pb" secondAttribute="leadingMargin" constant="8" id="Uno-lw-nKo"/>
-                    <constraint firstItem="N9U-0Y-f5d" firstAttribute="top" secondItem="SAm-oz-fa4" secondAttribute="bottom" constant="22" id="Yhi-2y-hh8"/>
-                    <constraint firstItem="SAm-oz-fa4" firstAttribute="trailing" secondItem="N9U-0Y-f5d" secondAttribute="trailing" constant="2" id="fg3-Zu-7nt"/>
                     <constraint firstAttribute="bottomMargin" secondItem="N9U-0Y-f5d" secondAttribute="bottom" constant="9" id="k5F-sV-wdj"/>
+                    <constraint firstAttribute="topMargin" secondItem="SAm-oz-fa4" secondAttribute="top" id="kyd-TN-M85"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="anexPhotoButton" destination="rLi-yI-2d0" id="YvO-Up-McG"/>
             </connections>
-            <point key="canvasLocation" x="90.5" y="-35"/>
+            <point key="canvasLocation" x="90.5" y="17"/>
         </tableViewCell>
     </objects>
     <resources>
