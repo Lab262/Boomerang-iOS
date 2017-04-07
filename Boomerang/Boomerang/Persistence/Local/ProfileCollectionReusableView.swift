@@ -82,7 +82,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
                     print ("unfollow error")
                 }
             })
-        } else {
+        } else if button.currentTitle == "Follow" {
             presenter.followUser(completionHandler: { (success, msg) in
                 if success {
                     self.button.setTitle("Unfollow", for: .normal)
@@ -208,6 +208,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             filterDonationButton.isSelected = true
             delegate?.updateCell()
         }
+        
     }
 }
 
