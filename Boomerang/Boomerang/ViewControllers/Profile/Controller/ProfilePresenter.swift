@@ -74,6 +74,29 @@ class ProfilePresenter: NSObject {
         }
     }
     
+    func followUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
+        
+        UserRequest.createFollow(currentUser: ApplicationState.sharedInstance.currentUser!, otherUser: self.user) { (success, msg) in
+            
+            if success {
+                completionHandler(true, "success")
+            } else {
+                completionHandler(false, msg)
+            }
+        }
+    }
+    
+    func unfollowUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
+        
+        UserRequest.unfollowUser(currentUser: ApplicationState.sharedInstance.currentUser!, otherUser: self.user) { (success, msg) in
+            if success {
+                completionHandler(true, msg)
+            } else {
+                completionHandler(false, msg)
+            }
+        }
+    }
+    
     func authorPostIsCurrent() -> Bool {
         
         if self.user.objectId == PFUser.current()?.objectId {

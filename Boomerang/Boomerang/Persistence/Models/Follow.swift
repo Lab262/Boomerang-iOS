@@ -14,10 +14,24 @@ class Follow: PFObject {
     var followers = [User]()
     @NSManaged var to: [User]
     
-    override init() {
+    override init(){
         super.init()
-       // self.to = [User]()
+    }
+    
+    convenience init(object: PFUser) {
+        self.init()
         
+        setInformationsUserByPFObject(object: object)
+    }
+    
+    
+    func setInformationsUserByPFObject(object: PFObject){
+        
+        self.objectId = object.objectId
+        
+        if let follow = object["to"] as? User {
+            to.append(follow)
+        }
     }
     
 }

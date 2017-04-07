@@ -73,9 +73,25 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     @IBAction func buttonAction(_ sender: Any) {
         if button.currentTitle == "Unfollow" {
-            print ("FOLLOW")
+            presenter.unfollowUser(completionHandler: { (success, msg) in
+                if success {
+                    self.button.setTitle("Follow", for: .normal)
+                    let currentCount = Int(self.followersLabel.text!)
+                    self.followersLabel.text = String(currentCount!-1)
+                } else {
+                    print ("unfollow error")
+                }
+            })
         } else {
-            print ("UNFOLLOW")
+            presenter.followUser(completionHandler: { (success, msg) in
+                if success {
+                    self.button.setTitle("Unfollow", for: .normal)
+                    let currentCount = Int(self.followersLabel.text!)
+                    self.followersLabel.text = String(currentCount!+1)
+                } else {
+                    print ("follow error")
+                }
+            })
         }
     }
     
@@ -108,6 +124,8 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             }
         }
     }
+    
+    
     
     func getAmountInformations(){
         

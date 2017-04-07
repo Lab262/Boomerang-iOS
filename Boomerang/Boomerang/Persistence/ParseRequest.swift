@@ -12,6 +12,33 @@ import Foundation
 
 class ParseRequest: NSObject {
     
+    
+    static func deleteObjectFor(className: String, queryParams: [String: Any], completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let query = PFQuery(className: className)
+        
+        for queryParam in queryParams {
+            query.whereKey(queryParam.key, equalTo: queryParam.value)
+        }
+    
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                PFObject.deleteAll(inBackground: objects, block: { (success, error) in
+                    
+                    if error == nil {
+                        completionHandler(true, "success")
+                    } else {
+                        completionHandler(false, error!.localizedDescription)
+                    }
+                    
+                })
+            } else {
+                completionHandler(false, error!.localizedDescription)
+            }
+        }
+    }
+    
+    
     static func queryCountEqualToValue(className: String, key: String, value: Any, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void) {
         
         let query = PFQuery(className: className)
