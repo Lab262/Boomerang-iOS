@@ -95,6 +95,10 @@ class ThingDetailViewController: UIViewController {
         if let controller = segue.destination as? InterestedListViewController {
             controller.presenter.setPost(post: presenter.getPost())
         }
+        
+        if let controller = segue.destination as? ProfileMainViewController {
+            controller.presenter.setPost(post: presenter.getPost())
+        }
     }
     
     
@@ -169,6 +173,17 @@ extension ThingDetailViewController: UITableViewDelegate {
             return textFieldHeight
         default:
             return UITableViewAutomaticDimension
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        switch indexPath.row {
+        case 1:
+            performSegue(withIdentifier: SegueIdentifiers.detailThingToProfile, sender: self)
+        default:
+            break
         }
     }
 }

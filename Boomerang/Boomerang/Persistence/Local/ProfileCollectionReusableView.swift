@@ -14,6 +14,8 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         return "ProfileHeaderView"
     }
     
+    var alreadyUpdateCell = false
+    
     @IBOutlet weak var button: UIButton!
     
     
@@ -79,28 +81,31 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     
     func updateCell(){
-        self.nameLabel.text = presenter.getUser().fullName
-        
-        if presenter.getUser().profileImage == nil {
-            profileImage.loadAnimation()
-        }
-        presenter.getUserImage { (success, msg, image) in
-            if success {
-                self.profileImage.image = image
-                self.profileImage.unload()
-            } else {
-                print ("ERROR DOWNLOAD IMAGE")
+        if !alreadyUpdateCell {
+            alreadyUpdateCell = true
+            self.nameLabel.text = presenter.getUser().fullName
+            
+            if presenter.getUser().profileImage == nil {
+                profileImage.loadAnimation()
             }
-        }
-        
-        getAmountInformations()
-        
-        configureButtonAction()
-        
-        if presenter.authorPostIsCurrent() {
-            button.setTitle("Editar", for: .normal)
-        } else {
-            button.setTitle("Seguir", for: .normal)
+            presenter.getUserImage { (success, msg, image) in
+                if success {
+                    self.profileImage.image = image
+                    self.profileImage.unload()
+                } else {
+                    print ("ERROR DOWNLOAD IMAGE")
+                }
+            }
+            
+            getAmountInformations()
+            
+            configureButtonAction()
+            
+            if presenter.authorPostIsCurrent() {
+                button.setTitle("Editar", for: .normal)
+            } else {
+                button.setTitle("Seguir", for: .normal)
+            }
         }
     }
     

@@ -25,7 +25,7 @@
         <!--Profile Main View Controller-->
         <scene sceneID="F3m-gM-Aof">
             <objects>
-                <viewController storyboardIdentifier="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Fz-mB-rWv" customClass="ProfileMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Fz-mB-rWv" customClass="ProfileMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="flV-Ni-cSO"/>
                         <viewControllerLayoutGuide type="bottom" id="axi-yD-Qgh"/>
