@@ -17,6 +17,7 @@ class User: PFUser {
     var fullName: String?
     var profileImage: UIImage?
     var alreadySearched = false
+    var follow: Follow?
 
     convenience init(user: PFUser) {
         self.init()

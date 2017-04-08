@@ -15,6 +15,18 @@ class Interested: PFObject {
     @NSManaged var post: Post?
     @NSManaged var currentMessage: String?
     
+    
+    override init(){
+        super.init()
+    }
+    
+     init(user: User?, post: Post?, currentMessage: String?) {
+        super.init()
+        self.user = user
+        self.post = post
+        self.currentMessage = currentMessage
+    }
+    
     convenience init(object: PFObject) {
         self.init()
         

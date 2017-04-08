@@ -14,8 +14,10 @@ class CommentRequest: NSObject {
     static func fetchCommentsBy(post: Post, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Comment]?) -> Void) {
         
         var comments: [Comment] = [Comment]()
+        var queryParams = [String : Any]()
+        queryParams["post"] = post
         
-        ParseRequest.queryEqualToValue(className: "Comment", key: "post", value: post, include: "author", pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Comment", queryParams: queryParams, include: "author", pagination: pagination, skip: skip) { (success, msg, objects) in
         
              if success {
                  for object in objects! {

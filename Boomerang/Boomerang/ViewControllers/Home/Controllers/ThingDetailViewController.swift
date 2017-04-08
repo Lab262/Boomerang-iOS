@@ -65,12 +65,33 @@ class ThingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        secondButton.isHidden = !presenter.authorPostIsCurrent()
-        
         presenter.setControllerDelegate(controller: self)
         registerNibs()
+        configureButtons()
         configureTableView()
         setNavigationInformations()
+    }
+    
+    func configureButtons(){
+        if !presenter.authorPostIsCurrent() {
+            secondButton.isHidden = false
+            presenter.alreadyInterested(completionHandler: { (success, msg, alreadyInterested) in
+                if success {
+                    if alreadyInterested! {
+                        self.firstButton.setTitle("Sair da fila", for: .normal)
+                    } else {
+                        self.firstButton.setTitle("Entrar na fila", for: .normal)
+                    }
+                } else {
+                    print ("already interested error")
+                }
+            })
+            secondButton.setTitle("Recomendar", for: .normal)
+        } else {
+            secondButton.isHidden = true
+            firstButton.setTitle("Lista de Interessados", for: .normal)
+        }
+        
     }
     
     func setNavigationInformations(){
@@ -80,12 +101,41 @@ class ThingDetailViewController: UIViewController {
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
-        self.performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
+        if presenter.authorPostIsCurrent() {
+            performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
+        } else {
+            if self.firstButton.currentTitle == "Entrar na fila" {
+                presenter.enterInterestedList(completionHandler: { (success, msg) in
+                    if success {
+                        self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
+                        self.firstButton.setTitle("Sair da fila", for: .normal)
+                    } else {
+                        self.present(ViewUtil.alertControllerWithTitle(_title: "Error", _withMessage: msg), animated: true, completion: nil)
+                    }
+                })
+            } else {
+                presenter.exitInterestedList(completionHandler: { (success, msg) in
+                    if success {
+                        self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
+                        self.firstButton.setTitle("Entrar na fila", for: .normal)
+                    } else {
+                        self.present(ViewUtil.alertControllerWithTitle(_title: "Error!", _withMessage: msg), animated: true, completion: nil)
+                    }
+                })
+            }
+        }
+        
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let controller = segue.destination as? InterestedListViewController {
+            controller.presenter.setPost(post: presenter.getPost())
+        }
+        
+        if let controller = segue.destination as? ProfileMainViewController {
             controller.presenter.setPost(post: presenter.getPost())
         }
     }
@@ -164,6 +214,17 @@ extension ThingDetailViewController: UITableViewDelegate {
             return UITableViewAutomaticDimension
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        switch indexPath.row {
+        case 1:
+            performSegue(withIdentifier: SegueIdentifiers.detailThingToProfile, sender: self)
+        default:
+            break
+        }
+    }
 }
  extension ThingDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -222,7 +283,6 @@ extension ThingDetailViewController: UIScrollViewDelegate {
     }
     
     func updateInformationsCell(_ yOffset: CGFloat) {
-        
         let informationAlphaThreshold: CGFloat = 20.0
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         

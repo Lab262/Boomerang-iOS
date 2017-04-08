@@ -17,11 +17,8 @@ class UserRequest: NSObject {
         
         pfUser.password = pass
         pfUser.email = user.email
-        pfUser["emailVerified"] = false
-        
         
         pfUser.signUpInBackground { (success, error) in
-            
             if error == nil {
                 completionHandler(true, "Sucesso")
             } else {
@@ -56,8 +53,39 @@ class UserRequest: NSObject {
     }
     
     
-    static func getUserCountOf(key: String, className: String, user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+    static func unfollowUser(currentUser:User, otherUser: User, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
+        var queryParams = [String : Any]()
+        queryParams["from"] = currentUser
+        queryParams["to"] = otherUser
+        
+        ParseRequest.deleteObjectFor(className: "Follow", queryParams: queryParams) { (success, msg) in
+            if success {
+                completionHandler(true, "success")
+            } else {
+                completionHandler(false, msg)
+            }
+        }
+    }
+    
+    static func createFollow(currentUser: User, otherUser: User,  completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let follow = PFObject(className: "Follow")
+        
+        follow["from"] = ["__type": "Pointer", "className": "_User", "objectId": currentUser.objectId]
+        follow["to"] = ["__type": "Pointer", "className": "_User", "objectId": otherUser.objectId]
+        
+        follow.saveInBackground { (success, error) in
+            if error == nil {
+                completionHandler(true, "success")
+            } else {
+                completionHandler(false, error!.localizedDescription)
+            }
+        }
+    }
+    
+    
+    static func getUserCountOf(key: String, className: String, user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         ParseRequest.queryCountEqualToValue(className: className, key: key, value: user) { (success, msg, count) in
             if success {
                 completionHandler(true, msg, count)
@@ -66,12 +94,33 @@ class UserRequest: NSObject {
             }
         }
     }
+    
+    static func verifyAlreadyFollowingFor(currentUser: User, otherUser: User, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool) -> ()) {
+        
+        var queryParams = [String : Any]()
+        queryParams["from"] = currentUser
+        queryParams["to"] = otherUser
+        
+        ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, include: nil) { (success, msg, objects) in
+            if success {
+                if objects!.count > 0 {
+                    completionHandler(true, "Success", true)
+                } else {
+                    completionHandler(true, msg, false)
+                }
+            }
+        }
+    }
+    
 
     static func fetchFollowing(pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [User]?) -> Void) {
         
         var following: [User] = [User]()
         
-        ParseRequest.queryEqualToValue(className: "Follow", key: "from", value: PFUser.current()!, include: "to", pagination: pagination, skip: skip) { (success, msg, objects) in
+        var queryParams = [String : Any]()
+        queryParams["from"] = PFUser.current()!
+        
+        ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, include: "to", pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {
                 for object in objects! {

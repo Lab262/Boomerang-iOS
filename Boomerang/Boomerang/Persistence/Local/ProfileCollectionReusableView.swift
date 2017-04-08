@@ -14,6 +14,11 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         return "ProfileHeaderView"
     }
     
+    var alreadyUpdateCell = false
+    
+    @IBOutlet weak var button: UIButton!
+    
+    
     @IBOutlet weak var filterAllButton: UIButton!
     @IBOutlet weak var filterHaveButton: UIButton!
     @IBOutlet weak var filterNeedButton: UIButton!
@@ -28,27 +33,98 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var boomerAmountLabel: UILabel!
     
+    var inputConfigurationButtons = [(deselectedImage: #imageLiteral(resourceName: "inventory_all_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_all_icon_selected")), (deselectedImage: #imageLiteral(resourceName: "inventory_need_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_need_icon_selected")), (deselectedImage: #imageLiteral(resourceName: "inventory_have_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_have_icon_selected")), (deselectedImage: #imageLiteral(resourceName: "inventory_donation_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_donation_icon_selected"))]
+    
     
     var presenter: ProfilePresenter!
     var delegate: UpdateCellDelegate?
     
-    func updateCell(){
-        self.nameLabel.text = presenter.getUser().fullName
-        
-        if presenter.getUser().profileImage == nil {
-            profileImage.loadAnimation()
+    override func awakeFromNib() {
+        button.layer.cornerRadius = 20
+        configureButtons()
+    }
+    
+    func configureButtonAction() {
+        if presenter.authorPostIsCurrent() {
+            button.setTitle("Editar", for: .normal)
+        } else {
+            presenter.alreadyFollowing(completionHandler: { (success, msg, alreadyFollowing) in
+                if success {
+                    if alreadyFollowing! {
+                        self.button.setTitle("Unfollow", for: .normal)
+                    } else {
+                        self.button.setTitle("Follow", for: .normal)
+                    }
+                    
+                }
+            })
         }
-        presenter.getUserImage { (success, msg, image) in
-            if success {
-                self.profileImage.image = image
-                self.profileImage.unload()
+    }
+    
+    func configureButtons(){
+        let buttons = [filterAllButton, filterNeedButton, filterHaveButton, filterDonationButton]
+        for (i, button) in buttons.enumerated() {
+            button?.setImage(inputConfigurationButtons[i].deselectedImage, for: .normal)
+            button?.setImage(inputConfigurationButtons[i].selectedImage, for: .selected)
+        }
+        
+        buttons[0]?.isSelected = true
+    }
+    
+    @IBAction func buttonAction(_ sender: Any) {
+        if button.currentTitle == "Unfollow" {
+            presenter.unfollowUser(completionHandler: { (success, msg) in
+                if success {
+                    self.button.setTitle("Follow", for: .normal)
+                    let currentCount = Int(self.followersLabel.text!)
+                    self.followersLabel.text = String(currentCount!-1)
+                } else {
+                    print ("unfollow error")
+                }
+            })
+        } else if button.currentTitle == "Follow" {
+            presenter.followUser(completionHandler: { (success, msg) in
+                if success {
+                    self.button.setTitle("Unfollow", for: .normal)
+                    let currentCount = Int(self.followersLabel.text!)
+                    self.followersLabel.text = String(currentCount!+1)
+                } else {
+                    print ("follow error")
+                }
+            })
+        }
+    }
+    
+    
+    func updateCell(){
+        if !alreadyUpdateCell {
+            alreadyUpdateCell = true
+            self.nameLabel.text = presenter.getUser().fullName
+            
+            if presenter.getUser().profileImage == nil {
+                profileImage.loadAnimation()
+            }
+            presenter.getUserImage { (success, msg, image) in
+                if success {
+                    self.profileImage.image = image
+                    self.profileImage.unload()
+                } else {
+                    print ("ERROR DOWNLOAD IMAGE")
+                }
+            }
+            
+            getAmountInformations()
+            configureButtonAction()
+            
+            if presenter.authorPostIsCurrent() {
+                button.setTitle("Editar", for: .normal)
             } else {
-                print ("ERROR DOWNLOAD IMAGE")
+                button.setTitle("Seguir", for: .normal)
             }
         }
-        
-        getAmountInformations()
     }
+    
+    
     
     func getAmountInformations(){
         
@@ -91,6 +167,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBAction func filterForAllPosts(_ sender: Any) {
         if presenter.getCurrentPostType() != nil {
             presenter.setCurrentPostType(postType: nil)
+            filterAllButton.isSelected = true
+            filterNeedButton.isSelected = false
+            filterHaveButton.isSelected = false
+            filterDonationButton.isSelected = false
             delegate?.updateCell()
         }
     }
@@ -99,6 +179,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBAction func filterForNeedPosts(_ sender: Any) {
         if presenter.getCurrentPostType() != .need {
             presenter.setCurrentPostType(postType: .need)
+            filterAllButton.isSelected = false
+            filterNeedButton.isSelected = true
+            filterHaveButton.isSelected = false
+            filterDonationButton.isSelected = false
             delegate?.updateCell()
         }
     }
@@ -106,6 +190,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBAction func filterForHavePosts(_ sender: Any) {
         if presenter.getCurrentPostType() != .have {
             presenter.setCurrentPostType(postType: .have)
+            filterAllButton.isSelected = false
+            filterNeedButton.isSelected = false
+            filterHaveButton.isSelected = true
+            filterDonationButton.isSelected = false
             delegate?.updateCell()
         }
     }
@@ -113,8 +201,13 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBAction func filterForDonationPosts(_ sender: Any) {
         if presenter.getCurrentPostType() != .donate {
             presenter.setCurrentPostType(postType: .donate)
+            filterAllButton.isSelected = false
+            filterNeedButton.isSelected = false
+            filterHaveButton.isSelected = false
+            filterDonationButton.isSelected = true
             delegate?.updateCell()
         }
+        
     }
 }
 

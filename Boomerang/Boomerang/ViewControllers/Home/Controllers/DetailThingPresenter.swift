@@ -16,6 +16,7 @@ class DetailThingPresenter: NSObject {
     fileprivate var skip = 0
     fileprivate var comments = [Comment]()
     fileprivate var currentCommentsCount = 0
+    fileprivate var user = ApplicationState.sharedInstance.currentUser
     
     var controller: ViewDelegate?
     
@@ -25,7 +26,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func authorPostIsCurrent() -> Bool {
-        if getPost().author == PFUser.current() {
+        if getPost().author?.objectId == PFUser.current()?.objectId {
             return true
         } else {
             return false
@@ -34,7 +35,6 @@ class DetailThingPresenter: NSObject {
     
     func updateComments() {
         self.skip = self.comments.endIndex
-
         CommentRequest.fetchCommentsBy(post: self.post!, pagination: pagination, skip: self.skip) { (success, msg, comments) in
             if success {
                 for comment in comments! {
@@ -86,14 +86,30 @@ class DetailThingPresenter: NSObject {
                 self.controller?.showMessageError(msg: msg)
             }
         }
-//        CommentRequest.saveComment(comment: comment) { (success, msg) in
-//            if success {
-//                self.skip = self.comments.endIndex
-//                self.updateComments()
-//            } else {
-//                self.controller?.showMessageError(msg: msg)
-//            }
-//        }
+    }
+    
+    func enterInterestedList(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+       PostRequest.enterInterestedListOf(user: user!, post: self.post!, msg: "Estou interessado, tenho alegria pra trocar") { (success, msg) in
+    
+            completionHandler(success, msg)
+        }
+    }
+    
+    
+    
+    func exitInterestedList (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
+        
+        PostRequest.exitInterestedListOf(user: user!, post: post!) { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    func alreadyInterested(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool?) -> ()){
+        
+        PostRequest.verifyAlreadyInterestedFor(currentUser: user!, post: post!) { (success, msg, alreadyInterested) in
+            completionHandler(success, msg, alreadyInterested)
+        }
     }
     
     func createComment(text: String) {
@@ -164,7 +180,7 @@ class DetailThingPresenter: NSObject {
         }
     }
     
-    func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
+    func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> ()){
         
         guard let image = getPost().author?.profileImage else {
             getPost().author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in

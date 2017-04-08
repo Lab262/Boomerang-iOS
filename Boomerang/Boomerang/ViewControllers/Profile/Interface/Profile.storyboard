@@ -25,7 +25,7 @@
         <!--Profile Main View Controller-->
         <scene sceneID="F3m-gM-Aof">
             <objects>
-                <viewController storyboardIdentifier="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Fz-mB-rWv" customClass="ProfileMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Fz-mB-rWv" customClass="ProfileMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="flV-Ni-cSO"/>
                         <viewControllerLayoutGuide type="bottom" id="axi-yD-Qgh"/>
@@ -204,13 +204,31 @@
                                                     <color key="textColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iP-sz-pv1">
-                                                    <rect key="frame" x="19" y="188" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iP-sz-pv1">
+                                                    <rect key="frame" x="19" y="178" width="104" height="40"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="104" id="C1T-p8-6oH"/>
+                                                        <constraint firstAttribute="height" constant="40" id="bhq-fI-b0X"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                                     <state key="normal" title="Editar">
                                                         <color key="titleColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                            <real key="value" value="0.20000000000000001"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                            <size key="value" width="0.0" height="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="buttonAction:" destination="iwe-rX-zr5" eventType="touchUpInside" id="nKS-uC-2Dr"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -223,6 +241,8 @@
                                                 <constraint firstItem="ldz-Jo-J95" firstAttribute="top" secondItem="eM7-CP-yPq" secondAttribute="bottom" constant="17" id="RF7-CQ-Ll3"/>
                                                 <constraint firstAttribute="trailing" secondItem="Q9O-Qv-ey8" secondAttribute="trailing" constant="19" id="U3n-ah-S9M"/>
                                                 <constraint firstItem="6fo-uJ-fyM" firstAttribute="top" secondItem="lZD-VT-nXX" secondAttribute="top" constant="8" id="Y3A-92-bgA"/>
+                                                <constraint firstAttribute="bottom" secondItem="8iP-sz-pv1" secondAttribute="bottom" constant="110" id="iXB-1a-QKo"/>
+                                                <constraint firstItem="8iP-sz-pv1" firstAttribute="leading" secondItem="lZD-VT-nXX" secondAttribute="leading" constant="19" id="l6J-JN-53I"/>
                                                 <constraint firstItem="Q9O-Qv-ey8" firstAttribute="leading" secondItem="lZD-VT-nXX" secondAttribute="leading" constant="19" id="r4x-1I-mlJ"/>
                                                 <constraint firstItem="eM7-CP-yPq" firstAttribute="top" secondItem="lZD-VT-nXX" secondAttribute="top" constant="-41" id="ytk-Du-feB"/>
                                                 <constraint firstAttribute="trailing" secondItem="6fo-uJ-fyM" secondAttribute="trailing" constant="20" id="zXO-Cf-Kfj"/>
@@ -233,28 +253,28 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qb0-pq-TnZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="94" height="50"/>
-                                                    <state key="normal" image="inventory_all_icon"/>
+                                                    <state key="normal" image="inventory_all_icon_selected"/>
                                                     <connections>
                                                         <action selector="filterForAllPosts:" destination="iwe-rX-zr5" eventType="touchUpInside" id="oPq-UP-bxO"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pd4-OJ-a5N">
                                                     <rect key="frame" x="94" y="0.0" width="94" height="50"/>
-                                                    <state key="normal" image="inventory_need_icon"/>
+                                                    <state key="normal" image="inventory_need_icon_unselected"/>
                                                     <connections>
                                                         <action selector="filterForNeedPosts:" destination="iwe-rX-zr5" eventType="touchUpInside" id="cuY-sn-uIR"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBk-Ss-2Af">
                                                     <rect key="frame" x="188" y="0.0" width="94" height="50"/>
-                                                    <state key="normal" image="inventory_have_icon"/>
+                                                    <state key="normal" image="inventory_have_icon_unselected"/>
                                                     <connections>
                                                         <action selector="filterForHavePosts:" destination="iwe-rX-zr5" eventType="touchUpInside" id="bFK-aw-bdm"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfF-N9-seD">
                                                     <rect key="frame" x="281" y="0.0" width="94" height="50"/>
-                                                    <state key="normal" image="inventory_donation_icon"/>
+                                                    <state key="normal" image="inventory_donation_icon_unselected"/>
                                                     <connections>
                                                         <action selector="filterForDonationPosts:" destination="iwe-rX-zr5" eventType="touchUpInside" id="Fbo-0F-m9L"/>
                                                     </connections>
@@ -318,12 +338,13 @@
                                     </constraints>
                                     <connections>
                                         <outlet property="boomerAmountLabel" destination="t4a-Fg-1cD" id="wdT-6G-f0D"/>
+                                        <outlet property="button" destination="8iP-sz-pv1" id="wjd-Eg-NbQ"/>
                                         <outlet property="cityAndUFLabel" destination="YaF-BZ-8Hf" id="Mtz-Th-AwH"/>
                                         <outlet property="descriptionLabel" destination="Q9O-Qv-ey8" id="rgA-oW-MvT"/>
                                         <outlet property="filterAllButton" destination="Qb0-pq-TnZ" id="7Sz-vB-jDs"/>
                                         <outlet property="filterDonationButton" destination="cfF-N9-seD" id="7dg-gn-k0U"/>
-                                        <outlet property="filterHaveButton" destination="Pd4-OJ-a5N" id="hjU-6D-yvO"/>
-                                        <outlet property="filterNeedButton" destination="QBk-Ss-2Af" id="0IA-jo-IwN"/>
+                                        <outlet property="filterHaveButton" destination="QBk-Ss-2Af" id="sby-w5-5UZ"/>
+                                        <outlet property="filterNeedButton" destination="Pd4-OJ-a5N" id="aB9-nG-n0U"/>
                                         <outlet property="followersLabel" destination="Ba1-Ob-SNs" id="YBM-ED-RdS"/>
                                         <outlet property="followingLabel" destination="zcl-k0-QsP" id="44I-Q8-ofI"/>
                                         <outlet property="nameLabel" destination="CSD-eb-DMq" id="jKq-u2-0rX"/>
@@ -392,10 +413,10 @@
     <resources>
         <image name="background_dummy" width="375" height="153"/>
         <image name="foto_dummy" width="224" height="125"/>
-        <image name="inventory_all_icon" width="32" height="14"/>
-        <image name="inventory_donation_icon" width="27" height="27"/>
-        <image name="inventory_have_icon" width="21" height="32"/>
-        <image name="inventory_need_icon" width="20" height="27"/>
+        <image name="inventory_all_icon_selected" width="32" height="14"/>
+        <image name="inventory_donation_icon_unselected" width="27" height="27"/>
+        <image name="inventory_have_icon_unselected" width="21" height="32"/>
+        <image name="inventory_need_icon_unselected" width="20" height="27"/>
         <image name="perfil_dummy" width="371" height="372"/>
         <image name="selected-star-button" width="15" height="14"/>
         <image name="verified_icon" width="14" height="14"/>

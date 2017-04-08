@@ -19,7 +19,11 @@ class ProfilePresenter: NSObject {
     fileprivate var havePosts: [Post] = [Post]()
     fileprivate var donatePosts: [Post] = [Post]()
     fileprivate var currentPostType: PostType? = nil
-    fileprivate var post: Post = Post()
+    fileprivate var post: Post = Post() {
+        didSet{
+            user = post.author!
+        }
+    }
     fileprivate var currentPostsCount = 0
     fileprivate var controller: ViewDelegate?
     
@@ -70,6 +74,38 @@ class ProfilePresenter: NSObject {
         }
     }
     
+    func followUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
+        
+        UserRequest.createFollow(currentUser: ApplicationState.sharedInstance.currentUser!, otherUser: self.user) { (success, msg) in
+            
+            if success {
+                completionHandler(true, "success")
+            } else {
+                completionHandler(false, msg)
+            }
+        }
+    }
+    
+    func unfollowUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
+        
+        UserRequest.unfollowUser(currentUser: ApplicationState.sharedInstance.currentUser!, otherUser: self.user) { (success, msg) in
+            if success {
+                completionHandler(true, msg)
+            } else {
+                completionHandler(false, msg)
+            }
+        }
+    }
+    
+    func authorPostIsCurrent() -> Bool {
+        
+        if self.user.objectId == PFUser.current()?.objectId {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func getPostsForCurrentFilter() -> [Post] {
         return getPostsBy(postType: currentPostType)
     }
@@ -91,6 +127,18 @@ class ProfilePresenter: NSObject {
         getPostsOfUser()
     }
     
+    func alreadyFollowing(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool?) -> ()){
+        
+        UserRequest.verifyAlreadyFollowingFor(currentUser: (PFUser.current()! as? User)!, otherUser: user) { (success, msg, alreadyFollow) in
+            
+            if success {
+                completionHandler(true, msg, alreadyFollow)
+            } else {
+                completionHandler(false, msg, alreadyFollow)
+            }
+        }
+    }
+    
     func getUserCountOf(key: String, className: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void){
         UserRequest.getUserCountOf(key: key, className: className, user: self.user) { (success, msg, count) in
             if success {
@@ -102,6 +150,7 @@ class ProfilePresenter: NSObject {
     }
     
     func getPostsOfUser(){
+        
         PostRequest.getPostsFor(user: getUser(), pagination: pagination, skip: skip) { (success, msg, posts) in
             if success {
                 for post in posts! {

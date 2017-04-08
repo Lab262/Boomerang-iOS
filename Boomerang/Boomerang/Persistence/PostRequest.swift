@@ -30,6 +30,23 @@ class PostRequest: NSObject {
         }
     }
     
+    static func verifyAlreadyInterestedFor(currentUser: User, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool) -> ()) {
+        
+        var queryParams = [String : Any]()
+        queryParams["user"] = currentUser
+        queryParams["post"] = post
+        
+        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, include: nil) { (success, msg, objects) in
+            if success {
+                if objects!.count > 0 {
+                    completionHandler(true, "Success", true)
+                } else {
+                    completionHandler(true, msg, false)
+                }
+            }
+        }
+    }
+    
     static func getFollowingPostsCount(following: [User], completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         
         ParseRequest.queryCountContainedIn(className: "Post", key: "author", value: following) { (success, msg, count) in
@@ -45,8 +62,10 @@ class PostRequest: NSObject {
     static func getPostsFor(user: User, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
+        var queryParams = [String : Any]()
+        queryParams["author"] = user
         
-        ParseRequest.queryEqualToValue(className: "Post", key: "author", value: user, include: nil, selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Post", queryParams: queryParams, include: nil) { (success, msg, objects) in
             
             if success {
                 for obj in objects! {
@@ -84,7 +103,6 @@ class PostRequest: NSObject {
                 if post.relations == nil {
                     post.relations = [Photo]()
                 }
-                
                 for object in objects! {
                     let relation = Photo(object: object)
                     post.relations?.append(relation)
@@ -96,26 +114,55 @@ class PostRequest: NSObject {
         }
     }
     
-    
-    
     static func fetchInterestedOf(post: Post, selectKeys: [String]?, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Interested]?) -> Void) {
         
         var interesteds: [Interested] = [Interested]()
+        var queryParams = [String : Any]()
+        queryParams["post"] = post
         
-        ParseRequest.queryEqualToValue(className: "Interested", key: "post", value: post, include: "user", selectKeys: selectKeys, pagination: pagination, skip: skip) { (success, msg, objects) in
-            
+        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, include: "user") { (success, msg, objects) in
             if success {
                 for object in objects! {
                     let interested = Interested(object: object)
                     interested.post = post
                     interesteds.append(interested)
                 }
-                
                 completionHandler(true, msg, interesteds)
-                
             } else {
                 completionHandler(false, msg, nil)
             }
         }
     }
+    
+    static func enterInterestedListOf(user: User, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let interested = PFObject(className: "Interested")
+        interested["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
+        interested["user"] = ["__type": "Pointer", "className": "_User", "objectId": user.objectId]
+        interested["currentMessage"] = msg
+        
+        interested.saveInBackground { (success, error) in
+            if error == nil {
+                completionHandler(success, "success")
+            } else {
+                completionHandler(success, error!.localizedDescription)
+            }
+        }
+    }
+    
+    static func exitInterestedListOf(user: User, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        var queryParams = [String : Any]()
+        queryParams["user"] = user
+        queryParams["post"] = post
+        
+        ParseRequest.deleteObjectFor(className: "Interested", queryParams: queryParams) { (success, msg) in
+            if success {
+                completionHandler(true, "success")
+            } else {
+                completionHandler(false, msg)
+            }
+        }
+    }
+    
 }
