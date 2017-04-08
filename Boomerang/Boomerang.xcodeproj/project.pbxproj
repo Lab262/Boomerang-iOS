@@ -18,6 +18,8 @@
 		2F2F07991E688DF400C61A6D /* DescriptionTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */; };
 		2F2F079C1E6891A800C61A6D /* ThrowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */; };
 		2F2F079D1E6891A800C61A6D /* ThrowButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */; };
+		2F3C79CE1E995B930013F4F9 /* HighlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C79CC1E995B920013F4F9 /* HighlightCollectionViewCell.swift */; };
+		2F3C79CF1E995B930013F4F9 /* HighlightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3C79CD1E995B920013F4F9 /* HighlightCollectionViewCell.xib */; };
 		2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */; };
 		2F79676D1E8357F700476D2D /* TypePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */; };
 		2F7967701E83871700476D2D /* WithdrawalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */; };
@@ -201,6 +203,8 @@
 		2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTextTableViewCell.xib; path = ../DescriptionTextTableViewCell.xib; sourceTree = "<group>"; };
 		2F2F079A1E6891A700C61A6D /* ThrowButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		2F2F079B1E6891A800C61A6D /* ThrowButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThrowButtonTableViewCell.xib; path = ../ThrowButtonTableViewCell.xib; sourceTree = "<group>"; };
+		2F3C79CC1E995B920013F4F9 /* HighlightCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F3C79CD1E995B920013F4F9 /* HighlightCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HighlightCollectionViewCell.xib; path = ../HighlightCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePostTableViewCell.swift; sourceTree = "<group>"; };
 		2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TypePostTableViewCell.xib; path = ../TypePostTableViewCell.xib; sourceTree = "<group>"; };
 		2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WithdrawalTableViewCell.swift; path = Interface/WithdrawalTableViewCell.swift; sourceTree = "<group>"; };
@@ -414,6 +418,7 @@
 				2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */,
 				2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */,
 				2F7967781E86FA7E00476D2D /* HeaderPostTableViewCell.swift */,
+				2F3C79CC1E995B920013F4F9 /* HighlightCollectionViewCell.swift */,
 				2FC9E0691E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift */,
 				2FC9E0541E8CA02200A048A4 /* WantBorrowTableViewCell.swift */,
 				2FC9E06F1E8EFBEB00A048A4 /* TextFieldWithImageTableViewCell.swift */,
@@ -652,6 +657,7 @@
 		A4E462E91DCAEA7F00A611C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2F3C79CD1E995B920013F4F9 /* HighlightCollectionViewCell.xib */,
 				2FC9E06D1E8EFBCA00A048A4 /* TextFieldWithImageTableViewCell.xib */,
 				2FC9E0551E8CA02200A048A4 /* WantBorrowTableViewCell.xib */,
 				2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */,
@@ -1098,7 +1104,7 @@
 				TargetAttributes = {
 					A4F89B251DA809B100949A35 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = R6AP92RETV;
+						DevelopmentTeam = V927RLF8V5;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -1167,6 +1173,7 @@
 				A4E462FD1DCAEAF800A611C0 /* Home.storyboard in Resources */,
 				A44E0C6C1DD092650028F06C /* Montserrat-Regular.otf in Resources */,
 				D48735081E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib in Resources */,
+				2F3C79CF1E995B930013F4F9 /* HighlightCollectionViewCell.xib in Resources */,
 				D436BF2E1E95B50E00BC7F00 /* TransactionTableViewCell.xib in Resources */,
 				2F79677B1E86FA7E00476D2D /* HeaderPostTableViewCell.xib in Resources */,
 				A4E462F21DCAEA7F00A611C0 /* Main.storyboard in Resources */,
@@ -1388,6 +1395,7 @@
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
 				D4FBBCE51E90706400611F63 /* InterestedTableViewCell.swift in Sources */,
+				2F3C79CE1E995B930013F4F9 /* HighlightCollectionViewCell.swift in Sources */,
 				D4A012F51E7AC83900B3B811 /* PostCollectionViewCell.swift in Sources */,
 				2F2F07981E688DF400C61A6D /* DescriptionTextTableViewCell.swift in Sources */,
 				D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */,
@@ -1579,8 +1587,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R6AP92RETV;
+				DEVELOPMENT_TEAM = V927RLF8V5;
 				INFOPLIST_FILE = Boomerang/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1600,8 +1609,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R6AP92RETV;
+				DEVELOPMENT_TEAM = V927RLF8V5;
 				INFOPLIST_FILE = Boomerang/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lab262.Boomerang;
 				PRODUCT_NAME = "$(TARGET_NAME)";

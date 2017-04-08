@@ -11,6 +11,7 @@ import UIKit
 class HeaderPostTableViewCell: UITableViewCell {
     static var cellIdentifier = "HeaderPostCell"
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
