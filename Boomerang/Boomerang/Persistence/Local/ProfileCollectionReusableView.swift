@@ -114,7 +114,6 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             }
             
             getAmountInformations()
-            
             configureButtonAction()
             
             if presenter.authorPostIsCurrent() {

@@ -97,8 +97,6 @@ class PostRequest: NSObject {
         }
     }
     
-    
-    
     static func fetchInterestedOf(post: Post, selectKeys: [String]?, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Interested]?) -> Void) {
         
         var interesteds: [Interested] = [Interested]()
@@ -115,6 +113,22 @@ class PostRequest: NSObject {
                 completionHandler(true, msg, interesteds)
             } else {
                 completionHandler(false, msg, nil)
+            }
+        }
+    }
+    
+    static func enterInterestedListOf(user: User, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let interested = PFObject(className: "Interested")
+        interested["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
+        interested["user"] = ["__type": "Pointer", "className": "_User", "objectId": user.objectId]
+        interested["currentMessage"] = msg
+        
+        interested.saveInBackground { (success, error) in
+            if error == nil {
+                completionHandler(success, "success")
+            } else {
+                completionHandler(success, error!.localizedDescription)
             }
         }
     }

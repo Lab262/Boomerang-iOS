@@ -35,7 +35,6 @@ class DetailThingPresenter: NSObject {
     
     func updateComments() {
         self.skip = self.comments.endIndex
-
         CommentRequest.fetchCommentsBy(post: self.post!, pagination: pagination, skip: self.skip) { (success, msg, comments) in
             if success {
                 for comment in comments! {
@@ -86,6 +85,14 @@ class DetailThingPresenter: NSObject {
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
+        }
+    }
+    
+    func enterInterestedList(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+       PostRequest.enterInterestedListOf(user: user!, post: self.post!, msg: "Estou interessado, tenho alegria pra trocar") { (success, msg) in
+    
+            completionHandler(success, msg)
         }
     }
     
@@ -157,7 +164,7 @@ class DetailThingPresenter: NSObject {
         }
     }
     
-    func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
+    func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> ()){
         
         guard let image = getPost().author?.profileImage else {
             getPost().author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in

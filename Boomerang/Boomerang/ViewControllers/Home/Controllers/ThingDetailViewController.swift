@@ -87,8 +87,21 @@ class ThingDetailViewController: UIViewController {
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
-        self.performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
+        if presenter.authorPostIsCurrent() {
+            performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
+        } else {
+            presenter.enterInterestedList(completionHandler: { (success, msg) in
+                if success {
+                    self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
+                } else {
+                    self.present(ViewUtil.alertControllerWithTitle(_title: "Error", _withMessage: msg), animated: true, completion: nil)
+                }
+            })
+        }
+        
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -244,7 +257,6 @@ extension ThingDetailViewController: UIScrollViewDelegate {
     }
     
     func updateInformationsCell(_ yOffset: CGFloat) {
-        
         let informationAlphaThreshold: CGFloat = 20.0
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         
