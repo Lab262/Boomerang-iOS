@@ -65,19 +65,33 @@ class ThingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter.setControllerDelegate(controller: self)
+        registerNibs()
+        configureButtons()
+        configureTableView()
+        setNavigationInformations()
+    }
+    
+    func configureButtons(){
         if !presenter.authorPostIsCurrent() {
             secondButton.isHidden = false
-            firstButton.setTitle("Entrar na fila", for: .normal)
+            presenter.alreadyInterested(completionHandler: { (success, msg, alreadyInterested) in
+                if success {
+                    if alreadyInterested! {
+                        self.firstButton.setTitle("Sair da fila", for: .normal)
+                    } else {
+                        self.firstButton.setTitle("Entrar na fila", for: .normal)
+                    }
+                } else {
+                    print ("already interested error")
+                }
+            })
             secondButton.setTitle("Recomendar", for: .normal)
         } else {
             secondButton.isHidden = true
             firstButton.setTitle("Lista de Interessados", for: .normal)
         }
         
-        presenter.setControllerDelegate(controller: self)
-        registerNibs()
-        configureTableView()
-        setNavigationInformations()
     }
     
     func setNavigationInformations(){
@@ -90,13 +104,25 @@ class ThingDetailViewController: UIViewController {
         if presenter.authorPostIsCurrent() {
             performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
         } else {
-            presenter.enterInterestedList(completionHandler: { (success, msg) in
-                if success {
-                    self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
-                } else {
-                    self.present(ViewUtil.alertControllerWithTitle(_title: "Error", _withMessage: msg), animated: true, completion: nil)
-                }
-            })
+            if self.firstButton.currentTitle == "Entrar na fila" {
+                presenter.enterInterestedList(completionHandler: { (success, msg) in
+                    if success {
+                        self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
+                        self.firstButton.setTitle("Sair da fila", for: .normal)
+                    } else {
+                        self.present(ViewUtil.alertControllerWithTitle(_title: "Error", _withMessage: msg), animated: true, completion: nil)
+                    }
+                })
+            } else {
+                presenter.exitInterestedList(completionHandler: { (success, msg) in
+                    if success {
+                        self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
+                        self.firstButton.setTitle("Entrar na fila", for: .normal)
+                    } else {
+                        self.present(ViewUtil.alertControllerWithTitle(_title: "Error!", _withMessage: msg), animated: true, completion: nil)
+                    }
+                })
+            }
         }
         
     }

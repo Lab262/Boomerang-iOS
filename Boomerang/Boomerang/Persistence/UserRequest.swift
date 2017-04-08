@@ -110,7 +110,6 @@ class UserRequest: NSObject {
                 }
             }
         }
-        
     }
     
 

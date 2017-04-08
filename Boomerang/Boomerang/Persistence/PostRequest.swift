@@ -30,6 +30,23 @@ class PostRequest: NSObject {
         }
     }
     
+    static func verifyAlreadyInterestedFor(currentUser: User, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool) -> ()) {
+        
+        var queryParams = [String : Any]()
+        queryParams["user"] = currentUser
+        queryParams["post"] = post
+        
+        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, include: nil) { (success, msg, objects) in
+            if success {
+                if objects!.count > 0 {
+                    completionHandler(true, "Success", true)
+                } else {
+                    completionHandler(true, msg, false)
+                }
+            }
+        }
+    }
+    
     static func getFollowingPostsCount(following: [User], completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         
         ParseRequest.queryCountContainedIn(className: "Post", key: "author", value: following) { (success, msg, count) in
@@ -132,4 +149,20 @@ class PostRequest: NSObject {
             }
         }
     }
+    
+    static func exitInterestedListOf(user: User, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        var queryParams = [String : Any]()
+        queryParams["user"] = user
+        queryParams["post"] = post
+        
+        ParseRequest.deleteObjectFor(className: "Interested", queryParams: queryParams) { (success, msg) in
+            if success {
+                completionHandler(true, "success")
+            } else {
+                completionHandler(false, msg)
+            }
+        }
+    }
+    
 }

@@ -96,6 +96,22 @@ class DetailThingPresenter: NSObject {
         }
     }
     
+    
+    
+    func exitInterestedList (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
+        
+        PostRequest.exitInterestedListOf(user: user!, post: post!) { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    func alreadyInterested(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool?) -> ()){
+        
+        PostRequest.verifyAlreadyInterestedFor(currentUser: user!, post: post!) { (success, msg, alreadyInterested) in
+            completionHandler(success, msg, alreadyInterested)
+        }
+    }
+    
     func createComment(text: String) {
         
         let comment = Comment(post: self.post!, content: text, author: PFUser.current()! as! User)
