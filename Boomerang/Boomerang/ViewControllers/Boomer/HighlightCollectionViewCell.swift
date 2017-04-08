@@ -15,7 +15,7 @@ class HighlightCollectionViewCell: UICollectionViewCell {
     }
     
     static var cellSize: CGSize {
-        return CGSize(width: 350, height: 337)
+        return CGSize(width: 400, height: 190)
     }
     
     static var nibName: String {

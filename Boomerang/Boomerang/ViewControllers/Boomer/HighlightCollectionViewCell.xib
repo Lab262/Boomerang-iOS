@@ -11,15 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HighlightCollectionViewCell" customModule="Boomerang" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="350" height="337"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="highlightCollectionViewCell" id="gTV-IL-0wX" customClass="HighlightCollectionViewCell" customModule="Boomerang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="179"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="350" height="337"/>
+                <rect key="frame" x="0.0" y="0.0" width="350" height="179"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mkT-dd-OU3">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="337"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="179"/>
                     </imageView>
                 </subviews>
             </view>
@@ -29,9 +29,11 @@
                 <constraint firstAttribute="trailing" secondItem="mkT-dd-OU3" secondAttribute="trailing" id="jSj-jl-hZX"/>
                 <constraint firstItem="mkT-dd-OU3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jVa-hQ-rWp"/>
             </constraints>
+            <size key="customSize" width="350" height="179"/>
             <connections>
                 <outlet property="imageView" destination="mkT-dd-OU3" id="k7F-DG-E8y"/>
             </connections>
+            <point key="canvasLocation" x="66" y="14.5"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -22,11 +22,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ru-Mz-kPg">
                         <rect key="frame" x="0.0" y="0.0" width="434" height="192"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JIl-dh-mM2">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JIl-dh-mM2">
                                 <rect key="frame" x="0.0" y="0.0" width="434" height="192"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kE6-KC-wuV">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kE6-KC-wuV">
+                                    <size key="itemSize" width="420" height="190"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -60,14 +60,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="JIl-dh-mM2" firstAttribute="centerX" secondItem="gyV-vP-RQz" secondAttribute="centerX" id="1r9-Dp-OVp"/>
                             <constraint firstItem="gyV-vP-RQz" firstAttribute="top" secondItem="1Ru-Mz-kPg" secondAttribute="top" constant="85" id="8yl-3T-JIy"/>
                             <constraint firstItem="gyV-vP-RQz" firstAttribute="centerX" secondItem="1Ru-Mz-kPg" secondAttribute="centerX" id="Aox-nq-qB6"/>
                             <constraint firstItem="d7h-k2-4IN" firstAttribute="top" secondItem="1Ru-Mz-kPg" secondAttribute="topMargin" constant="3" id="Dfn-86-YDX"/>
+                            <constraint firstItem="JIl-dh-mM2" firstAttribute="height" secondItem="1Ru-Mz-kPg" secondAttribute="height" id="DlN-8i-74p"/>
+                            <constraint firstItem="JIl-dh-mM2" firstAttribute="width" secondItem="1Ru-Mz-kPg" secondAttribute="width" id="DoX-3z-iMj"/>
                             <constraint firstItem="FzZ-Et-e6V" firstAttribute="top" secondItem="gyV-vP-RQz" secondAttribute="bottom" constant="50" id="DwV-Nq-wJY"/>
-                            <constraint firstItem="JIl-dh-mM2" firstAttribute="centerY" secondItem="gyV-vP-RQz" secondAttribute="centerY" id="Eac-ke-2VE"/>
+                            <constraint firstItem="JIl-dh-mM2" firstAttribute="centerY" secondItem="gyV-vP-RQz" secondAttribute="centerY" id="GGG-7f-DZw"/>
                             <constraint firstItem="d7h-k2-4IN" firstAttribute="leading" secondItem="1Ru-Mz-kPg" secondAttribute="leadingMargin" constant="1" id="HHb-Ob-sO6"/>
-                            <constraint firstItem="JIl-dh-mM2" firstAttribute="centerX" secondItem="gyV-vP-RQz" secondAttribute="centerX" id="IO5-2W-yq5"/>
-                            <constraint firstItem="JIl-dh-mM2" firstAttribute="leading" secondItem="1Ru-Mz-kPg" secondAttribute="leading" id="M3L-jU-sBd"/>
                             <constraint firstItem="FzZ-Et-e6V" firstAttribute="centerX" secondItem="1Ru-Mz-kPg" secondAttribute="centerX" constant="1" id="TNg-dn-vVB"/>
                             <constraint firstAttribute="height" constant="192" id="gi5-b0-2Ax"/>
                             <constraint firstItem="gyV-vP-RQz" firstAttribute="centerY" secondItem="1Ru-Mz-kPg" secondAttribute="centerY" id="qUk-H7-Zfr"/>
@@ -78,7 +79,6 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="JIl-dh-mM2" secondAttribute="bottom" constant="83" id="2bR-I8-hFT"/>
                     <constraint firstAttribute="trailing" secondItem="1Ru-Mz-kPg" secondAttribute="trailing" id="Z1L-Sl-FMZ"/>
                     <constraint firstItem="1Ru-Mz-kPg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="g26-pA-egg"/>
                     <constraint firstItem="1Ru-Mz-kPg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="z2x-lH-9Bk"/>

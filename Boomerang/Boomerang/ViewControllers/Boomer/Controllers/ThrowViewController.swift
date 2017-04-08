@@ -22,6 +22,8 @@ class ThrowViewController: UIViewController {
     var typeVC = PostType.have
     var titleHeader = String()
     var imagePost: UIImage?
+    var allimages:[UIImage]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,11 @@ class ThrowViewController: UIViewController {
     
     
     @IBAction func throwAction(_ sender: Any) {
+        
+        if let msgErro = self.verifyInformationsFields() {
+            self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msgErro), animated: true, completion: nil)
+            return
+        }
         
         self.createPost()
     }
@@ -190,8 +197,11 @@ class ThrowViewController: UIViewController {
       
         header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
         
-        if let image = imagePost {
-            header.photo.image = image
+        header.throwButton.addTarget(self, action:#selector(throwAction(_:)), for:.touchUpInside)
+        
+        
+        if let images = allimages {
+            header.highlights = images
             header.titleLabel.text = ""
         }
         
@@ -220,7 +230,7 @@ class ThrowViewController: UIViewController {
         self.view.endEditing(true)
         let post = Post()
         
-        let pictureData = UIImagePNGRepresentation(bgPostImage.image!)
+        let pictureData = UIImagePNGRepresentation((allimages?.first)!)
         let pictureFileObject = PFFile (data:pictureData!)
         
         post.author = ApplicationState.sharedInstance.currentUser
@@ -228,7 +238,8 @@ class ThrowViewController: UIViewController {
         post.content = self.descriptionThing
         post.postType = PostType(rawValue: typeVC.rawValue)
         
-        self.view.loadAnimation()
+      
+        ActivitIndicatorView.show(on: self)
         
         let photos = PFObject(className:"Photo")
         photos["imageFile"] = pictureFileObject
@@ -242,10 +253,12 @@ class ThrowViewController: UIViewController {
                 post.saveInBackground(block: { (success, error) in
                     if success {
                         AlertUtils.showAlertError(title:"Arrmessado com sucesso", viewController:self)
-                        self.view.unload()
+                        ActivitIndicatorView.hide(on:self)
+
+                        //self.view.unload()
                     }else {
                         AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
-                        self.view.unload()
+                        ActivitIndicatorView.hide(on:self)
                     }
                 })
             
@@ -259,7 +272,30 @@ class ThrowViewController: UIViewController {
       
         
     }
-
+    
+    func verifyInformationsFields () -> String? {
+        
+        var msgErro: String?
+        
+        if  self.nameThing == "" {
+            
+            msgErro = "Campo nome produto inválido!"
+            
+            return msgErro
+        }
+        
+        if self.descriptionThing == "" {
+            
+            msgErro = "Descrição inválida"
+            
+            return msgErro
+        }
+        
+        
+        return msgErro
+        
+    }
+    
 }
 
 extension ThrowViewController: UITableViewDataSource {
@@ -360,9 +396,16 @@ extension ThrowViewController: UITableViewDelegate {
         }else if indexPath.row == 4 {
             return CGFloat(250)
         }else if indexPath.row == 5 {
-            return CGFloat(100)
-        }else {
-            return CGFloat(10)
+            switch typeVC {
+            case .donate:
+                return CGFloat(0)
+            case .have:
+                return CGFloat(100)
+            case .need:
+                return CGFloat(100)
+            }
+                   }else {
+            return CGFloat(0)
         }
         
        
@@ -373,7 +416,7 @@ extension ThrowViewController: UIIButtonWithPickerDelegate{
     
     
     func didPickEditedImage(image: [UIImage]){
-        imagePost = image[0]
+        allimages = image
         self.tableView.reloadData()
     }
 
