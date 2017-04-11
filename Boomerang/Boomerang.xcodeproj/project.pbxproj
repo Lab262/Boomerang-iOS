@@ -154,6 +154,11 @@
 		D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */; };
 		D4A013081E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */; };
 		D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */; };
+		D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134DF1E9C7088003F55E4 /* Scheme.swift */; };
+		D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E11E9C7256003F55E4 /* Chat.swift */; };
+		D4C134E41E9C7A18003F55E4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E31E9C7A18003F55E4 /* Message.swift */; };
+		D4C134E61E9C81AD003F55E4 /* SchemeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E51E9C81AC003F55E4 /* SchemeRequest.swift */; };
+		D4C134E91E9C8265003F55E4 /* ChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E81E9C8265003F55E4 /* ChatRequest.swift */; };
 		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
@@ -350,6 +355,11 @@
 		D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PageControlCollectionViewCell.xib; path = ../Cells/PageControlCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIndicatorView.swift; sourceTree = "<group>"; };
+		D4C134DF1E9C7088003F55E4 /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
+		D4C134E11E9C7256003F55E4 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		D4C134E31E9C7A18003F55E4 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		D4C134E51E9C81AC003F55E4 /* SchemeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemeRequest.swift; sourceTree = "<group>"; };
+		D4C134E81E9C8265003F55E4 /* ChatRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRequest.swift; sourceTree = "<group>"; };
 		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -437,6 +447,8 @@
 				D42443F31E6DFB1100620441 /* ParseRequest.swift */,
 				D498F0321E7F43EF002E8972 /* PostRequest.swift */,
 				D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */,
+				D4C134E51E9C81AC003F55E4 /* SchemeRequest.swift */,
+				D4C134E81E9C8265003F55E4 /* ChatRequest.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -1038,6 +1050,9 @@
 				D40C0E501E8B9A93008174D2 /* Photo.swift */,
 				D4FBBCEE1E908E0F00611F63 /* Interested.swift */,
 				D40DBB9C1E9684000075E74B /* Follow.swift */,
+				D4C134DF1E9C7088003F55E4 /* Scheme.swift */,
+				D4C134E11E9C7256003F55E4 /* Chat.swift */,
+				D4C134E31E9C7A18003F55E4 /* Message.swift */,
 			);
 			name = PFObjects;
 			sourceTree = "<group>";
@@ -1110,7 +1125,7 @@
 				TargetAttributes = {
 					A4F89B251DA809B100949A35 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = V927RLF8V5;
+						DevelopmentTeam = R6AP92RETV;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -1342,6 +1357,8 @@
 			files = (
 				2FC9E0561E8CA02200A048A4 /* WantBorrowTableViewCell.swift in Sources */,
 				2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */,
+				D4C134E61E9C81AD003F55E4 /* SchemeRequest.swift in Sources */,
+				D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */,
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
 				D4A012FF1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift in Sources */,
@@ -1349,6 +1366,7 @@
 				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
+				D4C134E91E9C8265003F55E4 /* ChatRequest.swift in Sources */,
 				D4E6A28C1E95CF00005B4E34 /* ExchangeTransactionViewController.swift in Sources */,
 				D4A012FE1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
@@ -1422,6 +1440,7 @@
 				D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */,
 				D40DBB9D1E9684000075E74B /* Follow.swift in Sources */,
 				D48735031E7885000065E13A /* String+CharacterSpacing.swift in Sources */,
+				D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
 				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
@@ -1455,6 +1474,7 @@
 				D48C99B21E68C7FF00A17E71 /* ActionDelegate.swift in Sources */,
 				2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */,
 				D4FBBCED1E90818A00611F63 /* Constants.swift in Sources */,
+				D4C134E41E9C7A18003F55E4 /* Message.swift in Sources */,
 				A42767FD1DD3630400363343 /* AddBoomerMainViewController.swift in Sources */,
 				D48C99AF1E68B67100A17E71 /* SelectionDelegate.swift in Sources */,
 			);
@@ -1595,7 +1615,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = V927RLF8V5;
+				DEVELOPMENT_TEAM = R6AP92RETV;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1617,7 +1637,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = V927RLF8V5;
+				DEVELOPMENT_TEAM = R6AP92RETV;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
