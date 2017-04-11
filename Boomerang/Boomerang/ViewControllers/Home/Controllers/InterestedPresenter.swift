@@ -21,11 +21,9 @@ class InterestedPresenter: NSObject {
     fileprivate var chat: Chat = Chat()
     
     
-    
     func setControllerDelegate(controller: ViewDelegate) {
         self.controller = controller
     }
-    
     
     func setInteresteds(interesteds: [Interested]) {
         self.interesteds = interesteds
@@ -67,6 +65,10 @@ class InterestedPresenter: NSObject {
         return chat
     }
     
+    func getRequester() -> User {
+        return getInterested().user!
+    }
+    
     func updateInteresteds(){
         self.skip = interesteds.endIndex
         
@@ -76,17 +78,21 @@ class InterestedPresenter: NSObject {
                 for interested in interesteds! {
                     self.interesteds.append(interested)
                 }
-                
                 self.controller?.reload()
                 self.currentInterestedsCount = self.getInteresteds().count
+                
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
         }
     }
     
+    func fetchChat() {
+        ChatRequest.createChat(requester: getRequester(), owner: getUser(), post: getPost(), completionHandler: <#T##(Bool, String) -> ()#>)
+    }
+    
     func createScheme(){
-        SchemeRequest.createScheme(requester: getInterested().user!, owner: getUser(), chat: getChat(), post: getPost()) { (success, msg) in
+        SchemeRequest.createScheme(requester: getRequester(), owner: getUser(), chat: getChat(), post: getPost()) { (success, msg) in
             if success {
                 print ("PUSH PRA ALGUM FLUXO.")
             } else {
@@ -94,11 +100,10 @@ class InterestedPresenter: NSObject {
             }
         }
     }
-        
+    
     func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
         guard let image = getInterested().user?.profileImage else {
             getInterested().user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
-                
                 if success {
                     self.getInterested().user?.profileImage = UIImage(data: data!)
                     completionHandler(true, msg, self.getInterested().user?.profileImage)

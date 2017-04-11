@@ -24,6 +24,37 @@ class Scheme: PFObject {
     @NSManaged var chat: Chat?
     @NSManaged var status: String?
     
+    
+    override init(){
+        super.init()
+    }
+    
+    convenience init(object: PFObject) {
+        self.init()
+        
+        self.setInformationsBy(object: object)
+    }
+    
+    func setInformationsBy(object: PFObject){
+        
+        self.objectId = object.objectId
+        
+        if let requester = object["requester"] as? User {
+            self.requester = User(user: requester)
+        }
+        
+        if let owner = object["owner"] as? User {
+            self.owner = User(user: owner)
+        }
+        
+        if let post = object["post"] as? Post {
+            self.post = Post(object: post)
+        }
+        
+        if let chat = object["chat"] as? Chat {
+            self.chat = Chat(object: chat)
+        }
+    }
 }
 
 extension Scheme: PFSubclassing {

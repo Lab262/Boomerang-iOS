@@ -27,4 +27,27 @@ class ChatRequest: NSObject {
             }
         }
     }
+    
+    static func getChatOf(requester: User, owner: User, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ chat: Chat?) -> ()) {
+        
+        var queryParams = [String : Any]()
+        queryParams["requester"] = requester
+        queryParams["owner"] = owner
+        queryParams["post"] = post
+        
+        ParseRequest.queryEqualToValue(className: "Chat", queryParams: queryParams, include: nil) { (success, msg, objects) in
+            if success {
+                let chat: Chat?
+                if objects!.count > 0 {
+                    chat = Chat(object: objects!.first!)
+                    chat?.post = post
+                    chat?.requester = requester
+                    chat?.owner = owner
+                }
+                completionHandler(true, msg, chat)
+            } else {
+                completionHandler(false, msg, nil)
+            }
+        }
+    }
 }
