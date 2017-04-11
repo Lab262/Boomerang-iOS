@@ -8,12 +8,14 @@
 
 import UIKit
 
-class PhotoThingWithPageControlCollectionViewCell: UICollectionViewCell {
+class PhotoThingCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var thingImage: UIImageView!
     
+    
+    
     static var identifier: String {
-        return "photoThingControlCell"
+        return "photoThingCell"
     }
     
     static var cellHeight: CGFloat {
@@ -21,7 +23,7 @@ class PhotoThingWithPageControlCollectionViewCell: UICollectionViewCell {
     }
     
     static var nibName: String {
-        return "PhotoThingWithPageControlCollectionViewCell"
+        return "PhotoThingCollectionViewCell"
     }
     
     var post: Post? {

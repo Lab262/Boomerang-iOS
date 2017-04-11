@@ -134,6 +134,13 @@ class PostRequest: NSObject {
         }
     }
     
+    static func startScheme(user: User, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        //ParseR
+        
+    
+    }
+    
     static func enterInterestedListOf(user: User, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         let interested = PFObject(className: "Interested")
@@ -164,5 +171,4 @@ class PostRequest: NSObject {
             }
         }
     }
-    
 }

@@ -33,15 +33,10 @@ class AuthenticationMainViewController: UIViewController {
                 }
             }
         }
-
-
     }
     
     
     @IBAction func signUpAction(_ sender: Any) {
-        
-       
-
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
@@ -56,21 +51,17 @@ class AuthenticationMainViewController: UIViewController {
                 }
                 
                 if(fbloginresult.grantedPermissions.contains("email")) {
-                    
                     self.returnUserData()
-                    
                 }
             } else {
-                
+               // error
             }
             
         }
     }
     
     func getPhotoOfFacebookInPFFile (userId: String) -> PFFile? {
-        
         var photoInPFFile: PFFile?
-        
         DispatchQueue.main.async {
             if let url = URL(string: "https://graph.facebook.com/" + userId + "/picture?type=large") {
                 do {
@@ -83,10 +74,7 @@ class AuthenticationMainViewController: UIViewController {
                 // the URL was bad!
             }
         }
-      
-        
         return photoInPFFile
-        
     }
     
     
@@ -110,14 +98,9 @@ class AuthenticationMainViewController: UIViewController {
     }
 
     func updateUserByFacebook(){
-        
         let requestParameters = ["fields": "id, email, first_name, last_name"]
         let userDetails = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters)
-        
         let newUser = PFUser.current()!
-      
-        
-        
         userDetails!.start { (connection, result, error) -> Void in
             
             if error != nil {
@@ -139,16 +122,12 @@ class AuthenticationMainViewController: UIViewController {
                     if let email = data ["email"] as? String {
                         newUser.setObject(email, forKey: "email")
                     }
-                
                     if let userId = data["id"] as? String {
                         if let userPhoto = self.getPhotoOfFacebookInPFFile(userId: userId) {
                             newUser.setObject(userPhoto, forKey: "photo")
                         }
                     }
-                  
-                
                 }
-                
                 newUser.saveInBackground(block: { (success, error) in
                     if success {
                         self.showHomeVC()
@@ -161,7 +140,6 @@ class AuthenticationMainViewController: UIViewController {
   
     
     func showHomeVC() {
-        
        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vcToShow = storyboard.instantiateInitialViewController()!

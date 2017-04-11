@@ -71,6 +71,10 @@ class InterestedPresenter: NSObject {
         }
     }
     
+    func startScheme(){
+        
+    }
+    
     func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
         guard let image = getInterested().user?.profileImage else {
             getInterested().user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in

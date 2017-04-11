@@ -165,6 +165,7 @@ class ProfilePresenter: NSObject {
     }
     
     func filterPostsFor(postType: PostType) -> [Post] {
+        
         let filteredPosts = (self.allPosts.filter { post in
             return post.postType == postType
         })

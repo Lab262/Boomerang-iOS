@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="341"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="340.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8bj-Wg-V1A">
@@ -34,31 +34,7 @@
                     </collectionView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG2-YO-GEo">
                         <rect key="frame" x="0.0" y="290" width="375" height="50"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2KF-jV-seG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hi1-QA-vDG">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <connections>
-                                    <outlet property="dataSource" destination="KGk-i7-Jjw" id="kgb-qZ-quV"/>
-                                    <outlet property="delegate" destination="KGk-i7-Jjw" id="wxQ-z9-TiW"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="2KF-jV-seG" firstAttribute="width" secondItem="PG2-YO-GEo" secondAttribute="width" id="0zp-fi-BD2"/>
-                            <constraint firstItem="2KF-jV-seG" firstAttribute="leading" secondItem="PG2-YO-GEo" secondAttribute="leading" id="68U-w9-E9f"/>
-                            <constraint firstAttribute="bottom" secondItem="2KF-jV-seG" secondAttribute="bottom" id="AOC-uk-fNo"/>
-                            <constraint firstItem="2KF-jV-seG" firstAttribute="top" secondItem="PG2-YO-GEo" secondAttribute="top" id="Kuv-wQ-qHO"/>
-                            <constraint firstItem="2KF-jV-seG" firstAttribute="height" secondItem="PG2-YO-GEo" secondAttribute="height" id="YG4-o1-3Fc"/>
-                            <constraint firstAttribute="trailing" secondItem="2KF-jV-seG" secondAttribute="trailing" id="r1b-Mu-EaZ"/>
-                        </constraints>
                     </view>
                 </subviews>
                 <constraints>
@@ -74,8 +50,8 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="0.0" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="indexCollectionView" destination="2KF-jV-seG" id="oTx-f5-lxi"/>
                 <outlet property="postCollectionView" destination="8bj-Wg-V1A" id="0oB-Nk-Lxv"/>
+                <outlet property="viewPages" destination="PG2-YO-GEo" id="Tnh-rY-arx"/>
             </connections>
             <point key="canvasLocation" x="76.5" y="144.5"/>
         </tableViewCell>

@@ -36,18 +36,29 @@
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="cr1-Y1-z0m"/>
                         </connections>
                     </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcn-n7-LVN">
+                        <rect key="frame" x="0.0" y="235.5" width="375" height="55"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="koM-5V-2YR"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="L4H-VO-rp6" secondAttribute="bottom" id="BU5-tr-qr5"/>
+                    <constraint firstAttribute="trailing" secondItem="gcn-n7-LVN" secondAttribute="trailing" id="dGa-d1-BTH"/>
+                    <constraint firstItem="gcn-n7-LVN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="du2-Tq-N91"/>
                     <constraint firstItem="L4H-VO-rp6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="f8R-DQ-Nlg"/>
                     <constraint firstItem="L4H-VO-rp6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="npv-5p-kYb"/>
                     <constraint firstAttribute="trailing" secondItem="L4H-VO-rp6" secondAttribute="trailing" id="sud-mF-AAT"/>
+                    <constraint firstAttribute="bottom" secondItem="gcn-n7-LVN" secondAttribute="bottom" id="vGA-V3-cXP"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="collectionView" destination="L4H-VO-rp6" id="zxa-vB-UaG"/>
+                <outlet property="photoCollectionView" destination="L4H-VO-rp6" id="fgQ-bf-1Pb"/>
+                <outlet property="viewPages" destination="gcn-n7-LVN" id="Ysr-I8-8Yo"/>
             </connections>
             <point key="canvasLocation" x="121.5" y="53.5"/>
         </tableViewCell>

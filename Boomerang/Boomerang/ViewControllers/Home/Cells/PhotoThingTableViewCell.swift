@@ -10,7 +10,7 @@ import UIKit
 
 class PhotoThingTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var photoCollectionView: UICollectionView!
     
     static var identifier: String {
         return "photoThingCell"
@@ -24,6 +24,10 @@ class PhotoThingTableViewCell: UITableViewCell {
         return "PhotoThingTableViewCell"
     }
     
+    @IBOutlet weak var viewPages: UIView!
+    
+    var pageIndicatorView: PageIndicatorView?
+    
     var presenter: DetailThingPresenter = DetailThingPresenter()
    
     override func awakeFromNib() {
@@ -31,10 +35,20 @@ class PhotoThingTableViewCell: UITableViewCell {
         registerNib()
         ApplicationState.sharedInstance.delegate = self
         presenter.setControllerDelegate(controller: self)
+        initializePageIndicatorView()
     }
     
     func registerNib(){
-        collectionView.registerNibFrom(PhotoThingWithPageControlCollectionViewCell.self)
+        photoCollectionView.registerNibFrom(PhotoThingCollectionViewCell.self)
+    }
+    
+    func initializePageIndicatorView(){
+        pageIndicatorView = PageIndicatorView(frame: viewPages.frame)
+        pageIndicatorView?.delegate = self
+        viewPages.addSubview(pageIndicatorView!)
+        pageIndicatorView?.centerXAnchor.constraint(equalTo: viewPages.centerXAnchor).isActive = true
+        pageIndicatorView?.centerYAnchor.constraint(equalTo: viewPages.centerYAnchor).isActive = true
+        pageIndicatorView?.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
@@ -42,7 +56,7 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoThingWithPageControlCollectionViewCell.identifier, for: indexPath) as! PhotoThingWithPageControlCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoThingCollectionViewCell.identifier, for: indexPath) as! PhotoThingCollectionViewCell
         
         cell.thingImage.image = presenter.getImagePostByIndex(indexPath.row)
         
@@ -50,6 +64,7 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        pageIndicatorView?.reload()
         return presenter.getPost().countPhotos
     }
 }
@@ -59,7 +74,22 @@ extension PhotoThingTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
+}
+
+extension PhotoThingTableViewCell: UIScrollViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let flowLayout = (photoCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
+        
+        let indexPath = self.photoCollectionView.indexPathForItem(at: self.photoCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: photoCollectionView.frame.width/2, y: 0))
+        
+       // let indexPath = self.collectionView.indexPathForItem(at: self.collectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: collectionView.frame.width/2, y: 0))
+        
+        if let index = indexPath {
+            pageIndicatorView?.selectedPage = index.row
+        }
+    }
 }
 
 extension PhotoThingTableViewCell: UICollectionViewDelegateFlowLayout {
@@ -91,10 +121,52 @@ extension PhotoThingTableViewCell: UpdatePostDelegate {
 extension PhotoThingTableViewCell: ViewDelegate {
     
     func reload() {
-        collectionView.reloadData()
+        photoCollectionView.reloadData()
+        pageIndicatorView?.reload()
     }
     
     func showMessageError(msg: String) {
         
     }
 }
+
+extension PhotoThingTableViewCell: PageIndicatorViewDelegate {
+    
+    var numberOfPages: Int {
+        return presenter.getPost().countPhotos
+    }
+    
+    var indicatorHeight: CGFloat {
+        return 6.0
+    }
+    
+    var defaultWidth: CGFloat {
+        return 7.0
+    }
+    
+    var selectedWidth: CGFloat {
+        return 20.0
+    }
+    
+    var defaultAlpha: CGFloat {
+        return 0.5
+    }
+    
+    var selectedAlpha: CGFloat {
+        return 1.0
+    }
+    
+    var animationDuration: Double {
+        return 0.2
+    }
+    
+    var indicatorsColor: UIColor {
+        return UIColor.colorWithHexString("FFFFFF")
+    }
+    
+    var stackViewConfig: (axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment, distribution: UIStackViewDistribution, spacing: CGFloat) {
+        
+        return (.horizontal, alignment: .center, distribution: .equalSpacing, spacing: 5.0)
+    }
+}
+
