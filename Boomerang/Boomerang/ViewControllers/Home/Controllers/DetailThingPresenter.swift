@@ -61,6 +61,14 @@ class DetailThingPresenter: NSObject {
         return post!
     }
     
+    func getUser() -> User {
+        return user!
+    }
+    
+    func getAuthorOfPost() -> User {
+        return post!.author!
+    }
+    
     func getCurrentCommentsCount() -> Int {
         return currentCommentsCount
     }
@@ -88,16 +96,26 @@ class DetailThingPresenter: NSObject {
         }
     }
     
-    func enterInterestedList(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
-       PostRequest.enterInterestedListOf(user: user!, post: self.post!, msg: "Estou interessado, tenho alegria pra trocar") { (success, msg) in
-    
+        ChatRequest.createChat(requester: getUser(), owner: getAuthorOfPost(), post: getPost()) { (success, msg) in
+        
             completionHandler(success, msg)
         }
     }
     
-    
-    
+    func enterInterestedList(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+       PostRequest.enterInterestedListOf(user: user!, post: self.post!, msg: "Estou interessado, tenho alegria pra trocar") { (success, msg) in
+            if success {
+                self.createInterestedChat(completionHandler: { (success, msg) in
+                    completionHandler(success, msg)
+                })
+            } else {
+                completionHandler(success, msg)
+            }
+        }
+    }
+
     func exitInterestedList (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
         
         PostRequest.exitInterestedListOf(user: user!, post: post!) { (success, msg) in

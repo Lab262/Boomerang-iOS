@@ -17,6 +17,8 @@ class InterestedPresenter: NSObject {
     fileprivate var skip = 0
     fileprivate var controller: ViewDelegate?
     fileprivate var currentInterestedsCount = 0
+    fileprivate var currentUser: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate var chat: Chat = Chat()
     
     
     
@@ -45,12 +47,24 @@ class InterestedPresenter: NSObject {
         return currentInterestedsCount
     }
     
+    func getUser() -> User {
+        return currentUser
+    }
+    
     func setPost(post: Post) {
         self.post = post
     }
     
     func getPost() -> Post {
         return post
+    }
+    
+    func setChat(chat: Chat) {
+        self.chat = chat
+    }
+    
+    func getChat() -> Chat {
+        return chat
     }
     
     func updateInteresteds(){
@@ -71,10 +85,16 @@ class InterestedPresenter: NSObject {
         }
     }
     
-    func startScheme(){
-        
+    func createScheme(){
+        SchemeRequest.createScheme(requester: getInterested().user!, owner: getUser(), chat: getChat(), post: getPost()) { (success, msg) in
+            if success {
+                print ("PUSH PRA ALGUM FLUXO.")
+            } else {
+                self.controller?.showMessageError(msg: msg)
+            }
+        }
     }
-    
+        
     func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
         guard let image = getInterested().user?.profileImage else {
             getInterested().user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
