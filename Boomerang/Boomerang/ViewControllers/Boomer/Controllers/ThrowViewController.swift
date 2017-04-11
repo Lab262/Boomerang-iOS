@@ -21,12 +21,14 @@ class ThrowViewController: UIViewController {
     var descriptionThing = String ()
     var typeVC = PostType.have
     var titleHeader = String()
-  
+    var imagePost: UIImage?
+    var allimages:[UIImage]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
-        }
+    }
     
     
     @IBAction func backAction(_ sender: Any) {
@@ -39,30 +41,6 @@ class ThrowViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
          TabBarController.mainTabBarController.showTabBar()
-
-    }
-    
-    @IBAction func getPhoto(_ sender: Any) {
-        let alertPicture = UIAlertController(title: "Selecione", message: nil, preferredStyle: .actionSheet)
-        
-        alertPicture.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        
-        alertPicture.addAction(UIAlertAction(title: "Tirar foto", style: .default, handler: { (action) -> Void in
-            
-            let image = UIImagePickerController.init()
-            
-            self.getPhotoWithCamera(image)
-            
-        }))
-        
-        alertPicture.addAction(UIAlertAction(title: "Selecionar foto da biblioteca", style: .default, handler: { (action) -> Void in
-            
-            let image = UIImagePickerController.init()
-            
-            self.getPhotoWithLibrary(image)
-        }))
-
-        self.present(alertPicture, animated: true, completion: nil)
 
     }
     
@@ -87,6 +65,11 @@ class ThrowViewController: UIViewController {
     
     
     @IBAction func throwAction(_ sender: Any) {
+        
+        if let msgErro = self.verifyInformationsFields() {
+            self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msgErro), animated: true, completion: nil)
+            return
+        }
         
         self.createPost()
     }
@@ -121,8 +104,7 @@ class ThrowViewController: UIViewController {
     
     func generateTextFieldWithImageCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:TextFieldWithImageTableViewCell.identifier, for: indexPath) as! TextFieldWithImageTableViewCell
-      
-        
+        cell.anexPhotoButton.delegate = self
         
         return cell
         
@@ -209,20 +191,55 @@ class ThrowViewController: UIViewController {
         
     }
     
+    func generateHeaderView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.cellIdentifier) as! HeaderPostTableViewCell
+      
+        header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
+        
+        header.throwButton.addTarget(self, action:#selector(throwAction(_:)), for:.touchUpInside)
+        
+        
+        if let images = allimages {
+            header.highlights = images
+            header.titleLabel.text = ""
+        }
+        
+        return header
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header: UIView?
+        
+        switch section {
+            case 0: header = generateHeaderView(tableView, viewForHeaderInSection: section)
+            default: header = nil
+        }
+        
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 240
+    }
+    
     
     func createPost () {
         
         self.view.endEditing(true)
         let post = Post()
         
-        let pictureData = UIImagePNGRepresentation(bgPostImage.image!)
+        let pictureData = UIImagePNGRepresentation((allimages?.first)!)
         let pictureFileObject = PFFile (data:pictureData!)
         
         post.author = ApplicationState.sharedInstance.currentUser
         post.title =  self.nameThing
         post.content = self.descriptionThing
+        post.postType = PostType(rawValue: typeVC.rawValue)
         
-        self.view.loadAnimation()
+      
+        ActivitIndicatorView.show(on: self)
         
         let photos = PFObject(className:"Photo")
         photos["imageFile"] = pictureFileObject
@@ -236,10 +253,12 @@ class ThrowViewController: UIViewController {
                 post.saveInBackground(block: { (success, error) in
                     if success {
                         AlertUtils.showAlertError(title:"Arrmessado com sucesso", viewController:self)
-                        self.view.unload()
+                        ActivitIndicatorView.hide(on:self)
+
+                        //self.view.unload()
                     }else {
                         AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
-                        self.view.unload()
+                        ActivitIndicatorView.hide(on:self)
                     }
                 })
             
@@ -253,7 +272,30 @@ class ThrowViewController: UIViewController {
       
         
     }
-
+    
+    func verifyInformationsFields () -> String? {
+        
+        var msgErro: String?
+        
+        if  self.nameThing == "" {
+            
+            msgErro = "Campo nome produto inválido!"
+            
+            return msgErro
+        }
+        
+        if self.descriptionThing == "" {
+            
+            msgErro = "Descrição inválida"
+            
+            return msgErro
+        }
+        
+        
+        return msgErro
+        
+    }
+    
 }
 
 extension ThrowViewController: UITableViewDataSource {
@@ -270,11 +312,9 @@ extension ThrowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
-            case 0:
-                  return generateNavigation(tableView, indexPath:indexPath)
-            case  1:
+            case  0:
                 return generateHeadPostCell(tableView, indexPath:indexPath)
-            case  2:
+            case  1:
                 switch typeVC {
                     case .donate:
                        return generateNameProducTextCell(tableView, indexPath:indexPath)
@@ -284,7 +324,7 @@ extension ThrowViewController: UITableViewDataSource {
                         return generateSwitchButtonCell(tableView, indexPath:indexPath)
 
                 }
-            case 3:
+            case 2:
                 switch typeVC {
                     case .donate:
                         return generateDescriptionCell(tableView, indexPath:indexPath)
@@ -293,7 +333,7 @@ extension ThrowViewController: UITableViewDataSource {
                     case .need:
                         return generateNameProducTextCell(tableView, indexPath:indexPath)
                 }
-            case 4:
+            case 3:
                 switch typeVC {
                 case .donate:
                     return generateWithDrawalCell(tableView, indexPath:indexPath)
@@ -302,7 +342,7 @@ extension ThrowViewController: UITableViewDataSource {
                 case .need:
                     return generateDescriptionCell(tableView, indexPath:indexPath)
                 }
-            case 5:
+            case 4:
                 switch typeVC {
                     case .donate:
                         return  UITableViewCell()
@@ -337,13 +377,11 @@ extension ThrowViewController: UITableViewDelegate {
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return CGFloat(240)
+         if indexPath.row == 0 {
+            return CGFloat(80)
         }else if indexPath.row == 1 {
             return CGFloat(100)
         }else if indexPath.row == 2 {
-            return CGFloat(100)
-        }else if indexPath.row == 3 {
             switch typeVC {
                 case .donate:
                     return CGFloat(175)
@@ -353,54 +391,36 @@ extension ThrowViewController: UITableViewDelegate {
                     return CGFloat(80)
             }
             
-        }else if indexPath.row == 4 {
+        }else if indexPath.row == 3 {
             return CGFloat(150)
-        }else if indexPath.row == 5 {
+        }else if indexPath.row == 4 {
             return CGFloat(250)
-        }else if indexPath.row == 6 {
-            return CGFloat(100)
-        }else {
-            return CGFloat(10)
+        }else if indexPath.row == 5 {
+            switch typeVC {
+            case .donate:
+                return CGFloat(0)
+            case .have:
+                return CGFloat(100)
+            case .need:
+                return CGFloat(100)
+            }
+                   }else {
+            return CGFloat(0)
         }
         
        
     }
 }
 
-extension ThrowViewController: UIImagePickerControllerDelegate {
+extension ThrowViewController: UIIButtonWithPickerDelegate{
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        let image = info[UIImagePickerControllerEditedImage] as! UIImage
-        
-        bgPostImage.image = image
-        dismiss(animated: false, completion: nil)
-
+    
+    func didPickEditedImage(image: [UIImage]){
+        allimages = image
+        self.tableView.reloadData()
     }
+
 }
 
-extension ThrowViewController: UINavigationControllerDelegate {
-    
-    func getPhotoWithLibrary(_ image: UIImagePickerController) {
-        
-        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        image.delegate = self
-         image.allowsEditing = true
-        self.present(image, animated: true, completion: nil)
-    }
-    
-    
-    func getPhotoWithCamera (_ image: UIImagePickerController) {
-        image.sourceType = UIImagePickerControllerSourceType.camera
-        image.delegate = self
-        image.cameraCaptureMode = UIImagePickerControllerCameraCaptureMode.photo
-        image.allowsEditing = true
-        self.present(image, animated: true, completion: nil)
 
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: false, completion: nil)
-    }
-    
-}
 

@@ -10,7 +10,10 @@ import UIKit
 
 class HeaderPostTableViewCell: UITableViewCell {
     static var cellIdentifier = "HeaderPostCell"
+    var highlights: [UIImage] = []
+
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
@@ -20,6 +23,8 @@ class HeaderPostTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+       self.registerNibs()
+        self.setUpCollectionView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,4 +33,38 @@ class HeaderPostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setUpCollectionView() {
+    }
+
+    
+    func registerNibs() {
+        collectionView.registerNibFrom(HighlightCollectionViewCell.self)
+    }
+    
+}
+
+extension HeaderPostTableViewCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return HighlightCollectionViewCell.cellSize
+    }
+}
+extension HeaderPostTableViewCell: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return highlights.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HighlightCollectionViewCell.identifier, for: indexPath) as! HighlightCollectionViewCell
+        
+        cell.imageView.image = highlights[indexPath.item]
+        
+        return cell
+    }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aJg-2A-R9N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aJg-2A-R9N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,8 +49,8 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4kY-Yz-j2W">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione o tipo de Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtf-wT-IM7">
-                                        <rect key="frame" x="91" y="45" width="205" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione o tipo de Post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtf-wT-IM7">
+                                        <rect key="frame" x="30" y="45" width="320" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -59,9 +59,9 @@
                                 <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="4kY-Yz-j2W" firstAttribute="width" secondItem="Vz5-Qy-KGq" secondAttribute="width" id="7y6-gJ-Ibg"/>
-                                    <constraint firstItem="Dtf-wT-IM7" firstAttribute="centerX" secondItem="Vz5-Qy-KGq" secondAttribute="centerX" constant="6" id="C3D-95-m0K"/>
+                                    <constraint firstItem="Dtf-wT-IM7" firstAttribute="centerX" secondItem="Vz5-Qy-KGq" secondAttribute="centerX" constant="2.5" id="C3D-95-m0K"/>
                                     <constraint firstItem="4kY-Yz-j2W" firstAttribute="centerX" secondItem="Vz5-Qy-KGq" secondAttribute="centerX" id="I6b-eE-bvU"/>
-                                    <constraint firstItem="Dtf-wT-IM7" firstAttribute="leading" secondItem="Vz5-Qy-KGq" secondAttribute="leading" constant="91" id="Ip6-ab-XbC"/>
+                                    <constraint firstItem="Dtf-wT-IM7" firstAttribute="leading" secondItem="Vz5-Qy-KGq" secondAttribute="leading" constant="30" id="Ip6-ab-XbC"/>
                                     <constraint firstItem="4kY-Yz-j2W" firstAttribute="height" secondItem="Vz5-Qy-KGq" secondAttribute="height" id="Z4f-AS-yVs"/>
                                     <constraint firstAttribute="height" constant="110" id="tLd-kx-PWG"/>
                                     <constraint firstItem="4kY-Yz-j2W" firstAttribute="centerY" secondItem="Vz5-Qy-KGq" secondAttribute="centerY" id="yab-gk-SCE"/>
