@@ -38,7 +38,6 @@ class TransactionMainViewController: UIViewController {
             segmentControlButtonDelegate = segmentVC
             segmentVC.segmentControlPageDelegate = self
         }
-        
     }
     
     @IBAction func showLoanTransactions(_ sender: Any? = nil) {

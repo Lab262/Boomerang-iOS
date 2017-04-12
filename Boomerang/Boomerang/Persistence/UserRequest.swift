@@ -11,6 +11,7 @@ import Parse
 
 
 class UserRequest: NSObject {
+    
     static func createAccountUser(user: User, pass: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
         
         let pfUser = PFUser()

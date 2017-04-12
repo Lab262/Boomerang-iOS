@@ -776,6 +776,7 @@ FACEBOOK</string>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="eUc-js-B4b" id="bcO-r2-3O0"/>
+                        <segue destination="khZ-JM-2dz" kind="show" identifier="goToProfile" id="Kao-uo-qv0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMy-64-cTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -813,11 +814,76 @@ FACEBOOK</string>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="YYG-NH-nrb" id="abh-oU-nQR"/>
+                        <segue destination="khZ-JM-2dz" kind="show" identifier="goToProfile" id="2Ee-Kc-PiE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1t4-ym-Ibm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="708" y="2104"/>
+        </scene>
+        <!--Transaction Detail View Controller-->
+        <scene sceneID="MoJ-Dy-EtH">
+            <objects>
+                <viewController id="khZ-JM-2dz" customClass="TransactionDetailViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eDT-gB-2cd"/>
+                        <viewControllerLayoutGuide type="bottom" id="aMu-Ok-8uH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wH8-jv-Dcx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcP-Xa-82g" customClass="ThingNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="192" id="psy-P3-MBB"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-Ib-CFk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="khZ-JM-2dz" id="4O7-0l-hp8"/>
+                                    <outlet property="delegate" destination="khZ-JM-2dz" id="9YP-Yd-9l7"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yto-6u-jjP" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ZIz-vA-Oam"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="back-button"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="rightBarIconImage" value="edit-button"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundViewColor">
+                                        <color key="value" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DRi-Ib-CFk" secondAttribute="trailing" id="16x-Ml-eN9"/>
+                            <constraint firstItem="LcP-Xa-82g" firstAttribute="leading" secondItem="wH8-jv-Dcx" secondAttribute="leading" id="1NT-ee-daT"/>
+                            <constraint firstAttribute="bottom" secondItem="DRi-Ib-CFk" secondAttribute="bottom" id="4Yf-gi-gQf"/>
+                            <constraint firstItem="Yto-6u-jjP" firstAttribute="top" secondItem="wH8-jv-Dcx" secondAttribute="top" id="5ru-iJ-rfI"/>
+                            <constraint firstItem="DRi-Ib-CFk" firstAttribute="leading" secondItem="wH8-jv-Dcx" secondAttribute="leading" id="9c4-VB-7yT"/>
+                            <constraint firstAttribute="trailing" secondItem="Yto-6u-jjP" secondAttribute="trailing" id="QtP-W0-VRN"/>
+                            <constraint firstItem="Yto-6u-jjP" firstAttribute="leading" secondItem="wH8-jv-Dcx" secondAttribute="leading" id="S6G-k8-uVk"/>
+                            <constraint firstItem="LcP-Xa-82g" firstAttribute="top" secondItem="wH8-jv-Dcx" secondAttribute="top" id="ZvQ-wA-tvj"/>
+                            <constraint firstAttribute="trailing" secondItem="LcP-Xa-82g" secondAttribute="trailing" id="gzu-sm-6s3"/>
+                            <constraint firstItem="DRi-Ib-CFk" firstAttribute="top" secondItem="eDT-gB-2cd" secondAttribute="bottom" id="zgs-le-VsG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="DRi-Ib-CFk" id="ory-ZA-TOe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zO2-EP-fGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="2854.7226386806601"/>
         </scene>
         <!--Donation Transaction View Controller-->
         <scene sceneID="6xE-4K-4dO">
@@ -850,6 +916,7 @@ FACEBOOK</string>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="nzb-7F-2cJ" id="R4L-Jf-rQ3"/>
+                        <segue destination="khZ-JM-2dz" kind="show" identifier="goToProfile" id="iKo-QB-MRJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQ5-3Y-eWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -858,10 +925,15 @@ FACEBOOK</string>
         </scene>
     </scenes>
     <resources>
+        <image name="back-button" width="12" height="19"/>
+        <image name="edit-button" width="25" height="25"/>
         <image name="ic_add_friends" width="23" height="27"/>
         <image name="ic_button_back" width="13" height="21"/>
         <image name="ic_chat" width="20" height="20"/>
         <image name="ic_notification" width="23" height="23"/>
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kao-uo-qv0"/>
+    </inferredMetricsTieBreakers>
 </document>

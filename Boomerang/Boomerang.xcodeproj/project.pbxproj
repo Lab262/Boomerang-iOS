@@ -126,6 +126,11 @@
 		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
 		D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */; };
 		D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */; };
+		D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */; };
+		D4642BBE1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4642BBC1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib */; };
+		D4642BC01E9EC637002C8ADC /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBF1E9EC637002C8ADC /* TransactionDetailViewController.swift */; };
+		D4642BC31E9ED301002C8ADC /* LinkPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BC11E9ED301002C8ADC /* LinkPostTableViewCell.swift */; };
+		D4642BC41E9ED301002C8ADC /* LinkPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4642BC21E9ED301002C8ADC /* LinkPostTableViewCell.xib */; };
 		D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */; };
 		D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */; };
 		D48735021E7885000065E13A /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */; };
@@ -325,6 +330,11 @@
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
 		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCommentTableViewCell.swift; path = ../../../UserCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCommentTableViewCell.xib; path = ../../../UserCommentTableViewCell.xib; sourceTree = "<group>"; };
+		D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
+		D4642BBC1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionDetailTableViewCell.xib; sourceTree = "<group>"; };
+		D4642BBF1E9EC637002C8ADC /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
+		D4642BC11E9ED301002C8ADC /* LinkPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkPostTableViewCell.swift; sourceTree = "<group>"; };
+		D4642BC21E9ED301002C8ADC /* LinkPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkPostTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommendedPostTableViewCell.swift; path = ../Interface/RecommendedPostTableViewCell.swift; sourceTree = "<group>"; };
 		D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
@@ -907,6 +917,7 @@
 				D4E6A28B1E95CF00005B4E34 /* ExchangeTransactionViewController.swift */,
 				D4E6A28D1E95CF25005B4E34 /* DonationTransactionViewController.swift */,
 				D4E6A28F1E95D0E5005B4E34 /* TransactionSegmentViewController.swift */,
+				D4642BBF1E9EC637002C8ADC /* TransactionDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -914,6 +925,7 @@
 		D436BF271E95A69E00BC7F00 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				D436BF2D1E95B50E00BC7F00 /* TransactionTableViewCell.xib */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -922,7 +934,10 @@
 			isa = PBXGroup;
 			children = (
 				D436BF291E95A97300BC7F00 /* TransactionTableViewCell.swift */,
-				D436BF2D1E95B50E00BC7F00 /* TransactionTableViewCell.xib */,
+				D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */,
+				D4642BBC1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib */,
+				D4642BC11E9ED301002C8ADC /* LinkPostTableViewCell.swift */,
+				D4642BC21E9ED301002C8ADC /* LinkPostTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1178,7 +1193,9 @@
 				D433D0801E91D8E700112B32 /* Montserrat-MediumItalic.ttf in Resources */,
 				A4FE062C1DD0965700BFDC4D /* BoomerThingCell.xib in Resources */,
 				A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */,
+				D4642BC41E9ED301002C8ADC /* LinkPostTableViewCell.xib in Resources */,
 				A44E0C6A1DD092650028F06C /* Montserrat-Hairline.otf in Resources */,
+				D4642BBE1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib in Resources */,
 				2F2F079D1E6891A800C61A6D /* ThrowButtonTableViewCell.xib in Resources */,
 				A4E462FF1DCAEB0200A611C0 /* Profile.storyboard in Resources */,
 				D4A013081E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib in Resources */,
@@ -1414,6 +1431,7 @@
 				D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */,
 				2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */,
 				D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */,
+				D4642BC31E9ED301002C8ADC /* LinkPostTableViewCell.swift in Sources */,
 				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
 				D4FBBCEB1E907D5400611F63 /* InterestedPresenter.swift in Sources */,
 				D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */,
@@ -1437,6 +1455,7 @@
 				D498F03E1E808A95002E8972 /* PhotoThingCollectionViewCell.swift in Sources */,
 				A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */,
 				D48735041E7885000065E13A /* UICollectionViewCell+Utils.swift in Sources */,
+				D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */,
 				D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */,
 				D40DBB9D1E9684000075E74B /* Follow.swift in Sources */,
 				D48735031E7885000065E13A /* String+CharacterSpacing.swift in Sources */,
@@ -1474,6 +1493,7 @@
 				D48C99B21E68C7FF00A17E71 /* ActionDelegate.swift in Sources */,
 				2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */,
 				D4FBBCED1E90818A00611F63 /* Constants.swift in Sources */,
+				D4642BC01E9EC637002C8ADC /* TransactionDetailViewController.swift in Sources */,
 				D4C134E41E9C7A18003F55E4 /* Message.swift in Sources */,
 				A42767FD1DD3630400363343 /* AddBoomerMainViewController.swift in Sources */,
 				D48C99AF1E68B67100A17E71 /* SelectionDelegate.swift in Sources */,

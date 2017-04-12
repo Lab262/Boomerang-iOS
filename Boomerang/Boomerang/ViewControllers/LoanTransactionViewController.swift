@@ -20,6 +20,13 @@ class LoanTransactionViewController: UIViewController {
     func registerNib(){
         tableView.registerNibFrom(TransactionTableViewCell.self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let segmentVC = segue.destination as? TransactionDetailViewController {
+            //segmentControlButtonDelegate = segmentVC
+            //segmentVC.segmentControlPageDelegate = self
+        }
+    }
 }
 
 extension LoanTransactionViewController : UITableViewDataSource {
@@ -40,7 +47,7 @@ extension LoanTransactionViewController : UITableViewDataSource {
 extension LoanTransactionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: SegueIdentifiers.transactionToProfile, sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

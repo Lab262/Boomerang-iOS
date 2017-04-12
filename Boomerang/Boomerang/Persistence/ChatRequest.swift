@@ -38,13 +38,18 @@ class ChatRequest: NSObject {
         ParseRequest.queryEqualToValue(className: "Chat", queryParams: queryParams, include: nil) { (success, msg, objects) in
             if success {
                 let chat: Chat?
+                
                 if objects!.count > 0 {
                     chat = Chat(object: objects!.first!)
                     chat?.post = post
                     chat?.requester = requester
                     chat?.owner = owner
+                    
+                    completionHandler(success, msg, chat)
+                } else {
+                   completionHandler(false, msg, nil)
                 }
-                completionHandler(true, msg, chat)
+                
             } else {
                 completionHandler(false, msg, nil)
             }

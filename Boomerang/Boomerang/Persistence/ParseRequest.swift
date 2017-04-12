@@ -13,6 +13,27 @@ import Foundation
 class ParseRequest: NSObject {
     
     
+//    static func delegateMultipleObjectsInClassesFor(queryMultipleParams: Dictionary<String, Dictionary<String, AnyObject>>, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+//        
+//        let classes = queryMultipleParams.keys
+//        
+//        var query = PFQuery(className: "User")
+//        
+//        
+//        for className in classes {
+//            
+//        }
+//        
+////        PFQuery *innerQuery = [PFQuery queryWithClassName:@"User"];
+////        [innerQuery whereKey:@"userType" equalTo:@"X"];  // fix with your real user type
+////        PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+////        [query whereKey:@"user" matchesQuery:innerQuery];
+////        [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+////            // posts are posts where post.user.userType == X
+////            }];
+//        
+//    }
+    
     static func deleteObjectFor(className: String, queryParams: [String: Any], completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         let query = PFQuery(className: className)
@@ -31,6 +52,32 @@ class ParseRequest: NSObject {
                         completionHandler(false, error!.localizedDescription)
                     }
                     
+                })
+            } else {
+                completionHandler(false, error!.localizedDescription)
+            }
+        }
+    }
+    
+    static func updateForIsDeletedObjectBy(className: String, queryParams: [String: Any], completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let query = PFQuery(className: className)
+        
+        for queryParam in queryParams {
+            query.whereKey(queryParam.key, equalTo: queryParam.value)
+        }
+        
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                objects?.forEach {
+                    $0["isDeleted"] = true
+                }
+                PFObject.saveAll(inBackground: objects, block: { (success, error) in
+                    if error == nil {
+                        completionHandler(true, "success")
+                    } else {
+                        completionHandler(false, error!.localizedDescription)
+                    }
                 })
             } else {
                 completionHandler(false, error!.localizedDescription)

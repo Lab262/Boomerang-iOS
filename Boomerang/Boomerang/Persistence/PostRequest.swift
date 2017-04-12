@@ -158,12 +158,8 @@ class PostRequest: NSObject {
         queryParams["user"] = user
         queryParams["post"] = post
         
-        ParseRequest.deleteObjectFor(className: "Interested", queryParams: queryParams) { (success, msg) in
-            if success {
-                completionHandler(true, "success")
-            } else {
-                completionHandler(false, msg)
-            }
+        ParseRequest.updateForIsDeletedObjectBy(className: "Interested", queryParams: queryParams) { (success, msg) in
+            completionHandler(success, msg)
         }
     }
 }

@@ -88,7 +88,14 @@ class InterestedPresenter: NSObject {
     }
     
     func fetchChat() {
-        ChatRequest.createChat(requester: getRequester(), owner: getUser(), post: getPost(), completionHandler: <#T##(Bool, String) -> ()#>)
+        ChatRequest.getChatOf(requester: getRequester(), owner: getUser(), post: getPost()) { (success, msg, chat) in
+            if success {
+                self.setChat(chat: chat!)
+                print ("VE QUAL VAI SER O FLUXO.")
+            } else {
+                self.controller?.showMessageError(msg: msg)
+            }
+        }
     }
     
     func createScheme(){
