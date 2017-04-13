@@ -83,3 +83,24 @@ extension TransactionDetailViewController: UITableViewDelegate {
         }
     }
 }
+
+extension TransactionDetailViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
+        updateInformationsCell(yOffset)
+    }
+    
+    func updateInformationsCell(_ yOffset: CGFloat) {
+        let informationAlphaThreshold: CGFloat = 20.0
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+        
+        if yOffset > 0 {
+            let alpha = (yOffset)/informationAlphaThreshold
+            cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(alpha)
+        } else {
+            cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(0.0)
+        }
+    }
+}

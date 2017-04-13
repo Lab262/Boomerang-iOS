@@ -204,7 +204,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="jfA-yj-P8g" secondAttribute="trailing" constant="9" id="AbV-Wk-1FQ"/>
                     <constraint firstItem="jfA-yj-P8g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="kX3-Lk-Xeb"/>
@@ -212,7 +212,7 @@
                     <constraint firstItem="jfA-yj-P8g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="qzs-FS-WH0"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="cancelButton" destination="srM-zv-h1y" id="K2C-O9-xvT"/>
                 <outlet property="chatButton" destination="tqZ-fU-58m" id="E4o-S6-dc3"/>

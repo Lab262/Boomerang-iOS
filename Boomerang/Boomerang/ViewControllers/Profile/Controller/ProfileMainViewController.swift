@@ -25,7 +25,7 @@ class ProfileMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.setControllerDelegate(controller: self)
-        self.view.loadAnimation()
+        //self.view.loadAnimation()
         presenter.getPostsOfUser()
         
     }
