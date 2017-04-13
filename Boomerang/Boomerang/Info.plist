@@ -63,6 +63,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    
 	<key>NSCameraUsageDescription</key>
 	<string>Boomerang deseja ter acesso a câmera?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
