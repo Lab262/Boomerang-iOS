@@ -30,10 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        // self.setupBarsAppearance()
         
         let configuration = ParseClientConfiguration {
-            $0.applicationId = "boomerangapi"
+            $0.applicationId = "boomerang-api"
             $0.clientKey = ""
-            $0.server = "http://boomerangapi.herokuapp.com/parse"
-            
+            $0.server = "http://boomerang-api.herokuapp.com/parse"
         }
         
         Parse.initialize(with: configuration)

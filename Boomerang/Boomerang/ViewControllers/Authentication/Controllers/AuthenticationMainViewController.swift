@@ -62,6 +62,7 @@ class AuthenticationMainViewController: UIViewController {
     
     func getPhotoOfFacebookInPFFile (userId: String) -> PFFile? {
         var photoInPFFile: PFFile?
+        
         DispatchQueue.main.async {
             if let url = URL(string: "https://graph.facebook.com/" + userId + "/picture?type=large") {
                 do {
@@ -82,6 +83,8 @@ class AuthenticationMainViewController: UIViewController {
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            
+            
             if error == nil {
                 self.view.loadAnimation()
                 let fbloginresult : FBSDKLoginManagerLoginResult = result!
@@ -154,6 +157,7 @@ class AuthenticationMainViewController: UIViewController {
 extension AuthenticationMainViewController {
     
     func returnUserData(){
+        
         if((FBSDKAccessToken.current()) != nil){
             
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
