@@ -11,14 +11,28 @@ import UIKit
 class LoanTransactionViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var presenter = TransactionFilterPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNib()
+        registerObservers()
+        presenter.setViewDelegate(view: self)
     }
     
     func registerNib(){
         tableView.registerNibFrom(TransactionTableViewCell.self)
+    }
+    
+    func registerObservers(){
+         NotificationCenter.default.addObserver(self, selector: #selector(updateSchemes(_:)), name: NSNotification.Name(rawValue: NotificationKeys.updateSchemes), object: nil)
+    }
+    
+    func updateSchemes (_ notification: Notification) {
+        if let schemes = notification.object as! [Scheme]? {
+            presenter.setSchemes(schemes: schemes)
+            reload()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,7 +54,7 @@ extension LoanTransactionViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return presenter.getSchemesFor(postType: .donate).count
     }
 }
 
@@ -53,6 +67,15 @@ extension LoanTransactionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return TransactionTableViewCell.cellHeight
+    }
+}
+
+extension LoanTransactionViewController: ViewDelegate {
+    func reload() {
+        tableView.reloadData()
+    }
+    func showMessageError(msg: String) {
+        // error
     }
 }
 

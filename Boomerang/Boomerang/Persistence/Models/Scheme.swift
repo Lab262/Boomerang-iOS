@@ -43,17 +43,17 @@ class Scheme: PFObject {
             self.requester = User(user: requester)
         }
         
-        if let owner = object["owner"] as? User {
-            self.owner = User(user: owner)
-        }
+        //if let owner = object["owner"] as? User {
+          //  self.owner = User(user: owner)
+       // }
         
         if let post = object["post"] as? Post {
             self.post = Post(object: post)
         }
         
-        if let chat = object["chat"] as? Chat {
-            self.chat = Chat(object: chat)
-        }
+//        if let chat = object["chat"] as? Chat {
+//            self.chat = Chat(object: chat)
+//        }
     }
 }
 

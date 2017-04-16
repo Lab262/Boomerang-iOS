@@ -37,7 +37,9 @@ class HomePresenter: NSObject {
         
         UserRequest.fetchFollowing(pagination: pagination, skip: skipUsers, completionHandler: { (success, msg, following) in
             if success {
-                self.following = following!
+                for f in following! {
+                    self.following.append(f)
+                }
                 self.getPostsByFriends()
             } else {
                 self.controller?.showMessageError(msg: msg)
@@ -81,6 +83,10 @@ class HomePresenter: NSObject {
     
     func getCurrentPostsFriendsCount() -> Int {
         return currentPostsFriendsCount
+    }
+    
+    func getFollowing() -> [User] {
+        return following
     }
     
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {

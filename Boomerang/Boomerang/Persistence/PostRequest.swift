@@ -36,7 +36,7 @@ class PostRequest: NSObject {
         queryParams["user"] = currentUser
         queryParams["post"] = post
         
-        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, include: nil) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, includes: nil) { (success, msg, objects) in
             if success {
                 if objects!.count > 0 {
                     completionHandler(true, "Success", true)
@@ -65,7 +65,7 @@ class PostRequest: NSObject {
         var queryParams = [String : Any]()
         queryParams["author"] = user
         
-        ParseRequest.queryEqualToValue(className: "Post", queryParams: queryParams, include: nil) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Post", queryParams: queryParams, includes: nil) { (success, msg, objects) in
             
             if success {
                 for obj in objects! {
@@ -120,7 +120,7 @@ class PostRequest: NSObject {
         var queryParams = [String : Any]()
         queryParams["post"] = post
         
-        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, include: "user") { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, includes: ["user"]) { (success, msg, objects) in
             if success {
                 for object in objects! {
                     let interested = Interested(object: object)
@@ -133,8 +133,6 @@ class PostRequest: NSObject {
             }
         }
     }
-    
-    
 
     static func enterInterestedListOf(user: User, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         

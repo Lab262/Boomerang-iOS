@@ -35,7 +35,7 @@ class ChatRequest: NSObject {
         queryParams["owner"] = owner
         queryParams["post"] = post
         
-        ParseRequest.queryEqualToValue(className: "Chat", queryParams: queryParams, include: nil) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Chat", queryParams: queryParams, includes: nil) { (success, msg, objects) in
             if success {
                 let chat: Chat?
                 

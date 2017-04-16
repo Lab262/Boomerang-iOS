@@ -47,7 +47,10 @@ class InterestedListViewController: UIViewController {
         presenter.updateInteresteds()
     }
     
-    
+    func createScheme(_ sender: UIButton) {
+        presenter.setInterested(interested: presenter.getInteresteds()[sender.tag])
+        presenter.createScheme()
+    }
 }
 
 extension InterestedListViewController : UITableViewDataSource {
@@ -57,6 +60,8 @@ extension InterestedListViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: InterestedTableViewCell.identifier, for: indexPath) as! InterestedTableViewCell
         
         cell.presenter.setInterested(interested: presenter.getInteresteds()[indexPath.row])
+        cell.initializeSchemeButton.tag = indexPath.row
+        cell.initializeSchemeButton.addTarget(self, action: #selector(createScheme(_:)), for: .touchUpInside)
         cell.loadViewCell()
         cell.countLabel.text = "\(indexPath.row)"
         

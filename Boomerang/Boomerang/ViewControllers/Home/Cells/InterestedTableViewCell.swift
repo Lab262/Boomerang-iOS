@@ -21,6 +21,7 @@ class InterestedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var containerInformationsView: UIView!
     
+    @IBOutlet weak var initializeSchemeButton: UIButton!
     
     static var identifier: String {
         return "interestedCell"
@@ -38,8 +39,12 @@ class InterestedTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    @IBAction func initializeScheme(_ sender: Any) {
         
     }
+    
     
     func loadViewCell(){
         nameLabel.text = presenter.getInterested().user!.fullName!

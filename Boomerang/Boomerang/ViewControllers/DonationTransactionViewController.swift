@@ -11,6 +11,7 @@ import UIKit
 class DonationTransactionViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var presenter = TransactionFilterPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ extension DonationTransactionViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return presenter.getSchemes().count
     }
 }
 

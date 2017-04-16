@@ -682,19 +682,19 @@ FACEBOOK</string>
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <segue destination="hBZ-0u-B8P" kind="embed" id="gfv-Bp-SQw"/>
+                                                    <segue destination="hBZ-0u-B8P" kind="embed" identifier="goToTransaction" id="gfv-Bp-SQw"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQS-kD-7pw" userLabel="EXCHANGE">
                                                 <rect key="frame" x="375" y="0.0" width="375" height="531"/>
                                                 <connections>
-                                                    <segue destination="JWr-nI-Sbz" kind="embed" id="lus-vm-UlE"/>
+                                                    <segue destination="JWr-nI-Sbz" kind="embed" identifier="goToTransaction" id="lus-vm-UlE"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKQ-g9-BXd" userLabel="DONATION">
                                                 <rect key="frame" x="750" y="0.0" width="375" height="531"/>
                                                 <connections>
-                                                    <segue destination="uxq-Vx-l2n" kind="embed" id="ydH-Qe-xVR"/>
+                                                    <segue destination="uxq-Vx-l2n" kind="embed" identifier="goToTransaction" id="ydH-Qe-xVR"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
@@ -743,7 +743,7 @@ FACEBOOK</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KbK-Kt-DgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="1324.5877061469266"/>
+            <point key="canvasLocation" x="321" y="1347"/>
         </scene>
         <!--Loan Transaction View Controller-->
         <scene sceneID="Sgo-Nd-be2">
@@ -781,7 +781,7 @@ FACEBOOK</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMy-64-cTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="2104"/>
+            <point key="canvasLocation" x="-310" y="2104"/>
         </scene>
         <!--Exchange Transaction View Controller-->
         <scene sceneID="BBa-q3-CIL">
@@ -819,7 +819,7 @@ FACEBOOK</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1t4-ym-Ibm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="2104"/>
+            <point key="canvasLocation" x="321" y="2104"/>
         </scene>
         <!--Transaction Detail View Controller-->
         <scene sceneID="MoJ-Dy-EtH">
@@ -883,7 +883,7 @@ FACEBOOK</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO2-EP-fGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="2854.7226386806601"/>
+            <point key="canvasLocation" x="321" y="2858"/>
         </scene>
         <!--Donation Transaction View Controller-->
         <scene sceneID="6xE-4K-4dO">
@@ -921,7 +921,7 @@ FACEBOOK</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQ5-3Y-eWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1436" y="2104"/>
+            <point key="canvasLocation" x="972" y="2104"/>
         </scene>
     </scenes>
     <resources>
@@ -934,6 +934,6 @@ FACEBOOK</string>
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kao-uo-qv0"/>
+        <segue reference="iKo-QB-MRJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,7 @@ struct SegueIdentifiers {
     static let profileToDetailThing = "goToDetailThing"
     static let detailThingToProfile = "goToProfile"
     static let transactionToProfile = "goToProfile"
+    static let segmentTransactionToTransaction = "goToTransaction"
 }
 
 //MARK - Storyboard Ids
@@ -21,6 +22,12 @@ struct SegueIdentifiers {
 struct StoryboardIds {
     static let detailView = "detailThingView"
     static let profileView = "profileView"
+}
+
+//MARK - Notification Keys
+
+struct NotificationKeys {
+    static let updateSchemes = "updateSchemes"
 }
 
 

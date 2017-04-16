@@ -12,6 +12,7 @@ class TransactionSegmentViewController: UIViewController {
     
     var previousPage: Int = 0
     var segmentControlPageDelegate: SegmentControlPageDelegate?
+    var presenter: TransactionPresenter = TransactionPresenter()
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -21,9 +22,11 @@ class TransactionSegmentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.setViewDelegate(view: self)
+        presenter.getTransactions()
 
-        // Do any additional setup after loading the view.
     }
+
 }
 
 //Pragma MARK: - UIScrollViewDelegate
@@ -54,6 +57,19 @@ extension TransactionSegmentViewController: SegmentControlButtonDelegate {
             self.scrollView.scrollRectToVisible(rectToScroll, animated: false)
         }, completion: nil)
     }
+}
+
+
+// MARK: - Presenter protocol
+extension TransactionSegmentViewController: ViewDelegate {
+    
+    func reload() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.updateSchemes), object: presenter.getSchemes(), userInfo: nil)
+    }
+    func showMessageError(msg: String) {
+        present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
+    }
+    
 }
 
 

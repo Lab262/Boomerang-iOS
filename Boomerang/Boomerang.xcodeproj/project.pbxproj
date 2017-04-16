@@ -149,6 +149,7 @@
 		D498F0431E816243002E8972 /* ThingNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F0421E816243002E8972 /* ThingNavigationBar.xib */; };
 		D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */; };
 		D498F04B1E820EA1002E8972 /* UserInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F0491E820EA1002E8972 /* UserInformationTableViewCell.xib */; };
+		D49955B71EA3AAEF00D89038 /* TransactionFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */; };
 		D4A012F51E7AC83900B3B811 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */; };
 		D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */; };
 		D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */; };
@@ -354,6 +355,7 @@
 		D498F0421E816243002E8972 /* ThingNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThingNavigationBar.xib; sourceTree = "<group>"; };
 		D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D498F0491E820EA1002E8972 /* UserInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserInformationTableViewCell.xib; path = ../Cells/UserInformationTableViewCell.xib; sourceTree = "<group>"; };
+		D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFilterPresenter.swift; sourceTree = "<group>"; };
 		D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCollectionViewCell.swift; path = ../Interface/PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = ../Interface/PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -918,6 +920,7 @@
 				D4E6A28D1E95CF25005B4E34 /* DonationTransactionViewController.swift */,
 				D4E6A28F1E95D0E5005B4E34 /* TransactionSegmentViewController.swift */,
 				D4642BBF1E9EC637002C8ADC /* TransactionDetailViewController.swift */,
+				D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1486,6 +1489,7 @@
 				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,
 				D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */,
 				A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */,
+				D49955B71EA3AAEF00D89038 /* TransactionFilterPresenter.swift in Sources */,
 				2F2F079C1E6891A800C61A6D /* ThrowButtonTableViewCell.swift in Sources */,
 				A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */,
 				D498F0361E808861002E8972 /* PhotoThingTableViewCell.swift in Sources */,

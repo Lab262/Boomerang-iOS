@@ -102,7 +102,7 @@ class UserRequest: NSObject {
         queryParams["from"] = currentUser
         queryParams["to"] = otherUser
         
-        ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, include: nil) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, includes: nil) { (success, msg, objects) in
             if success {
                 if objects!.count > 0 {
                     completionHandler(true, "Success", true)
@@ -121,7 +121,7 @@ class UserRequest: NSObject {
         var queryParams = [String : Any]()
         queryParams["from"] = PFUser.current()!
         
-        ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, include: "to", pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, includes: ["to"], pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {
                 for object in objects! {

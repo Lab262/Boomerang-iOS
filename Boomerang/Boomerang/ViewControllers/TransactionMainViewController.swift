@@ -22,8 +22,6 @@ class TransactionMainViewController: UIViewController {
     @IBOutlet weak var donationTransactionButton: UIButton!
     
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
     }
@@ -87,4 +85,5 @@ extension TransactionMainViewController: SegmentControlPageDelegate {
         }
     }
 }
+
 

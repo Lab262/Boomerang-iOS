@@ -114,7 +114,7 @@ class ParseRequest: NSObject {
         }
     }
     
-    static func queryEqualToValue(className: String, queryParams: [String: Any], include: String?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    static func queryEqualToValue(className: String, queryParams: [String: Any], includes: [String]?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let query = PFQuery(className: className)
         
@@ -127,10 +127,15 @@ class ParseRequest: NSObject {
         if let keys = selectKeys {
             query.selectKeys(keys)
         }
+        
         query.skip = skip!
-        if let include = include {
-            query.includeKey(include)
+        
+        if let allIncludes = includes {
+            for include in allIncludes {
+                query.includeKey(include)
+            }
         }
+        
         query.findObjectsInBackground { (objects, error) in
             
             if error == nil {

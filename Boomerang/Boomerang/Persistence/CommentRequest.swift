@@ -17,7 +17,7 @@ class CommentRequest: NSObject {
         var queryParams = [String : Any]()
         queryParams["post"] = post
         
-        ParseRequest.queryEqualToValue(className: "Comment", queryParams: queryParams, include: "author", pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Comment", queryParams: queryParams, includes: ["author"], pagination: pagination, skip: skip) { (success, msg, objects) in
         
              if success {
                  for object in objects! {

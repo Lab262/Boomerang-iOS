@@ -50,13 +50,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-YE-AeK">
+                                <rect key="frame" x="279" y="30.5" width="34.5" height="34.5"/>
+                                <connections>
+                                    <action selector="initializeScheme:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xi3-sf-rGu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="f1K-ku-isv" firstAttribute="centerX" secondItem="IrZ-Xx-lk4" secondAttribute="centerX" multiplier="1.8" id="0UV-Jq-l10"/>
+                            <constraint firstItem="QBu-YE-AeK" firstAttribute="height" secondItem="f1K-ku-isv" secondAttribute="height" multiplier="1.5" id="4KU-o3-Ypw"/>
                             <constraint firstItem="ccE-Bb-ieG" firstAttribute="leading" secondItem="fhY-MM-SGH" secondAttribute="leading" id="7zb-RX-KzU"/>
+                            <constraint firstItem="QBu-YE-AeK" firstAttribute="width" secondItem="f1K-ku-isv" secondAttribute="width" multiplier="1.5" id="AfH-ui-cJS"/>
+                            <constraint firstItem="QBu-YE-AeK" firstAttribute="centerX" secondItem="f1K-ku-isv" secondAttribute="centerX" id="R8R-vt-wfi"/>
                             <constraint firstItem="ccE-Bb-ieG" firstAttribute="top" secondItem="fhY-MM-SGH" secondAttribute="bottom" constant="1" id="W0Y-QJ-vdk"/>
                             <constraint firstItem="f1K-ku-isv" firstAttribute="centerY" secondItem="IrZ-Xx-lk4" secondAttribute="centerY" id="dBS-Bq-aCK"/>
+                            <constraint firstItem="QBu-YE-AeK" firstAttribute="centerY" secondItem="f1K-ku-isv" secondAttribute="centerY" id="nFq-rW-Tji"/>
                             <constraint firstItem="f1K-ku-isv" firstAttribute="leading" secondItem="ccE-Bb-ieG" secondAttribute="trailing" constant="23" id="sA1-Ku-vG3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -193,6 +203,7 @@
                 <outlet property="containerInformationsView" destination="IrZ-Xx-lk4" id="F54-AL-qRd"/>
                 <outlet property="countLabel" destination="wQ9-i7-8N3" id="9AJ-eI-Eki"/>
                 <outlet property="dateLabel" destination="vwM-pu-Qey" id="dzY-EF-I3S"/>
+                <outlet property="initializeSchemeButton" destination="QBu-YE-AeK" id="AfL-QI-jKG"/>
                 <outlet property="interestedImage" destination="gll-MT-DNd" id="vZc-xS-xK7"/>
                 <outlet property="markerImage" destination="f1K-ku-isv" id="jta-jj-CMr"/>
                 <outlet property="messageLabel" destination="ccE-Bb-ieG" id="yNl-B3-NWQ"/>
