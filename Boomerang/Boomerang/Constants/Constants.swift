@@ -12,6 +12,7 @@ import Foundation
 struct SegueIdentifiers {
     static let detailThingToInterestedList = "goToInterestedList"
     static let profileToDetailThing = "goToDetailThing"
+    static let transactionToDetailThing = "goToDetailThing"
     static let detailThingToProfile = "goToProfile"
     static let transactionToProfile = "goToProfile"
     static let segmentTransactionToTransaction = "goToTransaction"

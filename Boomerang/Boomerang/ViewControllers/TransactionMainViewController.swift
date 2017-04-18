@@ -24,6 +24,7 @@ class TransactionMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        TabBarController.mainTabBarController.showTabBar()
     }
     
     override func viewDidLoad() {

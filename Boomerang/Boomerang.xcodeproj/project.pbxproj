@@ -925,6 +925,7 @@
 				D4E6A28D1E95CF25005B4E34 /* DonationTransactionViewController.swift */,
 				D4E6A28F1E95D0E5005B4E34 /* TransactionSegmentViewController.swift */,
 				D4642BBF1E9EC637002C8ADC /* TransactionDetailViewController.swift */,
+				D4E6A2891E95C5D1005B4E34 /* TransactionMainViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -963,7 +964,6 @@
 			children = (
 				D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */,
 				D4964CE51EA6615700BD3807 /* TransactionDetailCellPresenter.swift */,
-				D4E6A2891E95C5D1005B4E34 /* TransactionMainViewController.swift */,
 				D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */,
 				D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */,
 				D4964CE31EA6613900BD3807 /* TransactionDetailPresenter.swift */,

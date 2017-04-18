@@ -862,6 +862,17 @@ FACEBOOK</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miM-Rd-R9M">
+                                <rect key="frame" x="0.0" y="481" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.62745098039215685" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="19"/>
+                                <state key="normal" title="Finalizar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="finalizeTransaction:" destination="khZ-JM-2dz" eventType="touchUpInside" id="Qib-S0-KFp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -870,20 +881,34 @@ FACEBOOK</string>
                             <constraint firstAttribute="bottom" secondItem="DRi-Ib-CFk" secondAttribute="bottom" id="4Yf-gi-gQf"/>
                             <constraint firstItem="Yto-6u-jjP" firstAttribute="top" secondItem="wH8-jv-Dcx" secondAttribute="top" id="5ru-iJ-rfI"/>
                             <constraint firstItem="DRi-Ib-CFk" firstAttribute="leading" secondItem="wH8-jv-Dcx" secondAttribute="leading" id="9c4-VB-7yT"/>
+                            <constraint firstAttribute="trailing" secondItem="miM-Rd-R9M" secondAttribute="trailing" id="Jmm-fc-6PJ"/>
+                            <constraint firstItem="miM-Rd-R9M" firstAttribute="leading" secondItem="wH8-jv-Dcx" secondAttribute="leading" id="LcQ-21-nXr"/>
                             <constraint firstAttribute="trailing" secondItem="Yto-6u-jjP" secondAttribute="trailing" id="QtP-W0-VRN"/>
                             <constraint firstItem="Yto-6u-jjP" firstAttribute="leading" secondItem="wH8-jv-Dcx" secondAttribute="leading" id="S6G-k8-uVk"/>
+                            <constraint firstItem="miM-Rd-R9M" firstAttribute="height" secondItem="wH8-jv-Dcx" secondAttribute="height" multiplier="0.094" id="S9F-99-o12"/>
                             <constraint firstItem="LcP-Xa-82g" firstAttribute="top" secondItem="wH8-jv-Dcx" secondAttribute="top" id="ZvQ-wA-tvj"/>
                             <constraint firstAttribute="trailing" secondItem="LcP-Xa-82g" secondAttribute="trailing" id="gzu-sm-6s3"/>
+                            <constraint firstAttribute="bottom" secondItem="miM-Rd-R9M" secondAttribute="bottom" id="snM-14-PJy"/>
                             <constraint firstItem="DRi-Ib-CFk" firstAttribute="top" secondItem="eDT-gB-2cd" secondAttribute="bottom" id="zgs-le-VsG"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="finalizeButton" destination="miM-Rd-R9M" id="BKC-HL-zq6"/>
                         <outlet property="tableView" destination="DRi-Ib-CFk" id="ory-ZA-TOe"/>
+                        <segue destination="aRZ-Gk-s7Q" kind="show" identifier="goToDetailThing" id="sbt-fT-9mr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO2-EP-fGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="321" y="2858"/>
+        </scene>
+        <!--detailThingView-->
+        <scene sceneID="GIr-TI-GDH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="detailThingView" id="aRZ-Gk-s7Q" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8A2-Lu-XCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321" y="3284"/>
         </scene>
         <!--Donation Transaction View Controller-->
         <scene sceneID="6xE-4K-4dO">

@@ -40,6 +40,7 @@ class SchemeRequest: NSObject {
                 for obj in objects! {
                     let scheme = Scheme(object: obj)
                     scheme.owner = owner
+                    scheme.post?.author = owner
                     schemes.append(scheme)
                 }
                 completionHandler(success, msg, schemes)

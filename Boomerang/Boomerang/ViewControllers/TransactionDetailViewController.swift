@@ -12,8 +12,16 @@ class TransactionDetailViewController: UIViewController {
 
     let tableViewTopInset: CGFloat = 131.0
     
-    var scheme: Scheme?
+    @IBOutlet weak var finalizeButton: UIButton!
+    
+    var presenter: TransactionDetailPresenter = TransactionDetailPresenter()
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        TabBarController.mainTabBarController.hideTabBar()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +38,23 @@ class TransactionDetailViewController: UIViewController {
         tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let segmentVC = segue.destination as? ThingDetailViewController  {
+            segmentVC.presenter.setPost(post: presenter.getScheme().post!)
+        }
+    }
+    
     func generateLinkPostCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: LinkPostTableViewCell.identifier, for: indexPath) as! LinkPostTableViewCell
         
+        cell.showPostButton.addTarget(self, action: #selector(goLinkPost(_:)), for: .touchUpInside)
+        
         return cell
+    }
+    
+    func goLinkPost (_ sender: UIButton) {
+        performSegue(withIdentifier: SegueIdentifiers.transactionToDetailThing, sender: self)
     }
     
     func generateTransactionDetailCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,6 +63,11 @@ class TransactionDetailViewController: UIViewController {
         
         return cell
     }
+    
+    @IBAction func finalizeTransaction(_ sender: Any) {
+        
+    }
+    
     
 }
 

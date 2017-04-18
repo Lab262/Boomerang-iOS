@@ -36,10 +36,9 @@ class LoanTransactionViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let segmentVC = segue.destination as? TransactionDetailViewController {
-            segmentVC.scheme = presenter.getSchemes()[tableView.indexPathForSelectedRow!.row]
-            //segmentControlButtonDelegate = segmentVC
-            //segmentVC.segmentControlPageDelegate = self
+        if let destinationVC = segue.destination as? TransactionDetailViewController {
+            
+            destinationVC.presenter.setScheme(scheme: presenter.getSchemes()[tableView.indexPathForSelectedRow!.row])
         }
     }
 }
