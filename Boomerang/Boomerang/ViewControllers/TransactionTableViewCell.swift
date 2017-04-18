@@ -81,6 +81,6 @@ extension TransactionTableViewCell: TransactionCellDelegate {
     }
     
     func showMessage(error: String) {
-        // show message error
+        
     }
 }
