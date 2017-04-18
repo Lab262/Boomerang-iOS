@@ -37,6 +37,7 @@ class LoanTransactionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segmentVC = segue.destination as? TransactionDetailViewController {
+            segmentVC.scheme = presenter.getSchemes()[tableView.indexPathForSelectedRow!.row]
             //segmentControlButtonDelegate = segmentVC
             //segmentVC.segmentControlPageDelegate = self
         }
@@ -64,6 +65,7 @@ extension LoanTransactionViewController : UITableViewDataSource {
 extension LoanTransactionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         performSegue(withIdentifier: SegueIdentifiers.transactionToProfile, sender: self)
     }
     
@@ -78,7 +80,7 @@ extension LoanTransactionViewController: ViewDelegate {
         tableView.reloadData()
     }
     func showMessageError(msg: String) {
-        // error
+        
     }
 }
 

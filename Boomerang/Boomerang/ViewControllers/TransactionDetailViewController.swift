@@ -11,6 +11,8 @@ import UIKit
 class TransactionDetailViewController: UIViewController {
 
     let tableViewTopInset: CGFloat = 131.0
+    
+    var scheme: Scheme?
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

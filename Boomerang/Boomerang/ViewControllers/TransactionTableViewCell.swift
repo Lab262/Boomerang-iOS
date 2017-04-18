@@ -51,7 +51,6 @@ class TransactionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         presenter.setViewDelegate(view: self)
-
         containerView.layer.cornerRadius = 9
     }
     

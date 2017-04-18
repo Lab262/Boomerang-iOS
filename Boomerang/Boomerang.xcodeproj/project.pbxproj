@@ -141,6 +141,8 @@
 		D48735081E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48735061E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib */; };
 		D48C99AF1E68B67100A17E71 /* SelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */; };
 		D48C99B21E68C7FF00A17E71 /* ActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */; };
+		D4964CE41EA6613900BD3807 /* TransactionDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4964CE31EA6613900BD3807 /* TransactionDetailPresenter.swift */; };
+		D4964CE61EA6615700BD3807 /* TransactionDetailCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4964CE51EA6615700BD3807 /* TransactionDetailCellPresenter.swift */; };
 		D498F0311E7F334E002E8972 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0301E7F334E002E8972 /* HomePresenter.swift */; };
 		D498F0331E7F43EF002E8972 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0321E7F43EF002E8972 /* PostRequest.swift */; };
 		D498F0361E808861002E8972 /* PhotoThingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0341E808861002E8972 /* PhotoThingTableViewCell.swift */; };
@@ -347,6 +349,8 @@
 		D48735061E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostCollectionViewCell.xib; sourceTree = "<group>"; };
 		D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionDelegate.swift; sourceTree = "<group>"; };
 		D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
+		D4964CE31EA6613900BD3807 /* TransactionDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailPresenter.swift; sourceTree = "<group>"; };
+		D4964CE51EA6615700BD3807 /* TransactionDetailCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailCellPresenter.swift; sourceTree = "<group>"; };
 		D498F0301E7F334E002E8972 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		D498F0321E7F43EF002E8972 /* PostRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
 		D498F0341E808861002E8972 /* PhotoThingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoThingTableViewCell.swift; sourceTree = "<group>"; };
@@ -905,6 +909,7 @@
 		D436BF231E95A66C00BC7F00 /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				D4964CE21EA65EDF00BD3807 /* Presenters */,
 				D436BF281E95A6AE00BC7F00 /* Cells */,
 				D436BF271E95A69E00BC7F00 /* Interface */,
 				D436BF261E95A69400BC7F00 /* Controllers */,
@@ -916,14 +921,10 @@
 			isa = PBXGroup;
 			children = (
 				D436BF241E95A68B00BC7F00 /* LoanTransactionViewController.swift */,
-				D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */,
-				D4E6A2891E95C5D1005B4E34 /* TransactionMainViewController.swift */,
 				D4E6A28B1E95CF00005B4E34 /* ExchangeTransactionViewController.swift */,
 				D4E6A28D1E95CF25005B4E34 /* DonationTransactionViewController.swift */,
 				D4E6A28F1E95D0E5005B4E34 /* TransactionSegmentViewController.swift */,
 				D4642BBF1E9EC637002C8ADC /* TransactionDetailViewController.swift */,
-				D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */,
-				D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -955,6 +956,19 @@
 				D48C99B11E68C7FF00A17E71 /* ActionDelegate.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		D4964CE21EA65EDF00BD3807 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */,
+				D4964CE51EA6615700BD3807 /* TransactionDetailCellPresenter.swift */,
+				D4E6A2891E95C5D1005B4E34 /* TransactionMainViewController.swift */,
+				D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */,
+				D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */,
+				D4964CE31EA6613900BD3807 /* TransactionDetailPresenter.swift */,
+			);
+			name = Presenters;
 			sourceTree = "<group>";
 		};
 		D498F0441E820D54002E8972 /* UITableViewCell */ = {
@@ -1402,8 +1416,10 @@
 				D40C0E511E8B9A93008174D2 /* Photo.swift in Sources */,
 				2FA0CB381E6E5F1800224284 /* AlertUtils.swift in Sources */,
 				D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */,
+				D4964CE41EA6613900BD3807 /* TransactionDetailPresenter.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
 				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
+				D4964CE61EA6615700BD3807 /* TransactionDetailCellPresenter.swift in Sources */,
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,

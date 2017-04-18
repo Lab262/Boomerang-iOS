@@ -110,7 +110,6 @@ class TransactionCellPresenter: NSObject {
                 getImageOfUser(user: getOwnerOfTransaction(), type: .owner)
             }
         }
-        
         view?.descriptionTransaction = descriptionTransaction
     }
     
