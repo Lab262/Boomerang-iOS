@@ -10,16 +10,20 @@ import UIKit
 
 class TransactionDetailTableViewCell: UITableViewCell {
 
-    var presenter = TransactionPresenter()
+    var presenter = TransactionCellPresenter()
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var nameUserLabel: UILabel!
     @IBOutlet weak var dateTransactionLabel: UILabel!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    
     @IBOutlet weak var containerView: UIView!
     
+    var photo: UIImage? {
+        didSet {
+            userImage?.image = photo
+        }
+    }
     
     static var identifier: String {
         return "transactionDetailCell"
@@ -35,6 +39,8 @@ class TransactionDetailTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        //presenter.setViewDelegate(view: self)
+       // presenter.downloadImageUser()
         containerView.layer.cornerRadius = 5
         
     }
@@ -44,5 +50,19 @@ class TransactionDetailTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }
+
+//extension TransactionDetailTableViewCell: CellDelegate {
+//    
+//    func startLoadingPhoto() {
+//        userImage.loadAnimation()
+//    }
+//    
+//    func finishLoadingPhoto() {
+//        userImage.unload()
+//    }
+//    
+//    func showMessage(error: String) {
+//        // show message error
+//    }
+//}

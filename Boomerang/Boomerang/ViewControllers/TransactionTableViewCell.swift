@@ -16,7 +16,25 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var transactionLabel: UILabel!
     @IBOutlet weak var devolutionLabel: UILabel!
     
-    var presenter = TransactionPresenter()
+    var presenter = TransactionCellPresenter()
+    
+    var fromImage: UIImage? {
+        didSet{
+            fromUserImage.image = fromImage
+        }
+    }
+    
+    var toImage: UIImage? {
+        didSet{
+            toUserImage.image = toImage
+        }
+    }
+    
+    var descriptionTransaction: String? {
+        didSet{
+            transactionLabel.text = descriptionTransaction
+        }
+    }
     
     static var identifier: String {
         return "transactionCell"
@@ -30,12 +48,39 @@ class TransactionTableViewCell: UITableViewCell {
         return "TransactionTableViewCell"
     }
 
-
     override func awakeFromNib() {
         super.awakeFromNib()
+        presenter.setViewDelegate(view: self)
+
         containerView.layer.cornerRadius = 9
     }
     
-    
+    func updateCell(){
+        presenter.getInformationsOfTransaction()
+    }
+}
 
+extension TransactionTableViewCell: TransactionCellDelegate {
+    
+    func startLoadingPhoto(typeUser: TypeUser) {
+        switch typeUser {
+        case .owner:
+            fromUserImage.loadAnimation()
+        case .requester:
+            toUserImage.loadAnimation()
+        }
+    }
+    
+    func finishLoadingPhoto(typeUser: TypeUser) {
+        switch typeUser {
+        case .owner:
+            fromUserImage.unload()
+        case .requester:
+            toUserImage.unload()
+        }
+    }
+    
+    func showMessage(error: String) {
+        // show message error
+    }
 }

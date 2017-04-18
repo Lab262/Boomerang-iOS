@@ -73,7 +73,6 @@ class InterestedPresenter: NSObject {
         self.skip = interesteds.endIndex
         
         PostRequest.fetchInterestedOf(post: getPost(), selectKeys: ["user", "currentMessage"], pagination: pagination, skip: skip) { (success, msg, interesteds) in
-            
             if success {
                 for interested in interesteds! {
                     self.interesteds.append(interested)

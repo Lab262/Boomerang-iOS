@@ -22,7 +22,7 @@ class User: PFUser {
     convenience init(user: PFUser) {
         self.init()
         
-        self.setInformationsUserByPFUser(user: user)
+        setInformationsUserByPFUser(user: user)
     }
     
     func setInformationsUserByPFUser(user: PFUser){
@@ -40,7 +40,6 @@ class User: PFUser {
         }
         
         if let email = user["email"] as? String {
-            
             self.email = email
         }
         

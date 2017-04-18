@@ -35,6 +35,8 @@ class TransactionFilterPresenter: NSObject {
         return self.schemes
     }
     
+    
+    
     func getSchemesFor(postType: PostType) -> [Scheme] {
         let filterSchemes = filterSchemesFor(postType: postType)
         return filterSchemes
