@@ -55,10 +55,11 @@ class DetailThingPresenter: NSObject {
     
     func setPost(post: Post) {
         self.post = post
+        
     }
     
     func getPost() -> Post {
-        return post!
+        return self.post!
     }
     
     func getUser() -> User {
@@ -140,6 +141,7 @@ class DetailThingPresenter: NSObject {
 
     
     func getRelationsImages(success: Bool){
+        
         if !success {
             PostRequest.getRelationsInBackground(post: post!, completionHandler: { (success, msg) in
                 if success {
@@ -152,6 +154,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func downloadImagesPost(success:Bool) {
+        
         if let relations = getPost().relations {
             for relation in relations where !relation.isDownloadedImage {
                 relation.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
@@ -168,6 +171,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func getImagePostByIndex(_ index: Int) -> UIImage {
+        
         if let relations = self.post?.relations {
             if relations.count >= index+1 {
                 if let photo = relations[index].photo {

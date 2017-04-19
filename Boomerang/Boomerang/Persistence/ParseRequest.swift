@@ -227,7 +227,7 @@ extension PFObject {
         if isNotContained {
             query.whereKey(keyColunm, notContainedIn: notContainedKeys)
         }
-
+        
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
                 completionHandler(true, "Success", objects)

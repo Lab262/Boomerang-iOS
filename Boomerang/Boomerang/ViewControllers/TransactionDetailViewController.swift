@@ -40,6 +40,7 @@ class TransactionDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segmentVC = segue.destination as? ThingDetailViewController  {
+            
             segmentVC.presenter.setPost(post: presenter.getScheme().post!)
         }
     }

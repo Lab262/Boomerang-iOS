@@ -65,6 +65,8 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         pageIndicatorView?.reload()
+        
+        
         return presenter.getPost().countPhotos
     }
 }
@@ -119,6 +121,7 @@ extension PhotoThingTableViewCell: UpdatePostDelegate {
 extension PhotoThingTableViewCell: ViewDelegate {
     
     func reload() {
+        
         photoCollectionView.reloadData()
         pageIndicatorView?.reload()
     }

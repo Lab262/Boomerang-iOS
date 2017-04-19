@@ -257,6 +257,7 @@ extension HomeMainViewController: UIScrollViewDelegate {
 extension HomeMainViewController: ViewDelegate {
     
     func reload(){
+        
         if presenter.getPosts().count != presenter.getCurrentPostsFriendsCount(){
             tableView.reloadData()
         }

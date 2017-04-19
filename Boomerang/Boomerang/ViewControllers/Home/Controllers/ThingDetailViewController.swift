@@ -149,7 +149,13 @@ class ThingDetailViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: PhotoThingTableViewCell.identifier, for: indexPath) as! PhotoThingTableViewCell
         
         cell.presenter.setPost(post: presenter.getPost())
-        cell.presenter.downloadImagesPost(success: true)
+        if cell.presenter.getPost().relations == nil {
+            cell.presenter.getCountPhotos(success: false)
+            cell.presenter.getRelationsImages(success: false)
+        } else {
+            cell.presenter.downloadImagesPost(success: true)
+        }
+        
         
         return cell
     }
@@ -324,9 +330,12 @@ extension ThingDetailViewController: UpdateInformationsDelegate {
 extension ThingDetailViewController: ViewDelegate {
     
     func reload() {
+        
         if presenter.getComments().count != presenter.getCurrentCommentsCount() {
             tableView.reloadData()
         }
+        
+        
         tableView.tableFooterView?.unload()
     }
     
