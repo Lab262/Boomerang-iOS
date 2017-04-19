@@ -20,7 +20,7 @@ class EvaluationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.userImage.image = ApplicationState.sharedInstance.currentUser?.profileImage
         // Do any additional setup after loading the view.
     }
 

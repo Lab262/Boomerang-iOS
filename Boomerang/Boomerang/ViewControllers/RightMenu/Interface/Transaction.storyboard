@@ -863,7 +863,7 @@ FACEBOOK</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miM-Rd-R9M">
-                                <rect key="frame" x="0.0" y="481" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="491" width="375" height="40"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.62745098039215685" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="19"/>
                                 <state key="normal" title="Finalizar">
@@ -885,7 +885,7 @@ FACEBOOK</string>
                             <constraint firstItem="miM-Rd-R9M" firstAttribute="leading" secondItem="wH8-jv-Dcx" secondAttribute="leading" id="LcQ-21-nXr"/>
                             <constraint firstAttribute="trailing" secondItem="Yto-6u-jjP" secondAttribute="trailing" id="QtP-W0-VRN"/>
                             <constraint firstItem="Yto-6u-jjP" firstAttribute="leading" secondItem="wH8-jv-Dcx" secondAttribute="leading" id="S6G-k8-uVk"/>
-                            <constraint firstItem="miM-Rd-R9M" firstAttribute="height" secondItem="wH8-jv-Dcx" secondAttribute="height" multiplier="0.094" id="S9F-99-o12"/>
+                            <constraint firstItem="miM-Rd-R9M" firstAttribute="height" secondItem="wH8-jv-Dcx" secondAttribute="height" multiplier="0.075" id="S9F-99-o12"/>
                             <constraint firstItem="LcP-Xa-82g" firstAttribute="top" secondItem="wH8-jv-Dcx" secondAttribute="top" id="ZvQ-wA-tvj"/>
                             <constraint firstAttribute="trailing" secondItem="LcP-Xa-82g" secondAttribute="trailing" id="gzu-sm-6s3"/>
                             <constraint firstAttribute="bottom" secondItem="miM-Rd-R9M" secondAttribute="bottom" id="snM-14-PJy"/>
@@ -896,7 +896,7 @@ FACEBOOK</string>
                         <outlet property="finalizeButton" destination="miM-Rd-R9M" id="BKC-HL-zq6"/>
                         <outlet property="tableView" destination="DRi-Ib-CFk" id="ory-ZA-TOe"/>
                         <segue destination="aRZ-Gk-s7Q" kind="show" identifier="goToDetailThing" id="sbt-fT-9mr"/>
-                        <segue destination="t89-XN-vL1" kind="show" id="JGa-ic-EfQ"/>
+                        <segue destination="t89-XN-vL1" kind="show" identifier="goToEvaluation" id="JGa-ic-EfQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO2-EP-fGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -943,7 +943,7 @@ FACEBOOK</string>
                                     <constraint firstItem="Rbm-Bx-kbS" firstAttribute="centerY" secondItem="vlu-yY-oqO" secondAttribute="centerY" multiplier="2" id="A1s-pV-XGE"/>
                                     <constraint firstItem="ml7-Gw-19q" firstAttribute="centerY" secondItem="vlu-yY-oqO" secondAttribute="centerY" multiplier="0.72" id="Kgh-bh-R41"/>
                                     <constraint firstItem="y3z-Hh-UT4" firstAttribute="leading" secondItem="vlu-yY-oqO" secondAttribute="leading" id="N9D-5T-eeE"/>
-                                    <constraint firstItem="y3z-Hh-UT4" firstAttribute="top" secondItem="vlu-yY-oqO" secondAttribute="top" id="bZI-On-EZa"/>
+                                    <constraint firstItem="y3z-Hh-UT4" firstAttribute="top" secondItem="vlu-yY-oqO" secondAttribute="top" id="QD6-p4-FNZ"/>
                                     <constraint firstItem="y3z-Hh-UT4" firstAttribute="width" secondItem="vlu-yY-oqO" secondAttribute="width" id="ekw-xt-DZs"/>
                                     <constraint firstItem="ml7-Gw-19q" firstAttribute="centerX" secondItem="vlu-yY-oqO" secondAttribute="centerX" id="kTD-Yd-JpQ"/>
                                     <constraint firstItem="Rbm-Bx-kbS" firstAttribute="centerX" secondItem="vlu-yY-oqO" secondAttribute="centerX" id="nEg-nd-BMn"/>
@@ -991,11 +991,8 @@ diga como foi a sua experiência com ela.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYl-gx-tjc">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="616.5" width="375" height="50.5"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.62745098040000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Bub-mR-ZO6"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="19"/>
                                 <state key="normal" title="Pronto">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1006,7 +1003,7 @@ diga como foi a sua experiência com ela.</string>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E9z-fX-tTb">
-                                <rect key="frame" x="35" y="461" width="305" height="120"/>
+                                <rect key="frame" x="35" y="461" width="305" height="119.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <color key="textColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
@@ -1018,7 +1015,6 @@ diga como foi a sua experiência com ela.</string>
                         <constraints>
                             <constraint firstItem="klV-Py-5Y9" firstAttribute="centerY" secondItem="pTI-cc-22Q" secondAttribute="centerY" id="4ko-SS-g5S"/>
                             <constraint firstAttribute="trailing" secondItem="MYl-gx-tjc" secondAttribute="trailing" id="4wc-sx-bSx"/>
-                            <constraint firstItem="vlu-yY-oqO" firstAttribute="top" secondItem="YrG-TH-4t5" secondAttribute="bottom" id="60I-m8-77N"/>
                             <constraint firstItem="GAn-kW-IZ4" firstAttribute="leading" secondItem="pTI-cc-22Q" secondAttribute="leadingMargin" constant="30" id="BpU-jQ-hHp"/>
                             <constraint firstItem="GAn-kW-IZ4" firstAttribute="centerX" secondItem="pTI-cc-22Q" secondAttribute="centerX" id="IOP-UX-81g"/>
                             <constraint firstItem="MYl-gx-tjc" firstAttribute="leading" secondItem="pTI-cc-22Q" secondAttribute="leading" id="IjM-ox-LWi"/>
@@ -1026,20 +1022,23 @@ diga como foi a sua experiência com ela.</string>
                             <constraint firstItem="vlu-yY-oqO" firstAttribute="width" secondItem="pTI-cc-22Q" secondAttribute="width" id="KTT-OL-yBN"/>
                             <constraint firstItem="MrD-T0-9Mv" firstAttribute="centerY" secondItem="pTI-cc-22Q" secondAttribute="centerY" multiplier="1.241" id="LPd-SM-VNb"/>
                             <constraint firstItem="E9z-fX-tTb" firstAttribute="leading" secondItem="pTI-cc-22Q" secondAttribute="leadingMargin" constant="19" id="NgT-th-dvN"/>
+                            <constraint firstAttribute="bottom" secondItem="MYl-gx-tjc" secondAttribute="bottom" id="OF1-cP-AWK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MrD-T0-9Mv" secondAttribute="trailing" constant="43" id="RE2-fl-xD7"/>
                             <constraint firstItem="MYl-gx-tjc" firstAttribute="top" secondItem="E9z-fX-tTb" secondAttribute="bottom" constant="36" id="UuV-qj-KDE"/>
                             <constraint firstItem="GAn-kW-IZ4" firstAttribute="centerY" secondItem="pTI-cc-22Q" secondAttribute="centerY" multiplier="0.83" id="VsW-Yb-hZq"/>
+                            <constraint firstItem="MYl-gx-tjc" firstAttribute="height" secondItem="pTI-cc-22Q" secondAttribute="height" multiplier="0.075" id="ab2-V2-qJq"/>
                             <constraint firstItem="vlu-yY-oqO" firstAttribute="height" secondItem="pTI-cc-22Q" secondAttribute="height" multiplier="0.246" id="dNU-Ce-ycS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="E9z-fX-tTb" secondAttribute="trailing" constant="19" id="dvx-bX-2Op"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GAn-kW-IZ4" secondAttribute="trailing" constant="31" id="e6b-7P-BbI"/>
-                            <constraint firstItem="q6V-Np-tk4" firstAttribute="top" secondItem="MYl-gx-tjc" secondAttribute="bottom" id="g0T-5I-21B"/>
                             <constraint firstItem="vlu-yY-oqO" firstAttribute="leading" secondItem="pTI-cc-22Q" secondAttribute="leading" id="mqe-MN-038"/>
                             <constraint firstItem="MrD-T0-9Mv" firstAttribute="leading" secondItem="pTI-cc-22Q" secondAttribute="leadingMargin" constant="43" id="oZX-iQ-bAM"/>
+                            <constraint firstItem="vlu-yY-oqO" firstAttribute="top" secondItem="pTI-cc-22Q" secondAttribute="top" id="tnd-TM-AVn"/>
                             <constraint firstItem="MrD-T0-9Mv" firstAttribute="centerX" secondItem="aN2-0q-Col" secondAttribute="centerX" id="ua3-s5-oxL"/>
                             <constraint firstAttribute="trailing" secondItem="vlu-yY-oqO" secondAttribute="trailing" id="v3m-Dl-g9k"/>
                             <constraint firstItem="E9z-fX-tTb" firstAttribute="top" secondItem="MrD-T0-9Mv" secondAttribute="bottom" constant="30" id="z9M-DP-K2W"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>

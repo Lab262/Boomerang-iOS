@@ -18,7 +18,6 @@ class TransactionDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.hideTabBar()
     }
@@ -71,10 +70,8 @@ class TransactionDetailViewController: UIViewController {
     }
     
     @IBAction func finalizeTransaction(_ sender: Any) {
-        
+        performSegue(withIdentifier: SegueIdentifiers.detailTransactionToEvaluation, sender: self)
     }
-    
-    
 }
 
 extension TransactionDetailViewController : UITableViewDataSource {
