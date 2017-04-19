@@ -10,7 +10,7 @@ import UIKit
 
 class TransactionDetailTableViewCell: UITableViewCell {
 
-    var presenter = TransactionCellPresenter()
+    var presenter = TransactionDetailCellPresenter()
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var nameUserLabel: UILabel!
@@ -18,6 +18,7 @@ class TransactionDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var titleOfTransactionLabel: UILabel!
     
     var photo: UIImage? {
         didSet {
@@ -39,10 +40,15 @@ class TransactionDetailTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //presenter.setViewDelegate(view: self)
-       // presenter.downloadImageUser()
+        presenter.setViewDelegate(view: self)
         containerView.layer.cornerRadius = 5
-        
+    }
+    
+    func updateInformationsCell(){
+        nameUserLabel.text = presenter.getUserOwnATransaction().fullName!
+        titleOfTransactionLabel.text = presenter.getTitleOfTransaction()
+        dateTransactionLabel.text = presenter.getStartDateScheme().getStringToDate(dateFormat: "dd-MM-YYYY")
+        presenter.getImageOfUser()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -52,17 +58,17 @@ class TransactionDetailTableViewCell: UITableViewCell {
     }
 }
 
-//extension TransactionDetailTableViewCell: CellDelegate {
-//    
-//    func startLoadingPhoto() {
-//        userImage.loadAnimation()
-//    }
-//    
-//    func finishLoadingPhoto() {
-//        userImage.unload()
-//    }
-//    
-//    func showMessage(error: String) {
-//        // show message error
-//    }
-//}
+extension TransactionDetailTableViewCell: TransactionDetailCellDelegate {
+    
+    func startLoadingPhoto() {
+        userImage?.loadAnimation()
+    }
+    
+    func finishLoadingPhoto() {
+        userImage?.unload()
+    }
+    
+    func showMessage(error: String) {
+        
+    }
+}

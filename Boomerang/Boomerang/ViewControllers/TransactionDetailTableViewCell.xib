@@ -23,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="469.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfA-yj-P8g">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfA-yj-P8g">
                         <rect key="frame" x="9" y="2" width="357" height="467"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empréstimo feito com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psg-in-g9j">
@@ -50,8 +50,12 @@
                                 <color key="textColor" red="0.1215686275" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="9OX-3h-MHQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="9OX-3h-MHQ">
                                 <rect key="frame" x="20" y="56" width="62" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="7Jo-f4-uHY"/>
+                                    <constraint firstAttribute="width" constant="62" id="Shi-9f-1tq"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -216,6 +220,7 @@
                 <outlet property="containerView" destination="jfA-yj-P8g" id="jrt-qS-M9S"/>
                 <outlet property="dateTransactionLabel" destination="ocg-tf-0qz" id="Vt9-ff-Ir5"/>
                 <outlet property="nameUserLabel" destination="qlE-mA-ofV" id="Jf1-gJ-AIZ"/>
+                <outlet property="titleOfTransactionLabel" destination="psg-in-g9j" id="aaQ-Uh-oja"/>
                 <outlet property="userImage" destination="9OX-3h-MHQ" id="7yw-LX-7xo"/>
             </connections>
             <point key="canvasLocation" x="57.5" y="119"/>

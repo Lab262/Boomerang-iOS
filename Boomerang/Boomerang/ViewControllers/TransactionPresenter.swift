@@ -45,7 +45,6 @@ class TransactionPresenter: NSObject {
     
     func getTransactions() {
         skipSchemes = schemes.endIndex
-        
         SchemeRequest.getSchemesForUser(owner: getUser(), pagination: pagination, skip: skipSchemes) { (success, msg, schemes) in
             if success {
                 for scheme in schemes! {

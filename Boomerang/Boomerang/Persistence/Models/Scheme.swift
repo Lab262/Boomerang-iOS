@@ -23,7 +23,8 @@ class Scheme: PFObject {
     @NSManaged var owner: User?
     @NSManaged var chat: Chat?
     @NSManaged var status: String?
-    
+
+    var createdDate: Date?
     
     override init(){
         super.init()
@@ -38,6 +39,8 @@ class Scheme: PFObject {
     func setInformationsBy(object: PFObject){
         
         self.objectId = object.objectId
+        self.createdDate = object.createdAt
+        
         
         if let requester = object["requester"] as? User {
             self.requester = User(user: requester)

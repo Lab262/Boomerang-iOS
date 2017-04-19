@@ -8,13 +8,20 @@
 
 import UIKit
 
+protocol TransactionDetailCellDelegate {
+    func startLoadingPhoto()
+    func finishLoadingPhoto()
+    func showMessage(error: String)
+    var photo: UIImage? {get set}
+}
+
 class TransactionDetailCellPresenter: NSObject {
     
     fileprivate var scheme: Scheme = Scheme()
-    fileprivate var view: TransactionCellDelegate?
+    fileprivate var view: TransactionDetailCellDelegate?
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
     
-    func setViewDelegate(view: TransactionCellDelegate) {
+    func setViewDelegate(view: TransactionDetailCellDelegate) {
         self.view = view
     }
     
@@ -30,20 +37,47 @@ class TransactionDetailCellPresenter: NSObject {
         return getScheme().post!.title!
     }
     
+    func getStartDateScheme() -> Date {
+        return getScheme().createdDate!
+    }
+    
+    func getTypeTransaction() -> PostType {
+        return getScheme().post!.postType!
+    }
+    
     func getUser() -> User {
         return user
     }
     
-    func getRequesterOfTransaction() -> User {
-        return getScheme().requester!
+    func getUserOwnATransaction() -> User {
+        if getScheme().owner == self.user {
+            return getScheme().requester!
+        } else {
+            return getScheme().owner!
+        }
     }
     
-    func getOwnerOfTransaction() -> User {
-        return getScheme().owner!
+    func getTitleOfTransaction() -> String {
+        switch getTypeTransaction() {
+        case .have:
+            return "Empréstimo feito com"
+        case .donate:
+            return "Doação feita com"
+        case .need:
+            return "Troca feita com"
+        }
     }
     
-    func getPost() -> Post {
-        return getScheme().post!
+    func getImageOfUser(){
+        getUserOwnATransaction().getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            if success {
+                self.view?.photo = UIImage(data: data!)
+            } else {
+                self.view?.showMessage(error: msg)
+            }
+            self.view?.finishLoadingPhoto()
+            
+        })
     }
 
 }

@@ -62,6 +62,9 @@ class TransactionDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionDetailTableViewCell.identifier, for: indexPath) as! TransactionDetailTableViewCell
         
+        cell.presenter.setScheme(scheme: presenter.getScheme())
+        cell.updateInformationsCell()
+        
         return cell
     }
     

@@ -941,6 +941,7 @@
 		D436BF281E95A6AE00BC7F00 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				D4AD97671EA802AF00C9FAB9 /* Presenters */,
 				D436BF291E95A97300BC7F00 /* TransactionTableViewCell.swift */,
 				D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */,
 				D4642BBC1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib */,
@@ -963,9 +964,7 @@
 			isa = PBXGroup;
 			children = (
 				D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */,
-				D4964CE51EA6615700BD3807 /* TransactionDetailCellPresenter.swift */,
 				D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */,
-				D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */,
 				D4964CE31EA6613900BD3807 /* TransactionDetailPresenter.swift */,
 			);
 			name = Presenters;
@@ -1050,6 +1049,15 @@
 				D4A012FD1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift */,
 			);
 			name = ScaledVisibleCellsCollectionView;
+			sourceTree = "<group>";
+		};
+		D4AD97671EA802AF00C9FAB9 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				D4964CE51EA6615700BD3807 /* TransactionDetailCellPresenter.swift */,
+				D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */,
+			);
+			name = Presenters;
 			sourceTree = "<group>";
 		};
 		D4E4BEAF1E82569300F8DC2E /* Frameworks */ = {
