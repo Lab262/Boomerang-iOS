@@ -10,6 +10,14 @@ import UIKit
 
 class EvaluationViewController: UIViewController {
 
+    @IBOutlet weak var navigationTitleLabel: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var evaluationTextLabel: UILabel!
+    @IBOutlet weak var evaluationCommentLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet var starButtons: [UIButton]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +27,11 @@ class EvaluationViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func doneAction(_ sender: Any) {
+        
     }
     
 
