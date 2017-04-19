@@ -162,6 +162,7 @@
 		D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A013031E7B181F00B3B811 /* CGOperations.swift */; };
 		D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */; };
 		D4A013081E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */; };
+		D4AD976E1EA81A1F00C9FAB9 /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD976D1EA81A1F00C9FAB9 /* EvaluationViewController.swift */; };
 		D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */; };
 		D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134DF1E9C7088003F55E4 /* Scheme.swift */; };
 		D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E11E9C7256003F55E4 /* Chat.swift */; };
@@ -372,6 +373,7 @@
 		D4A013031E7B181F00B3B811 /* CGOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGOperations.swift; sourceTree = "<group>"; };
 		D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PageControlCollectionViewCell.xib; path = ../Cells/PageControlCollectionViewCell.xib; sourceTree = "<group>"; };
+		D4AD976D1EA81A1F00C9FAB9 /* EvaluationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
 		D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIndicatorView.swift; sourceTree = "<group>"; };
 		D4C134DF1E9C7088003F55E4 /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		D4C134E11E9C7256003F55E4 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 		A4E462E71DCAEA7F00A611C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D4AD97681EA819B700C9FAB9 /* Evaluation */,
 				D436BF231E95A66C00BC7F00 /* Transaction */,
 				A489B1F31DDA7D0300B239D5 /* Authentication */,
 				A4E462E81DCAEA7F00A611C0 /* Boomer */,
@@ -1060,6 +1063,46 @@
 			name = Presenters;
 			sourceTree = "<group>";
 		};
+		D4AD97681EA819B700C9FAB9 /* Evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				D4AD976C1EA819D900C9FAB9 /* Cells */,
+				D4AD976B1EA819D100C9FAB9 /* Interface */,
+				D4AD976A1EA819C800C9FAB9 /* Controller */,
+				D4AD97691EA819C300C9FAB9 /* Presenter */,
+			);
+			name = Evaluation;
+			sourceTree = "<group>";
+		};
+		D4AD97691EA819C300C9FAB9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		D4AD976A1EA819C800C9FAB9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D4AD976D1EA81A1F00C9FAB9 /* EvaluationViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D4AD976B1EA819D100C9FAB9 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		D4AD976C1EA819D900C9FAB9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		D4E4BEAF1E82569300F8DC2E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1412,6 +1455,7 @@
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
 				D4C134E91E9C8265003F55E4 /* ChatRequest.swift in Sources */,
+				D4AD976E1EA81A1F00C9FAB9 /* EvaluationViewController.swift in Sources */,
 				D4E6A28C1E95CF00005B4E34 /* ExchangeTransactionViewController.swift in Sources */,
 				D4A012FE1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
