@@ -47,7 +47,7 @@ class TransactionDetailTableViewCell: UITableViewCell {
     func updateInformationsCell(){
         nameUserLabel.text = presenter.getUserOwnATransaction().fullName!
         titleOfTransactionLabel.text = presenter.getTitleOfTransaction()
-        dateTransactionLabel.text = presenter.getStartDateScheme().getStringToDate(dateFormat: "dd-MM-YYYY")
+        dateTransactionLabel.text = presenter.getStartDateScheme().getStringToDate(dateFormat: "dd/MM/YYYY")
         presenter.getImageOfUser()
     }
 

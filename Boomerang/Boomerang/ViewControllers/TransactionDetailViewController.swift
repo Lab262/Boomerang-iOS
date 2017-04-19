@@ -49,6 +49,8 @@ class TransactionDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: LinkPostTableViewCell.identifier, for: indexPath) as! LinkPostTableViewCell
         
+        cell.datePostLabel.text = ("Post feito em: \(presenter.getCreatedPost().getStringToDate(dateFormat: "dd/MM/YYYY"))")
+        
         cell.showPostButton.addTarget(self, action: #selector(goLinkPost(_:)), for: .touchUpInside)
         
         return cell

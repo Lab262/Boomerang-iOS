@@ -29,5 +29,9 @@ class TransactionDetailPresenter: NSObject {
     func getScheme() -> Scheme {
         return scheme
     }
+    
+    func getCreatedPost() -> Date {
+        return scheme.post!.createdDate!
+    }
 
 }
