@@ -21,28 +21,30 @@ class EvaluationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.userImage.image = ApplicationState.sharedInstance.currentUser?.profileImage
-        // Do any additional setup after loading the view.
+        configureStarButtons()
+    }
+    
+    func configureStarButtons() {
+        starButtons.forEach  {
+            $0.setImage(#imageLiteral(resourceName: "star-deselect-button"), for: .normal)
+            $0.setImage(#imageLiteral(resourceName: "star_selected_button"), for: .selected)
+        }
+    }
+    
+    @IBAction func selectedStar(_ sender: UIButton) {
+        for i in (0..<starButtons.count) {
+            starButtons[i].isSelected = false
+        }
+        
+        for i in (0..<starButtons.index(of: sender)!+1) {
+            starButtons[i].alphaAnimation()
+            starButtons[i].isSelected = true
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
     @IBAction func doneAction(_ sender: Any) {
         
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

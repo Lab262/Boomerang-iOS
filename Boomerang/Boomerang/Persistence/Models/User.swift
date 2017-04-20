@@ -18,6 +18,11 @@ class User: PFUser {
     var profileImage: UIImage?
     var alreadySearched = false
     var follow: Follow?
+    
+    
+    static var current: User? {
+        return PFUser.current() as? User
+    }
 
     convenience init(user: PFUser) {
         self.init()

@@ -965,22 +965,37 @@ diga como foi a sua experiência com ela.</string>
                                     <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6L-ln-u7e">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
                                         <state key="normal" title="" image="star_selected_button"/>
+                                        <connections>
+                                            <action selector="selectedStar:" destination="t89-XN-vL1" eventType="touchUpInside" id="TBx-1k-tWV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlP-vI-jUT">
                                         <rect key="frame" x="60" y="0.0" width="35" height="34"/>
                                         <state key="normal" image="star_selected_button"/>
+                                        <connections>
+                                            <action selector="selectedStar:" destination="t89-XN-vL1" eventType="touchUpInside" id="0rj-Bj-7sl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aN2-0q-Col">
                                         <rect key="frame" x="120" y="0.0" width="35" height="34"/>
                                         <state key="normal" image="star_selected_button"/>
+                                        <connections>
+                                            <action selector="selectedStar:" destination="t89-XN-vL1" eventType="touchUpInside" id="Ky1-uu-eeK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bZ-4f-Uwh">
                                         <rect key="frame" x="180" y="0.0" width="35" height="34"/>
                                         <state key="normal" image="star-deselect-button"/>
+                                        <connections>
+                                            <action selector="selectedStar:" destination="t89-XN-vL1" eventType="touchUpInside" id="kHV-0Y-DHC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49T-xG-FRm">
                                         <rect key="frame" x="240" y="0.0" width="35" height="34"/>
                                         <state key="normal" image="star-deselect-button"/>
+                                        <connections>
+                                            <action selector="selectedStar:" destination="t89-XN-vL1" eventType="touchUpInside" id="ubz-vH-39D"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1009,6 +1024,17 @@ diga como foi a sua experiência com ela.</string>
                                 <color key="textColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -163,6 +163,9 @@
 		D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */; };
 		D4A013081E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */; };
 		D4AD976E1EA81A1F00C9FAB9 /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD976D1EA81A1F00C9FAB9 /* EvaluationViewController.swift */; };
+		D4AD97701EA8EC5B00C9FAB9 /* EvaluationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD976F1EA8EC5B00C9FAB9 /* EvaluationRequest.swift */; };
+		D4AD97721EA8ED7400C9FAB9 /* EvaluationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD97711EA8ED7400C9FAB9 /* EvaluationPresenter.swift */; };
+		D4AD97741EA8EEF200C9FAB9 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD97731EA8EEF200C9FAB9 /* Evaluation.swift */; };
 		D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */; };
 		D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134DF1E9C7088003F55E4 /* Scheme.swift */; };
 		D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E11E9C7256003F55E4 /* Chat.swift */; };
@@ -374,6 +377,9 @@
 		D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PageControlCollectionViewCell.xib; path = ../Cells/PageControlCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4AD976D1EA81A1F00C9FAB9 /* EvaluationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
+		D4AD976F1EA8EC5B00C9FAB9 /* EvaluationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationRequest.swift; sourceTree = "<group>"; };
+		D4AD97711EA8ED7400C9FAB9 /* EvaluationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationPresenter.swift; sourceTree = "<group>"; };
+		D4AD97731EA8EEF200C9FAB9 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
 		D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIndicatorView.swift; sourceTree = "<group>"; };
 		D4C134DF1E9C7088003F55E4 /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		D4C134E11E9C7256003F55E4 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
@@ -469,6 +475,7 @@
 				D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */,
 				D4C134E51E9C81AC003F55E4 /* SchemeRequest.swift */,
 				D4C134E81E9C8265003F55E4 /* ChatRequest.swift */,
+				D4AD976F1EA8EC5B00C9FAB9 /* EvaluationRequest.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -1077,6 +1084,7 @@
 		D4AD97691EA819C300C9FAB9 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				D4AD97711EA8ED7400C9FAB9 /* EvaluationPresenter.swift */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -1139,6 +1147,7 @@
 				D4C134DF1E9C7088003F55E4 /* Scheme.swift */,
 				D4C134E11E9C7256003F55E4 /* Chat.swift */,
 				D4C134E31E9C7A18003F55E4 /* Message.swift */,
+				D4AD97731EA8EEF200C9FAB9 /* Evaluation.swift */,
 			);
 			name = PFObjects;
 			sourceTree = "<group>";
@@ -1471,6 +1480,7 @@
 				D4964CE41EA6613900BD3807 /* TransactionDetailPresenter.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
 				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
+				D4AD97721EA8ED7400C9FAB9 /* EvaluationPresenter.swift in Sources */,
 				D4964CE61EA6615700BD3807 /* TransactionDetailCellPresenter.swift in Sources */,
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
@@ -1479,6 +1489,7 @@
 				D40C0E4F1E8B1490008174D2 /* Date+Utils.swift in Sources */,
 				2FC9E0721E8EFCE200A048A4 /* FieldCellData.swift in Sources */,
 				D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */,
+				D4AD97741EA8EEF200C9FAB9 /* Evaluation.swift in Sources */,
 				D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */,
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
 				D4E4BEAD1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift in Sources */,
@@ -1502,6 +1513,7 @@
 				A4AFBB081DD2C3C700F270C7 /* BoomerCellData.swift in Sources */,
 				2FC9E0701E8EFBEB00A048A4 /* TextFieldWithImageTableViewCell.swift in Sources */,
 				D4E6A28E1E95CF25005B4E34 /* DonationTransactionViewController.swift in Sources */,
+				D4AD97701EA8EC5B00C9FAB9 /* EvaluationRequest.swift in Sources */,
 				D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */,
 				2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */,
 				D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */,
