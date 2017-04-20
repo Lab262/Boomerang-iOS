@@ -32,12 +32,11 @@ class EvaluationViewController: UIViewController {
     }
     
     @IBAction func selectedStar(_ sender: UIButton) {
-        for i in (0..<starButtons.count) {
+        for i in (0..<starButtons.count) where i > starButtons.index(of: sender)! && starButtons[i].isSelected {
             starButtons[i].isSelected = false
         }
         
-        for i in (0..<starButtons.index(of: sender)!+1) {
-            starButtons[i].alphaAnimation()
+        for i in (0..<starButtons.index(of: sender)!+1) where !starButtons[i].isSelected {
             starButtons[i].isSelected = true
         }
     }
@@ -45,6 +44,5 @@ class EvaluationViewController: UIViewController {
     @IBAction func doneAction(_ sender: Any) {
         
     }
-    
-    // MARK: - Navigation
+
 }

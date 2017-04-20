@@ -962,7 +962,7 @@ diga como foi a sua experiência com ela.</string>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="klV-Py-5Y9">
                                 <rect key="frame" x="50" y="316.5" width="275" height="34"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6L-ln-u7e">
+                                    <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6L-ln-u7e">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
                                         <state key="normal" title="" image="star_selected_button"/>
                                         <connections>

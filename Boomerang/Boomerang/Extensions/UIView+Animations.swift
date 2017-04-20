@@ -375,7 +375,7 @@ extension UIButton {
     
     func alphaAnimation(duration: Double = 0.2) {
         self.alpha = 0
-        UIView.animate(withDuration: duration, delay: 0.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
             self.alpha = 1
         }, completion: nil)
     }
