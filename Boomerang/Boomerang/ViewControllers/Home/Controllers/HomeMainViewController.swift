@@ -264,7 +264,7 @@ extension HomeMainViewController: ViewDelegate {
     }
 
     func showMessageError(msg: String) {
-        present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
+        //present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
     }
     
 }

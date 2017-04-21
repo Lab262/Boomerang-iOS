@@ -26,7 +26,7 @@
         <!--Right Menu View Controller-->
         <scene sceneID="Zx1-Fb-suh">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="ziD-x0-6AO" customClass="RightMenuViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="ziD-x0-6AO" customClass="RightMenuViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NPu-6f-hzi"/>
                         <viewControllerLayoutGuide type="bottom" id="oHV-u7-iQL"/>
@@ -89,7 +89,7 @@
         <!--Right Menu Table View Controller-->
         <scene sceneID="sZP-OQ-pdR">
             <objects>
-                <viewController storyboardIdentifier="RightMenu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ndT-6v-E75" customClass="RightMenuTableViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RightMenu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ndT-6v-E75" customClass="RightMenuTableViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fkB-y0-CSI"/>
                         <viewControllerLayoutGuide type="bottom" id="9NO-My-9bR"/>
@@ -102,7 +102,7 @@
                                 <rect key="frame" x="0.0" y="-0.5" width="90" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RightMenuCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="RightMenuCell" rowHeight="75" id="fS5-Q1-vGp" customClass="RightMenuCell" customModule="Boomerang" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RightMenuCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="RightMenuCell" rowHeight="75" id="fS5-Q1-vGp" customClass="RightMenuCell" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="25" width="90" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fS5-Q1-vGp" id="VwZ-0L-9ev">
@@ -182,7 +182,7 @@
         <!--Notification-->
         <scene sceneID="VR8-HZ-vTx">
             <objects>
-                <viewController storyboardIdentifier="NotificationsMainViewController" title="Notification" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gYS-Gl-8ZS" customClass="NotificationsMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationsMainViewController" title="Notification" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gYS-Gl-8ZS" customClass="NotificationsMainViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pjp-uB-dfy"/>
                         <viewControllerLayoutGuide type="bottom" id="O2v-f8-zpn"/>
@@ -191,7 +191,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVr-b6-5JP" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVr-b6-5JP" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -235,7 +235,7 @@
         <!--Add Amigos-->
         <scene sceneID="dvJ-HG-zhB">
             <objects>
-                <viewController storyboardIdentifier="AddBoomerMainViewController" title="Add Amigos" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3rS-eF-Q7H" customClass="AddBoomerMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddBoomerMainViewController" title="Add Amigos" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3rS-eF-Q7H" customClass="AddBoomerMainViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BL7-aQ-Au9"/>
                         <viewControllerLayoutGuide type="bottom" id="wx2-2i-a2K"/>
@@ -244,7 +244,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgS-Tp-CGj" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgS-Tp-CGj" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -345,7 +345,7 @@ FACEBOOK</string>
         <!--Transaction Main View Controller-->
         <scene sceneID="MXb-hn-9mw">
             <objects>
-                <viewController id="yfD-bC-I5M" customClass="TransactionMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yfD-bC-I5M" customClass="TransactionMainViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5q0-ts-3rF"/>
                         <viewControllerLayoutGuide type="bottom" id="dKa-LT-aJj"/>
@@ -354,7 +354,7 @@ FACEBOOK</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyQ-FR-Ndw" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyQ-FR-Ndw" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -494,7 +494,7 @@ FACEBOOK</string>
         <!--Mensagens-->
         <scene sceneID="wXY-ph-Id8">
             <objects>
-                <viewController storyboardIdentifier="MessagesMainViewController" title="Mensagens" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hUq-eB-w2k" customClass="MessagesMainViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessagesMainViewController" title="Mensagens" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hUq-eB-w2k" customClass="MessagesMainViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DTJ-u4-s3L"/>
                         <viewControllerLayoutGuide type="bottom" id="U1E-vg-EEv"/>
@@ -503,7 +503,7 @@ FACEBOOK</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfF-uI-2QQ" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfF-uI-2QQ" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -547,7 +547,7 @@ FACEBOOK</string>
         <!--Chat-->
         <scene sceneID="ZKV-c9-vE8">
             <objects>
-                <viewController storyboardIdentifier="MessagesChatViewController" title="Chat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="adt-ZK-Kg5" customClass="MessagesChatViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessagesChatViewController" title="Chat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="adt-ZK-Kg5" customClass="MessagesChatViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HAC-oP-isz"/>
                         <viewControllerLayoutGuide type="bottom" id="SYD-5K-tEg"/>
@@ -603,7 +603,7 @@ FACEBOOK</string>
                                     <constraint firstAttribute="bottom" secondItem="MRw-yd-njp" secondAttribute="bottom" id="UBw-zb-Tpv"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7q-e8-fZF" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7q-e8-fZF" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -663,7 +663,7 @@ FACEBOOK</string>
         <!--Transaction Segment View Controller-->
         <scene sceneID="nKw-Iq-V4a">
             <objects>
-                <viewController id="PoE-sV-9Kb" customClass="TransactionSegmentViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PoE-sV-9Kb" customClass="TransactionSegmentViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MpX-ex-oYt"/>
                         <viewControllerLayoutGuide type="bottom" id="ke1-dz-uZf"/>
@@ -748,7 +748,7 @@ FACEBOOK</string>
         <!--Loan Transaction View Controller-->
         <scene sceneID="Sgo-Nd-be2">
             <objects>
-                <viewController id="hBZ-0u-B8P" customClass="LoanTransactionViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hBZ-0u-B8P" customClass="LoanTransactionViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y6f-xz-HiD"/>
                         <viewControllerLayoutGuide type="bottom" id="MuD-Ow-FpC"/>
@@ -786,7 +786,7 @@ FACEBOOK</string>
         <!--Exchange Transaction View Controller-->
         <scene sceneID="BBa-q3-CIL">
             <objects>
-                <viewController id="JWr-nI-Sbz" customClass="ExchangeTransactionViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JWr-nI-Sbz" customClass="ExchangeTransactionViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XeO-Jn-pyD"/>
                         <viewControllerLayoutGuide type="bottom" id="q4B-ht-v9O"/>
@@ -824,7 +824,7 @@ FACEBOOK</string>
         <!--Transaction Detail View Controller-->
         <scene sceneID="MoJ-Dy-EtH">
             <objects>
-                <viewController id="khZ-JM-2dz" customClass="TransactionDetailViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="khZ-JM-2dz" customClass="TransactionDetailViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eDT-gB-2cd"/>
                         <viewControllerLayoutGuide type="bottom" id="aMu-Ok-8uH"/>
@@ -833,7 +833,7 @@ FACEBOOK</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcP-Xa-82g" customClass="ThingNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcP-Xa-82g" customClass="ThingNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -848,7 +848,7 @@ FACEBOOK</string>
                                     <outlet property="delegate" destination="khZ-JM-2dz" id="9YP-Yd-9l7"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yto-6u-jjP" customClass="IconNavigationBar" customModule="Boomerang" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yto-6u-jjP" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -906,7 +906,7 @@ FACEBOOK</string>
         <!--Evaluation View Controller-->
         <scene sceneID="UvY-Cd-nIH">
             <objects>
-                <viewController id="t89-XN-vL1" customClass="EvaluationViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="t89-XN-vL1" customClass="EvaluationViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YrG-TH-4t5"/>
                         <viewControllerLayoutGuide type="bottom" id="q6V-Np-tk4"/>
@@ -927,7 +927,7 @@ FACEBOOK</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rbm-Bx-kbS">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-user-image" translatesAutoresizingMaskIntoConstraints="NO" id="Rbm-Bx-kbS">
                                         <rect key="frame" x="122" y="99" width="130" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130" id="11d-bs-smG"/>
@@ -1020,7 +1020,6 @@ diga como foi a sua experiência com ela.</string>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E9z-fX-tTb">
                                 <rect key="frame" x="35" y="461" width="305" height="119.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <color key="textColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1035,6 +1034,9 @@ diga como foi a sua experiência com ela.</string>
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="t89-XN-vL1" id="3hq-Iy-zjQ"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1096,7 +1098,7 @@ diga como foi a sua experiência com ela.</string>
         <!--Donation Transaction View Controller-->
         <scene sceneID="6xE-4K-4dO">
             <objects>
-                <viewController id="uxq-Vx-l2n" customClass="DonationTransactionViewController" customModule="Boomerang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uxq-Vx-l2n" customClass="DonationTransactionViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uU9-L3-Mue"/>
                         <viewControllerLayoutGuide type="bottom" id="dLQ-wj-K7U"/>
@@ -1135,6 +1137,7 @@ diga como foi a sua experiência com ela.</string>
     <resources>
         <image name="back-button" width="12" height="19"/>
         <image name="bg_nav" width="375" height="163"/>
+        <image name="default-user-image" width="500" height="281"/>
         <image name="edit-button" width="25" height="25"/>
         <image name="ic_add_friends" width="23" height="27"/>
         <image name="ic_button_back" width="13" height="21"/>

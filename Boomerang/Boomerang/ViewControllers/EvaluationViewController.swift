@@ -18,14 +18,37 @@ class EvaluationViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var starButtons: [UIButton]!
     
+    var presenter: EvaluationPresenter = EvaluationPresenter()
+    var photo: UIImage? {
+        didSet{
+            userImage.image = photo
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.userImage.image = ApplicationState.sharedInstance.currentUser?.profileImage
         configureStarButtons()
+        setupPlaceholderInTextView()
+        setupKeyboardNotifications()
+        setupPresenterDelegate()
+    }
+    
+    func setupPresenterDelegate(){
+        presenter.setViewDelegate(view: self)
+    }
+    
+    func setupKeyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func setupPlaceholderInTextView(){
+        textView.text = presenter.getPlaceHolderText()
     }
     
     func configureStarButtons() {
-        starButtons.forEach  {
+        starButtons.forEach {
             $0.setImage(#imageLiteral(resourceName: "star-deselect-button"), for: .normal)
             $0.setImage(#imageLiteral(resourceName: "star_selected_button"), for: .selected)
             $0.isSelected = false
@@ -33,12 +56,18 @@ class EvaluationViewController: UIViewController {
     }
     
     func disableAlphaOfComponents() {
-        evaluationCommentLabel.alpha = 1.0
-        doneButton.alpha = 1.0
-        textView.alpha = 1.0
+        UIView.animate(withDuration: 0.3) {
+            self.evaluationCommentLabel.alpha = 1.0
+            self.doneButton.alpha = 1.0
+            self.textView.alpha = 1.0
+        }
     }
     
     @IBAction func selectedStar(_ sender: UIButton) {
+        if evaluationCommentLabel.alpha == 0.0 {
+            disableAlphaOfComponents()
+        }
+        
         for i in (0..<starButtons.count) where i > starButtons.index(of: sender)! && starButtons[i].isSelected {
             starButtons[i].isSelected = false
         }
@@ -47,9 +76,79 @@ class EvaluationViewController: UIViewController {
             starButtons[i].isSelected = true
         }
     }
-
+    
     @IBAction func doneAction(_ sender: Any) {
+        presenter.createEvaluationBy(starButtons: starButtons, comment: textView.text)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let  obj = notification.userInfo?["UIKeyboardFrameEndUserInfoKey"] {
+            var keyboardFrame = CGRect.null
+            if (obj as AnyObject).responds(to: #selector(NSValue.getValue(_:))) {
+                (obj as AnyObject).getValue(&keyboardFrame)
+                UIView.animate(
+                    withDuration: 0.25,
+                    delay: 0.0,
+                    options: UIViewAnimationOptions(),
+                    animations: {
+                        () -> Void in
+                        self.view.frame.origin.y = -keyboardFrame.size.height
+                },
+                    completion: nil)
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(
+            withDuration: 0.25,
+            delay: 0.0,
+            options: UIViewAnimationOptions(),
+            animations: {
+                () -> Void in
+                self.view.frame.origin.y = 0
+        },
+            completion: nil)
+
+    }
+}
+
+extension EvaluationViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == presenter.getPlaceHolderText() {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = presenter.getPlaceHolderText()
+            textView.textColor = UIColor.colorWithHexString("BFBFBF")
+        }
+    }
+}
+
+extension EvaluationViewController: EvaluationDelegate {
+    
+    func showMessage(error: String) {
         
     }
-
+    
+    func startLoadingPhoto() {
+        
+    }
+    
+    func finishLoadingPhoto() {
+        
+    }
+    
+    func presentView() {
+        
+    }
 }

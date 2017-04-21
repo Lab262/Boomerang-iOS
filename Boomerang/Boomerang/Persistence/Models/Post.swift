@@ -48,24 +48,19 @@ class Post: PFObject {
         self.objectId = object.objectId
         self.createdDate = object.createdAt
         
-        
         if let title = object["title"] as? String {
-            
             self.title = title
         }
         
         if let content = object["content"] as? String {
-            
             self.content = content
         }
         
         if let type = object["type"] as? String {
-            
             self.postType = PostType(rawValue: type)
         }
         
         if let author = object["author"] as? User {
-            
             self.author = author
         }
        
