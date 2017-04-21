@@ -28,7 +28,14 @@ class EvaluationViewController: UIViewController {
         starButtons.forEach  {
             $0.setImage(#imageLiteral(resourceName: "star-deselect-button"), for: .normal)
             $0.setImage(#imageLiteral(resourceName: "star_selected_button"), for: .selected)
+            $0.isSelected = false
         }
+    }
+    
+    func disableAlphaOfComponents() {
+        evaluationCommentLabel.alpha = 1.0
+        doneButton.alpha = 1.0
+        textView.alpha = 1.0
     }
     
     @IBAction func selectedStar(_ sender: UIButton) {

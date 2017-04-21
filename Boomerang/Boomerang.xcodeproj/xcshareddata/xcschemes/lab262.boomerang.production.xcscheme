@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A4F89B251DA809B100949A35"
-               BuildableName = "Boomerang.app"
-               BlueprintName = "Boomerang"
+               BlueprintIdentifier = "D4AD97761EA9ACFD00C9FAB9"
+               BuildableName = "lab262.boomerang.production.app"
+               BlueprintName = "lab262.boomerang.production"
                ReferencedContainer = "container:Boomerang.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,23 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A4F89B391DA809B100949A35"
-               BuildableName = "BoomerangTests.xctest"
-               BlueprintName = "BoomerangTests"
-               ReferencedContainer = "container:Boomerang.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A4F89B251DA809B100949A35"
-            BuildableName = "Boomerang.app"
-            BlueprintName = "Boomerang"
+            BlueprintIdentifier = "D4AD97761EA9ACFD00C9FAB9"
+            BuildableName = "lab262.boomerang.production.app"
+            BlueprintName = "lab262.boomerang.production"
             ReferencedContainer = "container:Boomerang.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A4F89B251DA809B100949A35"
-            BuildableName = "Boomerang.app"
-            BlueprintName = "Boomerang"
+            BlueprintIdentifier = "D4AD97761EA9ACFD00C9FAB9"
+            BuildableName = "lab262.boomerang.production.app"
+            BlueprintName = "lab262.boomerang.production"
             ReferencedContainer = "container:Boomerang.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -84,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A4F89B251DA809B100949A35"
-            BuildableName = "Boomerang.app"
-            BlueprintName = "Boomerang"
+            BlueprintIdentifier = "D4AD97761EA9ACFD00C9FAB9"
+            BuildableName = "lab262.boomerang.production.app"
+            BlueprintName = "lab262.boomerang.production"
             ReferencedContainer = "container:Boomerang.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

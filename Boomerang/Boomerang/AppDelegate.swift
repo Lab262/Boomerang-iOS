@@ -27,20 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Crashlytics.self])
         
-       // self.setupBarsAppearance()
         
-        let configuration = ParseClientConfiguration {
-            $0.applicationId = "boomerang-api"
-            $0.clientKey = ""
-            $0.server = "http://boomerang-api.herokuapp.com/parse"
-        }
-        
-        Parse.initialize(with: configuration)
+        Parse.initialize(with: AppConfig.parse.baseClientConfig)
         
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
         
-       
         self.window!.rootViewController = self.setInitialStoryboardBySeasonUser()
+        
+        NotificationsManager.shared.registerForLocalNotifications()
         
         return true
     }
