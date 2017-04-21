@@ -42,7 +42,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         installation?.setDeviceTokenFrom(deviceToken)
         installation?.saveInBackground() { (ok, error) in
             print(ok)
-            print(error)
         }
     }
     
