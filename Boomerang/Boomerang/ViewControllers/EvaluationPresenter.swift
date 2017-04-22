@@ -63,8 +63,8 @@ class EvaluationPresenter: NSObject {
     }
     
     private func saveEvaluation(evaluation: Evaluation) {
-        evaluation.saveObjectInBackground { (success, msg) in
-            
+        
+        EvaluationRequest.createEvaluation(evaluation: evaluation) { (success, msg) in
             if success {
                 self.view?.presentView()
             } else {

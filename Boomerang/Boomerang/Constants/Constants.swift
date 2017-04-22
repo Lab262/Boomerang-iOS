@@ -24,6 +24,7 @@ struct SegueIdentifiers {
 struct StoryboardIds {
     static let detailView = "detailThingView"
     static let profileView = "profileView"
+    static let transactionView = "navigationTransaction"
 }
 
 //MARK - Notification Keys

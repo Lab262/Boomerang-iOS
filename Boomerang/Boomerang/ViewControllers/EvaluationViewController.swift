@@ -78,6 +78,7 @@ class EvaluationViewController: UIViewController {
     }
     
     @IBAction func doneAction(_ sender: Any) {
+        view.endEditing(true)
         presenter.createEvaluationBy(starButtons: starButtons, comment: textView.text)
     }
     
@@ -149,6 +150,8 @@ extension EvaluationViewController: EvaluationDelegate {
     }
     
     func presentView() {
+        let viewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main") as! TabBarController
         
+        present(viewController, animated: true, completion: nil)
     }
 }
