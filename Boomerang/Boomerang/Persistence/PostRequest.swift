@@ -136,7 +136,10 @@ class PostRequest: NSObject {
 
     static func enterInterestedListOf(user: User, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
+        
+        
         let interested = PFObject(className: "Interested")
+        
         interested["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
         interested["user"] = ["__type": "Pointer", "className": "_User", "objectId": user.objectId]
         interested["currentMessage"] = msg

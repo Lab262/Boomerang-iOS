@@ -647,7 +647,7 @@ FACEBOOK</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obE-ua-UmT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vbn-Kd-cio">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vbn-Kd-cio">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

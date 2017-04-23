@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Fabric.with([Crashlytics.self])
         
          // URLS.setupBaseURL()
-   
+
         
         Fabric.with([Crashlytics.self])
         

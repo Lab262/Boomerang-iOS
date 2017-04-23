@@ -132,6 +132,18 @@
 		D4642BC31E9ED301002C8ADC /* LinkPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BC11E9ED301002C8ADC /* LinkPostTableViewCell.swift */; };
 		D4642BC41E9ED301002C8ADC /* LinkPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4642BC21E9ED301002C8ADC /* LinkPostTableViewCell.xib */; };
 		D464AE771EA53C4B0084056A /* TransactionCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */; };
+		D484FA241EACF4820054E415 /* OtherActionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA231EACF4810054E415 /* OtherActionsMainViewController.swift */; };
+		D484FA261EACF4E90054E415 /* OtherActionsSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */; };
+		D484FA271EACF4EA0054E415 /* OtherActionsSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */; };
+		D484FA281EACF4EB0054E415 /* OtherActionsSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */; };
+		D484FA291EACF4F00054E415 /* OtherActionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA231EACF4810054E415 /* OtherActionsMainViewController.swift */; };
+		D484FA2A1EACF4F10054E415 /* OtherActionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA231EACF4810054E415 /* OtherActionsMainViewController.swift */; };
+		D484FA2C1EACFA3D0054E415 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA2B1EACFA3D0054E415 /* NotificationViewController.swift */; };
+		D484FA2D1EACFA3D0054E415 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA2B1EACFA3D0054E415 /* NotificationViewController.swift */; };
+		D484FA2E1EACFA3D0054E415 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA2B1EACFA3D0054E415 /* NotificationViewController.swift */; };
+		D484FA301EACFA590054E415 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */; };
+		D484FA311EACFA590054E415 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */; };
+		D484FA321EACFA590054E415 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */; };
 		D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */; };
 		D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */; };
 		D48735021E7885000065E13A /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */; };
@@ -730,6 +742,10 @@
 		D4642BC11E9ED301002C8ADC /* LinkPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkPostTableViewCell.swift; sourceTree = "<group>"; };
 		D4642BC21E9ED301002C8ADC /* LinkPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkPostTableViewCell.xib; sourceTree = "<group>"; };
 		D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellPresenter.swift; sourceTree = "<group>"; };
+		D484FA231EACF4810054E415 /* OtherActionsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherActionsMainViewController.swift; sourceTree = "<group>"; };
+		D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherActionsSegmentViewController.swift; sourceTree = "<group>"; };
+		D484FA2B1EACFA3D0054E415 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommendedPostTableViewCell.swift; path = ../Interface/RecommendedPostTableViewCell.swift; sourceTree = "<group>"; };
 		D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
@@ -1087,6 +1103,7 @@
 		A4E462E71DCAEA7F00A611C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D484FA1E1EACF41E0054E415 /* Notification */,
 				D4AD97681EA819B700C9FAB9 /* Evaluation */,
 				D436BF231E95A66C00BC7F00 /* Transaction */,
 				A489B1F31DDA7D0300B239D5 /* Authentication */,
@@ -1376,6 +1393,49 @@
 				D4642BC21E9ED301002C8ADC /* LinkPostTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		D484FA1E1EACF41E0054E415 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				D484FA221EACF43D0054E415 /* Presenter */,
+				D484FA211EACF4340054E415 /* Cells */,
+				D484FA201EACF42F0054E415 /* Interface */,
+				D484FA1F1EACF4290054E415 /* Controllers */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		D484FA1F1EACF4290054E415 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D484FA231EACF4810054E415 /* OtherActionsMainViewController.swift */,
+				D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */,
+				D484FA2B1EACFA3D0054E415 /* NotificationViewController.swift */,
+				D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D484FA201EACF42F0054E415 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		D484FA211EACF4340054E415 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		D484FA221EACF43D0054E415 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Presenter;
 			sourceTree = "<group>";
 		};
 		D48C99AD1E68B60800A17E71 /* Protocols */ = {
@@ -2290,6 +2350,7 @@
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
 				D4E4BEAD1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift in Sources */,
 				D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */,
+				D484FA301EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
 				D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */,
 				D498F0311E7F334E002E8972 /* HomePresenter.swift in Sources */,
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
@@ -2346,6 +2407,7 @@
 				D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
 				D4AD99201EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */,
+				D484FA2C1EACFA3D0054E415 /* NotificationViewController.swift in Sources */,
 				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
 				D4E4BEB91E8256B000F8DC2E /* PHFComposeBarView_TextView.m in Sources */,
@@ -2362,11 +2424,13 @@
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
 				D4FBBCE81E907BF700611F63 /* InterestedListViewController.swift in Sources */,
 				D4EEC1CA1E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift in Sources */,
+				D484FA241EACF4820054E415 /* OtherActionsMainViewController.swift in Sources */,
 				2F79677A1E86FA7E00476D2D /* HeaderPostTableViewCell.swift in Sources */,
 				D48735021E7885000065E13A /* UITableViewCell+Utils.swift in Sources */,
 				2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */,
 				D4E4BEA91E8233EF00F8DC2E /* ThingConditionTableViewCell.swift in Sources */,
 				A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */,
+				D484FA261EACF4E90054E415 /* OtherActionsSegmentViewController.swift in Sources */,
 				D498F0331E7F43EF002E8972 /* PostRequest.swift in Sources */,
 				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,
 				D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */,
@@ -2440,6 +2504,7 @@
 				D4AD97A01EA9ACFD00C9FAB9 /* LendingThingsViewController.swift in Sources */,
 				D4AD97A11EA9ACFD00C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */,
 				D4AD97A21EA9ACFD00C9FAB9 /* Thing.swift in Sources */,
+				D484FA311EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
 				D4AD97A31EA9ACFD00C9FAB9 /* DescriptionTableViewCell.swift in Sources */,
 				D4AD97A41EA9ACFD00C9FAB9 /* HomePresenter.swift in Sources */,
 				D4AD97A51EA9ACFD00C9FAB9 /* HomeMainViewController.swift in Sources */,
@@ -2485,6 +2550,7 @@
 				D4AD97CC1EA9ACFD00C9FAB9 /* CGOperations.swift in Sources */,
 				D4AD97CD1EA9ACFD00C9FAB9 /* User.swift in Sources */,
 				D4AD97CE1EA9ACFD00C9FAB9 /* TransactionTableViewCell.swift in Sources */,
+				D484FA271EACF4EA0054E415 /* OtherActionsSegmentViewController.swift in Sources */,
 				D4AD97CF1EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.swift in Sources */,
 				D4AD97D01EA9ACFD00C9FAB9 /* BoomerThingCollection.swift in Sources */,
 				D4AD97D11EA9ACFD00C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */,
@@ -2495,6 +2561,8 @@
 				D4AD97D61EA9ACFD00C9FAB9 /* String+CharacterSpacing.swift in Sources */,
 				D4AD97D71EA9ACFD00C9FAB9 /* Scheme.swift in Sources */,
 				D4AD97D81EA9ACFD00C9FAB9 /* Dictionary+Indexable.swift in Sources */,
+				D484FA2D1EACFA3D0054E415 /* NotificationViewController.swift in Sources */,
+				D484FA291EACF4F00054E415 /* OtherActionsMainViewController.swift in Sources */,
 				D4AD99211EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */,
 				D4AD97D91EA9ACFD00C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD97DA1EA9ACFD00C9FAB9 /* HomeTableViewController.swift in Sources */,
@@ -2582,6 +2650,7 @@
 				D4AD986C1EA9AD0400C9FAB9 /* LendingThingsViewController.swift in Sources */,
 				D4AD986D1EA9AD0400C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */,
 				D4AD986E1EA9AD0400C9FAB9 /* Thing.swift in Sources */,
+				D484FA321EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
 				D4AD986F1EA9AD0400C9FAB9 /* DescriptionTableViewCell.swift in Sources */,
 				D4AD98701EA9AD0400C9FAB9 /* HomePresenter.swift in Sources */,
 				D4AD98711EA9AD0400C9FAB9 /* HomeMainViewController.swift in Sources */,
@@ -2627,6 +2696,7 @@
 				D4AD98981EA9AD0400C9FAB9 /* CGOperations.swift in Sources */,
 				D4AD98991EA9AD0400C9FAB9 /* User.swift in Sources */,
 				D4AD989A1EA9AD0400C9FAB9 /* TransactionTableViewCell.swift in Sources */,
+				D484FA281EACF4EB0054E415 /* OtherActionsSegmentViewController.swift in Sources */,
 				D4AD989B1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.swift in Sources */,
 				D4AD989C1EA9AD0400C9FAB9 /* BoomerThingCollection.swift in Sources */,
 				D4AD989D1EA9AD0400C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */,
@@ -2637,6 +2707,8 @@
 				D4AD98A21EA9AD0400C9FAB9 /* String+CharacterSpacing.swift in Sources */,
 				D4AD98A31EA9AD0400C9FAB9 /* Scheme.swift in Sources */,
 				D4AD98A41EA9AD0400C9FAB9 /* Dictionary+Indexable.swift in Sources */,
+				D484FA2E1EACFA3D0054E415 /* NotificationViewController.swift in Sources */,
+				D484FA2A1EACF4F10054E415 /* OtherActionsMainViewController.swift in Sources */,
 				D4AD99221EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */,
 				D4AD98A51EA9AD0400C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD98A61EA9AD0400C9FAB9 /* HomeTableViewController.swift in Sources */,

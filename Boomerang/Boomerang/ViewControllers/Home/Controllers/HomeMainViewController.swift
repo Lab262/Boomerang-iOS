@@ -53,6 +53,8 @@ class HomeMainViewController: UIViewController {
         registerNib()
      
         tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
+        
+        
     }
     
     func registerNib() {

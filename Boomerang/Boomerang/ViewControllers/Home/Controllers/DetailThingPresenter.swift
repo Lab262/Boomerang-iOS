@@ -95,15 +95,7 @@ class DetailThingPresenter: NSObject {
                 self.controller?.showMessageError(msg: msg)
             }
         }
-        
-//        comment.saveObjectInBackground { (success, msg) in
-//            if success {
-//                self.skip = self.comments.endIndex
-//                self.updateComments()
-//            } else {
-//                self.controller?.showMessageError(msg: msg)
-//            }
-//        }
+
     }
     
     func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
