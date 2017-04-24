@@ -12,6 +12,7 @@ class SearchFriendsViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    let tableViewTopInset: CGFloat = 10.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
