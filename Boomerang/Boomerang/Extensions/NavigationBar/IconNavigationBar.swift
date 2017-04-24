@@ -14,18 +14,14 @@ class IconNavigationBar: UIView {
     @IBOutlet var view: UIView!
     @IBOutlet weak var leftButtonIcon: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var titleIcon: UIImageView!
     @IBOutlet weak var rightIcon: UIImageView!
     
     
     @IBAction func leftAction(_ sender: Any) {
-        
         if let navController = UIApplication.topViewController()?.navigationController {
             navController.popViewController(animated: true)
         }
-        
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,14 +56,6 @@ class IconNavigationBar: UIView {
         }
     }
     
-    @IBInspectable var titleIconImage: UIImage? {
-        set {
-            self.titleIcon.image = newValue
-        }
-        get {
-            return self.titleIcon.image
-        }
-    }
     
     @IBInspectable var rightBarIconImage: UIImage? {
         set {
