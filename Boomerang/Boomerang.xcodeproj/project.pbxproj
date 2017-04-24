@@ -144,6 +144,12 @@
 		D484FA301EACFA590054E415 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */; };
 		D484FA311EACFA590054E415 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */; };
 		D484FA321EACFA590054E415 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */; };
+		D484FA351EAD8B660054E415 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA331EAD8B660054E415 /* NotificationTableViewCell.swift */; };
+		D484FA361EAD8B660054E415 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA331EAD8B660054E415 /* NotificationTableViewCell.swift */; };
+		D484FA371EAD8B660054E415 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA331EAD8B660054E415 /* NotificationTableViewCell.swift */; };
+		D484FA381EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */; };
+		D484FA391EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */; };
+		D484FA3A1EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */; };
 		D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */; };
 		D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */; };
 		D48735021E7885000065E13A /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */; };
@@ -746,6 +752,8 @@
 		D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherActionsSegmentViewController.swift; sourceTree = "<group>"; };
 		D484FA2B1EACFA3D0054E415 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
+		D484FA331EAD8B660054E415 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommendedPostTableViewCell.swift; path = ../Interface/RecommendedPostTableViewCell.swift; sourceTree = "<group>"; };
 		D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
@@ -1427,6 +1435,8 @@
 		D484FA211EACF4340054E415 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				D484FA331EAD8B660054E415 /* NotificationTableViewCell.swift */,
+				D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1874,6 +1884,7 @@
 				2F3C79CF1E995B930013F4F9 /* HighlightCollectionViewCell.xib in Resources */,
 				D436BF2E1E95B50E00BC7F00 /* TransactionTableViewCell.xib in Resources */,
 				2F79677B1E86FA7E00476D2D /* HeaderPostTableViewCell.xib in Resources */,
+				D484FA381EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
 				A4E462F21DCAEA7F00A611C0 /* Main.storyboard in Resources */,
 				2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */,
 				A44E0C671DD092650028F06C /* Montserrat-Black.otf in Resources */,
@@ -1944,6 +1955,7 @@
 				D4AD98241EA9ACFD00C9FAB9 /* HighlightCollectionViewCell.xib in Resources */,
 				D4AD98251EA9ACFD00C9FAB9 /* TransactionTableViewCell.xib in Resources */,
 				D4AD98261EA9ACFD00C9FAB9 /* HeaderPostTableViewCell.xib in Resources */,
+				D484FA391EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
 				D4AD98271EA9ACFD00C9FAB9 /* Main.storyboard in Resources */,
 				D4AD98281EA9ACFD00C9FAB9 /* PhotoNavigationBar.xib in Resources */,
 				D4AD98291EA9ACFD00C9FAB9 /* Montserrat-Black.otf in Resources */,
@@ -2007,6 +2019,7 @@
 				D4AD98F01EA9AD0400C9FAB9 /* HighlightCollectionViewCell.xib in Resources */,
 				D4AD98F11EA9AD0400C9FAB9 /* TransactionTableViewCell.xib in Resources */,
 				D4AD98F21EA9AD0400C9FAB9 /* HeaderPostTableViewCell.xib in Resources */,
+				D484FA3A1EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
 				D4AD98F31EA9AD0400C9FAB9 /* Main.storyboard in Resources */,
 				D4AD98F41EA9AD0400C9FAB9 /* PhotoNavigationBar.xib in Resources */,
 				D4AD98F51EA9AD0400C9FAB9 /* Montserrat-Black.otf in Resources */,
@@ -2364,6 +2377,7 @@
 				D4E4BEB81E8256B000F8DC2E /* PHFComposeBarView_Button.m in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
 				A44967741DDA246100990008 /* BoomerChatData.swift in Sources */,
+				D484FA351EAD8B660054E415 /* NotificationTableViewCell.swift in Sources */,
 				2FAE03071E78C3540062E155 /* Friend.swift in Sources */,
 				A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */,
 				A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */,
@@ -2518,6 +2532,7 @@
 				D4AD97AD1EA9ACFD00C9FAB9 /* PHFComposeBarView_Button.m in Sources */,
 				D4AD97AE1EA9ACFD00C9FAB9 /* RightMenuViewController.swift in Sources */,
 				D4AD97AF1EA9ACFD00C9FAB9 /* BoomerChatData.swift in Sources */,
+				D484FA361EAD8B660054E415 /* NotificationTableViewCell.swift in Sources */,
 				D4AD97B01EA9ACFD00C9FAB9 /* Friend.swift in Sources */,
 				D4AD97B11EA9ACFD00C9FAB9 /* ProfileMainViewController.swift in Sources */,
 				D4AD97B21EA9ACFD00C9FAB9 /* Colors.swift in Sources */,
@@ -2664,6 +2679,7 @@
 				D4AD98791EA9AD0400C9FAB9 /* PHFComposeBarView_Button.m in Sources */,
 				D4AD987A1EA9AD0400C9FAB9 /* RightMenuViewController.swift in Sources */,
 				D4AD987B1EA9AD0400C9FAB9 /* BoomerChatData.swift in Sources */,
+				D484FA371EAD8B660054E415 /* NotificationTableViewCell.swift in Sources */,
 				D4AD987C1EA9AD0400C9FAB9 /* Friend.swift in Sources */,
 				D4AD987D1EA9AD0400C9FAB9 /* ProfileMainViewController.swift in Sources */,
 				D4AD987E1EA9AD0400C9FAB9 /* Colors.swift in Sources */,
