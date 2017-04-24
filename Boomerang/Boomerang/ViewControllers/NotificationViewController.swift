@@ -9,27 +9,57 @@
 import UIKit
 
 class NotificationViewController: UIViewController {
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var tableViewLeftInset: CGFloat = 15
+    var tableViewRightInset: CGFloat = 15
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        registerNib()
+        configureTableView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func registerNib(){
+        tableView.registerNibFrom(NotificationTableViewCell.self)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func configureTableView(){
+       // tableView.contentInset = UIEdgeInsetsMake(0, tableViewLeftInset, 0, tableViewRightInset)
     }
-    */
-
 }
+
+extension NotificationViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier, for: indexPath) as! NotificationTableViewCell
+        
+        if indexPath.row == 1 {
+            cell.backgroundSupportView.isHidden = true
+        } else {
+            cell.backgroundSupportView.isHidden = false
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 2
+    }
+}
+
+extension NotificationViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return NotificationTableViewCell.cellHeight * UIView.heightScaleProportion()
+    }
+}
+

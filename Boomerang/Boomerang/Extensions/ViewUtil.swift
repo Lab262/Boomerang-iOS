@@ -158,4 +158,12 @@ extension UIView {
         frame.size.height = height
         self.frame = frame
     }
+    
+    static func heightScaleProportion() -> CGFloat {
+        return UIScreen.main.bounds.height / 667.0
+    }
+    
+    static func widthScaleProportion() -> CGFloat {
+        return UIScreen.main.bounds.width / 375.0
+    }
 }

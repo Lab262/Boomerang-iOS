@@ -9,27 +9,51 @@
 import UIKit
 
 class OtherActionsSegmentViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var previousPage: Int = 0
+    var segmentControlPageDelegate: SegmentControlPageDelegate?
+    
+    override func viewDidLayoutSubviews() {
+        scrollView.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        presenter.setViewDelegate(view: self)
+//        presenter.getTransactions()
+        
     }
-    */
-
 }
+
+//Pragma MARK: - UIScrollViewDelegate
+extension OtherActionsSegmentViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.setupPage()
+    }
+    
+    func setupPage(){
+        let pageWidth: CGFloat = scrollView.frame.size.width
+        let fractionalPage: CGFloat = scrollView.contentOffset.x / pageWidth
+        let page: Int = lround(Double(fractionalPage))
+        if previousPage != page {
+            
+            segmentControlPageDelegate?.segmentScrolled(page)
+            previousPage = page
+        }
+    }
+}
+
+//Pragma MARK: - SegmentControlButtonDelegate
+extension OtherActionsSegmentViewController: SegmentControlButtonDelegate {
+    func segmentSelected(_ viewIndex: Int) {
+        var rectToScroll = self.view.frame
+        rectToScroll.origin.x = self.view.frame.width * CGFloat(viewIndex)
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions(), animations: {
+            self.scrollView.scrollRectToVisible(rectToScroll, animated: false)
+        }, completion: nil)
+    }
+}
+

@@ -49,7 +49,6 @@ extension TransactionSegmentViewController: UIScrollViewDelegate {
 
 //Pragma MARK: - SegmentControlButtonDelegate
 extension TransactionSegmentViewController: SegmentControlButtonDelegate {
-    
     func segmentSelected(_ viewIndex: Int) {
         var rectToScroll = self.view.frame
         rectToScroll.origin.x = self.view.frame.width * CGFloat(viewIndex)
@@ -62,14 +61,12 @@ extension TransactionSegmentViewController: SegmentControlButtonDelegate {
 
 // MARK: - Presenter protocol
 extension TransactionSegmentViewController: ViewDelegate {
-    
     func reload() {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.updateSchemes), object: presenter.getSchemes(), userInfo: nil)
     }
     func showMessageError(msg: String) {
         present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
     }
-    
 }
 
 

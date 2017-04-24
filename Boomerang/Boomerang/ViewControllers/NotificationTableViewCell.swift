@@ -14,6 +14,8 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var notificationLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var backgroundSupportView: UIView!
+    
     
     static var identifier: String {
         return "notificationCell"
