@@ -24,7 +24,7 @@ class SearchFriendsViewController: UIViewController {
     }
     
     func registerNib(){
-        tableView.registerNibFrom(NotificationTableViewCell.self)
+        tableView.registerNibFrom(SearchFriendsTableViewCell.self)
     }
 
 }
@@ -33,7 +33,13 @@ extension SearchFriendsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier, for: indexPath) as! NotificationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchFriendsTableViewCell.identifier, for: indexPath) as! SearchFriendsTableViewCell
+        
+        if indexPath.row == 1 {
+            cell.backgroundSupportView.isHidden = true
+        } else {
+            cell.backgroundSupportView.isHidden = false
+        }
         
         return cell
     }
@@ -52,7 +58,7 @@ extension SearchFriendsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return NotificationTableViewCell.cellHeight * UIView.heightScaleProportion()
+        return SearchFriendsTableViewCell.cellHeight * UIView.heightScaleProportion()
     }
 }
 

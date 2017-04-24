@@ -150,6 +150,12 @@
 		D484FA381EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */; };
 		D484FA391EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */; };
 		D484FA3A1EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */; };
+		D484FA3D1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA3B1EADB3180054E415 /* SearchFriendsTableViewCell.swift */; };
+		D484FA3E1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA3B1EADB3180054E415 /* SearchFriendsTableViewCell.swift */; };
+		D484FA3F1EADB3190054E415 /* SearchFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA3B1EADB3180054E415 /* SearchFriendsTableViewCell.swift */; };
+		D484FA401EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D484FA3C1EADB3180054E415 /* SearchFriendsTableViewCell.xib */; };
+		D484FA411EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D484FA3C1EADB3180054E415 /* SearchFriendsTableViewCell.xib */; };
+		D484FA421EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D484FA3C1EADB3180054E415 /* SearchFriendsTableViewCell.xib */; };
 		D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */; };
 		D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */; };
 		D48735021E7885000065E13A /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */; };
@@ -754,6 +760,8 @@
 		D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		D484FA331EAD8B660054E415 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		D484FA3B1EADB3180054E415 /* SearchFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		D484FA3C1EADB3180054E415 /* SearchFriendsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchFriendsTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommendedPostTableViewCell.swift; path = ../Interface/RecommendedPostTableViewCell.swift; sourceTree = "<group>"; };
 		D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedPostTableViewCell.xib; sourceTree = "<group>"; };
 		D48734FF1E7885000065E13A /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
@@ -1437,6 +1445,8 @@
 			children = (
 				D484FA331EAD8B660054E415 /* NotificationTableViewCell.swift */,
 				D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */,
+				D484FA3B1EADB3180054E415 /* SearchFriendsTableViewCell.swift */,
+				D484FA3C1EADB3180054E415 /* SearchFriendsTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1889,6 +1899,7 @@
 				2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */,
 				A44E0C671DD092650028F06C /* Montserrat-Black.otf in Resources */,
 				A4FE06341DD09C7500BFDC4D /* BoomerThingCollection.xib in Resources */,
+				D484FA401EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
 				2F7967711E83871700476D2D /* WithdrawalTableViewCell.xib in Resources */,
 				D4A012FA1E7AC85600B3B811 /* PostTableViewCell.xib in Resources */,
 				D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */,
@@ -1960,6 +1971,7 @@
 				D4AD98281EA9ACFD00C9FAB9 /* PhotoNavigationBar.xib in Resources */,
 				D4AD98291EA9ACFD00C9FAB9 /* Montserrat-Black.otf in Resources */,
 				D4AD982A1EA9ACFD00C9FAB9 /* BoomerThingCollection.xib in Resources */,
+				D484FA411EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
 				D4AD982B1EA9ACFD00C9FAB9 /* WithdrawalTableViewCell.xib in Resources */,
 				D4AD982C1EA9ACFD00C9FAB9 /* PostTableViewCell.xib in Resources */,
 				D4AD982D1EA9ACFD00C9FAB9 /* PostCollectionViewCell.xib in Resources */,
@@ -2024,6 +2036,7 @@
 				D4AD98F41EA9AD0400C9FAB9 /* PhotoNavigationBar.xib in Resources */,
 				D4AD98F51EA9AD0400C9FAB9 /* Montserrat-Black.otf in Resources */,
 				D4AD98F61EA9AD0400C9FAB9 /* BoomerThingCollection.xib in Resources */,
+				D484FA421EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
 				D4AD98F71EA9AD0400C9FAB9 /* WithdrawalTableViewCell.xib in Resources */,
 				D4AD98F81EA9AD0400C9FAB9 /* PostTableViewCell.xib in Resources */,
 				D4AD98F91EA9AD0400C9FAB9 /* PostCollectionViewCell.xib in Resources */,
@@ -2323,6 +2336,7 @@
 			files = (
 				2FC9E0561E8CA02200A048A4 /* WantBorrowTableViewCell.swift in Sources */,
 				2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */,
+				D484FA3D1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4C134E61E9C81AD003F55E4 /* SchemeRequest.swift in Sources */,
 				D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */,
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
@@ -2478,6 +2492,7 @@
 			files = (
 				D4AD97791EA9ACFD00C9FAB9 /* WantBorrowTableViewCell.swift in Sources */,
 				D4AD977A1EA9ACFD00C9FAB9 /* TextViewHandler.swift in Sources */,
+				D484FA3E1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4AD977B1EA9ACFD00C9FAB9 /* SchemeRequest.swift in Sources */,
 				D4AD977C1EA9ACFD00C9FAB9 /* Chat.swift in Sources */,
 				D4AD977D1EA9ACFD00C9FAB9 /* IconNavigationBar.swift in Sources */,
@@ -2625,6 +2640,7 @@
 			files = (
 				D4AD98451EA9AD0400C9FAB9 /* WantBorrowTableViewCell.swift in Sources */,
 				D4AD98461EA9AD0400C9FAB9 /* TextViewHandler.swift in Sources */,
+				D484FA3F1EADB3190054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4AD98471EA9AD0400C9FAB9 /* SchemeRequest.swift in Sources */,
 				D4AD98481EA9AD0400C9FAB9 /* Chat.swift in Sources */,
 				D4AD98491EA9AD0400C9FAB9 /* IconNavigationBar.swift in Sources */,
