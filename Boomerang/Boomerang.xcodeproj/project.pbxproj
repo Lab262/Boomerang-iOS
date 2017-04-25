@@ -576,6 +576,12 @@
 		D4AD99241EA9AFF400C9FAB9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD99231EA9AFF400C9FAB9 /* AppConfig.swift */; };
 		D4AD99261EA9B00000C9FAB9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD99251EA9B00000C9FAB9 /* AppConfig.swift */; };
 		D4AD99281EA9B00900C9FAB9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD99271EA9B00900C9FAB9 /* AppConfig.swift */; };
+		D4B3B5521EAF9654008E6566 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5511EAF9654008E6566 /* NotificationModel.swift */; };
+		D4B3B5531EAF9654008E6566 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5511EAF9654008E6566 /* NotificationModel.swift */; };
+		D4B3B5541EAF9654008E6566 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5511EAF9654008E6566 /* NotificationModel.swift */; };
+		D4B3B5561EAF96DF008E6566 /* NotificationRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */; };
+		D4B3B5571EAF96DF008E6566 /* NotificationRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */; };
+		D4B3B5581EAF96DF008E6566 /* NotificationRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */; };
 		D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */; };
 		D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134DF1E9C7088003F55E4 /* Scheme.swift */; };
 		D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E11E9C7256003F55E4 /* Chat.swift */; };
@@ -807,6 +813,8 @@
 		D4AD99291EA9B0A100C9FAB9 /* lab262.boomerang.dev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lab262.boomerang.dev.entitlements; sourceTree = "<group>"; };
 		D4AD992A1EA9B60300C9FAB9 /* lab262.boomerang.test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lab262.boomerang.test.entitlements; sourceTree = "<group>"; };
 		D4AD992B1EA9B60700C9FAB9 /* lab262.boomerang.production.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lab262.boomerang.production.entitlements; sourceTree = "<group>"; };
+		D4B3B5511EAF9654008E6566 /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRequester.swift; sourceTree = "<group>"; };
 		D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIndicatorView.swift; sourceTree = "<group>"; };
 		D4C134DF1E9C7088003F55E4 /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		D4C134E11E9C7256003F55E4 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
@@ -919,6 +927,7 @@
 				D4C134E51E9C81AC003F55E4 /* SchemeRequest.swift */,
 				D4C134E81E9C8265003F55E4 /* ChatRequest.swift */,
 				D4AD976F1EA8EC5B00C9FAB9 /* EvaluationRequest.swift */,
+				D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -1672,6 +1681,7 @@
 				D4C134E11E9C7256003F55E4 /* Chat.swift */,
 				D4C134E31E9C7A18003F55E4 /* Message.swift */,
 				D4AD97731EA8EEF200C9FAB9 /* Evaluation.swift */,
+				D4B3B5511EAF9654008E6566 /* NotificationModel.swift */,
 			);
 			name = PFObjects;
 			sourceTree = "<group>";
@@ -2358,6 +2368,7 @@
 				2F2F07941E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift in Sources */,
 				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
 				D40C0E511E8B9A93008174D2 /* Photo.swift in Sources */,
+				D4B3B5521EAF9654008E6566 /* NotificationModel.swift in Sources */,
 				2FA0CB381E6E5F1800224284 /* AlertUtils.swift in Sources */,
 				D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */,
 				D4964CE41EA6613900BD3807 /* TransactionDetailPresenter.swift in Sources */,
@@ -2464,6 +2475,7 @@
 				D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */,
 				A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */,
 				D49955B71EA3AAEF00D89038 /* TransactionFilterPresenter.swift in Sources */,
+				D4B3B5561EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				2F2F079C1E6891A800C61A6D /* ThrowButtonTableViewCell.swift in Sources */,
 				A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */,
 				D498F0361E808861002E8972 /* PhotoThingTableViewCell.swift in Sources */,
@@ -2514,6 +2526,7 @@
 				D4AD978D1EA9ACFD00C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
 				D4AD978E1EA9ACFD00C9FAB9 /* RightMenuCell.swift in Sources */,
 				D4AD978F1EA9ACFD00C9FAB9 /* Photo.swift in Sources */,
+				D4B3B5531EAF9654008E6566 /* NotificationModel.swift in Sources */,
 				D4AD97901EA9ACFD00C9FAB9 /* AlertUtils.swift in Sources */,
 				D4AD97911EA9ACFD00C9FAB9 /* DetailThingPresenter.swift in Sources */,
 				D4AD97921EA9ACFD00C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
@@ -2620,6 +2633,7 @@
 				D4AD97F01EA9ACFD00C9FAB9 /* PageIndicatorView.swift in Sources */,
 				D4AD97F11EA9ACFD00C9FAB9 /* AuthenticationMainViewController.swift in Sources */,
 				D4AD97F21EA9ACFD00C9FAB9 /* TransactionFilterPresenter.swift in Sources */,
+				D4B3B5571EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				D4AD97F31EA9ACFD00C9FAB9 /* ThrowButtonTableViewCell.swift in Sources */,
 				D4AD97F41EA9ACFD00C9FAB9 /* UIView+IBInspector.swift in Sources */,
 				D4AD97F51EA9ACFD00C9FAB9 /* PhotoThingTableViewCell.swift in Sources */,
@@ -2662,6 +2676,7 @@
 				D4AD98591EA9AD0400C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
 				D4AD985A1EA9AD0400C9FAB9 /* RightMenuCell.swift in Sources */,
 				D4AD985B1EA9AD0400C9FAB9 /* Photo.swift in Sources */,
+				D4B3B5541EAF9654008E6566 /* NotificationModel.swift in Sources */,
 				D4AD985C1EA9AD0400C9FAB9 /* AlertUtils.swift in Sources */,
 				D4AD985D1EA9AD0400C9FAB9 /* DetailThingPresenter.swift in Sources */,
 				D4AD985E1EA9AD0400C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
@@ -2768,6 +2783,7 @@
 				D4AD98BC1EA9AD0400C9FAB9 /* PageIndicatorView.swift in Sources */,
 				D4AD98BD1EA9AD0400C9FAB9 /* AuthenticationMainViewController.swift in Sources */,
 				D4AD98BE1EA9AD0400C9FAB9 /* TransactionFilterPresenter.swift in Sources */,
+				D4B3B5581EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				D4AD98BF1EA9AD0400C9FAB9 /* ThrowButtonTableViewCell.swift in Sources */,
 				D4AD98C01EA9AD0400C9FAB9 /* UIView+IBInspector.swift in Sources */,
 				D4AD98C11EA9AD0400C9FAB9 /* PhotoThingTableViewCell.swift in Sources */,
