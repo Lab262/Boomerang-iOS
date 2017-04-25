@@ -43,6 +43,10 @@ class TransactionDetailViewController: UIViewController {
             segmentVC.presenter.setPost(post: presenter.getScheme().post!)
         }
         
+        if let segmentVC = segue.destination as? ProfileMainViewController  {
+            segmentVC.presenter.setUser(user: presenter.getScheme().dealer!)
+        }
+        
         if let segmentVC = segue.destination as? EvaluationViewController  {
             segmentVC.presenter.setScheme(scheme: presenter.getScheme())
         }
@@ -56,6 +60,7 @@ class TransactionDetailViewController: UIViewController {
         
         cell.showPostButton.addTarget(self, action: #selector(goLinkPost(_:)), for: .touchUpInside)
         
+        
         return cell
     }
     
@@ -63,10 +68,15 @@ class TransactionDetailViewController: UIViewController {
         performSegue(withIdentifier: SegueIdentifiers.transactionToDetailThing, sender: self)
     }
     
+    func goLinkProfile (_ sender: UIButton) {
+        performSegue(withIdentifier: SegueIdentifiers.transactionToProfile, sender: self)
+    }
+    
     func generateTransactionDetailCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionDetailTableViewCell.identifier, for: indexPath) as! TransactionDetailTableViewCell
         
+        cell.profileLinkButton.addTarget(self, action: #selector(goLinkProfile(_:)), for: .touchUpInside)
         cell.presenter.setScheme(scheme: presenter.getScheme())
         cell.updateInformationsCell()
         

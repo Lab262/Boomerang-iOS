@@ -299,18 +299,45 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recomendados do Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yz-ZF-NVm">
-                                                    <rect key="frame" x="86.5" y="16.5" width="202.5" height="17"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                    <color key="textColor" red="0.51764705882352935" green="0.51764705882352935" blue="0.51764705882352935" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hih-an-vy4" userLabel="Background">
+                                                    <rect key="frame" x="14.5" y="3" width="345" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sal-ft-lZA">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recomendados do Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yz-ZF-NVm">
+                                                            <rect key="frame" x="80" y="16" width="185.5" height="17"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                                            <color key="textColor" red="0.51764705882352935" green="0.51764705882352935" blue="0.51764705882352935" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="3Yz-ZF-NVm" firstAttribute="centerX" secondItem="sal-ft-lZA" secondAttribute="centerX" id="PQc-zD-Jhj"/>
+                                                        <constraint firstItem="3Yz-ZF-NVm" firstAttribute="centerY" secondItem="sal-ft-lZA" secondAttribute="centerY" id="YZs-R7-gLN"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="3Yz-ZF-NVm" firstAttribute="centerX" secondItem="twd-Ot-q54" secondAttribute="centerX" id="F8b-Xq-aTs"/>
-                                                <constraint firstItem="3Yz-ZF-NVm" firstAttribute="centerY" secondItem="twd-Ot-q54" secondAttribute="centerY" id="tSR-wE-Fxh"/>
+                                                <constraint firstItem="Hih-an-vy4" firstAttribute="height" secondItem="sal-ft-lZA" secondAttribute="height" id="FWC-w7-v3D"/>
+                                                <constraint firstItem="Hih-an-vy4" firstAttribute="centerX" secondItem="sal-ft-lZA" secondAttribute="centerX" id="LYj-QX-qHl"/>
+                                                <constraint firstItem="sal-ft-lZA" firstAttribute="leading" secondItem="twd-Ot-q54" secondAttribute="leading" constant="15" id="Sw5-Kd-tX5"/>
+                                                <constraint firstAttribute="trailing" secondItem="sal-ft-lZA" secondAttribute="trailing" constant="15" id="bq6-Fv-Clk"/>
+                                                <constraint firstItem="sal-ft-lZA" firstAttribute="centerY" secondItem="twd-Ot-q54" secondAttribute="centerY" id="iMo-sZ-DdP"/>
+                                                <constraint firstItem="Hih-an-vy4" firstAttribute="top" secondItem="sal-ft-lZA" secondAttribute="top" constant="3" id="udh-yS-IbF"/>
+                                                <constraint firstItem="Hih-an-vy4" firstAttribute="width" secondItem="sal-ft-lZA" secondAttribute="width" id="yQi-sg-fgj"/>
+                                                <constraint firstItem="sal-ft-lZA" firstAttribute="height" secondItem="twd-Ot-q54" secondAttribute="height" id="yyk-It-sPp"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -337,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juC-Ik-082" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="2088"/>
+            <point key="canvasLocation" x="1120.8" y="2087.4062968515746"/>
         </scene>
     </scenes>
     <resources>

@@ -11,6 +11,7 @@ import UIKit
 class TransactionDetailTableViewCell: UITableViewCell {
 
     var presenter = TransactionDetailCellPresenter()
+    @IBOutlet weak var profileLinkButton: UIButton!
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var nameUserLabel: UILabel!

@@ -50,6 +50,10 @@ class ProfilePresenter: NSObject {
         return currentPostsCount
     }
     
+    func setUser(user:User){
+        self.user = user
+    }
+    
     func getUser() -> User{
         return user
     }

@@ -25,6 +25,7 @@ class Scheme: PFObject {
     @NSManaged var status: String?
 
     var createdDate: Date?
+    var dealer: User?
     
     override init(){
         super.init()

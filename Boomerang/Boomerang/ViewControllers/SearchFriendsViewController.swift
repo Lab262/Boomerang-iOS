@@ -27,12 +27,16 @@ class SearchFriendsViewController: UIViewController {
     func registerNib(){
         tableView.registerNibFrom(SearchFriendsTableViewCell.self)
     }
-
-}
-
-extension SearchFriendsViewController : UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func generateTitleCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+        
+        return cell
+        
+    }
+    
+    func generateSearchFriendCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchFriendsTableViewCell.identifier, for: indexPath) as! SearchFriendsTableViewCell
         
@@ -44,10 +48,24 @@ extension SearchFriendsViewController : UITableViewDataSource {
         
         return cell
     }
+
+}
+
+extension SearchFriendsViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch indexPath.row {
+        case 0:
+            return generateTitleCell(tableView, cellForRowAt: indexPath)
+        default:
+            return generateSearchFriendCell(tableView, cellForRowAt: indexPath)
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2
+        return 3
     }
 }
 
@@ -59,7 +77,12 @@ extension SearchFriendsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return SearchFriendsTableViewCell.cellHeight * UIView.heightScaleProportion()
+        switch indexPath.row {
+        case 0:
+            return 50.0
+        default:
+            return SearchFriendsTableViewCell.cellHeight * UIView.heightScaleProportion()
+        }
     }
 }
 
