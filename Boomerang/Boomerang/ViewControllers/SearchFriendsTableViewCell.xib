@@ -28,7 +28,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yU-Iu-RiL">
-                        <rect key="frame" x="15" y="3" width="345" height="64.5"/>
+                        <rect key="frame" x="15" y="-5" width="345" height="13"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUB-zw-Yx9">
@@ -110,10 +110,10 @@
                     <constraint firstItem="9yU-Iu-RiL" firstAttribute="width" secondItem="nUB-zw-Yx9" secondAttribute="width" id="OGj-cu-sxp"/>
                     <constraint firstItem="nUB-zw-Yx9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="P5I-0V-HzF"/>
                     <constraint firstItem="9yU-Iu-RiL" firstAttribute="centerX" secondItem="nUB-zw-Yx9" secondAttribute="centerX" id="X30-4a-ShN"/>
-                    <constraint firstItem="9yU-Iu-RiL" firstAttribute="top" secondItem="nUB-zw-Yx9" secondAttribute="top" constant="3" id="gFr-ek-sWz"/>
+                    <constraint firstItem="9yU-Iu-RiL" firstAttribute="top" secondItem="nUB-zw-Yx9" secondAttribute="top" constant="-5" id="gFr-ek-sWz"/>
                     <constraint firstItem="nUB-zw-Yx9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jc4-la-z3j"/>
                     <constraint firstAttribute="trailing" secondItem="nUB-zw-Yx9" secondAttribute="trailing" constant="15" id="u5p-cZ-G82"/>
-                    <constraint firstItem="9yU-Iu-RiL" firstAttribute="height" secondItem="nUB-zw-Yx9" secondAttribute="height" id="wck-CS-uLS"/>
+                    <constraint firstItem="9yU-Iu-RiL" firstAttribute="height" secondItem="nUB-zw-Yx9" secondAttribute="height" multiplier="0.2" id="wck-CS-uLS"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

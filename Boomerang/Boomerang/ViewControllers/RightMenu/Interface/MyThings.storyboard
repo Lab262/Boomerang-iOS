@@ -299,8 +299,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hih-an-vy4" userLabel="Background">
-                                                    <rect key="frame" x="14.5" y="3" width="345" height="50"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xpo-yg-0Xr" userLabel="Background">
+                                                    <rect key="frame" x="14.5" y="10" width="345" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sal-ft-lZA">
@@ -327,13 +327,14 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="Hih-an-vy4" firstAttribute="height" secondItem="sal-ft-lZA" secondAttribute="height" id="FWC-w7-v3D"/>
-                                                <constraint firstItem="Hih-an-vy4" firstAttribute="centerX" secondItem="sal-ft-lZA" secondAttribute="centerX" id="LYj-QX-qHl"/>
+                                                <constraint firstItem="Xpo-yg-0Xr" firstAttribute="centerX" secondItem="sal-ft-lZA" secondAttribute="centerX" id="JCe-NM-JqD"/>
+                                                <constraint firstItem="Xpo-yg-0Xr" firstAttribute="bottom" secondItem="sal-ft-lZA" secondAttribute="bottom" id="SNG-vR-NHX"/>
                                                 <constraint firstItem="sal-ft-lZA" firstAttribute="leading" secondItem="twd-Ot-q54" secondAttribute="leading" constant="15" id="Sw5-Kd-tX5"/>
+                                                <constraint firstItem="Xpo-yg-0Xr" firstAttribute="height" secondItem="sal-ft-lZA" secondAttribute="height" multiplier="0.8" id="XuM-us-6Mn"/>
+                                                <constraint firstItem="Xpo-yg-0Xr" firstAttribute="width" secondItem="sal-ft-lZA" secondAttribute="width" id="bfc-0w-npF"/>
                                                 <constraint firstAttribute="trailing" secondItem="sal-ft-lZA" secondAttribute="trailing" constant="15" id="bq6-Fv-Clk"/>
+                                                <constraint firstItem="sal-ft-lZA" firstAttribute="centerX" secondItem="twd-Ot-q54" secondAttribute="centerX" id="eYJ-1I-SAO"/>
                                                 <constraint firstItem="sal-ft-lZA" firstAttribute="centerY" secondItem="twd-Ot-q54" secondAttribute="centerY" id="iMo-sZ-DdP"/>
-                                                <constraint firstItem="Hih-an-vy4" firstAttribute="top" secondItem="sal-ft-lZA" secondAttribute="top" constant="3" id="udh-yS-IbF"/>
-                                                <constraint firstItem="Hih-an-vy4" firstAttribute="width" secondItem="sal-ft-lZA" secondAttribute="width" id="yQi-sg-fgj"/>
                                                 <constraint firstItem="sal-ft-lZA" firstAttribute="height" secondItem="twd-Ot-q54" secondAttribute="height" id="yyk-It-sPp"/>
                                             </constraints>
                                         </tableViewCellContentView>

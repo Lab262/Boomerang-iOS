@@ -40,12 +40,6 @@ class SearchFriendsViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchFriendsTableViewCell.identifier, for: indexPath) as! SearchFriendsTableViewCell
         
-        if indexPath.row == 1 {
-            cell.backgroundSupportView.isHidden = true
-        } else {
-            cell.backgroundSupportView.isHidden = false
-        }
-        
         return cell
     }
 

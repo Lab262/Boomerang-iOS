@@ -28,7 +28,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hap-Qe-qp1">
-                        <rect key="frame" x="15" y="3" width="345" height="70"/>
+                        <rect key="frame" x="15" y="0.0" width="345" height="70"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngB-cv-Nma">
@@ -101,7 +101,7 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="ngB-cv-Nma" secondAttribute="bottom" id="690-6j-c3Y"/>
                     <constraint firstItem="hap-Qe-qp1" firstAttribute="centerX" secondItem="ngB-cv-Nma" secondAttribute="centerX" id="Cev-By-Kpt"/>
-                    <constraint firstItem="hap-Qe-qp1" firstAttribute="top" secondItem="ngB-cv-Nma" secondAttribute="top" constant="3" id="Jsn-9F-dMw"/>
+                    <constraint firstItem="hap-Qe-qp1" firstAttribute="centerY" secondItem="ngB-cv-Nma" secondAttribute="centerY" id="Oh1-SM-vx1"/>
                     <constraint firstItem="ngB-cv-Nma" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="b0r-WO-0wN"/>
                     <constraint firstItem="hap-Qe-qp1" firstAttribute="height" secondItem="ngB-cv-Nma" secondAttribute="height" id="cmF-Uu-s5F"/>
                     <constraint firstItem="ngB-cv-Nma" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="k8k-Yp-K25"/>
