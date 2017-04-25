@@ -582,6 +582,12 @@
 		D4B3B5561EAF96DF008E6566 /* NotificationRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */; };
 		D4B3B5571EAF96DF008E6566 /* NotificationRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */; };
 		D4B3B5581EAF96DF008E6566 /* NotificationRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */; };
+		D4B3B55A1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5591EAF98C9008E6566 /* NotificationPresenter.swift */; };
+		D4B3B55B1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5591EAF98C9008E6566 /* NotificationPresenter.swift */; };
+		D4B3B55C1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B5591EAF98C9008E6566 /* NotificationPresenter.swift */; };
+		D4B3B57E1EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B57D1EAFD5CC008E6566 /* NotificationCellPresenter.swift */; };
+		D4B3B57F1EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B57D1EAFD5CC008E6566 /* NotificationCellPresenter.swift */; };
+		D4B3B5801EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3B57D1EAFD5CC008E6566 /* NotificationCellPresenter.swift */; };
 		D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */; };
 		D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134DF1E9C7088003F55E4 /* Scheme.swift */; };
 		D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E11E9C7256003F55E4 /* Chat.swift */; };
@@ -815,6 +821,8 @@
 		D4AD992B1EA9B60700C9FAB9 /* lab262.boomerang.production.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lab262.boomerang.production.entitlements; sourceTree = "<group>"; };
 		D4B3B5511EAF9654008E6566 /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRequester.swift; sourceTree = "<group>"; };
+		D4B3B5591EAF98C9008E6566 /* NotificationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
+		D4B3B57D1EAFD5CC008E6566 /* NotificationCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCellPresenter.swift; sourceTree = "<group>"; };
 		D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIndicatorView.swift; sourceTree = "<group>"; };
 		D4C134DF1E9C7088003F55E4 /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		D4C134E11E9C7256003F55E4 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
@@ -1463,6 +1471,8 @@
 		D484FA221EACF43D0054E415 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				D4B3B5591EAF98C9008E6566 /* NotificationPresenter.swift */,
+				D4B3B57D1EAFD5CC008E6566 /* NotificationCellPresenter.swift */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -2349,6 +2359,7 @@
 				D484FA3D1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4C134E61E9C81AD003F55E4 /* SchemeRequest.swift in Sources */,
 				D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */,
+				D4B3B55A1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
 				D4A012FF1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift in Sources */,
@@ -2413,6 +2424,7 @@
 				D4A013071E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift in Sources */,
 				2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */,
 				D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */,
+				D4B3B57E1EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */,
 				D4642BC31E9ED301002C8ADC /* LinkPostTableViewCell.swift in Sources */,
 				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
 				D4FBBCEB1E907D5400611F63 /* InterestedPresenter.swift in Sources */,
@@ -2507,6 +2519,7 @@
 				D484FA3E1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4AD977B1EA9ACFD00C9FAB9 /* SchemeRequest.swift in Sources */,
 				D4AD977C1EA9ACFD00C9FAB9 /* Chat.swift in Sources */,
+				D4B3B55B1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				D4AD977D1EA9ACFD00C9FAB9 /* IconNavigationBar.swift in Sources */,
 				D4AD977E1EA9ACFD00C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
 				D4AD977F1EA9ACFD00C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
@@ -2571,6 +2584,7 @@
 				D4AD97B71EA9ACFD00C9FAB9 /* PageControlCollectionViewCell.swift in Sources */,
 				D4AD97B81EA9ACFD00C9FAB9 /* PhotoNavigationBar.swift in Sources */,
 				D4AD97B91EA9ACFD00C9FAB9 /* UserInformationTableViewCell.swift in Sources */,
+				D4B3B57F1EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */,
 				D4AD97BA1EA9ACFD00C9FAB9 /* LinkPostTableViewCell.swift in Sources */,
 				D4AD97BB1EA9ACFD00C9FAB9 /* UIImageViewExtension.swift in Sources */,
 				D4AD97BC1EA9ACFD00C9FAB9 /* InterestedPresenter.swift in Sources */,
@@ -2657,6 +2671,7 @@
 				D484FA3F1EADB3190054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4AD98471EA9AD0400C9FAB9 /* SchemeRequest.swift in Sources */,
 				D4AD98481EA9AD0400C9FAB9 /* Chat.swift in Sources */,
+				D4B3B55C1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				D4AD98491EA9AD0400C9FAB9 /* IconNavigationBar.swift in Sources */,
 				D4AD984A1EA9AD0400C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
 				D4AD984B1EA9AD0400C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
@@ -2721,6 +2736,7 @@
 				D4AD98831EA9AD0400C9FAB9 /* PageControlCollectionViewCell.swift in Sources */,
 				D4AD98841EA9AD0400C9FAB9 /* PhotoNavigationBar.swift in Sources */,
 				D4AD98851EA9AD0400C9FAB9 /* UserInformationTableViewCell.swift in Sources */,
+				D4B3B5801EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */,
 				D4AD98861EA9AD0400C9FAB9 /* LinkPostTableViewCell.swift in Sources */,
 				D4AD98871EA9AD0400C9FAB9 /* UIImageViewExtension.swift in Sources */,
 				D4AD98881EA9AD0400C9FAB9 /* InterestedPresenter.swift in Sources */,

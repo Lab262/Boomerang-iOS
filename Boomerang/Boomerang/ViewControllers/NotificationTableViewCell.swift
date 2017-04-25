@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class NotificationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var userImage: UIImageView!
@@ -16,6 +17,13 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var backgroundSupportView: UIView!
     
+    var presenter = NotificationCellPresenter()
+    
+    var photo: UIImage? {
+        didSet {
+            userImage.image = photo
+        }
+    }
     
     static var identifier: String {
         return "notificationCell"
@@ -31,13 +39,28 @@ class NotificationTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        presenter.setViewDelegate(view: self)
     }
     
+    func setupCellInformations(){
+        presenter.getImageOfUser()
+        nameLabel.text = presenter.getNotificationSender().fullName
+        notificationLabel.text = presenter.getNotification().notificationDescription
+        timeLabel.text = presenter.getNotification().createdDate?.getStringToDate(dateFormat: "dd/MM/YYYY")
+    }
+}
+
+extension NotificationTableViewCell: NotificationCellDelegate {
+    
+    func startLoadingPhoto() {
+        userImage.loadAnimation()
+    }
+    
+    func finishLoadingPhoto() {
+        userImage.unload()
+    }
+    
+    func showMessage(error: String) {
+        
+    }
 }

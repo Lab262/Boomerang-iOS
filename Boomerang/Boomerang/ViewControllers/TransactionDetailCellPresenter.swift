@@ -69,6 +69,7 @@ class TransactionDetailCellPresenter: NSObject {
     }
     
     func getImageOfUser(){
+        view?.startLoadingPhoto()
         getUserOwnATransaction().getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
             if success {
                 self.view?.photo = UIImage(data: data!)

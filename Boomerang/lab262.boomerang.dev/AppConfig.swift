@@ -13,6 +13,7 @@ class AppConfig: NSObject {
     
     struct parse {
         static let baseClientConfig = ParseClientConfiguration {
+            
             $0.applicationId = "myAppId"
             $0.clientKey = ""
             $0.server = "http://localhost:1337/parse"

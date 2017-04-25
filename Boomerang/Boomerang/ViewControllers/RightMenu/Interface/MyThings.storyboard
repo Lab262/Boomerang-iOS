@@ -117,6 +117,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kKa-9s-mM5"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="notificationsButton" destination="XMu-rA-A8y" id="hv5-1K-fd5"/>
                         <outlet property="searchFriendsTransactionButton" destination="g03-ms-sFY" id="9Bv-gX-L1t"/>
@@ -131,8 +132,9 @@
         <!--Navigation Controller-->
         <scene sceneID="PRS-iG-uGg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="6tJ-GG-Y7U" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6tJ-GG-Y7U" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ia1-ch-nHw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -253,11 +255,20 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ib3-OU-oB4" id="AvH-YC-mDR"/>
+                        <segue destination="ZQf-iB-Odv" kind="show" identifier="goToDetailThing" id="tnC-tF-Vds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpQ-nA-LPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="93.599999999999994" y="2088.3058470764618"/>
+        </scene>
+        <!--detailThingView-->
+        <scene sceneID="35b-NH-qVj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="detailThingView" id="ZQf-iB-Odv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z9o-V9-sw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="2520"/>
         </scene>
         <!--Search Friends View Controller-->
         <scene sceneID="ViK-1E-6Cy">

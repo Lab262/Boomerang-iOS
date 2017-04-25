@@ -16,7 +16,7 @@ class NotificationRequester: NSObject {
         var notifications: [NotificationModel] = [NotificationModel]()
         
         let includes = ["sender", "post"]
-        let selectKeys = ["sender", "post", "hasBeenSeen"]
+        let selectKeys = ["sender", "post", "hasBeenSeen", "notificationDescription"]
         var queryParams = [String : Any]()
         queryParams["receiver"] = user
         
@@ -27,6 +27,7 @@ class NotificationRequester: NSObject {
                 for obj in objects! {
                     let notification = NotificationModel(object: obj)
                     notification.receiver = user
+                    notification.post?.author = user
                     notifications.append(notification)
                 }
                 completionHandler(success, msg, notifications)

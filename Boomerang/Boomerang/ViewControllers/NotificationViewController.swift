@@ -14,19 +14,37 @@ class NotificationViewController: UIViewController {
     
     var tableViewLeftInset: CGFloat = 15
     var tableViewRightInset: CGFloat = 15
+    var presenter = NotificationPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNib()
-        configureTableView()
+        setPresenterDelegate()
+        getNotifications()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
     }
 
+    func setPresenterDelegate() {
+        presenter.setViewDelegate(view: self)
+    }
+    
+    func getNotifications(){
+        presenter.requestNotifications()
+    }
+    
     func registerNib(){
         tableView.registerNibFrom(NotificationTableViewCell.self)
     }
     
-    func configureTableView(){
-       // tableView.contentInset = UIEdgeInsetsMake(0, tableViewLeftInset, 0, tableViewRightInset)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? ThingDetailViewController {
+            let selectedIndex = tableView.indexPathForSelectedRow
+            print ("POST: \(presenter.getNotifications()[selectedIndex!.row].post!)")
+            destinationVC.presenter.setPost(post: presenter.getNotifications()[selectedIndex!.row].post!)
+        }
     }
 }
 
@@ -36,7 +54,10 @@ extension NotificationViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier, for: indexPath) as! NotificationTableViewCell
         
-        if indexPath.row == 1 {
+        cell.presenter.setNotification(notification: presenter.getNotifications()[indexPath.row])
+        cell.setupCellInformations()
+        
+        if indexPath.row == presenter.getNotifications().endIndex-1 {
             cell.backgroundSupportView.isHidden = true
         } else {
             cell.backgroundSupportView.isHidden = false
@@ -47,19 +68,29 @@ extension NotificationViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2
+        return presenter.getNotifications().count
     }
 }
 
 extension NotificationViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: SegueIdentifiers.notificationToDetailThing, sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return NotificationTableViewCell.cellHeight * UIView.heightScaleProportion()
+    }
+}
+
+extension NotificationViewController: ViewDelegate {
+
+    func reload() {
+        tableView.reloadData()
+    }
+    
+    func showMessageError(msg: String) {
+        // messageError
     }
 }
 
