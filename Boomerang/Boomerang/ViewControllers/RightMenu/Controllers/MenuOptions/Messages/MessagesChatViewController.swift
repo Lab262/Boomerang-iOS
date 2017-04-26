@@ -15,8 +15,9 @@ class MessagesChatViewController: UIViewController {
     @IBOutlet weak var inputViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var chatInputField: UITextField!
     @IBOutlet weak var containerView: UIView!
-    
-    
+    var composeBarView: PHFComposeBarView?
+    var container: UIView?
+    var initialViewFrame = CGRect(x: 0.0, y: 0.0, width: 320.0, height: 60.0)
     var chatData: BoomerChatData! = BoomerChatData()
     
     @IBAction func sendMessageAction(_ sender: Any) {
@@ -37,6 +38,27 @@ class MessagesChatViewController: UIViewController {
         containerView.layer.cornerRadius = 5
         self.setupTableView()
         self.loadData()
+        initializeComposeBar()
+    }
+    
+    func initializeComposeBar() {
+        
+        let viewBounds = self.view.bounds
+        let frame = CGRect(x: 0.0, y: viewBounds.size.height - PHFComposeBarViewInitialHeight, width: viewBounds.size.width, height: PHFComposeBarViewInitialHeight)
+        
+        composeBarView = PHFComposeBarView(frame: frame)
+        composeBarView?.maxCharCount = 160
+        composeBarView?.maxLinesCount = 5
+        composeBarView?.placeholder = "Comente"
+        composeBarView?.delegate = self
+        
+        container = UIView(frame: initialViewFrame)
+        container?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        self.container?.addSubview(composeBarView!)
+        
+        //composeBarView?.backgroundColor = .yellow
+        self.view.addSubview(container!)
     }
     
     override func viewDidLayoutSubviews() {
@@ -152,4 +174,24 @@ extension MessagesChatViewController {
         }, completion: nil)
     }
     
+}
+
+extension MessagesChatViewController: PHFComposeBarViewDelegate {
+    
+    func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
+        composeBarView.setText("", animated: true)
+       // composeBarView.resignFirstResponder()
+    }
+    
+    func composeBarView(_ composeBarView: PHFComposeBarView!, willChangeFromFrame startFrame: CGRect, toFrame endFrame: CGRect, duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
+        
+       // let insets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: endFrame.size.height, right: 0.0)
+        
+     //   textView.contentInset = insets
+       // textView.scrollIndicatorInsets = insets
+        
+        
+        
+        
+    }
 }
