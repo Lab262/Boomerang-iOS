@@ -19,9 +19,7 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var chatContainerLeadingConstraintMyMessage: NSLayoutConstraint!
     @IBOutlet weak var chatContainerTrailingConstraintFriendMessage: NSLayoutConstraint!
     @IBOutlet weak var chatContainerLeadingConstraintFriendMessage: NSLayoutConstraint!
-    @IBOutlet weak var friendChatBaloomImage: UIImageView!
     
-    @IBOutlet weak var myChatBaloomImage: UIImageView!
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -41,32 +39,28 @@ class ChatTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         if chatMessageData.boomerSender == DefaultsHelper.sharedInstance.email {
             self.setupMyMessageStyle()
+            
         } else {
-            self.setupFriendMessageStyle()
+            self.setupMyMessageStyle()
+            //self.setupFriendMessageStyle()
         }
         super.layoutSubviews()
     }
     
     func setupMyMessageStyle() {
-        
-        self.myChatBaloomImage.isHidden = false
-        self.friendChatBaloomImage.isHidden = true
+   
         self.chatMessageContainer.backgroundColor = UIColor.myMessageChatBackgroundColor
-        self.chatMessageContainer.layer.borderColor = UIColor.myMessageChatBorderColor.cgColor
         self.chatMessageLabel.textColor = UIColor.myMessageChatTextColor
-        self.chatContainerTrailingConstraintFriendMessage.isActive = false
-        self.chatContainerLeadingConstraintFriendMessage.isActive = false
-        self.chatContainerTrailingConstraintMyMessage.isActive = true
-        self.chatContainerLeadingConstraintMyMessage.isActive = true
+        self.chatContainerTrailingConstraintFriendMessage.isActive = true
+        self.chatContainerLeadingConstraintFriendMessage.isActive = true
+        self.chatContainerTrailingConstraintMyMessage.isActive = false
+        self.chatContainerLeadingConstraintMyMessage.isActive = false
         self.layoutIfNeeded()
     }
     
     func setupFriendMessageStyle() {
         
-        self.myChatBaloomImage.isHidden = true
-        self.friendChatBaloomImage.isHidden = false
         self.chatMessageContainer.backgroundColor = UIColor.friendMessageChatBackgroundColor
-        self.chatMessageContainer.layer.borderColor = UIColor.friendMessageChatBorderColor.cgColor
         self.chatMessageLabel.textColor = UIColor.friendMessageChatTextColor
         self.chatContainerTrailingConstraintMyMessage.isActive = false
         self.chatContainerLeadingConstraintMyMessage.isActive = false

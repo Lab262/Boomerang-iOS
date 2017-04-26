@@ -1,38 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="97" id="KGk-i7-Jjw" customClass="ChatTableViewCell" customModule="Boomerang" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="97" id="KGk-i7-Jjw" customClass="ChatTableViewCell" customModule="lab262_boomerang_dev" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="326" height="97"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="326" height="96.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_chat_baloom" translatesAutoresizingMaskIntoConstraints="NO" id="SBp-Uv-usz" userLabel="my_chat_baloom">
-                        <rect key="frame" x="28" y="80.5" width="13" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="Dg0-M6-obP"/>
-                            <constraint firstAttribute="width" constant="13" id="xVh-UR-pMh"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friend_chat_baloom" translatesAutoresizingMaskIntoConstraints="NO" id="Toa-Zl-pCd">
-                        <rect key="frame" x="218.5" y="80.5" width="13" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="fah-um-y3t"/>
-                            <constraint firstAttribute="width" constant="13" id="tFa-7C-V40"/>
-                        </constraints>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOJ-Sd-pvw" userLabel="Chat message container">
                         <rect key="frame" x="23" y="8" width="213.5" height="80.5"/>
                         <subviews>
@@ -52,27 +38,32 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="roundedByHeight" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                 <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="Toa-Zl-pCd" firstAttribute="trailing" secondItem="nOJ-Sd-pvw" secondAttribute="trailing" constant="-5" id="3mF-fX-qFg"/>
                     <constraint firstItem="nOJ-Sd-pvw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="4ad-nq-HWx"/>
                     <constraint firstItem="nOJ-Sd-pvw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="CTL-1T-nHF"/>
                     <constraint firstAttribute="trailingMargin" secondItem="nOJ-Sd-pvw" secondAttribute="trailing" constant="15" id="Iel-iI-5Ln"/>
                     <constraint firstItem="nOJ-Sd-pvw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="JMh-d3-gJt"/>
-                    <constraint firstItem="SBp-Uv-usz" firstAttribute="leading" secondItem="nOJ-Sd-pvw" secondAttribute="leading" constant="5" id="QOJ-WH-rop"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="nOJ-Sd-pvw" secondAttribute="trailing" constant="30" id="RZc-SO-dQL"/>
-                    <constraint firstItem="Toa-Zl-pCd" firstAttribute="bottom" secondItem="nOJ-Sd-pvw" secondAttribute="bottom" constant="7" id="SmC-Bj-s1j"/>
-                    <constraint firstItem="SBp-Uv-usz" firstAttribute="bottom" secondItem="nOJ-Sd-pvw" secondAttribute="bottom" constant="7" id="VYk-N8-yqW"/>
                     <constraint firstAttribute="bottomMargin" secondItem="nOJ-Sd-pvw" secondAttribute="bottom" id="fwp-uw-Nlk"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                        <size key="value" width="0.0" height="1"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                        <real key="value" value="0.29999999999999999"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="Iel-iI-5Ln"/>
@@ -80,6 +71,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="chatContainerLeadingConstraintFriendMessage" destination="JMh-d3-gJt" id="oDK-26-oLb"/>
                 <outlet property="chatContainerLeadingConstraintMyMessage" destination="4ad-nq-HWx" id="FPr-xW-cgw"/>
@@ -87,14 +79,8 @@
                 <outlet property="chatContainerTrailingConstraintMyMessage" destination="RZc-SO-dQL" id="dc1-05-edo"/>
                 <outlet property="chatMessageContainer" destination="nOJ-Sd-pvw" id="jbh-gj-ZMy"/>
                 <outlet property="chatMessageLabel" destination="21u-07-i8c" id="bss-eG-78o"/>
-                <outlet property="friendChatBaloomImage" destination="Toa-Zl-pCd" id="09Z-P6-vez"/>
-                <outlet property="myChatBaloomImage" destination="SBp-Uv-usz" id="8zv-Ih-qkI"/>
             </connections>
             <point key="canvasLocation" x="26" y="153.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="friend_chat_baloom" width="13" height="15"/>
-        <image name="my_chat_baloom" width="14" height="16"/>
-    </resources>
 </document>

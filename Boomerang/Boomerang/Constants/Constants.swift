@@ -19,6 +19,8 @@ struct SegueIdentifiers {
     static let detailTransactionToEvaluation = "goToEvaluation"
     static let notificationToDetailThing = "goToDetailThing"
     static let detailTransactionToProfile = "goToProfile"
+    static let detailTransactionToChat = "goToChat"
+    static let detailTransactionToDetailThing = "goToDetailThing"
 }
 
 //MARK - Storyboard Ids

@@ -46,7 +46,7 @@ extension UIColor {
     }
     static var myMessageChatBackgroundColor: UIColor  {
         get {
-            return UIColor.colorWithHexString("2C2C2C")
+            return UIColor.colorWithHexString("672958")
         }
     }
     static var friendMessageChatTextColor: UIColor  {

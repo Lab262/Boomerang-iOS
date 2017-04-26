@@ -57,8 +57,10 @@ extension MessagesMainViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: BoomerMessageAndNotificationsCell.cellIdentifier, for: indexPath) as! BoomerMessageAndNotificationsCell
         cell.boomerCellData = self.cellDatas[indexPath.row]
+        
         return cell;
     }
     

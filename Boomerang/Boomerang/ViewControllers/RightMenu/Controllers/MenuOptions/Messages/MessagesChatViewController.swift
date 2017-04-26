@@ -14,16 +14,17 @@ class MessagesChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var chatInputField: UITextField!
+    @IBOutlet weak var containerView: UIView!
     
-    var chatData: BoomerChatData!
+    
+    var chatData: BoomerChatData! = BoomerChatData()
     
     @IBAction func sendMessageAction(_ sender: Any) {
-        
         if let text = self.chatInputField.text,
             text.characters.count > 0 {
             let newMessage = MessageModel(content: text,
                                           postDateInterval: NSDate().timeIntervalSince1970,
-                                          boomerSender: DefaultsHelper.sharedInstance.email!)
+                                          boomerSender: ApplicationState.sharedInstance.currentUser!.fullName!)
             let newRowIndexPath = IndexSet(integer: 0)
             self.chatData.messages.insert(newMessage, at: 0)
             self.tableView.reloadSections(newRowIndexPath, with: .fade)
@@ -33,7 +34,7 @@ class MessagesChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        containerView.layer.cornerRadius = 5
         self.setupTableView()
         self.loadData()
     }
@@ -43,16 +44,19 @@ class MessagesChatViewController: UIViewController {
     }
     
     func loadData() {
+        
         let message1 = MessageModel(content: "Eai beleza?", postDateInterval: 50.0, boomerSender: "thiago@lab262.com")
         let message2 = MessageModel(content: "Beleza e você ?", postDateInterval: 55.0, boomerSender: "amanda@boomerang.com")
         let message3 = MessageModel(content: "Também 😀. Que dia podemos marcar de para eu ir ai te entregar a bicicleta ? Sabe se tem algum lugar ai perto para encher o pneu?", postDateInterval:72.0, boomerSender: "thiago@lab262.com")
         
         self.chatData.messages = [message1,message2,message3]
+        
+        
         self.updateContentInset(for: self.tableView, animated: false)
         
         
-        self.navigationBar.titleLabelText = self.chatData.friendNames?.first
-        self.navigationBar.rightBarIconImage = self.chatData.friendPhotos?.first
+        //self.navigationBar.titleLabelText = self.chatData.friendNames?.first
+        //self.navigationBar.rightBarIconImage = self.chatData.friendPhotos?.first
     }
     
     func setupTableView() {
@@ -71,12 +75,12 @@ class MessagesChatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -65,18 +65,22 @@ class TransactionDetailViewController: UIViewController {
     }
     
     func goLinkPost (_ sender: UIButton) {
-        performSegue(withIdentifier: SegueIdentifiers.transactionToDetailThing, sender: self)
+        performSegue(withIdentifier: SegueIdentifiers.detailTransactionToDetailThing, sender: self)
     }
     
     func goLinkProfile (_ sender: UIButton) {
-        performSegue(withIdentifier: SegueIdentifiers.transactionToProfile, sender: self)
+        performSegue(withIdentifier: SegueIdentifiers.detailTransactionToProfile, sender: self)
     }
     
+    func goChat (_ sender: UIButton) {
+        performSegue(withIdentifier: SegueIdentifiers.detailTransactionToChat, sender: self)
+    }
     func generateTransactionDetailCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionDetailTableViewCell.identifier, for: indexPath) as! TransactionDetailTableViewCell
         
         cell.profileLinkButton.addTarget(self, action: #selector(goLinkProfile(_:)), for: .touchUpInside)
+        cell.chatButton.addTarget(self, action: #selector(goChat(_:)), for: .touchUpInside)
         cell.presenter.setScheme(scheme: presenter.getScheme())
         cell.updateInformationsCell()
         

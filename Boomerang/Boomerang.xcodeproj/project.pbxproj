@@ -124,6 +124,12 @@
 		D436BF2C1E95B19500BC7F00 /* TransactionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */; };
 		D436BF2E1E95B50E00BC7F00 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D436BF2D1E95B50E00BC7F00 /* TransactionTableViewCell.xib */; };
 		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
+		D44C9A0F1EB00D59004B7796 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */; };
+		D44C9A101EB00D59004B7796 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */; };
+		D44C9A111EB00D59004B7796 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */; };
+		D44C9A161EB00D9B004B7796 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */; };
+		D44C9A171EB00D9B004B7796 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */; };
+		D44C9A181EB00D9B004B7796 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */; };
 		D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */; };
 		D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */; };
 		D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */; };
@@ -758,6 +764,8 @@
 		D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionPresenter.swift; sourceTree = "<group>"; };
 		D436BF2D1E95B50E00BC7F00 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
+		D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCommentTableViewCell.swift; path = ../../../UserCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCommentTableViewCell.xib; path = ../../../UserCommentTableViewCell.xib; sourceTree = "<group>"; };
 		D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -1136,6 +1144,7 @@
 		A4E462E71DCAEA7F00A611C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D44C9A0C1EB00D0D004B7796 /* Chat */,
 				D484FA1E1EACF41E0054E415 /* Notification */,
 				D4AD97681EA819B700C9FAB9 /* Evaluation */,
 				D436BF231E95A66C00BC7F00 /* Transaction */,
@@ -1426,6 +1435,39 @@
 				D4642BC21E9ED301002C8ADC /* LinkPostTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		D44C9A0C1EB00D0D004B7796 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D44C9A141EB00D77004B7796 /* Interface */,
+				D44C9A131EB00D6F004B7796 /* Presenter */,
+				D44C9A121EB00D67004B7796 /* Controllers */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		D44C9A121EB00D67004B7796 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D44C9A131EB00D6F004B7796 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		D44C9A141EB00D77004B7796 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 		D484FA1E1EACF41E0054E415 /* Notification */ = {
@@ -2444,6 +2486,7 @@
 				D4AD99241EA9AFF400C9FAB9 /* AppConfig.swift in Sources */,
 				2F7967701E83871700476D2D /* WithdrawalTableViewCell.swift in Sources */,
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
+				D44C9A0F1EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */,
 				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
 				D436BF2A1E95A97300BC7F00 /* TransactionTableViewCell.swift in Sources */,
@@ -2464,6 +2507,7 @@
 				D4E4BEB91E8256B000F8DC2E /* PHFComposeBarView_TextView.m in Sources */,
 				D498F0411E81621F002E8972 /* ThingNavigationBar.swift in Sources */,
 				A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */,
+				D44C9A161EB00D9B004B7796 /* ChatPresenter.swift in Sources */,
 				D4E4BEBC1E8269F300F8DC2E /* TextInputTableView.swift in Sources */,
 				2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */,
 				2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */,
@@ -2604,6 +2648,7 @@
 				D4AD99261EA9B00000C9FAB9 /* AppConfig.swift in Sources */,
 				D4AD97CA1EA9ACFD00C9FAB9 /* WithdrawalTableViewCell.swift in Sources */,
 				D4AD97CB1EA9ACFD00C9FAB9 /* AddBoomerCell.swift in Sources */,
+				D44C9A101EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD97CC1EA9ACFD00C9FAB9 /* CGOperations.swift in Sources */,
 				D4AD97CD1EA9ACFD00C9FAB9 /* User.swift in Sources */,
 				D4AD97CE1EA9ACFD00C9FAB9 /* TransactionTableViewCell.swift in Sources */,
@@ -2624,6 +2669,7 @@
 				D4AD97D91EA9ACFD00C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD97DA1EA9ACFD00C9FAB9 /* HomeTableViewController.swift in Sources */,
 				D4AD97DB1EA9ACFD00C9FAB9 /* PHFComposeBarView_TextView.m in Sources */,
+				D44C9A171EB00D9B004B7796 /* ChatPresenter.swift in Sources */,
 				D4AD97DC1EA9ACFD00C9FAB9 /* ThingNavigationBar.swift in Sources */,
 				D4AD97DD1EA9ACFD00C9FAB9 /* UIColorExtension.swift in Sources */,
 				D4AD97DE1EA9ACFD00C9FAB9 /* TextInputTableView.swift in Sources */,
@@ -2756,6 +2802,7 @@
 				D4AD99281EA9B00900C9FAB9 /* AppConfig.swift in Sources */,
 				D4AD98961EA9AD0400C9FAB9 /* WithdrawalTableViewCell.swift in Sources */,
 				D4AD98971EA9AD0400C9FAB9 /* AddBoomerCell.swift in Sources */,
+				D44C9A111EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD98981EA9AD0400C9FAB9 /* CGOperations.swift in Sources */,
 				D4AD98991EA9AD0400C9FAB9 /* User.swift in Sources */,
 				D4AD989A1EA9AD0400C9FAB9 /* TransactionTableViewCell.swift in Sources */,
@@ -2776,6 +2823,7 @@
 				D4AD98A51EA9AD0400C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD98A61EA9AD0400C9FAB9 /* HomeTableViewController.swift in Sources */,
 				D4AD98A71EA9AD0400C9FAB9 /* PHFComposeBarView_TextView.m in Sources */,
+				D44C9A181EB00D9B004B7796 /* ChatPresenter.swift in Sources */,
 				D4AD98A81EA9AD0400C9FAB9 /* ThingNavigationBar.swift in Sources */,
 				D4AD98A91EA9AD0400C9FAB9 /* UIColorExtension.swift in Sources */,
 				D4AD98AA1EA9AD0400C9FAB9 /* TextInputTableView.swift in Sources */,
