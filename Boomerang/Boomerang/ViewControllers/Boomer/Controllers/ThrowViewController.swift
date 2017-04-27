@@ -237,7 +237,7 @@ class ThrowViewController: UIViewController {
         post.title =  self.nameThing
         post.content = self.descriptionThing
         post.postType = PostType(rawValue: typeVC.rawValue)
-        
+        post.type = post.postType.map { $0.rawValue }
       
         ActivitIndicatorView.show(on: self)
         
