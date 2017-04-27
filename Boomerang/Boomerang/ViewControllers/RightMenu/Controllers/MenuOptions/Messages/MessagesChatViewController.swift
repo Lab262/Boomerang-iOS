@@ -17,7 +17,7 @@ class MessagesChatViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     var composeBarView: PHFComposeBarView?
     var container: UIView?
-    var initialViewFrame = CGRect(x: 0.0, y: 0.0, width: 320.0, height: 60.0)
+    var initialViewFrame: CGRect?
     var chatData: BoomerChatData! = BoomerChatData()
     
     @IBAction func sendMessageAction(_ sender: Any) {
@@ -35,29 +35,30 @@ class MessagesChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height - 100, width: self.view.frame.width, height: 100.0)
+        initializeComposeBar()
         containerView.layer.cornerRadius = 5
         self.setupTableView()
+        setupKeyboardNotifications()
         self.loadData()
-        initializeComposeBar()
+        
     }
     
-    func initializeComposeBar() {
-        
-        let viewBounds = self.view.bounds
-        let frame = CGRect(x: 0.0, y: viewBounds.size.height - PHFComposeBarViewInitialHeight, width: viewBounds.size.width, height: PHFComposeBarViewInitialHeight)
-        
-        composeBarView = PHFComposeBarView(frame: frame)
+    
+    func initializeComposeBar(){
+        composeBarView = PHFComposeBarView(frame: CGRect(x: 0.0, y: initialViewFrame!.size.height - PHFComposeBarViewInitialHeight, width: initialViewFrame!.size.width, height: PHFComposeBarViewInitialHeight))
         composeBarView?.maxCharCount = 160
         composeBarView?.maxLinesCount = 5
-        composeBarView?.placeholder = "Comente"
+        composeBarView?.placeholder = "place holder"
+        composeBarView?.textView.accessibilityIdentifier = "Input"
+        composeBarView?.placeholderLabel.accessibilityIdentifier = "Placeholder"
         composeBarView?.delegate = self
-        
-        container = UIView(frame: initialViewFrame)
+        composeBarView?.buttonTitle = "Enviar"
+        composeBarView?.utilityButton.accessibilityIdentifier = "Utility"
+        container = UIView(frame: initialViewFrame!)
         container?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        container?.addSubview(composeBarView!)
         
-        self.container?.addSubview(composeBarView!)
-        
-        //composeBarView?.backgroundColor = .yellow
         self.view.addSubview(container!)
     }
     
@@ -66,7 +67,6 @@ class MessagesChatViewController: UIViewController {
     }
     
     func loadData() {
-        
         let message1 = MessageModel(content: "Eai beleza?", postDateInterval: 50.0, boomerSender: "thiago@lab262.com")
         let message2 = MessageModel(content: "Beleza e você ?", postDateInterval: 55.0, boomerSender: "amanda@boomerang.com")
         let message3 = MessageModel(content: "Também 😀. Que dia podemos marcar de para eu ir ai te entregar a bicicleta ? Sabe se tem algum lugar ai perto para encher o pneu?", postDateInterval:72.0, boomerSender: "thiago@lab262.com")
@@ -81,19 +81,72 @@ class MessagesChatViewController: UIViewController {
         //self.navigationBar.rightBarIconImage = self.chatData.friendPhotos?.first
     }
     
+    
+    func setupKeyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        
+        self.configureGestureRecognizer()
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let  obj = notification.userInfo?["UIKeyboardFrameEndUserInfoKey"] {
+            var keyboardFrame = CGRect.null
+            if (obj as AnyObject).responds(to: #selector(NSValue.getValue(_:))) {
+                (obj as AnyObject).getValue(&keyboardFrame)
+                UIView.animate(
+                    withDuration: 0.25,
+                    delay: 0.0,
+                    options: UIViewAnimationOptions(),
+                    animations: {
+                        () -> Void in
+                        //self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height+10, 0.0)
+                        self.view.frame.origin.y = -keyboardFrame.size.height
+                },
+                    completion: nil)
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(
+            withDuration: 0.25,
+            delay: 0.0,
+            options: UIViewAnimationOptions(),
+            animations: {
+                () -> Void in
+               // self.tableView.contentInset = UIEdgeInsets.zero
+                self.view.frame.origin.y = 0
+        },
+            completion: nil)
+        
+    }
+    
     func setupTableView() {
         let nib = UINib(nibName: ChatTableViewCell.cellIdentifier, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: ChatTableViewCell.cellIdentifier)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 25
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(MessagesChatViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(MessagesChatViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI));
+
+        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
         
     }
+    
+    
+    func configureGestureRecognizer(){
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
+        panGesture.delegate = self
+        tableView.addGestureRecognizer(panGesture)
+    }
+    
+    func didPan(_ gesture : UIGestureRecognizer) {
+        tableView.endEditing(true)
+        
+//        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -108,6 +161,8 @@ class MessagesChatViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
+        self.tableView.superview?.endEditing(true)
+       
     }
 }
 
@@ -152,22 +207,22 @@ extension MessagesChatViewController {
 
 extension MessagesChatViewController {
     
-    func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.inputViewBottomConstraint.constant += keyboardSize.height
-            self.updateInputViewLayout()
-        }
-        
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.inputViewBottomConstraint.constant -= keyboardSize.height
-            self.updateInputViewLayout()
-        }
-    }
-    
+//    func keyboardWillShow(notification: NSNotification) {
+//        
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//            self.inputViewBottomConstraint.constant += keyboardSize.height
+//            self.updateInputViewLayout()
+//        }
+//        
+//    }
+//    
+//    func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//            self.inputViewBottomConstraint.constant -= keyboardSize.height
+//            self.updateInputViewLayout()
+//        }
+//    }
+//    
     func updateInputViewLayout() {
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations:{
             self.view.layoutIfNeeded()
@@ -190,8 +245,12 @@ extension MessagesChatViewController: PHFComposeBarViewDelegate {
      //   textView.contentInset = insets
        // textView.scrollIndicatorInsets = insets
         
-        
-        
-        
+    }
+}
+
+//MARK: UIGestureRecognizer Protocol
+extension MessagesChatViewController : UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

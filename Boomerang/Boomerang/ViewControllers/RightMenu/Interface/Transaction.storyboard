@@ -328,7 +328,7 @@ FACEBOOK</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" navigationBarHidden="YES" id="4j5-QE-t7v" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BHX-ud-ZhU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="BHX-ud-ZhU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -655,6 +655,14 @@ FACEBOOK</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-3H-nRw">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="386"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="adt-ZK-Kg5" id="2eT-Ff-xOA"/>
+                                    <outlet property="delegate" destination="adt-ZK-Kg5" id="mTU-Xw-A7L"/>
+                                </connections>
+                            </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fny-Wx-Ll1" userLabel="InputView">
                                 <rect key="frame" x="19" y="486" width="337" height="30"/>
                                 <subviews>
@@ -694,20 +702,12 @@ FACEBOOK</string>
                                     <constraint firstAttribute="bottom" secondItem="MRw-yd-njp" secondAttribute="bottom" id="UBw-zb-Tpv"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-3H-nRw">
-                                <rect key="frame" x="0.0" y="100" width="375" height="386"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="adt-ZK-Kg5" id="2eT-Ff-xOA"/>
-                                    <outlet property="delegate" destination="adt-ZK-Kg5" id="mTU-Xw-A7L"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zNB-ic-cye" firstAttribute="top" secondItem="2tW-3H-nRw" secondAttribute="top" id="5jk-LT-NKh"/>
                             <constraint firstItem="Fny-Wx-Ll1" firstAttribute="width" secondItem="aW4-b8-SKH" secondAttribute="width" multiplier="0.9" id="AU4-2Q-6aK"/>
-                            <constraint firstItem="Fny-Wx-Ll1" firstAttribute="top" secondItem="2tW-3H-nRw" secondAttribute="bottom" id="Pfa-g7-I4h"/>
+                            <constraint firstItem="Fny-Wx-Ll1" firstAttribute="top" secondItem="2tW-3H-nRw" secondAttribute="bottom" id="S79-Wm-fXT"/>
                             <constraint firstItem="zNB-ic-cye" firstAttribute="height" secondItem="2tW-3H-nRw" secondAttribute="height" multiplier="1.1" id="VNb-pD-rJl"/>
                             <constraint firstAttribute="trailing" secondItem="Na3-jA-0OY" secondAttribute="trailing" id="WXc-n7-HEj"/>
                             <constraint firstItem="zNB-ic-cye" firstAttribute="leading" secondItem="aW4-b8-SKH" secondAttribute="leading" constant="9" id="Wya-jm-C77"/>
@@ -738,7 +738,7 @@ FACEBOOK</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obE-ua-UmT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vbn-Kd-cio">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vbn-Kd-cio">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

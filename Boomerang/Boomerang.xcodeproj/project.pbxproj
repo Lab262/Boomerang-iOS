@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29CD695537BA0D4217861ECD /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */; };
 		2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */; };
 		2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */; };
 		2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */; };
@@ -107,7 +106,8 @@
 		A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */; };
 		A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */; };
 		A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */; };
-		BA455F8AF71EF03037491F19 /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */; };
+		A9E5B8F2C6E3A887D5576DA0 /* Pods_lab262_boomerang_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B290A6C82A8DAABF3BA72C /* Pods_lab262_boomerang_dev.framework */; };
+		AE0A3E5B5EBAF34959817DBD /* Pods_lab262_boomerang_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F6AA3D6EBC13716C252C3 /* Pods_lab262_boomerang_test.framework */; };
 		D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */; };
 		D40C0E4C1E8AAD58008174D2 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */; };
 		D40C0E4D1E8B020A008174D2 /* PhotoThingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */; };
@@ -329,7 +329,6 @@
 		D4AD97FB1EA9ACFD00C9FAB9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E31E9C7A18003F55E4 /* Message.swift */; };
 		D4AD97FC1EA9ACFD00C9FAB9 /* AddBoomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42767FC1DD3630400363343 /* AddBoomerMainViewController.swift */; };
 		D4AD97FD1EA9ACFD00C9FAB9 /* SelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */; };
-		D4AD97FF1EA9ACFD00C9FAB9 /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */; };
 		D4AD98011EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */; };
 		D4AD98021EA9ACFD00C9FAB9 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C611DD092650028F06C /* Montserrat-ExtraBold.otf */; };
 		D4AD98031EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
@@ -519,7 +518,6 @@
 		D4AD98C71EA9AD0400C9FAB9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134E31E9C7A18003F55E4 /* Message.swift */; };
 		D4AD98C81EA9AD0400C9FAB9 /* AddBoomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42767FC1DD3630400363343 /* AddBoomerMainViewController.swift */; };
 		D4AD98C91EA9AD0400C9FAB9 /* SelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */; };
-		D4AD98CB1EA9AD0400C9FAB9 /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */; };
 		D4AD98CD1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */; };
 		D4AD98CE1EA9AD0400C9FAB9 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C611DD092650028F06C /* Montserrat-ExtraBold.otf */; };
 		D4AD98CF1EA9AD0400C9FAB9 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
@@ -640,7 +638,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boomerang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		133457901008546E46ED3A62 /* Pods-lab262.boomerang.production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.debug.xcconfig"; sourceTree = "<group>"; };
+		149F6AA3D6EBC13716C252C3 /* Pods_lab262_boomerang_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A09C9B8738B75DE1ECCA0D6 /* Pods-lab262.boomerang.production.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.release.xcconfig"; sourceTree = "<group>"; };
 		2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoNavigationBar.swift; sourceTree = "<group>"; };
 		2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoNavigationBar.xib; sourceTree = "<group>"; };
 		2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -677,9 +677,10 @@
 		2FF1771A1E4F60650005F026 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF1771C1E4F91A20005F026 /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		2FF1771E1E4F998A0005F026 /* URLS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
-		3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoomerangTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		45F418024776342D46529DBE /* Pods-Boomerang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.release.xcconfig"; sourceTree = "<group>"; };
+		3CAE5E32E2181437F10BF136 /* Pods-lab262.boomerang.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev.debug.xcconfig"; sourceTree = "<group>"; };
+		5B9F30C87ABEF4C02F5F3F5C /* Pods-lab262.boomerang.test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.release.xcconfig"; sourceTree = "<group>"; };
 		8469F64EFE9F7899E31E9E7C /* Pods-BoomerangTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.release.xcconfig"; sourceTree = "<group>"; };
+		89B290A6C82A8DAABF3BA72C /* Pods_lab262_boomerang_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerMainViewController.swift; sourceTree = "<group>"; };
 		A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspector.swift"; sourceTree = "<group>"; };
@@ -748,7 +749,6 @@
 		A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerThing.swift; sourceTree = "<group>"; };
 		A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Indexable.swift"; sourceTree = "<group>"; };
 		CCF6CC3F0FDD1FD115C7BD92 /* Pods-BoomerangTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CE907A203F74C49B9DB89B40 /* Pods-Boomerang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boomerang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang.debug.xcconfig"; sourceTree = "<group>"; };
 		D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailThingPresenter.swift; sourceTree = "<group>"; };
 		D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
 		D40C0E4E1E8B1490008174D2 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
@@ -868,6 +868,8 @@
 		D4FBBCEA1E907D5400611F63 /* InterestedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedPresenter.swift; sourceTree = "<group>"; };
 		D4FBBCEC1E90818A00611F63 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D4FBBCEE1E908E0F00611F63 /* Interested.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interested.swift; sourceTree = "<group>"; };
+		FB8304CD0B8827066587D6B9 /* Pods-lab262.boomerang.dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev.release.xcconfig"; sourceTree = "<group>"; };
+		FFD2298110E55F3E08BABD28 /* Pods-lab262.boomerang.test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -875,7 +877,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA455F8AF71EF03037491F19 /* Pods_Boomerang.framework in Frameworks */,
+				AE0A3E5B5EBAF34959817DBD /* Pods_lab262_boomerang_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -883,7 +885,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29CD695537BA0D4217861ECD /* Pods_BoomerangTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,7 +892,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4AD97FF1EA9ACFD00C9FAB9 /* Pods_Boomerang.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,7 +899,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4AD98CB1EA9AD0400C9FAB9 /* Pods_Boomerang.framework in Frameworks */,
+				A9E5B8F2C6E3A887D5576DA0 /* Pods_lab262_boomerang_dev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,8 +951,8 @@
 		5A4E14B68C84054C141F7C52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */,
-				3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */,
+				89B290A6C82A8DAABF3BA72C /* Pods_lab262_boomerang_dev.framework */,
+				149F6AA3D6EBC13716C252C3 /* Pods_lab262_boomerang_test.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -960,10 +960,14 @@
 		9723C3C0CD5C32F69AE16C49 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CE907A203F74C49B9DB89B40 /* Pods-Boomerang.debug.xcconfig */,
-				45F418024776342D46529DBE /* Pods-Boomerang.release.xcconfig */,
 				CCF6CC3F0FDD1FD115C7BD92 /* Pods-BoomerangTests.debug.xcconfig */,
 				8469F64EFE9F7899E31E9E7C /* Pods-BoomerangTests.release.xcconfig */,
+				3CAE5E32E2181437F10BF136 /* Pods-lab262.boomerang.dev.debug.xcconfig */,
+				FB8304CD0B8827066587D6B9 /* Pods-lab262.boomerang.dev.release.xcconfig */,
+				133457901008546E46ED3A62 /* Pods-lab262.boomerang.production.debug.xcconfig */,
+				1A09C9B8738B75DE1ECCA0D6 /* Pods-lab262.boomerang.production.release.xcconfig */,
+				FFD2298110E55F3E08BABD28 /* Pods-lab262.boomerang.test.debug.xcconfig */,
+				5B9F30C87ABEF4C02F5F3F5C /* Pods-lab262.boomerang.test.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2146,7 +2150,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81F257C77482D4401703111B /* [CP] Embed Pods Frameworks */ = {
@@ -2206,7 +2210,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD98391EA9ACFD00C9FAB9 /* Adding tags to comment */ = {
@@ -2251,7 +2255,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD983C1EA9ACFD00C9FAB9 /* [CP] Copy Pods Resources */ = {
@@ -2266,7 +2270,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD98431EA9AD0400C9FAB9 /* [CP] Check Pods Manifest.lock */ = {
@@ -2281,7 +2285,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD99051EA9AD0400C9FAB9 /* Adding tags to comment */ = {
@@ -2326,7 +2330,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD99081EA9AD0400C9FAB9 /* [CP] Copy Pods Resources */ = {
@@ -2341,7 +2345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC727BF1580BE657742D0038 /* [CP] Copy Pods Resources */ = {
@@ -2356,7 +2360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DE1EEA45157E0DE8EDC6929C /* [CP] Embed Pods Frameworks */ = {
@@ -2371,7 +2375,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boomerang/Pods-Boomerang-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F0ED52ED07F6B239B46BF716 /* [CP] Check Pods Manifest.lock */ = {
@@ -2386,7 +2390,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2983,7 +2987,7 @@
 		};
 		A4F89B441DA809B100949A35 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE907A203F74C49B9DB89B40 /* Pods-Boomerang.debug.xcconfig */;
+			baseConfigurationReference = FFD2298110E55F3E08BABD28 /* Pods-lab262.boomerang.test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3006,7 +3010,7 @@
 		};
 		A4F89B451DA809B100949A35 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45F418024776342D46529DBE /* Pods-Boomerang.release.xcconfig */;
+			baseConfigurationReference = 5B9F30C87ABEF4C02F5F3F5C /* Pods-lab262.boomerang.test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3060,7 +3064,7 @@
 		};
 		D4AD983E1EA9ACFD00C9FAB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE907A203F74C49B9DB89B40 /* Pods-Boomerang.debug.xcconfig */;
+			baseConfigurationReference = 133457901008546E46ED3A62 /* Pods-lab262.boomerang.production.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3083,7 +3087,7 @@
 		};
 		D4AD983F1EA9ACFD00C9FAB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45F418024776342D46529DBE /* Pods-Boomerang.release.xcconfig */;
+			baseConfigurationReference = 1A09C9B8738B75DE1ECCA0D6 /* Pods-lab262.boomerang.production.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3105,7 +3109,7 @@
 		};
 		D4AD990A1EA9AD0400C9FAB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE907A203F74C49B9DB89B40 /* Pods-Boomerang.debug.xcconfig */;
+			baseConfigurationReference = 3CAE5E32E2181437F10BF136 /* Pods-lab262.boomerang.dev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3128,7 +3132,7 @@
 		};
 		D4AD990B1EA9AD0400C9FAB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45F418024776342D46529DBE /* Pods-Boomerang.release.xcconfig */;
+			baseConfigurationReference = FB8304CD0B8827066587D6B9 /* Pods-lab262.boomerang.dev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
