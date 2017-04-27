@@ -13,6 +13,7 @@ class HeaderPostTableViewCell: UITableViewCell {
     var highlights: [UIImage] = []
 
     
+    @IBOutlet weak var touchAreaThrowButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!

@@ -197,7 +197,7 @@ class ThrowViewController: UIViewController {
       
         header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
         
-        header.throwButton.addTarget(self, action:#selector(throwAction(_:)), for:.touchUpInside)
+        header.touchAreaThrowButton.addTarget(self, action:#selector(throwAction(_:)), for:.touchUpInside)
         
         
         if let images = allimages {
