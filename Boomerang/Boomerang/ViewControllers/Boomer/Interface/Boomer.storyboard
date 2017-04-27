@@ -13,6 +13,9 @@
         <array key="Montserrat-Bold.otf">
             <string>Montserrat-Bold</string>
         </array>
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
@@ -231,6 +234,23 @@ várias mensagens, fica esperto, migo :)</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWp-QW-kgS">
+                                <rect key="frame" x="38" y="487" width="300" height="53"/>
+                                <color key="backgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="LtJ-at-zWh"/>
+                                    <constraint firstAttribute="width" constant="300" id="T7e-RL-TK0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="Ok, obrigado :)">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -239,6 +259,8 @@ várias mensagens, fica esperto, migo :)</string>
                             <constraint firstItem="jHt-ZO-nMx" firstAttribute="centerX" secondItem="64q-ND-3Ax" secondAttribute="centerX" id="JcU-70-WpU"/>
                             <constraint firstItem="jHt-ZO-nMx" firstAttribute="top" secondItem="1HG-Od-KKv" secondAttribute="bottom" constant="13" id="Y6B-u5-o9K"/>
                             <constraint firstItem="1HG-Od-KKv" firstAttribute="top" secondItem="8tu-pV-tWh" secondAttribute="bottom" constant="167" id="rZq-mX-oS9"/>
+                            <constraint firstItem="YWp-QW-kgS" firstAttribute="centerX" secondItem="64q-ND-3Ax" secondAttribute="centerX" id="upM-BX-1vl"/>
+                            <constraint firstItem="YWp-QW-kgS" firstAttribute="top" secondItem="jHt-ZO-nMx" secondAttribute="bottom" constant="56" id="wVH-Do-HCU"/>
                         </constraints>
                     </view>
                 </viewController>
