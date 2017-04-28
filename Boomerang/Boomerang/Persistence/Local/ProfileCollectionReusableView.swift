@@ -16,6 +16,8 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     var alreadyUpdateCell = false
     
+    let titleButtonEditProfile = "Editar Perfil"
+    
     @IBOutlet weak var button: UIButton!
     
     
@@ -40,13 +42,14 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     var delegate: UpdateCellDelegate?
     
     override func awakeFromNib() {
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = button.frame.height/2
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
         configureButtons()
     }
     
     func configureButtonAction() {
         if presenter.authorPostIsCurrent() {
-            button.setTitle("Editar", for: .normal)
+            button.setTitle(titleButtonEditProfile, for: .normal)
         } else {
             presenter.alreadyFollowing(completionHandler: { (success, msg, alreadyFollowing) in
                 if success {
@@ -117,7 +120,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             configureButtonAction()
             
             if presenter.authorPostIsCurrent() {
-                button.setTitle("Editar", for: .normal)
+                button.setTitle(titleButtonEditProfile, for: .normal)
             } else {
                 button.setTitle("Seguir", for: .normal)
             }
