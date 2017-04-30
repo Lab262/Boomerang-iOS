@@ -11,7 +11,7 @@ import UIKit
 class MessagesChatViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: IconNavigationBar!
-    @IBOutlet weak var tableView: UITableView!
+   // @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var chatInputField: UITextField!
     @IBOutlet weak var containerView: UIView!
@@ -28,19 +28,19 @@ class MessagesChatViewController: UIViewController {
                                           boomerSender: ApplicationState.sharedInstance.currentUser!.fullName!)
             let newRowIndexPath = IndexSet(integer: 0)
             self.chatData.messages.insert(newMessage, at: 0)
-            self.tableView.reloadSections(newRowIndexPath, with: .fade)
-            self.updateContentInset(for: self.tableView, animated: true)
+//            self.tableView.reloadSections(newRowIndexPath, with: .fade)
+//            self.updateContentInset(for: self.tableView, animated: true)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height - 100, width: self.view.frame.width, height: 100.0)
-        initializeComposeBar()
-        containerView.layer.cornerRadius = 5
-        self.setupTableView()
-        setupKeyboardNotifications()
-        self.loadData()
+//        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height - 100, width: self.view.frame.width, height: 100.0)
+//        initializeComposeBar()
+//        containerView.layer.cornerRadius = 5
+//        self.setupTableView()
+//        setupKeyboardNotifications()
+//        self.loadData()
         
     }
     
@@ -63,7 +63,7 @@ class MessagesChatViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.updateContentInset(for: self.tableView, animated: false)
+        //self.updateContentInset(for: self.tableView, animated: false)
     }
     
     func loadData() {
@@ -74,7 +74,7 @@ class MessagesChatViewController: UIViewController {
         self.chatData.messages = [message1,message2,message3]
         
         
-        self.updateContentInset(for: self.tableView, animated: false)
+       // self.updateContentInset(for: self.tableView, animated: false)
         
         
         //self.navigationBar.titleLabelText = self.chatData.friendNames?.first
@@ -87,7 +87,7 @@ class MessagesChatViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         
-        self.configureGestureRecognizer()
+       // self.configureGestureRecognizer()
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -123,29 +123,29 @@ class MessagesChatViewController: UIViewController {
         
     }
     
-    func setupTableView() {
-        let nib = UINib(nibName: ChatTableViewCell.cellIdentifier, bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: ChatTableViewCell.cellIdentifier)
-        
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 25
-
-        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
-        
-    }
+//    func setupTableView() {
+//        let nib = UINib(nibName: ChatTableViewCell.cellIdentifier, bundle: nil)
+//        self.tableView.register(nib, forCellReuseIdentifier: ChatTableViewCell.cellIdentifier)
+//        
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        self.tableView.estimatedRowHeight = 25
+//
+//        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
+//        
+//    }
     
     
-    func configureGestureRecognizer(){
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
-        panGesture.delegate = self
-        tableView.addGestureRecognizer(panGesture)
-    }
-    
-    func didPan(_ gesture : UIGestureRecognizer) {
-        tableView.endEditing(true)
-        
-//        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-    }
+//    func configureGestureRecognizer(){
+//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
+//        panGesture.delegate = self
+//        tableView.addGestureRecognizer(panGesture)
+//    }
+//    
+//    func didPan(_ gesture : UIGestureRecognizer) {
+//        tableView.endEditing(true)
+//        
+////        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+//    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -158,47 +158,47 @@ class MessagesChatViewController: UIViewController {
         
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        self.view.endEditing(true)
-        self.tableView.superview?.endEditing(true)
-       
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesBegan(touches, with: event)
+//        self.view.endEditing(true)
+//        self.tableView.superview?.endEditing(true)
+//       
+//    }
 }
 
-extension MessagesChatViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.chatData.messages.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.cellIdentifier, for: indexPath) as! ChatTableViewCell
-        cell.chatMessageData = self.chatData.messages[indexPath.row]
-        cell.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI));
-        
-        return cell;
-    }
-    
-    func updateContentInset(for tableView: UITableView, animated: Bool) {
-        let lastRow = self.tableView(tableView, numberOfRowsInSection: 0)
-        let lastIndex = lastRow > 0 ? lastRow - 1 : 0
-        let lastIndexPath = IndexPath(item: lastIndex, section: 0)
-        let lastCellFrame = self.tableView.rectForRow(at: lastIndexPath)
-        let topInset: CGFloat = max(self.tableView.frame.height - lastCellFrame.origin.y - lastCellFrame.height, 0)
-        var contentInset = tableView.contentInset
-        contentInset.top = topInset
-        let options = UIViewAnimationOptions.beginFromCurrentState
-        UIView.animate(withDuration: animated ? 0.25 : 0.0, delay: 0.0, options: options, animations: {() -> Void in
-            tableView.contentInset = contentInset
-        }, completion: {(_ finished: Bool) -> Void in
-        })
-    }
-}
+//extension MessagesChatViewController: UITableViewDelegate, UITableViewDataSource {
+//    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.chatData.messages.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.cellIdentifier, for: indexPath) as! ChatTableViewCell
+//        cell.chatMessageData = self.chatData.messages[indexPath.row]
+//        cell.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI));
+//        
+//        return cell;
+//    }
+//    
+//    func updateContentInset(for tableView: UITableView, animated: Bool) {
+//        let lastRow = self.tableView(tableView, numberOfRowsInSection: 0)
+//        let lastIndex = lastRow > 0 ? lastRow - 1 : 0
+//        let lastIndexPath = IndexPath(item: lastIndex, section: 0)
+//        let lastCellFrame = self.tableView.rectForRow(at: lastIndexPath)
+//        let topInset: CGFloat = max(self.tableView.frame.height - lastCellFrame.origin.y - lastCellFrame.height, 0)
+//        var contentInset = tableView.contentInset
+//        contentInset.top = topInset
+//        let options = UIViewAnimationOptions.beginFromCurrentState
+//        UIView.animate(withDuration: animated ? 0.25 : 0.0, delay: 0.0, options: options, animations: {() -> Void in
+//            tableView.contentInset = contentInset
+//        }, completion: {(_ finished: Bool) -> Void in
+//        })
+//    }
+//}
 
 extension MessagesChatViewController {
     

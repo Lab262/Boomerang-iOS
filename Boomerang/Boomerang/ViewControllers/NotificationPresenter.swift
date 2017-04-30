@@ -43,6 +43,5 @@ class NotificationPresenter: NSObject {
                 self.view?.showMessageError(msg: msg)
             }
         }
-        
     }
 }

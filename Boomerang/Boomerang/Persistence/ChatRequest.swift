@@ -55,4 +55,19 @@ class ChatRequest: NSObject {
             }
         }
     }
+    
+    static func getMessagesInBackground(chat: Chat, skip: Int, pagination: Int,completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+        
+        chat.getRelationsInBackgroundBy(key: "messages", keyColunm: nil, isNotContained: nil, pagination: pagination, skip: skip, notContainedKeys: nil) { (success, msg, objects) in
+            if success {
+                for object in objects! {
+                    let relation = Message(object: object)
+                    chat.messages.append(relation)
+                }
+                completionHandler(success, msg)
+            } else {
+                completionHandler(success, msg)
+            }
+        }
+    }
 }

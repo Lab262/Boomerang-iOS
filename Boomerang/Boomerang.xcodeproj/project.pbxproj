@@ -43,6 +43,7 @@
 		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
 		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
 		2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771E1E4F998A0005F026 /* URLS.swift */; };
+		421FB41CBB3C3D074121AECB /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6138BA4BCCCFE65E62AADD96 /* Pods_BoomerangTests.framework */; };
 		A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */; };
 		A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */; };
 		A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */; };
@@ -107,6 +108,7 @@
 		A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */; };
 		A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */; };
 		A9E5B8F2C6E3A887D5576DA0 /* Pods_lab262_boomerang_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B290A6C82A8DAABF3BA72C /* Pods_lab262_boomerang_dev.framework */; };
+		AA61B3E940D715B0696C5AEF /* Pods_lab262_boomerang_production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083CE1F5DDE26C9BABBA252E /* Pods_lab262_boomerang_production.framework */; };
 		AE0A3E5B5EBAF34959817DBD /* Pods_lab262_boomerang_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F6AA3D6EBC13716C252C3 /* Pods_lab262_boomerang_test.framework */; };
 		D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */; };
 		D40C0E4C1E8AAD58008174D2 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */; };
@@ -123,6 +125,12 @@
 		D436BF2A1E95A97300BC7F00 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436BF291E95A97300BC7F00 /* TransactionTableViewCell.swift */; };
 		D436BF2C1E95B19500BC7F00 /* TransactionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */; };
 		D436BF2E1E95B50E00BC7F00 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D436BF2D1E95B50E00BC7F00 /* TransactionTableViewCell.xib */; };
+		D43C6B271EB2B2D300F118AA /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43C6B261EB2B2D300F118AA /* Conversation.swift */; };
+		D43C6B281EB2B2D300F118AA /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43C6B261EB2B2D300F118AA /* Conversation.swift */; };
+		D43C6B291EB2B2D300F118AA /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43C6B261EB2B2D300F118AA /* Conversation.swift */; };
+		D43C6B2F1EB2B54300F118AA /* DemoConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */; };
+		D43C6B301EB2B54300F118AA /* DemoConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */; };
+		D43C6B311EB2B54300F118AA /* DemoConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */; };
 		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
 		D44C9A0F1EB00D59004B7796 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */; };
 		D44C9A101EB00D59004B7796 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */; };
@@ -638,6 +646,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		083CE1F5DDE26C9BABBA252E /* Pods_lab262_boomerang_production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		133457901008546E46ED3A62 /* Pods-lab262.boomerang.production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.debug.xcconfig"; sourceTree = "<group>"; };
 		149F6AA3D6EBC13716C252C3 /* Pods_lab262_boomerang_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A09C9B8738B75DE1ECCA0D6 /* Pods-lab262.boomerang.production.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.release.xcconfig"; sourceTree = "<group>"; };
@@ -679,6 +688,7 @@
 		2FF1771E1E4F998A0005F026 /* URLS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
 		3CAE5E32E2181437F10BF136 /* Pods-lab262.boomerang.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev.debug.xcconfig"; sourceTree = "<group>"; };
 		5B9F30C87ABEF4C02F5F3F5C /* Pods-lab262.boomerang.test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.release.xcconfig"; sourceTree = "<group>"; };
+		6138BA4BCCCFE65E62AADD96 /* Pods_BoomerangTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoomerangTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8469F64EFE9F7899E31E9E7C /* Pods-BoomerangTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.release.xcconfig"; sourceTree = "<group>"; };
 		89B290A6C82A8DAABF3BA72C /* Pods_lab262_boomerang_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerMainViewController.swift; sourceTree = "<group>"; };
@@ -763,6 +773,8 @@
 		D436BF291E95A97300BC7F00 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionPresenter.swift; sourceTree = "<group>"; };
 		D436BF2D1E95B50E00BC7F00 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		D43C6B261EB2B2D300F118AA /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoConversation.swift; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
 		D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
@@ -885,6 +897,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421FB41CBB3C3D074121AECB /* Pods_BoomerangTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,6 +905,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA61B3E940D715B0696C5AEF /* Pods_lab262_boomerang_production.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,6 +967,8 @@
 			children = (
 				89B290A6C82A8DAABF3BA72C /* Pods_lab262_boomerang_dev.framework */,
 				149F6AA3D6EBC13716C252C3 /* Pods_lab262_boomerang_test.framework */,
+				6138BA4BCCCFE65E62AADD96 /* Pods_BoomerangTests.framework */,
+				083CE1F5DDE26C9BABBA252E /* Pods_lab262_boomerang_production.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1444,9 +1460,11 @@
 		D44C9A0C1EB00D0D004B7796 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */,
 				D44C9A141EB00D77004B7796 /* Interface */,
 				D44C9A131EB00D6F004B7796 /* Presenter */,
 				D44C9A121EB00D67004B7796 /* Controllers */,
+				D43C6B261EB2B2D300F118AA /* Conversation.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -2474,6 +2492,7 @@
 				D4642BC31E9ED301002C8ADC /* LinkPostTableViewCell.swift in Sources */,
 				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
 				D4FBBCEB1E907D5400611F63 /* InterestedPresenter.swift in Sources */,
+				D43C6B2F1EB2B54300F118AA /* DemoConversation.swift in Sources */,
 				D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */,
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
@@ -2492,6 +2511,7 @@
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
 				D44C9A0F1EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */,
+				D43C6B271EB2B2D300F118AA /* Conversation.swift in Sources */,
 				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
 				D436BF2A1E95A97300BC7F00 /* TransactionTableViewCell.swift in Sources */,
 				D498F03E1E808A95002E8972 /* PhotoThingCollectionViewCell.swift in Sources */,
@@ -2636,6 +2656,7 @@
 				D4AD97BA1EA9ACFD00C9FAB9 /* LinkPostTableViewCell.swift in Sources */,
 				D4AD97BB1EA9ACFD00C9FAB9 /* UIImageViewExtension.swift in Sources */,
 				D4AD97BC1EA9ACFD00C9FAB9 /* InterestedPresenter.swift in Sources */,
+				D43C6B301EB2B54300F118AA /* DemoConversation.swift in Sources */,
 				D4AD97BD1EA9ACFD00C9FAB9 /* Comment.swift in Sources */,
 				D4AD97BE1EA9ACFD00C9FAB9 /* MessagesChatViewController.swift in Sources */,
 				D4AD97BF1EA9ACFD00C9FAB9 /* BoomerThingCell.swift in Sources */,
@@ -2654,6 +2675,7 @@
 				D4AD97CB1EA9ACFD00C9FAB9 /* AddBoomerCell.swift in Sources */,
 				D44C9A101EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD97CC1EA9ACFD00C9FAB9 /* CGOperations.swift in Sources */,
+				D43C6B281EB2B2D300F118AA /* Conversation.swift in Sources */,
 				D4AD97CD1EA9ACFD00C9FAB9 /* User.swift in Sources */,
 				D4AD97CE1EA9ACFD00C9FAB9 /* TransactionTableViewCell.swift in Sources */,
 				D484FA271EACF4EA0054E415 /* OtherActionsSegmentViewController.swift in Sources */,
@@ -2790,6 +2812,7 @@
 				D4AD98861EA9AD0400C9FAB9 /* LinkPostTableViewCell.swift in Sources */,
 				D4AD98871EA9AD0400C9FAB9 /* UIImageViewExtension.swift in Sources */,
 				D4AD98881EA9AD0400C9FAB9 /* InterestedPresenter.swift in Sources */,
+				D43C6B311EB2B54300F118AA /* DemoConversation.swift in Sources */,
 				D4AD98891EA9AD0400C9FAB9 /* Comment.swift in Sources */,
 				D4AD988A1EA9AD0400C9FAB9 /* MessagesChatViewController.swift in Sources */,
 				D4AD988B1EA9AD0400C9FAB9 /* BoomerThingCell.swift in Sources */,
@@ -2808,6 +2831,7 @@
 				D4AD98971EA9AD0400C9FAB9 /* AddBoomerCell.swift in Sources */,
 				D44C9A111EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD98981EA9AD0400C9FAB9 /* CGOperations.swift in Sources */,
+				D43C6B291EB2B2D300F118AA /* Conversation.swift in Sources */,
 				D4AD98991EA9AD0400C9FAB9 /* User.swift in Sources */,
 				D4AD989A1EA9AD0400C9FAB9 /* TransactionTableViewCell.swift in Sources */,
 				D484FA281EACF4EB0054E415 /* OtherActionsSegmentViewController.swift in Sources */,

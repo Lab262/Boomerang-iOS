@@ -13,7 +13,7 @@ class Chat: PFObject {
     @NSManaged var post: Post?
     @NSManaged var requester: User?
     @NSManaged var owner: User?
-    @NSManaged var messages: [Message]?
+    var messages: [Message] = [Message]()
     
     override init(){
         super.init()
@@ -39,10 +39,6 @@ class Chat: PFObject {
         
         if let post = object["post"] as? Post {
             self.post = Post(object: post)
-        }
-        
-        if let messages = object["messages"] as? [Message] {
-            self.messages = messages
         }
     }
 }

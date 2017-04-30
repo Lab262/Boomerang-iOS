@@ -36,6 +36,7 @@ class PhotoThingTableViewCell: UITableViewCell {
         ApplicationState.sharedInstance.delegate = self
         presenter.setControllerDelegate(controller: self)
         initializePageIndicatorView()
+        (photoCollectionView.collectionViewLayout as! CenterCellCollectionViewFlowLayout).centerCellInset = CGPoint(x: 15, y: 0)
     }
     
     func registerNib(){
@@ -57,6 +58,7 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoThingCollectionViewCell.identifier, for: indexPath) as! PhotoThingCollectionViewCell
+        
         
         cell.thingImage.image = presenter.getImagePostByIndex(indexPath.row)
         
