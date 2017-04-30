@@ -174,7 +174,7 @@ extension AuthenticationMainViewController {
                             
                         }else {
                             self.view.unload()
-                            self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
+                            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)
                         }                    })
                     
                 }

@@ -126,9 +126,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        
         ChatRequest.createChat(requester: getUser(), owner: getAuthorOfPost(), post: getPost()) { (success, msg) in
-        
             completionHandler(success, msg)
         }
     }
@@ -145,7 +143,7 @@ class DetailThingPresenter: NSObject {
                     }
                 })
             } else {
-                
+                self.view?.showMessage(isSuccess: success, msg: msg)
             }
         }
     }
@@ -212,7 +210,6 @@ class DetailThingPresenter: NSObject {
     }
     
     func getImagePostByIndex(_ index: Int) -> UIImage {
-        
         if let relations = self.post?.relations {
             if relations.count >= index+1 {
                 if let photo = relations[index].photo {

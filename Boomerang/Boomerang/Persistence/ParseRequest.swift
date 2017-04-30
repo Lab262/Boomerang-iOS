@@ -226,9 +226,11 @@ extension PFObject {
         query.limit = pagination!
         query.skip = skip!
         
-        if isNotContained! {
-            query.whereKey(keyColunm!, notContainedIn: notContainedKeys!)
-        }
+
+        
+//        if isNotContained! {
+//            query.whereKey(keyColunm!, notContainedIn: notContainedKeys!)
+//        }
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {

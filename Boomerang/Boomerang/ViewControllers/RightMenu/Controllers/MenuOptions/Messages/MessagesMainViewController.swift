@@ -73,8 +73,7 @@ extension MessagesMainViewController: UITableViewDelegate, UITableViewDataSource
         let storyBoardToShow = UIStoryboard(name: "RightMenu", bundle: nil)
         let viewControllerToShow = storyBoardToShow.instantiateViewController(withIdentifier: "MessagesChatViewController") as! MessagesChatViewController
         
-        viewControllerToShow.chatData = chatData
-        
+                
         self.navigationController?.pushViewController(viewControllerToShow, animated: true)
 
     }

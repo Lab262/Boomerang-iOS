@@ -67,7 +67,7 @@ class ThrowViewController: UIViewController {
     @IBAction func throwAction(_ sender: Any) {
         
         if let msgErro = self.verifyInformationsFields() {
-            self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msgErro), animated: true, completion: nil)
+            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
             return
         }
         
@@ -385,9 +385,7 @@ extension ThrowViewController: UITableViewDelegate {
             switch typeVC {
                 case .donate:
                     return CGFloat(175)
-                case .have:
-                    return CGFloat(80)
-                case .need:
+                case .have, .need:
                     return CGFloat(80)
             }
             

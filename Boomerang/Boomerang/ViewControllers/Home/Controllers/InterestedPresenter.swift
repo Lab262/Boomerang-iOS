@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol InterestedDelegate {
+    func showMessage(msg: String)
+    func reload()
+    func startingLoadingView()
+    func finishLoadingView()
+    func pushForChatView()
+}
 class InterestedPresenter: NSObject {
     
     fileprivate var interesteds: [Interested] = [Interested]()
@@ -15,14 +22,13 @@ class InterestedPresenter: NSObject {
     fileprivate var post: Post = Post()
     fileprivate let pagination = 3
     fileprivate var skip = 0
-    fileprivate var controller: ViewDelegate?
+    fileprivate var view: InterestedDelegate?
     fileprivate var currentInterestedsCount = 0
     fileprivate var currentUser: User = ApplicationState.sharedInstance.currentUser!
     fileprivate var chat: Chat = Chat()
     
-    
-    func setControllerDelegate(controller: ViewDelegate) {
-        self.controller = controller
+    func setViewDelegate(view: InterestedDelegate) {
+        self.view = view
     }
     
     func setInteresteds(interesteds: [Interested]) {
@@ -71,29 +77,32 @@ class InterestedPresenter: NSObject {
     
     func updateInteresteds(){
         self.skip = interesteds.endIndex
-        
+        self.view?.startingLoadingView()
         PostRequest.fetchInterestedOf(post: getPost(), selectKeys: ["user", "currentMessage"], pagination: pagination, skip: skip) { (success, msg, interesteds) in
             if success {
                 for interested in interesteds! {
                     self.interesteds.append(interested)
                 }
-                self.controller?.reload()
+                self.view?.reload()
                 self.currentInterestedsCount = self.getInteresteds().count
                 
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessage(msg: msg)
             }
+            self.view?.finishLoadingView()
         }
     }
     
     func fetchChat() {
+        self.view?.startingLoadingView()
         ChatRequest.getChatOf(requester: getRequester(), owner: getUser(), post: getPost()) { (success, msg, chat) in
             if success {
                 self.setChat(chat: chat!)
-                print ("VE QUAL VAI SER O FLUXO.")
+                self.view?.pushForChatView()
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessage(msg: msg)
             }
+            self.view?.finishLoadingView()
         }
     }
     
@@ -102,7 +111,7 @@ class InterestedPresenter: NSObject {
             if success {
                 print ("PUSH PRA ALGUM FLUXO.")
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessage(msg: msg)
             }
         }
     }
