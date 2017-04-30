@@ -25,14 +25,12 @@ class TextFieldGroupTableViewCell: UITableViewCell {
     
     var composeBarView: PHFComposeBarView?
     var container: UIView?
-    var delegate: UpdateInformationsDelegate?
     var initialViewFrame = CGRect(x: 0.0, y: 0.0, width: 320.0, height: 60.0)
     
     @IBOutlet weak var textView: UITextView!
     
     func configureNotications(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillToggle(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-    
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillToggle(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
@@ -120,7 +118,7 @@ extension TextFieldGroupTableViewCell: PHFComposeBarViewDelegate {
     
     func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
         if composeBarView.text != "" {
-            delegate?.sendTextByField(text: composeBarView.text)
+            //delegate?.sendTextByField(text: composeBarView.text)
         }
         composeBarView.setText("", animated: true)
         composeBarView.resignFirstResponder()
@@ -133,7 +131,6 @@ extension TextFieldGroupTableViewCell: PHFComposeBarViewDelegate {
         textView.contentInset = insets
         textView.scrollIndicatorInsets = insets
         
-        self.delegate?.updateCellBy(height: endFrame.size.height)
         
         
         

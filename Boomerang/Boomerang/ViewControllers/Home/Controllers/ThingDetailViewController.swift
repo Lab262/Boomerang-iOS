@@ -9,11 +9,6 @@
 import UIKit
 
 
-protocol UpdateInformationsDelegate {
-    func updateCellBy(height: CGFloat)
-    func sendTextByField(text: String)
-}
-
 class ThingDetailViewController: UIViewController {
     
     @IBOutlet weak var firstButton: UIButton!
@@ -21,6 +16,12 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: IconNavigationBar!
+    
+    var interestedTitleButton: String? {
+        didSet{
+            firstButton.setTitle(interestedTitleButton, for: .normal)
+        }
+    }
     
     let tableViewTopInset: CGFloat = 156.0
     var presenter = DetailThingPresenter()
@@ -34,9 +35,7 @@ class ThingDetailViewController: UIViewController {
     var inputFieldsCondition = [(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: "Posso trocar/emprestar", descriptionCondition: "Tenho uma mesa de ping pong aqui parada. ou então bora conversar.", constraintIconWidth: 14.0, constraintIconHeight: 15.0), (iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: "Tempo que preciso emprestado", descriptionCondition: "1 semana, mas a gente conversa.", constraintIconWidth: 16.0, constraintIconHeight: 16.0), (iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: "Local de retirada", descriptionCondition: "Qualquer lugar em Brasília.", constraintIconWidth: 15.0, constraintIconHeight: 18.0)]
     
     override func viewWillAppear(_ animated: Bool) {
-        
         TabBarController.mainTabBarController.hideTabBar()
-        updateComments()
     }
     
     func updateComments(){
@@ -62,70 +61,46 @@ class ThingDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter.setControllerDelegate(controller: self)
+        setPresenterDelegate()
         registerNibs()
         configureButtons()
         configureTableView()
         setNavigationInformations()
     }
     
+    func setPresenterDelegate() {
+        presenter.setViewDelegate(view: self)
+    }
+    
     func configureButtons(){
         if !presenter.authorPostIsCurrent() {
+            presenter.alreadyInterested()
             secondButton.isHidden = false
-            presenter.alreadyInterested(completionHandler: { (success, msg, alreadyInterested) in
-                if success {
-                    if alreadyInterested! {
-                        self.firstButton.setTitle("Sair da fila", for: .normal)
-                    } else {
-                        self.firstButton.setTitle("Entrar na fila", for: .normal)
-                    }
-                } else {
-                    print ("already interested error")
-                }
-            })
-            secondButton.setTitle("Recomendar", for: .normal)
+            secondButton.setTitle(presenter.getRecommendedTitleButton(), for: .normal)
         } else {
             secondButton.isHidden = true
-            firstButton.setTitle("Lista de Interessados", for: .normal)
+            firstButton.setTitle(presenter.getInterestedListTitleButton(), for: .normal)
         }
-        
     }
     
     func setNavigationInformations(){
         navigationInformationsView.titleTransactionLabel.text = presenter.getCurrentType()
         navigationInformationsView.thingNameLabel.text = presenter.getPost().title
-        
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
         if presenter.authorPostIsCurrent() {
             performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
         } else {
-            if self.firstButton.currentTitle == "Entrar na fila" {
-                presenter.enterInterestedList(completionHandler: { (success, msg) in
-                    if success {
-                        self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
-                        self.firstButton.setTitle("Sair da fila", for: .normal)
-                    } else {
-                        self.present(ViewUtil.alertControllerWithTitle(_title: "Error", _withMessage: msg), animated: true, completion: nil)
-                    }
-                })
+            if self.firstButton.currentTitle == presenter.getEnterInterestedTitleButton() {
+                presenter.enterInterestedList()
             } else {
-                presenter.exitInterestedList(completionHandler: { (success, msg) in
-                    if success {
-                        self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
-                        self.firstButton.setTitle("Entrar na fila", for: .normal)
-                    } else {
-                        self.present(ViewUtil.alertControllerWithTitle(_title: "Error!", _withMessage: msg), animated: true, completion: nil)
-                    }
-                })
+                presenter.enterInterestedList()
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let controller = segue.destination as? InterestedListViewController {
             controller.presenter.setPost(post: presenter.getPost())
         }
@@ -134,7 +109,6 @@ class ThingDetailViewController: UIViewController {
             controller.presenter.setPost(post: presenter.getPost())
         }
     }
-    
     
     func refreshIndicatorInTableViewFooter() -> UIView {
         let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
@@ -200,7 +174,6 @@ class ThingDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldGroupTableViewCell.identifier, for: indexPath) as! TextFieldGroupTableViewCell
         
-        cell.delegate = self
         
         return cell
     }
@@ -300,43 +273,19 @@ extension ThingDetailViewController: UIScrollViewDelegate {
         tableView.endEditing(true)
     }
     
-    
+     //presenter.createComment(text: text.trimmingCharacters(in: .whitespacesAndNewlines))
 }
 
-extension ThingDetailViewController: UpdateInformationsDelegate {
-    
-    func updateCellBy(height: CGFloat) {
-        print ("HEIGHT UPDATE: \(height)")
-        self.textFieldHeight = height+15
-        tableView.beginUpdates()
-        tableView.endUpdates()
-        
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions(), animations: {
-            self.tableView.setContentOffset(CGPoint(x: self.tableView.contentOffset.x, y: self.tableView.contentOffset.y-20), animated: false)
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset
-            self.tableView.scrollToRow(at: IndexPath.init(row: 3, section: 0) , at: .bottom, animated: false)
-            
-        }, completion: nil)
-    }
-    
-    func sendTextByField(text: String) {
-        presenter.createComment(text: text.trimmingCharacters(in: .whitespacesAndNewlines))
-    }
-}
-
-extension ThingDetailViewController: ViewDelegate {
-    
+extension ThingDetailViewController: DetailThingDelegate {
     func reload() {
-        
         if presenter.getComments().count != presenter.getCurrentCommentsCount() {
             tableView.reloadData()
         }
-        
-        
         tableView.tableFooterView?.unload()
     }
     
-    func showMessageError(msg: String) {
-        self.present(ViewUtil.alertControllerWithTitle(_title: "Error", _withMessage: msg), animated: true, completion: nil)
+    func showMessage(isSuccess: Bool, msg: String) {
+        let title = isSuccess ? "Certo" : "Erro"
+        present(ViewUtil.alertControllerWithTitle(title: title, withMessage: msg), animated: true, completion: nil)
     }
 }

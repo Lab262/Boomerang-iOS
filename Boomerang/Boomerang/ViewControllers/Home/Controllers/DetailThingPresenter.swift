@@ -9,6 +9,14 @@
 import UIKit
 import Parse
 
+
+protocol DetailThingDelegate {
+    func reload()
+    func showMessage(isSuccess: Bool, msg: String)
+    var interestedTitleButton: String? {set get}
+}
+
+
 class DetailThingPresenter: NSObject {
     
     fileprivate var post:Post? = Post()
@@ -18,11 +26,32 @@ class DetailThingPresenter: NSObject {
     fileprivate var currentCommentsCount = 0
     fileprivate var user = ApplicationState.sharedInstance.currentUser
     
-    var controller: ViewDelegate?
+    fileprivate let enterInterestedTitleButton: String = "Entrar da fila"
+    fileprivate let exitInterestedTitleButton: String = "Sair da fila"
+    fileprivate let recommendedTitleButton: String = "Recomendar"
+    fileprivate let interestedListTitleButton: String = "Lista de interessados"
+    
+    var view: DetailThingDelegate?
     
     
-    func setControllerDelegate(controller: ViewDelegate) {
-        self.controller = controller
+    func setViewDelegate(view: DetailThingDelegate) {
+        self.view = view
+    }
+    
+    func getEnterInterestedTitleButton() -> String {
+        return enterInterestedTitleButton
+    }
+    
+    func getExitInterestedTitleButton() -> String {
+        return exitInterestedTitleButton
+    }
+    
+    func getRecommendedTitleButton() -> String {
+        return recommendedTitleButton
+    }
+    
+    func getInterestedListTitleButton() -> String {
+        return interestedListTitleButton
     }
     
     func authorPostIsCurrent() -> Bool {
@@ -40,11 +69,11 @@ class DetailThingPresenter: NSObject {
                 for comment in comments! {
                     self.comments.append(comment)
                 }
-                self.controller?.reload()
+                self.view?.reload()
                 self.currentCommentsCount = self.getComments().count
                 
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessage(isSuccess: false, msg: msg)
             }
         }
     }
@@ -55,7 +84,6 @@ class DetailThingPresenter: NSObject {
     
     func setPost(post: Post) {
         self.post = post
-        
     }
     
     func getPost() -> Post {
@@ -86,13 +114,12 @@ class DetailThingPresenter: NSObject {
     }
     
     func saveComment(comment: Comment) {
-        
         CommentRequest.saveComment(comment: comment) { (success, msg) in
             if success {
                 self.skip = self.comments.endIndex
                 self.updateComments()
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessage(isSuccess: false, msg: msg)
             }
         }
 
@@ -106,29 +133,42 @@ class DetailThingPresenter: NSObject {
         }
     }
     
-    func enterInterestedList(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    func enterInterestedList() {
        PostRequest.enterInterestedListOf(user: user!, post: self.post!, msg: "Estou interessado, tenho alegria pra trocar") { (success, msg) in
             if success {
                 self.createInterestedChat(completionHandler: { (success, msg) in
-                    completionHandler(success, msg)
+                    if success {
+                        self.view?.interestedTitleButton = self.exitInterestedTitleButton
+                        self.view?.showMessage(isSuccess: success, msg: "Você está dentro da lista de interessados. Agora é só aguardar.")
+                    } else {
+                        self.view?.showMessage(isSuccess: success, msg: msg)
+                    }
                 })
             } else {
-                completionHandler(success, msg)
+                
             }
         }
     }
 
-    func exitInterestedList (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
-        
+    func exitInterestedList() {
         PostRequest.exitInterestedListOf(user: user!, post: post!) { (success, msg) in
-            completionHandler(success, msg)
+            if success {
+                self.view?.interestedTitleButton = self.enterInterestedTitleButton
+                self.view?.showMessage(isSuccess: success, msg: "Você saiu da lista de interessados.")
+            } else {
+                self.view?.showMessage(isSuccess: false, msg: msg)
+            }
         }
     }
     
-    func alreadyInterested(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool?) -> ()){
-        
+    func alreadyInterested() {
         PostRequest.verifyAlreadyInterestedFor(currentUser: user!, post: post!) { (success, msg, alreadyInterested) in
-            completionHandler(success, msg, alreadyInterested)
+            
+            if success {
+                self.view?.interestedTitleButton = alreadyInterested ? self.exitInterestedTitleButton : self.enterInterestedTitleButton
+            } else {
+                self.view?.showMessage(isSuccess: false, msg: msg)
+            }
         }
     }
     
@@ -162,7 +202,7 @@ class DetailThingPresenter: NSObject {
                     if success {
                         relation.photo = UIImage(data: data!)
                         relation.isDownloadedImage = true
-                        self.controller?.reload()
+                        self.view?.reload()
                     } else {
                         print ("DOWNLOAD IMAGES ERRO")
                     }
@@ -190,12 +230,12 @@ class DetailThingPresenter: NSObject {
     
     func getCountPhotos(success: Bool){
         if success {
-            controller?.reload()
+            view?.reload()
         } else {
             post!.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
                 if success {
                     self.post!.countPhotos = count!
-                    self.controller?.reload()
+                    self.view?.reload()
                 } else {
                     print ("COUNT PHOTOS REQUEST ERROR")
                 }
