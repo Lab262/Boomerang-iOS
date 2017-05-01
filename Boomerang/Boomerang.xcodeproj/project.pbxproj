@@ -78,6 +78,9 @@
 		A44E0C6C1DD092650028F06C /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C641DD092650028F06C /* Montserrat-Regular.otf */; };
 		A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */; };
 		A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */; };
+		A4796CFB1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */; };
+		A4796CFC1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */; };
+		A4796CFD1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */; };
 		A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A489B1F61DDA7D1100B239D5 /* Authentication.storyboard */; };
 		A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489B1F81DDA7D3E00B239D5 /* AuthenticationMainViewController.swift */; };
 		A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */; };
@@ -579,9 +582,6 @@
 		D4AD99021EA9AD0400C9FAB9 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C631DD092650028F06C /* Montserrat-Light.otf */; };
 		D4AD99031EA9AD0400C9FAB9 /* SimpleTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07931E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib */; };
 		D4AD99041EA9AD0400C9FAB9 /* SwitchButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */; };
-		D4AD99201EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */; };
-		D4AD99211EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */; };
-		D4AD99221EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */; };
 		D4AD99241EA9AFF400C9FAB9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD99231EA9AFF400C9FAB9 /* AppConfig.swift */; };
 		D4AD99261EA9B00000C9FAB9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD99251EA9B00000C9FAB9 /* AppConfig.swift */; };
 		D4AD99281EA9B00900C9FAB9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD99271EA9B00900C9FAB9 /* AppConfig.swift */; };
@@ -724,6 +724,7 @@
 		A44E0C641DD092650028F06C /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		A489B1F61DDA7D1100B239D5 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		A489B1F81DDA7D3E00B239D5 /* AuthenticationMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationMainViewController.swift; sourceTree = "<group>"; };
 		A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Navigation.swift"; sourceTree = "<group>"; };
@@ -834,7 +835,6 @@
 		D4AD97731EA8EEF200C9FAB9 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
 		D4AD98401EA9ACFD00C9FAB9 /* lab262.boomerang.production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab262.boomerang.production.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AD990C1EA9AD0400C9FAB9 /* lab262.boomerang.dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab262.boomerang.dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		D4AD99231EA9AFF400C9FAB9 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D4AD99251EA9B00000C9FAB9 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D4AD99271EA9B00900C9FAB9 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -1313,6 +1313,7 @@
 		A4E462F61DCAEAC200A611C0 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */,
 				2FA93B271E4A88030080F99A /* Request */,
 				A4FE06371DD09D6400BFDC4D /* Models */,
 				A4E462F71DCAEAC200A611C0 /* Local */,
@@ -1374,7 +1375,6 @@
 		A4F89B281DA809B100949A35 /* Boomerang */ = {
 			isa = PBXGroup;
 			children = (
-				D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */,
 				D4E4BEAF1E82569300F8DC2E /* Frameworks */,
 				A4E462F41DCAEAC200A611C0 /* Constants */,
 				A4E462F51DCAEAC200A611C0 /* Extensions */,
@@ -2527,7 +2527,6 @@
 				D48735031E7885000065E13A /* String+CharacterSpacing.swift in Sources */,
 				D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
-				D4AD99201EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */,
 				D484FA2C1EACFA3D0054E415 /* NotificationViewController.swift in Sources */,
 				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
@@ -2542,6 +2541,7 @@
 				D4E6A28A1E95C5D1005B4E34 /* TransactionMainViewController.swift in Sources */,
 				D436BF251E95A68B00BC7F00 /* LoanTransactionViewController.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
+				A4796CFB1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
@@ -2594,6 +2594,7 @@
 				D4B3B55B1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				D4AD977D1EA9ACFD00C9FAB9 /* IconNavigationBar.swift in Sources */,
 				D4AD977E1EA9ACFD00C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
+				A4796CFC1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD977F1EA9ACFD00C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
 				D4AD97801EA9ACFD00C9FAB9 /* AppDelegate.swift in Sources */,
 				D4AD97811EA9ACFD00C9FAB9 /* BoomerMainViewController.swift in Sources */,
@@ -2693,7 +2694,6 @@
 				D4AD97D81EA9ACFD00C9FAB9 /* Dictionary+Indexable.swift in Sources */,
 				D484FA2D1EACFA3D0054E415 /* NotificationViewController.swift in Sources */,
 				D484FA291EACF4F00054E415 /* OtherActionsMainViewController.swift in Sources */,
-				D4AD99211EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */,
 				D4AD97D91EA9ACFD00C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD97DA1EA9ACFD00C9FAB9 /* HomeTableViewController.swift in Sources */,
 				D4AD97DB1EA9ACFD00C9FAB9 /* PHFComposeBarView_TextView.m in Sources */,
@@ -2748,6 +2748,7 @@
 				D4B3B55C1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				D4AD98491EA9AD0400C9FAB9 /* IconNavigationBar.swift in Sources */,
 				D4AD984A1EA9AD0400C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
+				A4796CFD1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD984B1EA9AD0400C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
 				D4AD984C1EA9AD0400C9FAB9 /* AppDelegate.swift in Sources */,
 				D4AD984D1EA9AD0400C9FAB9 /* BoomerMainViewController.swift in Sources */,
@@ -2847,7 +2848,6 @@
 				D4AD98A41EA9AD0400C9FAB9 /* Dictionary+Indexable.swift in Sources */,
 				D484FA2E1EACFA3D0054E415 /* NotificationViewController.swift in Sources */,
 				D484FA2A1EACF4F10054E415 /* OtherActionsMainViewController.swift in Sources */,
-				D4AD99221EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */,
 				D4AD98A51EA9AD0400C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD98A61EA9AD0400C9FAB9 /* HomeTableViewController.swift in Sources */,
 				D4AD98A71EA9AD0400C9FAB9 /* PHFComposeBarView_TextView.m in Sources */,
