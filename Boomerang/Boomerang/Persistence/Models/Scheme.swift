@@ -19,13 +19,13 @@ enum StatusScheme: String {
 class Scheme: PFObject {
     
     @NSManaged var post: Post?
-    @NSManaged var requester: User?
-    @NSManaged var owner: User?
+    @NSManaged var requester: Profile?
+    @NSManaged var owner: Profile?
     @NSManaged var chat: Chat?
     @NSManaged var status: String?
 
     var createdDate: Date?
-    var dealer: User?
+    var dealer: Profile?
     
     override init(){
         super.init()
@@ -43,13 +43,13 @@ class Scheme: PFObject {
         self.createdDate = object.createdAt
         
         
-        if let requester = object["requester"] as? User {
-            self.requester = User(user: requester)
+        if let requester = object["requester"] as? Profile {
+            self.requester = Profile(object: requester)
         }
         
-        //if let owner = object["owner"] as? User {
-          //  self.owner = User(user: owner)
-       // }
+        if let owner = object["owner"] as? User {
+            self.owner = Profile(object: owner)
+        }
         
         if let post = object["post"] as? Post {
             self.post = Post(object: post)

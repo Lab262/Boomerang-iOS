@@ -50,8 +50,7 @@ class UserCommentTableViewCell: UITableViewCell {
     func getUserPhotoImage() {
         guard let image = comment?.author?.profileImage else {
             userPhotoImage.loadAnimation()
-            
-            comment?.author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            comment?.author?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
                 
                 if success {
                     self.comment?.author?.profileImage = UIImage(data: data!)

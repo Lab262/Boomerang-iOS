@@ -39,14 +39,14 @@ class HomeMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TabBarController.mainTabBarController.showTabBar()
-        presenter.updatePostsFriends()
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
         presenter.setControllerDelegate(controller: self)
+        presenter.updatePostsFriends()
+        self.navigationController?.navigationBar.isHidden = true
         setUserInformationsInHUD()
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
         
@@ -58,11 +58,8 @@ class HomeMainViewController: UIViewController {
     }
     
     func registerNib() {
-        self.tableView.register(UINib(nibName: HomeCollectionHeader.cellIdentifier, bundle: nil), forCellReuseIdentifier: HomeCollectionHeader.cellIdentifier)
-        self.tableView.register(UINib(nibName: BoomerThingCollection.cellIdentifier, bundle: nil), forCellReuseIdentifier: BoomerThingCollection.cellIdentifier)
-        
+        tableView.registerNibFrom(HomeCollectionHeader.self)
         tableView.registerNibFrom(RecommendedPostTableViewCell.self)
-        
         tableView.registerNibFrom(PostTableViewCell.self)
     }
     
@@ -178,7 +175,7 @@ extension HomeMainViewController {
         presenter.getUserImage { (success, msg, image) in
             if success {
                 self.profileImage.unload()
-               self.profileImage.image = image
+                self.profileImage.image = image
                 self.presenter.getUser().profileImage = image
             } else {
                 self.profileImage.unload()
@@ -191,7 +188,7 @@ extension HomeMainViewController {
 extension HomeMainViewController {
     
     func generateHeaderTitle(_ tableView: UITableView, viewForHeaderInSection section: Int) -> HomeCollectionHeader? {
-        let header = tableView.dequeueReusableCell(withIdentifier:HomeCollectionHeader.cellIdentifier) as! HomeCollectionHeader
+        let header = tableView.dequeueReusableCell(withIdentifier:HomeCollectionHeader.identifier) as! HomeCollectionHeader
         
         return header
     }

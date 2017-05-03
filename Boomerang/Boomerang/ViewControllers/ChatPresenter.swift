@@ -17,7 +17,7 @@ protocol ChatDelegate {
 
 class ChatPresenter: NSObject {
     
-    fileprivate let pagination = 3
+    fileprivate let pagination = 50
     fileprivate var skip = 0
     fileprivate var chat: Chat = Chat()
     fileprivate var view: ChatDelegate?
@@ -37,11 +37,12 @@ class ChatPresenter: NSObject {
     }
     
     func getMessages() -> [JSQMessage] {
-        chat.messages.forEach {
-            let message = JSQMessage(senderId: $0.user?.objectId, senderDisplayName: "", date: $0.createdDate!, text: $0.message!)
-            messages.append(message!)
-        }
         return messages
+    }
+    
+    func convertMessageForJSQMessage(message: Message) {
+        let message = JSQMessage(senderId: message.user?.objectId, senderDisplayName: "", date: message.createdDate!, text: message.message!)
+        messages.append(message!)
     }
     
     private func setMessage(message: Message) {
@@ -50,9 +51,13 @@ class ChatPresenter: NSObject {
     }
     
     func requestMessagesOfChat() {
-        skip = chat.messages.endIndex
-        ChatRequest.getMessagesInBackground(chat: chat, skip: skip, pagination: pagination) { (success, msg) in
+        skip = chat.messagesArray.endIndex
+        
+        ChatRequest.getMessagesInBackground(chat: chat, skip: skip, pagination: pagination) { (success, msg, msgs) in
             if success {
+                for newMessage in msgs! {
+                    self.setMessage(message: newMessage)
+                }
                 self.view?.reload()
             } else {
                 self.view?.showMessage(msg: msg)
@@ -61,7 +66,7 @@ class ChatPresenter: NSObject {
     }
     
     private func createMessage(senderId: String, text: String) -> Message {
-        let userMessage: User = senderId == chat.owner!.objectId! ? chat.owner! : chat.requester!
+        let userMessage: Profile = senderId == chat.owner!.objectId! ? chat.owner! : chat.requester!
         let message = Message(message: text, user: userMessage)
         setMessage(message: message)
         return message
@@ -69,9 +74,12 @@ class ChatPresenter: NSObject {
     
     func sendMessage(senderId: String, text: String) {
         let message = createMessage(senderId: senderId, text: text)
-        chat.createRelationInBackground(key: "messages", object: message) { (success, msg) in
-            print ("msg: \(msg)")
-            self.view?.updateStatusMessage(success: success)
+        ChatRequest.createMessageInChat(message: message, chat: chat) { (success, msg) in
+            if success {
+                self.view?.updateStatusMessage(success: success)
+            } else {
+                print ("ERROR IN CREATION MESSAGE")
+            }
         }
     }
 }

@@ -71,7 +71,7 @@ class InterestedPresenter: NSObject {
         return chat
     }
     
-    func getRequester() -> User {
+    func getRequester() -> Profile {
         return getInterested().user!
     }
     
@@ -95,7 +95,7 @@ class InterestedPresenter: NSObject {
     
     func fetchChat() {
         self.view?.startingLoadingView()
-        ChatRequest.getChatOf(requester: getRequester(), owner: getUser(), post: getPost()) { (success, msg, chat) in
+        ChatRequest.getChatOf(requester: getRequester(), owner: getUser().profile!, post: getPost()) { (success, msg, chat) in
             if success {
                 self.setChat(chat: chat!)
                 self.view?.pushForChatView()
@@ -107,7 +107,7 @@ class InterestedPresenter: NSObject {
     }
     
     func createScheme(){
-        SchemeRequest.createScheme(requester: getRequester(), owner: getUser(), chat: getChat(), post: getPost()) { (success, msg) in
+        SchemeRequest.createScheme(requester: getRequester(), owner: getUser().profile!, chat: getChat(), post: getPost()) { (success, msg) in
             if success {
                 print ("PUSH PRA ALGUM FLUXO.")
             } else {
@@ -118,7 +118,7 @@ class InterestedPresenter: NSObject {
     
     func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
         guard let image = getInterested().user?.profileImage else {
-            getInterested().user?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            getInterested().user?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
                 if success {
                     self.getInterested().user?.profileImage = UIImage(data: data!)
                     completionHandler(true, msg, self.getInterested().user?.profileImage)

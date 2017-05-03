@@ -55,7 +55,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func authorPostIsCurrent() -> Bool {
-        if getPost().author?.objectId == PFUser.current()?.objectId {
+        if getPost().author?.objectId == self.user?.profile?.objectId {
             return true
         } else {
             return false
@@ -94,7 +94,7 @@ class DetailThingPresenter: NSObject {
         return user!
     }
     
-    func getAuthorOfPost() -> User {
+    func getAuthorOfPost() -> Profile {
         return post!.author!
     }
     
@@ -126,7 +126,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        ChatRequest.createChat(requester: getUser(), owner: getAuthorOfPost(), post: getPost()) { (success, msg) in
+        ChatRequest.createChat(requester: getUser().profile!, owner: getAuthorOfPost(), post: getPost()) { (success, msg) in
             completionHandler(success, msg)
         }
     }
@@ -243,7 +243,7 @@ class DetailThingPresenter: NSObject {
     func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> ()){
         
         guard let image = getPost().author?.profileImage else {
-            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
                 
                 if success {
                     self.getPost().author?.profileImage = UIImage(data: data!)

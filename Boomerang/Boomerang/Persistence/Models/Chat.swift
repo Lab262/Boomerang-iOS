@@ -11,9 +11,11 @@ import Parse
 
 class Chat: PFObject {
     @NSManaged var post: Post?
-    @NSManaged var requester: User?
-    @NSManaged var owner: User?
-    var messages: [Message] = [Message]()
+    @NSManaged var requester: Profile?
+    @NSManaged var owner: Profile?
+    
+    @NSManaged var messages: PFRelation<Message>
+    var messagesArray: [Message] = [Message]()
     
     override init(){
         super.init()

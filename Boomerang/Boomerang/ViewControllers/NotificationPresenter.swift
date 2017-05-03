@@ -32,7 +32,7 @@ class NotificationPresenter: NSObject {
     
     func requestNotifications() {
         skip = notifications.endIndex
-        NotificationRequester.getNotifications(by: getUser(), pagination: pagination, skip: skip) { (success, msg, notifications) in
+        NotificationRequester.getNotifications(by: getUser().profile!, pagination: pagination, skip: skip) { (success, msg, notifications) in
             
             if success {
                 for notification in notifications! {

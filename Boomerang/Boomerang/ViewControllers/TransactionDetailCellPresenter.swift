@@ -49,8 +49,8 @@ class TransactionDetailCellPresenter: NSObject {
         return user
     }
     
-    func getUserOwnATransaction() -> User {
-        if getScheme().owner == self.user {
+    func getUserOwnATransaction() -> Profile {
+        if getScheme().owner == self.user.profile {
             return getScheme().requester!
         } else {
             return getScheme().owner!
@@ -70,7 +70,7 @@ class TransactionDetailCellPresenter: NSObject {
     
     func getImageOfUser(){
         view?.startLoadingPhoto()
-        getUserOwnATransaction().getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+        getUserOwnATransaction().getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
             if success {
                 self.view?.photo = UIImage(data: data!)
             } else {

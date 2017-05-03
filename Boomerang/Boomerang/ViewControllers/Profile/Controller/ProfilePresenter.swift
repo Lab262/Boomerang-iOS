@@ -12,6 +12,7 @@ import Parse
 class ProfilePresenter: NSObject {
     
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
     fileprivate let pagination = 20
     fileprivate var skip = 0
     fileprivate var allPosts: [Post] = [Post]()
@@ -21,7 +22,7 @@ class ProfilePresenter: NSObject {
     fileprivate var currentPostType: PostType? = nil
     fileprivate var post: Post = Post() {
         didSet{
-            user = post.author!
+            profile = post.author!
         }
     }
     fileprivate var currentPostsCount = 0
@@ -34,7 +35,7 @@ class ProfilePresenter: NSObject {
     
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
         guard let image = user.profileImage else {
-            user.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            user.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
                 if success {
                     completionHandler(true, "Success", UIImage(data: data!)!)
                 } else {
@@ -50,12 +51,12 @@ class ProfilePresenter: NSObject {
         return currentPostsCount
     }
     
-    func setUser(user:User){
-        self.user = user
+    func setProfile(profile:Profile){
+        self.profile = profile
     }
     
-    func getUser() -> User{
-        return user
+    func getProfile() -> Profile{
+        return profile
     }
     
     func getAllPosts() -> [Post] {
@@ -154,8 +155,7 @@ class ProfilePresenter: NSObject {
     }
     
     func getPostsOfUser(){
-        
-        PostRequest.getPostsFor(user: getUser(), pagination: pagination, skip: skip) { (success, msg, posts) in
+        PostRequest.getPostsFor(profile: getProfile(), pagination: pagination, skip: skip) { (success, msg, posts) in
             if success {
                 for post in posts! {
                     self.allPosts.append(post)

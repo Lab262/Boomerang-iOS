@@ -233,7 +233,7 @@ class ThrowViewController: UIViewController {
         let pictureData = UIImagePNGRepresentation((allimages?.first)!)
         let pictureFileObject = PFFile (data:pictureData!)
         
-        post.author = ApplicationState.sharedInstance.currentUser
+        post.author = ApplicationState.sharedInstance.currentUser?.profile
         post.title =  self.nameThing
         post.content = self.descriptionThing
         post.postType = PostType(rawValue: typeVC.rawValue)

@@ -11,7 +11,7 @@ import Parse
 
 class PostRequest: NSObject {
     
-    static func fetchPostByFollowing(following: [User], pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
+    static func fetchPostByFollowing(following: [Profile], pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
  
@@ -20,6 +20,7 @@ class PostRequest: NSObject {
             if success {
                 for obj in objects! {
                     let post = Post(object: obj)
+                    
                     post.author = findAuthorByPost(following: following, authorId: post.author!.objectId!)
                     posts.append(post)
                 }
@@ -59,18 +60,18 @@ class PostRequest: NSObject {
         }
     }
     
-    static func getPostsFor(user: User, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
+    static func getPostsFor(profile: Profile, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
         var queryParams = [String : Any]()
-        queryParams["author"] = user
+        queryParams["author"] = profile
         
         ParseRequest.queryEqualToValue(className: "Post", queryParams: queryParams, includes: nil) { (success, msg, objects) in
             
             if success {
                 for obj in objects! {
                     let post = Post(object: obj)
-                    post.author = user
+                    post.author = profile
                     posts.append(post)
                 }
                 completionHandler(true, msg, posts)
@@ -80,7 +81,7 @@ class PostRequest: NSObject {
         }
     }
     
-    static func findAuthorByPost(following: [User], authorId: String) -> User? {
+    static func findAuthorByPost(following: [Profile], authorId: String) -> Profile? {
         for follow in following where follow.objectId == authorId {
             return follow
         }

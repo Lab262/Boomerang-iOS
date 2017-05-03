@@ -12,7 +12,7 @@ import Parse
 class Message: PFObject {
     
     @NSManaged var message: String?
-    @NSManaged var user: User?
+    @NSManaged var user: Profile?
     var isRead: Bool?
     var createdDate: Date?
     
@@ -26,7 +26,7 @@ class Message: PFObject {
         self.setInformationsBy(object: object)
     }
     
-    convenience init(message: String, user: User) {
+    convenience init(message: String, user: Profile) {
         self.init()
         self.isRead = false
         self.message = message
@@ -44,7 +44,7 @@ class Message: PFObject {
             self.isRead = isRead
         }
         
-        if let user = object["user"] as? User {
+        if let user = object["user"] as? Profile {
             self.user = user
         }
         

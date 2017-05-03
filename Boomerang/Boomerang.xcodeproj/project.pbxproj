@@ -135,6 +135,12 @@
 		D4470A671EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A661EB5952A002330C5 /* PhotoThingPresenter.swift */; };
 		D4470A681EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A661EB5952A002330C5 /* PhotoThingPresenter.swift */; };
 		D4470A691EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A661EB5952A002330C5 /* PhotoThingPresenter.swift */; };
+		D4470A6B1EB6A5D8002330C5 /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A6A1EB6A5D8002330C5 /* ProfileRequest.swift */; };
+		D4470A6C1EB6A5D8002330C5 /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A6A1EB6A5D8002330C5 /* ProfileRequest.swift */; };
+		D4470A6D1EB6A5D8002330C5 /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A6A1EB6A5D8002330C5 /* ProfileRequest.swift */; };
+		D4470A6F1EB6A6A5002330C5 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A6E1EB6A6A5002330C5 /* Profile.swift */; };
+		D4470A701EB6A6A5002330C5 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A6E1EB6A6A5002330C5 /* Profile.swift */; };
+		D4470A711EB6A6A5002330C5 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A6E1EB6A6A5002330C5 /* Profile.swift */; };
 		D44C9A0F1EB00D59004B7796 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */; };
 		D44C9A101EB00D59004B7796 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */; };
 		D44C9A111EB00D59004B7796 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */; };
@@ -780,6 +786,8 @@
 		D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoConversation.swift; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
 		D4470A661EB5952A002330C5 /* PhotoThingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoThingPresenter.swift; sourceTree = "<group>"; };
+		D4470A6A1EB6A5D8002330C5 /* ProfileRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
+		D4470A6E1EB6A6A5002330C5 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCommentTableViewCell.swift; path = ../../../UserCommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -962,6 +970,7 @@
 				D4C134E81E9C8265003F55E4 /* ChatRequest.swift */,
 				D4AD976F1EA8EC5B00C9FAB9 /* EvaluationRequest.swift */,
 				D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */,
+				D4470A6A1EB6A5D8002330C5 /* ProfileRequest.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -1760,6 +1769,7 @@
 				D4C134E31E9C7A18003F55E4 /* Message.swift */,
 				D4AD97731EA8EEF200C9FAB9 /* Evaluation.swift */,
 				D4B3B5511EAF9654008E6566 /* NotificationModel.swift */,
+				D4470A6E1EB6A6A5002330C5 /* Profile.swift */,
 			);
 			name = PFObjects;
 			sourceTree = "<group>";
@@ -2496,8 +2506,10 @@
 				D4B3B57E1EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */,
 				D4642BC31E9ED301002C8ADC /* LinkPostTableViewCell.swift in Sources */,
 				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
+				D4470A6F1EB6A6A5002330C5 /* Profile.swift in Sources */,
 				D4FBBCEB1E907D5400611F63 /* InterestedPresenter.swift in Sources */,
 				D43C6B2F1EB2B54300F118AA /* DemoConversation.swift in Sources */,
+				D4470A6B1EB6A5D8002330C5 /* ProfileRequest.swift in Sources */,
 				D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */,
 				A44967721DDA23D600990008 /* MessagesChatViewController.swift in Sources */,
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
@@ -2661,8 +2673,10 @@
 				D4B3B57F1EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */,
 				D4AD97BA1EA9ACFD00C9FAB9 /* LinkPostTableViewCell.swift in Sources */,
 				D4AD97BB1EA9ACFD00C9FAB9 /* UIImageViewExtension.swift in Sources */,
+				D4470A701EB6A6A5002330C5 /* Profile.swift in Sources */,
 				D4AD97BC1EA9ACFD00C9FAB9 /* InterestedPresenter.swift in Sources */,
 				D43C6B301EB2B54300F118AA /* DemoConversation.swift in Sources */,
+				D4470A6C1EB6A5D8002330C5 /* ProfileRequest.swift in Sources */,
 				D4AD97BD1EA9ACFD00C9FAB9 /* Comment.swift in Sources */,
 				D4AD97BE1EA9ACFD00C9FAB9 /* MessagesChatViewController.swift in Sources */,
 				D4AD97BF1EA9ACFD00C9FAB9 /* BoomerThingCell.swift in Sources */,
@@ -2818,8 +2832,10 @@
 				D4B3B5801EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */,
 				D4AD98861EA9AD0400C9FAB9 /* LinkPostTableViewCell.swift in Sources */,
 				D4AD98871EA9AD0400C9FAB9 /* UIImageViewExtension.swift in Sources */,
+				D4470A711EB6A6A5002330C5 /* Profile.swift in Sources */,
 				D4AD98881EA9AD0400C9FAB9 /* InterestedPresenter.swift in Sources */,
 				D43C6B311EB2B54300F118AA /* DemoConversation.swift in Sources */,
+				D4470A6D1EB6A5D8002330C5 /* ProfileRequest.swift in Sources */,
 				D4AD98891EA9AD0400C9FAB9 /* Comment.swift in Sources */,
 				D4AD988A1EA9AD0400C9FAB9 /* MessagesChatViewController.swift in Sources */,
 				D4AD988B1EA9AD0400C9FAB9 /* BoomerThingCell.swift in Sources */,

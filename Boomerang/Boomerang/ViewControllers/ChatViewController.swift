@@ -38,7 +38,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     func setupDelegateProperties() {
-        self.senderId = presenter.getUser().objectId
+        self.senderId = presenter.getUser().profile?.objectId!
         self.senderDisplayName = presenter.getUser().fullName
     }
     

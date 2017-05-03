@@ -29,6 +29,19 @@ class UserRequest: NSObject {
         }
     }
     
+    static func getProfileUser(completionHandler: @escaping (_ sucess: Bool, _ msg: String) -> ()) {
+      
+        let user = PFUser.current()!
+        user.fetchObjectInBackgroundBy(key: "profile") { (success, msg, profile) in
+            if success {
+                completionHandler(success, msg)
+            } else {
+                completionHandler(success, msg)
+            }
+        }
+        
+    }
+    
     
     static func loginUserWithFacebook(id: String, email: String,userName: String ,mediaType:Int,completionHandler: @escaping (_ sucess: Bool, _ msg: String, _ user: User?) -> Void) {
         
@@ -114,18 +127,18 @@ class UserRequest: NSObject {
     }
     
 
-    static func fetchFollowing(pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [User]?) -> Void) {
+    static func fetchFollowing(fromProfile: Profile, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
         
-        var following: [User] = [User]()
+        var following: [Profile] = [Profile]()
         
         var queryParams = [String : Any]()
-        queryParams["from"] = PFUser.current()!
+        queryParams["from"] = fromProfile
         
         ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, includes: ["to"], pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {
                 for object in objects! {
-                    following.append(User(user: object.object(forKey: "to") as! PFUser))
+                    following.append(Profile(object: object.object(forKey: "to") as! PFObject))
                 }
                 
                 completionHandler(true, "Success", following)

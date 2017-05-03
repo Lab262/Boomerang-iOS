@@ -44,7 +44,7 @@ class TransactionDetailViewController: UIViewController {
         }
         
         if let segmentVC = segue.destination as? ProfileMainViewController  {
-            segmentVC.presenter.setUser(user: presenter.getScheme().dealer!)
+            segmentVC.presenter.setProfile(profile: presenter.getScheme().dealer!)
         }
         
         if let segmentVC = segue.destination as? EvaluationViewController  {

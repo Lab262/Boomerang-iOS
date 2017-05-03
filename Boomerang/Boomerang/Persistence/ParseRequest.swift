@@ -225,8 +225,7 @@ extension PFObject {
         let query = relation.query()
         query.limit = pagination!
         query.skip = skip!
-        
-
+        query.order(byAscending: "createdAt")
         
 //        if isNotContained! {
 //            query.whereKey(keyColunm!, notContainedIn: notContainedKeys!)
@@ -242,15 +241,16 @@ extension PFObject {
     func createRelationInBackground(key: String, object: PFObject, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         let relation = self.relation(forKey: key)
+        
         relation.add(object)
         
         self.saveInBackground { (success, error) in
-            if success {
-                completionHandler(success, "success")
-            } else {
-                completionHandler(success, error!.localizedDescription)
-            }
+            completionHandler(success, error.debugDescription)
         }
+        
+//        self.saveObjectInBackground { (success, msg) in
+//            completionHandler(success, msg)
+//        }
     }
     
     func getRelationsInBackgroundWithDataBy(key: String, keyFile: String, isNotContained: Bool = false, notContainedKeys: [Any] = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ relations: [PFObject]?, _ data: Data?) -> Void) {
@@ -361,7 +361,6 @@ extension PFObject {
         for case let (i, value?) in values.enumerated() {
             object[keys[i]] = value
         }
-        
         
         object.saveInBackground { (success, error) in
             if success {
