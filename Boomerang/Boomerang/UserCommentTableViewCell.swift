@@ -43,7 +43,6 @@ class UserCommentTableViewCell: UITableViewCell {
         userNameLabel.text = comment!.author!.fullName
         userDescriptionLabel.text = comment!.content
         dateLabel.text = comment!.createdDate!.getStringToDate(dateFormat: "dd/MM/yyyy")
-        
         getUserPhotoImage()
     }
     

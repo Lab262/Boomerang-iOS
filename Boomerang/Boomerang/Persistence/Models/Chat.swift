@@ -21,6 +21,13 @@ class Chat: PFObject {
         super.init()
     }
     
+    convenience init(post: Post, requester: Profile, owner: Profile) {
+        self.init()
+        self.post = post
+        self.requester = requester
+        self.owner = owner
+    }
+    
     convenience init(object: PFObject) {
         self.init()
         

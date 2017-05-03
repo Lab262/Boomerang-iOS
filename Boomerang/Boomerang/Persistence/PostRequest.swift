@@ -31,10 +31,10 @@ class PostRequest: NSObject {
         }
     }
     
-    static func verifyAlreadyInterestedFor(currentUser: User, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool) -> ()) {
+    static func verifyAlreadyInterestedFor(currentProfile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool) -> ()) {
         
         var queryParams = [String : Any]()
-        queryParams["user"] = currentUser
+        queryParams["user"] = currentProfile
         queryParams["post"] = post
         
         ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, includes: nil) { (success, msg, objects) in
@@ -48,7 +48,7 @@ class PostRequest: NSObject {
         }
     }
     
-    static func getFollowingPostsCount(following: [User], completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+    static func getFollowingPostsCount(following: [Profile], completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         
         ParseRequest.queryCountContainedIn(className: "Post", key: "author", value: following) { (success, msg, count) in
             
@@ -135,23 +135,21 @@ class PostRequest: NSObject {
         }
     }
 
-    static func enterInterestedListOf(user: User, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        
-        
-        
-        let interested = PFObject(className: "Interested")
-        
-        interested["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
-        interested["user"] = ["__type": "Pointer", "className": "_User", "objectId": user.objectId]
-        interested["currentMessage"] = msg
-        
-        interested.saveInBackground { (success, error) in
-            if error == nil {
-                completionHandler(success, "success")
-            } else {
-                completionHandler(success, error!.localizedDescription)
-            }
-        }
+    static func enterInterestedListOf(profile: Profile, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+//        
+//        let interested = PFObject(className: "Interested")
+//        
+//        interested["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
+//        interested["user"] = ["__type": "Pointer", "className": "_User", "objectId": user.objectId]
+//        interested["currentMessage"] = msg
+//        
+//        interested.saveInBackground { (success, error) in
+//            if error == nil {
+//                completionHandler(success, "success")
+//            } else {
+//                completionHandler(success, error!.localizedDescription)
+//            }
+//        }
     }
     
     static func exitInterestedListOf(user: User, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {

@@ -126,13 +126,15 @@ class DetailThingPresenter: NSObject {
     }
     
     func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        ChatRequest.createChat(requester: getUser().profile!, owner: getAuthorOfPost(), post: getPost()) { (success, msg) in
-            completionHandler(success, msg)
+        let chat = Chat(post: getPost(), requester: getUser().profile!, owner: getAuthorOfPost())
+        chat.saveObjectInBackground { (success, msg) in
+             completionHandler(success, msg)
         }
     }
     
     func enterInterestedList() {
-       PostRequest.enterInterestedListOf(user: user!, post: self.post!, msg: "Estou interessado, tenho alegria pra trocar") { (success, msg) in
+        let interested = Interested(user: getUser().profile, post: getPost(), currentMessage: "Estou interessado, fico feliz em ajudar")
+        interested.saveObjectInBackground { (success, msg) in
             if success {
                 self.createInterestedChat(completionHandler: { (success, msg) in
                     if success {
@@ -160,7 +162,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func alreadyInterested() {
-        PostRequest.verifyAlreadyInterestedFor(currentUser: user!, post: post!) { (success, msg, alreadyInterested) in
+        PostRequest.verifyAlreadyInterestedFor(currentProfile: user!.profile!, post: post!) { (success, msg, alreadyInterested) in
             
             if success {
                 self.view?.interestedTitleButton = alreadyInterested ? self.exitInterestedTitleButton : self.enterInterestedTitleButton
@@ -172,7 +174,7 @@ class DetailThingPresenter: NSObject {
     
     func createComment(text: String) {
         
-        let comment = Comment(post: self.post!, content: text, author: PFUser.current()! as! User)
+        let comment = Comment(post: self.post!, content: text, author: (self.user?.profile)!)
         
         saveComment(comment: comment)
     }
