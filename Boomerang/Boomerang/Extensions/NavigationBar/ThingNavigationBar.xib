@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThingNavigationBar" customModule="Boomerang" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThingNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
             <connections>
                 <outlet property="containerIconImage" destination="gas-jY-n4j" id="SrB-eR-T1h"/>
                 <outlet property="thingNameLabel" destination="Wue-Zi-zwl" id="a6h-u3-qTv"/>
@@ -29,14 +29,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="container-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gas-jY-n4j">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="Ret-k3-hkk">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="container_icons_image" translatesAutoresizingMaskIntoConstraints="NO" id="gas-jY-n4j">
                     <rect key="frame" x="0.0" y="65" width="62" height="64"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="62" id="t7Q-9i-vA8"/>
                         <constraint firstAttribute="height" constant="64" id="vwg-eH-Zyt"/>
                     </constraints>
                 </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="need-icon" translatesAutoresizingMaskIntoConstraints="NO" id="MQo-Ty-RCU">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="need_icon" translatesAutoresizingMaskIntoConstraints="NO" id="MQo-Ty-RCU">
                     <rect key="frame" x="13.5" y="72" width="23" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="31" id="bGf-wj-DNJ"/>
@@ -70,7 +74,8 @@
         </view>
     </objects>
     <resources>
-        <image name="container-icon" width="62" height="64"/>
-        <image name="need-icon" width="23" height="31"/>
+        <image name="bg_nav" width="375" height="163"/>
+        <image name="container_icons_image" width="75" height="60"/>
+        <image name="need_icon" width="23" height="31"/>
     </resources>
 </document>
