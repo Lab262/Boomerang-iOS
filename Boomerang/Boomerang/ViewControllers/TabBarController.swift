@@ -52,7 +52,7 @@ class TabBarController: UIViewController {
     
     @IBAction func selectButton(_ sender: UIButton) {
         for button in buttons {
-            if button.tag == 2 {
+            if sender.tag == 2 {
                 self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
             } else {
                 if button.tag == sender.tag {

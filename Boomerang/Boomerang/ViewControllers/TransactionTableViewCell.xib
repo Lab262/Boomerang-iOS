@@ -19,7 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="120" id="v1t-Jb-XcH" customClass="TransactionTableViewCell" customModule="Boomerang" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="120" id="v1t-Jb-XcH" customClass="TransactionTableViewCell" customModule="lab262_boomerang_dev" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v1t-Jb-XcH" id="j7T-K2-u2j">
@@ -43,7 +43,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="container_right" translatesAutoresizingMaskIntoConstraints="NO" id="dpH-uv-bMb">
-                                        <rect key="frame" x="33" y="8" width="25" height="25"/>
+                                        <rect key="frame" x="31" y="6" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="jHa-0f-Ng8"/>
                                             <constraint firstAttribute="height" constant="25" id="yHf-yE-YpY"/>
@@ -60,7 +60,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="container_left" translatesAutoresizingMaskIntoConstraints="NO" id="0FY-il-pVc">
-                                        <rect key="frame" x="6" y="33" width="25" height="25"/>
+                                        <rect key="frame" x="8" y="35" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="2uB-2R-V2b"/>
                                             <constraint firstAttribute="height" constant="25" id="eB1-Od-Mle"/>
@@ -70,13 +70,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="IDp-Uc-cRa" firstAttribute="top" secondItem="Z6y-8b-Mmy" secondAttribute="top" id="07J-jY-yde"/>
-                                    <constraint firstItem="0FY-il-pVc" firstAttribute="top" secondItem="Z6y-8b-Mmy" secondAttribute="top" constant="33" id="6bi-wX-53d"/>
+                                    <constraint firstItem="0FY-il-pVc" firstAttribute="top" secondItem="Z6y-8b-Mmy" secondAttribute="top" constant="35" id="6bi-wX-53d"/>
                                     <constraint firstAttribute="bottom" secondItem="NuO-41-7VI" secondAttribute="bottom" id="Lcm-Q5-ejL"/>
                                     <constraint firstItem="IDp-Uc-cRa" firstAttribute="leading" secondItem="Z6y-8b-Mmy" secondAttribute="leading" id="Nvy-Ix-wA8"/>
-                                    <constraint firstItem="0FY-il-pVc" firstAttribute="leading" secondItem="Z6y-8b-Mmy" secondAttribute="leading" constant="6" id="TSh-hQ-YSr"/>
+                                    <constraint firstItem="0FY-il-pVc" firstAttribute="leading" secondItem="Z6y-8b-Mmy" secondAttribute="leading" constant="8" id="TSh-hQ-YSr"/>
                                     <constraint firstAttribute="height" constant="64" id="f4J-3t-Bbj"/>
-                                    <constraint firstAttribute="trailing" secondItem="dpH-uv-bMb" secondAttribute="trailing" constant="6" id="gtT-tT-PIP"/>
-                                    <constraint firstItem="dpH-uv-bMb" firstAttribute="top" secondItem="Z6y-8b-Mmy" secondAttribute="top" constant="8" id="kLM-Ib-J0U"/>
+                                    <constraint firstAttribute="trailing" secondItem="dpH-uv-bMb" secondAttribute="trailing" constant="8" id="gtT-tT-PIP"/>
+                                    <constraint firstItem="dpH-uv-bMb" firstAttribute="top" secondItem="Z6y-8b-Mmy" secondAttribute="top" constant="6" id="kLM-Ib-J0U"/>
                                     <constraint firstAttribute="trailing" secondItem="NuO-41-7VI" secondAttribute="trailing" id="t4Y-1L-m0g"/>
                                     <constraint firstAttribute="width" constant="64" id="xRY-Mc-NXP"/>
                                 </constraints>
