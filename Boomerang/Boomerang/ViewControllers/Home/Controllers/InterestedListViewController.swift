@@ -42,7 +42,7 @@ class InterestedListViewController: UIViewController {
     
     func refreshIndicatorInTableViewFooter() -> UIView {
         let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
-        viewIndicator.backgroundColor = UIColor.white
+        viewIndicator.backgroundColor = UIColor.clear
         return viewIndicator
     }
     
