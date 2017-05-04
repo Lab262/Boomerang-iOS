@@ -26,8 +26,8 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var currentIndex: IndexPath?
-    let tableViewTopInset: CGFloat = 5.0
-    let tableViewBottomInset: CGFloat = 20.0
+    let tableViewTopInset: CGFloat = 0
+    let tableViewBottomInset: CGFloat = 40.0
     var presenter = HomePresenter()
 
     @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
@@ -51,10 +51,7 @@ class HomeMainViewController: UIViewController {
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
         
         registerNib()
-     
         tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
-        
-        
     }
     
     func registerNib() {
