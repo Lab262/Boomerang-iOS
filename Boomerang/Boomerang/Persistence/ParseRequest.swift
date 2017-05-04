@@ -116,34 +116,78 @@ class ParseRequest: NSObject {
     
     static func queryEqualToValue(className: String, queryParams: [String: Any], includes: [String]?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
-        let query = PFQuery(className: className)
+//        let query = PFQuery(className: className)
+//        query.skip = skip!
+//        query.limit = pagination!
         
-        for queryParam in queryParams {
-            query.whereKey(queryParam.key, equalTo: queryParam.value)
-        }
-        
-        query.limit = pagination!
-        
-        if let keys = selectKeys {
-            query.selectKeys(keys)
-        }
-        
-        query.skip = skip!
-        
-        if let allIncludes = includes {
-            for include in allIncludes {
-                query.includeKey(include)
+        if queryParams.count > 1 {
+            var allQueries = [PFQuery]()
+            for queryParam in queryParams {
+                let query = PFQuery(className: className)
+                query.whereKey(queryParam.key, equalTo: queryParam.value)
+                if let keys = selectKeys {
+                    query.selectKeys(keys)
+                }
+                if let allIncludes = includes {
+                    for include in allIncludes {
+                        query.includeKey(include)
+                    }
+                }
+                allQueries.append(query)
+                
             }
-        }
-        
-        query.findObjectsInBackground { (objects, error) in
             
-            if error == nil {
-                completionHandler(true, "Success", objects)
-            } else {
-                completionHandler(false, error.debugDescription, nil)
+            var allObjects = [PFObject]()
+            let firstQuery = allQueries.first
+            
+            firstQuery?.findObjectsInBackground { (objects, error) in
+                
+                if error == nil {
+                    for object in objects! {
+                        allObjects.append(object)
+                    }
+                    let secondQuery = allQueries.last
+                    secondQuery?.findObjectsInBackground(block: { (objects, error) in
+                        if error == nil {
+                            for object in objects! {
+                                allObjects.append(object)
+                            }
+                            completionHandler(true, "Success", allObjects)
+                        } else {
+                            completionHandler(false, error.debugDescription, nil)
+                        }
+                    })
+                   // completionHandler(true, "Success", objects)
+                } else {
+                    completionHandler(false, error.debugDescription, nil)
+                }
+            }
+        } else {
+            let query = PFQuery(className: className)
+            query.skip = skip!
+            query.limit = pagination!
+            for queryParam in queryParams {
+                query.whereKey(queryParam.key, equalTo: queryParam.value)
+            }
+            if let keys = selectKeys {
+                query.selectKeys(keys)
+            }
+            
+            if let allIncludes = includes {
+                for include in allIncludes {
+                    query.includeKey(include)
+                }
+            }
+            query.findObjectsInBackground { (objects, error) in
+                
+                if error == nil {
+                    completionHandler(true, "Success", objects)
+                } else {
+                    completionHandler(false, error.debugDescription, nil)
+                }
             }
         }
+        
     }
     
     

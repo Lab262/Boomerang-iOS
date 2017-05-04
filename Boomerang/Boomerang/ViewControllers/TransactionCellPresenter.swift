@@ -115,7 +115,7 @@ class TransactionCellPresenter: NSObject {
     }
     
     func getInformationsOfTransaction(){
-        if getScheme().owner == self.user.profile {
+        if getScheme().owner?.objectId == self.user.profile?.objectId {
             scheme.dealer = getScheme().requester
             getInformationsTransactionByTypeOfPost(isFromUser: true, postType: getPost().postType!)
             view?.fromImage = self.user.profileImage

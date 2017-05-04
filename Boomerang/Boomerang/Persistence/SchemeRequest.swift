@@ -33,14 +33,13 @@ class SchemeRequest: NSObject {
         var schemes = [Scheme]()
         var queryParams = [String : Any]()
         queryParams["owner"] = owner
+        queryParams["requester"] = owner
         
-        ParseRequest.queryEqualToValue(className: "Scheme", queryParams: queryParams, includes: ["requester", "post"], selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Scheme", queryParams: queryParams, includes: ["requester", "owner", "post"], selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {
                 for obj in objects! {
                     let scheme = Scheme(object: obj)
-                    scheme.owner = owner
-                    scheme.post?.author = owner
                     schemes.append(scheme)
                 }
                 completionHandler(success, msg, schemes)

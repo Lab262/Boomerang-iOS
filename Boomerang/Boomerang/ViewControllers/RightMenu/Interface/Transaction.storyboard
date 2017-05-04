@@ -481,6 +481,7 @@ FACEBOOK</string>
                         <outlet property="donationTransactionButton" destination="0Jc-tM-nAr" id="3gE-3q-5vn"/>
                         <outlet property="exchangeTransactionButton" destination="Og4-dV-Z7y" id="Xkw-Q5-5Rr"/>
                         <outlet property="loanTransactionButton" destination="tu1-0J-c5A" id="59u-w0-CQK"/>
+                        <outlet property="navigationBar" destination="eyQ-FR-Ndw" id="kfx-1i-NNX"/>
                         <outlet property="viewCenterConstraint" destination="Ig5-eq-hcs" id="7HW-JZ-y6e"/>
                         <outlet property="viewLeftConstraint" destination="fmT-q8-uBP" id="PoC-Nw-DD1"/>
                         <outlet property="viewRightConstraint" destination="JlV-W5-PbY" id="Lqo-u7-CmN"/>
@@ -579,7 +580,7 @@ FACEBOOK</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirley Schmidt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mf1-IZ-jfp">
-                                        <rect key="frame" x="107" y="36.5" width="163" height="24"/>
+                                        <rect key="frame" x="106.5" y="36" width="163" height="24"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -601,7 +602,7 @@ FACEBOOK</string>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WnW-0b-yq0">
-                                        <rect key="frame" x="127.5" y="66.5" width="120" height="16"/>
+                                        <rect key="frame" x="127.5" y="66" width="120" height="16"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_star_full" translatesAutoresizingMaskIntoConstraints="NO" id="DDW-qt-wsP">
                                                 <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>

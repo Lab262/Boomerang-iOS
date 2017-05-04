@@ -56,12 +56,18 @@ class Scheme: PFObject {
             self.requester = Profile(object: requester)
         }
         
-        if let owner = object["owner"] as? User {
+        if let owner = object["owner"] as? Profile {
             self.owner = Profile(object: owner)
         }
         
         if let post = object["post"] as? Post {
             self.post = Post(object: post)
+        }
+        
+        if self.post?.author?.objectId == self.requester?.objectId {
+            self.post?.author = self.requester
+        } else {
+            self.post?.author = self.owner
         }
         
         

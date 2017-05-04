@@ -13,6 +13,7 @@ class InterestedListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var presenter: InterestedPresenter = InterestedPresenter()
     let tableViewTopInset: CGFloat = 94.0
+    let tableViewBottomInset: CGFloat = 40.0
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.hideTabBar()
@@ -20,7 +21,8 @@ class InterestedListViewController: UIViewController {
     
     
     func configureTableView(){
-        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
+        
+        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, tableViewBottomInset, 0)
         tableView.tableFooterView = refreshIndicatorInTableViewFooter()
     }
     

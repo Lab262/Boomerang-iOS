@@ -16,6 +16,7 @@ class TransactionMainViewController: UIViewController {
         }
     }
     var segmentControlButtonDelegate: SegmentControlButtonDelegate?
+    @IBOutlet weak var navigationBar: IconNavigationBar!
     
     @IBOutlet weak var viewLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewCenterConstraint: NSLayoutConstraint!
@@ -34,6 +35,7 @@ class TransactionMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.segmentSelected = 0
+        navigationBar.leftButtonIcon.isHidden = true
     }
     
     func setFontButtonBySegmentSelected(){
