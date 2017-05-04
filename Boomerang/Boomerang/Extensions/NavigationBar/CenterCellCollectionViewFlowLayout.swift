@@ -11,6 +11,7 @@ import UIKit
 class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     @IBInspectable var centerOffset = CGPoint()
+    var centerCellInset = CGPoint.zero
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         
@@ -34,7 +35,7 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
                     let proposedCell = validCell(in: cv, doubty: proposedIndexPath, valid: currentIndexPath)
                     
                     let offsetX = proposedCell.frame.origin.x - sectionInset.left
-                    targetContentOffset = CGPoint(x: offsetX, y: proposedContentOffset.y)
+                    targetContentOffset = CGPoint(x: offsetX, y: proposedContentOffset.y) - centerCellInset
                     
                 } else {
                     targetContentOffset = super.targetContentOffset(forProposedContentOffset: proposedContentOffset)

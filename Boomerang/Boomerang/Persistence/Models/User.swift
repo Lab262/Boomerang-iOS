@@ -13,7 +13,8 @@ class User: PFUser {
     
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
-    @NSManaged var imageFile: PFFile?
+    @NSManaged var photo: PFFile?
+    @NSManaged var profile: Profile?
     var fullName: String?
     var profileImage: UIImage?
     var alreadySearched = false
@@ -48,12 +49,13 @@ class User: PFUser {
             self.email = email
         }
         
-        if let imageFile = user["photo"] as? PFFile {
-            
-            self.imageFile = imageFile
+        if let photo = user["photo"] as? PFFile {
+            self.photo = photo
         }
         
-        
+        if let profile = user["profile"] as? Profile {
+            self.profile = profile
+        }
     }
 }
 

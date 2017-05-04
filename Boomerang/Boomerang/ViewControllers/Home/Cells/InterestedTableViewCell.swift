@@ -47,7 +47,7 @@ class InterestedTableViewCell: UITableViewCell {
     
     
     func loadViewCell(){
-        nameLabel.text = presenter.getInterested().user!.fullName!
+        nameLabel.text = presenter.getInterested().user!.fullName
         messageLabel.text = presenter.getInterested().currentMessage!
         
         interestedImage.loadAnimation()

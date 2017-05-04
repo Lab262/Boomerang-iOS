@@ -9,6 +9,14 @@
 import UIKit
 import Parse
 
+
+protocol DetailThingDelegate {
+    func reload()
+    func showMessage(isSuccess: Bool, msg: String)
+    var interestedTitleButton: String? {set get}
+}
+
+
 class DetailThingPresenter: NSObject {
     
     fileprivate var post:Post? = Post()
@@ -17,16 +25,35 @@ class DetailThingPresenter: NSObject {
     fileprivate var comments = [Comment]()
     fileprivate var currentCommentsCount = 0
     fileprivate var user = ApplicationState.sharedInstance.currentUser
+    fileprivate let enterInterestedTitleButton: String = "Entrar da fila"
+    fileprivate let exitInterestedTitleButton: String = "Sair da fila"
+    fileprivate let recommendedTitleButton: String = "Recomendar"
+    fileprivate let interestedListTitleButton: String = "Lista de interessados"
     
-    var controller: ViewDelegate?
+    var view: DetailThingDelegate?
     
+    func setViewDelegate(view: DetailThingDelegate) {
+        self.view = view
+    }
     
-    func setControllerDelegate(controller: ViewDelegate) {
-        self.controller = controller
+    func getEnterInterestedTitleButton() -> String {
+        return enterInterestedTitleButton
+    }
+    
+    func getExitInterestedTitleButton() -> String {
+        return exitInterestedTitleButton
+    }
+    
+    func getRecommendedTitleButton() -> String {
+        return recommendedTitleButton
+    }
+    
+    func getInterestedListTitleButton() -> String {
+        return interestedListTitleButton
     }
     
     func authorPostIsCurrent() -> Bool {
-        if getPost().author?.objectId == PFUser.current()?.objectId {
+        if getPost().author?.objectId == self.user?.profile?.objectId {
             return true
         } else {
             return false
@@ -40,11 +67,11 @@ class DetailThingPresenter: NSObject {
                 for comment in comments! {
                     self.comments.append(comment)
                 }
-                self.controller?.reload()
+                self.view?.reload()
                 self.currentCommentsCount = self.getComments().count
                 
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessage(isSuccess: false, msg: msg)
             }
         }
     }
@@ -55,7 +82,6 @@ class DetailThingPresenter: NSObject {
     
     func setPost(post: Post) {
         self.post = post
-        
     }
     
     func getPost() -> Post {
@@ -66,7 +92,7 @@ class DetailThingPresenter: NSObject {
         return user!
     }
     
-    func getAuthorOfPost() -> User {
+    func getAuthorOfPost() -> Profile {
         return post!.author!
     }
     
@@ -86,55 +112,67 @@ class DetailThingPresenter: NSObject {
     }
     
     func saveComment(comment: Comment) {
-        
         CommentRequest.saveComment(comment: comment) { (success, msg) in
             if success {
                 self.skip = self.comments.endIndex
                 self.updateComments()
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessage(isSuccess: false, msg: msg)
             }
         }
 
     }
     
     func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        
-        ChatRequest.createChat(requester: getUser(), owner: getAuthorOfPost(), post: getPost()) { (success, msg) in
-        
-            completionHandler(success, msg)
+        let chat = Chat(post: getPost(), requester: getUser().profile!, owner: getAuthorOfPost())
+        chat.saveObjectInBackground { (success, msg) in
+             completionHandler(success, msg)
         }
     }
     
-    func enterInterestedList(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-       PostRequest.enterInterestedListOf(user: user!, post: self.post!, msg: "Estou interessado, tenho alegria pra trocar") { (success, msg) in
+    func enterInterestedList() {
+        let interested = Interested(user: getUser().profile, post: getPost(), currentMessage: "Estou interessado, fico feliz em ajudar")
+        interested.saveObjectInBackground { (success, msg) in
             if success {
                 self.createInterestedChat(completionHandler: { (success, msg) in
-                    completionHandler(success, msg)
+                    if success {
+                        self.view?.interestedTitleButton = self.exitInterestedTitleButton
+                        self.view?.showMessage(isSuccess: success, msg: "Você está dentro da lista de interessados. Agora é só aguardar.")
+                    } else {
+                        self.view?.showMessage(isSuccess: success, msg: msg)
+                    }
                 })
             } else {
-                completionHandler(success, msg)
+                self.view?.showMessage(isSuccess: success, msg: msg)
             }
         }
     }
 
-    func exitInterestedList (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
-        
+    func exitInterestedList() {
         PostRequest.exitInterestedListOf(user: user!, post: post!) { (success, msg) in
-            completionHandler(success, msg)
+            if success {
+                self.view?.interestedTitleButton = self.enterInterestedTitleButton
+                self.view?.showMessage(isSuccess: success, msg: "Você saiu da lista de interessados.")
+            } else {
+                self.view?.showMessage(isSuccess: false, msg: msg)
+            }
         }
     }
     
-    func alreadyInterested(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool?) -> ()){
-        
-        PostRequest.verifyAlreadyInterestedFor(currentUser: user!, post: post!) { (success, msg, alreadyInterested) in
-            completionHandler(success, msg, alreadyInterested)
+    func alreadyInterested() {
+        PostRequest.verifyAlreadyInterestedFor(currentProfile: user!.profile!, post: post!) { (success, msg, alreadyInterested) in
+            
+            if success {
+                self.view?.interestedTitleButton = alreadyInterested ? self.exitInterestedTitleButton : self.enterInterestedTitleButton
+            } else {
+                self.view?.showMessage(isSuccess: false, msg: msg)
+            }
         }
     }
     
     func createComment(text: String) {
         
-        let comment = Comment(post: self.post!, content: text, author: PFUser.current()! as! User)
+        let comment = Comment(post: self.post!, content: text, author: (self.user?.profile)!)
         
         saveComment(comment: comment)
     }
@@ -162,7 +200,7 @@ class DetailThingPresenter: NSObject {
                     if success {
                         relation.photo = UIImage(data: data!)
                         relation.isDownloadedImage = true
-                        self.controller?.reload()
+                        self.view?.reload()
                     } else {
                         print ("DOWNLOAD IMAGES ERRO")
                     }
@@ -172,7 +210,6 @@ class DetailThingPresenter: NSObject {
     }
     
     func getImagePostByIndex(_ index: Int) -> UIImage {
-        
         if let relations = self.post?.relations {
             if relations.count >= index+1 {
                 if let photo = relations[index].photo {
@@ -190,12 +227,12 @@ class DetailThingPresenter: NSObject {
     
     func getCountPhotos(success: Bool){
         if success {
-            controller?.reload()
+            view?.reload()
         } else {
             post!.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
                 if success {
                     self.post!.countPhotos = count!
-                    self.controller?.reload()
+                    self.view?.reload()
                 } else {
                     print ("COUNT PHOTOS REQUEST ERROR")
                 }
@@ -206,7 +243,7 @@ class DetailThingPresenter: NSObject {
     func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> ()){
         
         guard let image = getPost().author?.profileImage else {
-            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
                 
                 if success {
                     self.getPost().author?.profileImage = UIImage(data: data!)

@@ -11,8 +11,8 @@ import Parse
 
 class NotificationModel: PFObject {
     
-    @NSManaged var sender: User?
-    @NSManaged var receiver: User?
+    @NSManaged var sender: Profile?
+    @NSManaged var receiver: Profile?
     @NSManaged var post: Post?
     @NSManaged var notificationDescription: String?
     var hasBeenSeen: Bool?
@@ -34,8 +34,8 @@ class NotificationModel: PFObject {
         self.objectId = object.objectId
         self.createdDate = object.createdAt
         
-        if let sender = object["sender"] as? User {
-            self.sender = User(user: sender)
+        if let sender = object["sender"] as? Profile {
+            self.sender = Profile(object: sender)
         }
         
         if let post = object["post"] as? Post {

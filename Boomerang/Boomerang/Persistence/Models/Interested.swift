@@ -11,7 +11,7 @@ import Parse
 
 class Interested: PFObject {
 
-    @NSManaged var user: User?
+    @NSManaged var user: Profile?
     @NSManaged var post: Post?
     @NSManaged var currentMessage: String?
     
@@ -20,7 +20,7 @@ class Interested: PFObject {
         super.init()
     }
     
-     init(user: User?, post: Post?, currentMessage: String?) {
+     init(user: Profile?, post: Post?, currentMessage: String?) {
         super.init()
         self.user = user
         self.post = post
@@ -37,8 +37,8 @@ class Interested: PFObject {
         
         self.objectId = object.objectId
         
-        if let user = object["user"] as? User {
-            self.user = User(user: user)
+        if let user = object["user"] as? Profile {
+            self.user = Profile(object: user)
         }
         
         if let currentMessage = object["currentMessage"] as? String {

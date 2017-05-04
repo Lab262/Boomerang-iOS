@@ -11,14 +11,14 @@ import Parse
 
 class NotificationRequester: NSObject {
     
-    static func getNotifications(by user: User, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [NotificationModel]?) -> ()) {
+    static func getNotifications(by profile: Profile, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [NotificationModel]?) -> ()) {
         
         var notifications: [NotificationModel] = [NotificationModel]()
         
         let includes = ["sender", "post"]
         let selectKeys = ["sender", "post", "hasBeenSeen", "notificationDescription"]
         var queryParams = [String : Any]()
-        queryParams["receiver"] = user
+        queryParams["receiver"] = profile
         
         
         ParseRequest.queryEqualToValue(className: "Notification", queryParams: queryParams, includes: includes, selectKeys: selectKeys, pagination: pagination, skip: skip) { (success, msg, objects) in
@@ -26,8 +26,8 @@ class NotificationRequester: NSObject {
             if success {
                 for obj in objects! {
                     let notification = NotificationModel(object: obj)
-                    notification.receiver = user
-                    notification.post?.author = user
+                    notification.receiver = profile
+                    notification.post?.author = profile
                     notifications.append(notification)
                 }
                 completionHandler(success, msg, notifications)

@@ -15,7 +15,7 @@ class HomePresenter: NSObject {
     fileprivate let pagination = 3
     fileprivate var skipPosts = 0
     fileprivate var skipUsers = 0
-    fileprivate var following: [User] = [User]()
+    fileprivate var following: [Profile] = [Profile]()
     fileprivate var posts: [Post] = [Post]()
     fileprivate var post: Post = Post()
     fileprivate var controller: ViewDelegate?
@@ -29,13 +29,29 @@ class HomePresenter: NSObject {
     func updatePostsFriends(){
         skipPosts = getPosts().endIndex
         skipUsers = following.endIndex
-        getFriends()
+        
+        getProfile()
+        
+//        if let _ = user.profile?.firstName {
+//            getFriends()
+//        } else {
+//            getProfile()
+//        }
+    }
+    
+    func getProfile() {
+        UserRequest.getProfileUser { (success, msg) in
+            if success {
+                self.getFriends()
+            } else {
+                print ("get profile error")
+            }
+        }
     }
     
     func getFriends() {
         skipUsers = following.endIndex
-        
-        UserRequest.fetchFollowing(pagination: pagination, skip: skipUsers, completionHandler: { (success, msg, following) in
+        UserRequest.fetchFollowing(fromProfile: user.profile!, pagination: pagination, skip: skipUsers, completionHandler: { (success, msg, following) in
             if success {
                 for f in following! {
                     self.following.append(f)
@@ -85,13 +101,13 @@ class HomePresenter: NSObject {
         return currentPostsFriendsCount
     }
     
-    func getFollowing() -> [User] {
+    func getFollowing() -> [Profile] {
         return following
     }
     
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
         guard let image = user.profileImage else {
-            user.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            user.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
                 
                 if success {
                     completionHandler(true, "Success", UIImage(data: data!)!)
@@ -121,7 +137,7 @@ class HomePresenter: NSObject {
     
     func getAuthorPhotoOfPost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
         guard let image = getPost().author?.profileImage else {
-            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
                 if success {
                     self.getPost().author?.profileImage = UIImage(data: data!)
                     completionHandler(true, msg, self.getPost().author?.profileImage)

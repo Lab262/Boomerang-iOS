@@ -60,7 +60,7 @@ class AuthenticationMainViewController: UIViewController {
         }
     }
     
-    func getPhotoOfFacebookInPFFile (userId: String) -> PFFile? {
+    func getPhotoOfFacebookInPFFile (userId: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ file: PFFile?) -> ()) {
         var photoInPFFile: PFFile?
         
         DispatchQueue.main.async {
@@ -68,14 +68,15 @@ class AuthenticationMainViewController: UIViewController {
                 do {
                     let contents = try Data(contentsOf: url)
                     photoInPFFile = PFFile(data: contents)
+                    completionHandler(true, "success", photoInPFFile)
                 } catch {
                     // contents could not be loaded
+                    completionHandler(false, "error", nil)
                 }
             } else {
-                // the URL was bad!
+                completionHandler(false, "error", nil)
             }
         }
-        return photoInPFFile
     }
     
     
@@ -83,8 +84,6 @@ class AuthenticationMainViewController: UIViewController {
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-            
-            
             if error == nil {
                 self.view.loadAnimation()
                 let fbloginresult : FBSDKLoginManagerLoginResult = result!
@@ -104,6 +103,7 @@ class AuthenticationMainViewController: UIViewController {
         let requestParameters = ["fields": "id, email, first_name, last_name"]
         let userDetails = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters)
         let newUser = PFUser.current()!
+        let profile = PFObject(className: "Profile")
         userDetails!.start { (connection, result, error) -> Void in
             
             if error != nil {
@@ -116,34 +116,43 @@ class AuthenticationMainViewController: UIViewController {
                     if let firstName = data["first_name"] as? String {
                         newUser.setObject(firstName, forKey: "username")
                         newUser.setObject(firstName, forKey: "firstName")
+                        profile.setObject(firstName, forKey: "firstName")
                     }
                     
                     if let lastName = data["last_name"] as? String {
                         newUser.setObject(lastName, forKey: "lastName")
+                        profile.setObject(lastName, forKey: "lastName")
                     }
                     
                     if let email = data ["email"] as? String {
                         newUser.setObject(email, forKey: "email")
+                        profile.setObject(email, forKey: "email")
                     }
+                    
                     if let userId = data["id"] as? String {
-                        if let userPhoto = self.getPhotoOfFacebookInPFFile(userId: userId) {
-                            newUser.setObject(userPhoto, forKey: "photo")
-                        }
+                        self.getPhotoOfFacebookInPFFile(userId: userId, completionHandler: { (success, msg, userPhoto) in
+                            if success {
+                                profile.setObject(userPhoto!, forKey: "photo")
+                                newUser.setObject(userPhoto!, forKey: "photo")
+                                newUser.setObject(profile, forKey: "profile")
+                                newUser.saveInBackground(block: { (success, error) in
+                                    if success {
+                                        self.showHomeVC()
+                                    } else {
+                                        print ("ERROR SAVE")
+                                    }
+                                })
+                            } else {
+                                print ("ERROR PHOTO")
+                            }
+                        })
                     }
                 }
-                newUser.saveInBackground(block: { (success, error) in
-                    if success {
-                        self.showHomeVC()
-                    }
-                })
             }
         }
     }
-
   
-    
     func showHomeVC() {
-       
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vcToShow = storyboard.instantiateInitialViewController()!
         self.present(vcToShow, animated: true, completion: nil)
@@ -174,7 +183,7 @@ extension AuthenticationMainViewController {
                             
                         }else {
                             self.view.unload()
-                            self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
+                            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)
                         }                    })
                     
                 }

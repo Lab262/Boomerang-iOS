@@ -219,20 +219,38 @@ extension PFObject {
         
     }
     
-    func getRelationsInBackgroundBy(key: String, keyColunm: String = "", isNotContained: Bool = false, notContainedKeys: [Any] = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    func getRelationsInBackgroundBy(key: String, keyColunm: String? = "", isNotContained: Bool? = false, pagination: Int? = 100, skip: Int? = 0, notContainedKeys: [Any]? = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let relation = self.relation(forKey: key)
         let query = relation.query()
+        query.limit = pagination!
+        query.skip = skip!
+        query.order(byAscending: "createdAt")
         
-        if isNotContained {
-            query.whereKey(keyColunm, notContainedIn: notContainedKeys)
-        }
+//        if isNotContained! {
+//            query.whereKey(keyColunm!, notContainedIn: notContainedKeys!)
+//        }
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
                 completionHandler(true, "Success", objects)
             }
         }
+    }
+    
+    func createRelationInBackground(key: String, object: PFObject, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let relation = self.relation(forKey: key)
+        
+        relation.add(object)
+        
+        self.saveInBackground { (success, error) in
+            completionHandler(success, error.debugDescription)
+        }
+        
+//        self.saveObjectInBackground { (success, msg) in
+//            completionHandler(success, msg)
+//        }
     }
     
     func getRelationsInBackgroundWithDataBy(key: String, keyFile: String, isNotContained: Bool = false, notContainedKeys: [Any] = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ relations: [PFObject]?, _ data: Data?) -> Void) {
@@ -343,7 +361,6 @@ extension PFObject {
         for case let (i, value?) in values.enumerated() {
             object[keys[i]] = value
         }
-        
         
         object.saveInBackground { (success, error) in
             if success {

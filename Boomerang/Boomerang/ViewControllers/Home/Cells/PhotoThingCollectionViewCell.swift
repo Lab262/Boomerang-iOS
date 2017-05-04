@@ -12,15 +12,15 @@ class PhotoThingCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var thingImage: UIImageView!
     
-    
-    
+
     static var identifier: String {
         return "photoThingCell"
     }
     
-    static var cellHeight: CGFloat {
-        return 168.0
+    static var cellSize: CGSize {
+        return CGSize(width: 375, height: 290)
     }
+    
     
     static var nibName: String {
         return "PhotoThingCollectionViewCell"
@@ -34,6 +34,7 @@ class PhotoThingCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
     

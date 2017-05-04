@@ -291,11 +291,20 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Wep-AY-WV6" id="N5v-0o-oMj"/>
+                        <segue destination="pUB-g2-0Er" kind="show" identifier="goToChat" id="aNp-Bi-LDZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTA-xV-YZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3172" y="892"/>
+        </scene>
+        <!--chatView-->
+        <scene sceneID="SAB-Y6-SFS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Transaction" referencedIdentifier="chatView" id="pUB-g2-0Er" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CpS-h4-XWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3985" y="879"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tvq-P3-wKn">

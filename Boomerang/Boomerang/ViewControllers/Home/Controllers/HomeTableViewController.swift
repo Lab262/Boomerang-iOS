@@ -23,7 +23,7 @@ class HomeTableViewController: UIViewController {
     }
     
     func registerNib() {
-        self.tableView.register(UINib(nibName: HomeCollectionHeader.cellIdentifier, bundle: nil), forCellReuseIdentifier: HomeCollectionHeader.cellIdentifier)
+       
          self.tableView.register(UINib(nibName: BoomerThingCollection.cellIdentifier, bundle: nil), forCellReuseIdentifier: BoomerThingCollection.cellIdentifier)
         tableView.registerNibFrom(RecommendedPostTableViewCell.self)
     }

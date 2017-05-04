@@ -11,12 +11,21 @@ import Parse
 
 class Chat: PFObject {
     @NSManaged var post: Post?
-    @NSManaged var requester: User?
-    @NSManaged var owner: User?
-    @NSManaged var messages: [Message]?
+    @NSManaged var requester: Profile?
+    @NSManaged var owner: Profile?
+    
+    @NSManaged var messages: PFRelation<Message>
+    var messagesArray: [Message] = [Message]()
     
     override init(){
         super.init()
+    }
+    
+    convenience init(post: Post, requester: Profile, owner: Profile) {
+        self.init()
+        self.post = post
+        self.requester = requester
+        self.owner = owner
     }
     
     convenience init(object: PFObject) {
@@ -26,24 +35,7 @@ class Chat: PFObject {
     }
     
     func setInformationsBy(object: PFObject){
-        
         self.objectId = object.objectId
-        
-        if let requester = object["requester"] as? User {
-            self.requester = User(user: requester)
-        }
-        
-        if let owner = object["owner"] as? User {
-            self.owner = User(user: owner)
-        }
-        
-        if let post = object["post"] as? Post {
-            self.post = Post(object: post)
-        }
-        
-        if let messages = object["messages"] as? [Message] {
-            self.messages = messages
-        }
     }
 }
 

@@ -547,7 +547,7 @@ FACEBOOK</string>
         <!--Chat-->
         <scene sceneID="ZKV-c9-vE8">
             <objects>
-                <viewController storyboardIdentifier="MessagesChatViewController" title="Chat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="adt-ZK-Kg5" customClass="MessagesChatViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chatView" title="Chat" id="adt-ZK-Kg5" customClass="MessagesChatViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HAC-oP-isz"/>
                         <viewControllerLayoutGuide type="bottom" id="SYD-5K-tEg"/>
@@ -575,9 +575,12 @@ FACEBOOK</string>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="popView:" destination="adt-ZK-Kg5" eventType="touchUpInside" id="2u5-Hq-zzl"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirley Schmidt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mf1-IZ-jfp">
-                                        <rect key="frame" x="106.5" y="36" width="163" height="24"/>
+                                        <rect key="frame" x="106" y="35.5" width="163" height="24"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -599,7 +602,7 @@ FACEBOOK</string>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WnW-0b-yq0">
-                                        <rect key="frame" x="127.5" y="66" width="120" height="16"/>
+                                        <rect key="frame" x="127.5" y="65.5" width="120" height="16"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_star_full" translatesAutoresizingMaskIntoConstraints="NO" id="DDW-qt-wsP">
                                                 <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -641,7 +644,7 @@ FACEBOOK</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNB-ic-cye">
-                                <rect key="frame" x="9" y="100" width="357" height="424.5"/>
+                                <rect key="frame" x="9" y="107" width="357" height="477"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
@@ -655,78 +658,39 @@ FACEBOOK</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-3H-nRw">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="386"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GG-yw-6RM">
+                                <rect key="frame" x="0.0" y="97" width="375" height="434"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="adt-ZK-Kg5" id="2eT-Ff-xOA"/>
-                                    <outlet property="delegate" destination="adt-ZK-Kg5" id="mTU-Xw-A7L"/>
+                                    <segue destination="r6F-Av-CQE" kind="embed" id="VdO-xV-qqa"/>
                                 </connections>
-                            </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fny-Wx-Ll1" userLabel="InputView">
-                                <rect key="frame" x="19" y="486" width="337" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxe-2W-og6">
-                                        <rect key="frame" x="272" y="0.0" width="50" height="27"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="9C1-Qg-flq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
-                                        <state key="normal" title="Enviar">
-                                            <color key="titleColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sendMessageAction:" destination="adt-ZK-Kg5" eventType="touchUpInside" id="fi8-oo-1eX"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escrever mensagem" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MRw-yd-njp">
-                                        <rect key="frame" x="10" y="0.0" width="252" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderTextColor">
-                                                <color key="value" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gxe-2W-og6" secondAttribute="trailing" constant="15" id="8fM-bM-EZp"/>
-                                    <constraint firstItem="gxe-2W-og6" firstAttribute="leading" secondItem="MRw-yd-njp" secondAttribute="trailing" constant="10" id="9LQ-Qr-dZS"/>
-                                    <constraint firstItem="gxe-2W-og6" firstAttribute="top" secondItem="Fny-Wx-Ll1" secondAttribute="top" id="KSD-QV-UEg"/>
-                                    <constraint firstItem="MRw-yd-njp" firstAttribute="top" secondItem="Fny-Wx-Ll1" secondAttribute="top" id="Mhl-WA-ygz"/>
-                                    <constraint firstAttribute="height" constant="30" id="N9V-xN-C47"/>
-                                    <constraint firstItem="MRw-yd-njp" firstAttribute="leading" secondItem="Fny-Wx-Ll1" secondAttribute="leading" constant="10" id="NWx-1I-wPv"/>
-                                    <constraint firstAttribute="bottom" secondItem="MRw-yd-njp" secondAttribute="bottom" id="UBw-zb-Tpv"/>
-                                </constraints>
-                            </view>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zNB-ic-cye" firstAttribute="top" secondItem="2tW-3H-nRw" secondAttribute="top" id="5jk-LT-NKh"/>
-                            <constraint firstItem="Fny-Wx-Ll1" firstAttribute="width" secondItem="aW4-b8-SKH" secondAttribute="width" multiplier="0.9" id="AU4-2Q-6aK"/>
-                            <constraint firstItem="Fny-Wx-Ll1" firstAttribute="top" secondItem="2tW-3H-nRw" secondAttribute="bottom" id="S79-Wm-fXT"/>
-                            <constraint firstItem="zNB-ic-cye" firstAttribute="height" secondItem="2tW-3H-nRw" secondAttribute="height" multiplier="1.1" id="VNb-pD-rJl"/>
+                            <constraint firstItem="1GG-yw-6RM" firstAttribute="top" secondItem="HAC-oP-isz" secondAttribute="bottom" constant="97" id="7vE-ay-fOu"/>
+                            <constraint firstItem="1GG-yw-6RM" firstAttribute="leading" secondItem="aW4-b8-SKH" secondAttribute="leading" id="MIG-GO-yzP"/>
                             <constraint firstAttribute="trailing" secondItem="Na3-jA-0OY" secondAttribute="trailing" id="WXc-n7-HEj"/>
                             <constraint firstItem="zNB-ic-cye" firstAttribute="leading" secondItem="aW4-b8-SKH" secondAttribute="leading" constant="9" id="Wya-jm-C77"/>
-                            <constraint firstItem="2tW-3H-nRw" firstAttribute="width" secondItem="aW4-b8-SKH" secondAttribute="width" id="a2b-qE-erg"/>
                             <constraint firstAttribute="trailing" secondItem="zNB-ic-cye" secondAttribute="trailing" constant="9" id="ah1-AN-zaE"/>
-                            <constraint firstItem="SYD-5K-tEg" firstAttribute="top" secondItem="Fny-Wx-Ll1" secondAttribute="bottom" constant="15" id="diO-g2-ieL"/>
-                            <constraint firstItem="2tW-3H-nRw" firstAttribute="centerX" secondItem="aW4-b8-SKH" secondAttribute="centerX" id="dia-vX-ORE"/>
+                            <constraint firstItem="zNB-ic-cye" firstAttribute="centerY" secondItem="1GG-yw-6RM" secondAttribute="centerY" multiplier="1.1" id="bo6-cg-bSl"/>
+                            <constraint firstAttribute="trailing" secondItem="1GG-yw-6RM" secondAttribute="trailing" id="cR6-hE-BI6"/>
                             <constraint firstItem="Na3-jA-0OY" firstAttribute="leading" secondItem="aW4-b8-SKH" secondAttribute="leading" id="hAq-MS-XLz"/>
-                            <constraint firstItem="Fny-Wx-Ll1" firstAttribute="centerX" secondItem="aW4-b8-SKH" secondAttribute="centerX" id="mEu-Zq-cy0"/>
+                            <constraint firstItem="zNB-ic-cye" firstAttribute="height" secondItem="1GG-yw-6RM" secondAttribute="height" multiplier="1.1" id="p0C-O8-aQJ"/>
                             <constraint firstItem="Na3-jA-0OY" firstAttribute="top" secondItem="aW4-b8-SKH" secondAttribute="top" id="rtT-6t-nTf"/>
-                            <constraint firstItem="2tW-3H-nRw" firstAttribute="top" secondItem="WnW-0b-yq0" secondAttribute="bottom" constant="18" id="tRb-kA-cUP"/>
+                            <constraint firstItem="SYD-5K-tEg" firstAttribute="top" secondItem="1GG-yw-6RM" secondAttribute="bottom" id="xyd-mH-SLt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="BqW-YR-SbX"/>
                     <connections>
-                        <outlet property="chatInputField" destination="MRw-yd-njp" id="wpM-6v-vfl"/>
                         <outlet property="containerView" destination="zNB-ic-cye" id="tfc-Wd-JT3"/>
-                        <outlet property="inputViewBottomConstraint" destination="diO-g2-ieL" id="HdT-rC-Ehz"/>
-                        <outlet property="tableView" destination="2tW-3H-nRw" id="Dbl-EM-hnX"/>
+                        <outlet property="userImage" destination="D9T-kb-4Ah" id="7zu-G5-Dgt"/>
+                        <outlet property="userName" destination="mf1-IZ-jfp" id="9FY-ad-0ID"/>
+                        <outletCollection property="starImages" destination="DDW-qt-wsP" collectionClass="NSMutableArray" id="Q1K-5r-2XP"/>
+                        <outletCollection property="starImages" destination="Yaq-lf-71I" collectionClass="NSMutableArray" id="1T2-dR-gvm"/>
+                        <outletCollection property="starImages" destination="XdK-Bk-WSh" collectionClass="NSMutableArray" id="8uL-lq-0wj"/>
+                        <outletCollection property="starImages" destination="X3k-Kd-IKz" collectionClass="NSMutableArray" id="Ih7-fM-PWB"/>
+                        <outletCollection property="starImages" destination="f0I-Qc-KU4" collectionClass="NSMutableArray" id="91P-TB-Hkl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVc-16-fu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1233,6 +1197,24 @@ diga como foi a sua experiência com ela.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQ5-3Y-eWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="2104"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="ufW-XT-OfS">
+            <objects>
+                <viewController id="r6F-Av-CQE" customClass="ChatViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rZL-uz-izo"/>
+                        <viewControllerLayoutGuide type="bottom" id="yMn-Xf-DVg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SeP-Vj-VXq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="434"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eFv-3e-jNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1158" y="4164"/>
         </scene>
     </scenes>
     <resources>

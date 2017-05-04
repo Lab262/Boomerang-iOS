@@ -99,9 +99,9 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     func updateCell(){
         if !alreadyUpdateCell {
             alreadyUpdateCell = true
-            self.nameLabel.text = presenter.getUser().fullName
+            self.nameLabel.text = presenter.getProfile().fullName
             
-            if presenter.getUser().profileImage == nil {
+            if presenter.getProfile().profileImage == nil {
                 profileImage.loadAnimation()
             }
             presenter.getUserImage { (success, msg, image) in
