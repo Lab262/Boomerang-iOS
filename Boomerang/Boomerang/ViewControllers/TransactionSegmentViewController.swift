@@ -24,7 +24,6 @@ class TransactionSegmentViewController: UIViewController {
         super.viewDidLoad()
         presenter.setViewDelegate(view: self)
         presenter.getTransactions()
-
     }
 
 }
