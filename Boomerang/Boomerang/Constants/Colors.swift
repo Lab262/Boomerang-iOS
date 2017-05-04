@@ -64,4 +64,10 @@ extension UIColor {
             return UIColor.colorWithHexString("E0E0E0")
         }
     }
+    static var yellowBoomerColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("FBBB47")
+        }
+    }
+    
 }

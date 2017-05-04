@@ -107,7 +107,6 @@ class InterestedPresenter: NSObject {
     }
     
     func createScheme(){
-        
         let scheme = Scheme(post: getPost(), requester: getRequester(), owner: getUser().profile!, chat: getChat())
         
         scheme.saveObjectInBackground { (success, msg) in
