@@ -11,7 +11,7 @@ import Parse
 
 class ProfilePresenter: NSObject {
     
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+//    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
     fileprivate var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
     fileprivate let pagination = 20
     fileprivate var skip = 0
@@ -34,8 +34,8 @@ class ProfilePresenter: NSObject {
     }
     
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
-        guard let image = user.profileImage else {
-            user.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
+        guard let image = profile.profileImage else {
+            profile.getDataInBackgroundBy(key: #keyPath(Profile.photo), completionHandler: { (success, msg, data) in
                 if success {
                     completionHandler(true, "Success", UIImage(data: data!)!)
                 } else {
@@ -81,8 +81,9 @@ class ProfilePresenter: NSObject {
     
     func followUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
         
-        UserRequest.createFollow(currentUser: ApplicationState.sharedInstance.currentUser!, otherUser: self.user) { (success, msg) in
-            
+        let follow = Follow(from: ApplicationState.sharedInstance.currentUser!.profile!, to: profile)
+        
+        follow.saveObjectInBackground { (success, msg) in
             if success {
                 completionHandler(true, "success")
             } else {
@@ -93,7 +94,7 @@ class ProfilePresenter: NSObject {
     
     func unfollowUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
         
-        UserRequest.unfollowUser(currentUser: ApplicationState.sharedInstance.currentUser!, otherUser: self.user) { (success, msg) in
+        UserRequest.unfollowUser(currentProfile: ApplicationState.sharedInstance.currentUser!.profile!, otherProfile: profile) { (success, msg) in
             if success {
                 completionHandler(true, msg)
             } else {
@@ -104,7 +105,7 @@ class ProfilePresenter: NSObject {
     
     func authorPostIsCurrent() -> Bool {
         
-        if self.user.objectId == PFUser.current()?.objectId {
+        if self.profile.objectId == ApplicationState.sharedInstance.currentUser?.profile?.objectId {
             return true
         } else {
             return false
@@ -134,7 +135,7 @@ class ProfilePresenter: NSObject {
     
     func alreadyFollowing(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool?) -> ()){
         
-        UserRequest.verifyAlreadyFollowingFor(currentUser: (PFUser.current()! as? User)!, otherUser: user) { (success, msg, alreadyFollow) in
+        UserRequest.verifyAlreadyFollowingFor(currentProfile: ApplicationState.sharedInstance.currentUser!.profile!, otherProfile: profile) { (success, msg, alreadyFollow) in
             
             if success {
                 completionHandler(true, msg, alreadyFollow)
@@ -145,7 +146,8 @@ class ProfilePresenter: NSObject {
     }
     
     func getUserCountOf(key: String, className: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void){
-        UserRequest.getUserCountOf(key: key, className: className, user: self.user) { (success, msg, count) in
+        
+        UserRequest.getProfileCountOf(key: key, className: className, profile: profile) { (success, msg, count) in
             if success {
                 completionHandler(true, msg, count)
             } else {

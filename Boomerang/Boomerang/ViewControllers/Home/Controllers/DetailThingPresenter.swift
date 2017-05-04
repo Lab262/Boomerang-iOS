@@ -25,14 +25,12 @@ class DetailThingPresenter: NSObject {
     fileprivate var comments = [Comment]()
     fileprivate var currentCommentsCount = 0
     fileprivate var user = ApplicationState.sharedInstance.currentUser
-    
     fileprivate let enterInterestedTitleButton: String = "Entrar da fila"
     fileprivate let exitInterestedTitleButton: String = "Sair da fila"
     fileprivate let recommendedTitleButton: String = "Recomendar"
     fileprivate let interestedListTitleButton: String = "Lista de interessados"
     
     var view: DetailThingDelegate?
-    
     
     func setViewDelegate(view: DetailThingDelegate) {
         self.view = view

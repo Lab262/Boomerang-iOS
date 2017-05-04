@@ -26,6 +26,11 @@ class TransactionDetailViewController: UIViewController {
         super.viewDidLoad()
         registerNib()
         configureTableView()
+        setupPresenterDelegate()
+    }
+    
+    func setupPresenterDelegate() {
+        presenter.setViewDelegate(view: self)
     }
     
     func registerNib(){
@@ -39,16 +44,21 @@ class TransactionDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let segmentVC = segue.destination as? ThingDetailViewController  {
-            segmentVC.presenter.setPost(post: presenter.getScheme().post!)
+        if let viewController = segue.destination as? ThingDetailViewController  {
+            viewController.presenter.setPost(post: presenter.getScheme().post!)
         }
         
-        if let segmentVC = segue.destination as? ProfileMainViewController  {
-            segmentVC.presenter.setProfile(profile: presenter.getScheme().dealer!)
+        if let viewController = segue.destination as? ProfileMainViewController  {
+            viewController.presenter.setProfile(profile: presenter.getScheme().dealer!)
         }
         
-        if let segmentVC = segue.destination as? EvaluationViewController  {
-            segmentVC.presenter.setScheme(scheme: presenter.getScheme())
+        if let viewController = segue.destination as? EvaluationViewController  {
+            viewController.presenter.setScheme(scheme: presenter.getScheme())
+        }
+        
+        if let viewController = segue.destination as? MessagesChatViewController  {
+            viewController.chat = presenter.getChat()
+            viewController.profile = presenter.getUserOwnATransaction()
         }
     }
     
@@ -73,7 +83,7 @@ class TransactionDetailViewController: UIViewController {
     }
     
     func goChat (_ sender: UIButton) {
-        performSegue(withIdentifier: SegueIdentifiers.detailTransactionToChat, sender: self)
+        presenter.fetchChat()
     }
     func generateTransactionDetailCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -133,7 +143,6 @@ extension TransactionDetailViewController: UITableViewDelegate {
 }
 
 extension TransactionDetailViewController: UIScrollViewDelegate {
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
@@ -151,4 +160,29 @@ extension TransactionDetailViewController: UIScrollViewDelegate {
             cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(0.0)
         }
     }
+}
+
+extension TransactionDetailViewController: TransactionDetailDelegate {
+    func reload() {
+        
+    }
+
+    
+    func showMessage(msg: String) {
+        
+    }
+    
+    func startingLoadingView() {
+        
+    }
+    
+    func finishLoadingView() {
+        
+    }
+    
+    func pushForChatView() {
+        performSegue(withIdentifier: SegueIdentifiers.detailTransactionToChat, sender: self)
+    }
+    
+    
 }

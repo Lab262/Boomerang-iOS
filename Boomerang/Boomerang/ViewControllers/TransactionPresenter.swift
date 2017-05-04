@@ -18,7 +18,6 @@ class TransactionPresenter: NSObject {
     fileprivate var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
-    
     func setViewDelegate(view: ViewDelegate) {
         self.view = view
     }
@@ -54,7 +53,6 @@ class TransactionPresenter: NSObject {
             } else {
                 self.view?.showMessageError(msg: msg)
             }
-            
         }
     }
     
