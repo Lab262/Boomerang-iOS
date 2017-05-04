@@ -28,8 +28,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="i1q-r5-ttj">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="3bk-CY-qHr">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="163" id="mBW-w5-yjw"/>
+                    </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_back_button" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-sa-QNN">
                     <rect key="frame" x="10" y="32" width="12" height="19"/>
@@ -55,8 +58,8 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preciso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="asV-gr-kGI">
-                    <rect key="frame" x="58" y="14" width="172" height="55.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preciso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="asV-gr-kGI">
+                    <rect key="frame" x="58" y="14.5" width="172" height="55.5"/>
                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="46"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -65,27 +68,26 @@
                     <rect key="frame" x="323" y="17.5" width="50" height="50"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="asV-gr-kGI" firstAttribute="leading" secondItem="WYZ-pZ-NI9" secondAttribute="trailing" constant="30" id="3dh-Hx-hzY"/>
-                <constraint firstItem="i1q-r5-ttj" firstAttribute="top" secondItem="cJH-3x-s2C" secondAttribute="top" id="4PE-ue-xlw"/>
+                <constraint firstItem="3bk-CY-qHr" firstAttribute="leading" secondItem="cJH-3x-s2C" secondAttribute="leading" id="5R0-fm-045"/>
+                <constraint firstAttribute="trailing" secondItem="3bk-CY-qHr" secondAttribute="trailing" id="5ac-75-X2h"/>
                 <constraint firstItem="SLY-HI-iBM" firstAttribute="centerX" secondItem="BRD-Cr-cZV" secondAttribute="centerX" id="9no-10-Kkk"/>
                 <constraint firstItem="WYZ-pZ-NI9" firstAttribute="height" secondItem="pIH-sa-QNN" secondAttribute="height" multiplier="2" id="9o4-og-Y1R"/>
-                <constraint firstAttribute="trailing" secondItem="i1q-r5-ttj" secondAttribute="trailing" id="DqG-Di-yyu"/>
                 <constraint firstItem="WYZ-pZ-NI9" firstAttribute="centerY" secondItem="pIH-sa-QNN" secondAttribute="centerY" id="E4u-Bp-ecg"/>
                 <constraint firstItem="SLY-HI-iBM" firstAttribute="height" secondItem="BRD-Cr-cZV" secondAttribute="height" multiplier="2" id="EHR-dk-zWP"/>
                 <constraint firstItem="SLY-HI-iBM" firstAttribute="centerY" secondItem="BRD-Cr-cZV" secondAttribute="centerY" id="TPE-nH-1vI"/>
                 <constraint firstAttribute="trailing" secondItem="BRD-Cr-cZV" secondAttribute="trailing" constant="15" id="Wzq-Nf-vm4"/>
-                <constraint firstItem="i1q-r5-ttj" firstAttribute="leading" secondItem="cJH-3x-s2C" secondAttribute="leading" id="YvA-az-ruR"/>
                 <constraint firstItem="WYZ-pZ-NI9" firstAttribute="width" secondItem="pIH-sa-QNN" secondAttribute="width" multiplier="2" id="a35-IN-cZ6"/>
-                <constraint firstAttribute="bottom" secondItem="i1q-r5-ttj" secondAttribute="bottom" id="dym-rM-lKx"/>
                 <constraint firstItem="asV-gr-kGI" firstAttribute="centerY" secondItem="WYZ-pZ-NI9" secondAttribute="centerY" id="eHD-A0-QGP"/>
                 <constraint firstItem="BRD-Cr-cZV" firstAttribute="centerY" secondItem="asV-gr-kGI" secondAttribute="centerY" id="foy-3x-pwz"/>
                 <constraint firstItem="SLY-HI-iBM" firstAttribute="width" secondItem="BRD-Cr-cZV" secondAttribute="width" multiplier="2" id="i1a-90-9mZ"/>
                 <constraint firstItem="WYZ-pZ-NI9" firstAttribute="centerX" secondItem="pIH-sa-QNN" secondAttribute="centerX" id="igE-NO-vtW"/>
                 <constraint firstItem="pIH-sa-QNN" firstAttribute="leading" secondItem="cJH-3x-s2C" secondAttribute="leading" constant="10" id="nQV-gK-3i5"/>
                 <constraint firstItem="pIH-sa-QNN" firstAttribute="centerY" secondItem="cJH-3x-s2C" secondAttribute="centerY" multiplier="1.3" id="rgu-47-Fpe"/>
+                <constraint firstItem="3bk-CY-qHr" firstAttribute="top" secondItem="cJH-3x-s2C" secondAttribute="top" id="vVC-vg-BQP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="128.5" y="251"/>
