@@ -12,53 +12,66 @@ import ParseFacebookUtilsV4
 
 
 class AuthenticationMainViewController: UIViewController {
-
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
+    let defaultTextTitleWelcome = "Bem vindo"
+    let defaultTextDescriptionWelcome = " a rede social mais amorzinho que você respeita"
+    let defaultSizeFontWelcomeLabel:CGFloat = 13
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCustomLabel()
+    }
+    
+    func setupCustomLabel(){
+        let textWelcomeLabel = NSMutableAttributedString(string: defaultTextTitleWelcome, attributes: [NSForegroundColorAttributeName: UIColor.yellowBoomerColor, NSFontAttributeName: UIFont.montserratBold(size: defaultSizeFontWelcomeLabel)])
+        let textWelcomeDescriptionLabel = NSMutableAttributedString(string: defaultTextDescriptionWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratLight(size: defaultSizeFontWelcomeLabel)])
+        
+        textWelcomeLabel.append(textWelcomeDescriptionLabel)
 
-        // Do any additional setup after loading the view.
+        self.welcomeLabel.attributedText = textWelcomeLabel
     }
     
-    
-    @IBAction func signInAction(_ sender: Any) {
-        let permissions = ["public_profile", "email","user_friends"]
-        
-        PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
-            
-            if let user = user {
-                if user.isNew {
-                    self.updateUserByFacebook()
-                } else {
-                   self.showHomeVC()
-                }
-            }
-        }
-    }
-    
-    
-    @IBAction func signUpAction(_ sender: Any) {
-        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-            
-            if error == nil {
-                self.view.loadAnimation()
-                let fbloginresult : FBSDKLoginManagerLoginResult = result!
-                
-                if (result?.isCancelled)! {
-                    self.view.unload()
-                    return
-                }
-                
-                if(fbloginresult.grantedPermissions.contains("email")) {
-                    self.returnUserData()
-                }
-            } else {
-               // error
-            }
-            
-        }
-    }
+//    @IBAction func signInAction(_ sender: Any) {
+//        let permissions = ["public_profile", "email","user_friends"]
+//        
+//        PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
+//            
+//            if let user = user {
+//                if user.isNew {
+//                    self.updateUserByFacebook()
+//                } else {
+//                   self.showHomeVC()
+//                }
+//            }
+//        }
+//    }
+//    
+//    
+//    @IBAction func signUpAction(_ sender: Any) {
+//        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+//        
+//        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+//            
+//            if error == nil {
+//                self.view.loadAnimation()
+//                let fbloginresult : FBSDKLoginManagerLoginResult = result!
+//                
+//                if (result?.isCancelled)! {
+//                    self.view.unload()
+//                    return
+//                }
+//                
+//                if(fbloginresult.grantedPermissions.contains("email")) {
+//                    self.returnUserData()
+//                }
+//            } else {
+//               // error
+//            }
+//            
+//        }
+//    }
     
     func getPhotoOfFacebookInPFFile (userId: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ file: PFFile?) -> ()) {
         var photoInPFFile: PFFile?
@@ -81,19 +94,15 @@ class AuthenticationMainViewController: UIViewController {
     
     
     @IBAction func facebookAction(_ sender: Any) {
-        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        let permissions = ["public_profile", "email","user_friends"]
         
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-            if error == nil {
-                self.view.loadAnimation()
-                let fbloginresult : FBSDKLoginManagerLoginResult = result!
-                
-                if (result?.isCancelled)! {
-                    self.view.unload()
-                    return
-                }
-                if(fbloginresult.grantedPermissions.contains("email")) {
-                    self.returnUserData()
+        PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
+            
+            if let user = user {
+                if user.isNew {
+                    self.updateUserByFacebook()
+                } else {
+                    self.showHomeVC()
                 }
             }
         }

@@ -45,6 +45,12 @@
 		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
 		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
 		2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771E1E4F998A0005F026 /* URLS.swift */; };
+		6010BF701EBB9A59008B5F02 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010BF6F1EBB9A59008B5F02 /* GradientView.swift */; };
+		6010BF711EBB9A59008B5F02 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010BF6F1EBB9A59008B5F02 /* GradientView.swift */; };
+		6010BF721EBB9A59008B5F02 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010BF6F1EBB9A59008B5F02 /* GradientView.swift */; };
+		6010BF741EBBA9C1008B5F02 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010BF731EBBA9C1008B5F02 /* UIFontExtension.swift */; };
+		6010BF751EBBA9C1008B5F02 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010BF731EBBA9C1008B5F02 /* UIFontExtension.swift */; };
+		6010BF761EBBA9C1008B5F02 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010BF731EBBA9C1008B5F02 /* UIFontExtension.swift */; };
 		62D077E2A55DC0ABA69788E0 /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */; };
 		A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */; };
 		A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */; };
@@ -707,6 +713,8 @@
 		3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoomerangTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3458A4FEE9385DE437C83883 /* Pods-lab262.boomerang.test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.release.xcconfig"; sourceTree = "<group>"; };
 		4A8A72A18B28776E445F9EC0 /* Pods_lab262_boomerang_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6010BF6F1EBB9A59008B5F02 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		6010BF731EBBA9C1008B5F02 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		6546CCE556A22ECA77A8D013 /* Pods-lab262.boomerang.test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.debug.xcconfig"; sourceTree = "<group>"; };
 		7D9BA6CA9ACC4EC3191BB4BA /* Pods-lab262.boomerang.production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.debug.xcconfig"; sourceTree = "<group>"; };
 		8469F64EFE9F7899E31E9E7C /* Pods-BoomerangTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1329,6 +1337,8 @@
 				D48735011E7885000065E13A /* UICollectionViewCell+Utils.swift */,
 				2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */,
 				D40C0E4E1E8B1490008174D2 /* Date+Utils.swift */,
+				6010BF6F1EBB9A59008B5F02 /* GradientView.swift */,
+				6010BF731EBBA9C1008B5F02 /* UIFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2535,6 +2545,7 @@
 				A4FE06301DD09A1100BFDC4D /* BoomerThingCell.swift in Sources */,
 				D4FBBCE51E90706400611F63 /* InterestedTableViewCell.swift in Sources */,
 				2F3C79CE1E995B930013F4F9 /* HighlightCollectionViewCell.swift in Sources */,
+				6010BF701EBB9A59008B5F02 /* GradientView.swift in Sources */,
 				D4A012F51E7AC83900B3B811 /* PostCollectionViewCell.swift in Sources */,
 				2F2F07981E688DF400C61A6D /* DescriptionTextTableViewCell.swift in Sources */,
 				D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */,
@@ -2594,6 +2605,7 @@
 				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,
 				D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */,
 				A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */,
+				6010BF741EBBA9C1008B5F02 /* UIFontExtension.swift in Sources */,
 				D49955B71EA3AAEF00D89038 /* TransactionFilterPresenter.swift in Sources */,
 				D4B3B5561EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				2F2F079C1E6891A800C61A6D /* ThrowButtonTableViewCell.swift in Sources */,
@@ -2668,6 +2680,7 @@
 				D4AD97A01EA9ACFD00C9FAB9 /* LendingThingsViewController.swift in Sources */,
 				D4AD97A11EA9ACFD00C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */,
 				D4AD97A21EA9ACFD00C9FAB9 /* Thing.swift in Sources */,
+				6010BF711EBB9A59008B5F02 /* GradientView.swift in Sources */,
 				D484FA311EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
 				D4AD97A31EA9ACFD00C9FAB9 /* DescriptionTableViewCell.swift in Sources */,
 				D4AD97A41EA9ACFD00C9FAB9 /* HomePresenter.swift in Sources */,
@@ -2677,6 +2690,7 @@
 				D4AD97A81EA9ACFD00C9FAB9 /* UserCommentTableViewCell.swift in Sources */,
 				D4AD97A91EA9ACFD00C9FAB9 /* ProfilePresenter.swift in Sources */,
 				D4AD97AA1EA9ACFD00C9FAB9 /* UIButtonWithPicker.swift in Sources */,
+				6010BF751EBBA9C1008B5F02 /* UIFontExtension.swift in Sources */,
 				D4AD97AB1EA9ACFD00C9FAB9 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				D4AD97AC1EA9ACFD00C9FAB9 /* RecommendedPostTableViewCell.swift in Sources */,
 				D4AD97AD1EA9ACFD00C9FAB9 /* PHFComposeBarView_Button.m in Sources */,
@@ -2828,6 +2842,7 @@
 				D4AD986C1EA9AD0400C9FAB9 /* LendingThingsViewController.swift in Sources */,
 				D4AD986D1EA9AD0400C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */,
 				D4AD986E1EA9AD0400C9FAB9 /* Thing.swift in Sources */,
+				6010BF721EBB9A59008B5F02 /* GradientView.swift in Sources */,
 				D484FA321EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
 				D4AD986F1EA9AD0400C9FAB9 /* DescriptionTableViewCell.swift in Sources */,
 				D4AD98701EA9AD0400C9FAB9 /* HomePresenter.swift in Sources */,
@@ -2837,6 +2852,7 @@
 				D4AD98741EA9AD0400C9FAB9 /* UserCommentTableViewCell.swift in Sources */,
 				D4AD98751EA9AD0400C9FAB9 /* ProfilePresenter.swift in Sources */,
 				D4AD98761EA9AD0400C9FAB9 /* UIButtonWithPicker.swift in Sources */,
+				6010BF761EBBA9C1008B5F02 /* UIFontExtension.swift in Sources */,
 				D4AD98771EA9AD0400C9FAB9 /* BoomerMessageAndNotificationsCell.swift in Sources */,
 				D4AD98781EA9AD0400C9FAB9 /* RecommendedPostTableViewCell.swift in Sources */,
 				D4AD98791EA9AD0400C9FAB9 /* PHFComposeBarView_Button.m in Sources */,
