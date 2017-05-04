@@ -197,7 +197,7 @@ class ThrowViewController: UIViewController {
       
         header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
         
-        header.throwButton.addTarget(self, action:#selector(throwAction(_:)), for:.touchUpInside)
+        header.touchAreaThrowButton.addTarget(self, action:#selector(throwAction(_:)), for:.touchUpInside)
         
         
         if let images = allimages {
@@ -237,7 +237,7 @@ class ThrowViewController: UIViewController {
         post.title =  self.nameThing
         post.content = self.descriptionThing
         post.postType = PostType(rawValue: typeVC.rawValue)
-        
+        post.type = post.postType.map { $0.rawValue }
       
         ActivitIndicatorView.show(on: self)
         

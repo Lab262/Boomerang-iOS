@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15A9695E7C40F106168D95E7 /* Pods_lab262_boomerang_production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1D359A27DB99BC6291D103 /* Pods_lab262_boomerang_production.framework */; };
 		2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */; };
 		2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */; };
 		2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */; };
@@ -26,6 +27,7 @@
 		2F7967711E83871700476D2D /* WithdrawalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F79676F1E83871700476D2D /* WithdrawalTableViewCell.xib */; };
 		2F79677A1E86FA7E00476D2D /* HeaderPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7967781E86FA7E00476D2D /* HeaderPostTableViewCell.swift */; };
 		2F79677B1E86FA7E00476D2D /* HeaderPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7967791E86FA7E00476D2D /* HeaderPostTableViewCell.xib */; };
+		2F9841071EB179AA00A937A3 /* FeedbackConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9841061EB179AA00A937A3 /* FeedbackConfirmationViewController.swift */; };
 		2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */; };
 		2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB341E6E590B00224284 /* TextViewHandler.swift */; };
 		2FA0CB381E6E5F1800224284 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB371E6E5F1800224284 /* AlertUtils.swift */; };
@@ -43,6 +45,7 @@
 		2FF1771B1E4F60650005F026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771A1E4F60650005F026 /* User.swift */; };
 		2FF1771D1E4F91A20005F026 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771C1E4F91A20005F026 /* ViewUtil.swift */; };
 		2FF1771F1E4F998A0005F026 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1771E1E4F998A0005F026 /* URLS.swift */; };
+		62D077E2A55DC0ABA69788E0 /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */; };
 		A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */; };
 		A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */; };
 		A40A25181DCB5C2C00DF9523 /* UIView+IBInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */; };
@@ -75,6 +78,9 @@
 		A44E0C6C1DD092650028F06C /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C641DD092650028F06C /* Montserrat-Regular.otf */; };
 		A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */; };
 		A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */; };
+		A4796CFB1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */; };
+		A4796CFC1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */; };
+		A4796CFD1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */; };
 		A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A489B1F61DDA7D1100B239D5 /* Authentication.storyboard */; };
 		A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489B1F81DDA7D3E00B239D5 /* AuthenticationMainViewController.swift */; };
 		A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */; };
@@ -106,8 +112,8 @@
 		A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */; };
 		A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */; };
 		A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */; };
-		A9E5B8F2C6E3A887D5576DA0 /* Pods_lab262_boomerang_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B290A6C82A8DAABF3BA72C /* Pods_lab262_boomerang_dev.framework */; };
-		AE0A3E5B5EBAF34959817DBD /* Pods_lab262_boomerang_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F6AA3D6EBC13716C252C3 /* Pods_lab262_boomerang_test.framework */; };
+		ABE35325F3C26FD15718BE56 /* Pods_lab262_boomerang_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8A72A18B28776E445F9EC0 /* Pods_lab262_boomerang_dev.framework */; };
+		BA455F8AF71EF03037491F19 /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */; };
 		D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */; };
 		D40C0E4C1E8AAD58008174D2 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */; };
 		D40C0E4D1E8B020A008174D2 /* PhotoThingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */; };
@@ -574,9 +580,6 @@
 		D4AD99021EA9AD0400C9FAB9 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C631DD092650028F06C /* Montserrat-Light.otf */; };
 		D4AD99031EA9AD0400C9FAB9 /* SimpleTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07931E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib */; };
 		D4AD99041EA9AD0400C9FAB9 /* SwitchButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */; };
-		D4AD99201EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */; };
-		D4AD99211EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */; };
-		D4AD99221EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */; };
 		D4AD99241EA9AFF400C9FAB9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD99231EA9AFF400C9FAB9 /* AppConfig.swift */; };
 		D4AD99261EA9B00000C9FAB9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD99251EA9B00000C9FAB9 /* AppConfig.swift */; };
 		D4AD99281EA9B00900C9FAB9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD99271EA9B00900C9FAB9 /* AppConfig.swift */; };
@@ -625,6 +628,7 @@
 		D4FBBCEB1E907D5400611F63 /* InterestedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCEA1E907D5400611F63 /* InterestedPresenter.swift */; };
 		D4FBBCED1E90818A00611F63 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCEC1E90818A00611F63 /* Constants.swift */; };
 		D4FBBCEF1E908E0F00611F63 /* Interested.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCEE1E908E0F00611F63 /* Interested.swift */; };
+		D80B7259AA749C6E7284827E /* Pods_lab262_boomerang_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B143C27F30BFFD932B1BAED1 /* Pods_lab262_boomerang_test.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -638,9 +642,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		133457901008546E46ED3A62 /* Pods-lab262.boomerang.production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.debug.xcconfig"; sourceTree = "<group>"; };
-		149F6AA3D6EBC13716C252C3 /* Pods_lab262_boomerang_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A09C9B8738B75DE1ECCA0D6 /* Pods-lab262.boomerang.production.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.release.xcconfig"; sourceTree = "<group>"; };
+		003AB93CC782F8C26845E097 /* Pods-lab262.boomerang.dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev.release.xcconfig"; sourceTree = "<group>"; };
+		1406A4FAF041DC652AC67292 /* Pods-lab262.boomerang.production.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.release.xcconfig"; sourceTree = "<group>"; };
+		1A1D359A27DB99BC6291D103 /* Pods_lab262_boomerang_production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boomerang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoNavigationBar.swift; sourceTree = "<group>"; };
 		2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoNavigationBar.xib; sourceTree = "<group>"; };
 		2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -660,6 +665,7 @@
 		2F79676F1E83871700476D2D /* WithdrawalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithdrawalTableViewCell.xib; sourceTree = "<group>"; };
 		2F7967781E86FA7E00476D2D /* HeaderPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderPostTableViewCell.swift; path = Interface/HeaderPostTableViewCell.swift; sourceTree = "<group>"; };
 		2F7967791E86FA7E00476D2D /* HeaderPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderPostTableViewCell.xib; sourceTree = "<group>"; };
+		2F9841061EB179AA00A937A3 /* FeedbackConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackConfirmationViewController.swift; sourceTree = "<group>"; };
 		2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldHandler.swift; sourceTree = "<group>"; };
 		2FA0CB341E6E590B00224284 /* TextViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewHandler.swift; sourceTree = "<group>"; };
 		2FA0CB371E6E5F1800224284 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
@@ -677,10 +683,12 @@
 		2FF1771A1E4F60650005F026 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF1771C1E4F91A20005F026 /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		2FF1771E1E4F998A0005F026 /* URLS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
-		3CAE5E32E2181437F10BF136 /* Pods-lab262.boomerang.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev.debug.xcconfig"; sourceTree = "<group>"; };
-		5B9F30C87ABEF4C02F5F3F5C /* Pods-lab262.boomerang.test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.release.xcconfig"; sourceTree = "<group>"; };
+		3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoomerangTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3458A4FEE9385DE437C83883 /* Pods-lab262.boomerang.test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.release.xcconfig"; sourceTree = "<group>"; };
+		4A8A72A18B28776E445F9EC0 /* Pods_lab262_boomerang_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6546CCE556A22ECA77A8D013 /* Pods-lab262.boomerang.test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.debug.xcconfig"; sourceTree = "<group>"; };
+		7D9BA6CA9ACC4EC3191BB4BA /* Pods-lab262.boomerang.production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.debug.xcconfig"; sourceTree = "<group>"; };
 		8469F64EFE9F7899E31E9E7C /* Pods-BoomerangTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.release.xcconfig"; sourceTree = "<group>"; };
-		89B290A6C82A8DAABF3BA72C /* Pods_lab262_boomerang_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerMainViewController.swift; sourceTree = "<group>"; };
 		A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		A40A25171DCB5C2C00DF9523 /* UIView+IBInspector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspector.swift"; sourceTree = "<group>"; };
@@ -713,6 +721,7 @@
 		A44E0C641DD092650028F06C /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		A44E0C651DD092650028F06C /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		A489B1F61DDA7D1100B239D5 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		A489B1F81DDA7D3E00B239D5 /* AuthenticationMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationMainViewController.swift; sourceTree = "<group>"; };
 		A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Navigation.swift"; sourceTree = "<group>"; };
@@ -748,6 +757,8 @@
 		A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerThingCollection.swift; sourceTree = "<group>"; };
 		A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerThing.swift; sourceTree = "<group>"; };
 		A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Indexable.swift"; sourceTree = "<group>"; };
+		A5EDC359C877A222AB3556F7 /* Pods-lab262.boomerang.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev.debug.xcconfig"; sourceTree = "<group>"; };
+		B143C27F30BFFD932B1BAED1 /* Pods_lab262_boomerang_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF6CC3F0FDD1FD115C7BD92 /* Pods-BoomerangTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailThingPresenter.swift; sourceTree = "<group>"; };
 		D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
@@ -820,7 +831,6 @@
 		D4AD97731EA8EEF200C9FAB9 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
 		D4AD98401EA9ACFD00C9FAB9 /* lab262.boomerang.production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab262.boomerang.production.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AD990C1EA9AD0400C9FAB9 /* lab262.boomerang.dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab262.boomerang.dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		D4AD99231EA9AFF400C9FAB9 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D4AD99251EA9B00000C9FAB9 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D4AD99271EA9B00900C9FAB9 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -868,8 +878,6 @@
 		D4FBBCEA1E907D5400611F63 /* InterestedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedPresenter.swift; sourceTree = "<group>"; };
 		D4FBBCEC1E90818A00611F63 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D4FBBCEE1E908E0F00611F63 /* Interested.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interested.swift; sourceTree = "<group>"; };
-		FB8304CD0B8827066587D6B9 /* Pods-lab262.boomerang.dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev.release.xcconfig"; sourceTree = "<group>"; };
-		FFD2298110E55F3E08BABD28 /* Pods-lab262.boomerang.test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -877,7 +885,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE0A3E5B5EBAF34959817DBD /* Pods_lab262_boomerang_test.framework in Frameworks */,
+				BA455F8AF71EF03037491F19 /* Pods_Boomerang.framework in Frameworks */,
+				D80B7259AA749C6E7284827E /* Pods_lab262_boomerang_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -885,6 +894,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62D077E2A55DC0ABA69788E0 /* Pods_BoomerangTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,6 +902,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15A9695E7C40F106168D95E7 /* Pods_lab262_boomerang_production.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,7 +910,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9E5B8F2C6E3A887D5576DA0 /* Pods_lab262_boomerang_dev.framework in Frameworks */,
+				ABE35325F3C26FD15718BE56 /* Pods_lab262_boomerang_dev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,8 +962,11 @@
 		5A4E14B68C84054C141F7C52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				89B290A6C82A8DAABF3BA72C /* Pods_lab262_boomerang_dev.framework */,
-				149F6AA3D6EBC13716C252C3 /* Pods_lab262_boomerang_test.framework */,
+				1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */,
+				3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */,
+				4A8A72A18B28776E445F9EC0 /* Pods_lab262_boomerang_dev.framework */,
+				1A1D359A27DB99BC6291D103 /* Pods_lab262_boomerang_production.framework */,
+				B143C27F30BFFD932B1BAED1 /* Pods_lab262_boomerang_test.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -962,12 +976,12 @@
 			children = (
 				CCF6CC3F0FDD1FD115C7BD92 /* Pods-BoomerangTests.debug.xcconfig */,
 				8469F64EFE9F7899E31E9E7C /* Pods-BoomerangTests.release.xcconfig */,
-				3CAE5E32E2181437F10BF136 /* Pods-lab262.boomerang.dev.debug.xcconfig */,
-				FB8304CD0B8827066587D6B9 /* Pods-lab262.boomerang.dev.release.xcconfig */,
-				133457901008546E46ED3A62 /* Pods-lab262.boomerang.production.debug.xcconfig */,
-				1A09C9B8738B75DE1ECCA0D6 /* Pods-lab262.boomerang.production.release.xcconfig */,
-				FFD2298110E55F3E08BABD28 /* Pods-lab262.boomerang.test.debug.xcconfig */,
-				5B9F30C87ABEF4C02F5F3F5C /* Pods-lab262.boomerang.test.release.xcconfig */,
+				A5EDC359C877A222AB3556F7 /* Pods-lab262.boomerang.dev.debug.xcconfig */,
+				003AB93CC782F8C26845E097 /* Pods-lab262.boomerang.dev.release.xcconfig */,
+				7D9BA6CA9ACC4EC3191BB4BA /* Pods-lab262.boomerang.production.debug.xcconfig */,
+				1406A4FAF041DC652AC67292 /* Pods-lab262.boomerang.production.release.xcconfig */,
+				6546CCE556A22ECA77A8D013 /* Pods-lab262.boomerang.test.debug.xcconfig */,
+				3458A4FEE9385DE437C83883 /* Pods-lab262.boomerang.test.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -977,6 +991,7 @@
 			children = (
 				A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */,
 				2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */,
+				2F9841061EB179AA00A937A3 /* FeedbackConfirmationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1290,6 +1305,7 @@
 		A4E462F61DCAEAC200A611C0 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */,
 				2FA93B271E4A88030080F99A /* Request */,
 				A4FE06371DD09D6400BFDC4D /* Models */,
 				A4E462F71DCAEAC200A611C0 /* Local */,
@@ -1351,7 +1367,6 @@
 		A4F89B281DA809B100949A35 /* Boomerang */ = {
 			isa = PBXGroup;
 			children = (
-				D4AD991F1EA9AFA100C9FAB9 /* NotificationsManager.swift */,
 				D4E4BEAF1E82569300F8DC2E /* Frameworks */,
 				A4E462F41DCAEAC200A611C0 /* Constants */,
 				A4E462F51DCAEAC200A611C0 /* Extensions */,
@@ -2504,7 +2519,6 @@
 				D48735031E7885000065E13A /* String+CharacterSpacing.swift in Sources */,
 				D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
-				D4AD99201EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */,
 				D484FA2C1EACFA3D0054E415 /* NotificationViewController.swift in Sources */,
 				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
@@ -2512,12 +2526,14 @@
 				D498F0411E81621F002E8972 /* ThingNavigationBar.swift in Sources */,
 				A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */,
 				D44C9A161EB00D9B004B7796 /* ChatPresenter.swift in Sources */,
+				2F9841071EB179AA00A937A3 /* FeedbackConfirmationViewController.swift in Sources */,
 				D4E4BEBC1E8269F300F8DC2E /* TextInputTableView.swift in Sources */,
 				2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */,
 				2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */,
 				D4E6A28A1E95C5D1005B4E34 /* TransactionMainViewController.swift in Sources */,
 				D436BF251E95A68B00BC7F00 /* LoanTransactionViewController.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
+				A4796CFB1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
@@ -2570,6 +2586,7 @@
 				D4B3B55B1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				D4AD977D1EA9ACFD00C9FAB9 /* IconNavigationBar.swift in Sources */,
 				D4AD977E1EA9ACFD00C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
+				A4796CFC1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD977F1EA9ACFD00C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
 				D4AD97801EA9ACFD00C9FAB9 /* AppDelegate.swift in Sources */,
 				D4AD97811EA9ACFD00C9FAB9 /* BoomerMainViewController.swift in Sources */,
@@ -2669,7 +2686,6 @@
 				D4AD97D81EA9ACFD00C9FAB9 /* Dictionary+Indexable.swift in Sources */,
 				D484FA2D1EACFA3D0054E415 /* NotificationViewController.swift in Sources */,
 				D484FA291EACF4F00054E415 /* OtherActionsMainViewController.swift in Sources */,
-				D4AD99211EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */,
 				D4AD97D91EA9ACFD00C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD97DA1EA9ACFD00C9FAB9 /* HomeTableViewController.swift in Sources */,
 				D4AD97DB1EA9ACFD00C9FAB9 /* PHFComposeBarView_TextView.m in Sources */,
@@ -2724,6 +2740,7 @@
 				D4B3B55C1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				D4AD98491EA9AD0400C9FAB9 /* IconNavigationBar.swift in Sources */,
 				D4AD984A1EA9AD0400C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
+				A4796CFD1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD984B1EA9AD0400C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
 				D4AD984C1EA9AD0400C9FAB9 /* AppDelegate.swift in Sources */,
 				D4AD984D1EA9AD0400C9FAB9 /* BoomerMainViewController.swift in Sources */,
@@ -2823,7 +2840,6 @@
 				D4AD98A41EA9AD0400C9FAB9 /* Dictionary+Indexable.swift in Sources */,
 				D484FA2E1EACFA3D0054E415 /* NotificationViewController.swift in Sources */,
 				D484FA2A1EACF4F10054E415 /* OtherActionsMainViewController.swift in Sources */,
-				D4AD99221EA9AFA100C9FAB9 /* NotificationsManager.swift in Sources */,
 				D4AD98A51EA9AD0400C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD98A61EA9AD0400C9FAB9 /* HomeTableViewController.swift in Sources */,
 				D4AD98A71EA9AD0400C9FAB9 /* PHFComposeBarView_TextView.m in Sources */,
@@ -2987,7 +3003,7 @@
 		};
 		A4F89B441DA809B100949A35 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFD2298110E55F3E08BABD28 /* Pods-lab262.boomerang.test.debug.xcconfig */;
+			baseConfigurationReference = 6546CCE556A22ECA77A8D013 /* Pods-lab262.boomerang.test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3010,7 +3026,7 @@
 		};
 		A4F89B451DA809B100949A35 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B9F30C87ABEF4C02F5F3F5C /* Pods-lab262.boomerang.test.release.xcconfig */;
+			baseConfigurationReference = 3458A4FEE9385DE437C83883 /* Pods-lab262.boomerang.test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3064,7 +3080,7 @@
 		};
 		D4AD983E1EA9ACFD00C9FAB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 133457901008546E46ED3A62 /* Pods-lab262.boomerang.production.debug.xcconfig */;
+			baseConfigurationReference = 7D9BA6CA9ACC4EC3191BB4BA /* Pods-lab262.boomerang.production.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3087,7 +3103,7 @@
 		};
 		D4AD983F1EA9ACFD00C9FAB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A09C9B8738B75DE1ECCA0D6 /* Pods-lab262.boomerang.production.release.xcconfig */;
+			baseConfigurationReference = 1406A4FAF041DC652AC67292 /* Pods-lab262.boomerang.production.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3109,7 +3125,7 @@
 		};
 		D4AD990A1EA9AD0400C9FAB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CAE5E32E2181437F10BF136 /* Pods-lab262.boomerang.dev.debug.xcconfig */;
+			baseConfigurationReference = A5EDC359C877A222AB3556F7 /* Pods-lab262.boomerang.dev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3132,7 +3148,7 @@
 		};
 		D4AD990B1EA9AD0400C9FAB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB8304CD0B8827066587D6B9 /* Pods-lab262.boomerang.dev.release.xcconfig */;
+			baseConfigurationReference = 003AB93CC782F8C26845E097 /* Pods-lab262.boomerang.dev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
