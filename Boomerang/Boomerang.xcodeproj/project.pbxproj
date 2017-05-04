@@ -1924,7 +1924,7 @@
 						};
 					};
 					D4AD98421EA9AD0400C9FAB9 = {
-						DevelopmentTeam = B865ENT4P3;
+						DevelopmentTeam = PLK7JW69DY;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -3172,7 +3172,7 @@
 				CODE_SIGN_ENTITLEMENTS = lab262.boomerang.dev/lab262.boomerang.dev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = B865ENT4P3;
+				DEVELOPMENT_TEAM = PLK7JW69DY;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3195,7 +3195,7 @@
 				CODE_SIGN_ENTITLEMENTS = lab262.boomerang.dev/lab262.boomerang.dev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = B865ENT4P3;
+				DEVELOPMENT_TEAM = PLK7JW69DY;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
