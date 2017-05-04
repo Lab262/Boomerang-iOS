@@ -15,7 +15,8 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
-    @IBOutlet weak var navigationBarView: IconNavigationBar!
+    
+    @IBOutlet weak var navigationBarView: ThingBar!
     
     var interestedTitleButton: String? {
         didSet{
@@ -66,6 +67,11 @@ class ThingDetailViewController: UIViewController {
         configureButtons()
         configureTableView()
         setNavigationInformations()
+        navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+    }
+    
+    func backView(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func setPresenterDelegate() {

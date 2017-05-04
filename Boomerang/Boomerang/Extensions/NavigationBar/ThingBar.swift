@@ -13,6 +13,7 @@ class ThingBar: UIView {
     @IBOutlet var view: UIView!
     @IBOutlet weak var titleBarLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
     
     @IBAction func leftAction(_ sender: Any) {
         if let navController = UIApplication.topViewController()?.navigationController {

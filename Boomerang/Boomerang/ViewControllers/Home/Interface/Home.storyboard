@@ -230,7 +230,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="firstButton" destination="obP-At-Mt8" id="8zI-yZ-3jD"/>
-                        <outlet property="navigationBarView" destination="1mm-y4-kUy" id="qdl-pc-R5f"/>
+                        <outlet property="navigationBarView" destination="1mm-y4-kUy" id="xOe-SV-dwh"/>
                         <outlet property="navigationInformationsView" destination="jlc-vg-cyQ" id="ECp-ER-mhE"/>
                         <outlet property="secondButton" destination="eyM-Z3-cUg" id="Ve1-73-kpn"/>
                         <outlet property="tableView" destination="MYy-Ur-yOs" id="m2r-me-coa"/>
