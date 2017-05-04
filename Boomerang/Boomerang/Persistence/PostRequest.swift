@@ -121,7 +121,8 @@ class PostRequest: NSObject {
         var queryParams = [String : Any]()
         queryParams["post"] = post
         
-        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, includes: ["user"]) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, includes: ["user"], selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
+            
             if success {
                 for object in objects! {
                     let interested = Interested(object: object)
@@ -133,6 +134,7 @@ class PostRequest: NSObject {
                 completionHandler(false, msg, nil)
             }
         }
+        
     }
 
     static func enterInterestedListOf(profile: Profile, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {

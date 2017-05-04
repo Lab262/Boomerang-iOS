@@ -37,6 +37,15 @@ class Scheme: PFObject {
         self.setInformationsBy(object: object)
     }
     
+    convenience init (post: Post, requester: Profile, owner: Profile, chat: Chat) {
+        self.init()
+        
+        self.post = post
+        self.requester = requester
+        self.owner = owner
+        self.chat = chat
+    }
+    
     func setInformationsBy(object: PFObject){
         
         self.objectId = object.objectId
@@ -54,6 +63,7 @@ class Scheme: PFObject {
         if let post = object["post"] as? Post {
             self.post = Post(object: post)
         }
+        
         
 //        if let chat = object["chat"] as? Chat {
 //            self.chat = Chat(object: chat)
