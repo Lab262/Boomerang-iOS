@@ -11,7 +11,6 @@ import Parse
 
 class ProfilePresenter: NSObject {
     
-//    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
     fileprivate var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
     fileprivate let pagination = 20
     fileprivate var skip = 0
@@ -20,7 +19,7 @@ class ProfilePresenter: NSObject {
     fileprivate var havePosts: [Post] = [Post]()
     fileprivate var donatePosts: [Post] = [Post]()
     fileprivate var currentPostType: PostType? = nil
-    fileprivate var post: Post = Post() {
+    fileprivate var post: Post = Post(){
         didSet{
             profile = post.author!
         }
@@ -171,13 +170,11 @@ class ProfilePresenter: NSObject {
     }
     
     func filterPostsFor(postType: PostType) -> [Post] {
-        
         let filteredPosts = (self.allPosts.filter { post in
             return post.postType == postType
         })
         
         currentPostType = postType
-        
         return filteredPosts
     }
     
