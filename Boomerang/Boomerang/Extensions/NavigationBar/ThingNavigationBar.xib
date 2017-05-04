@@ -25,8 +25,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="ym2-Uz-a3W">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Casinha de Cachorro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wue-Zi-zwl">
-                    <rect key="frame" x="56" y="55" width="251.5" height="29"/>
+                    <rect key="frame" x="56" y="55" width="227.5" height="28"/>
                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -34,11 +37,18 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="ym2-Uz-a3W" secondAttribute="bottom" id="Gev-OQ-nfM"/>
+                <constraint firstItem="ym2-Uz-a3W" firstAttribute="top" secondItem="aop-7O-aRH" secondAttribute="top" id="HPx-Vx-4ZP"/>
                 <constraint firstItem="Wue-Zi-zwl" firstAttribute="leading" secondItem="aop-7O-aRH" secondAttribute="leading" constant="56" id="JNC-Jh-5b5"/>
+                <constraint firstItem="ym2-Uz-a3W" firstAttribute="leading" secondItem="aop-7O-aRH" secondAttribute="leading" id="f2t-z3-pvi"/>
                 <constraint firstItem="Wue-Zi-zwl" firstAttribute="top" secondItem="aop-7O-aRH" secondAttribute="top" constant="55" id="jaI-Cf-XFQ"/>
+                <constraint firstAttribute="trailing" secondItem="ym2-Uz-a3W" secondAttribute="trailing" id="zVf-Aj-AzG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="96.5" y="-297"/>
+            <point key="canvasLocation" x="96.5" y="-297.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="bg_nav" width="375" height="163"/>
+    </resources>
 </document>

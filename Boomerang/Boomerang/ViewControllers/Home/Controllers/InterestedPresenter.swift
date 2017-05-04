@@ -107,9 +107,13 @@ class InterestedPresenter: NSObject {
     }
     
     func createScheme(){
-        SchemeRequest.createScheme(requester: getRequester(), owner: getUser().profile!, chat: getChat(), post: getPost()) { (success, msg) in
+        
+        let scheme = Scheme(post: getPost(), requester: getRequester(), owner: getUser().profile!, chat: getChat())
+        
+        scheme.saveObjectInBackground { (success, msg) in
             if success {
-                print ("PUSH PRA ALGUM FLUXO.")
+                self.view?.showMessage(msg: "Esquema iniciado :)")
+                // push pra alguma tela
             } else {
                 self.view?.showMessage(msg: msg)
             }

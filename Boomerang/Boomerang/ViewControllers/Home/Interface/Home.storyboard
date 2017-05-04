@@ -31,27 +31,38 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whq-g7-neK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigationbar-color" translatesAutoresizingMaskIntoConstraints="NO" id="PDl-VX-F99">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="PDl-VX-F99">
                                         <rect key="frame" x="-0.5" y="0.0" width="375" height="192"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olar, Amanda" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rk-n9-dAq">
-                                        <rect key="frame" x="118" y="34" width="140" height="24"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                        <rect key="frame" x="20" y="42" width="335" height="29"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_dummy" translatesAutoresizingMaskIntoConstraints="NO" id="SXu-VK-YbB">
-                                        <rect key="frame" x="319" y="28" width="36" height="36"/>
+                                        <rect key="frame" x="313" y="36" width="42" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="FaI-Xu-9yY"/>
-                                            <constraint firstAttribute="width" constant="36" id="g8V-13-QNi"/>
+                                            <constraint firstAttribute="height" constant="42" id="FaI-Xu-9yY"/>
+                                            <constraint firstAttribute="width" constant="42" id="g8V-13-QNi"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bE9-O6-w9V">
-                                        <rect key="frame" x="310" y="19" width="54" height="54"/>
+                                        <rect key="frame" x="302.5" y="25.5" width="63" height="63"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="showMenu:" destination="Y4o-Ot-Hoh" eventType="touchUpInside" id="iol-Xe-KNj"/>
                                         </connections>
@@ -68,12 +79,12 @@
                                     <constraint firstItem="bE9-O6-w9V" firstAttribute="height" secondItem="SXu-VK-YbB" secondAttribute="height" multiplier="1.5" id="6dE-g7-CYk"/>
                                     <constraint firstItem="PDl-VX-F99" firstAttribute="centerX" secondItem="whq-g7-neK" secondAttribute="centerX" id="6yP-lX-Aw3"/>
                                     <constraint firstItem="PDl-VX-F99" firstAttribute="width" secondItem="whq-g7-neK" secondAttribute="width" id="86j-jL-9kc"/>
+                                    <constraint firstItem="1Rk-n9-dAq" firstAttribute="top" secondItem="whq-g7-neK" secondAttribute="top" constant="42" id="FO2-3t-LRV"/>
+                                    <constraint firstItem="1Rk-n9-dAq" firstAttribute="leading" secondItem="whq-g7-neK" secondAttribute="leading" constant="20" id="FYZ-Lu-93a"/>
                                     <constraint firstItem="PDl-VX-F99" firstAttribute="height" secondItem="whq-g7-neK" secondAttribute="height" id="NZn-hr-2eG"/>
                                     <constraint firstItem="bE9-O6-w9V" firstAttribute="centerX" secondItem="SXu-VK-YbB" secondAttribute="centerX" id="TgC-wY-PtH"/>
                                     <constraint firstAttribute="trailing" secondItem="SXu-VK-YbB" secondAttribute="trailing" constant="20" id="X2U-nr-9jH"/>
-                                    <constraint firstItem="bE9-O6-w9V" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Rk-n9-dAq" secondAttribute="trailing" constant="20" id="Yu6-lX-URK"/>
                                     <constraint firstAttribute="height" constant="192" id="aWj-TI-Nfh"/>
-                                    <constraint firstItem="1Rk-n9-dAq" firstAttribute="top" secondItem="whq-g7-neK" secondAttribute="top" constant="34" id="c2g-Ou-R13"/>
                                     <constraint firstItem="1Rk-n9-dAq" firstAttribute="centerX" secondItem="whq-g7-neK" secondAttribute="centerX" id="eR4-ox-zAI"/>
                                     <constraint firstAttribute="trailing" secondItem="8NO-f7-jeX" secondAttribute="trailing" constant="8" id="fSU-UM-giW"/>
                                     <constraint firstItem="PDl-VX-F99" firstAttribute="centerY" secondItem="whq-g7-neK" secondAttribute="centerY" id="faI-Jp-WRe"/>
@@ -265,7 +276,7 @@
                                     <outlet property="delegate" destination="nqi-1T-dTg" id="tmk-if-EnH"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sew-gA-pil" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sew-gA-pil" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -332,7 +343,6 @@
     <resources>
         <image name="back-button" width="12" height="19"/>
         <image name="bg_nav" width="375" height="163"/>
-        <image name="navigationbar-color" width="375" height="192"/>
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
 </document>
