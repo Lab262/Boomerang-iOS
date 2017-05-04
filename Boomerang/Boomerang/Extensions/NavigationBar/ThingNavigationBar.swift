@@ -38,15 +38,6 @@ class ThingNavigationBar: UIView {
         
     }
     
-    @IBInspectable var titleTransactionLabelHidden: Bool {
-        get {
-            return titleTransactionLabel.isHidden
-        }
-        set {
-            titleTransactionLabel.isHidden = newValue
-        }
-    }
-    
     @IBInspectable var thingNameLabelHidden: Bool {
         get {
             return thingNameLabel.isHidden
@@ -57,24 +48,5 @@ class ThingNavigationBar: UIView {
         }
     }
     
-    
-    @IBInspectable var containerIconImageHidden: Bool {
-        get {
-            return containerIconImage.isHidden
-        }
-        set {
-            containerIconImage.isHidden = newValue
-            
-        }
-    }
-    @IBInspectable var typeImageHidden: Bool {
-        get {
-            return typeImage.isHidden
-        }
-        set {
-            typeImage.isHidden = newValue
-            
-        }
-    }
    
 }

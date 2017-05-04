@@ -23,7 +23,7 @@ class ThingDetailViewController: UIViewController {
         }
     }
     
-    let tableViewTopInset: CGFloat = 156.0
+    let tableViewTopInset: CGFloat = 98.0
     var presenter = DetailThingPresenter()
     var textFieldHeight: CGFloat = 60
     var composeBarView: PHFComposeBarView?
@@ -84,8 +84,8 @@ class ThingDetailViewController: UIViewController {
     }
     
     func setNavigationInformations(){
-        navigationInformationsView.titleTransactionLabel.text = presenter.getCurrentType()
-        navigationInformationsView.thingNameLabel.text = presenter.getPost().title
+       // navigationInformationsView.titleTransactionLabel.text = presenter.getCurrentType()
+       // navigationInformationsView.thingNameLabel.text = presenter.getPost().title
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
