@@ -84,17 +84,14 @@ static CGFloat kTextViewToSuperviewHeightDelta;
 }
 
 - (BOOL)becomeFirstResponder {
-    
     return [[self textView] becomeFirstResponder];
 }
 
 - (BOOL)canBecomeFirstResponder {
-    
     return [[self textView] canBecomeFirstResponder];
 }
 
 - (BOOL)isFirstResponder {
-    
     return [[self textView] isFirstResponder];
 }
 
@@ -119,10 +116,10 @@ static CGFloat kTextViewToSuperviewHeightDelta;
     [[self topLineView] setFrame:topLineViewFrame];
     
     // Correct background view position:
-    //CGRect backgroundViewFrame = [[self backgroundView] frame];
-    //backgroundViewFrame.size.height = [self bounds].size.height;
-    //backgroundViewFrame.origin.y = 0.5f;
-    //[[self backgroundView] setFrame:backgroundViewFrame];
+    CGRect backgroundViewFrame = [[self backgroundView] frame];
+    backgroundViewFrame.size.height = [self bounds].size.height;
+    backgroundViewFrame.origin.y = 0.5f;
+    [[self backgroundView] setFrame:backgroundViewFrame];
     
     [self updateCharCountLabel];
     [self resizeTextViewIfNeededAnimated:NO];
@@ -132,25 +129,6 @@ static CGFloat kTextViewToSuperviewHeightDelta;
 
 - (void)textViewDidChange:(UITextView *)textView {
     [self handleTextViewChangeAnimated:NO];
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    [self.button removeFromSuperview];
-    self.textContainer.frame = CGRectMake(kHorizontalSpacing,
-                                          kTextContainerTopMargin,
-                                          [self bounds].size.width - kHorizontalSpacing * 3 - kButtonRightMargin,
-                                          [self bounds].size.height - kTextContainerTopMargin - kTextContainerBottomMargin);
-}
-
-- (void)textViewDidBeginEditing:(UITextView *)textView {
-    [self addSubview:[self button]];
-    CGRect frame = CGRectMake([self bounds].size.width - kHorizontalSpacing - kButtonRightMargin - kButtonTouchableOverlap,
-                              [self bounds].size.height - kButtonBottomMargin - kButtonHeight,
-                              2 * kButtonTouchableOverlap,
-                              kButtonHeight);
-    [_button setFrame:frame];
-    [_button setTitleEdgeInsets:UIEdgeInsetsMake(0.5f, 0, 0, 0)];
-    [self resizeButton];
 }
 
 #pragma mark - Public Properties
@@ -297,9 +275,8 @@ static CGFloat kTextViewToSuperviewHeightDelta;
         CGRect frame = [self bounds];
         frame.origin.y = 0.5f;
         _backgroundView = [[UIToolbar alloc] initWithFrame:frame];
-        //[_backgroundView setBarStyle:UIBarStyleDefault];
-        //_backgroundView.backgroundColor = [UIColor clearColor];
-        //[_backgroundView setTranslucent:YES];
+        [_backgroundView setBarStyle:UIBarStyleDefault];
+        [_backgroundView setTranslucent:YES];
         [_backgroundView setTintColor:[UIColor whiteColor]];
         [_backgroundView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     }
@@ -310,11 +287,15 @@ static CGFloat kTextViewToSuperviewHeightDelta;
 @synthesize button = _button;
 - (UIButton *)button {
     if (!_button) {
+        
         _button = [PHFComposeBarView_Button buttonWithType:UIButtonTypeCustom];
+        
+        
         CGRect frame = CGRectMake([self bounds].size.width - kHorizontalSpacing - kButtonRightMargin - kButtonTouchableOverlap,
                                   [self bounds].size.height - kButtonBottomMargin - kButtonHeight,
                                   2 * kButtonTouchableOverlap,
                                   kButtonHeight);
+        
         [_button setFrame:frame];
         [_button setTitleEdgeInsets:UIEdgeInsetsMake(0.5f, 0, 0, 0)];
         [_button setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleTopMargin];
@@ -324,6 +305,7 @@ static CGFloat kTextViewToSuperviewHeightDelta;
         [_button setTitleColor:disabledColor forState:UIControlStateDisabled];
         UIColor *enabledColor = [UIColor colorWithHue:211.0f/360.0f saturation:1.0f brightness:1.0f alpha:1.0f];
         [_button setTitleColor:enabledColor forState:UIControlStateNormal];
+        
         [_button addTarget:self action:@selector(didPressButton) forControlEvents:UIControlEventTouchUpInside];
         
         UILabel *label = [_button titleLabel];
@@ -363,20 +345,14 @@ static CGFloat kTextViewToSuperviewHeightDelta;
                                                [self bounds].size.height - kTextContainerTopMargin - kTextContainerBottomMargin);
         _textContainer = [[UIView alloc] initWithFrame:textContainerFrame];
         [_textContainer setClipsToBounds:YES];
-        
-        
-        // _textContainer.backgroundColor = [UIColor colorWith]
-        
-        _textContainer.backgroundColor = [[self colorFromHexString:@"#EBEBEB"] colorWithAlphaComponent:0.44f];
-        
+        [_textContainer setBackgroundColor:[UIColor colorWithWhite:0.98f alpha:1.0f]];
         [_textContainer setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         
-        
         CALayer *layer = [_textContainer layer];
-        UIColor *borderColor = [UIColor clearColor];
+        UIColor *borderColor = [UIColor colorWithHue:240.0f/360.0f saturation:0.02f brightness:0.8f alpha:1.0f];
         [layer setBorderColor:[borderColor CGColor]];
-        // [layer setBorderWidth:0.5f];
-        [layer setCornerRadius:6.0f];
+        [layer setBorderWidth:0.5f];
+        [layer setCornerRadius:kTextContainerCornerRadius];
         
         CGFloat textHeight = [self textHeight];
         [self setPreviousTextHeight:textHeight];
@@ -403,7 +379,7 @@ static CGFloat kTextViewToSuperviewHeightDelta;
 
 @synthesize textView = _textView;
 - (UITextView *)textView {
-    if (!_textView){
+    if (!_textView) {
         _textView = [[PHFComposeBarView_TextView alloc] initWithFrame:CGRectZero];
         [_textView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         [_textView setScrollIndicatorInsets:UIEdgeInsetsMake(8.0f, 0.0f, 8.0f, 0.5f)];
@@ -468,8 +444,6 @@ static CGFloat kTextViewToSuperviewHeightDelta;
 }
 
 - (void)didPressButton {
-    
-    
     if ([[self delegate] respondsToSelector:@selector(composeBarViewDidPressButton:)])
         [[self delegate] composeBarViewDidPressButton:self];
 }
@@ -638,13 +612,13 @@ static CGFloat kTextViewToSuperviewHeightDelta;
     
     [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin];
     
-    //[self addSubview:[self topLineView]];
-    //[self addSubview:[self backgroundView]];
+    [self addSubview:[self topLineView]];
+    [self addSubview:[self backgroundView]];
     [self addSubview:[self charCountLabel]];
-    // [self addSubview:[self button]];
+    [self addSubview:[self button]];
     [self addSubview:[self textContainer]];
     
-    // [self resizeButton];
+    [self resizeButton];
 }
 
 - (void)setupDelegateChainForTextView {
@@ -713,14 +687,6 @@ static CGFloat kTextViewToSuperviewHeightDelta;
     [self scrollToCaretIfNeeded];
     [self updateCharCountLabel];
     [self updateButtonEnabled];
-}
-
-- (UIColor *)colorFromHexString:(NSString *)hexString {
-    unsigned rgbValue = 0;
-    NSScanner *scanner = [NSScanner scannerWithString:hexString];
-    [scanner setScanLocation:1]; // bypass '#' character
-    [scanner scanHexInt:&rgbValue];
-    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
 
 @end

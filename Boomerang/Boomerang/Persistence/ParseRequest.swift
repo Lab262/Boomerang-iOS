@@ -114,6 +114,35 @@ class ParseRequest: NSObject {
         }
     }
     
+    static func queryEqualToValueNotContained(className: String, queryParams: [String: Any], notContainedIds: [String], includes: [String]?, selectKeys: [String]? = nil, pagination: Int? = 100, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+        
+        let query = PFQuery(className: className)
+        query.whereKey("objectId", notContainedIn: notContainedIds)
+        query.limit = pagination!
+        query.order(byDescending: "createdAt")
+       
+        for queryParam in queryParams {
+            query.whereKey(queryParam.key, equalTo: queryParam.value)
+        }
+        if let keys = selectKeys {
+            query.selectKeys(keys)
+        }
+        
+        if let allIncludes = includes {
+            for include in allIncludes {
+                query.includeKey(include)
+            }
+        }
+        query.findObjectsInBackground { (objects, error) in
+            
+            if error == nil {
+                completionHandler(true, "Success", objects)
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        }
+    }
+
     static func queryEqualToValue(className: String, queryParams: [String: Any], includes: [String]?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
 //        let query = PFQuery(className: className)
@@ -166,6 +195,8 @@ class ParseRequest: NSObject {
             let query = PFQuery(className: className)
             query.skip = skip!
             query.limit = pagination!
+            query.order(byDescending: "createdAt")
+           // query.order(byAscending: "createdAt")
             for queryParam in queryParams {
                 query.whereKey(queryParam.key, equalTo: queryParam.value)
             }

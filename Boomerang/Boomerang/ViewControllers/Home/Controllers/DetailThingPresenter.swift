@@ -12,6 +12,7 @@ import Parse
 
 protocol DetailThingDelegate {
     func reload()
+    var commentCount: Int? {set get}
     func showMessage(isSuccess: Bool, msg: String)
     var interestedTitleButton: String? {set get}
 }
@@ -52,30 +53,6 @@ class DetailThingPresenter: NSObject {
         return interestedListTitleButton
     }
     
-    func authorPostIsCurrent() -> Bool {
-        if getPost().author?.objectId == self.user?.profile?.objectId {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func updateComments() {
-        self.skip = self.comments.endIndex
-        CommentRequest.fetchCommentsBy(post: self.post!, pagination: pagination, skip: self.skip) { (success, msg, comments) in
-            if success {
-                for comment in comments! {
-                    self.comments.append(comment)
-                }
-                self.view?.reload()
-                self.currentCommentsCount = self.getComments().count
-                
-            } else {
-                self.view?.showMessage(isSuccess: false, msg: msg)
-            }
-        }
-    }
-    
     func getComments() -> [Comment] {
         return comments
     }
@@ -111,16 +88,54 @@ class DetailThingPresenter: NSObject {
         }
     }
     
-    func saveComment(comment: Comment) {
-        CommentRequest.saveComment(comment: comment) { (success, msg) in
+    func authorPostIsCurrent() -> Bool {
+        if getPost().author?.objectId == self.user?.profile?.objectId {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+ 
+    
+    func getLastsComments(isUpdate: Bool = false) {
+        CommentRequest.fetchCommentsBy(post: self.post!, commentsObject: self.comments, pagination: pagination) { (success, msg, comments) in
             if success {
-                self.skip = self.comments.endIndex
-                self.updateComments()
+                for comment in comments! {
+                    if isUpdate {
+                        self.comments.insert(comment, at: 0)
+                    } else {
+                        self.comments.append(comment)
+                    }
+                }
+                self.view?.reload()
+                self.currentCommentsCount = self.getComments().count
+                
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }
         }
-
+    }
+    
+    func getCommentCounts() {
+        CommentRequest.getCommentsCount(by: self.post!) { (success, msg, count) in
+            if success {
+                self.view?.commentCount = count
+            } else {
+                self.view?.showMessage(isSuccess: false, msg: msg)
+            }
+        }
+    }
+    
+    func saveComment(comment: Comment) {
+        comment.saveObjectInBackground { (success, msg) in
+            if success {
+                self.skip = self.comments.endIndex
+                self.getLastsComments(isUpdate: true)
+            } else {
+                self.view?.showMessage(isSuccess: false, msg: msg)
+            }
+        }
     }
     
     func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
@@ -159,7 +174,7 @@ class DetailThingPresenter: NSObject {
         }
     }
     
-    func alreadyInterested() {
+    func alreadyInterested(){
         PostRequest.verifyAlreadyInterestedFor(currentProfile: user!.profile!, post: post!) { (success, msg, alreadyInterested) in
             
             if success {
@@ -171,7 +186,6 @@ class DetailThingPresenter: NSObject {
     }
     
     func createComment(text: String) {
-        
         let comment = Comment(post: self.post!, content: text, author: (self.user?.profile)!)
         
         saveComment(comment: comment)
@@ -180,7 +194,6 @@ class DetailThingPresenter: NSObject {
 
     
     func getRelationsImages(success: Bool){
-        
         if !success {
             PostRequest.getRelationsInBackground(post: post!, completionHandler: { (success, msg) in
                 if success {
