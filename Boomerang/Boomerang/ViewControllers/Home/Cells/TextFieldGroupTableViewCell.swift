@@ -79,6 +79,7 @@ class TextFieldGroupTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         configureNotications()
         
         let viewBounds = self.bounds
@@ -91,6 +92,7 @@ class TextFieldGroupTableViewCell: UITableViewCell {
         composeBarView?.delegate = self
         
         initializeContainer()
+        
         
         let container = self.container
         container?.addSubview(composeBarView!)
@@ -130,9 +132,5 @@ extension TextFieldGroupTableViewCell: PHFComposeBarViewDelegate {
         
         textView.contentInset = insets
         textView.scrollIndicatorInsets = insets
-        
-        
-        
-        
     }
 }

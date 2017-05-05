@@ -28,9 +28,9 @@ class ThingDetailViewController: UIViewController {
     var presenter = DetailThingPresenter()
     var textFieldHeight: CGFloat = 60
     var composeBarView: PHFComposeBarView?
+    var initialViewFrame = CGRect(x: 0.0, y: 667 - 60, width: 320.0, height: 60.0)
     var container: UIView?
     var keyboardFrameSize: CGRect?
-    var initialViewFrame: CGRect?
     var currentCommentsCount = 0
     
     var inputFieldsCondition = [(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: "Posso trocar/emprestar", descriptionCondition: "Tenho uma mesa de ping pong aqui parada. ou então bora conversar.", constraintIconWidth: 14.0, constraintIconHeight: 15.0), (iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: "Tempo que preciso emprestado", descriptionCondition: "1 semana, mas a gente conversa.", constraintIconWidth: 16.0, constraintIconHeight: 16.0), (iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: "Local de retirada", descriptionCondition: "Qualquer lugar em Brasília.", constraintIconWidth: 15.0, constraintIconHeight: 18.0)]
@@ -43,6 +43,11 @@ class ThingDetailViewController: UIViewController {
         presenter.updateComments()
     }
     
+    func initializeContainer() {
+        container = UIView(frame: initialViewFrame)
+        container?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+
 
     func registerNibs(){
         tableView.registerNibFrom(PhotoThingTableViewCell.self)
@@ -68,6 +73,8 @@ class ThingDetailViewController: UIViewController {
         configureTableView()
         setNavigationInformations()
         navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+        //initializeContainer()
+        //setupTextViewBar()
     }
     
     func backView(_ sender: UIButton) {
@@ -89,6 +96,22 @@ class ThingDetailViewController: UIViewController {
         }
     }
     
+    func setupTextViewBar(){
+        let viewBounds = self.view.bounds
+        let frame = CGRect(x: 0.0, y: (container?.frame.origin.y)!, width: viewBounds.size.width, height: PHFComposeBarViewInitialHeight)
+        
+        composeBarView = PHFComposeBarView(frame: frame)
+        composeBarView?.maxCharCount = 160
+        composeBarView?.maxLinesCount = 5
+        composeBarView?.placeholder = "Comente"
+        composeBarView?.delegate = self
+        
+        container?.addSubview(composeBarView!)
+        container?.backgroundColor = .red
+        composeBarView?.backgroundColor = .blue
+        self.view.addSubview(container!)
+    }
+    
     func setNavigationInformations(){
        // navigationInformationsView.titleTransactionLabel.text = presenter.getCurrentType()
        // navigationInformationsView.thingNameLabel.text = presenter.getPost().title
@@ -101,7 +124,7 @@ class ThingDetailViewController: UIViewController {
             if self.firstButton.currentTitle == presenter.getEnterInterestedTitleButton() {
                 presenter.enterInterestedList()
             } else {
-                presenter.enterInterestedList()
+                presenter.exitInterestedList()
             }
         }
     }
@@ -132,7 +155,6 @@ class ThingDetailViewController: UIViewController {
         } else {
             cell.presenter.downloadImagesPost(success: true)
         }
-        
         
         return cell
     }
@@ -295,3 +317,23 @@ extension ThingDetailViewController: DetailThingDelegate {
         present(ViewUtil.alertControllerWithTitle(title: title, withMessage: msg), animated: true, completion: nil)
     }
 }
+
+extension ThingDetailViewController: PHFComposeBarViewDelegate {
+    
+    func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
+        if composeBarView.text != "" {
+            //delegate?.sendTextByField(text: composeBarView.text)
+        }
+        composeBarView.setText("", animated: true)
+        composeBarView.resignFirstResponder()
+    }
+    
+    func composeBarView(_ composeBarView: PHFComposeBarView!, willChangeFromFrame startFrame: CGRect, toFrame endFrame: CGRect, duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
+        
+        let insets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: endFrame.size.height, right: 0.0)
+        
+       // textView.contentInset = insets
+        //textView.scrollIndicatorInsets = insets
+    }
+}
+

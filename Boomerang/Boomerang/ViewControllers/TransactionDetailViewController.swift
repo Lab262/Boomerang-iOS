@@ -12,6 +12,9 @@ class TransactionDetailViewController: UIViewController {
 
     let tableViewTopInset: CGFloat = 131.0
     
+    @IBOutlet weak var navigationBar: ThingBar!
+    
+    
     @IBOutlet weak var finalizeButton: UIButton!
     
     var presenter: TransactionDetailPresenter = TransactionDetailPresenter()
@@ -27,6 +30,15 @@ class TransactionDetailViewController: UIViewController {
         registerNib()
         configureTableView()
         setupPresenterDelegate()
+        setupPopoverAction()
+    }
+    
+    func setupPopoverAction(){
+        navigationBar.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+    }
+    
+    func backView(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func setupPresenterDelegate() {

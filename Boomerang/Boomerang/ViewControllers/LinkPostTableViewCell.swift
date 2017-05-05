@@ -10,11 +10,9 @@ import UIKit
 
 class LinkPostTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var showPostButton: UIButton!
     @IBOutlet weak var datePostLabel: UILabel!
-    
     
     static var identifier: String {
         return "linkPostCell"
