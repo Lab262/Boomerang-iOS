@@ -10,8 +10,13 @@ import UIKit
 
 class TransactionMainViewController: UIViewController {
     
-    var segmentSelected: Int?
+    var segmentSelected: Int? {
+        didSet {
+            setFontButtonBySegmentSelected()
+        }
+    }
     var segmentControlButtonDelegate: SegmentControlButtonDelegate?
+    @IBOutlet weak var navigationBar: IconNavigationBar!
     
     @IBOutlet weak var viewLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewCenterConstraint: NSLayoutConstraint!
@@ -30,6 +35,36 @@ class TransactionMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.segmentSelected = 0
+        navigationBar.leftButtonIcon.isHidden = true
+    }
+    
+    func setFontButtonBySegmentSelected(){
+        switch segmentSelected! {
+        case 0:
+            loanTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
+            loanTransactionButton.alpha = 1.0
+            exchangeTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+            exchangeTransactionButton.alpha = 0.56
+            donationTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+            donationTransactionButton.alpha = 0.56
+            
+        case 1:
+            exchangeTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
+            exchangeTransactionButton.alpha = 1.0
+            loanTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+            loanTransactionButton.alpha = 0.56
+            donationTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+            donationTransactionButton.alpha = 0.56
+        case 2:
+            donationTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
+            donationTransactionButton.alpha = 1.0
+            loanTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+            loanTransactionButton.alpha = 0.56
+            exchangeTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+            exchangeTransactionButton.alpha = 0.56
+        default:
+            break
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

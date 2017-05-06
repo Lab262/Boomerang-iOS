@@ -41,8 +41,8 @@ class ChatTableViewCell: UITableViewCell {
             self.setupMyMessageStyle()
             
         } else {
-            self.setupMyMessageStyle()
-            //self.setupFriendMessageStyle()
+            //self.setupMyMessageStyle()
+            self.setupFriendMessageStyle()
         }
         super.layoutSubviews()
     }
@@ -62,10 +62,10 @@ class ChatTableViewCell: UITableViewCell {
         
         self.chatMessageContainer.backgroundColor = UIColor.friendMessageChatBackgroundColor
         self.chatMessageLabel.textColor = UIColor.friendMessageChatTextColor
-        self.chatContainerTrailingConstraintMyMessage.isActive = false
-        self.chatContainerLeadingConstraintMyMessage.isActive = false
-        self.chatContainerTrailingConstraintFriendMessage.isActive = true
-        self.chatContainerLeadingConstraintFriendMessage.isActive = true
+        self.chatContainerTrailingConstraintFriendMessage.isActive = false
+        self.chatContainerLeadingConstraintFriendMessage.isActive = false
+        self.chatContainerTrailingConstraintMyMessage.isActive = true
+        self.chatContainerLeadingConstraintMyMessage.isActive = true
         self.layoutIfNeeded()
     }
     

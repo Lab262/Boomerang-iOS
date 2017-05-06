@@ -13,14 +13,14 @@ class Comment: PFObject {
     
     @NSManaged var post: Post?
     @NSManaged var content: String?
-    @NSManaged var author: User?
+    @NSManaged var author: Profile?
     @NSManaged var createdDate: Date?
     
     override init(){
         super.init()
     }
     
-    init(post: Post, content: String, author: User) {
+    init(post: Post, content: String, author: Profile) {
         super.init()
         self.post = post
         self.content = content
@@ -29,23 +29,19 @@ class Comment: PFObject {
     
     convenience init(object: PFObject) {
         self.init()
-        
         setInformationsUserByPFObject(object: object)
     }
     
-    
     func setInformationsUserByPFObject(object: PFObject){
-        
         self.objectId = object.objectId
         self.createdDate = object.createdAt
         
         if let content = object["content"] as? String {
-            
             self.content = content
         }
         
-        if let author = object["author"] as? User {
-            self.author = User(user: author)
+        if let author = object["author"] as? Profile {
+            self.author = Profile(object: author)
         }
     }
 }

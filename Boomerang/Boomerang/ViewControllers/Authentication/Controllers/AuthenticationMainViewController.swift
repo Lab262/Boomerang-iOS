@@ -12,15 +12,88 @@ import ParseFacebookUtilsV4
 
 
 class AuthenticationMainViewController: UIViewController {
-
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
+    let defaultTextTitleWelcome = "Bem vindo"
+    let defaultTextDescriptionWelcome = " a rede social mais amorzinho que você respeita"
+    let defaultSizeFontWelcomeLabel:CGFloat = 13
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCustomLabel()
+    }
+    
+    func setupCustomLabel(){
+        let textWelcomeLabel = NSMutableAttributedString(string: defaultTextTitleWelcome, attributes: [NSForegroundColorAttributeName: UIColor.yellowBoomerColor, NSFontAttributeName: UIFont.montserratBold(size: defaultSizeFontWelcomeLabel)])
+        let textWelcomeDescriptionLabel = NSMutableAttributedString(string: defaultTextDescriptionWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratLight(size: defaultSizeFontWelcomeLabel)])
+        
+        textWelcomeLabel.append(textWelcomeDescriptionLabel)
 
-        // Do any additional setup after loading the view.
+        self.welcomeLabel.attributedText = textWelcomeLabel
+    }
+    
+//    @IBAction func signInAction(_ sender: Any) {
+//        let permissions = ["public_profile", "email","user_friends"]
+//        
+//        PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
+//            
+//            if let user = user {
+//                if user.isNew {
+//                    self.updateUserByFacebook()
+//                } else {
+//                   self.showHomeVC()
+//                }
+//            }
+//        }
+//    }
+//    
+//    
+//    @IBAction func signUpAction(_ sender: Any) {
+//        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+//        
+//        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+//            
+//            if error == nil {
+//                self.view.loadAnimation()
+//                let fbloginresult : FBSDKLoginManagerLoginResult = result!
+//                
+//                if (result?.isCancelled)! {
+//                    self.view.unload()
+//                    return
+//                }
+//                
+//                if(fbloginresult.grantedPermissions.contains("email")) {
+//                    self.returnUserData()
+//                }
+//            } else {
+//               // error
+//            }
+//            
+//        }
+//    }
+    
+    func getPhotoOfFacebookInPFFile (userId: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ file: PFFile?) -> ()) {
+        var photoInPFFile: PFFile?
+        
+        DispatchQueue.main.async {
+            if let url = URL(string: "https://graph.facebook.com/" + userId + "/picture?type=large") {
+                do {
+                    let contents = try Data(contentsOf: url)
+                    photoInPFFile = PFFile(data: contents)
+                    completionHandler(true, "success", photoInPFFile)
+                } catch {
+                    // contents could not be loaded
+                    completionHandler(false, "error", nil)
+                }
+            } else {
+                completionHandler(false, "error", nil)
+            }
+        }
     }
     
     
-    @IBAction func signInAction(_ sender: Any) {
+    @IBAction func facebookAction(_ sender: Any) {
         let permissions = ["public_profile", "email","user_friends"]
         
         PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
@@ -29,72 +102,7 @@ class AuthenticationMainViewController: UIViewController {
                 if user.isNew {
                     self.updateUserByFacebook()
                 } else {
-                   self.showHomeVC()
-                }
-            }
-        }
-    }
-    
-    
-    @IBAction func signUpAction(_ sender: Any) {
-        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-            
-            if error == nil {
-                self.view.loadAnimation()
-                let fbloginresult : FBSDKLoginManagerLoginResult = result!
-                
-                if (result?.isCancelled)! {
-                    self.view.unload()
-                    return
-                }
-                
-                if(fbloginresult.grantedPermissions.contains("email")) {
-                    self.returnUserData()
-                }
-            } else {
-               // error
-            }
-            
-        }
-    }
-    
-    func getPhotoOfFacebookInPFFile (userId: String) -> PFFile? {
-        var photoInPFFile: PFFile?
-        
-        DispatchQueue.main.async {
-            if let url = URL(string: "https://graph.facebook.com/" + userId + "/picture?type=large") {
-                do {
-                    let contents = try Data(contentsOf: url)
-                    photoInPFFile = PFFile(data: contents)
-                } catch {
-                    // contents could not be loaded
-                }
-            } else {
-                // the URL was bad!
-            }
-        }
-        return photoInPFFile
-    }
-    
-    
-    @IBAction func facebookAction(_ sender: Any) {
-        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-            
-            
-            if error == nil {
-                self.view.loadAnimation()
-                let fbloginresult : FBSDKLoginManagerLoginResult = result!
-                
-                if (result?.isCancelled)! {
-                    self.view.unload()
-                    return
-                }
-                if(fbloginresult.grantedPermissions.contains("email")) {
-                    self.returnUserData()
+                    self.showHomeVC()
                 }
             }
         }
@@ -104,6 +112,7 @@ class AuthenticationMainViewController: UIViewController {
         let requestParameters = ["fields": "id, email, first_name, last_name"]
         let userDetails = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters)
         let newUser = PFUser.current()!
+        let profile = PFObject(className: "Profile")
         userDetails!.start { (connection, result, error) -> Void in
             
             if error != nil {
@@ -116,34 +125,43 @@ class AuthenticationMainViewController: UIViewController {
                     if let firstName = data["first_name"] as? String {
                         newUser.setObject(firstName, forKey: "username")
                         newUser.setObject(firstName, forKey: "firstName")
+                        profile.setObject(firstName, forKey: "firstName")
                     }
                     
                     if let lastName = data["last_name"] as? String {
                         newUser.setObject(lastName, forKey: "lastName")
+                        profile.setObject(lastName, forKey: "lastName")
                     }
                     
                     if let email = data ["email"] as? String {
                         newUser.setObject(email, forKey: "email")
+                        profile.setObject(email, forKey: "email")
                     }
+                    
                     if let userId = data["id"] as? String {
-                        if let userPhoto = self.getPhotoOfFacebookInPFFile(userId: userId) {
-                            newUser.setObject(userPhoto, forKey: "photo")
-                        }
+                        self.getPhotoOfFacebookInPFFile(userId: userId, completionHandler: { (success, msg, userPhoto) in
+                            if success {
+                                profile.setObject(userPhoto!, forKey: "photo")
+                                newUser.setObject(userPhoto!, forKey: "photo")
+                                newUser.setObject(profile, forKey: "profile")
+                                newUser.saveInBackground(block: { (success, error) in
+                                    if success {
+                                        self.showHomeVC()
+                                    } else {
+                                        print ("ERROR SAVE")
+                                    }
+                                })
+                            } else {
+                                print ("ERROR PHOTO")
+                            }
+                        })
                     }
                 }
-                newUser.saveInBackground(block: { (success, error) in
-                    if success {
-                        self.showHomeVC()
-                    }
-                })
             }
         }
     }
-
   
-    
     func showHomeVC() {
-       
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vcToShow = storyboard.instantiateInitialViewController()!
         self.present(vcToShow, animated: true, completion: nil)
@@ -174,7 +192,7 @@ extension AuthenticationMainViewController {
                             
                         }else {
                             self.view.unload()
-                            self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
+                            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)
                         }                    })
                     
                 }

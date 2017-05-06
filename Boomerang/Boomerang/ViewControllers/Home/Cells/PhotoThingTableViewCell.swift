@@ -25,17 +25,16 @@ class PhotoThingTableViewCell: UITableViewCell {
     }
     
     @IBOutlet weak var viewPages: UIView!
-    
     var pageIndicatorView: PageIndicatorView?
-    
-    var presenter: DetailThingPresenter = DetailThingPresenter()
+    var presenter: PhotoThingPresenter = PhotoThingPresenter()
    
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNib()
         ApplicationState.sharedInstance.delegate = self
-        presenter.setControllerDelegate(controller: self)
+        presenter.setViewDelegate(view: self)
         initializePageIndicatorView()
+        (photoCollectionView.collectionViewLayout as! CenterCellCollectionViewFlowLayout).centerCellInset = CGPoint(x: 15, y: 0)
     }
     
     func registerNib(){
@@ -57,6 +56,7 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoThingCollectionViewCell.identifier, for: indexPath) as! PhotoThingCollectionViewCell
+        
         
         cell.thingImage.image = presenter.getImagePostByIndex(indexPath.row)
         
@@ -118,15 +118,14 @@ extension PhotoThingTableViewCell: UpdatePostDelegate {
     }
 }
 
-extension PhotoThingTableViewCell: ViewDelegate {
+extension PhotoThingTableViewCell: PhotoThingDelegate {
     
     func reload() {
-        
         photoCollectionView.reloadData()
         pageIndicatorView?.reload()
     }
     
-    func showMessageError(msg: String) {
+    func showMessage(msg: String) {
         
     }
 }

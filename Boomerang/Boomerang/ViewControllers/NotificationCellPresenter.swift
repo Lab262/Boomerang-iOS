@@ -40,13 +40,13 @@ class NotificationCellPresenter: NSObject {
         return self.user
     }
     
-    func getNotificationSender() -> User {
+    func getNotificationSender() -> Profile {
         return notification!.sender!
     }
     
     func getImageOfUser(){
         view?.startLoadingPhoto()
-        getNotificationSender().getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+        getNotificationSender().getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
             if success {
                 self.view?.photo = UIImage(data: data!)
             } else {

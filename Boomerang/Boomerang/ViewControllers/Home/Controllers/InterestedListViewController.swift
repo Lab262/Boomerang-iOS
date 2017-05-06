@@ -13,17 +13,16 @@ class InterestedListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var presenter: InterestedPresenter = InterestedPresenter()
     let tableViewTopInset: CGFloat = 94.0
+    let tableViewBottomInset: CGFloat = 40.0
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.hideTabBar()
-        presenter.setControllerDelegate(controller: self)
-        self.view.loadAnimation()
-        updateInteresteds()
     }
     
     
     func configureTableView(){
-        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
+        
+        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, tableViewBottomInset, 0)
         tableView.tableFooterView = refreshIndicatorInTableViewFooter()
     }
     
@@ -31,15 +30,21 @@ class InterestedListViewController: UIViewController {
         tableView.registerNibFrom(InterestedTableViewCell.self)
     }
     
+    func setupPresenterDelegate(){
+        presenter.setViewDelegate(view: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNib()
         configureTableView()
+        updateInteresteds()
+        setupPresenterDelegate()
     }
     
     func refreshIndicatorInTableViewFooter() -> UIView {
         let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
-        viewIndicator.backgroundColor = UIColor.white
+        viewIndicator.backgroundColor = UIColor.clear
         return viewIndicator
     }
     
@@ -50,6 +55,12 @@ class InterestedListViewController: UIViewController {
     func createScheme(_ sender: UIButton) {
         presenter.setInterested(interested: presenter.getInteresteds()[sender.tag])
         presenter.createScheme()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? MessagesChatViewController {
+            controller.chat = presenter.getChat()
+        }
     }
 }
 
@@ -77,7 +88,8 @@ extension InterestedListViewController : UITableViewDataSource {
 extension InterestedListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        presenter.setInterested(interested: presenter.getInteresteds()[indexPath.row])
+        presenter.fetchChat()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -97,20 +109,30 @@ extension InterestedListViewController: UIScrollViewDelegate {
     }
 }
 
-extension InterestedListViewController: ViewDelegate {
+extension InterestedListViewController: InterestedDelegate {
     
     func reload() {
         if presenter.getInteresteds().count != presenter.getCurrentInterestedsCount() {
             tableView.reloadData()
         }
-        
-        self.view.unload()
         tableView.tableFooterView?.unload()
     }
     
-    func showMessageError(msg: String) {
+    func showMessage(msg: String) {
         self.view.unload()
-        self.present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
+        self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)
+    }
+    
+    func startingLoadingView() {
+        view.loadAnimation()
+    }
+    
+    func finishLoadingView() {
+        view.unload()
+    }
+    
+    func pushForChatView() {
+        performSegue(withIdentifier: SegueIdentifiers.interestedToChat, sender: self)
     }
 }
 

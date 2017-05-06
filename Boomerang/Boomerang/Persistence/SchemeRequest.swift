@@ -11,7 +11,7 @@ import Parse
 
 class SchemeRequest: NSObject {
     
-    static func createScheme(requester: User, owner: User, chat: Chat, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    static func createScheme(requester: Profile, owner: Profile, chat: Chat, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         let scheme = PFObject(className: "Scheme")
         scheme["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
@@ -28,19 +28,18 @@ class SchemeRequest: NSObject {
         }
     }
     
-    static func getSchemesForUser(owner: User, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
+    static func getSchemesForUser(owner: Profile, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
         
         var schemes = [Scheme]()
         var queryParams = [String : Any]()
         queryParams["owner"] = owner
+        queryParams["requester"] = owner
         
-        ParseRequest.queryEqualToValue(className: "Scheme", queryParams: queryParams, includes: ["requester", "post"], selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: "Scheme", queryParams: queryParams, includes: ["requester", "owner", "post"], selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {
                 for obj in objects! {
                     let scheme = Scheme(object: obj)
-                    scheme.owner = owner
-                    scheme.post?.author = owner
                     schemes.append(scheme)
                 }
                 completionHandler(success, msg, schemes)

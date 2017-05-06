@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window!.rootViewController = self.setInitialStoryboardBySeasonUser()
         
-        NotificationsManager.shared.registerForLocalNotifications()
+        NotificationsManager.registerForNotifications()
         
         return true
     }

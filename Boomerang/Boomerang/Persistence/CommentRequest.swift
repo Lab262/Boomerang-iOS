@@ -11,21 +11,38 @@ import Parse
 
 class CommentRequest: NSObject {
     
-    static func fetchCommentsBy(post: Post, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Comment]?) -> Void) {
+    static func getCommentsCount(by post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
+        ParseRequest.queryCountContainedIn(className: "Comment", key: "post", value: [post]) { (success, msg, count) in
+            
+            if success {
+                completionHandler(true, msg, count)
+            } else {
+                completionHandler(true, msg, nil)
+            }
+        }
+    }
+    
+    static func fetchCommentsBy(post: Post, commentsObject: [Comment], pagination: Int,  completionHandler: @escaping (_ success: Bool, _ msg: String, [Comment]?) -> Void) {
         
         var comments: [Comment] = [Comment]()
         var queryParams = [String : Any]()
         queryParams["post"] = post
+        var objectIds = [String]()
         
-        ParseRequest.queryEqualToValue(className: "Comment", queryParams: queryParams, includes: ["author"], pagination: pagination, skip: skip) { (success, msg, objects) in
+        commentsObject.forEach {
+           objectIds.append($0.objectId!)
+        }
         
-             if success {
-                 for object in objects! {
+        ParseRequest.queryEqualToValueNotContained(className: "Comment", queryParams: queryParams, notContainedIds: objectIds, includes: ["author"], selectKeys: nil, pagination: pagination) { (success, msg, objects) in
+            
+            if success {
+                for object in objects! {
                     comments.append(Comment(object: object))
-                 }
+                }
                 completionHandler(true, "Success", comments)
-             } else {
-              completionHandler(false, msg.debugDescription, nil)
+            } else {
+                completionHandler(false, msg.debugDescription, nil)
             }
         }
     }

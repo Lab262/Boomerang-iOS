@@ -18,7 +18,6 @@ class TransactionPresenter: NSObject {
     fileprivate var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
-    
     func setViewDelegate(view: ViewDelegate) {
         self.view = view
     }
@@ -45,7 +44,7 @@ class TransactionPresenter: NSObject {
     
     func getTransactions() {
         skipSchemes = schemes.endIndex
-        SchemeRequest.getSchemesForUser(owner: getUser(), pagination: pagination, skip: skipSchemes) { (success, msg, schemes) in
+        SchemeRequest.getSchemesForUser(owner: getUser().profile!, pagination: pagination, skip: skipSchemes) { (success, msg, schemes) in
             if success {
                 for scheme in schemes! {
                     self.schemes.append(scheme)
@@ -54,7 +53,6 @@ class TransactionPresenter: NSObject {
             } else {
                 self.view?.showMessageError(msg: msg)
             }
-            
         }
     }
     

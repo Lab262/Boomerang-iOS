@@ -19,7 +19,7 @@ class Post: PFObject {
     
     @NSManaged var id: String?
     @NSManaged var type: String?
-    @NSManaged var author: User?
+    @NSManaged var author: Profile?
     @NSManaged var title: String?
     @NSManaged var content: String?
     var createdDate: Date?
@@ -60,7 +60,7 @@ class Post: PFObject {
             self.postType = PostType(rawValue: type)
         }
         
-        if let author = object["author"] as? User {
+        if let author = object["author"] as? Profile {
             self.author = author
         }
        

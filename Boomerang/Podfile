@@ -7,7 +7,7 @@ platform :ios, '10.0'
 def common_pods
     inhibit_all_warnings!
     use_frameworks!
-    
+
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'Parse'
@@ -17,7 +17,7 @@ def common_pods
     pod 'Kingfisher', '~> 3.0'
     pod 'PHFComposeBarView', '~> 2.0.1'
     pod 'ImagePicker'
-    
+
 end
 
 target 'lab262.boomerang.test' do

@@ -11,16 +11,25 @@ import Parse
 
 class Follow: PFObject {
     
-    var followers = [User]()
-    @NSManaged var to: [User]
+    var followers = [Profile]()
+    @NSManaged var since: Date?
+    @NSManaged var from: Profile?
+    @NSManaged var to: Profile?
+    var toFollow: [Profile]?
     
     override init(){
         super.init()
     }
     
+    convenience init(from: Profile, to: Profile) {
+        self.init()
+        self.from = from
+        self.to = to
+        self.since = Date()
+    }
+    
     convenience init(object: PFUser) {
         self.init()
-        
         setInformationsUserByPFObject(object: object)
     }
     
@@ -29,8 +38,8 @@ class Follow: PFObject {
         
         self.objectId = object.objectId
         
-        if let follow = object["to"] as? User {
-            to.append(follow)
+        if let follow = object["to"] as? Profile {
+            toFollow?.append(follow)
         }
     }
     

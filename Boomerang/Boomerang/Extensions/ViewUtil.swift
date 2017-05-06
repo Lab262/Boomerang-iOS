@@ -27,9 +27,9 @@ class ViewUtil: NSObject {
     }
     
   
-    static func alertControllerWithTitle (_title: String, _withMessage _message: String) -> UIAlertController {
+    static func alertControllerWithTitle (title: String, withMessage message: String) -> UIAlertController {
         
-        let alert = UIAlertController(title: _title, message: _message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         

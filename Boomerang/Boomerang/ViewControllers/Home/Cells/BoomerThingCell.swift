@@ -43,7 +43,7 @@ class BoomerThingCell: UICollectionViewCell {
         guard let image = thingData.post?.author?.profileImage else {
             profilePhotoImgView.loadAnimation()
             
-            thingData.post?.author?.getDataInBackgroundBy(key: #keyPath(User.imageFile), completionHandler: { (success, msg, data) in
+            thingData.post?.author?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
                 
                 if success {
                     self.thingData.post?.author?.profileImage = UIImage(data: data!)

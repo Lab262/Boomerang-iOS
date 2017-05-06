@@ -88,32 +88,32 @@ class EvaluationViewController: UIViewController {
     
     func keyboardWillShow(notification: NSNotification) {
         if let  obj = notification.userInfo?["UIKeyboardFrameEndUserInfoKey"] {
-            var keyboardFrame = CGRect.null
-            if (obj as AnyObject).responds(to: #selector(NSValue.getValue(_:))) {
-                (obj as AnyObject).getValue(&keyboardFrame)
-                UIView.animate(
-                    withDuration: 0.25,
-                    delay: 0.0,
-                    options: UIViewAnimationOptions(),
-                    animations: {
-                        () -> Void in
-                        self.view.frame.origin.y = -keyboardFrame.size.height
-                },
-                    completion: nil)
-            }
+//            var keyboardFrame = CGRect.null
+//            if (obj as AnyObject).responds(to: #selector(NSValue.getValue(_:))) {
+//                (obj as AnyObject).getValue(&keyboardFrame)
+//                UIView.animate(
+//                    withDuration: 0.25,
+//                    delay: 0.0,
+//                    options: UIViewAnimationOptions(),
+//                    animations: {
+//                        () -> Void in
+//                        self.view.frame.origin.y = -keyboardFrame.size.height
+//                },
+//                    completion: nil)
+//            }
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        UIView.animate(
-            withDuration: 0.25,
-            delay: 0.0,
-            options: UIViewAnimationOptions(),
-            animations: {
-                () -> Void in
-                self.view.frame.origin.y = 0
-        },
-            completion: nil)
+//        UIView.animate(
+//            withDuration: 0.25,
+//            delay: 0.0,
+//            options: UIViewAnimationOptions(),
+//            animations: {
+//                () -> Void in
+//                self.view.frame.origin.y = 0
+//        },
+//            completion: nil)
 
     }
 }

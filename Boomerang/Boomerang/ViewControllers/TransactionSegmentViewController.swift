@@ -24,7 +24,6 @@ class TransactionSegmentViewController: UIViewController {
         super.viewDidLoad()
         presenter.setViewDelegate(view: self)
         presenter.getTransactions()
-
     }
 
 }
@@ -65,7 +64,7 @@ extension TransactionSegmentViewController: ViewDelegate {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.updateSchemes), object: presenter.getSchemes(), userInfo: nil)
     }
     func showMessageError(msg: String) {
-        present(ViewUtil.alertControllerWithTitle(_title: "Erro", _withMessage: msg), animated: true, completion: nil)
+        present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)
     }
 }
 

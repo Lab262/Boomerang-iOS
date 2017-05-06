@@ -9,40 +9,51 @@
 import UIKit
 
 
-protocol UpdateInformationsDelegate {
-    func updateCellBy(height: CGFloat)
-    func sendTextByField(text: String)
-}
-
 class ThingDetailViewController: UIViewController {
     
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
-    @IBOutlet weak var navigationBarView: IconNavigationBar!
     
-    let tableViewTopInset: CGFloat = 156.0
+    @IBOutlet weak var navigationBarView: ThingBar!
+    
+    var commentCount: Int? = 0 {
+        didSet{
+            tableView.reloadData()
+        }
+    }
+    
+    var interestedTitleButton: String? {
+        didSet{
+            firstButton.setTitle(interestedTitleButton, for: .normal)
+        }
+    }
+    
+    let tableViewTopInset: CGFloat = 98.0
     var presenter = DetailThingPresenter()
     var textFieldHeight: CGFloat = 60
     var composeBarView: PHFComposeBarView?
+    var initialViewFrame: CGRect?
     var container: UIView?
     var keyboardFrameSize: CGRect?
-    var initialViewFrame: CGRect?
     var currentCommentsCount = 0
     
     var inputFieldsCondition = [(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: "Posso trocar/emprestar", descriptionCondition: "Tenho uma mesa de ping pong aqui parada. ou então bora conversar.", constraintIconWidth: 14.0, constraintIconHeight: 15.0), (iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: "Tempo que preciso emprestado", descriptionCondition: "1 semana, mas a gente conversa.", constraintIconWidth: 16.0, constraintIconHeight: 16.0), (iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: "Local de retirada", descriptionCondition: "Qualquer lugar em Brasília.", constraintIconWidth: 15.0, constraintIconHeight: 18.0)]
     
     override func viewWillAppear(_ animated: Bool) {
-        
         TabBarController.mainTabBarController.hideTabBar()
-        updateComments()
     }
     
-    func updateComments(){
-        presenter.updateComments()
+    func updateComments(_ sender: UIButton? = nil){
+        presenter.getLastsComments()
     }
     
+    func initializeContainer() {
+        container = UIView(frame: initialViewFrame!)
+        container?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+
 
     func registerNibs(){
         tableView.registerNibFrom(PhotoThingTableViewCell.self)
@@ -57,75 +68,142 @@ class ThingDetailViewController: UIViewController {
         tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-        tableView.tableFooterView = refreshIndicatorInTableViewFooter()
+        //tableView.tableFooterView = refreshIndicatorInTableViewFooter()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter.setControllerDelegate(controller: self)
+        setPresenterDelegate()
         registerNibs()
         configureButtons()
         configureTableView()
         setNavigationInformations()
+        navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height, width: self.view.frame.width, height: 100.0)
+        initializeComposeBar()
+        setupKeyboardNotifications()
+        presenter.getCommentCounts()
+        updateComments()
+    }
+    
+    func backView(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setPresenterDelegate() {
+        presenter.setViewDelegate(view: self)
     }
     
     func configureButtons(){
         if !presenter.authorPostIsCurrent() {
+            presenter.alreadyInterested()
             secondButton.isHidden = false
-            presenter.alreadyInterested(completionHandler: { (success, msg, alreadyInterested) in
-                if success {
-                    if alreadyInterested! {
-                        self.firstButton.setTitle("Sair da fila", for: .normal)
-                    } else {
-                        self.firstButton.setTitle("Entrar na fila", for: .normal)
-                    }
-                } else {
-                    print ("already interested error")
-                }
-            })
-            secondButton.setTitle("Recomendar", for: .normal)
+            secondButton.setTitle(presenter.getRecommendedTitleButton(), for: .normal)
         } else {
             secondButton.isHidden = true
-            firstButton.setTitle("Lista de Interessados", for: .normal)
+            firstButton.setTitle(presenter.getInterestedListTitleButton(), for: .normal)
         }
-        
     }
     
-    func setNavigationInformations(){
-        navigationInformationsView.titleTransactionLabel.text = presenter.getCurrentType()
-        navigationInformationsView.thingNameLabel.text = presenter.getPost().title
+    func initializeComposeBar(){
+        composeBarView = PHFComposeBarView(frame: CGRect(x: 0.0, y: (initialViewFrame?.size.height)! - PHFComposeBarViewInitialHeight, width: (initialViewFrame?.size.width)!, height: PHFComposeBarViewInitialHeight))
+        composeBarView?.maxCharCount = 160
+        composeBarView?.maxLinesCount = 5
+        composeBarView?.placeholder = "Comente"
+        composeBarView?.textView.accessibilityIdentifier = "Input"
+        composeBarView?.placeholderLabel.accessibilityIdentifier = "Placeholder"
+        composeBarView?.delegate = self
+        composeBarView?.buttonTitle = "Enviar"
+        composeBarView?.utilityButton.accessibilityIdentifier = "Utility"
+        container = UIView(frame: initialViewFrame!)
+        container?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        container?.addSubview(composeBarView!)
         
+        self.view.addSubview(container!)
+    }
+
+    
+    func setNavigationInformations(){
+       // navigationInformationsView.titleTransactionLabel.text = presenter.getCurrentType()
+       // navigationInformationsView.thingNameLabel.text = presenter.getPost().title
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
         if presenter.authorPostIsCurrent() {
             performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
         } else {
-            if self.firstButton.currentTitle == "Entrar na fila" {
-                presenter.enterInterestedList(completionHandler: { (success, msg) in
-                    if success {
-                        self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
-                        self.firstButton.setTitle("Sair da fila", for: .normal)
-                    } else {
-                        self.present(ViewUtil.alertControllerWithTitle(_title: "Error", _withMessage: msg), animated: true, completion: nil)
-                    }
-                })
+            if self.firstButton.currentTitle == presenter.getEnterInterestedTitleButton() {
+                presenter.enterInterestedList()
             } else {
-                presenter.exitInterestedList(completionHandler: { (success, msg) in
-                    if success {
-                        self.present(ViewUtil.alertControllerWithTitle(_title: "Certo!", _withMessage: msg), animated: true, completion: nil)
-                        self.firstButton.setTitle("Entrar na fila", for: .normal)
-                    } else {
-                        self.present(ViewUtil.alertControllerWithTitle(_title: "Error!", _withMessage: msg), animated: true, completion: nil)
-                    }
-                })
+                presenter.exitInterestedList()
             }
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func setupKeyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        
+        self.configureGestureRecognizer()
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let  obj = notification.userInfo?["UIKeyboardFrameEndUserInfoKey"] {
+            var keyboardFrame = CGRect.null
+            if (obj as AnyObject).responds(to: #selector(NSValue.getValue(_:))) {
+                (obj as AnyObject).getValue(&keyboardFrame)
+                UIView.animate(
+                    withDuration: 0.25,
+                    delay: 0.0,
+                    options: UIViewAnimationOptions(),
+                    animations: {
+                        () -> Void in
+                        //self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height+10, 0.0)
+                        self.firstButton.alpha = 0.0
+                        if !self.secondButton.isHidden {
+                            self.secondButton.alpha = 0.0
+                        }
+                        self.view.frame.origin.y = -keyboardFrame.size.height
+                        self.container?.frame.origin.y = (self.container?.frame.origin.y)! - 100
+                        
+                },
+                    completion: nil)
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(
+            withDuration: 0.25,
+            delay: 0.0,
+            options: UIViewAnimationOptions(),
+            animations: {
+                () -> Void in
+                // self.tableView.contentInset = UIEdgeInsets.zero
+                self.firstButton.alpha = 1.0
+                if !self.secondButton.isHidden {
+                    self.secondButton.alpha = 1.0
+                }
+                
+                self.view.frame.origin.y = 0
+                self.container?.frame.origin.y = (self.container?.frame.origin.y)! + 100
+        },
+            completion: nil)
+    }
+    
+    func configureGestureRecognizer(){
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
+        panGesture.delegate = self
+        tableView.addGestureRecognizer(panGesture)
+    }
+    
+    func didPan(_ gesture : UIGestureRecognizer) {
+        tableView.endEditing(true)
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? InterestedListViewController {
             controller.presenter.setPost(post: presenter.getPost())
         }
@@ -135,17 +213,35 @@ class ThingDetailViewController: UIViewController {
         }
     }
     
-    
     func refreshIndicatorInTableViewFooter() -> UIView {
         let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
         viewIndicator.backgroundColor = UIColor.white
         return viewIndicator
     }
     
+    func generateMoreButton(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: MoreCommentTableViewCell.identifier, for: indexPath) as! MoreCommentTableViewCell
+        
+        cell.moreButton.addTarget(self, action: #selector(updateComments(_:)), for: .touchUpInside)
+    
+        let commentsMissing = commentCount! - presenter.getComments().count
+        
+        cell.moreButton.setTitle("Ver mais \(commentsMissing.description) comentários", for: .normal)
+
+        if commentsMissing <= 0 {
+            commentCount = commentsMissing
+        }
+        
+        return cell
+    }
+    
     func generatePhotoThingCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: PhotoThingTableViewCell.identifier, for: indexPath) as! PhotoThingTableViewCell
         
         cell.presenter.setPost(post: presenter.getPost())
+        
         if cell.presenter.getPost().relations == nil {
             cell.presenter.getCountPhotos(success: false)
             cell.presenter.getRelationsImages(success: false)
@@ -153,14 +249,12 @@ class ThingDetailViewController: UIViewController {
             cell.presenter.downloadImagesPost(success: true)
         }
         
-        
         return cell
     }
     
     func generateUserInformationsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: UserInformationTableViewCell.identifier, for: indexPath) as! UserInformationTableViewCell
-        
         cell.presenter.setPost(post: presenter.getPost())
         cell.updateCellUI()
         
@@ -170,7 +264,6 @@ class ThingDetailViewController: UIViewController {
     func generateUserDescriptionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier, for: indexPath) as! DescriptionTableViewCell
-        
         cell.presenter.setPost(post: presenter.getPost())
         cell.updateCell()
         
@@ -180,7 +273,6 @@ class ThingDetailViewController: UIViewController {
     func generateConditionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ThingConditionTableViewCell.identifier, for: indexPath) as! ThingConditionTableViewCell
-        
         cell.cellData = inputFieldsCondition[indexPath.row-3]
         
         return cell
@@ -190,7 +282,15 @@ class ThingDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: UserCommentTableViewCell.identifier, for: indexPath) as! UserCommentTableViewCell
         
-        cell.comment = presenter.getComments()[indexPath.row-inputFieldsCondition.count-4]
+        var index: Int?
+        
+        if commentCount! > 0 {
+            index = (presenter.getComments().count-1)-(indexPath.row-inputFieldsCondition.count-5)
+        } else {
+            index = (presenter.getComments().count-1)-(indexPath.row-inputFieldsCondition.count-4)
+        }
+        
+        cell.comment = presenter.getComments()[index!]
         
         return cell
     }
@@ -200,9 +300,13 @@ class ThingDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldGroupTableViewCell.identifier, for: indexPath) as! TextFieldGroupTableViewCell
         
-        cell.delegate = self
+        cell.commentButton.addTarget(self, action: #selector(textFieldFirstResponder(_:)), for: .touchUpInside)
         
         return cell
+    }
+    
+    func textFieldFirstResponder(_ sender: UIButton) {
+        composeBarView?.becomeFirstResponder()
     }
 }
 
@@ -241,6 +345,12 @@ extension ThingDetailViewController: UITableViewDelegate {
             return generateConditionCell(tableView, cellForRowAt: indexPath)
         case inputFieldsCondition.count+3:
             return generateTextFieldCell(tableView, cellForRowAt: indexPath)
+        case inputFieldsCondition.count+4:
+            if commentCount! > 0 {
+                return generateMoreButton(tableView, cellForRowAt: indexPath)
+            } else {
+                return generateUserCommentCell(tableView, cellForRowAt: indexPath)
+            }
         default:
             return generateUserCommentCell(tableView, cellForRowAt: indexPath)
         }
@@ -248,7 +358,14 @@ extension ThingDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return inputFieldsCondition.count + 4 + presenter.getComments().count
+        let rows = inputFieldsCondition.count + 4 + presenter.getComments().count
+        let rowsWithMoreButton = inputFieldsCondition.count + 5 + presenter.getComments().count
+        
+        if commentCount! > 0 {
+            return rowsWithMoreButton
+        } else {
+            return rows
+        }
     }
 }
 
@@ -275,12 +392,12 @@ extension ThingDetailViewController: UIScrollViewDelegate {
     
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
-            tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
-            
-            updateComments()
-        }
+//        
+//        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
+//            tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
+//            
+//            updateComments()
+//        }
     }
     
     func updateInformationsCell(_ yOffset: CGFloat) {
@@ -298,45 +415,44 @@ extension ThingDetailViewController: UIScrollViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         tableView.endEditing(true)
-    }
-    
-    
-}
-
-extension ThingDetailViewController: UpdateInformationsDelegate {
-    
-    func updateCellBy(height: CGFloat) {
-        print ("HEIGHT UPDATE: \(height)")
-        self.textFieldHeight = height+15
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        composeBarView?.resignFirstResponder()
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions(), animations: {
-            self.tableView.setContentOffset(CGPoint(x: self.tableView.contentOffset.x, y: self.tableView.contentOffset.y-20), animated: false)
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset
-            self.tableView.scrollToRow(at: IndexPath.init(row: 3, section: 0) , at: .bottom, animated: false)
-            
-        }, completion: nil)
-    }
-    
-    func sendTextByField(text: String) {
-        presenter.createComment(text: text.trimmingCharacters(in: .whitespacesAndNewlines))
     }
 }
 
-extension ThingDetailViewController: ViewDelegate {
+extension ThingDetailViewController: DetailThingDelegate {
     
     func reload() {
-        
         if presenter.getComments().count != presenter.getCurrentCommentsCount() {
             tableView.reloadData()
         }
-        
-        
-        tableView.tableFooterView?.unload()
+        //tableView.tableFooterView?.unload()
     }
     
-    func showMessageError(msg: String) {
-        self.present(ViewUtil.alertControllerWithTitle(_title: "Error", _withMessage: msg), animated: true, completion: nil)
+    func showMessage(isSuccess: Bool, msg: String) {
+        let title = isSuccess ? "Certo" : "Erro"
+        present(ViewUtil.alertControllerWithTitle(title: title, withMessage: msg), animated: true, completion: nil)
     }
 }
+
+extension ThingDetailViewController: PHFComposeBarViewDelegate {
+    
+    func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
+        if composeBarView.text != "" {
+            presenter.createComment(text: composeBarView.text.trimmingCharacters(in: .whitespacesAndNewlines))
+        }
+        composeBarView.setText("", animated: true)
+        composeBarView.resignFirstResponder()
+    }
+    
+    func composeBarView(_ composeBarView: PHFComposeBarView!, willChangeFromFrame startFrame: CGRect, toFrame endFrame: CGRect, duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
+    }
+}
+
+//MARK: UIGestureRecognizer Protocol
+extension ThingDetailViewController : UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+

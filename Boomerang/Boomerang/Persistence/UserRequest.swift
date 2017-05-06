@@ -29,6 +29,17 @@ class UserRequest: NSObject {
         }
     }
     
+    static func getProfileUser(completionHandler: @escaping (_ sucess: Bool, _ msg: String) -> ()) {
+      
+        let user = PFUser.current()!
+        user.fetchObjectInBackgroundBy(key: "profile") { (success, msg, profile) in
+            if success {
+                completionHandler(success, msg)
+            } else {
+                completionHandler(success, msg)
+            }
+        }
+    }
     
     static func loginUserWithFacebook(id: String, email: String,userName: String ,mediaType:Int,completionHandler: @escaping (_ sucess: Bool, _ msg: String, _ user: User?) -> Void) {
         
@@ -54,11 +65,11 @@ class UserRequest: NSObject {
     }
     
     
-    static func unfollowUser(currentUser:User, otherUser: User, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    static func unfollowUser(currentProfile: Profile, otherProfile: Profile, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         var queryParams = [String : Any]()
-        queryParams["from"] = currentUser
-        queryParams["to"] = otherUser
+        queryParams["from"] = currentProfile
+        queryParams["to"] = otherProfile
         
         ParseRequest.deleteObjectFor(className: "Follow", queryParams: queryParams) { (success, msg) in
             if success {
@@ -69,25 +80,26 @@ class UserRequest: NSObject {
         }
     }
     
-    static func createFollow(currentUser: User, otherUser: User,  completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    static func createFollow(currentProfile: Profile, otherProfile: Profile,  completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
-        let follow = PFObject(className: "Follow")
-        
-        follow["from"] = ["__type": "Pointer", "className": "_User", "objectId": currentUser.objectId]
-        follow["to"] = ["__type": "Pointer", "className": "_User", "objectId": otherUser.objectId]
-        
-        follow.saveInBackground { (success, error) in
-            if error == nil {
-                completionHandler(true, "success")
-            } else {
-                completionHandler(false, error!.localizedDescription)
-            }
-        }
+//        let follow = PFObject(className: "Follow")
+//        
+//        follow["from"] = ["__type": "Pointer", "className": "_User", "objectId": currentUser.objectId]
+//        follow["to"] = ["__type": "Pointer", "className": "_User", "objectId": otherUser.objectId]
+//        
+//        follow.saveInBackground { (success, error) in
+//            if error == nil {
+//                completionHandler(true, "success")
+//            } else {
+//                completionHandler(false, error!.localizedDescription)
+//            }
+//        }
     }
     
     
-    static func getUserCountOf(key: String, className: String, user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
-        ParseRequest.queryCountEqualToValue(className: className, key: key, value: user) { (success, msg, count) in
+    static func getProfileCountOf(key: String, className: String, profile: Profile, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
+        ParseRequest.queryCountEqualToValue(className: className, key: key, value: profile) { (success, msg, count) in
             if success {
                 completionHandler(true, msg, count)
             } else {
@@ -96,11 +108,11 @@ class UserRequest: NSObject {
         }
     }
     
-    static func verifyAlreadyFollowingFor(currentUser: User, otherUser: User, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool) -> ()) {
+    static func verifyAlreadyFollowingFor(currentProfile: Profile, otherProfile: Profile, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool) -> ()) {
         
         var queryParams = [String : Any]()
-        queryParams["from"] = currentUser
-        queryParams["to"] = otherUser
+        queryParams["from"] = currentProfile
+        queryParams["to"] = otherProfile
         
         ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, includes: nil) { (success, msg, objects) in
             if success {
@@ -114,18 +126,18 @@ class UserRequest: NSObject {
     }
     
 
-    static func fetchFollowing(pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [User]?) -> Void) {
+    static func fetchFollowing(fromProfile: Profile, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
         
-        var following: [User] = [User]()
+        var following: [Profile] = [Profile]()
         
         var queryParams = [String : Any]()
-        queryParams["from"] = PFUser.current()!
+        queryParams["from"] = fromProfile
         
         ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, includes: ["to"], pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {
                 for object in objects! {
-                    following.append(User(user: object.object(forKey: "to") as! PFUser))
+                    following.append(Profile(object: object.object(forKey: "to") as! PFObject))
                 }
                 
                 completionHandler(true, "Success", following)

@@ -30,7 +30,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="KY5-8m-FjX">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="175" id="IQB-Pv-n2v"/>
+                    </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_back_button" translatesAutoresizingMaskIntoConstraints="NO" id="OUO-SG-gwc">
                     <rect key="frame" x="10" y="32" width="12" height="19"/>
@@ -70,7 +73,6 @@
             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="34E-pe-8Yc" firstAttribute="height" secondItem="OUO-SG-gwc" secondAttribute="height" multiplier="2" id="3CW-lE-U6a"/>
-                <constraint firstAttribute="bottom" secondItem="KY5-8m-FjX" secondAttribute="bottom" id="D4T-Rf-txX"/>
                 <constraint firstItem="KY5-8m-FjX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DIa-1e-8Nk"/>
                 <constraint firstItem="zTA-DZ-yQ8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="10" id="Nit-iI-VMJ"/>
                 <constraint firstItem="34E-pe-8Yc" firstAttribute="width" secondItem="OUO-SG-gwc" secondAttribute="width" multiplier="2" id="O8m-HL-5uJ"/>

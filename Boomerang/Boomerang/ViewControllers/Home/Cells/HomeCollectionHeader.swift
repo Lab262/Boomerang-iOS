@@ -9,8 +9,18 @@
 import UIKit
 
 class HomeCollectionHeader: UITableViewCell {
-
-    static let cellIdentifier = "HomeCollectionHeader"
+    
+    static var identifier: String {
+        return "HomeCollectionHeader"
+    }
+    
+    static var cellHeight: CGFloat {
+        return 70.0
+    }
+    
+    static var nibName: String {
+        return "HomeCollectionHeader"
+    }
 
     @IBOutlet weak var titleLabel: UILabel!
     

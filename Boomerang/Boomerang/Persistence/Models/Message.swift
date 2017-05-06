@@ -10,8 +10,11 @@ import UIKit
 import Parse
 
 class Message: PFObject {
-    @NSManaged var user: User?
+    
     @NSManaged var message: String?
+    @NSManaged var user: Profile?
+    var isRead: Bool?
+    var createdDate: Date?
     
     override init(){
         super.init()
@@ -23,12 +26,26 @@ class Message: PFObject {
         self.setInformationsBy(object: object)
     }
     
+    convenience init(message: String, user: Profile) {
+        self.init()
+        self.isRead = false
+        self.message = message
+        self.user = user
+    }
+    
     func setInformationsBy(object: PFObject){
         
         self.objectId = object.objectId
+        self.createdDate = object.createdAt
+
         
-        if let user = object["user"] as? User {
-            self.user = User(user: user)
+        
+        if let isRead = object["isRead"] as? Bool {
+            self.isRead = isRead
+        }
+        
+        if let user = object["user"] as? Profile {
+            self.user = user
         }
         
         if let message = object["message"] as? String {

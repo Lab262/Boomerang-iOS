@@ -8,13 +8,22 @@
 
 import UIKit
 
+protocol TransactionDetailDelegate {
+    func showMessage(msg: String)
+    func reload()
+    func startingLoadingView()
+    func finishLoadingView()
+    func pushForChatView()
+}
+
 class TransactionDetailPresenter: NSObject {
 
     fileprivate var scheme: Scheme = Scheme()
-    fileprivate var view: ViewDelegate?
+    fileprivate var view: TransactionDetailDelegate?
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate var chat: Chat = Chat()
     
-    func setViewDelegate(view: ViewDelegate) {
+    func setViewDelegate(view: TransactionDetailDelegate) {
         self.view = view
     }
     
@@ -32,6 +41,35 @@ class TransactionDetailPresenter: NSObject {
     
     func getCreatedPost() -> Date {
         return scheme.post!.createdDate!
+    }
+    
+    func setChat(chat: Chat) {
+        self.chat = chat
+    }
+    
+    func getChat() -> Chat {
+        return chat
+    }
+    
+    func getUserOwnATransaction() -> Profile {
+        if getScheme().owner == self.user.profile {
+            return getScheme().requester!
+        } else {
+            return getScheme().owner!
+        }
+    }
+ 
+    func fetchChat() {
+        self.view?.startingLoadingView()
+        ChatRequest.getChatOf(requester: getScheme().requester!, owner: getScheme().owner!, post: getScheme().post!) { (success, msg, chat) in
+            if success {
+                self.setChat(chat: chat!)
+                self.view?.pushForChatView()
+            } else {
+                self.view?.showMessage(msg: msg)
+            }
+            self.view?.finishLoadingView()
+        }
     }
 
 }
