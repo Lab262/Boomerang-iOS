@@ -15,6 +15,8 @@ class IconNavigationBar: UIView {
     @IBOutlet weak var leftButtonIcon: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var rightIcon: UIImageView!
+    @IBOutlet weak var rightButton: UIButton!
+    
     
     
     @IBAction func leftAction(_ sender: Any) {

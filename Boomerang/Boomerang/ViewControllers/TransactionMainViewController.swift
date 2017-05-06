@@ -36,6 +36,11 @@ class TransactionMainViewController: UIViewController {
         super.viewDidLoad()
         self.segmentSelected = 0
         navigationBar.leftButtonIcon.isHidden = true
+        navigationBar.rightButton.addTarget(self, action: #selector(pushForDetailHistoric(_:)), for: .touchUpInside)
+    }
+    
+    func pushForDetailHistoric(_ sender: UIButton) {
+        
     }
     
     func setFontButtonBySegmentSelected(){

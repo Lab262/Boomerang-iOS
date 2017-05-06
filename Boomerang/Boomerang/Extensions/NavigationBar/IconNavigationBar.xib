@@ -19,6 +19,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IconNavigationBar" customModule="Boomerang">
             <connections>
                 <outlet property="leftButtonIcon" destination="OUO-SG-gwc" id="NCj-p3-zcx"/>
+                <outlet property="rightButton" destination="xUI-EE-aJi" id="sj3-d0-391"/>
                 <outlet property="rightIcon" destination="203-Af-QFl" id="Rse-ca-hDW"/>
                 <outlet property="titleLabel" destination="zTA-DZ-yQ8" id="Z8g-eo-h4V"/>
                 <outlet property="view" destination="iN0-l3-epB" id="AeI-ye-a1z"/>
@@ -58,30 +59,35 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="203-Af-QFl">
-                    <rect key="frame" x="335" y="29.5" width="25" height="25"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="historic_icon" translatesAutoresizingMaskIntoConstraints="NO" id="203-Af-QFl">
+                    <rect key="frame" x="340" y="30" width="20" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="rNd-Sl-czA"/>
-                        <constraint firstAttribute="width" secondItem="203-Af-QFl" secondAttribute="height" multiplier="1:1" id="y5E-Nd-N1Q"/>
+                        <constraint firstAttribute="height" constant="24" id="p9J-1P-CW8"/>
+                        <constraint firstAttribute="width" constant="20" id="rNd-Sl-czA"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUI-EE-aJi">
+                    <rect key="frame" x="330" y="18" width="40" height="48"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="34E-pe-8Yc" firstAttribute="height" secondItem="OUO-SG-gwc" secondAttribute="height" multiplier="2" id="3CW-lE-U6a"/>
+                <constraint firstItem="xUI-EE-aJi" firstAttribute="centerY" secondItem="203-Af-QFl" secondAttribute="centerY" id="C56-hc-uLg"/>
                 <constraint firstItem="KY5-8m-FjX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DIa-1e-8Nk"/>
                 <constraint firstItem="zTA-DZ-yQ8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="10" id="Nit-iI-VMJ"/>
                 <constraint firstItem="34E-pe-8Yc" firstAttribute="width" secondItem="OUO-SG-gwc" secondAttribute="width" multiplier="2" id="O8m-HL-5uJ"/>
+                <constraint firstItem="xUI-EE-aJi" firstAttribute="centerX" secondItem="203-Af-QFl" secondAttribute="centerX" id="QeQ-ea-sgM"/>
                 <constraint firstAttribute="trailing" secondItem="KY5-8m-FjX" secondAttribute="trailing" id="Qq1-Vy-ccS"/>
                 <constraint firstItem="34E-pe-8Yc" firstAttribute="centerY" secondItem="OUO-SG-gwc" secondAttribute="centerY" id="Tcp-ZG-SWv"/>
+                <constraint firstItem="xUI-EE-aJi" firstAttribute="height" secondItem="203-Af-QFl" secondAttribute="height" multiplier="2" id="TfX-dd-nlO"/>
                 <constraint firstItem="KY5-8m-FjX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vex-rb-q2Q"/>
                 <constraint firstItem="34E-pe-8Yc" firstAttribute="centerX" secondItem="OUO-SG-gwc" secondAttribute="centerX" id="bTt-UV-zCo"/>
                 <constraint firstItem="OUO-SG-gwc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.3" id="kXo-cZ-KG7"/>
                 <constraint firstItem="203-Af-QFl" firstAttribute="centerY" secondItem="zTA-DZ-yQ8" secondAttribute="centerY" id="sEI-Fa-Ldf"/>
+                <constraint firstItem="xUI-EE-aJi" firstAttribute="width" secondItem="203-Af-QFl" secondAttribute="width" multiplier="2" id="sr5-UB-Mty"/>
                 <constraint firstItem="zTA-DZ-yQ8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.3" id="umj-Wo-kbA"/>
                 <constraint firstItem="OUO-SG-gwc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="yn3-mM-OU9"/>
                 <constraint firstAttribute="trailing" secondItem="203-Af-QFl" secondAttribute="trailing" constant="15" id="z09-YD-stq"/>
@@ -92,6 +98,7 @@
     </objects>
     <resources>
         <image name="bg_nav" width="375" height="163"/>
+        <image name="historic_icon" width="22" height="26"/>
         <image name="white_back_button" width="13" height="21"/>
     </resources>
 </document>

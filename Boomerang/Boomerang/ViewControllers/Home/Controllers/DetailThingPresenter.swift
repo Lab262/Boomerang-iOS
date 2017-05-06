@@ -96,8 +96,6 @@ class DetailThingPresenter: NSObject {
         }
     }
     
- 
-    
     func getLastsComments(isUpdate: Bool = false) {
         CommentRequest.fetchCommentsBy(post: self.post!, commentsObject: self.comments, pagination: pagination) { (success, msg, comments) in
             if success {

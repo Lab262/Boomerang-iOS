@@ -46,6 +46,7 @@ class ThingDetailViewController: UIViewController {
     }
     
     func updateComments(_ sender: UIButton? = nil){
+        sender?.isEnabled = false
         presenter.getLastsComments()
     }
     
@@ -226,13 +227,12 @@ class ThingDetailViewController: UIViewController {
         cell.moreButton.addTarget(self, action: #selector(updateComments(_:)), for: .touchUpInside)
     
         let commentsMissing = commentCount! - presenter.getComments().count
+        cell.moreButton.setTitle("Mais \(commentsMissing.description) comentários", for: .normal)
+        cell.moreButton.isEnabled = true
         
-        cell.moreButton.setTitle("Ver mais \(commentsMissing.description) comentários", for: .normal)
-
         if commentsMissing <= 0 {
             commentCount = commentsMissing
         }
-        
         return cell
     }
     
@@ -321,16 +321,15 @@ extension ThingDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         switch indexPath.row {
         case 1:
             performSegue(withIdentifier: SegueIdentifiers.detailThingToProfile, sender: self)
         default:
-            break
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 }
+
  extension ThingDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -417,6 +416,8 @@ extension ThingDetailViewController: UIScrollViewDelegate {
         tableView.endEditing(true)
         composeBarView?.resignFirstResponder()
         
+        
+        
     }
 }
 
@@ -425,6 +426,7 @@ extension ThingDetailViewController: DetailThingDelegate {
     func reload() {
         if presenter.getComments().count != presenter.getCurrentCommentsCount() {
             tableView.reloadData()
+            
         }
         //tableView.tableFooterView?.unload()
     }
