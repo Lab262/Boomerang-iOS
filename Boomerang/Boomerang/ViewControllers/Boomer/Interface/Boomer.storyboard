@@ -84,27 +84,20 @@
                                     <action selector="donateAction:" destination="0JS-4Y-MWq" eventType="touchUpInside" id="IVA-dQ-Bwm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbP-OY-yfd">
-                                <rect key="frame" x="125" y="84" width="125" height="71"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="GfF-Gz-9Zg"/>
-                                </constraints>
-                                <state key="normal" image="ic_logoPost"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preciso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23a-3b-PxO">
-                                <rect key="frame" x="21" y="338" width="63.5" height="20"/>
+                                <rect key="frame" x="20.5" y="338" width="64" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tenho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCj-74-XjJ">
-                                <rect key="frame" x="161" y="338" width="53.5" height="20"/>
+                                <rect key="frame" x="160.5" y="338" width="54" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xa-m8-EDj">
-                                <rect key="frame" x="296" y="338" width="64.5" height="20"/>
+                                <rect key="frame" x="295" y="338" width="65" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -124,9 +117,8 @@
                         <constraints>
                             <constraint firstItem="23a-3b-PxO" firstAttribute="baseline" secondItem="eCj-74-XjJ" secondAttribute="baseline" id="195-Ga-Dkb"/>
                             <constraint firstItem="pMu-uI-3IP" firstAttribute="centerX" secondItem="eCj-74-XjJ" secondAttribute="centerX" id="333-kG-Wnh"/>
-                            <constraint firstItem="qbP-OY-yfd" firstAttribute="top" secondItem="qrq-j1-NUN" secondAttribute="bottom" constant="64" id="3om-qk-WzQ"/>
                             <constraint firstItem="Jau-Q3-Ym3" firstAttribute="top" secondItem="coC-Zl-5GJ" secondAttribute="top" constant="268" id="7ye-nh-RaG"/>
-                            <constraint firstItem="qbP-OY-yfd" firstAttribute="centerX" secondItem="coC-Zl-5GJ" secondAttribute="centerX" id="AeU-AV-MkU"/>
+                            <constraint firstItem="pMu-uI-3IP" firstAttribute="centerX" secondItem="Vz5-Qy-KGq" secondAttribute="centerX" id="8r4-ik-FRl"/>
                             <constraint firstItem="Vz5-Qy-KGq" firstAttribute="width" secondItem="coC-Zl-5GJ" secondAttribute="width" id="Aul-x8-gWp"/>
                             <constraint firstItem="Jau-Q3-Ym3" firstAttribute="top" secondItem="Yny-kV-ggR" secondAttribute="top" id="R8V-aI-cav"/>
                             <constraint firstItem="eCj-74-XjJ" firstAttribute="top" secondItem="pMu-uI-3IP" secondAttribute="bottom" constant="18" id="UB6-oO-fz6"/>
@@ -139,7 +131,6 @@
                             <constraint firstItem="Jau-Q3-Ym3" firstAttribute="bottom" secondItem="Yny-kV-ggR" secondAttribute="bottom" id="eax-w2-aA1"/>
                             <constraint firstItem="6xa-m8-EDj" firstAttribute="centerX" secondItem="Yny-kV-ggR" secondAttribute="centerX" constant="3.5" id="oVO-Cl-RJT"/>
                             <constraint firstItem="23a-3b-PxO" firstAttribute="top" secondItem="Jau-Q3-Ym3" secondAttribute="bottom" constant="17" id="wRg-Dj-TZQ"/>
-                            <constraint firstItem="pMu-uI-3IP" firstAttribute="centerX" secondItem="qbP-OY-yfd" secondAttribute="centerX" id="yzq-Fb-4fW"/>
                             <constraint firstItem="Vz5-Qy-KGq" firstAttribute="top" secondItem="qrq-j1-NUN" secondAttribute="bottom" constant="-20" id="ziR-22-iHO"/>
                         </constraints>
                     </view>
@@ -264,7 +255,6 @@ várias mensagens, fica esperto, migo :)</string>
         <image name="ic_boomerlogo" width="71" height="71"/>
         <image name="ic_donate" width="45" height="44"/>
         <image name="ic_have" width="33" height="53"/>
-        <image name="ic_logoPost" width="71" height="71"/>
         <image name="ic_need" width="33" height="44"/>
         <image name="nav_boomer" width="375" height="100"/>
     </resources>
