@@ -79,7 +79,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O que você precisa ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aia-7g-kWg">
-                                        <rect key="frame" x="23" y="44" width="221" height="27"/>
+                                        <rect key="frame" x="23" y="45" width="221" height="26"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -247,6 +247,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="k2Y-I1-7H2"/>
                     <connections>
+                        <outlet property="profileImage" destination="4xl-5r-n90" id="KLD-3j-s0M"/>
                         <segue destination="shC-dA-vya" kind="show" identifier="goThrowVC" id="wy5-Px-NWb"/>
                     </connections>
                 </viewController>

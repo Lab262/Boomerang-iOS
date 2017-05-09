@@ -21,6 +21,7 @@
 		2F3C79CE1E995B930013F4F9 /* HighlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C79CC1E995B920013F4F9 /* HighlightCollectionViewCell.swift */; };
 		2F3C79CF1E995B930013F4F9 /* HighlightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3C79CD1E995B920013F4F9 /* HighlightCollectionViewCell.xib */; };
 		2F3C79D11E9969D00013F4F9 /* ActivitIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C79D01E9969D00013F4F9 /* ActivitIndicatorView.swift */; };
+		2F744CD91EC25ECB00AF724A /* BoomerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F744CD81EC25ECB00AF724A /* BoomerPresenter.swift */; };
 		2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */; };
 		2F79676D1E8357F700476D2D /* TypePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */; };
 		2F7967701E83871700476D2D /* WithdrawalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */; };
@@ -689,6 +690,7 @@
 		2F3C79CC1E995B920013F4F9 /* HighlightCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F3C79CD1E995B920013F4F9 /* HighlightCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HighlightCollectionViewCell.xib; path = ../HighlightCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F3C79D01E9969D00013F4F9 /* ActivitIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitIndicatorView.swift; sourceTree = "<group>"; };
+		2F744CD81EC25ECB00AF724A /* BoomerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerPresenter.swift; sourceTree = "<group>"; };
 		2F79676A1E8357F700476D2D /* TypePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePostTableViewCell.swift; sourceTree = "<group>"; };
 		2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TypePostTableViewCell.xib; path = ../TypePostTableViewCell.xib; sourceTree = "<group>"; };
 		2F79676E1E83871700476D2D /* WithdrawalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WithdrawalTableViewCell.swift; path = Interface/WithdrawalTableViewCell.swift; sourceTree = "<group>"; };
@@ -984,6 +986,14 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		2F744CD71EC25E5600AF724A /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				2F744CD81EC25ECB00AF724A /* BoomerPresenter.swift */,
+			);
+			name = Presenters;
+			sourceTree = "<group>";
+		};
 		2FA93B271E4A88030080F99A /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,6 +1040,7 @@
 		A40453781DD3F33800A42E4B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2F744CD71EC25E5600AF724A /* Presenters */,
 				A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */,
 				2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */,
 				2F9841061EB179AA00A937A3 /* FeedbackConfirmationViewController.swift */,
@@ -2484,6 +2495,7 @@
 				D4C134E91E9C8265003F55E4 /* ChatRequest.swift in Sources */,
 				D4AD976E1EA81A1F00C9FAB9 /* EvaluationViewController.swift in Sources */,
 				D4E6A28C1E95CF00005B4E34 /* ExchangeTransactionViewController.swift in Sources */,
+				2F744CD91EC25ECB00AF724A /* BoomerPresenter.swift in Sources */,
 				D4A012FE1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
