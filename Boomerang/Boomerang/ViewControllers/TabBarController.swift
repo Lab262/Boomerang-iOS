@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class TabBarController: UIViewController {
 
     @IBOutlet weak var viewContainerTabBar: UIView!
@@ -50,6 +52,22 @@ class TabBarController: UIViewController {
         }
     }
     
+    func setupNotification(tabBarIndexView: Int) {
+        switch tabBarIndexView {
+        case 0:
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.popToRootHome), object: nil, userInfo: nil)
+        case 1:
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.popToRootProfile), object: nil, userInfo: nil)
+        case 2:
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.popToRootBoomer), object: nil, userInfo: nil)
+        case 3:
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.popToRootSchemes), object: nil, userInfo: nil)
+        case 4:
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.popToRootOthers), object: nil, userInfo: nil)
+        default: break
+        }
+    }
+
     @IBAction func selectButton(_ sender: UIButton) {
         for button in buttons {
             if sender.tag == 2 {
@@ -62,6 +80,11 @@ class TabBarController: UIViewController {
                 }
             }
         }
+        
+        if self.uiTabBarController.selectedIndex == sender.tag {
+            self.setupNotification(tabBarIndexView: uiTabBarController.selectedIndex)
+        }
+        
         self.uiTabBarController.selectedIndex = sender.tag
     }
 

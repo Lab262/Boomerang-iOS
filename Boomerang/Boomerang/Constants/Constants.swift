@@ -38,6 +38,11 @@ struct StoryboardIds {
 
 struct NotificationKeys {
     static let updateSchemes = "updateSchemes"
+    static let popToRootHome = "popToRootHome"
+    static let popToRootProfile = "popToRootProfile"
+    static let popToRootBoomer = "popToRootBoomer"
+    static let popToRootSchemes = "popToRootScheme"
+    static let popToRootOthers = "popToRootOthers"
 }
 
 

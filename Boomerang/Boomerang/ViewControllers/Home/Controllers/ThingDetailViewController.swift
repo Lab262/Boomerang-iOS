@@ -85,6 +85,14 @@ class ThingDetailViewController: UIViewController {
         setupKeyboardNotifications()
         presenter.getCommentCounts()
         updateComments()
+        registerObservers()
+    }
+    func registerObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootHome), object: nil)
+    }
+    
+    func popToRoot(_ notification : Notification){
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func backView(_ sender: UIButton) {

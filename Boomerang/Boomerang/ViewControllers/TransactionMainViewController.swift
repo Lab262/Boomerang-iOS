@@ -36,6 +36,15 @@ class TransactionMainViewController: UIViewController {
         self.segmentSelected = 0
         navigationBar.leftButtonIcon.isHidden = true
         navigationBar.rightButton.addTarget(self, action: #selector(pushForDetailHistoric(_:)), for: .touchUpInside)
+        registerObservers()
+    }
+    
+    func registerObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootSchemes), object: nil)
+    }
+    
+    func popToRoot(_ notification : Notification){
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func pushForDetailHistoric(_ sender: UIButton) {

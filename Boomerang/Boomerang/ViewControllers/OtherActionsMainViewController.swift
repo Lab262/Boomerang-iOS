@@ -31,6 +31,15 @@ class OtherActionsMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentSelected = 0
+        registerObservers()
+    }
+    
+    func registerObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootOthers), object: nil)
+    }
+    
+    func popToRoot(_ notification : Notification){
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func setFontButtonBySegmentSelected(){

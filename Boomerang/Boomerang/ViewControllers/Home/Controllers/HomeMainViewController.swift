@@ -36,14 +36,16 @@ class HomeMainViewController: UIViewController {
         //TabBarController.mainTabBarController.showTabBar()
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TabBarController.mainTabBarController.showTabBar()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.popToRootViewController(animated: true)
         presenter.setControllerDelegate(controller: self)
         presenter.updatePostsFriends()
         self.navigationController?.navigationBar.isHidden = true
@@ -52,6 +54,7 @@ class HomeMainViewController: UIViewController {
         
         registerNib()
         tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
+        registerObservers()
     }
     
     func registerNib() {
@@ -59,6 +62,15 @@ class HomeMainViewController: UIViewController {
         tableView.registerNibFrom(RecommendedPostTableViewCell.self)
         tableView.registerNibFrom(PostTableViewCell.self)
     }
+    
+    func registerObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootHome), object: nil)
+    }
+    
+    func popToRoot(_ notification : Notification){
+        navigationController?.popToRootViewController(animated: true)
+    }
+
     
     func loadHomeData(homeBoomerThingsData: [String: [BoomerThing]]) {
         

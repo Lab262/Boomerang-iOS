@@ -27,7 +27,16 @@ class ProfileMainViewController: UIViewController {
         presenter.setControllerDelegate(controller: self)
         //self.view.loadAnimation()
         presenter.getPostsOfUser()
+        registerObservers()
         
+    }
+    
+    func registerObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootProfile), object: nil)
+    }
+    
+    func popToRoot(_ notification : Notification){
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
