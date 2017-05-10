@@ -82,20 +82,20 @@ class ThrowViewController: UIViewController {
         
         switch  typeVC.hashValue {
         case 0 :
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_need_post")
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_have")
             cell.titlePost.text = titleHeader
             break
         case  1 :
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_have_post")
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_need")
             cell.titlePost.text = titleHeader
             break
         case  2 :
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_donate_post")
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_donate")
             cell.titlePost.text = titleHeader
             break
         default:
             cell.titlePost.text = titleHeader
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_donate_post")
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_have")
         }
         
         return cell
