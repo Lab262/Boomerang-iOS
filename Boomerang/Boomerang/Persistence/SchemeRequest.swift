@@ -28,24 +28,85 @@ class SchemeRequest: NSObject {
         }
     }
     
-    static func getSchemesForUser(owner: Profile, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
+    static func getNotContainedStatus(statusScheme: [StatusScheme]) -> [SchemeStatus] {
+        
+        let allStatus = ApplicationState.sharedInstance.schemeStatus
+        var notContainedStatusObject = [SchemeStatus]()
+        
+        for statusObject in allStatus {
+            for status in statusScheme where statusObject.status == status.rawValue{
+                notContainedStatusObject.append(statusObject)
+            }
+        }
+        
+        return notContainedStatusObject
+    }
+    
+    static func getSchemesForUser(owner: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusScheme], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
         
         var schemes = [Scheme]()
         var queryParams = [String : Any]()
         queryParams["owner"] = owner
         queryParams["requester"] = owner
         
-        ParseRequest.queryEqualToValue(className: "Scheme", queryParams: queryParams, includes: ["requester", "owner", "post"], selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
+        var notContainedObjects = [String: [Any]]()
+        var notContainedObjectIds = [String]()
+    
+        schemesDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+        
+        notContainedObjects["objectId"] = notContainedObjectIds
+        notContainedObjects["status"] = getNotContainedStatus(statusScheme: notContainedStatus)
+        
+        
+
+
+//        ParseRequest.queryEqualToValueNotContainedObjects(className: "Scheme", queryParams: queryParams, notContainedObjects: notContainedObjects, includes: ["requester", "owner", "post"]) { (success, msg, objects) in
+//            
+//            if success {
+//                for obj in objects! {
+//                    let scheme = Scheme(object: obj)
+//                    schemes.append(scheme)
+//                }
+//                completionHandler(success, msg, schemes)
+//            } else {
+//                completionHandler(success, msg, nil)
+//            }
+//        }
+        
+        ParseRequest.queryEqualToValueNotContainedObjects2(className: "Scheme", queryParams: queryParams, includes: ["requester", "owner", "post"], selectKeys: nil, pagination: 3) { (success, msg, objects) in
             
             if success {
-                for obj in objects! {
-                    let scheme = Scheme(object: obj)
-                    schemes.append(scheme)
-                }
-                completionHandler(success, msg, schemes)
-            } else {
-                completionHandler(success, msg, nil)
+                
             }
+        }
+//        ParseRequest.queryEqualToValue(className: "Scheme", queryParams: queryParams, includes: ["requester", "owner", "post"], selectKeys: nil, pagination: pagination, skip: nil) { (success, msg, objects) in
+//            
+//            if success {
+//                for obj in objects! {
+//                    let scheme = Scheme(object: obj)
+//                    schemes.append(scheme)
+//                }
+//                completionHandler(success, msg, schemes)
+//            } else {
+//                completionHandler(success, msg, nil)
+//            }
+//        }
+    }
+    
+    static func getAllStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        var schemeStatus = [SchemeStatus]()
+        ParseRequest.queryGetAllObjects(className: "SchemeStatus") { (success, msg, objects) in
+            if success {
+                objects!.forEach {
+                    let status = SchemeStatus(object: $0)
+                    schemeStatus.append(status)
+                }
+                ApplicationState.sharedInstance.schemeStatus = schemeStatus
+            }
+            completionHandler(success, msg)
         }
     }
 }

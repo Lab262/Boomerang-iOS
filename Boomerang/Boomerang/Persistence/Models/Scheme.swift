@@ -11,9 +11,11 @@ import Parse
 
 
 enum StatusScheme: String {
-    case progress
-    case done
-    case canceled
+    case progress = "Progress"
+    case done = "Done"
+    case canceled = "Canceled"
+    case negotiation = "Negotiation"
+    case finished = "Finished"
 }
 
 class Scheme: PFObject {
@@ -22,8 +24,7 @@ class Scheme: PFObject {
     @NSManaged var requester: Profile?
     @NSManaged var owner: Profile?
     @NSManaged var chat: Chat?
-    @NSManaged var status: String?
-
+    var status: StatusScheme?
     var createdDate: Date?
     var dealer: Profile?
     
@@ -47,10 +48,8 @@ class Scheme: PFObject {
     }
     
     func setInformationsBy(object: PFObject){
-        
         self.objectId = object.objectId
         self.createdDate = object.createdAt
-        
         
         if let requester = object["requester"] as? Profile {
             self.requester = Profile(object: requester)
@@ -64,16 +63,18 @@ class Scheme: PFObject {
             self.post = Post(object: post)
         }
         
+        if let statusObject = object ["status"] as? SchemeStatus {
+            let statusPost = ApplicationState.sharedInstance.schemeStatus
+            for status in statusPost where status.objectId == statusObject.objectId {
+                self.status = StatusScheme(rawValue: status.status!)
+            }
+        }
+        
         if self.post?.author?.objectId == self.requester?.objectId {
             self.post?.author = self.requester
         } else {
             self.post?.author = self.owner
         }
-        
-        
-//        if let chat = object["chat"] as? Chat {
-//            self.chat = Chat(object: chat)
-//        }
     }
 }
 

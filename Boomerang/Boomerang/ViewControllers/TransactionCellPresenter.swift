@@ -80,7 +80,7 @@ class TransactionCellPresenter: NSObject {
         })
     }
     
-    func getInformationsTransactionByTypeOfPost(isFromUser: Bool, postType: PostType) {
+    func getInformationsTransactionByTypeOfPost(isFromUser: Bool, postType: TypePost) {
         
         var descriptionTransaction: String?
         
@@ -117,11 +117,11 @@ class TransactionCellPresenter: NSObject {
     func getInformationsOfTransaction(){
         if getScheme().owner?.objectId == self.user.profile?.objectId {
             scheme.dealer = getScheme().requester
-            getInformationsTransactionByTypeOfPost(isFromUser: true, postType: getPost().postType!)
+            getInformationsTransactionByTypeOfPost(isFromUser: true, postType: getPost().typePost!)
             view?.fromImage = self.user.profileImage
         } else {
             scheme.dealer = getScheme().owner
-            getInformationsTransactionByTypeOfPost(isFromUser: false, postType: getPost().postType!)
+            getInformationsTransactionByTypeOfPost(isFromUser: false, postType: getPost().typePost!)
             view?.toImage = self.user.profileImage
         }
     }

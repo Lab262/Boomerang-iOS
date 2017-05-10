@@ -13,7 +13,6 @@ import UIKit
 class TransactionPresenter: NSObject {
     
     fileprivate let pagination = 3
-    fileprivate var skipSchemes = 0
     fileprivate var schemes: [Scheme] = [Scheme]()
     fileprivate var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?
@@ -42,9 +41,25 @@ class TransactionPresenter: NSObject {
         return scheme
     }
     
+    // MARK: ARRUMAR ESSA MERDA
+    
     func getTransactions() {
-        skipSchemes = schemes.endIndex
-        SchemeRequest.getSchemesForUser(owner: getUser().profile!, pagination: pagination, skip: skipSchemes) { (success, msg, schemes) in
+        if ApplicationState.sharedInstance.schemeStatus.count < 1 {
+            requestSchemeStatus { (success, msg) in
+                if success {
+                    self.requestSchemeUser()
+                } else {
+                    print ("GET STATUS ERROR")
+                }
+            }
+        } else {
+            requestSchemeUser()
+        }
+    }
+    
+    func requestSchemeUser(){
+        SchemeRequest.getSchemesForUser(owner: getUser().profile!, schemesDownloaded: getSchemes(), notContainedStatus: [.finished, .done, .canceled], pagination: pagination) { (success, msg, schemes) in
+            
             if success {
                 for scheme in schemes! {
                     self.schemes.append(scheme)
@@ -53,6 +68,13 @@ class TransactionPresenter: NSObject {
             } else {
                 self.view?.showMessageError(msg: msg)
             }
+        }
+    }
+    
+    func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        SchemeRequest.getAllStatus { (success, msg) in
+            completionHandler(success, msg)
         }
     }
     

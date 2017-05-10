@@ -79,6 +79,7 @@ class HomeMainViewController: UIViewController {
 }
 
 extension HomeMainViewController: UITableViewDataSource {
+    
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {

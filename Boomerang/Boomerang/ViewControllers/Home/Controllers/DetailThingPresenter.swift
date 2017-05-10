@@ -78,7 +78,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func getCurrentType() -> String {
-        switch self.getPost().postType! {
+        switch self.getPost().typePost! {
         case .have:
             return "Tenho"
         case .need:

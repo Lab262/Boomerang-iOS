@@ -19,7 +19,7 @@ class ThrowViewController: UIViewController {
     var fields:[String] = []
     var nameThing = String ()
     var descriptionThing = String ()
-    var typeVC = PostType.have
+    var typeVC = TypePost.have
     var titleHeader = String()
     var imagePost: UIImage?
     var allimages:[UIImage]?
@@ -236,8 +236,8 @@ class ThrowViewController: UIViewController {
         post.author = ApplicationState.sharedInstance.currentUser?.profile
         post.title =  self.nameThing
         post.content = self.descriptionThing
-        post.postType = PostType(rawValue: typeVC.rawValue)
-        post.type = post.postType.map { $0.rawValue }
+        post.typePost = TypePost(rawValue: typeVC.rawValue)
+        post.type = post.typePost.map { $0.rawValue }
       
         ActivitIndicatorView.show(on: self)
         

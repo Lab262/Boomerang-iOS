@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IconNavigationBar" customModule="Boomerang">
             <connections>
+                <outlet property="leftButton" destination="34E-pe-8Yc" id="e5H-8J-Qf3"/>
                 <outlet property="leftButtonIcon" destination="OUO-SG-gwc" id="NCj-p3-zcx"/>
                 <outlet property="rightButton" destination="xUI-EE-aJi" id="sj3-d0-391"/>
                 <outlet property="rightIcon" destination="203-Af-QFl" id="Rse-ca-hDW"/>

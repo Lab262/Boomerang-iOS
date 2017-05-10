@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-enum PostType: String {
+enum TypePost: String {
     case have = "Have"
     case need = "Need"
     case donate = "Donate"
@@ -22,13 +22,10 @@ class Post: PFObject {
     @NSManaged var author: Profile?
     @NSManaged var title: String?
     @NSManaged var content: String?
+    var typePost: TypePost?
     var createdDate: Date?
     var relations: [Photo]?
-    
-    //var alreadySearched = false
-    //var downloadedImages = false
     var countPhotos = 0
-    var postType: PostType?
     var photos = [UIImage]()
     
     
@@ -38,13 +35,10 @@ class Post: PFObject {
     
     convenience init(object: PFObject) {
         self.init()
-        
         setInformationsUserByPFObject(object: object)
     }
     
-    
     func setInformationsUserByPFObject(object: PFObject){
-        
         self.objectId = object.objectId
         self.createdDate = object.createdAt
         
@@ -56,14 +50,16 @@ class Post: PFObject {
             self.content = content
         }
         
-        if let type = object["type"] as? String {
-            self.postType = PostType(rawValue: type)
+        if let typeObject = object["type"] as? PostType {
+            let postTypes = ApplicationState.sharedInstance.postTypes
+            for type in postTypes where type.objectId == typeObject.objectId {
+                self.typePost = TypePost(rawValue: type.type!)
+            }
         }
         
         if let author = object["author"] as? Profile {
             self.author = author
         }
-       
     }
 }
 

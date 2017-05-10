@@ -11,7 +11,7 @@ import UIKit
 import Parse
 
 class HomePresenter: NSObject {
-    
+
     fileprivate let pagination = 3
     fileprivate var skipPosts = 0
     fileprivate var skipUsers = 0
@@ -29,7 +29,6 @@ class HomePresenter: NSObject {
     func updatePostsFriends(){
         skipPosts = getPosts().endIndex
         skipUsers = following.endIndex
-        
         getProfile()
         
 //        if let _ = user.profile?.firstName {
@@ -42,7 +41,13 @@ class HomePresenter: NSObject {
     func getProfile() {
         UserRequest.getProfileUser { (success, msg) in
             if success {
-                self.getFriends()
+                self.requestAllPostTypes(completionHandler: { (success, msg) in
+                    if success {
+                        self.getFriends()
+                    } else {
+                        print ("ERROR GET POST TYPES")
+                    }
+                })
             } else {
                 print ("get profile error")
             }
@@ -181,6 +186,12 @@ class HomePresenter: NSObject {
             }
             
             completionHandler(true, "success", cover)
+        }
+    }
+    
+    func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.getAllTypes { (success, msg) in
+            completionHandler(success, msg)
         }
     }
 }

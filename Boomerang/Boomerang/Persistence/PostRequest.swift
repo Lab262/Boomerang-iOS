@@ -20,7 +20,6 @@ class PostRequest: NSObject {
             if success {
                 for obj in objects! {
                     let post = Post(object: obj)
-                    
                     post.author = findAuthorByPost(following: following, authorId: post.author!.objectId!)
                     posts.append(post)
                 }
@@ -49,9 +48,7 @@ class PostRequest: NSObject {
     }
     
     static func getFollowingPostsCount(following: [Profile], completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
-        
         ParseRequest.queryCountContainedIn(className: "Post", key: "author", value: following) { (success, msg, count) in
-            
             if success {
                 completionHandler(true, msg, count)
             } else {
@@ -67,7 +64,6 @@ class PostRequest: NSObject {
         queryParams["author"] = profile
         
         ParseRequest.queryEqualToValue(className: "Post", queryParams: queryParams, includes: nil) { (success, msg, objects) in
-            
             if success {
                 for obj in objects! {
                     let post = Post(object: obj)
@@ -99,7 +95,6 @@ class PostRequest: NSObject {
         }
         
         post.getRelationsInBackgroundBy(key: "photos", keyColunm: "imageFile", isNotContained: true, notContainedKeys: notContainedKeys ) { (success, msg, objects) in
-            
             if success {
                 if post.relations == nil {
                     post.relations = [Photo]()
@@ -161,6 +156,22 @@ class PostRequest: NSObject {
         queryParams["post"] = post
         
         ParseRequest.updateForIsDeletedObjectBy(className: "Interested", queryParams: queryParams) { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    static func getAllTypes (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        var allTypes = [PostType]()
+        
+        ParseRequest.queryGetAllObjects(className: "PostType") { (success, msg, objects) in
+            if success {
+                objects!.forEach {
+                    let type = PostType(object: $0)
+                    allTypes.append(type)
+                }
+                ApplicationState.sharedInstance.postTypes = allTypes
+            }
             completionHandler(success, msg)
         }
     }

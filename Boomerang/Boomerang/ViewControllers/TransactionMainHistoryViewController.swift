@@ -1,20 +1,21 @@
 //
-//  TransactionMainViewController.swift
+//  TransactionMainHistoryViewController.swift
 //  Boomerang
 //
-//  Created by Huallyd Smadi on 05/04/17.
+//  Created by Huallyd Smadi on 06/05/17.
 //  Copyright © 2017 Lab262. All rights reserved.
 //
 
 import UIKit
 
-class TransactionMainViewController: UIViewController {
+class TransactionMainHistoryViewController: UIViewController {
     
     var segmentSelected: Int? {
         didSet {
             setFontButtonBySegmentSelected()
         }
     }
+    
     var segmentControlButtonDelegate: SegmentControlButtonDelegate?
     
     @IBOutlet weak var navigationBar: IconNavigationBar!
@@ -34,12 +35,17 @@ class TransactionMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.segmentSelected = 0
-        navigationBar.leftButtonIcon.isHidden = true
-        navigationBar.rightButton.addTarget(self, action: #selector(pushForDetailHistoric(_:)), for: .touchUpInside)
+        navigationBar.titleLabel.text = "Histórico"
+        navigationBar.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+        navigationBar.rightIcon.isHidden = true
     }
     
     func pushForDetailHistoric(_ sender: UIButton) {
         self.performSegue(withIdentifier: SegueIdentifiers.transactionToHistoric, sender: self)
+    }
+    
+    func backView(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func setFontButtonBySegmentSelected(){
@@ -97,7 +103,7 @@ class TransactionMainViewController: UIViewController {
         viewLeftConstraint.isActive = false
         viewCenterConstraint.isActive = false
         viewRightConstraint.isActive = false
-     
+        
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions(), animations: {
             self.viewLeftConstraint.isActive = leading
             self.viewCenterConstraint.isActive = center
@@ -107,7 +113,7 @@ class TransactionMainViewController: UIViewController {
     }
 }
 
-extension TransactionMainViewController: SegmentControlPageDelegate {
+extension TransactionMainHistoryViewController: SegmentControlPageDelegate {
     
     func segmentScrolled(_ viewIndex: Int) {
         switch viewIndex {
@@ -121,9 +127,7 @@ extension TransactionMainViewController: SegmentControlPageDelegate {
             showDonationTransaction()
             segmentSelected = 2
         default: break
-        
+            
         }
     }
 }
-
-

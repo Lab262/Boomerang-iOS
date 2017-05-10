@@ -18,7 +18,7 @@ class BoomerMainViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     var user = ApplicationState.sharedInstance.currentUser
-    var type: PostType = PostType.need
+    var type: TypePost = TypePost.need
     var titlePost = String()
     @IBAction func showMenu(_ sender: Any) {
         

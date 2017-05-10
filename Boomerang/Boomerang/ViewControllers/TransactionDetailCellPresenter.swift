@@ -41,8 +41,8 @@ class TransactionDetailCellPresenter: NSObject {
         return getScheme().createdDate!
     }
     
-    func getTypeTransaction() -> PostType {
-        return getScheme().post!.postType!
+    func getTypeTransaction() -> TypePost {
+        return getScheme().post!.typePost!
     }
     
     func getUser() -> User {

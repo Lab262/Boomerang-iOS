@@ -28,6 +28,7 @@ class CommentRequest: NSObject {
         var comments: [Comment] = [Comment]()
         var queryParams = [String : Any]()
         queryParams["post"] = post
+        
         var objectIds = [String]()
         
         commentsObject.forEach {

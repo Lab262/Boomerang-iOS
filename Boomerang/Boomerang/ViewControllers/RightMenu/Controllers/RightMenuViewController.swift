@@ -38,7 +38,6 @@ class RightMenuViewController: UIViewController {
     }
     
     @IBAction func closeMenu(_ sender: Any) {
-        
         self.perfomDismissMenuAnimation()
     }
     
