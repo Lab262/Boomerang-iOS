@@ -57,6 +57,8 @@ class TransactionPresenter: NSObject {
         }
     }
     
+    
+    
     func requestSchemeUser(){
         SchemeRequest.getSchemesForUser(owner: getUser().profile!, schemesDownloaded: getSchemes(), notContainedStatus: [.finished, .done, .canceled], pagination: pagination) { (success, msg, schemes) in
             

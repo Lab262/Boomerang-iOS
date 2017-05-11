@@ -11,22 +11,22 @@ import Parse
 
 class SchemeRequest: NSObject {
     
-    static func createScheme(requester: Profile, owner: Profile, chat: Chat, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        
-        let scheme = PFObject(className: "Scheme")
-        scheme["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
-        scheme["requester"] = ["__type": "Pointer", "className": "_User", "objectId": requester.objectId]
-        scheme["owner"] = ["__type": "Pointer", "className": "_User", "objectId": owner.objectId]
-        scheme["chat"] = ["__type": "Pointer", "className": "Chat", "objectId": chat.objectId]
-        
-        scheme.saveInBackground { (success, error) in
-            if error == nil {
-                completionHandler(success, "success")
-            } else {
-                completionHandler(success, error!.localizedDescription)
-            }
-        }
-    }
+//    static func createScheme(requester: Profile, owner: Profile, chat: Chat, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+//        
+//        let scheme = PFObject(className: "Scheme")
+//        scheme["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
+//        scheme["requester"] = ["__type": "Pointer", "className": "_User", "objectId": requester.objectId]
+//        scheme["owner"] = ["__type": "Pointer", "className": "_User", "objectId": owner.objectId]
+//        scheme["chat"] = ["__type": "Pointer", "className": "Chat", "objectId": chat.objectId]
+//        
+//        scheme.saveInBackground { (success, error) in
+//            if error == nil {
+//                completionHandler(success, "success")
+//            } else {
+//                completionHandler(success, error!.localizedDescription)
+//            }
+//        }
+//    }
     
     static func getNotContainedStatus(statusScheme: [StatusScheme]) -> [SchemeStatus] {
         
@@ -58,41 +58,18 @@ class SchemeRequest: NSObject {
         
         notContainedObjects["objectId"] = notContainedObjectIds
         notContainedObjects["status"] = getNotContainedStatus(statusScheme: notContainedStatus)
-        
-        
 
-
-//        ParseRequest.queryEqualToValueNotContainedObjects(className: "Scheme", queryParams: queryParams, notContainedObjects: notContainedObjects, includes: ["requester", "owner", "post"]) { (success, msg, objects) in
-//            
-//            if success {
-//                for obj in objects! {
-//                    let scheme = Scheme(object: obj)
-//                    schemes.append(scheme)
-//                }
-//                completionHandler(success, msg, schemes)
-//            } else {
-//                completionHandler(success, msg, nil)
-//            }
-//        }
-        
-        ParseRequest.queryEqualToValueNotContainedObjects2(className: "Scheme", queryParams: queryParams, includes: ["requester", "owner", "post"], selectKeys: nil, pagination: 3) { (success, msg, objects) in
-            
+        ParseRequest.queryEqualToValueNotContainedObjects(className: "Scheme", queryType: .and, params: queryParams, notContainedObjects: notContainedObjects, includes: ["requester", "owner", "post"], pagination: pagination) { (success, msg, objects) in
             if success {
-                
+                for obj in objects! {
+                    let scheme = Scheme(object: obj)
+                    schemes.append(scheme)
+                }
+                completionHandler(success, msg, schemes)
+            } else {
+                completionHandler(success, msg, nil)
             }
         }
-//        ParseRequest.queryEqualToValue(className: "Scheme", queryParams: queryParams, includes: ["requester", "owner", "post"], selectKeys: nil, pagination: pagination, skip: nil) { (success, msg, objects) in
-//            
-//            if success {
-//                for obj in objects! {
-//                    let scheme = Scheme(object: obj)
-//                    schemes.append(scheme)
-//                }
-//                completionHandler(success, msg, schemes)
-//            } else {
-//                completionHandler(success, msg, nil)
-//            }
-//        }
     }
     
     static func getAllStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {

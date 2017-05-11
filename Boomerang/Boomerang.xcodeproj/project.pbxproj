@@ -144,9 +144,6 @@
 		D43C6B2F1EB2B54300F118AA /* DemoConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */; };
 		D43C6B301EB2B54300F118AA /* DemoConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */; };
 		D43C6B311EB2B54300F118AA /* DemoConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */; };
-		D43CD5B31EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CD5B21EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift */; };
-		D43CD5B41EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CD5B21EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift */; };
-		D43CD5B51EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CD5B21EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift */; };
 		D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DF1311E66970400397251 /* ThingDetailViewController.swift */; };
 		D4470A671EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A661EB5952A002330C5 /* PhotoThingPresenter.swift */; };
 		D4470A681EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4470A661EB5952A002330C5 /* PhotoThingPresenter.swift */; };
@@ -824,7 +821,6 @@
 		D436BF2D1E95B50E00BC7F00 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		D43C6B261EB2B2D300F118AA /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		D43C6B2E1EB2B54300F118AA /* DemoConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoConversation.swift; sourceTree = "<group>"; };
-		D43CD5B21EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHistorySegmentViewController.swift; sourceTree = "<group>"; };
 		D43DF1311E66970400397251 /* ThingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDetailViewController.swift; sourceTree = "<group>"; };
 		D4470A661EB5952A002330C5 /* PhotoThingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoThingPresenter.swift; sourceTree = "<group>"; };
 		D4470A6A1EB6A5D8002330C5 /* ProfileRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
@@ -1527,7 +1523,6 @@
 			isa = PBXGroup;
 			children = (
 				D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */,
-				D43CD5B21EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift */,
 			);
 			name = Historic;
 			sourceTree = "<group>";
@@ -2527,7 +2522,6 @@
 				2F2F07941E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift in Sources */,
 				A40A25241DCBC28E00DF9523 /* RightMenuCell.swift in Sources */,
 				D40C0E511E8B9A93008174D2 /* Photo.swift in Sources */,
-				D43CD5B31EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift in Sources */,
 				D4B3B5521EAF9654008E6566 /* NotificationModel.swift in Sources */,
 				2FA0CB381E6E5F1800224284 /* AlertUtils.swift in Sources */,
 				D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */,
@@ -2696,7 +2690,6 @@
 				D4AD97841EA9ACFD00C9FAB9 /* ChatRequest.swift in Sources */,
 				D4AD97851EA9ACFD00C9FAB9 /* EvaluationViewController.swift in Sources */,
 				D4AD97861EA9ACFD00C9FAB9 /* ExchangeTransactionViewController.swift in Sources */,
-				D43CD5B41EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift in Sources */,
 				D4AD97871EA9ACFD00C9FAB9 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4AD97881EA9ACFD00C9FAB9 /* Post.swift in Sources */,
 				D4AD97891EA9ACFD00C9FAB9 /* NotificationsMainViewController.swift in Sources */,
@@ -2864,7 +2857,6 @@
 				D4AD98501EA9AD0400C9FAB9 /* ChatRequest.swift in Sources */,
 				D4AD98511EA9AD0400C9FAB9 /* EvaluationViewController.swift in Sources */,
 				D4AD98521EA9AD0400C9FAB9 /* ExchangeTransactionViewController.swift in Sources */,
-				D43CD5B51EBE792D00EFBF25 /* TransactionHistorySegmentViewController.swift in Sources */,
 				D4AD98531EA9AD0400C9FAB9 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4AD98541EA9AD0400C9FAB9 /* Post.swift in Sources */,
 				D4AD98551EA9AD0400C9FAB9 /* NotificationsMainViewController.swift in Sources */,

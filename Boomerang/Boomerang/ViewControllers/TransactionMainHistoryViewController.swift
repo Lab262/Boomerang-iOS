@@ -26,7 +26,6 @@ class TransactionMainHistoryViewController: UIViewController {
     @IBOutlet weak var exchangeTransactionButton: UIButton!
     @IBOutlet weak var donationTransactionButton: UIButton!
     
-    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
         TabBarController.mainTabBarController.showTabBar()
