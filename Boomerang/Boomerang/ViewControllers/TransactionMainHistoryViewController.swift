@@ -48,31 +48,16 @@ class TransactionMainHistoryViewController: UIViewController {
     }
     
     func setFontButtonBySegmentSelected(){
-        switch segmentSelected! {
-        case 0:
-            loanTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
-            loanTransactionButton.alpha = 1.0
-            exchangeTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            exchangeTransactionButton.alpha = 0.56
-            donationTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            donationTransactionButton.alpha = 0.56
-            
-        case 1:
-            exchangeTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
-            exchangeTransactionButton.alpha = 1.0
-            loanTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            loanTransactionButton.alpha = 0.56
-            donationTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            donationTransactionButton.alpha = 0.56
-        case 2:
-            donationTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
-            donationTransactionButton.alpha = 1.0
-            loanTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            loanTransactionButton.alpha = 0.56
-            exchangeTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            exchangeTransactionButton.alpha = 0.56
-        default:
-            break
+        let buttons = [loanTransactionButton, exchangeTransactionButton, donationTransactionButton]
+        
+        for (i, button) in buttons.enumerated() {
+            if i == segmentSelected {
+                button!.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
+                button!.alpha = 1.0
+            } else {
+                button!.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+                button!.alpha = 0.5
+            }
         }
     }
     
@@ -80,6 +65,8 @@ class TransactionMainHistoryViewController: UIViewController {
         if let segmentVC = segue.destination as? TransactionSegmentViewController {
             segmentControlButtonDelegate = segmentVC
             segmentVC.segmentControlPageDelegate = self
+            segmentVC.presenter.notContainedStatusScheme = [.done]
+            segmentVC.notificationKey = NotificationKeys.updateHistoricSchemes
         }
     }
     
@@ -99,6 +86,7 @@ class TransactionMainHistoryViewController: UIViewController {
     }
     
     func setSelectionIndication(_ leading: Bool, center:Bool, trailing: Bool) {
+        
         viewLeftConstraint.isActive = false
         viewCenterConstraint.isActive = false
         viewRightConstraint.isActive = false

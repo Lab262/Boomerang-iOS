@@ -222,6 +222,9 @@
 		D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */; };
 		D498F04B1E820EA1002E8972 /* UserInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F0491E820EA1002E8972 /* UserInformationTableViewCell.xib */; };
 		D49955B71EA3AAEF00D89038 /* TransactionFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */; };
+		D49C6B191EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C6B181EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift */; };
+		D49C6B1A1EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C6B181EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift */; };
+		D49C6B1B1EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C6B181EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift */; };
 		D4A012F51E7AC83900B3B811 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */; };
 		D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */; };
 		D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */; };
@@ -868,6 +871,7 @@
 		D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D498F0491E820EA1002E8972 /* UserInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserInformationTableViewCell.xib; path = ../Cells/UserInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFilterPresenter.swift; sourceTree = "<group>"; };
+		D49C6B181EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHistoricFilterPresenter.swift; sourceTree = "<group>"; };
 		D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCollectionViewCell.swift; path = ../Interface/PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = ../Interface/PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -1476,6 +1480,7 @@
 		D436BF231E95A66C00BC7F00 /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				D49C6B0F1EC799120078EF42 /* Historic */,
 				D4964CE21EA65EDF00BD3807 /* Presenters */,
 				D436BF281E95A6AE00BC7F00 /* Cells */,
 				D436BF271E95A69E00BC7F00 /* Interface */,
@@ -1626,6 +1631,7 @@
 				D436BF2B1E95B19500BC7F00 /* TransactionPresenter.swift */,
 				D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */,
 				D4964CE31EA6613900BD3807 /* TransactionDetailPresenter.swift */,
+				D49C6B181EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift */,
 			);
 			name = Presenters;
 			sourceTree = "<group>";
@@ -1691,6 +1697,13 @@
 				D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */,
 			);
 			name = UICollectionViewCell;
+			sourceTree = "<group>";
+		};
+		D49C6B0F1EC799120078EF42 /* Historic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Historic;
 			sourceTree = "<group>";
 		};
 		D4A012F21E7A482400B3B811 /* Cells */ = {
@@ -2500,6 +2513,7 @@
 				2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */,
 				D484FA3D1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4C134E61E9C81AD003F55E4 /* SchemeRequest.swift in Sources */,
+				D49C6B191EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift in Sources */,
 				D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */,
 				D4B3B55A1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
@@ -2704,6 +2718,7 @@
 				D4AD97911EA9ACFD00C9FAB9 /* DetailThingPresenter.swift in Sources */,
 				D4AD97921EA9ACFD00C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
 				D4AD97931EA9ACFD00C9FAB9 /* TabBarController.swift in Sources */,
+				D49C6B1A1EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift in Sources */,
 				D4AD97941EA9ACFD00C9FAB9 /* ThingDetailViewController.swift in Sources */,
 				D4AD97951EA9ACFD00C9FAB9 /* EvaluationPresenter.swift in Sources */,
 				D4AD97961EA9ACFD00C9FAB9 /* TransactionDetailCellPresenter.swift in Sources */,
@@ -2871,6 +2886,7 @@
 				D4AD985D1EA9AD0400C9FAB9 /* DetailThingPresenter.swift in Sources */,
 				D4AD985E1EA9AD0400C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
 				D4AD985F1EA9AD0400C9FAB9 /* TabBarController.swift in Sources */,
+				D49C6B1B1EC79CC80078EF42 /* TransactionHistoricFilterPresenter.swift in Sources */,
 				D4AD98601EA9AD0400C9FAB9 /* ThingDetailViewController.swift in Sources */,
 				D4AD98611EA9AD0400C9FAB9 /* EvaluationPresenter.swift in Sources */,
 				D4AD98621EA9AD0400C9FAB9 /* TransactionDetailCellPresenter.swift in Sources */,

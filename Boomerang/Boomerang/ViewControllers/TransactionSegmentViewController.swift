@@ -13,19 +13,29 @@ class TransactionSegmentViewController: UIViewController {
     var previousPage: Int = 0
     var segmentControlPageDelegate: SegmentControlPageDelegate?
     var presenter: TransactionPresenter = TransactionPresenter()
+    var notificationKey: String!
     
     @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLayoutSubviews() {
         scrollView.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
 
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         presenter.setViewDelegate(view: self)
         presenter.getTransactions()
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? LoanTransactionViewController {
+            vc.notificationKey = notificationKey
+        }
+    }
 }
 
 //Pragma MARK: - UIScrollViewDelegate
@@ -61,7 +71,7 @@ extension TransactionSegmentViewController: SegmentControlButtonDelegate {
 // MARK: - Presenter protocol
 extension TransactionSegmentViewController: ViewDelegate {
     func reload() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.updateSchemes), object: presenter.getSchemes(), userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationKey), object: presenter.getSchemes(), userInfo: nil)
     }
     func showMessageError(msg: String) {
         present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)

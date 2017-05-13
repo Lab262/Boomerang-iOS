@@ -94,30 +94,25 @@ extension UIView {
             if newValue == true {
                 self.layer.cornerRadius = self.frame.height / 8
                 self.layer.masksToBounds = true
-
             } else {
                 self.layer.cornerRadius = 0
             }
-            
         }
     }
     
     @IBInspectable var roundedCircle: Bool {
         get {
-            return self.layer.cornerRadius == self.frame.height/2
+            return self.layer.cornerRadius == self.frame.height / 2
         }
         set {
             if newValue == true {
                 self.layer.cornerRadius = self.frame.height / 2
                 self.layer.masksToBounds = true
-                
             } else {
                 self.layer.cornerRadius = 0
             }
-            
         }
     }
-
 }
 
 extension UITextField {
@@ -127,9 +122,7 @@ extension UITextField {
             return self.value(forKey: "_placeholderLabel.textColor") as? UIColor
         }
         set {
-            
             self.setValue(newValue, forKey: "_placeholderLabel.textColor")
         }
     }
-
 }

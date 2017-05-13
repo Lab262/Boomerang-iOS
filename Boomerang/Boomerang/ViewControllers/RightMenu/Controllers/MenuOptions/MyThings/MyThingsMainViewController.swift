@@ -88,6 +88,8 @@ class MyThingsMainViewController: UIViewController {
 
 extension MyThingsMainViewController: SegmentControlPageDelegate {
     
+   // var notContainedStatusScheme: [StatusScheme] = [.done]
+    
     func segmentScrolled(_ viewIndex: Int) {
         switch viewIndex {
         case 0:

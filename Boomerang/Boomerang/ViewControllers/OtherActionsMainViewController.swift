@@ -91,6 +91,8 @@ class OtherActionsMainViewController: UIViewController {
 
 extension OtherActionsMainViewController: SegmentControlPageDelegate {
     
+    
+   // var notContainedStatusScheme: [StatusScheme] = [.done]
     func segmentScrolled(_ viewIndex: Int) {
         switch viewIndex {
         case 0:

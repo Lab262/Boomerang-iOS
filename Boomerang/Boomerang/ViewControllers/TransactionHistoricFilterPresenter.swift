@@ -1,17 +1,15 @@
 //
-//  TransactionPresenter.swift
+//  TransactionHistoricFilterPresenter.swift
 //  Boomerang
 //
-//  Created by Huallyd Smadi on 05/04/17.
+//  Created by Huallyd Smadi on 13/05/17.
 //  Copyright © 2017 Lab262. All rights reserved.
 //
 
 import UIKit
 
+class TransactionHistoricFilterPresenter: NSObject {
 
-
-class TransactionPresenter: NSObject {
-    
     fileprivate let pagination = 3
     fileprivate var schemes: [Scheme] = [Scheme]()
     fileprivate var scheme: Scheme = Scheme()

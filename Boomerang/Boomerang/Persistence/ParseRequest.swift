@@ -194,9 +194,7 @@ class ParseRequest: NSObject {
 
     
     static func findMultipleObjectsAt(querys: [PFQuery<PFObject>], indexQuery: Int,  allObjects: [PFObject], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]) -> ()) {
-    
         var localObjects = allObjects
-        
         querys[indexQuery].findObjectsInBackground { (objects, error) in
             if error == nil {
                 objects?.forEach {
@@ -244,9 +242,7 @@ class ParseRequest: NSObject {
         switch queryType {
             
         case .common:
-            
             var query = PFQuery()
-            
             for param in params {
                 query = setupQuery(className: className, key: param.key, value: param.value, pagination: pagination, notContainedObjects: notContainedObjects, includes: includes)
             }
@@ -259,21 +255,19 @@ class ParseRequest: NSObject {
                 }
             }
             
-        case .and:
+        case .or:
             var allQueries = [PFQuery]()
-            
             for param in params {
                 let query = setupQuery(className: className, key: param.key, value: param.value, pagination: pagination, notContainedObjects: notContainedObjects!, includes: includes!)
                 allQueries.append(query)
             }
-            
             findMultipleObjectsAt(querys: allQueries, indexQuery: 0, allObjects: [PFObject](), completionHandler: { (success, msg, objects) in
                     completionHandler(success, msg, objects)
                 })
             
-        case .or:
+        case .and:
             break
-        }
+        } 
     }
     
  

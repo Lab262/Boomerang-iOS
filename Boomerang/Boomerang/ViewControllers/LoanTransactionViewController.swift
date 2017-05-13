@@ -12,6 +12,7 @@ class LoanTransactionViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var presenter = TransactionFilterPresenter()
+    var notificationKey: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class LoanTransactionViewController: UIViewController {
     }
     
     func registerObservers(){
-         NotificationCenter.default.addObserver(self, selector: #selector(updateSchemes(_:)), name: NSNotification.Name(rawValue: NotificationKeys.updateSchemes), object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(updateSchemes(_:)), name: NSNotification.Name(rawValue: notificationKey), object: nil)
     }
     
     func updateSchemes (_ notification: Notification) {

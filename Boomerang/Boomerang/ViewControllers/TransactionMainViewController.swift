@@ -52,31 +52,16 @@ class TransactionMainViewController: UIViewController {
     }
     
     func setFontButtonBySegmentSelected(){
-        switch segmentSelected! {
-        case 0:
-            loanTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
-            loanTransactionButton.alpha = 1.0
-            exchangeTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            exchangeTransactionButton.alpha = 0.56
-            donationTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            donationTransactionButton.alpha = 0.56
-            
-        case 1:
-            exchangeTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
-            exchangeTransactionButton.alpha = 1.0
-            loanTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            loanTransactionButton.alpha = 0.56
-            donationTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            donationTransactionButton.alpha = 0.56
-        case 2:
-            donationTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
-            donationTransactionButton.alpha = 1.0
-            loanTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            loanTransactionButton.alpha = 0.56
-            exchangeTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
-            exchangeTransactionButton.alpha = 0.56
-        default:
-            break
+        let buttons = [loanTransactionButton, exchangeTransactionButton, donationTransactionButton]
+        
+        for (i, button) in buttons.enumerated() {
+            if i == segmentSelected {
+                button!.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
+                button!.alpha = 1.0
+            } else {
+                button!.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+                button!.alpha = 0.5
+            }
         }
     }
     
@@ -84,6 +69,8 @@ class TransactionMainViewController: UIViewController {
         if let segmentVC = segue.destination as? TransactionSegmentViewController {
             segmentControlButtonDelegate = segmentVC
             segmentVC.segmentControlPageDelegate = self
+            segmentVC.presenter.notContainedStatusScheme = [.canceled, .done, .finished]
+            segmentVC.notificationKey = NotificationKeys.updateSchemes
         }
     }
     
@@ -117,7 +104,7 @@ class TransactionMainViewController: UIViewController {
 }
 
 extension TransactionMainViewController: SegmentControlPageDelegate {
-    
+
     func segmentScrolled(_ viewIndex: Int) {
         switch viewIndex {
         case 0:

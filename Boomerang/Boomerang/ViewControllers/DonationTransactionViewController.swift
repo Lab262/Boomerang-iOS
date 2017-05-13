@@ -12,6 +12,7 @@ class DonationTransactionViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var presenter = TransactionFilterPresenter()
+    var notificationKey: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
