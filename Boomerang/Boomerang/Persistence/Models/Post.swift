@@ -15,6 +15,12 @@ enum TypePost: String {
     case donate = "Donate"
 }
 
+enum Condition: String {
+    case loan = "Loan"
+    case exchange = "Exchange"
+    case donation = "Donation"
+}
+
 class Post: PFObject {
     
     @NSManaged var id: String?
@@ -23,6 +29,7 @@ class Post: PFObject {
     @NSManaged var title: String?
     @NSManaged var content: String?
     var typePost: TypePost?
+    var condition: Condition?
     var createdDate: Date?
     var relations: [Photo]?
     var countPhotos = 0
@@ -54,6 +61,13 @@ class Post: PFObject {
             let postTypes = ApplicationState.sharedInstance.postTypes
             for type in postTypes where type.objectId == typeObject.objectId {
                 self.typePost = TypePost(rawValue: type.type!)
+            }
+        }
+        
+        if let conditionObject = object["condition"] as? PostCondition {
+            let postConditions = ApplicationState.sharedInstance.postConditions
+            for condition in postConditions where condition.objectId == conditionObject.objectId {
+                self.condition = Condition(rawValue: condition.condition!)
             }
         }
         

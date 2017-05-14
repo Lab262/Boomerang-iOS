@@ -16,13 +16,34 @@ class DonationTransactionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         registerNib()
+        registerObservers()
+        presenter.setViewDelegate(view: self)
     }
     
     func registerNib(){
         tableView.registerNibFrom(TransactionTableViewCell.self)
     }
+    
+    func registerObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSchemes(_:)), name: NSNotification.Name(rawValue: notificationKey), object: nil)
+    }
+    
+    
+    func updateSchemes (_ notification: Notification) {
+        if let schemes = notification.object as! [Scheme]? {
+            presenter.setSchemes(schemes: schemes)
+            reload()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? TransactionDetailViewController {
+            
+            destinationVC.presenter.setScheme(scheme: presenter.getSchemes()[tableView.indexPathForSelectedRow!.row])
+        }
+    }
+
 }
 
 extension DonationTransactionViewController : UITableViewDataSource {
@@ -31,26 +52,41 @@ extension DonationTransactionViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as! TransactionTableViewCell
         
+        cell.presenter.setScheme(scheme: presenter.getSchemes()[indexPath.row])
+        cell.updateCell()
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        
-        return presenter.getSchemesFor(postType: .donate).count
+        return presenter.getSchemesFor(postCondition: .donation).count
     }
+    
+    
 }
 
 extension DonationTransactionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        performSegue(withIdentifier: SegueIdentifiers.transactionToProfile, sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return TransactionTableViewCell.cellHeight
     }
 }
+
+extension DonationTransactionViewController: ViewDelegate {
+    func reload() {
+        tableView.reloadData()
+    }
+    func showMessageError(msg: String) {
+        
+    }
+}
+
 
 

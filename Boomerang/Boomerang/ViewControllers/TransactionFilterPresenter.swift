@@ -35,16 +35,15 @@ class TransactionFilterPresenter: NSObject {
         return self.schemes
     }
     
-    func getSchemesFor(postType: TypePost) -> [Scheme] {
-        let filterSchemes = filterSchemesFor(postType: postType)
+    func getSchemesFor(postCondition: Condition) -> [Scheme] {
+        let filterSchemes = filterSchemesFor(postCondition: postCondition)
         return filterSchemes
     }
     
-    func filterSchemesFor(postType: TypePost) -> [Scheme] {
+    func filterSchemesFor(postCondition: Condition) -> [Scheme] {
         let filteredSchemes = (self.schemes.filter { scheme in
-            return scheme.post?.typePost == postType
+            return scheme.post?.condition == postCondition
         })
         return filteredSchemes
     }
-    
 }

@@ -80,13 +80,13 @@ class TransactionCellPresenter: NSObject {
         })
     }
     
-    func getInformationsTransactionByTypeOfPost(isFromUser: Bool, postType: TypePost) {
+    func getInformationsTransactionByTypeOfPost(isFromUser: Bool, postCondition: Condition) {
         
         var descriptionTransaction: String?
         
-        switch postType {
+        switch postCondition {
             
-        case .donate:
+        case .donation:
             if isFromUser {
                 descriptionTransaction = "Você está doando \(getPostName()) para \(getRequesterOfTransaction().fullName)"
                 getImageOfUser(user: getRequesterOfTransaction(), type: .requester)
@@ -94,7 +94,7 @@ class TransactionCellPresenter: NSObject {
                 descriptionTransaction = "\(getOwnerOfTransaction().fullName) está te doando \(getPostName())"
                 getImageOfUser(user: getOwnerOfTransaction(), type: .owner)
             }
-        case .have:
+        case .loan:
             if isFromUser {
                 descriptionTransaction = "Você está emprestando \(getPostName()) para \(getRequesterOfTransaction().fullName)"
                 getImageOfUser(user: getRequesterOfTransaction(), type: .requester)
@@ -102,12 +102,12 @@ class TransactionCellPresenter: NSObject {
                 descriptionTransaction = "\(getOwnerOfTransaction().fullName) está te emprestando \(getPostName())"
                 getImageOfUser(user: getOwnerOfTransaction(), type: .owner)
             }
-        case .need:
+        case .exchange:
             if isFromUser {
-                descriptionTransaction = "\(getRequesterOfTransaction().fullName) está te emprestando \(getPostName())"
+                descriptionTransaction = "\(getRequesterOfTransaction().fullName) está trocando \(getPostName())"
                 getImageOfUser(user: getRequesterOfTransaction(), type: .requester)
             } else {
-                descriptionTransaction = "Você está emprestando \(getPostName()) para \(getOwnerOfTransaction().fullName)"
+                descriptionTransaction = "Você está trocando \(getPostName()) para \(getOwnerOfTransaction().fullName)"
                 getImageOfUser(user: getOwnerOfTransaction(), type: .owner)
             }
         }
@@ -117,11 +117,11 @@ class TransactionCellPresenter: NSObject {
     func getInformationsOfTransaction(){
         if getScheme().owner?.objectId == self.user.profile?.objectId {
             scheme.dealer = getScheme().requester
-            getInformationsTransactionByTypeOfPost(isFromUser: true, postType: getPost().typePost!)
+            getInformationsTransactionByTypeOfPost(isFromUser: true, postCondition: getPost().condition!)
             view?.fromImage = self.user.profileImage
         } else {
             scheme.dealer = getScheme().owner
-            getInformationsTransactionByTypeOfPost(isFromUser: false, postType: getPost().typePost!)
+            getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().condition!)
             view?.toImage = self.user.profileImage
         }
     }

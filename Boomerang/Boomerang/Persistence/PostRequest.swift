@@ -175,4 +175,20 @@ class PostRequest: NSObject {
             completionHandler(success, msg)
         }
     }
+    
+    static func getAllConditions (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        var allConditions = [PostCondition]()
+        
+        ParseRequest.queryGetAllObjects(className: "PostCondition") { (success, msg, objects) in
+            if success {
+                objects!.forEach {
+                    let condition = PostCondition(object: $0)
+                    allConditions.append(condition)
+                }
+                ApplicationState.sharedInstance.postConditions = allConditions
+            }
+            completionHandler(success, msg)
+        }
+    }
 }

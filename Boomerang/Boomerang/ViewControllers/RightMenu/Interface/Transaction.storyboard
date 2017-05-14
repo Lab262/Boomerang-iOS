@@ -696,7 +696,7 @@ FACEBOOK</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVc-16-fu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="3688"/>
+            <point key="canvasLocation" x="900" y="3714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fej-iW-KVw">
@@ -889,6 +889,12 @@ FACEBOOK</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="1jV-rK-qwS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="3eu-NR-IOq"/>
+                                </constraints>
+                            </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsE-o3-nZw" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -905,12 +911,6 @@ FACEBOOK</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="1jV-rK-qwS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="175" id="3eu-NR-IOq"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1H6-rt-RYL">
                                 <rect key="frame" x="0.0" y="60" width="375" height="60"/>
                                 <subviews>
@@ -1031,7 +1031,7 @@ FACEBOOK</string>
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="profileView" id="63j-9b-CYi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2z-8i-2db" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-820" y="3299"/>
+            <point key="canvasLocation" x="-821" y="3462"/>
         </scene>
         <!--Transaction Detail View Controller-->
         <scene sceneID="MoJ-Dy-EtH">
@@ -1296,7 +1296,7 @@ diga como foi a sua experiência com ela.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIC-Ut-Ko7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="2980"/>
+            <point key="canvasLocation" x="2140" y="2980"/>
         </scene>
         <!--detailThingView-->
         <scene sceneID="GIr-TI-GDH">
@@ -1360,7 +1360,7 @@ diga como foi a sua experiência com ela.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFv-3e-jNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="4268"/>
+            <point key="canvasLocation" x="900" y="4319"/>
         </scene>
     </scenes>
     <resources>
@@ -1377,6 +1377,6 @@ diga como foi a sua experiência com ela.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iKo-QB-MRJ"/>
-        <segue reference="6VA-ae-3Up"/>
+        <segue reference="kYF-IT-WU3"/>
     </inferredMetricsTieBreakers>
 </document>

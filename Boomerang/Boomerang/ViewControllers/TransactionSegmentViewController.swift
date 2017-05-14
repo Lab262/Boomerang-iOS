@@ -35,6 +35,14 @@ class TransactionSegmentViewController: UIViewController {
         if let vc = segue.destination as? LoanTransactionViewController {
             vc.notificationKey = notificationKey
         }
+        
+        if let vc = segue.destination as? ExchangeTransactionViewController {
+            vc.notificationKey = notificationKey
+        }
+        
+        if let vc = segue.destination as? DonationTransactionViewController {
+            vc.notificationKey = notificationKey
+        }
     }
 }
 

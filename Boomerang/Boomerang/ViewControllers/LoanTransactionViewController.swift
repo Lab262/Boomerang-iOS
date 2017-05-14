@@ -58,7 +58,7 @@ extension LoanTransactionViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return presenter.getSchemes().count
+        return presenter.getSchemesFor(postCondition: .loan).count
     }
 }
 

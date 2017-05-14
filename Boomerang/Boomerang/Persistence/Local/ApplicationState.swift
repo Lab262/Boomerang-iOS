@@ -33,6 +33,7 @@ class ApplicationState: NSObject {
     
     var schemeStatus = [SchemeStatus]()
     var postTypes = [PostType]()
+    var postConditions = [PostCondition]()
     
     
     
