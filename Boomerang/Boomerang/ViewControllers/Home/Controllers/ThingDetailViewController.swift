@@ -133,8 +133,8 @@ class ThingDetailViewController: UIViewController {
 
     
     func setNavigationInformations(){
-       // navigationInformationsView.titleTransactionLabel.text = presenter.getCurrentType()
-       // navigationInformationsView.thingNameLabel.text = presenter.getPost().title
+       navigationBarView.titleBarLabel.text = presenter.getCurrentType()
+       navigationInformationsView.thingNameLabel.text = presenter.getPost().title
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {

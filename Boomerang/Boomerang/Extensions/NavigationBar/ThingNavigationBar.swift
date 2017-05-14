@@ -11,10 +11,7 @@ import UIKit
 class ThingNavigationBar: UIView {
     
     @IBOutlet var view: UIView!
-    @IBOutlet weak var typeImage: UIImageView!
-    @IBOutlet weak var titleTransactionLabel: UILabel!
     @IBOutlet weak var thingNameLabel: UILabel!
-    
     @IBOutlet weak var containerIconImage: UIImageView!
     
     
