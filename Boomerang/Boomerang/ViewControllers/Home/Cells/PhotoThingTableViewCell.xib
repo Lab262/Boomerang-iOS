@@ -76,9 +76,11 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="heightIconConstraint" destination="ivG-LL-tnu" id="pmJ-e9-9Tv"/>
                 <outlet property="photoCollectionView" destination="L4H-VO-rp6" id="fgQ-bf-1Pb"/>
                 <outlet property="postIconImage" destination="xg4-1s-fUu" id="rqk-vH-hMs"/>
                 <outlet property="viewPages" destination="gcn-n7-LVN" id="Ysr-I8-8Yo"/>
+                <outlet property="widthIconConstraint" destination="jDf-id-FJs" id="5eI-4g-sOt"/>
             </connections>
             <point key="canvasLocation" x="121.5" y="53.5"/>
         </tableViewCell>

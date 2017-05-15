@@ -11,7 +11,8 @@ import UIKit
 class PhotoThingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postIconImage: UIImageView!
-    
+    @IBOutlet weak var heightIconConstraint: NSLayoutConstraint!
+    @IBOutlet weak var widthIconConstraint: NSLayoutConstraint!
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     static var identifier: String {
@@ -37,7 +38,7 @@ class PhotoThingTableViewCell: UITableViewCell {
         presenter.setViewDelegate(view: self)
         initializePageIndicatorView()
         (photoCollectionView.collectionViewLayout as! CenterCellCollectionViewFlowLayout).centerCellInset = CGPoint(x: 15, y: 0)
-        postIconImage.image = presenter.getIconPost()
+        presenter.getIconPost(iconImage: postIconImage, height: heightIconConstraint, width: widthIconConstraint)
     }
     
     func registerNib(){

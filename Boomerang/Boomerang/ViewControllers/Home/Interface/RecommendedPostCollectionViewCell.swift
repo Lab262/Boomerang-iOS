@@ -21,6 +21,8 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var commentAmountLabel: UILabel!
     @IBOutlet weak var likeAmountLabel: UILabel!
     @IBOutlet weak var sharedAmountLabel: UILabel!
+    @IBOutlet weak var heightPostIconConstraint: NSLayoutConstraint!
+    @IBOutlet weak var widthPostIconConstraint: NSLayoutConstraint!
     
     
     var presenter: HomePresenter = HomePresenter()
@@ -45,7 +47,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     func setupCell(){
         descriptionPostLabel.text = presenter.getPost().content
         userNameLabel.text = presenter.getPost().author!.fullName
-        
+        presenter.getIconPost(iconImage: typePostImage, height: heightPostIconConstraint, width: widthPostIconConstraint)
         presenter.getAuthorPhotoOfPost { (success, msg, image) in
             if success {
                 self.userImage.image = image

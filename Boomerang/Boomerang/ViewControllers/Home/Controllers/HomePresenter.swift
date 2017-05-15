@@ -199,6 +199,25 @@ class HomePresenter: NSObject {
         }
     }
     
+    func getIconPost(iconImage: UIImageView, height: NSLayoutConstraint, width: NSLayoutConstraint) {
+        if getPost().typePost == .have {
+            iconImage.image = #imageLiteral(resourceName: "have-icon")
+            height.constant = 25.0
+            width.constant = 35.0
+            //return #imageLiteral(resourceName: "have-icon")
+        } else if getPost().typePost == .need {
+            iconImage.image = #imageLiteral(resourceName: "need_icon")
+            height.constant = 25.0
+            width.constant = 17.0
+        } else {
+            iconImage.image = #imageLiteral(resourceName: "donate_icon")
+            height.constant = 24.0
+            width.constant = 27.0
+            //return #imageLiteral(resourceName: "donate_icon")
+        }
+        iconImage.layoutIfNeeded()
+    }
+    
     func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         PostRequest.getAllTypes { (success, msg) in
             completionHandler(success, msg)

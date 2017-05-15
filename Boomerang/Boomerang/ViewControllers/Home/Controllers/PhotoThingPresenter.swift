@@ -73,14 +73,23 @@ class PhotoThingPresenter: NSObject {
         }
     }
 
-    func getIconPost() -> UIImage {
+    func getIconPost(iconImage: UIImageView, height: NSLayoutConstraint, width: NSLayoutConstraint) {
         if getPost().typePost == .have {
-            return #imageLiteral(resourceName: "have-icon")
+            iconImage.image = #imageLiteral(resourceName: "have-icon")
+            height.constant = 25.0
+            width.constant = 35.0
+            //return #imageLiteral(resourceName: "have-icon")
         } else if getPost().typePost == .need {
-            return #imageLiteral(resourceName: "need_icon")
+            iconImage.image = #imageLiteral(resourceName: "need_icon")
+            height.constant = 25.0
+            width.constant = 17.0
         } else {
-            return #imageLiteral(resourceName: "donate_icon")
+            iconImage.image = #imageLiteral(resourceName: "donate_icon")
+            height.constant = 24.0
+            width.constant = 27.0
+            //return #imageLiteral(resourceName: "donate_icon")
         }
+        iconImage.layoutIfNeeded()
     }
     
     func getRelationsImages(success: Bool){
