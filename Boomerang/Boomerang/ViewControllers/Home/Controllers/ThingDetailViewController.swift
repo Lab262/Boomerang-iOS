@@ -112,6 +112,7 @@ class ThingDetailViewController: UIViewController {
             secondButton.setTitle(presenter.getRecommendedTitleButton(), for: .normal)
         } else {
             secondButton.isHidden = true
+            firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
             firstButton.setTitle(presenter.getInterestedListTitleButton(), for: .normal)
         }
     }

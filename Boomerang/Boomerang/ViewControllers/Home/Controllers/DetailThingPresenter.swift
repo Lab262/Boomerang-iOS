@@ -26,8 +26,8 @@ class DetailThingPresenter: NSObject {
     fileprivate var comments = [Comment]()
     fileprivate var currentCommentsCount = 0
     fileprivate var user = ApplicationState.sharedInstance.currentUser
-    fileprivate let enterInterestedTitleButton: String = "Entrar da fila"
-    fileprivate let exitInterestedTitleButton: String = "Sair da fila"
+    fileprivate let enterInterestedTitleButton: String = "Quero!"
+    fileprivate let exitInterestedTitleButton: String = "Perdi interesse"
     fileprivate let recommendedTitleButton: String = "Recomendar"
     fileprivate let interestedListTitleButton: String = "Lista de interessados"
     
