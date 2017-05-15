@@ -46,4 +46,12 @@ struct NotificationKeys {
     static let popToRootOthers = "popToRootOthers"
 }
 
+//MARK - Status Scheme Ids
+
+struct StatusSchemeId {
+    static let progress = "FGoq2742yY"
+}
+
+
+
 

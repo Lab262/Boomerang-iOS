@@ -69,7 +69,6 @@ class ThingDetailViewController: UIViewController {
         tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-        //tableView.tableFooterView = refreshIndicatorInTableViewFooter()
     }
     
     override func viewDidLoad() {
@@ -79,14 +78,17 @@ class ThingDetailViewController: UIViewController {
         configureButtons()
         configureTableView()
         setNavigationInformations()
-        navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
-        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height, width: self.view.frame.width, height: 100.0)
         initializeComposeBar()
         setupKeyboardNotifications()
-        presenter.getCommentCounts()
-        updateComments()
+        getCommentsCount()
         registerObservers()
     }
+    
+    func getCommentsCount() {
+        presenter.getCommentCounts()
+        updateComments()
+    }
+    
     func registerObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootHome), object: nil)
     }
@@ -115,6 +117,7 @@ class ThingDetailViewController: UIViewController {
     }
     
     func initializeComposeBar(){
+        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height, width: self.view.frame.width, height: 100.0)
         composeBarView = PHFComposeBarView(frame: CGRect(x: 0.0, y: (initialViewFrame?.size.height)! - PHFComposeBarViewInitialHeight, width: (initialViewFrame?.size.width)!, height: PHFComposeBarViewInitialHeight))
         composeBarView?.maxCharCount = 160
         composeBarView?.maxLinesCount = 5
@@ -135,6 +138,7 @@ class ThingDetailViewController: UIViewController {
     func setNavigationInformations(){
        navigationBarView.titleBarLabel.text = presenter.getCurrentType()
        navigationInformationsView.thingNameLabel.text = presenter.getPost().title
+    navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
@@ -423,9 +427,6 @@ extension ThingDetailViewController: UIScrollViewDelegate {
         self.view.endEditing(true)
         tableView.endEditing(true)
         composeBarView?.resignFirstResponder()
-        
-        
-        
     }
 }
 
@@ -434,9 +435,7 @@ extension ThingDetailViewController: DetailThingDelegate {
     func reload() {
         if presenter.getComments().count != presenter.getCurrentCommentsCount() {
             tableView.reloadData()
-            
         }
-        //tableView.tableFooterView?.unload()
     }
     
     func showMessage(isSuccess: Bool, msg: String) {

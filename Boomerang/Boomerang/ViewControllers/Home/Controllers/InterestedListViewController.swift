@@ -15,15 +15,25 @@ class InterestedListViewController: UIViewController {
     let tableViewTopInset: CGFloat = 94.0
     let tableViewBottomInset: CGFloat = 40.0
     
+    @IBOutlet weak var navigationBar: IconNavigationBar!
+    
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.hideTabBar()
     }
     
     
     func configureTableView(){
-        
         tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, tableViewBottomInset, 0)
         tableView.tableFooterView = refreshIndicatorInTableViewFooter()
+    }
+    
+    func configureNavigationBar() {
+        navigationBar.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+        
+    }
+    
+    func backView(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func registerNib(){
@@ -38,6 +48,7 @@ class InterestedListViewController: UIViewController {
         super.viewDidLoad()
         registerNib()
         configureTableView()
+        configureNavigationBar()
         updateInteresteds()
         setupPresenterDelegate()
     }

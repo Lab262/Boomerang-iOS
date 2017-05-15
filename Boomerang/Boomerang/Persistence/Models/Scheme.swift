@@ -23,8 +23,9 @@ class Scheme: PFObject {
     @NSManaged var post: Post?
     @NSManaged var requester: Profile?
     @NSManaged var owner: Profile?
+    @NSManaged var status: SchemeStatus?
     @NSManaged var chat: Chat?
-    var status: StatusScheme?
+    var statusScheme: StatusScheme?
     var createdDate: Date?
     var dealer: Profile?
     
@@ -45,6 +46,12 @@ class Scheme: PFObject {
         self.requester = requester
         self.owner = owner
         self.chat = chat
+        
+        let statusPost = ApplicationState.sharedInstance.schemeStatus
+        for status in statusPost where status.objectId == StatusSchemeId.progress {
+            self.status = status
+        }
+        
     }
     
     func setInformationsBy(object: PFObject){
@@ -66,7 +73,7 @@ class Scheme: PFObject {
         if let statusObject = object ["status"] as? SchemeStatus {
             let statusPost = ApplicationState.sharedInstance.schemeStatus
             for status in statusPost where status.objectId == statusObject.objectId {
-                self.status = StatusScheme(rawValue: status.status!)
+                self.statusScheme = StatusScheme(rawValue: status.status!)
             }
         }
         

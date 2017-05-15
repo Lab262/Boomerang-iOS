@@ -136,10 +136,18 @@ class DetailThingPresenter: NSObject {
         }
     }
     
-    func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    func createSchemeInProgress(chat: Chat, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let scheme = Scheme(post: getPost(), requester: getUser().profile!, owner: getAuthorOfPost(), chat: chat)
+        scheme.saveObjectInBackground { (success, msg) in
+             completionHandler(success, msg)
+        }
+    }
+    
+    func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String, _ chat: Chat) -> ()) {
         let chat = Chat(post: getPost(), requester: getUser().profile!, owner: getAuthorOfPost())
         chat.saveObjectInBackground { (success, msg) in
-             completionHandler(success, msg)
+             completionHandler(success, msg, chat)
         }
     }
     
@@ -147,10 +155,17 @@ class DetailThingPresenter: NSObject {
         let interested = Interested(user: getUser().profile, post: getPost(), currentMessage: "Estou interessado, fico feliz em ajudar")
         interested.saveObjectInBackground { (success, msg) in
             if success {
-                self.createInterestedChat(completionHandler: { (success, msg) in
+                self.createInterestedChat(completionHandler: { (success, msg, chat) in
                     if success {
-                        self.view?.interestedTitleButton = self.exitInterestedTitleButton
-                        self.view?.showMessage(isSuccess: success, msg: "Você está dentro da lista de interessados. Agora é só aguardar.")
+                        self.createSchemeInProgress(chat: chat, completionHandler: { (success, msg) in
+                            if success {
+                                self.view?.interestedTitleButton = self.exitInterestedTitleButton
+                                self.view?.showMessage(isSuccess: success, msg: "Você está dentro da lista de interessados. Agora é só aguardar.")
+                            } else {
+                                self.view?.showMessage(isSuccess: success, msg: msg)
+                            }
+                        })
+                       
                     } else {
                         self.view?.showMessage(isSuccess: success, msg: msg)
                     }

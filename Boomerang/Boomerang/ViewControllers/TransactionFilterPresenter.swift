@@ -10,6 +10,7 @@ import UIKit
 
 class TransactionFilterPresenter: NSObject {
 
+    
     fileprivate var schemes: [Scheme] = [Scheme]()
     fileprivate var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?

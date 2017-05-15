@@ -69,8 +69,16 @@ class IconNavigationBar: UIView {
         }
     }
     
+    @IBInspectable var isHiddenRightBarIconImage: Bool {
+        set {
+            self.rightIcon.isHidden = newValue
+        }
+        get {
+            return self.rightIcon.isHidden
+        }
+    }
+  
 
-    
     @IBInspectable var titleLabelText: String? {
         set {
             self.titleLabel.text = newValue

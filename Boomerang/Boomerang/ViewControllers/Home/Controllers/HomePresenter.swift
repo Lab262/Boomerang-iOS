@@ -44,13 +44,16 @@ class HomePresenter: NSObject {
                 self.requestAllPostTypes(completionHandler: { (success, msg) in
                     if success {
                         self.requestAllPostConditions(completionHandler: { (success, msg) in
-                            if success {
-                                self.getFriends()
-                            } else {
-                                print ("ERROR GET POST CONDITIONS \(msg)")
-                            }
+                            self.requestSchemeStatus(completionHandler: { (success, msg) in
+                                if success {
+                                    if success {
+                                        self.getFriends()
+                                    } else {
+                                        print ("ERROR GET POST CONDITIONS \(msg)")
+                                    }
+                                }
+                            })
                         })
-                        
                     } else {
                         print ("ERROR GET POST TYPES")
                     }
@@ -204,6 +207,13 @@ class HomePresenter: NSObject {
     
     func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         PostRequest.getAllConditions { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        SchemeRequest.getAllStatus { (success, msg) in
             completionHandler(success, msg)
         }
     }
