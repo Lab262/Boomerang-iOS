@@ -72,6 +72,16 @@ class PhotoThingPresenter: NSObject {
             })
         }
     }
+
+    func getIconPost() -> UIImage {
+        if getPost().typePost == .have {
+            return #imageLiteral(resourceName: "have-icon")
+        } else if getPost().typePost == .need {
+            return #imageLiteral(resourceName: "need_icon")
+        } else {
+            return #imageLiteral(resourceName: "donate_icon")
+        }
+    }
     
     func getRelationsImages(success: Bool){
         
