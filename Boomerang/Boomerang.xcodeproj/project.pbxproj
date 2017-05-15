@@ -646,6 +646,15 @@
 		D4CA489F1EC7DA87003C17F6 /* PostCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA489E1EC7DA87003C17F6 /* PostCondition.swift */; };
 		D4CA48A01EC7DA87003C17F6 /* PostCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA489E1EC7DA87003C17F6 /* PostCondition.swift */; };
 		D4CA48A11EC7DA87003C17F6 /* PostCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA489E1EC7DA87003C17F6 /* PostCondition.swift */; };
+		D4CA48A61EC9F49E003C17F6 /* Recommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48A51EC9F49E003C17F6 /* Recommended.swift */; };
+		D4CA48A71EC9F49E003C17F6 /* Recommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48A51EC9F49E003C17F6 /* Recommended.swift */; };
+		D4CA48A81EC9F49E003C17F6 /* Recommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48A51EC9F49E003C17F6 /* Recommended.swift */; };
+		D4CA48AA1EC9F5AB003C17F6 /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48A91EC9F5AB003C17F6 /* RecommendedViewController.swift */; };
+		D4CA48AB1EC9F5AB003C17F6 /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48A91EC9F5AB003C17F6 /* RecommendedViewController.swift */; };
+		D4CA48AC1EC9F5AB003C17F6 /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48A91EC9F5AB003C17F6 /* RecommendedViewController.swift */; };
+		D4CA48AF1EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */; };
+		D4CA48B01EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */; };
+		D4CA48B11EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */; };
 		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
@@ -907,6 +916,9 @@
 		D4C8ECD71EC1FD5400E3CB17 /* PostType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
 		D4C8ECDB1EC22B4200E3CB17 /* StatusRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusRequest.swift; sourceTree = "<group>"; };
 		D4CA489E1EC7DA87003C17F6 /* PostCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCondition.swift; sourceTree = "<group>"; };
+		D4CA48A51EC9F49E003C17F6 /* Recommended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommended.swift; sourceTree = "<group>"; };
+		D4CA48A91EC9F5AB003C17F6 /* RecommendedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedViewController.swift; sourceTree = "<group>"; };
+		D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedPresenter.swift; sourceTree = "<group>"; };
 		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -1227,6 +1239,7 @@
 		A4E462E71DCAEA7F00A611C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D4CA48A21EC9F40A003C17F6 /* Recommended */,
 				D44C9A0C1EB00D0D004B7796 /* Chat */,
 				D484FA1E1EACF41E0054E415 /* Notification */,
 				D4AD97681EA819B700C9FAB9 /* Evaluation */,
@@ -1801,6 +1814,39 @@
 			path = lab262.boomerang.test;
 			sourceTree = "<group>";
 		};
+		D4CA48A21EC9F40A003C17F6 /* Recommended */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA48AD1EC9F60C003C17F6 /* Presenter */,
+				D4CA48A41EC9F422003C17F6 /* Interface */,
+				D4CA48A31EC9F41C003C17F6 /* Controller */,
+			);
+			name = Recommended;
+			sourceTree = "<group>";
+		};
+		D4CA48A31EC9F41C003C17F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA48A91EC9F5AB003C17F6 /* RecommendedViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D4CA48A41EC9F422003C17F6 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		D4CA48AD1EC9F60C003C17F6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
 		D4E4BEAF1E82569300F8DC2E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1843,6 +1889,7 @@
 				D4C8ECD31EC1FD3B00E3CB17 /* SchemeStatus.swift */,
 				D4C8ECD71EC1FD5400E3CB17 /* PostType.swift */,
 				D4CA489E1EC7DA87003C17F6 /* PostCondition.swift */,
+				D4CA48A51EC9F49E003C17F6 /* Recommended.swift */,
 			);
 			name = PFObjects;
 			sourceTree = "<group>";
@@ -2513,9 +2560,11 @@
 				2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */,
 				D484FA3D1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4C134E61E9C81AD003F55E4 /* SchemeRequest.swift in Sources */,
+				D4CA48AA1EC9F5AB003C17F6 /* RecommendedViewController.swift in Sources */,
 				D4C134E21E9C7256003F55E4 /* Chat.swift in Sources */,
 				D4B3B55A1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
+				D4CA48A61EC9F49E003C17F6 /* Recommended.swift in Sources */,
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
 				D4A012FF1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift in Sources */,
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
@@ -2567,6 +2616,7 @@
 				D433D0821E93E59600112B32 /* ProfilePresenter.swift in Sources */,
 				2FC9E0741E8EFDE200A048A4 /* UIButtonWithPicker.swift in Sources */,
 				A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */,
+				D4CA48AF1EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */,
 				D48734FD1E7884470065E13A /* RecommendedPostTableViewCell.swift in Sources */,
 				D4E4BEB81E8256B000F8DC2E /* PHFComposeBarView_Button.m in Sources */,
 				A40A25261DCBC2A600DF9523 /* RightMenuViewController.swift in Sources */,
@@ -2690,6 +2740,7 @@
 				D42F22EA1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */,
 				D4AD977A1EA9ACFD00C9FAB9 /* TextViewHandler.swift in Sources */,
 				D484FA3E1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */,
+				D4CA48B01EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */,
 				D4AD977B1EA9ACFD00C9FAB9 /* SchemeRequest.swift in Sources */,
 				D4AD977C1EA9ACFD00C9FAB9 /* Chat.swift in Sources */,
 				D4B3B55B1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
@@ -2713,6 +2764,7 @@
 				D4AD978C1EA9ACFD00C9FAB9 /* UIView+Animations.swift in Sources */,
 				D4AD978D1EA9ACFD00C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
 				D4AD978E1EA9ACFD00C9FAB9 /* RightMenuCell.swift in Sources */,
+				D4CA48AB1EC9F5AB003C17F6 /* RecommendedViewController.swift in Sources */,
 				D4AD978F1EA9ACFD00C9FAB9 /* Photo.swift in Sources */,
 				D4B3B5531EAF9654008E6566 /* NotificationModel.swift in Sources */,
 				D4AD97901EA9ACFD00C9FAB9 /* AlertUtils.swift in Sources */,
@@ -2835,6 +2887,7 @@
 				D4AD97F01EA9ACFD00C9FAB9 /* PageIndicatorView.swift in Sources */,
 				D4AD97F11EA9ACFD00C9FAB9 /* AuthenticationMainViewController.swift in Sources */,
 				D4AD97F21EA9ACFD00C9FAB9 /* TransactionFilterPresenter.swift in Sources */,
+				D4CA48A71EC9F49E003C17F6 /* Recommended.swift in Sources */,
 				D4B3B5571EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				D4AD97F31EA9ACFD00C9FAB9 /* ThrowButtonTableViewCell.swift in Sources */,
 				D4AD97F41EA9ACFD00C9FAB9 /* UIView+IBInspector.swift in Sources */,
@@ -2858,6 +2911,7 @@
 				D42F22EB1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */,
 				D4AD98461EA9AD0400C9FAB9 /* TextViewHandler.swift in Sources */,
 				D484FA3F1EADB3190054E415 /* SearchFriendsTableViewCell.swift in Sources */,
+				D4CA48B11EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */,
 				D4AD98471EA9AD0400C9FAB9 /* SchemeRequest.swift in Sources */,
 				D4AD98481EA9AD0400C9FAB9 /* Chat.swift in Sources */,
 				D4B3B55C1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
@@ -2881,6 +2935,7 @@
 				D4AD98581EA9AD0400C9FAB9 /* UIView+Animations.swift in Sources */,
 				D4AD98591EA9AD0400C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
 				D4AD985A1EA9AD0400C9FAB9 /* RightMenuCell.swift in Sources */,
+				D4CA48AC1EC9F5AB003C17F6 /* RecommendedViewController.swift in Sources */,
 				D4AD985B1EA9AD0400C9FAB9 /* Photo.swift in Sources */,
 				D4B3B5541EAF9654008E6566 /* NotificationModel.swift in Sources */,
 				D4AD985C1EA9AD0400C9FAB9 /* AlertUtils.swift in Sources */,
@@ -3003,6 +3058,7 @@
 				D4AD98BC1EA9AD0400C9FAB9 /* PageIndicatorView.swift in Sources */,
 				D4AD98BD1EA9AD0400C9FAB9 /* AuthenticationMainViewController.swift in Sources */,
 				D4AD98BE1EA9AD0400C9FAB9 /* TransactionFilterPresenter.swift in Sources */,
+				D4CA48A81EC9F49E003C17F6 /* Recommended.swift in Sources */,
 				D4B3B5581EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				D4AD98BF1EA9AD0400C9FAB9 /* ThrowButtonTableViewCell.swift in Sources */,
 				D4AD98C01EA9AD0400C9FAB9 /* UIView+IBInspector.swift in Sources */,
