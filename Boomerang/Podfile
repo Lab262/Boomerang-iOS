@@ -11,6 +11,7 @@ def common_pods
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'Parse'
+    pod 'ParseLiveQuery'
     pod 'ParseFacebookUtilsV4'
     pod 'SwiftyJSON'
     pod 'JSQMessagesViewController'

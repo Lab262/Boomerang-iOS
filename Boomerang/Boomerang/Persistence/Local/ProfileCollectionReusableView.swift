@@ -23,12 +23,10 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var filterHaveButton: UIButton!
     @IBOutlet weak var filterNeedButton: UIButton!
     @IBOutlet weak var filterDonationButton: UIButton!
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityAndUFLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var boomerAmountLabel: UILabel!
