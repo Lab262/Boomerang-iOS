@@ -66,7 +66,9 @@ class HomePresenter: NSObject {
     
     func getFriends() {
         skipUsers = following.endIndex
-        UserRequest.fetchFollowing(fromProfile: user.profile!, pagination: pagination, skip: skipUsers, completionHandler: { (success, msg, following) in
+        
+        UserRequest.fetchFollowing(fromProfile: user.profile!, followingDownloaded: self.following, pagination: pagination) { (success, msg, following) in
+            
             if success {
                 for f in following! {
                     self.following.append(f)
@@ -75,7 +77,7 @@ class HomePresenter: NSObject {
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
-        })
+        }
     }
     
     func getPostsByFriends(){

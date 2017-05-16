@@ -37,6 +37,12 @@ class SearchFriendsTableViewCell: UITableViewCell {
         }
     }
     
+    var profile: Profile? {
+        didSet {
+            updateCellInformations()
+        }
+    }
+    
     let followButtonHighlightedTitle = "Seguindo"
     let followButtonHighlightedBackgroundColor = UIColor.colorWithHexString("F6A01F")
     let followButtonHighlightedTitleColor = UIColor.white
@@ -44,13 +50,18 @@ class SearchFriendsTableViewCell: UITableViewCell {
     let followButtonNormalBackgroundColor = UIColor.white
     let followButtonNormalTitleColor = UIColor.black
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         following = false
         followButton.layer.cornerRadius = followButton.frame.height/2
         containerView.layer.cornerRadius = 4
+    }
+    
+    func updateCellInformations() {
+        nameLabel.text = profile?.fullName
+        cityLabel.text = "Brasília - DF"
+        userImage.getUserImage(profile: profile!) { (success, msg) in
+        }
     }
     
     func changeFollowButtonStyle() {

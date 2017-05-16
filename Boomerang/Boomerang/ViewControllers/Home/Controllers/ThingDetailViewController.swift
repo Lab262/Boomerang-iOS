@@ -139,7 +139,7 @@ class ThingDetailViewController: UIViewController {
     func setNavigationInformations(){
        navigationBarView.titleBarLabel.text = presenter.getCurrentType()
        navigationInformationsView.thingNameLabel.text = presenter.getPost().title
-    navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+       navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
@@ -153,6 +153,11 @@ class ThingDetailViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func secondButtonAction(_ sender: Any) {
+        self.performSegue(withIdentifier: SegueIdentifiers.detailThingToRecommended, sender: self)
+    }
+    
     
     func setupKeyboardNotifications(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
@@ -224,6 +229,10 @@ class ThingDetailViewController: UIViewController {
         
         if let controller = segue.destination as? ProfileMainViewController {
             controller.presenter.setPost(post: presenter.getPost())
+        }
+        
+        if let controller = segue.destination as? RecommendedViewController {
+            controller.presenter.post = presenter.getPost()
         }
     }
     

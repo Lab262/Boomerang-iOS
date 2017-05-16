@@ -74,7 +74,6 @@ class TransactionCellPresenter: NSObject {
             } else {
                 self.view?.showMessage(error: msg)
             }
-            
             self.view?.finishLoadingPhoto(typeUser: type)
             
         })

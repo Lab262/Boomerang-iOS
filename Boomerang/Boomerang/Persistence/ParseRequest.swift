@@ -643,3 +643,24 @@ extension PFObject {
         })
     }
 }
+
+extension UIImageView {
+    
+    func getUserImage(profile: Profile, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+        guard let image = profile.profileImage else {
+            self.loadAnimation()
+            profile.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
+                if success {
+                    self.image = UIImage(data: data!)
+                    completionHandler(true, "Success")
+                } else {
+                    completionHandler(false, msg)
+                }
+                self.unload()
+            })
+            return
+        }
+        self.image = image
+        completionHandler(true, "Success")
+    }
+}

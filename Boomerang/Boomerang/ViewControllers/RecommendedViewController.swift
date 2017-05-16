@@ -10,26 +10,112 @@ import UIKit
 
 class RecommendedViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    var presenter = RecommendedPresenter()
+    let tableViewTopInset: CGFloat = 10.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        configureSearchBar()
+        registerNib()
+        setupViewDelegate()
+        fetchFriends()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupViewDelegate(){
+        presenter.setViewDelegate(view: self)
     }
-    */
+    
+    func fetchFriends(){
+        presenter.getFriends()
+    }
+    
+    func configureSearchBar() {
+        searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
+    }
+    
+    func registerNib(){
+        tableView.registerNibFrom(SearchFriendsTableViewCell.self)
+    }
+    
+    func generateTitleCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+        
+        return cell
+        
+    }
+    
+    func generateRecommendedFriendCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchFriendsTableViewCell.identifier, for: indexPath) as! SearchFriendsTableViewCell
+        
+        cell.followButton.isHidden = true
+        cell.profile = presenter.friends[indexPath.row-1]
+        
+        return cell
+    }
+    
+}
 
+extension RecommendedViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch indexPath.row {
+        case 0:
+            return generateTitleCell(tableView, cellForRowAt: indexPath)
+        default:
+            return generateRecommendedFriendCell(tableView, cellForRowAt: indexPath)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return presenter.friends.count+1
+    }
+}
+
+extension RecommendedViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch indexPath.row {
+        case 0:
+            return 50.0
+        default:
+            return SearchFriendsTableViewCell.cellHeight * UIView.heightScaleProportion()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let recommended = UITableViewRowAction(style: .normal, title: "Recomendar") { action, index in
+            self.presenter.createRecommendation(friend: self.presenter.friends[index.row-1])
+        }
+        
+        recommended.backgroundColor = UIColor.colorWithHexString("E78A00")
+        return [recommended]
+    }
+}
+
+extension RecommendedViewController: RecommendedDelegate {
+    
+    func reload() {
+        tableView.reloadData()
+    }
+    
+    func showMessage(success: Bool, msg: String) {
+        let title = success ? "Success" : "Error"
+        present(ViewUtil.alertControllerWithTitle(title: title, withMessage: msg), animated: true, completion: nil)
+    }
+    
+    func dismissRowAction() {
+        tableView.setEditing(false, animated: true)
+    }
 }

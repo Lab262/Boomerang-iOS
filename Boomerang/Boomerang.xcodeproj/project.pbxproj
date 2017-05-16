@@ -163,6 +163,9 @@
 		D44C9A161EB00D9B004B7796 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */; };
 		D44C9A171EB00D9B004B7796 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */; };
 		D44C9A181EB00D9B004B7796 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */; };
+		D44EE9E71ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */; };
+		D44EE9E81ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */; };
+		D44EE9E91ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */; };
 		D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */; };
 		D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */; };
 		D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */; };
@@ -840,6 +843,7 @@
 		D44BFF241EBD1B6A00E1B2A7 /* MoreCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
+		D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedRequest.swift; sourceTree = "<group>"; };
 		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCommentTableViewCell.swift; path = ../../../UserCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCommentTableViewCell.xib; path = ../../../UserCommentTableViewCell.xib; sourceTree = "<group>"; };
 		D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -1029,6 +1033,7 @@
 				D4B3B5551EAF96DF008E6566 /* NotificationRequester.swift */,
 				D4470A6A1EB6A5D8002330C5 /* ProfileRequest.swift */,
 				D4C8ECDB1EC22B4200E3CB17 /* StatusRequest.swift */,
+				D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -2687,6 +2692,7 @@
 				2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */,
 				D4E6A28A1E95C5D1005B4E34 /* TransactionMainViewController.swift in Sources */,
 				D436BF251E95A68B00BC7F00 /* LoanTransactionViewController.swift in Sources */,
+				D44EE9E71ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
 				A4796CFB1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
@@ -2894,6 +2900,7 @@
 				D4AD97F51EA9ACFD00C9FAB9 /* PhotoThingTableViewCell.swift in Sources */,
 				D4AD97F61EA9ACFD00C9FAB9 /* TransactionSegmentViewController.swift in Sources */,
 				D4AD97F71EA9ACFD00C9FAB9 /* ActionDelegate.swift in Sources */,
+				D44EE9E81ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */,
 				D4AD97F81EA9ACFD00C9FAB9 /* URLS.swift in Sources */,
 				D4AD97F91EA9ACFD00C9FAB9 /* Constants.swift in Sources */,
 				D4AD97FA1EA9ACFD00C9FAB9 /* TransactionDetailViewController.swift in Sources */,
@@ -3065,6 +3072,7 @@
 				D4AD98C11EA9AD0400C9FAB9 /* PhotoThingTableViewCell.swift in Sources */,
 				D4AD98C21EA9AD0400C9FAB9 /* TransactionSegmentViewController.swift in Sources */,
 				D4AD98C31EA9AD0400C9FAB9 /* ActionDelegate.swift in Sources */,
+				D44EE9E91ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */,
 				D4AD98C41EA9AD0400C9FAB9 /* URLS.swift in Sources */,
 				D4AD98C51EA9AD0400C9FAB9 /* Constants.swift in Sources */,
 				D4AD98C61EA9AD0400C9FAB9 /* TransactionDetailViewController.swift in Sources */,

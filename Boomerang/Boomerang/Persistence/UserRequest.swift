@@ -64,6 +64,23 @@ class UserRequest: NSObject {
         
     }
     
+    func getUserImage(profile: Profile, imageView: UIImageView, completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
+        
+        guard let image = profile.profileImage else {
+            imageView.loadAnimation()
+            profile.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
+                if success {
+                    completionHandler(true, "Success", UIImage(data: data!)!)
+                } else {
+                    completionHandler(false, msg, nil)
+                }
+                imageView.unload()
+            })
+            return
+        }
+        completionHandler(true, "Success", image)
+    }
+    
     
     static func unfollowUser(currentProfile: Profile, otherProfile: Profile, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
@@ -125,21 +142,30 @@ class UserRequest: NSObject {
         }
     }
     
+    
 
-    static func fetchFollowing(fromProfile: Profile, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
+    static func fetchFollowing(fromProfile: Profile, followingDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
         
         var following: [Profile] = [Profile]()
         
         var queryParams = [String : Any]()
         queryParams["from"] = fromProfile
         
-        ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, includes: ["to"], pagination: pagination, skip: skip) { (success, msg, objects) in
+        var notContainedObjectIds = [String]()
+        
+        followingDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+        
+        let notContainedObjects = ["objectId": notContainedObjectIds]
+        
+        
+        ParseRequest.queryEqualToValueNotContainedObjects(className: "Follow", queryType: .common, params: queryParams, notContainedObjects: notContainedObjects, includes: ["to"], pagination: pagination) { (success, msg, objects) in
             
             if success {
                 for object in objects! {
                     following.append(Profile(object: object.object(forKey: "to") as! PFObject))
                 }
-                
                 completionHandler(true, "Success", following)
             } else {
                 completionHandler(false, msg.debugDescription, nil)
