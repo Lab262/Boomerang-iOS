@@ -10,6 +10,7 @@ import UIKit
 
 class RecommendedViewController: UIViewController {
 
+    @IBOutlet weak var navigationBar: IconNavigationBar!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var presenter = RecommendedPresenter()
@@ -18,9 +19,18 @@ class RecommendedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSearchBar()
+        configureNavigationBar()
         registerNib()
         setupViewDelegate()
         fetchFriends()
+    }
+    
+    func configureNavigationBar() {
+        navigationBar.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+    }
+    
+    func backView(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func setupViewDelegate(){

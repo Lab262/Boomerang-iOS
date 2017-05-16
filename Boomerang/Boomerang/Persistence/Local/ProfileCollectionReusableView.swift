@@ -19,8 +19,6 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     let titleButtonEditProfile = "Editar Perfil"
     
     @IBOutlet weak var button: UIButton!
-    
-    
     @IBOutlet weak var filterAllButton: UIButton!
     @IBOutlet weak var filterHaveButton: UIButton!
     @IBOutlet weak var filterNeedButton: UIButton!
