@@ -34,6 +34,7 @@ class ThingBar: UIView {
         Bundle.main.loadNibNamed("ThingBar", owner: self, options: nil)
         self.addSubview(view)
         view.frame = self.bounds
+        titleBarLabel.setDynamicFont()
     }
     
     @IBInspectable var titleLabelText: String? {

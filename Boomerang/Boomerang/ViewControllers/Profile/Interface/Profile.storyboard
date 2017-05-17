@@ -209,7 +209,7 @@
                                                             <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brasília, Distrito Federal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaF-BZ-8Hf">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brasília, Distrito Federal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaF-BZ-8Hf">
                                                             <rect key="frame" x="0.0" y="19.5" width="208" height="17"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
                                                             <color key="textColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>

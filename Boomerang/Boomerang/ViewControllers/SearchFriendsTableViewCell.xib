@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,19 +45,19 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirley Schmidt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-6Z-ZXd">
-                                <rect key="frame" x="81.5" y="7.5" width="112.5" height="19"/>
+                                <rect key="frame" x="81.5" y="7.5" width="130.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="São Paulo, SP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ai-Dj-roM">
-                                <rect key="frame" x="81.5" y="29.5" width="77.5" height="14"/>
+                                <rect key="frame" x="81.5" y="29.5" width="79.5" height="14"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
                                 <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfw-jo-xMa">
-                                <rect key="frame" x="251.5" y="17.5" width="80" height="30"/>
+                                <rect key="frame" x="251.5" y="11" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.62745098039215685" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Ci3-ez-3vX"/>
@@ -92,7 +92,7 @@
                             <constraint firstItem="5Ai-Dj-roM" firstAttribute="top" secondItem="Jgg-6Z-ZXd" secondAttribute="bottom" constant="3" id="MUc-iU-igX"/>
                             <constraint firstItem="YtB-RE-hGD" firstAttribute="centerY" secondItem="nUB-zw-Yx9" secondAttribute="centerY" id="Zte-49-kBX"/>
                             <constraint firstItem="Jgg-6Z-ZXd" firstAttribute="leading" secondItem="YtB-RE-hGD" secondAttribute="trailing" constant="15" id="aXp-Ib-iqt"/>
-                            <constraint firstItem="zfw-jo-xMa" firstAttribute="centerY" secondItem="nUB-zw-Yx9" secondAttribute="centerY" id="lXY-h0-Zc1"/>
+                            <constraint firstItem="zfw-jo-xMa" firstAttribute="centerY" secondItem="nUB-zw-Yx9" secondAttribute="centerY" multiplier="0.8" id="lXY-h0-Zc1"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">

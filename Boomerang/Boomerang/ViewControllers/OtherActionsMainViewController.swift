@@ -34,6 +34,11 @@ class OtherActionsMainViewController: UIViewController {
         registerObservers()
     }
     
+    func configureDynamicsFonts(){
+        notificationsButton.titleLabel?.setDynamicFont()
+        searchFriendsTransactionButton.titleLabel?.setDynamicFont()
+    }
+    
     func registerObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootOthers), object: nil)
     }
@@ -45,18 +50,19 @@ class OtherActionsMainViewController: UIViewController {
     func setFontButtonBySegmentSelected(){
         switch segmentSelected! {
         case 0:
-            notificationsButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
+            notificationsButton.titleLabel?.font = UIFont.montserratBold(size: 16)
             notificationsButton.alpha = 1.0
-            searchFriendsTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+            searchFriendsTransactionButton.titleLabel?.font = UIFont.montserratRegular(size: 16)
             searchFriendsTransactionButton.alpha = 0.56
         case 1:
-            searchFriendsTransactionButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
+            searchFriendsTransactionButton.titleLabel?.font = UIFont.montserratBold(size: 16)
             searchFriendsTransactionButton.alpha = 1.0
-            notificationsButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+            notificationsButton.titleLabel?.font = UIFont.montserratRegular(size: 16)
             notificationsButton.alpha = 0.56
         default:
             break
         }
+        configureDynamicsFonts()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

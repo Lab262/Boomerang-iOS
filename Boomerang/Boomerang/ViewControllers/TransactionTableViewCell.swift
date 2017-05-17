@@ -30,9 +30,9 @@ class TransactionTableViewCell: UITableViewCell {
         }
     }
     
-    var descriptionTransaction: String? {
+    var descriptionTransaction: NSMutableAttributedString? {
         didSet{
-            transactionLabel.text = descriptionTransaction
+            transactionLabel.attributedText = descriptionTransaction
         }
     }
     
@@ -52,6 +52,12 @@ class TransactionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         presenter.setViewDelegate(view: self)
         containerView.layer.cornerRadius = 9
+        configureDynamicFont()
+    }
+    
+    func configureDynamicFont(){
+        transactionLabel.setDynamicFont()
+        devolutionLabel.setDynamicFont()
     }
     
     func updateCell(){

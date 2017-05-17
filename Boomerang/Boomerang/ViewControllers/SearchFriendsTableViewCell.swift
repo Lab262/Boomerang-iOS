@@ -55,6 +55,12 @@ class SearchFriendsTableViewCell: UITableViewCell {
         following = false
         followButton.layer.cornerRadius = followButton.frame.height/2
         containerView.layer.cornerRadius = 4
+        configureDynamicFonts()
+    }
+    
+    func configureDynamicFonts(){
+        nameLabel.setDynamicFont()
+        cityLabel.setDynamicFont()
     }
     
     func updateCellInformations() {
@@ -81,6 +87,7 @@ class SearchFriendsTableViewCell: UITableViewCell {
             }
             followButton.setTitle(followButtonNormalTitle, for: .normal)
         }
+        followButton.bouncingAnimation(duration: 0.4)
     }
     
     @IBAction func followAction(_ sender: Any) {

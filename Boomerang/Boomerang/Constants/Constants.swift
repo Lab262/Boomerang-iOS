@@ -53,6 +53,16 @@ struct StatusSchemeId {
     static let progress = "FGoq2742yY"
 }
 
+//MARK - Strings contents
+struct TransactionCellStrings {
+    static let titleDonate = "Você está doando "
+    static let actionDonate = " está te doando "
+    static let titleLoan = "Você está emprestando "
+    static let actionLoan = " está te emprestando "
+    static let titleExchange = "Você está trocando "
+    static let actionExchange = " está trocando "
+    static let forAction = " para "
+}
 
 
 

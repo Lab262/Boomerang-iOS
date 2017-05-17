@@ -29,6 +29,7 @@ class ThingNavigationBar: UIView {
         Bundle.main.loadNibNamed("ThingNavigationBar", owner: self, options: nil)
         self.addSubview(view)
         view.frame = self.bounds
+        thingNameLabel.setDynamicFont()
     }
     
     override func awakeFromNib() {

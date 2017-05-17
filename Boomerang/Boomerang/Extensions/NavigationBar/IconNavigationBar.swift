@@ -39,6 +39,7 @@ class IconNavigationBar: UIView {
         Bundle.main.loadNibNamed("IconNavigationBar", owner: self, options: nil)
         self.addSubview(view)
         view.frame = self.bounds
+        titleLabel.setDynamicFont()
     }
     
     @IBInspectable var leftButtonIconImage: UIImage? {
