@@ -31,8 +31,8 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         return "recommendedCollectionCell"
     }
     
-    static var cellHeight: CGFloat {
-        return 168.0
+    static var cellSize: CGSize {
+        return  CGSize(width: 366, height: 306)
     }
     
     static var nibName: String {
@@ -57,7 +57,6 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         }
         
         presenter.getCountPhotos()
-        
         presenter.getCoverOfPost { (success, msg, image) in
             if success {
                 self.postImage.image = image!
@@ -65,6 +64,5 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
                 print ("FAIL COVER POST")
             }
         }
-        
     }
 }

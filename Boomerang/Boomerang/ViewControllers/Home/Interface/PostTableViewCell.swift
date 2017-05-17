@@ -23,11 +23,19 @@ class PostTableViewCell: UITableViewCell {
     static var nibName: String {
         return "PostTableViewCell"
     }
+    
+    var presenter = HomePresenter()
+    var delegate: UpdateCellDelegate?
+    var selectionDelegate: CollectionViewSelectionDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNib()
         // Initialization code
+    }
+    
+    func reloadCollection(){
+        collectionView.reloadData()
     }
 
     func registerNib(){
@@ -38,13 +46,15 @@ extension PostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 2
+        return presenter.friendsPosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
         
+        cell.presenter.post = presenter.friendsPosts[indexPath.row]
+        cell.setupCell()
         
         return cell
     }
@@ -55,9 +65,16 @@ extension PostTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 270, height: 227)
+        return CGSize(width: 270*UIView.widthScaleProportion(), height: 227*UIView.heightScaleProportion())
     }
 }
+
+extension PostTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
+    }
+}
+
 
 extension PostTableViewCell: UIScrollViewDelegate {
     

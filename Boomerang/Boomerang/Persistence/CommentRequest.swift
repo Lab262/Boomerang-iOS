@@ -23,6 +23,8 @@ class CommentRequest: NSObject {
         }
     }
     
+
+    
     static func fetchCommentsBy(post: Post, commentsObject: [Comment], pagination: Int,  completionHandler: @escaping (_ success: Bool, _ msg: String, [Comment]?) -> Void) {
         
         var comments: [Comment] = [Comment]()

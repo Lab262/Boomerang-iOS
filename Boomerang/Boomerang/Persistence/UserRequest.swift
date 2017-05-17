@@ -147,10 +147,8 @@ class UserRequest: NSObject {
     static func fetchFollowing(fromProfile: Profile, followingDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
         
         var following: [Profile] = [Profile]()
-        
-        var queryParams = [String : Any]()
-        queryParams["from"] = fromProfile
-        
+        var queryParams = ["from" : [fromProfile]]
+    
         var notContainedObjectIds = [String]()
         
         followingDownloaded.forEach{
@@ -161,7 +159,6 @@ class UserRequest: NSObject {
         
         
         ParseRequest.queryEqualToValueNotContainedObjects(className: "Follow", queryType: .common, params: queryParams, notContainedObjects: notContainedObjects, includes: ["to"], pagination: pagination) { (success, msg, objects) in
-            
             if success {
                 for object in objects! {
                     following.append(Profile(object: object.object(forKey: "to") as! PFObject))

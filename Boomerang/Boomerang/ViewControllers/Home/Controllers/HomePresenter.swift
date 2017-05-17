@@ -12,23 +12,20 @@ import Parse
 
 class HomePresenter: NSObject {
 
-    fileprivate let pagination = 3
-    fileprivate var skipPosts = 0
-    fileprivate var skipUsers = 0
-    fileprivate var following: [Profile] = [Profile]()
-    fileprivate var posts: [Post] = [Post]()
-    fileprivate var post: Post = Post()
-    fileprivate var controller: ViewDelegate?
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
-    fileprivate var currentPostsFriendsCount = 0
+    let pagination = 3
+    var following: [Profile] = [Profile]()
+    var friendsPosts: [Post] = [Post]()
+    var othersPosts: [Post] = [Post]()
+    var post: Post = Post()
+    var controller: ViewDelegate?
+    var user: User = ApplicationState.sharedInstance.currentUser!
+    var currentPostsFriendsCount = 0
     
     func setControllerDelegate(controller: ViewDelegate) {
         self.controller = controller
     }
     
     func updatePostsFriends(){
-        skipPosts = getPosts().endIndex
-        skipUsers = following.endIndex
         getProfile()
         
 //        if let _ = user.profile?.firstName {
@@ -64,9 +61,7 @@ class HomePresenter: NSObject {
         }
     }
     
-    func getFriends() {
-        skipUsers = following.endIndex
-        
+    func getFriends() {        
         UserRequest.fetchFollowing(fromProfile: user.profile!, followingDownloaded: self.following, pagination: pagination) { (success, msg, following) in
             
             if success {
@@ -81,13 +76,23 @@ class HomePresenter: NSObject {
     }
     
     func getPostsByFriends(){
-        PostRequest.fetchPostByFollowing(following: following, pagination: pagination, skip: skipPosts) { (success, msg, posts) in
+        PostRequest.fetchPostByFollowing(postsDownloaded: friendsPosts, following: following, pagination: pagination) { (success, msg, posts) in
             if success {
                 for post in posts! {
-                    self.posts.append(post)
+                    self.friendsPosts.append(post)
                 }
                 self.controller?.reload()
-                self.currentPostsFriendsCount = self.getPosts().count
+                self.currentPostsFriendsCount = self.friendsPosts.count
+            } else {
+                self.controller?.showMessageError(msg: msg)
+            }
+        }
+    }
+    
+    func getPostsOfTheOtherUsers() {
+        PostRequest.getPostsThatNotContain(friends: following, pagination: pagination) { (success, msg, posts) in
+            if success {
+                self.controller?.reload()
             } else {
                 self.controller?.showMessageError(msg: msg)
             }
@@ -96,14 +101,6 @@ class HomePresenter: NSObject {
     
     func getUser() -> User{
         return user
-    }
-    
-    func getPosts() -> [Post] {
-        return posts
-    }
-    
-    func setPosts(posts: [Post]){
-        self.posts = posts
     }
     
     func getPost() -> Post {

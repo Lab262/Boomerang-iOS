@@ -36,8 +36,6 @@ class HomeMainViewController: UIViewController {
         //TabBarController.mainTabBarController.showTabBar()
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TabBarController.mainTabBarController.showTabBar()
@@ -73,7 +71,6 @@ class HomeMainViewController: UIViewController {
 
     
     func loadHomeData(homeBoomerThingsData: [String: [BoomerThing]]) {
-        
         self.homeBoomerThingsData = homeBoomerThingsData
         self.tableView.reloadData()
     }
@@ -83,9 +80,8 @@ class HomeMainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let controller = segue.destination as? ThingDetailViewController {
-            controller.presenter.setPost(post: presenter.getPosts()[currentIndex!.row])
+            controller.presenter.setPost(post: presenter.friendsPosts[currentIndex!.row])
         }
     }
 }
@@ -206,7 +202,7 @@ extension HomeMainViewController {
     func generateRecommendedCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath) as! RecommendedPostTableViewCell
         
-        cell.presenter.setPosts(posts: presenter.getPosts())
+        cell.presenter.friendsPosts = presenter.friendsPosts
         cell.updateCell()
         cell.delegate = self
         cell.selectionDelegate = self
@@ -216,7 +212,12 @@ extension HomeMainViewController {
     }
     
     func generatePostCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
+        
+        cell.presenter.friendsPosts = presenter.friendsPosts
+        cell.reloadCollection()
+        cell.delegate = self
+        cell.selectionDelegate = self
         
         return cell
     }
@@ -266,8 +267,7 @@ extension HomeMainViewController: UIScrollViewDelegate {
 extension HomeMainViewController: ViewDelegate {
     
     func reload(){
-        
-        if presenter.getPosts().count != presenter.getCurrentPostsFriendsCount(){
+        if presenter.friendsPosts.count != presenter.currentPostsFriendsCount {
             tableView.reloadData()
         }
     }
@@ -291,7 +291,6 @@ extension HomeMainViewController: UpdateCellDelegate{
 extension HomeMainViewController: CollectionViewSelectionDelegate {
     
     func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath) {
-        
         if colletionViewDelegate === boomerThingDelegate {
             print ("SHOW DETAIL")
             self.currentIndex = indexPath

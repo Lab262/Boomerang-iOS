@@ -30,8 +30,9 @@ class RecommendedPostTableViewCell: UITableViewCell {
         return "recommendedCell"
     }
     
+
     static var cellHeight: CGFloat {
-        return 168.0
+        return 100
     }
     
     static var nibName: String {
@@ -39,19 +40,16 @@ class RecommendedPostTableViewCell: UITableViewCell {
     }
     
     func updateCell(){
-        
         postCollectionView.reloadData()
         pageIndicatorView?.reload()
     }
     
     func registerNib(){
         postCollectionView.registerNibFrom(RecommendedPostCollectionViewCell.self)
-       // indexCollectionView.registerNibFrom(PageControlCollectionViewCell.self)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         loadPlaceholderImage(#imageLiteral(resourceName: "placeholder_image"), CGRect(x: self.frame.origin.x+10, y: frame.origin.y, width: 345, height: 288))
         registerNib()
         initializePageIndicatorView()
@@ -65,17 +63,11 @@ class RecommendedPostTableViewCell: UITableViewCell {
         pageIndicatorView?.centerYAnchor.constraint(equalTo: viewPages.centerYAnchor).isActive = true
         pageIndicatorView?.translatesAutoresizingMaskIntoConstraints = false
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
         
-        cell.presenter.setPost(post: presenter.getPosts()[indexPath.row])
+        cell.presenter.post = presenter.friendsPosts[indexPath.row]
         cell.setupCell()
         unloadPlaceholderImage()
         
@@ -100,7 +92,7 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return presenter.getPosts().count
+        return presenter.friendsPosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -108,8 +100,6 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
         switch collectionView {
         case postCollectionView:
             return generatePostCell(collectionView, cellForItemAt: indexPath)
-       // case indexCollectionView:
-           // return generatePageControlCell(collectionView, cellForItemAt: indexPath)
         default:
             return UICollectionViewCell()
         }
@@ -130,9 +120,7 @@ extension RecommendedPostTableViewCell: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
         case postCollectionView:
-            return CGSize(width: 366, height: 306)
-      //  case indexCollectionView:
-        //    return CGSize(width: 8, height: 50)
+            return CGSize(width: RecommendedPostCollectionViewCell.cellSize.width * UIView.widthScaleProportion(), height: RecommendedPostCollectionViewCell.cellSize.height * UIView.heightScaleProportion())
         default:
             return CGSize()
         }
@@ -165,7 +153,7 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath: IndexPath = postCollectionView.indexPathForItem(at: visiblePoint)!
         
-        if visibleIndexPath.row >= presenter.getPosts().endIndex-1 {
+        if visibleIndexPath.row >= presenter.friendsPosts.endIndex-1 {
             delegate?.updateCell()
         }
     }
@@ -174,7 +162,7 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
 extension RecommendedPostTableViewCell: PageIndicatorViewDelegate {
     
     var numberOfPages: Int {
-        return presenter.getPosts().count
+        return presenter.friendsPosts.count
     }
     
     var indicatorHeight: CGFloat {
