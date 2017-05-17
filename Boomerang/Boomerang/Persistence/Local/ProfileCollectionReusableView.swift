@@ -41,6 +41,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         button.layer.cornerRadius = button.frame.height/2
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         configureButtons()
+        consigureDynamicsFonts()
     }
     
     func configureButtonAction() {
@@ -68,6 +69,15 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         }
         
         buttons[0]?.isSelected = true
+    }
+    
+    func consigureDynamicsFonts(){
+        nameLabel.setDynamicFont()
+        cityAndUFLabel.setDynamicFont()
+        descriptionLabel.setDynamicFont()
+        followersLabel.setDynamicFont()
+        followingLabel.setDynamicFont()
+        boomerAmountLabel.setDynamicFont()
     }
     
     @IBAction func buttonAction(_ sender: Any) {
@@ -149,7 +159,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
                 var text: String?
                 
                 if count == 0 {
-                    text = "Nenhum arremesso."
+                    text = "Sem arremesso."
                 } else if count == 1 {
                     text = "\(String(describing: count)) arremesso."
                 } else {
