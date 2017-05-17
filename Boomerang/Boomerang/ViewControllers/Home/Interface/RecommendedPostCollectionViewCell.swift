@@ -25,7 +25,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var widthPostIconConstraint: NSLayoutConstraint!
     
     
-    var presenter: HomePresenter = HomePresenter()
+    var presenter: PostPresenter = PostPresenter()
     
     static var identifier: String {
         return "recommendedCollectionCell"
@@ -45,15 +45,10 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell(){
-        descriptionPostLabel.text = presenter.getPost().content
-        userNameLabel.text = presenter.getPost().author!.fullName
+        descriptionPostLabel.text = presenter.post.content
+        userNameLabel.text = presenter.post.author!.fullName
         presenter.getIconPost(iconImage: typePostImage, height: heightPostIconConstraint, width: widthPostIconConstraint)
-        presenter.getAuthorPhotoOfPost { (success, msg, image) in
-            if success {
-                self.userImage.image = image
-            } else {
-                print ("Error image user")
-            }
+        userImage.getUserImage(profile: presenter.post.author!) { (success, msg) in
         }
         
         presenter.getCountPhotos()

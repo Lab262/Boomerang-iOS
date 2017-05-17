@@ -16,6 +16,7 @@ class HomePresenter: NSObject {
     var following: [Profile] = [Profile]()
     var friendsPosts: [Post] = [Post]()
     var othersPosts: [Post] = [Post]()
+    private var featuredPosts = [Post]()
     var post: Post = Post()
     var controller: ViewDelegate?
     var user: User = ApplicationState.sharedInstance.currentUser!
@@ -61,6 +62,16 @@ class HomePresenter: NSObject {
         }
     }
     
+    func getFeaturedPosts() -> [Post] {
+        featuredPosts = [Post]()
+        
+        let allPosts = friendsPosts + othersPosts
+        for post in allPosts where post.isFeatured! {
+            featuredPosts.append(post)
+        }
+        return featuredPosts
+    }
+    
     func getFriends() {        
         UserRequest.fetchFollowing(fromProfile: user.profile!, followingDownloaded: self.following, pagination: pagination) { (success, msg, following) in
             
@@ -92,6 +103,9 @@ class HomePresenter: NSObject {
     func getPostsOfTheOtherUsers() {
         PostRequest.getPostsThatNotContain(friends: following, pagination: pagination) { (success, msg, posts) in
             if success {
+                posts!.forEach {
+                    self.othersPosts.append($0)
+                }
                 self.controller?.reload()
             } else {
                 self.controller?.showMessageError(msg: msg)
@@ -99,30 +113,9 @@ class HomePresenter: NSObject {
         }
     }
     
-    func getUser() -> User{
-        return user
-    }
-    
-    func getPost() -> Post {
-        return post
-    }
-    
-    func setPost(post: Post){
-        self.post = post
-    }
-    
-    func getCurrentPostsFriendsCount() -> Int {
-        return currentPostsFriendsCount
-    }
-    
-    func getFollowing() -> [Profile] {
-        return following
-    }
-    
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
         guard let image = user.profileImage else {
             user.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
-                
                 if success {
                     completionHandler(true, "Success", UIImage(data: data!)!)
                 } else {
@@ -135,87 +128,6 @@ class HomePresenter: NSObject {
     }
     
     
-    func getCountPhotos(){
-        if getPost().countPhotos < 1 {
-            getPost().getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
-                if success {
-                    self.getPost().countPhotos = count!
-                    ApplicationState.sharedInstance.callDelegateUpdate(post: self.getPost(), success: true, updateType: .amount)
-                } else {
-                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: true, updateType: .amount)
-                }
-            })
-        }
-    }
-    
-    
-    func getAuthorPhotoOfPost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
-        guard let image = getPost().author?.profileImage else {
-            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
-                if success {
-                    self.getPost().author?.profileImage = UIImage(data: data!)
-                    completionHandler(true, msg, self.getPost().author?.profileImage)
-                } else {
-                    completionHandler(false, msg, nil)
-                }
-            })
-            
-            return
-        }
-        completionHandler(true, "Success", image)
-    }
-    
-    func getCoverOfPost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
-        
-        PostRequest.getRelationsInBackground(post: getPost()) { (success, msg) in
-            if success {
-                self.downloadCoverImagePost(completionHandler: { (success, msg, image) in
-                    completionHandler(success, msg, image)
-                })
-            } else {
-                completionHandler(false, msg, nil)
-            }
-        }
-    }
-    
-    func downloadCoverImagePost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
-        if let relations = getPost().relations {
-            guard let cover = relations.first?.photo else {
-                relations.first?.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
-                    
-                    if success {
-                        relations.first?.photo = UIImage(data: data!)
-                        relations.first?.isDownloadedImage = true
-                        completionHandler(success, msg, relations.first?.photo)
-                    } else {
-                        completionHandler(success, msg, nil)
-                    }
-                })
-                return
-            }
-            
-            completionHandler(true, "success", cover)
-        }
-    }
-    
-    func getIconPost(iconImage: UIImageView, height: NSLayoutConstraint, width: NSLayoutConstraint) {
-        if getPost().typePost == .have {
-            iconImage.image = #imageLiteral(resourceName: "have-icon")
-            height.constant = 25.0
-            width.constant = 35.0
-            //return #imageLiteral(resourceName: "have-icon")
-        } else if getPost().typePost == .need {
-            iconImage.image = #imageLiteral(resourceName: "need_icon")
-            height.constant = 25.0
-            width.constant = 17.0
-        } else {
-            iconImage.image = #imageLiteral(resourceName: "donate_icon")
-            height.constant = 24.0
-            width.constant = 27.0
-            //return #imageLiteral(resourceName: "donate_icon")
-        }
-        iconImage.layoutIfNeeded()
-    }
     
     func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         PostRequest.getAllTypes { (success, msg) in

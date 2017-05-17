@@ -126,8 +126,23 @@ class ParseRequest: NSObject {
         }
     }
     
-    static func queryGetAllObjects(className: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects :[PFObject]?) -> ()) {
+    static func queryGetAllObjects(className: String, notContainedObjects: [String: [Any]]? = nil, pagination: Int = 100, includes: [String]? = nil, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects :[PFObject]?) -> ()) {
+        
         let query = PFQuery(className: className)
+        query.limit = pagination
+        
+        if let allNotContainedObjects = notContainedObjects {
+            allNotContainedObjects.forEach {
+                query.whereKey($0.key, notContainedIn: $0.value)
+            }
+        }
+        
+        if let allIncludes = includes {
+            allIncludes.forEach {
+                query.includeKey($0)
+            }
+        }
+        
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
                 completionHandler(true, "success", objects)
@@ -226,7 +241,7 @@ class ParseRequest: NSObject {
         
         if whereType == .equal {
            query.whereKey(key, equalTo: values[0])
-        } else {
+        } else if whereType == .containedIn {
             query.whereKey(key, containedIn: values)
         }
         
@@ -248,14 +263,14 @@ class ParseRequest: NSObject {
         return query
     }
     
-    static func queryEqualToValueNotContainedObjects(className: String, queryType: QueryType, params: [String: [Any]], notContainedObjects: [String: [Any]]?, includes: [String]?, pagination: Int, order: String = "createdAt", completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> ()) {
+    static func queryEqualToValueNotContainedObjects(className: String, queryType: QueryType, whereType: WhereType, params: [String: [Any]], notContainedObjects: [String: [Any]]?, includes: [String]?, pagination: Int, order: String = "createdAt", completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> ()) {
         
         switch queryType {
-            
+        
         case .common:
             var query = PFQuery()
             for param in params {
-                query = setupQuery(className: className, key: param.key, values: param.value, pagination: pagination, notContainedObjects: notContainedObjects, whereType: .equal, includes: includes)
+                query = setupQuery(className: className, key: param.key, values: param.value, pagination: pagination, notContainedObjects: notContainedObjects, whereType: whereType, includes: includes)
             }
             
             query.findObjectsInBackground { (objects, error) in
@@ -269,7 +284,7 @@ class ParseRequest: NSObject {
         case .or:
             var allQueries = [PFQuery]()
             for param in params {
-                let query = setupQuery(className: className, key: param.key, values: param.value, pagination: pagination, notContainedObjects: notContainedObjects!, whereType: .equal, includes: includes!)
+                let query = setupQuery(className: className, key: param.key, values: param.value, pagination: pagination, notContainedObjects: notContainedObjects!, whereType: whereType, includes: includes!)
                 allQueries.append(query)
             }
             findMultipleObjectsAt(querys: allQueries, indexQuery: 0, allObjects: [PFObject](), completionHandler: { (success, msg, objects) in
@@ -382,14 +397,14 @@ class ParseRequest: NSObject {
         }
     }
 
-    static func queryContainedIn(className: String, queryType: QueryType, includes: [String]?, params: [String: [Any]], notContainedObjects: [String: [Any]], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    static func queryContainedIn(className: String, queryType: QueryType, whereType: WhereType, includes: [String]?, params: [String: [Any]], notContainedObjects: [String: [Any]], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         switch queryType {
         case .common:
             
             var query = PFQuery()
             for param in params {
-                query = setupQuery(className: className, key: param.key, values: param.value, pagination: pagination, notContainedObjects: notContainedObjects, whereType: .containedIn, includes: includes)
+                query = setupQuery(className: className, key: param.key, values: param.value, pagination: pagination, notContainedObjects: notContainedObjects, whereType: whereType, includes: includes)
             }
             
             query.findObjectsInBackground { (objects, error) in

@@ -24,7 +24,7 @@ class PostRequest: NSObject {
         let notContainedObjects = ["objectId": notContainedObjectIds]
         
         
-        ParseRequest.queryContainedIn(className: "Post", queryType: .common, includes: nil, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryContainedIn(className: "Post", queryType: .common, whereType: .containedIn, includes: nil, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
             
             if success {
                 for obj in objects! {
@@ -75,13 +75,16 @@ class PostRequest: NSObject {
             notContainedObjectIds.append($0.objectId!)
         }
         
-        let notContainedObjects = ["objectId": notContainedObjectIds]
+        var notContainedObjects = [String: [Any]]()
+        notContainedObjects["objectId"] = notContainedObjectIds
+        notContainedObjects["author"] = [ApplicationState.sharedInstance.currentUser!.profile!]
         
-        ParseRequest.queryEqualToValueNotContainedObjects(className: "Post", queryType: .common, params: [String: [Any]](), notContainedObjects: notContainedObjects, includes: ["author"], pagination: pagination) { (success, msg, objects) in
+        
+        ParseRequest.queryGetAllObjects(className: "Post", notContainedObjects: notContainedObjects, pagination: pagination, includes: ["author"]) { (success, msg, objects) in
             if success {
                 for object in objects! {
                     let post = Post(object: object)
-                    post.author = Profile(object: object.object(forKey: "author") as! PFObject)
+                    //post.author = Profile(object: object.object(forKey: "author") as! PFObject)
                     posts.append(post)
                 }
                 completionHandler(true, "Success", posts)
@@ -89,6 +92,20 @@ class PostRequest: NSObject {
                 completionHandler(false, msg.debugDescription, nil)
             }
         }
+        
+        
+//        ParseRequest.queryEqualToValueNotContainedObjects(className: "Post", queryType: .common, whereType: .none, params: [String: [Any]](), notContainedObjects: notContainedObjects, includes: ["author"], pagination: pagination) { (success, msg, objects) in
+//            if success {
+//                for object in objects! {
+//                    let post = Post(object: object)
+//                    post.author = Profile(object: object.object(forKey: "author") as! PFObject)
+//                    posts.append(post)
+//                }
+//                completionHandler(true, "Success", posts)
+//            } else {
+//                completionHandler(false, msg.debugDescription, nil)
+//            }
+//        }
     }
     
     static func getPostsFor(profile: Profile, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {

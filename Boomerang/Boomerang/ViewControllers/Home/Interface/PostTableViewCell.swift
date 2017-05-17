@@ -24,7 +24,7 @@ class PostTableViewCell: UITableViewCell {
         return "PostTableViewCell"
     }
     
-    var presenter = HomePresenter()
+    var presenter = PostPresenter()
     var delegate: UpdateCellDelegate?
     var selectionDelegate: CollectionViewSelectionDelegate?
 
@@ -46,14 +46,14 @@ extension PostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return presenter.friendsPosts.count
+        return presenter.posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
-        
-        cell.presenter.post = presenter.friendsPosts[indexPath.row]
+    
+        cell.presenter.post = presenter.posts[indexPath.row]
         cell.setupCell()
         
         return cell

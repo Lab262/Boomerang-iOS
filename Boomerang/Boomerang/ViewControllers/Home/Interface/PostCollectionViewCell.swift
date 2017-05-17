@@ -22,8 +22,6 @@ class PostCollectionViewCell: UICollectionViewCell {
         return "PostCollectionViewCell"
     }
     
-    
-    
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,9 +31,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var heightIconPostImage: NSLayoutConstraint!
     @IBOutlet weak var widthIconPostImage: NSLayoutConstraint!
-    
-
-    var presenter = HomePresenter()
+    var presenter = PostPresenter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,9 +39,9 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell(){
-        titleLabel.text = presenter.getPost().title
+        titleLabel.text = presenter.post.title
         presenter.getIconPost(iconImage: typeIconImage, height: heightIconPostImage, width: widthIconPostImage)
-        userImage.getUserImage(profile: presenter.getPost().author!) { (success, msg) in
+        userImage.getUserImage(profile: presenter.post.author!) { (success, msg) in
         }
         
         presenter.getCountPhotos()

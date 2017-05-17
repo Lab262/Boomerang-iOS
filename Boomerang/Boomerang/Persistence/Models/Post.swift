@@ -28,6 +28,7 @@ class Post: PFObject {
     @NSManaged var author: Profile?
     @NSManaged var title: String?
     @NSManaged var content: String?
+    var isFeatured: Bool? = false
     var typePost: TypePost?
     var condition: Condition?
     var createdDate: Date?
@@ -73,6 +74,10 @@ class Post: PFObject {
         
         if let author = object["author"] as? Profile {
             self.author = author
+        }
+        
+        if let isFeatured = object["isFeatured"] as? Bool {
+            self.isFeatured = isFeatured
         }
     }
 }

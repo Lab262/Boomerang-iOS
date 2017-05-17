@@ -46,6 +46,7 @@ class HomeMainViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
         presenter.setControllerDelegate(controller: self)
         presenter.updatePostsFriends()
+        presenter.getPostsOfTheOtherUsers()
         self.navigationController?.navigationBar.isHidden = true
         setUserInformationsInHUD()
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
@@ -92,7 +93,7 @@ extension HomeMainViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,8 +116,10 @@ extension HomeMainViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             return generateRecommendedCell(tableView, cellForRowAt: indexPath)
+        case 1:
+            return generateFriendsPostsCell(tableView, cellForRowAt: indexPath)
         default:
-            return generatePostCell(tableView, cellForRowAt: indexPath)
+            return generateOthersPostsCell(tableView, cellForRowAt: indexPath)
         }
     }
 }
@@ -176,13 +179,13 @@ extension HomeMainViewController: UITableViewDelegate {
 extension HomeMainViewController {
     
     func setUserInformationsInHUD(){
-        greetingText.text = "Olar, \(presenter.getUser().firstName!)"
+        greetingText.text = "Olar, \(presenter.user.firstName!)"
         self.profileImage.loadAnimation()
         presenter.getUserImage { (success, msg, image) in
             if success {
                 self.profileImage.unload()
                 self.profileImage.image = image
-                self.presenter.getUser().profileImage = image
+                self.presenter.user.profileImage = image
             } else {
                 self.profileImage.unload()
                 self.showMessageError(msg: msg)
@@ -202,7 +205,7 @@ extension HomeMainViewController {
     func generateRecommendedCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath) as! RecommendedPostTableViewCell
         
-        cell.presenter.friendsPosts = presenter.friendsPosts
+        cell.presenter.friendsPosts = presenter.getFeaturedPosts()
         cell.updateCell()
         cell.delegate = self
         cell.selectionDelegate = self
@@ -211,10 +214,21 @@ extension HomeMainViewController {
         return cell
     }
     
-    func generatePostCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
+    func generateFriendsPostsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
         
-        cell.presenter.friendsPosts = presenter.friendsPosts
+        cell.presenter.posts = presenter.friendsPosts
+        cell.reloadCollection()
+        cell.delegate = self
+        cell.selectionDelegate = self
+        
+        return cell
+    }
+    
+    func generateOthersPostsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
+        
+        cell.presenter.posts = presenter.othersPosts
         cell.reloadCollection()
         cell.delegate = self
         cell.selectionDelegate = self
