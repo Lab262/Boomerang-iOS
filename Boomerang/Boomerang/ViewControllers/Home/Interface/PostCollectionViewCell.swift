@@ -14,17 +14,49 @@ class PostCollectionViewCell: UICollectionViewCell {
         return "postCollectionCell"
     }
     
-    static var cellHeight: CGFloat {
-        return 168.0
+    static var cellSize: CGSize {
+        return CGSize(width: 270, height: 227)
     }
-    
+
     static var nibName: String {
         return "PostCollectionViewCell"
     }
     
+    
+    
+    @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var typeIconImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var heightIconPostImage: NSLayoutConstraint!
+    @IBOutlet weak var widthIconPostImage: NSLayoutConstraint!
+    
+
+    var presenter = HomePresenter()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setupCell(){
+        titleLabel.text = presenter.getPost().title
+        presenter.getIconPost(iconImage: typeIconImage, height: heightIconPostImage, width: widthIconPostImage)
+        userImage.getUserImage(profile: presenter.getPost().author!) { (success, msg) in
+        }
+        
+        presenter.getCountPhotos()
+        
+        presenter.getCoverOfPost { (success, msg, image) in
+            if success {
+                self.coverImage.image = image!
+            } else {
+                print ("FAIL COVER POST")
+            }
+        }
     }
 
 }

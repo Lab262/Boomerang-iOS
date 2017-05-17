@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ParseLiveQuery
+import Parse
 
 
 class ThingDetailViewController: UIViewController {
@@ -15,9 +17,16 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
-    
     @IBOutlet weak var navigationBarView: ThingBar!
+    let liveQueryClient = ParseLiveQuery.Client()
+    fileprivate var subscription: Subscription<Comment>?
     
+    var commentQuery: PFQuery<Comment> {
+        return (Comment.query()?
+            .whereKey("post", equalTo: presenter.getPost())
+            .order(byAscending: "createdAt") as! PFQuery<Comment>)
+    }
+
     var commentCount: Int? = 0 {
         didSet{
             tableView.reloadData()
@@ -54,6 +63,21 @@ class ThingDetailViewController: UIViewController {
         container = UIView(frame: initialViewFrame!)
         container?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
+    
+    func subscribeToUpdates() {
+        subscription = liveQueryClient
+            .subscribe(commentQuery)
+            .handle(Event.created) { _, comment in
+                self.printMessage(comment)
+        }
+    }
+    
+    fileprivate func printMessage(_ comment: Comment) {
+        let createdAt = comment.createdAt ?? Date()
+        
+        
+       // print("\(createdAt) \(comment. ?? "unknown"): \(message.message ?? "")")
+    }
 
 
     func registerNibs(){
@@ -82,6 +106,7 @@ class ThingDetailViewController: UIViewController {
         setupKeyboardNotifications()
         getCommentsCount()
         registerObservers()
+        subscribeToUpdates()
     }
     
     func getCommentsCount() {
@@ -465,13 +490,18 @@ extension ThingDetailViewController: PHFComposeBarViewDelegate {
     }
     
     func composeBarView(_ composeBarView: PHFComposeBarView!, willChangeFromFrame startFrame: CGRect, toFrame endFrame: CGRect, duration: TimeInterval, animationCurve: UIViewAnimationCurve) {
+        
     }
 }
 
 //MARK: UIGestureRecognizer Protocol
+
 extension ThingDetailViewController : UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 }
+
+
+
 

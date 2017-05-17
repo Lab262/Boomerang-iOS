@@ -45,9 +45,9 @@ class SchemeRequest: NSObject {
     static func getSchemesForUser(owner: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusScheme], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
         
         var schemes = [Scheme]()
-        var queryParams = [String : Any]()
-        queryParams["owner"] = owner
-        queryParams["requester"] = owner
+        var queryParams = [String : [Any]]()
+        queryParams["owner"] = [owner]
+        queryParams["requester"] = [owner]
         
         var notContainedObjects = [String: [Any]]()
         var notContainedObjectIds = [String]()
