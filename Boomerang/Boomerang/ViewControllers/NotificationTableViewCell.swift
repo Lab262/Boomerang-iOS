@@ -40,6 +40,13 @@ class NotificationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         presenter.setViewDelegate(view: self)
+        configureDynamicFonts()
+    }
+    
+    func configureDynamicFonts(){
+        nameLabel.setDynamicFont()
+        notificationLabel.setDynamicFont()
+        timeLabel.setDynamicFont()
     }
     
     func setupCellInformations(){

@@ -32,6 +32,12 @@ class OtherActionsMainViewController: UIViewController {
         super.viewDidLoad()
         segmentSelected = 0
         registerObservers()
+        configureDynamicsFonts()
+    }
+    
+    func configureDynamicsFonts(){
+        notificationsButton.titleLabel?.setDynamicFont()
+        searchFriendsTransactionButton.titleLabel?.setDynamicFont()
     }
     
     func registerObservers(){
