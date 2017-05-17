@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aFI-aJ-oa2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aFI-aJ-oa2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,10 +35,10 @@
                                         <rect key="frame" x="-0.5" y="25" width="375" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-MT-PAW" userLabel="FirstOption">
-                                                <rect key="frame" x="0.0" y="-0.5" width="75" height="50"/>
+                                                <rect key="frame" x="0.0" y="-0.5" width="74.5" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWU-WC-btn">
-                                                        <rect key="frame" x="0.5" y="0.0" width="75" height="50"/>
+                                                        <rect key="frame" x="0.5" y="0.0" width="74.5" height="50"/>
                                                         <state key="normal" image="tabbar_home_icon"/>
                                                         <connections>
                                                             <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="FdC-mD-2Ly"/>
@@ -65,10 +65,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuy-tI-cBA" userLabel="SecondOption">
-                                                <rect key="frame" x="76" y="0.0" width="75" height="50"/>
+                                                <rect key="frame" x="75.5" y="0.0" width="74" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEr-jD-ohM">
-                                                        <rect key="frame" x="0.5" y="0.0" width="75" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="50"/>
                                                         <state key="normal" image="tabbar_profile_icon"/>
                                                         <connections>
                                                             <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="9gZ-ez-Tzy"/>
@@ -95,7 +95,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7C-i0-HUo" userLabel="ThirdOption">
-                                                <rect key="frame" x="152" y="0.0" width="75" height="50"/>
+                                                <rect key="frame" x="150.5" y="0.0" width="74.5" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -110,11 +110,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-Wu-zZa" userLabel="FourthOption">
-                                                <rect key="frame" x="228" y="0.0" width="75" height="50"/>
+                                                <rect key="frame" x="226" y="0.0" width="74" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSd-zk-gdC">
-                                                        <rect key="frame" x="0.5" y="0.0" width="75" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSd-zk-gdC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="50"/>
                                                         <state key="normal" image="tabbar_schemas_icon"/>
                                                         <connections>
                                                             <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="Dqe-pa-ve0"/>
@@ -122,6 +121,12 @@
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="WSd-zk-gdC" firstAttribute="height" secondItem="Afb-Wu-zZa" secondAttribute="height" id="JCG-ta-kOu"/>
+                                                    <constraint firstItem="WSd-zk-gdC" firstAttribute="centerX" secondItem="Afb-Wu-zZa" secondAttribute="centerX" id="OCP-AY-f6s"/>
+                                                    <constraint firstItem="WSd-zk-gdC" firstAttribute="width" secondItem="Afb-Wu-zZa" secondAttribute="width" id="aqX-Qm-Td3"/>
+                                                    <constraint firstItem="WSd-zk-gdC" firstAttribute="centerY" secondItem="Afb-Wu-zZa" secondAttribute="centerY" id="oE9-zk-cP6"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                         <real key="value" value="0.10000000000000001"/>
@@ -135,11 +140,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0do-Rq-cDl" userLabel="FifthOption">
-                                                <rect key="frame" x="304" y="0.0" width="75" height="50"/>
+                                                <rect key="frame" x="301" y="0.0" width="74" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHB-fO-sa0">
-                                                        <rect key="frame" x="0.5" y="0.0" width="75" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHB-fO-sa0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="50"/>
                                                         <state key="normal" image="tabbar_notifications_icon"/>
                                                         <connections>
                                                             <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="di8-Tp-mcv"/>
@@ -147,6 +151,12 @@
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="qHB-fO-sa0" firstAttribute="width" secondItem="0do-Rq-cDl" secondAttribute="width" id="0F4-ey-ZRH"/>
+                                                    <constraint firstItem="qHB-fO-sa0" firstAttribute="height" secondItem="0do-Rq-cDl" secondAttribute="height" id="8N8-sE-XVl"/>
+                                                    <constraint firstItem="qHB-fO-sa0" firstAttribute="centerX" secondItem="0do-Rq-cDl" secondAttribute="centerX" id="EyR-2G-QQV"/>
+                                                    <constraint firstItem="qHB-fO-sa0" firstAttribute="centerY" secondItem="0do-Rq-cDl" secondAttribute="centerY" id="SiK-dK-FMv"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                         <real key="value" value="0.10000000000000001"/>
@@ -171,7 +181,7 @@
                                             <constraint firstItem="kuy-tI-cBA" firstAttribute="height" secondItem="BBk-MT-PAW" secondAttribute="height" id="L5o-80-t8q"/>
                                             <constraint firstItem="BBk-MT-PAW" firstAttribute="leading" secondItem="5Bo-f2-MYh" secondAttribute="leading" id="OC1-4R-6lM"/>
                                             <constraint firstItem="BBk-MT-PAW" firstAttribute="centerY" secondItem="5Bo-f2-MYh" secondAttribute="centerY" id="U78-qX-eFP"/>
-                                            <constraint firstItem="BBk-MT-PAW" firstAttribute="width" secondItem="5Bo-f2-MYh" secondAttribute="width" multiplier="1/5" id="dhl-Yj-bOZ"/>
+                                            <constraint firstItem="BBk-MT-PAW" firstAttribute="width" secondItem="5Bo-f2-MYh" secondAttribute="width" multiplier="132.5/667" id="dhl-Yj-bOZ"/>
                                             <constraint firstAttribute="height" constant="50" id="efs-lc-4UA"/>
                                             <constraint firstItem="Afb-Wu-zZa" firstAttribute="width" secondItem="P7C-i0-HUo" secondAttribute="width" id="eje-Uj-X2v"/>
                                             <constraint firstItem="kuy-tI-cBA" firstAttribute="leading" secondItem="BBk-MT-PAW" secondAttribute="trailing" constant="1" id="fi9-uO-ube"/>
@@ -194,14 +204,14 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aso-9Q-Mwh">
-                                        <rect key="frame" x="151.5" y="-8" width="75" height="83"/>
+                                        <rect key="frame" x="150" y="-8" width="74.5" height="83"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="selectButton:" destination="aFI-aJ-oa2" eventType="touchUpInside" id="TX0-Kf-do1"/>
                                         </connections>
                                     </button>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSn-dh-iPd">
-                                        <rect key="frame" x="157.5" y="-7" width="63" height="63"/>
+                                        <rect key="frame" x="156" y="-7" width="63" height="63"/>
                                         <subviews>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTL-uU-asz">
                                                 <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
