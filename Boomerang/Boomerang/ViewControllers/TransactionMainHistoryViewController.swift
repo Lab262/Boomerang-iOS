@@ -52,10 +52,10 @@ class TransactionMainHistoryViewController: UIViewController {
         
         for (i, button) in buttons.enumerated() {
             if i == segmentSelected {
-                button!.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
+                button!.titleLabel?.font = UIFont.montserratBold(size: 16)
                 button!.alpha = 1.0
             } else {
-                button!.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 16)
+                button!.titleLabel?.font = UIFont.montserratRegular(size: 16)
                 button!.alpha = 0.5
             }
         }

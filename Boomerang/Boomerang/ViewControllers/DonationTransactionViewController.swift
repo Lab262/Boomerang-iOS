@@ -75,7 +75,7 @@ extension DonationTransactionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return TransactionTableViewCell.cellHeight
+        return TransactionTableViewCell.cellHeight*UIView.heightScaleProportion()
     }
 }
 

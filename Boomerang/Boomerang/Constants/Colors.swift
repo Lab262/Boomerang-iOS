@@ -31,9 +31,10 @@ extension UIColor {
   
 }
 
-//MARK: - CHAT MESSAGES COLORS
+
 extension UIColor {
     
+    //MARK: - CHAT MESSAGES COLORS
     static var myMessageChatTextColor: UIColor  {
         get {
             return UIColor.colorWithHexString("FFFFFF")
@@ -69,5 +70,18 @@ extension UIColor {
             return UIColor.colorWithHexString("FBBB47")
         }
     }
+    
+    //MARK: - COLORS TRANSACTION
+    static var greyTransactionColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("848484")
+        }
+    }
+    static var yellowTransactioColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("F6A01F")
+        }
+    }
+    
     
 }

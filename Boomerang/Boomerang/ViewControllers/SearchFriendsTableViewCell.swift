@@ -87,6 +87,7 @@ class SearchFriendsTableViewCell: UITableViewCell {
             }
             followButton.setTitle(followButtonNormalTitle, for: .normal)
         }
+        followButton.bouncingAnimation(duration: 0.4)
     }
     
     @IBAction func followAction(_ sender: Any) {

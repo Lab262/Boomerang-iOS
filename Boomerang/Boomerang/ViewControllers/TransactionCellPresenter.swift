@@ -19,7 +19,7 @@ protocol TransactionCellDelegate {
     func showMessage(error: String)
     var fromImage: UIImage? {get set}
     var toImage: UIImage? {get set}
-    var descriptionTransaction: String? {get set}
+    var descriptionTransaction: NSMutableAttributedString? {get set}
 }
 
 class TransactionCellPresenter: NSObject {
@@ -81,35 +81,39 @@ class TransactionCellPresenter: NSObject {
     
     func getInformationsTransactionByTypeOfPost(isFromUser: Bool, postCondition: Condition) {
         
-        var descriptionTransaction: String?
+        //Get Image
+        if isFromUser {
+            getImageOfUser(user: getRequesterOfTransaction(), type: .requester)
+        }else{
+            getImageOfUser(user: getOwnerOfTransaction(), type: .owner)
+        }
+        
+        //Get string
+        var descriptionTransaction: NSMutableAttributedString?
         
         switch postCondition {
             
-        case .donation:
-            if isFromUser {
-                descriptionTransaction = "Você está doando \(getPostName()) para \(getRequesterOfTransaction().fullName)"
-                getImageOfUser(user: getRequesterOfTransaction(), type: .requester)
-            } else {
-                descriptionTransaction = "\(getOwnerOfTransaction().fullName) está te doando \(getPostName())"
-                getImageOfUser(user: getOwnerOfTransaction(), type: .owner)
-            }
-        case .loan:
-            if isFromUser {
-                descriptionTransaction = "Você está emprestando \(getPostName()) para \(getRequesterOfTransaction().fullName)"
-                getImageOfUser(user: getRequesterOfTransaction(), type: .requester)
-            } else {
-                descriptionTransaction = "\(getOwnerOfTransaction().fullName) está te emprestando \(getPostName())"
-                getImageOfUser(user: getOwnerOfTransaction(), type: .owner)
-            }
-        case .exchange:
-            if isFromUser {
-                descriptionTransaction = "\(getRequesterOfTransaction().fullName) está trocando \(getPostName())"
-                getImageOfUser(user: getRequesterOfTransaction(), type: .requester)
-            } else {
-                descriptionTransaction = "Você está trocando \(getPostName()) para \(getOwnerOfTransaction().fullName)"
-                getImageOfUser(user: getOwnerOfTransaction(), type: .owner)
-            }
+            case .donation:
+                if isFromUser {
+                    descriptionTransaction = getCustomAttributtedTextStartsWithPhrase(title: TransactionCellStrings.titleDonate)
+                } else {
+                    descriptionTransaction = getCustomAttributtedTextStartsWithName(title: TransactionCellStrings.actionDonate)
+                }
+            case .loan:
+                if isFromUser {
+                    descriptionTransaction = getCustomAttributtedTextStartsWithPhrase(title: TransactionCellStrings.titleLoan)
+                
+                } else {
+                    descriptionTransaction = getCustomAttributtedTextStartsWithName(title: TransactionCellStrings.actionLoan)
+                }
+            case .exchange:
+                if isFromUser {
+                    descriptionTransaction = getCustomAttributtedTextStartsWithName(title: TransactionCellStrings.actionExchange)
+                } else {
+                    descriptionTransaction = getCustomAttributtedTextStartsWithPhrase(title: TransactionCellStrings.titleExchange)
+                }
         }
+        
         view?.descriptionTransaction = descriptionTransaction
     }
     
@@ -122,6 +126,41 @@ class TransactionCellPresenter: NSObject {
             scheme.dealer = getScheme().owner
             getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().condition!)
             view?.toImage = self.user.profileImage
+        }
+    }
+    
+    func getCustomAttributtedTextStartsWithPhrase(title: String) -> NSMutableAttributedString{
+        
+        let title = getCustomAttributedString(text: title, isPhrase: true)
+        let namePost = getCustomAttributedString(text: getPostName(), isPhrase: false)
+        let forString = getCustomAttributedString(text: TransactionCellStrings.forAction, isPhrase: true)
+        let nameUser = getCustomAttributedString(text: getRequesterOfTransaction().fullName, isPhrase: false)
+        
+        title.append(namePost)
+        title.append(forString)
+        title.append(nameUser)
+        
+        return title
+        
+    }
+    
+    func getCustomAttributtedTextStartsWithName(title:String) -> NSMutableAttributedString{
+        
+        let nameUser = getCustomAttributedString(text: getOwnerOfTransaction().fullName, isPhrase: false)
+        let actionTitle = getCustomAttributedString(text: title, isPhrase: true)
+        let namePost = getCustomAttributedString(text: getPostName(), isPhrase: false)
+        
+        nameUser.append(actionTitle)
+        nameUser.append(namePost)
+        
+        return nameUser
+    }
+    
+    func getCustomAttributedString(text: String, isPhrase: Bool) -> NSMutableAttributedString {
+        if isPhrase{
+            return NSMutableAttributedString(string: text, attributes: [NSForegroundColorAttributeName: UIColor.greyTransactionColor, NSFontAttributeName: UIFont.montserratRegular(size: 14)])
+        }else{
+            return NSMutableAttributedString(string: text, attributes: [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.montserratSemiBold(size: 14)])
         }
     }
 }

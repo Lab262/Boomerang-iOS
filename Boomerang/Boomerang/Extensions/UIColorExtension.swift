@@ -62,20 +62,6 @@ extension UIColor {
 
     //Pragma MARK : - Constants
 
-    
-    class func readingPurpleColor()->UIColor{
-        return colorWithHexString("632686")
-    }
-    
-    class func readingModeNightBackground () -> UIColor {
-        return colorWithHexString("190126")
-    }
-   
-    class func readingBlueColor()->UIColor{
-        return colorWithHexString("1BDBAD")
-        
-    }
-
     class var backgroundColor: UIColor {
         get {
             return getColorWithNameFromUserDefaults("backgroundColor")

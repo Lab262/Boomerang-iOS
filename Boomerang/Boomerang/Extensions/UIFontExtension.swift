@@ -14,7 +14,15 @@ extension UIFont {
         return UIFont(name: "Montserrat-Bold", size: size)!
     }
     
+    class func montserratSemiBold(size:CGFloat) -> UIFont {
+        return UIFont(name: "Montserrat-SemiBold", size: size)!
+    }
+    
     class func montserratLight(size:CGFloat) -> UIFont {
         return UIFont(name: "Montserrat-Light", size: size)!
+    }
+    
+    class func montserratRegular(size:CGFloat) -> UIFont {
+        return UIFont(name: "Montserrat-Regular", size: size)!
     }
 }
