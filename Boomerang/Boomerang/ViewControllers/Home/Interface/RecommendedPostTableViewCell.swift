@@ -65,13 +65,27 @@ class RecommendedPostTableViewCell: UITableViewCell {
     }
     
     func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
         
-        cell.presenter.post = presenter.friendsPosts[indexPath.row]
-        cell.setupCell()
-        unloadPlaceholderImage()
         
-        return cell
+        if presenter.getFeaturedPosts().endIndex == indexPath.row {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
+            
+            cell.userNameLabel.text = "MAIS POSTS"
+            
+            return cell
+         
+        } else {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
+            
+            cell.presenter.post = presenter.getFeaturedPosts()[indexPath.row]
+            cell.setupCell()
+            unloadPlaceholderImage()
+            
+            return cell
+        }
+
     }
     
     func generatePageControlCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,7 +106,11 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return presenter.friendsPosts.count
+        if presenter.getFeaturedPosts().count > 0 {
+            return presenter.getFeaturedPosts().count+1
+        } else {
+            return presenter.getFeaturedPosts().count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -109,7 +127,14 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
 
 extension RecommendedPostTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
+        
+        if indexPath.row == presenter.getFeaturedPosts().endIndex {
+            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToMorePost)
+        } else {
+            self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
+        }
+        
+        
     }
 }
 
@@ -162,7 +187,7 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
 extension RecommendedPostTableViewCell: PageIndicatorViewDelegate {
     
     var numberOfPages: Int {
-        return presenter.friendsPosts.count
+        return presenter.getFeaturedPosts().count
     }
     
     var indicatorHeight: CGFloat {

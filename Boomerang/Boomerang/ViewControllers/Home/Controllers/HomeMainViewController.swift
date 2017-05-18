@@ -43,7 +43,6 @@ class HomeMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.popToRootViewController(animated: true)
         presenter.setControllerDelegate(controller: self)
         presenter.updatePostsFriends()
         presenter.getPostsOfTheOtherUsers()
@@ -81,8 +80,13 @@ class HomeMainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let controller = segue.destination as? ThingDetailViewController {
             controller.presenter.setPost(post: presenter.friendsPosts[currentIndex!.row])
+        }
+        
+        if let controller = segue.destination as? MorePostViewController {
+            controller.presenter.posts = presenter.getFeaturedPosts()
         }
     }
 }
@@ -235,6 +239,15 @@ extension HomeMainViewController {
         
         return cell
     }
+    
+    func generateMorePostsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
+        let cell = UITableViewCell(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width/4, height: 250))
+        cell.backgroundColor = UIColor.yellowBoomerColor
+        cell.textLabel?.text = "VIEW MORE"
+        cell.textLabel?.textAlignment = .center
+        
+        return cell
+    }
 }
 
 extension HomeMainViewController: UIScrollViewDelegate {
@@ -312,6 +325,10 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
         } else {
             
         }
+    }
+    
+    func pushFor(identifier: String) {
+        self.performSegue(withIdentifier: identifier, sender: self)
     }
 }
 

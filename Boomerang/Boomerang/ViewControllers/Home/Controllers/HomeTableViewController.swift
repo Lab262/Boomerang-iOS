@@ -128,6 +128,10 @@ extension HomeTableViewController: UITableViewDelegate {
 }
 
 extension HomeTableViewController: CollectionViewSelectionDelegate {
+    func pushFor(identifier: String) {
+        
+    }
+
     
     func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath) {
         

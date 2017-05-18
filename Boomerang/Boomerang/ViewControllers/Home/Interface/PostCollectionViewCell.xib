@@ -25,7 +25,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="270" height="227"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="post-default" translatesAutoresizingMaskIntoConstraints="NO" id="y3L-vJ-N7h">
+                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="post-default" translatesAutoresizingMaskIntoConstraints="NO" id="y3L-vJ-N7h">
                         <rect key="frame" x="0.0" y="0.0" width="270" height="157"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXk-FN-EMQ">

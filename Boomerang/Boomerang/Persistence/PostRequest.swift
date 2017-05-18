@@ -66,19 +66,26 @@ class PostRequest: NSObject {
         }
     }
     
-    static func getPostsThatNotContain(friends: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ posts: [Post]?) -> ()) {
+    static func getPostsThatNotContain(friends: [Profile], postsDownloaded: [Post]? = nil, pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ posts: [Post]?) -> ()) {
         
         var posts: [Post] = [Post]()
-        var notContainedObjectIds = [String]()
         
-        friends.forEach{
-            notContainedObjectIds.append($0.objectId!)
-        }
+        var profiles = friends
+        
+        profiles.append(ApplicationState.sharedInstance.currentUser!.profile!)
         
         var notContainedObjects = [String: [Any]]()
-        notContainedObjects["objectId"] = notContainedObjectIds
-        notContainedObjects["author"] = [ApplicationState.sharedInstance.currentUser!.profile!]
         
+        notContainedObjects["author"] = profiles
+        
+        var notContainedObjectIds = [String]()
+        
+        if let downloadedPosts = postsDownloaded {
+            downloadedPosts.forEach {
+                notContainedObjectIds.append($0.objectId!)
+            }
+            notContainedObjects["objectId"] = notContainedObjectIds
+        }
         
         ParseRequest.queryGetAllObjects(className: "Post", notContainedObjects: notContainedObjects, pagination: pagination, includes: ["author"]) { (success, msg, objects) in
             if success {

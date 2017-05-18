@@ -186,6 +186,12 @@
 		D4788DE21ECE18FB00E5E55F /* MorePostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4788DE11ECE18FB00E5E55F /* MorePostPresenter.swift */; };
 		D4788DE31ECE18FB00E5E55F /* MorePostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4788DE11ECE18FB00E5E55F /* MorePostPresenter.swift */; };
 		D4788DE41ECE18FB00E5E55F /* MorePostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4788DE11ECE18FB00E5E55F /* MorePostPresenter.swift */; };
+		D4788DE71ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4788DE51ECE1BDD00E5E55F /* MorePostTableViewCell.swift */; };
+		D4788DE81ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4788DE51ECE1BDD00E5E55F /* MorePostTableViewCell.swift */; };
+		D4788DE91ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4788DE51ECE1BDD00E5E55F /* MorePostTableViewCell.swift */; };
+		D4788DEA1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4788DE61ECE1BDD00E5E55F /* MorePostTableViewCell.xib */; };
+		D4788DEB1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4788DE61ECE1BDD00E5E55F /* MorePostTableViewCell.xib */; };
+		D4788DEC1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4788DE61ECE1BDD00E5E55F /* MorePostTableViewCell.xib */; };
 		D484FA241EACF4820054E415 /* OtherActionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA231EACF4810054E415 /* OtherActionsMainViewController.swift */; };
 		D484FA261EACF4E90054E415 /* OtherActionsSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */; };
 		D484FA271EACF4EA0054E415 /* OtherActionsSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */; };
@@ -868,6 +874,8 @@
 		D4788DD91ECCE82400E5E55F /* PostPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
 		D4788DDD1ECE18E700E5E55F /* MorePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePostViewController.swift; sourceTree = "<group>"; };
 		D4788DE11ECE18FB00E5E55F /* MorePostPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePostPresenter.swift; sourceTree = "<group>"; };
+		D4788DE51ECE1BDD00E5E55F /* MorePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePostTableViewCell.swift; sourceTree = "<group>"; };
+		D4788DE61ECE1BDD00E5E55F /* MorePostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MorePostTableViewCell.xib; path = ../Cells/MorePostTableViewCell.xib; sourceTree = "<group>"; };
 		D484FA231EACF4810054E415 /* OtherActionsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherActionsMainViewController.swift; sourceTree = "<group>"; };
 		D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherActionsSegmentViewController.swift; sourceTree = "<group>"; };
 		D484FA2B1EACFA3D0054E415 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -1686,6 +1694,7 @@
 				D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */,
 				D4FBBCE31E90706400611F63 /* InterestedTableViewCell.swift */,
 				D44BFF241EBD1B6A00E1B2A7 /* MoreCommentTableViewCell.swift */,
+				D4788DE51ECE1BDD00E5E55F /* MorePostTableViewCell.swift */,
 			);
 			name = UITableViewCell;
 			sourceTree = "<group>";
@@ -1706,6 +1715,7 @@
 		D498F0461E820DC5002E8972 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				D4788DE61ECE1BDD00E5E55F /* MorePostTableViewCell.xib */,
 				D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */,
 				D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */,
 				D498F0351E808861002E8972 /* PhotoThingTableViewCell.xib */,
@@ -2130,6 +2140,7 @@
 				D498F0431E816243002E8972 /* ThingNavigationBar.xib in Resources */,
 				D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */,
 				A4E462FB1DCAEAE800A611C0 /* Boomer.storyboard in Resources */,
+				D4788DEA1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */,
 				D498F04B1E820EA1002E8972 /* UserInformationTableViewCell.xib in Resources */,
 				D4E4BEA61E822FBE00F8DC2E /* DescriptionTableViewCell.xib in Resources */,
 				A4E462FD1DCAEAF800A611C0 /* Home.storyboard in Resources */,
@@ -2203,6 +2214,7 @@
 				D4AD981C1EA9ACFD00C9FAB9 /* ThingNavigationBar.xib in Resources */,
 				D4AD981D1EA9ACFD00C9FAB9 /* UserCommentTableViewCell.xib in Resources */,
 				D4AD981E1EA9ACFD00C9FAB9 /* Boomer.storyboard in Resources */,
+				D4788DEB1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */,
 				D4AD981F1EA9ACFD00C9FAB9 /* UserInformationTableViewCell.xib in Resources */,
 				D4AD98201EA9ACFD00C9FAB9 /* DescriptionTableViewCell.xib in Resources */,
 				D4AD98211EA9ACFD00C9FAB9 /* Home.storyboard in Resources */,
@@ -2269,6 +2281,7 @@
 				D4AD98E81EA9AD0400C9FAB9 /* ThingNavigationBar.xib in Resources */,
 				D4AD98E91EA9AD0400C9FAB9 /* UserCommentTableViewCell.xib in Resources */,
 				D4AD98EA1EA9AD0400C9FAB9 /* Boomer.storyboard in Resources */,
+				D4788DEC1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */,
 				D4AD98EB1EA9AD0400C9FAB9 /* UserInformationTableViewCell.xib in Resources */,
 				D4AD98EC1EA9AD0400C9FAB9 /* DescriptionTableViewCell.xib in Resources */,
 				D4AD98ED1EA9AD0400C9FAB9 /* Home.storyboard in Resources */,
@@ -2634,6 +2647,7 @@
 				D4C8ECDC1EC22B4200E3CB17 /* StatusRequest.swift in Sources */,
 				D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */,
 				D484FA301EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
+				D4788DE71ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */,
 				D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */,
 				D498F0311E7F334E002E8972 /* HomePresenter.swift in Sources */,
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
@@ -2916,6 +2930,7 @@
 				D4AD97ED1EA9ACFD00C9FAB9 /* RightMenuTableViewController.swift in Sources */,
 				D4788DE31ECE18FB00E5E55F /* MorePostPresenter.swift in Sources */,
 				D4470A681EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */,
+				D4788DE81ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */,
 				D4AD97EE1EA9ACFD00C9FAB9 /* PostRequest.swift in Sources */,
 				D4AD97EF1EA9ACFD00C9FAB9 /* MessagesMainViewController.swift in Sources */,
 				D4AD97F01EA9ACFD00C9FAB9 /* PageIndicatorView.swift in Sources */,
@@ -3092,6 +3107,7 @@
 				D4AD98B91EA9AD0400C9FAB9 /* RightMenuTableViewController.swift in Sources */,
 				D4788DE41ECE18FB00E5E55F /* MorePostPresenter.swift in Sources */,
 				D4470A691EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */,
+				D4788DE91ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */,
 				D4AD98BA1EA9AD0400C9FAB9 /* PostRequest.swift in Sources */,
 				D4AD98BB1EA9AD0400C9FAB9 /* MessagesMainViewController.swift in Sources */,
 				D4AD98BC1EA9AD0400C9FAB9 /* PageIndicatorView.swift in Sources */,

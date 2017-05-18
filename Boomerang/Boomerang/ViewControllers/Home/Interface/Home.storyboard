@@ -127,11 +127,81 @@
                         <outlet property="searchBar" destination="8NO-f7-jeX" id="AtU-5H-KSh"/>
                         <outlet property="tableView" destination="YTg-zH-wsh" id="yLx-B4-LaL"/>
                         <segue destination="OAa-qd-sUY" kind="show" identifier="showDetailThing" id="AL7-AX-imq"/>
+                        <segue destination="Nkf-dN-nrN" kind="show" identifier="goToMorePosts" id="Go6-gi-o13"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYt-rM-9sf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1180" y="132.68365817091455"/>
+        </scene>
+        <!--More Post View Controller-->
+        <scene sceneID="hhm-1h-hva">
+            <objects>
+                <viewController id="Nkf-dN-nrN" customClass="MorePostViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X7z-2T-CzY"/>
+                        <viewControllerLayoutGuide type="bottom" id="1ZG-6g-Pvr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JMP-LN-drp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dg3-W2-QfE" customClass="ThingNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="137"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137" id="22d-oB-1rd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="thingNameLabelHidden" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nAt-8R-zUn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Nkf-dN-nrN" id="YFF-6E-dFU"/>
+                                    <outlet property="delegate" destination="Nkf-dN-nrN" id="ImQ-GO-0jb"/>
+                                </connections>
+                            </tableView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTH-5p-7hf" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="f3W-tH-78f"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="back-button"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenRightBarIconImage" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Ver Mais"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Dg3-W2-QfE" secondAttribute="trailing" id="6hW-FG-dEy"/>
+                            <constraint firstItem="Dg3-W2-QfE" firstAttribute="top" secondItem="JMP-LN-drp" secondAttribute="topMargin" id="CTH-m7-qoE"/>
+                            <constraint firstItem="1ZG-6g-Pvr" firstAttribute="top" secondItem="nAt-8R-zUn" secondAttribute="bottom" id="Dja-HP-8I4"/>
+                            <constraint firstItem="eTH-5p-7hf" firstAttribute="leading" secondItem="JMP-LN-drp" secondAttribute="leading" id="EWm-4z-CEI"/>
+                            <constraint firstItem="eTH-5p-7hf" firstAttribute="top" secondItem="JMP-LN-drp" secondAttribute="top" id="WHo-ky-TPk"/>
+                            <constraint firstAttribute="trailing" secondItem="nAt-8R-zUn" secondAttribute="trailing" id="aGx-o9-viQ"/>
+                            <constraint firstItem="nAt-8R-zUn" firstAttribute="top" secondItem="JMP-LN-drp" secondAttribute="top" id="ayQ-CM-qFj"/>
+                            <constraint firstItem="Dg3-W2-QfE" firstAttribute="leading" secondItem="JMP-LN-drp" secondAttribute="leading" id="hUc-iC-jJ5"/>
+                            <constraint firstItem="nAt-8R-zUn" firstAttribute="leading" secondItem="JMP-LN-drp" secondAttribute="leading" id="s0n-tq-uc4"/>
+                            <constraint firstAttribute="trailing" secondItem="eTH-5p-7hf" secondAttribute="trailing" id="yvD-l1-LqS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="eTH-5p-7hf" id="IJc-ll-ssG"/>
+                        <outlet property="tableView" destination="nAt-8R-zUn" id="CVd-PN-jtU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUt-h8-VZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2245.5999999999999" y="132.68365817091455"/>
         </scene>
         <!--profileView-->
         <scene sceneID="LJl-2h-g1B">

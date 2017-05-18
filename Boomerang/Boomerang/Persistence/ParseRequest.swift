@@ -129,6 +129,7 @@ class ParseRequest: NSObject {
     static func queryGetAllObjects(className: String, notContainedObjects: [String: [Any]]? = nil, pagination: Int = 100, includes: [String]? = nil, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects :[PFObject]?) -> ()) {
         
         let query = PFQuery(className: className)
+        
         query.limit = pagination
         
         if let allNotContainedObjects = notContainedObjects {

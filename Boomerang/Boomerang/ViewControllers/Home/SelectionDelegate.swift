@@ -16,4 +16,6 @@ protocol TableViewSelectionDelegate: class {
 protocol CollectionViewSelectionDelegate: class {
     
     func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath)
+    
+    func pushFor(identifier: String)
 }
