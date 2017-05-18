@@ -451,22 +451,41 @@
                                     <outlet property="delegate" destination="nqi-1T-dTg" id="tmk-if-EnH"/>
                                 </connections>
                             </tableView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1K-iB-3MG" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="6OA-DT-HRe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Interessados"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonIconImage" value="back-button"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenRightBarIconImage" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="y1K-iB-3MG" secondAttribute="trailing" id="6y3-cn-lEK"/>
                             <constraint firstAttribute="trailing" secondItem="6dc-WD-jNs" secondAttribute="trailing" id="FFh-MW-i3b"/>
+                            <constraint firstItem="y1K-iB-3MG" firstAttribute="leading" secondItem="Rab-6R-rkf" secondAttribute="leading" id="KCf-cU-VEH"/>
+                            <constraint firstItem="y1K-iB-3MG" firstAttribute="top" secondItem="Rab-6R-rkf" secondAttribute="topMargin" id="il5-Tr-eOA"/>
                             <constraint firstItem="6dc-WD-jNs" firstAttribute="top" secondItem="Rab-6R-rkf" secondAttribute="top" id="ltE-nS-mNN"/>
                             <constraint firstItem="6dc-WD-jNs" firstAttribute="leading" secondItem="Rab-6R-rkf" secondAttribute="leading" id="tbf-Ga-Oa3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="y1K-iB-3MG" id="Lmr-AR-fMJ"/>
                         <outlet property="tableView" destination="Wep-AY-WV6" id="N5v-0o-oMj"/>
                         <segue destination="pUB-g2-0Er" kind="show" identifier="goToChat" id="aNp-Bi-LDZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTA-xV-YZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="892"/>
+            <point key="canvasLocation" x="3172" y="891.90404797601207"/>
         </scene>
         <!--chatView-->
         <scene sceneID="SAB-Y6-SFS">
