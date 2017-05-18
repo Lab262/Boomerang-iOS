@@ -19,6 +19,7 @@ class HomeMainViewController: UIViewController {
     internal var homeTableViewController: HomeTableViewController!
     internal var homeBoomerThingsData = [String: [BoomerThing]]()
     var boomerThingDelegate: UICollectionViewDelegate?
+    var typePost: String = ""
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -82,7 +83,14 @@ class HomeMainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let controller = segue.destination as? ThingDetailViewController {
-            controller.presenter.setPost(post: presenter.friendsPosts[currentIndex!.row])
+            if typePost == "Featured" {
+                controller.presenter.setPost(post: presenter.getFeaturedPosts()[currentIndex!.row])
+            } else if typePost == "Friend" {
+                controller.presenter.setPost(post: presenter.friendsPosts[currentIndex!.row])
+            } else {
+                controller.presenter.setPost(post: presenter.othersPosts[currentIndex!.row])
+            }
+            
         }
         
         if let controller = segue.destination as? MorePostViewController {
@@ -133,6 +141,7 @@ extension HomeMainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -148,9 +157,7 @@ extension HomeMainViewController: UITableViewDelegate {
             return nil
             
         }
-        
         return header
-    
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -327,7 +334,10 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
         }
     }
     
-    func pushFor(identifier: String) {
+    func pushFor(identifier: String, typePost: String, indexPath: IndexPath) {
+        
+        self.currentIndex = indexPath
+        self.typePost = typePost
         self.performSegue(withIdentifier: identifier, sender: self)
     }
 }

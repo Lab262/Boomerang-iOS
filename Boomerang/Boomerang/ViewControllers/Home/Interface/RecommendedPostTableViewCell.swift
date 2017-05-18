@@ -129,9 +129,9 @@ extension RecommendedPostTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.row == presenter.getFeaturedPosts().endIndex {
-            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToMorePost)
+            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToMorePost, typePost: "Featured", indexPath: indexPath)
         } else {
-            self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
+            self.selectionDelegate?.pushFor(identifier: "showDetailThing", typePost: "Featured", indexPath: indexPath)
         }
         
         

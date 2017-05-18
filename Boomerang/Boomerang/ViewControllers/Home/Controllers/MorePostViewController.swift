@@ -55,6 +55,13 @@ class MorePostViewController: UIViewController {
     func registerNib() {
         tableView.registerNibFrom(MorePostTableViewCell.self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let controller = segue.destination as? ThingDetailViewController {
+            //controller.presenter.setPost(post: presenter.posts[currentIndex!.row])
+        }
+    }
 
 }
 

@@ -17,5 +17,5 @@ protocol CollectionViewSelectionDelegate: class {
     
     func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath)
     
-    func pushFor(identifier: String)
+    func pushFor(identifier: String, typePost: String, indexPath: IndexPath)
 }
