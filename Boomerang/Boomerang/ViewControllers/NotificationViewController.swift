@@ -43,7 +43,7 @@ class NotificationViewController: UIViewController {
         if let destinationVC = segue.destination as? ThingDetailViewController {
             let selectedIndex = tableView.indexPathForSelectedRow
             print ("POST: \(presenter.getNotifications()[selectedIndex!.row].post!)")
-            destinationVC.presenter.setPost(post: presenter.getNotifications()[selectedIndex!.row].post!)
+            destinationVC.presenter.post = presenter.getNotifications()[selectedIndex!.row].post!
         }
     }
 }

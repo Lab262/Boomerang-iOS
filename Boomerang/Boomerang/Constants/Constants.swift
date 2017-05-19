@@ -85,5 +85,23 @@ struct TransactionCellStrings {
     static let forAction = " para "
 }
 
+//MARK - Title Buttons
+
+struct TitleButtons {
+    static let enterInterested = "Quero!"
+    static let exitInterested = "Perdi interesse"
+    static let recommended = "Recomendar"
+    static let interestedList = "Lista de interessados"
+}
+
+//MARK - Type Post Titles
+
+struct TypePostTitles {
+    static let have = "Tenho"
+    static let need = "Preciso"
+    static let donate = "Doação"
+}
+
+
 
 

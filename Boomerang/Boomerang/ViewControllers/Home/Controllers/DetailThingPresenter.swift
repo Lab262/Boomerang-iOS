@@ -20,76 +20,37 @@ protocol DetailThingDelegate {
 
 class DetailThingPresenter: NSObject {
     
-    fileprivate var post:Post? = Post()
-    fileprivate let pagination = 3
-    fileprivate var skip = 0
-    fileprivate var comments = [Comment]()
-    fileprivate var currentCommentsCount = 0
-    fileprivate var user = ApplicationState.sharedInstance.currentUser
-    fileprivate let enterInterestedTitleButton: String = "Quero!"
-    fileprivate let exitInterestedTitleButton: String = "Perdi interesse"
-    fileprivate let recommendedTitleButton: String = "Recomendar"
-    fileprivate let interestedListTitleButton: String = "Lista de interessados"
+    var post: Post = Post()
+    var comments = [Comment]()
+    var currentCommentsCount = 0
+    var profile = ApplicationState.sharedInstance.currentUser!.profile
+    let enterInterestedTitleButton: String = TitleButtons.enterInterested
+    let exitInterestedTitleButton: String = TitleButtons.exitInterested
+    let recommendedTitleButton: String = TitleButtons.recommended
+    let interestedListTitleButton: String = TitleButtons.interestedList
     
     var view: DetailThingDelegate?
     
     func setViewDelegate(view: DetailThingDelegate) {
         self.view = view
     }
-    
-    func getEnterInterestedTitleButton() -> String {
-        return enterInterestedTitleButton
-    }
-    
-    func getExitInterestedTitleButton() -> String {
-        return exitInterestedTitleButton
-    }
-    
-    func getRecommendedTitleButton() -> String {
-        return recommendedTitleButton
-    }
-    
-    func getInterestedListTitleButton() -> String {
-        return interestedListTitleButton
-    }
-    
-    func getComments() -> [Comment] {
-        return comments
-    }
-    
-    func setPost(post: Post) {
-        self.post = post
-    }
-    
-    func getPost() -> Post {
-        return self.post!
-    }
-    
-    func getUser() -> User {
-        return user!
-    }
-    
     func getAuthorOfPost() -> Profile {
-        return post!.author!
-    }
-    
-    func getCurrentCommentsCount() -> Int {
-        return currentCommentsCount
+        return post.author!
     }
     
     func getCurrentType() -> String {
-        switch self.getPost().typePost! {
+        switch post.typePost! {
         case .have:
-            return "Tenho"
+            return TypePostTitles.have
         case .need:
-            return "Preciso"
+            return TypePostTitles.need
         case .donate:
-            return "Doação"
+            return TypePostTitles.donate
         }
     }
     
     func authorPostIsCurrent() -> Bool {
-        if getPost().author?.objectId == self.user?.profile?.objectId {
+        if post.author?.objectId == profile?.objectId {
             return true
         } else {
             return false
@@ -97,7 +58,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func getLastsComments(isUpdate: Bool = false) {
-        CommentRequest.fetchCommentsBy(post: self.post!, commentsObject: self.comments, pagination: pagination) { (success, msg, comments) in
+        CommentRequest.fetchCommentsBy(post: self.post, commentsObject: self.comments, pagination: Paginations.comments) { (success, msg, comments) in
             if success {
                 for comment in comments! {
                     if isUpdate {
@@ -107,8 +68,7 @@ class DetailThingPresenter: NSObject {
                     }
                 }
                 self.view?.reload()
-                self.currentCommentsCount = self.getComments().count
-                
+                self.currentCommentsCount = self.comments.count
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }
@@ -116,7 +76,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func getCommentCounts() {
-        CommentRequest.getCommentsCount(by: self.post!) { (success, msg, count) in
+        CommentRequest.getCommentsCount(by: self.post) { (success, msg, count) in
             if success {
                 self.view?.commentCount = count
             } else {
@@ -128,7 +88,6 @@ class DetailThingPresenter: NSObject {
     func saveComment(comment: Comment) {
         comment.saveObjectInBackground { (success, msg) in
             if success {
-                self.skip = self.comments.endIndex
                 self.getLastsComments(isUpdate: true)
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
@@ -138,21 +97,21 @@ class DetailThingPresenter: NSObject {
     
     func createSchemeInProgress(chat: Chat, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
-        let scheme = Scheme(post: getPost(), requester: getUser().profile!, owner: getAuthorOfPost(), chat: chat)
+        let scheme = Scheme(post: post, requester: profile!, owner: getAuthorOfPost(), chat: chat)
         scheme.saveObjectInBackground { (success, msg) in
              completionHandler(success, msg)
         }
     }
     
     func createInterestedChat(completionHandler: @escaping (_ success: Bool, _ msg: String, _ chat: Chat) -> ()) {
-        let chat = Chat(post: getPost(), requester: getUser().profile!, owner: getAuthorOfPost())
+        let chat = Chat(post: post, requester: profile!, owner: getAuthorOfPost())
         chat.saveObjectInBackground { (success, msg) in
              completionHandler(success, msg, chat)
         }
     }
     
     func enterInterestedList() {
-        let interested = Interested(user: getUser().profile, post: getPost(), currentMessage: "Estou interessado, fico feliz em ajudar")
+        let interested = Interested(user: profile, post: post, currentMessage: "Estou interessado, fico feliz em ajudar")
         interested.saveObjectInBackground { (success, msg) in
             if success {
                 self.createInterestedChat(completionHandler: { (success, msg, chat) in
@@ -177,7 +136,7 @@ class DetailThingPresenter: NSObject {
     }
 
     func exitInterestedList() {
-        PostRequest.exitInterestedListOf(user: user!, post: post!) { (success, msg) in
+        PostRequest.exitInterestedListOf(profile: profile!, post: post) { (success, msg) in
             if success {
                 self.view?.interestedTitleButton = self.enterInterestedTitleButton
                 self.view?.showMessage(isSuccess: success, msg: "Você saiu da lista de interessados.")
@@ -188,7 +147,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func alreadyInterested(){
-        PostRequest.verifyAlreadyInterestedFor(currentProfile: user!.profile!, post: post!) { (success, msg, alreadyInterested) in
+        PostRequest.verifyAlreadyInterestedFor(currentProfile: profile!, post: post) { (success, msg, alreadyInterested) in
             
             if success {
                 self.view?.interestedTitleButton = alreadyInterested ? self.exitInterestedTitleButton : self.enterInterestedTitleButton
@@ -199,7 +158,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func createComment(text: String) {
-        let comment = Comment(post: self.post!, content: text, author: (self.user?.profile)!)
+        let comment = Comment(post: self.post, content: text, author: profile!)
         
         saveComment(comment: comment)
     }
@@ -208,7 +167,7 @@ class DetailThingPresenter: NSObject {
     
     func getRelationsImages(success: Bool){
         if !success {
-            PostRequest.getRelationsInBackground(post: post!, completionHandler: { (success, msg) in
+            PostRequest.getRelationsInBackground(post: post, completionHandler: { (success, msg) in
                 if success {
                     self.downloadImagesPost(success: true)
                 } else {
@@ -219,8 +178,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func downloadImagesPost(success:Bool) {
-        
-        if let relations = getPost().relations {
+        if let relations = post.relations {
             for relation in relations where !relation.isDownloadedImage {
                 relation.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
                     if success {
@@ -236,7 +194,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func getImagePostByIndex(_ index: Int) -> UIImage {
-        if let relations = self.post?.relations {
+        if let relations = post.relations {
             if relations.count >= index+1 {
                 if let photo = relations[index].photo {
                     return photo
@@ -255,9 +213,9 @@ class DetailThingPresenter: NSObject {
         if success {
             view?.reload()
         } else {
-            post!.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
+            post.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
                 if success {
-                    self.post!.countPhotos = count!
+                    self.post.countPhotos = count!
                     self.view?.reload()
                 } else {
                     print ("COUNT PHOTOS REQUEST ERROR")
@@ -265,22 +223,4 @@ class DetailThingPresenter: NSObject {
             })
         }
     }
-    
-    func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> ()){
-        
-        guard let image = getPost().author?.profileImage else {
-            getPost().author?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
-                
-                if success {
-                    self.getPost().author?.profileImage = UIImage(data: data!)
-                    completionHandler(true, msg, self.getPost().author?.profileImage)
-                } else {
-                    completionHandler(false, msg, nil)
-                }
-            })
-            return
-        }
-        completionHandler(true, "Success", image)
-    }
-    
 }

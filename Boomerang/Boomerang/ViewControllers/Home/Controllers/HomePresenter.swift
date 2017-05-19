@@ -12,12 +12,12 @@ import Parse
 
 class HomePresenter: NSObject {
 
+    private var featuredPosts = [Post]()
+    private var view: ViewDelegate?
     var following: [Profile] = [Profile]()
     var friendsPosts: [Post] = [Post]()
     var othersPosts: [Post] = [Post]()
-    private var featuredPosts = [Post]()
     var post: Post = Post()
-    private var view: ViewDelegate?
     var user: User = ApplicationState.sharedInstance.currentUser!
     var currentPostsFriendsCount = 0
     
@@ -119,20 +119,6 @@ class HomePresenter: NSObject {
                 self.view?.showMessageError(msg: msg)
             }
         }
-    }
-    
-    func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {
-        guard let image = user.profileImage else {
-            user.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
-                if success {
-                    completionHandler(true, "Success", UIImage(data: data!)!)
-                } else {
-                    completionHandler(false, msg, nil)
-                }
-            })
-            return
-        }
-        completionHandler(true, "Success", image)
     }
     
     private func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {

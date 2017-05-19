@@ -64,11 +64,11 @@ class HomeMainViewController: UIViewController {
         if let controller = segue.destination as? ThingDetailViewController {
             switch currentSectionPost! {
             case .recommended:
-                controller.presenter.setPost(post: presenter.getFeaturedPosts()[currentIndex!.row])
+                controller.presenter.post = presenter.getFeaturedPosts()[currentIndex!.row]
             case .friends:
-                controller.presenter.setPost(post: presenter.friendsPosts[currentIndex!.row])
+                controller.presenter.post = presenter.friendsPosts[currentIndex!.row]
             case .city:
-                controller.presenter.setPost(post: presenter.othersPosts[currentIndex!.row])
+                controller.presenter.post = presenter.othersPosts[currentIndex!.row]
             }
         }
         

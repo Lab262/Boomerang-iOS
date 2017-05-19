@@ -31,7 +31,7 @@ class DescriptionTableViewCell: UITableViewCell {
     }
     
     func updateCell(){
-        descriptionPostLabel.text = presenter.getPost().content
+        descriptionPostLabel.text = presenter.post.content
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

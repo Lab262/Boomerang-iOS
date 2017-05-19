@@ -69,9 +69,8 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         pageIndicatorView?.reload()
-        
-        
-        return presenter.getPost().countPhotos
+    
+        return presenter.post!.countPhotos
     }
 }
 
@@ -108,7 +107,7 @@ extension PhotoThingTableViewCell: UpdatePostDelegate {
     func updateRelationsPost(post: Post?, success: Bool, updateType: UpdateType) {
         
         if let postUpdated = post {
-            presenter.setPost(post: postUpdated)
+            presenter.post = postUpdated
         }
         
         switch updateType {
@@ -137,7 +136,7 @@ extension PhotoThingTableViewCell: PhotoThingDelegate {
 extension PhotoThingTableViewCell: PageIndicatorViewDelegate {
     
     var numberOfPages: Int {
-        return presenter.getPost().countPhotos
+        return presenter.post!.countPhotos
     }
     
     var indicatorHeight: CGFloat {

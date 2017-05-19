@@ -23,7 +23,7 @@ class ThingDetailViewController: UIViewController {
     
     var commentQuery: PFQuery<Comment> {
         return (Comment.query()?
-            .whereKey("post", equalTo: presenter.getPost())
+            .whereKey("post", equalTo: presenter.post)
             .order(byAscending: "createdAt") as! PFQuery<Comment>)
     }
 
@@ -73,7 +73,7 @@ class ThingDetailViewController: UIViewController {
     }
     
     fileprivate func printMessage(_ comment: Comment) {
-        let createdAt = comment.createdAt ?? Date()
+       // let createdAt = comment.createdAt ?? Date()
         
         
        // print("\(createdAt) \(comment. ?? "unknown"): \(message.message ?? "")")
@@ -134,11 +134,11 @@ class ThingDetailViewController: UIViewController {
         if !presenter.authorPostIsCurrent() {
             presenter.alreadyInterested()
             secondButton.isHidden = false
-            secondButton.setTitle(presenter.getRecommendedTitleButton(), for: .normal)
+            secondButton.setTitle(presenter.recommendedTitleButton, for: .normal)
         } else {
             secondButton.isHidden = true
             firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
-            firstButton.setTitle(presenter.getInterestedListTitleButton(), for: .normal)
+            firstButton.setTitle(presenter.interestedListTitleButton, for: .normal)
         }
     }
     
@@ -163,7 +163,7 @@ class ThingDetailViewController: UIViewController {
     
     func setNavigationInformations(){
        navigationBarView.titleBarLabel.text = presenter.getCurrentType()
-       navigationInformationsView.thingNameLabel.text = presenter.getPost().title
+       navigationInformationsView.thingNameLabel.text = presenter.post.title
        navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
     }
     
@@ -171,7 +171,7 @@ class ThingDetailViewController: UIViewController {
         if presenter.authorPostIsCurrent() {
             performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
         } else {
-            if self.firstButton.currentTitle == presenter.getEnterInterestedTitleButton() {
+            if self.firstButton.currentTitle == presenter.enterInterestedTitleButton {
                 presenter.enterInterestedList()
             } else {
                 presenter.exitInterestedList()
@@ -249,15 +249,15 @@ class ThingDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? InterestedListViewController {
-            controller.presenter.setPost(post: presenter.getPost())
+            controller.presenter.setPost(post: presenter.post)
         }
         
         if let controller = segue.destination as? ProfileMainViewController {
-            controller.presenter.setPost(post: presenter.getPost())
+            controller.presenter.setPost(post: presenter.post)
         }
         
         if let controller = segue.destination as? RecommendedViewController {
-            controller.presenter.post = presenter.getPost()
+            controller.presenter.post = presenter.post
         }
     }
     
@@ -273,7 +273,7 @@ class ThingDetailViewController: UIViewController {
         
         cell.moreButton.addTarget(self, action: #selector(updateComments(_:)), for: .touchUpInside)
     
-        let commentsMissing = commentCount! - presenter.getComments().count
+        let commentsMissing = commentCount! - presenter.comments.count
         cell.moreButton.setTitle("Mais \(commentsMissing.description) comentários", for: .normal)
         cell.moreButton.isEnabled = true
         
@@ -287,9 +287,9 @@ class ThingDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PhotoThingTableViewCell.identifier, for: indexPath) as! PhotoThingTableViewCell
         
-        cell.presenter.setPost(post: presenter.getPost())
+        cell.presenter.post = presenter.post
         
-        if cell.presenter.getPost().relations == nil {
+        if cell.presenter.post!.relations == nil {
             cell.presenter.getCountPhotos(success: false)
             cell.presenter.getRelationsImages(success: false)
         } else {
@@ -302,7 +302,7 @@ class ThingDetailViewController: UIViewController {
     func generateUserInformationsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: UserInformationTableViewCell.identifier, for: indexPath) as! UserInformationTableViewCell
-        cell.presenter.setPost(post: presenter.getPost())
+        cell.presenter.post = presenter.post
         cell.updateCellUI()
         
         return cell
@@ -311,7 +311,7 @@ class ThingDetailViewController: UIViewController {
     func generateUserDescriptionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier, for: indexPath) as! DescriptionTableViewCell
-        cell.presenter.setPost(post: presenter.getPost())
+        cell.presenter.post = presenter.post
         cell.updateCell()
         
         return cell
@@ -332,12 +332,12 @@ class ThingDetailViewController: UIViewController {
         var index: Int?
         
         if commentCount! > 0 {
-            index = (presenter.getComments().count-1)-(indexPath.row-inputFieldsCondition.count-5)
+            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-5)
         } else {
-            index = (presenter.getComments().count-1)-(indexPath.row-inputFieldsCondition.count-4)
+            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-4)
         }
         
-        cell.comment = presenter.getComments()[index!]
+        cell.comment = presenter.comments[index!]
         
         return cell
     }
@@ -404,8 +404,8 @@ extension ThingDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let rows = inputFieldsCondition.count + 4 + presenter.getComments().count
-        let rowsWithMoreButton = inputFieldsCondition.count + 5 + presenter.getComments().count
+        let rows = inputFieldsCondition.count + 4 + presenter.comments.count
+        let rowsWithMoreButton = inputFieldsCondition.count + 5 + presenter.comments.count
         
         if commentCount! > 0 {
             return rowsWithMoreButton
@@ -468,7 +468,7 @@ extension ThingDetailViewController: UIScrollViewDelegate {
 extension ThingDetailViewController: DetailThingDelegate {
     
     func reload() {
-        if presenter.getComments().count != presenter.getCurrentCommentsCount() {
+        if presenter.comments.count != presenter.currentCommentsCount {
             tableView.reloadData()
         }
     }

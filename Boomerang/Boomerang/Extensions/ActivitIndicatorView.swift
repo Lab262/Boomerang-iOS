@@ -329,8 +329,7 @@ extension ActivitIndicatorView {
                                                   constant: 0));
             
             activityView.startAnimation()
-            //            activityView.startAnimating()
-            
+           
             objc_setAssociatedObject(viewController, &AssociatedKeys.ViewName, view, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
         

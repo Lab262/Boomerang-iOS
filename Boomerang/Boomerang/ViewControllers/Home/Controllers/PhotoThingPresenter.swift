@@ -15,7 +15,7 @@ protocol PhotoThingDelegate {
 }
 
 class PhotoThingPresenter: NSObject {
-    fileprivate var post:Post? = Post()
+    var post:Post? = Post()
     fileprivate let pagination = 3
     fileprivate var skip = 0
     fileprivate var comments = [Comment]()
@@ -32,14 +32,6 @@ class PhotoThingPresenter: NSObject {
     
     func setViewDelegate(view: PhotoThingDelegate) {
         self.view = view
-    }
-    
-    func setPost(post: Post) {
-        self.post = post
-    }
-    
-    func getPost() -> Post {
-        return self.post!
     }
     
     func getImagePostByIndex(_ index: Int) -> UIImage {
@@ -74,12 +66,11 @@ class PhotoThingPresenter: NSObject {
     }
 
     func getIconPost(iconImage: UIImageView, height: NSLayoutConstraint, width: NSLayoutConstraint) {
-        if getPost().typePost == .have {
+        if post!.typePost == .have {
             iconImage.image = #imageLiteral(resourceName: "have-icon")
             height.constant = 25.0
             width.constant = 35.0
-            //return #imageLiteral(resourceName: "have-icon")
-        } else if getPost().typePost == .need {
+        } else if post!.typePost == .need {
             iconImage.image = #imageLiteral(resourceName: "need_icon")
             height.constant = 25.0
             width.constant = 17.0
@@ -87,13 +78,11 @@ class PhotoThingPresenter: NSObject {
             iconImage.image = #imageLiteral(resourceName: "donate_icon")
             height.constant = 24.0
             width.constant = 27.0
-            //return #imageLiteral(resourceName: "donate_icon")
         }
         iconImage.layoutIfNeeded()
     }
     
     func getRelationsImages(success: Bool){
-        
         if !success {
             PostRequest.getRelationsInBackground(post: post!, completionHandler: { (success, msg) in
                 if success {
@@ -107,7 +96,7 @@ class PhotoThingPresenter: NSObject {
     
     func downloadImagesPost(success:Bool) {
         
-        if let relations = getPost().relations {
+        if let relations = post!.relations {
             for relation in relations where !relation.isDownloadedImage {
                 relation.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
                     if success {

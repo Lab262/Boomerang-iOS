@@ -41,19 +41,14 @@ class UserInformationTableViewCell: UITableViewCell {
     }
 
     func updateCellUI(){
-        userNameLabel.text = presenter.getPost().author!.fullName
+        userNameLabel.text = presenter.post.author!.fullName
         //dateLabel.text = post!.createdDate!.getStringToDate(dateFormat: "dd/MM/yyyy")
-        dateLabel.text = presenter.getPost().createdDate?.getFormatterDate()
+        dateLabel.text = presenter.post.createdDate?.getFormatterDate()
         
         userImage.loadAnimation()
         
-        presenter.getUserPhotoImage { (success, msg, image) in
-            if success {
-                self.userImage.image = image
-                self.userImage.unload()
-            } else {
-                print ("ERROR DOWNLOAD IMAGE")
-            }
+        userImage.getUserImageFrom(file: presenter.profile!.photo!) { (success, msg) in
+            
         }
     }
 }

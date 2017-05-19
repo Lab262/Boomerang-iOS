@@ -47,7 +47,7 @@ class ProfileMainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let controller = segue.destination as? ThingDetailViewController {
-            controller.presenter.setPost(post: presenter.getPostsForCurrentFilter()[currentIndex!.row])
+            controller.presenter.post = presenter.getPostsForCurrentFilter()[currentIndex!.row]
         }
     }
     

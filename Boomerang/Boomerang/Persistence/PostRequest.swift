@@ -14,7 +14,7 @@ class PostRequest: NSObject {
     static func fetchPostByFollowing(postsDownloaded: [Post], following: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
-        var queryParams = ["author" : following]
+        let queryParams = ["author" : following]
         var notContainedObjectIds = [String]()
         
         postsDownloaded.forEach{
@@ -23,9 +23,7 @@ class PostRequest: NSObject {
         
         let notContainedObjects = ["objectId": notContainedObjectIds]
         
-        
         ParseRequest.queryContainedIn(className: "Post", queryType: .common, whereType: .containedIn, includes: nil, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
-            
             if success {
                 for obj in objects! {
                     let post = Post(object: obj)
@@ -189,28 +187,11 @@ class PostRequest: NSObject {
         }
         
     }
-
-    static func enterInterestedListOf(profile: Profile, post: Post, msg: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-//        
-//        let interested = PFObject(className: "Interested")
-//        
-//        interested["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
-//        interested["user"] = ["__type": "Pointer", "className": "_User", "objectId": user.objectId]
-//        interested["currentMessage"] = msg
-//        
-//        interested.saveInBackground { (success, error) in
-//            if error == nil {
-//                completionHandler(success, "success")
-//            } else {
-//                completionHandler(success, error!.localizedDescription)
-//            }
-//        }
-    }
     
-    static func exitInterestedListOf(user: User, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    static func exitInterestedListOf(profile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         var queryParams = [String : Any]()
-        queryParams["user"] = user
+        queryParams["user"] = profile
         queryParams["post"] = post
         
         ParseRequest.updateForIsDeletedObjectBy(className: "Interested", queryParams: queryParams) { (success, msg) in

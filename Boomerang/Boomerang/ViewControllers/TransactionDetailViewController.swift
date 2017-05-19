@@ -57,7 +57,7 @@ class TransactionDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let viewController = segue.destination as? ThingDetailViewController  {
-            viewController.presenter.setPost(post: presenter.getScheme().post!)
+            viewController.presenter.post = presenter.getScheme().post!
         }
         
         if let viewController = segue.destination as? ProfileMainViewController  {
