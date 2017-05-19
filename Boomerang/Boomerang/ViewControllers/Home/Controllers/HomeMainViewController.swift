@@ -16,26 +16,18 @@ protocol ViewDelegate {
 
 class HomeMainViewController: UIViewController {
 
-    internal var homeTableViewController: HomeTableViewController!
-    internal var homeBoomerThingsData = [String: [BoomerThing]]()
     var boomerThingDelegate: UICollectionViewDelegate?
     var currentSectionPost: SectionPost?
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var greetingText: UILabel!
-    @IBOutlet weak var navigationBarView: UIView!
-    @IBOutlet weak var tableView: UITableView!
     var currentIndex: IndexPath?
     let tableViewTopInset: CGFloat = 0
     let tableViewBottomInset: CGFloat = 40.0
     var presenter = HomePresenter()
-
-    @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     
-    @IBAction func showMenu(_ sender: Any) {
-        //TabBarController.mainTabBarController.showTabBar()
-    }
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var greetingText: UILabel!
+    @IBOutlet weak var navigationBarView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -44,39 +36,27 @@ class HomeMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.setControllerDelegate(controller: self)
-        presenter.updatePostsFriends()
-        self.navigationController?.navigationBar.isHidden = true
-        setUserInformationsInHUD()
-        self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
-        
+        setupViewDelegate()
+        setupNavigationConfiguration()
+        setupUserInformationsInHUD()
+        setupNavigationConfiguration()
+        setupSearchBarConfiguration()
+        setupTableViewConfiguration()
         registerNib()
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
         registerObservers()
+        getTimeLinePosts()
     }
     
-    func registerNib() {
-        tableView.registerNibFrom(HomeCollectionHeader.self)
-        tableView.registerNibFrom(RecommendedPostTableViewCell.self)
-        tableView.registerNibFrom(PostTableViewCell.self)
-    }
-    
-    func registerObservers(){
-        NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootHome), object: nil)
-    }
-    
-    func popToRoot(_ notification : Notification){
-        navigationController?.popToRootViewController(animated: true)
-    }
-
-    
-    func loadHomeData(homeBoomerThingsData: [String: [BoomerThing]]) {
-        self.homeBoomerThingsData = homeBoomerThingsData
-        self.tableView.reloadData()
+    func getTimeLinePosts() {
+        presenter.getTimeLinePosts()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.window?.endEditing(true)
+    }
+    
+    func popToRoot(_ notification : Notification){
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -144,16 +124,10 @@ extension HomeMainViewController: UITableViewDataSource {
 
 extension HomeMainViewController: UITableViewDelegate {
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = generateHeaderTitle(tableView, viewForHeaderInSection: section)
-        
+
         switch section {
         case 1:
             header?.titleLabel.text = "Meus migos"
@@ -195,19 +169,48 @@ extension HomeMainViewController: UITableViewDelegate {
 
 extension HomeMainViewController {
     
-    func setUserInformationsInHUD(){
+    func setupUserInformationsInHUD(){
         greetingText.text = "Olar, \(presenter.user.firstName!)"
-        self.profileImage.loadAnimation()
-        presenter.getUserImage { (success, msg, image) in
-            if success {
-                self.profileImage.unload()
-                self.profileImage.image = image
-                self.presenter.user.profileImage = image
-            } else {
-                self.profileImage.unload()
-                self.showMessageError(msg: msg)
-            }
+    
+        profileImage.getUserImageFrom(file: presenter.user.photo!) { (success, msg) in
+            
         }
+//        presenter.getUserImage { (success, msg, image) in
+//            if success {
+//                self.profileImage.unload()
+//                self.profileImage.image = image
+//                self.presenter.user.profileImage = image
+//            } else {
+//                self.profileImage.unload()
+//                self.showMessageError(msg: msg)
+//            }
+//        }
+    }
+    
+    func setupViewDelegate() {
+        presenter.setControllerDelegate(view: self)
+    }
+    
+    func setupNavigationConfiguration() {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    func setupSearchBarConfiguration() {
+        searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
+    }
+    
+    func setupTableViewConfiguration() {
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
+    }
+    
+    func registerNib() {
+        tableView.registerNibFrom(HomeCollectionHeader.self)
+        tableView.registerNibFrom(RecommendedPostTableViewCell.self)
+        tableView.registerNibFrom(PostTableViewCell.self)
+    }
+    
+    func registerObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootHome), object: nil)
     }
 }
 
@@ -326,7 +329,7 @@ extension HomeMainViewController: UpdateCellDelegate{
     }
 
     func updateCell() {
-        presenter.updatePostsFriends()
+        getTimeLinePosts()
     }
 }
 

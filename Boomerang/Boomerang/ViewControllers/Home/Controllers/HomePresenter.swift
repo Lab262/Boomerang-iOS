@@ -12,60 +12,25 @@ import Parse
 
 class HomePresenter: NSObject {
 
-    let pagination = 3
     var following: [Profile] = [Profile]()
     var friendsPosts: [Post] = [Post]()
     var othersPosts: [Post] = [Post]()
     private var featuredPosts = [Post]()
     var post: Post = Post()
-    var controller: ViewDelegate?
+    private var view: ViewDelegate?
     var user: User = ApplicationState.sharedInstance.currentUser!
     var currentPostsFriendsCount = 0
     
-    func setControllerDelegate(controller: ViewDelegate) {
-        self.controller = controller
+    func setControllerDelegate(view: ViewDelegate) {
+        self.view = view
     }
     
-    func updatePostsFriends(){
+    func getTimeLinePosts() {
         getProfile()
-        
-//        if let _ = user.profile?.firstName {
-//            getFriends()
-//        } else {
-//            getProfile()
-//        }
-    }
-    
-    func getProfile() {
-        UserRequest.getProfileUser { (success, msg) in
-            if success {
-                self.requestAllPostTypes(completionHandler: { (success, msg) in
-                    if success {
-                        self.requestAllPostConditions(completionHandler: { (success, msg) in
-                            self.requestSchemeStatus(completionHandler: { (success, msg) in
-                                if success {
-                                    if success {
-                                        self.getFriends()
-                                        self.getPostsOfTheOtherUsers()
-                                    } else {
-                                        print ("ERROR GET POST CONDITIONS \(msg)")
-                                    }
-                                }
-                            })
-                        })
-                    } else {
-                        print ("ERROR GET POST TYPES")
-                    }
-                })
-            } else {
-                print ("get profile error")
-            }
-        }
     }
     
     func getFeaturedPosts() -> [Post] {
         featuredPosts = [Post]()
-        
         let allPosts = friendsPosts + othersPosts
         for post in allPosts where post.isFeatured! {
             featuredPosts.append(post)
@@ -73,43 +38,85 @@ class HomePresenter: NSObject {
         return featuredPosts
     }
     
-    func getFriends() {        
-        UserRequest.fetchFollowing(fromProfile: user.profile!, followingDownloaded: self.following, pagination: pagination) { (success, msg, following) in
-            
+    
+    private func getAllPostTypes() {
+        requestAllPostTypes(completionHandler: { (success, msg) in
+            if success {
+                self.getAllPostConditions()
+            } else {
+                self.view?.showMessageError(msg: msg)
+            }
+        })
+    }
+    
+    private func getAllPostConditions() {
+        requestAllPostConditions(completionHandler: { (success, msg) in
+            if success {
+                self.getAllSchemeStatus()
+            } else {
+                self.view?.showMessageError(msg: msg)
+            }
+        })
+    }
+    
+    
+    private func getAllSchemeStatus() {
+        requestSchemeStatus(completionHandler: { (success, msg) in
+            if success {
+                self.getFriends()
+                self.getPostsOfTheOtherUsers()
+            } else {
+                self.view?.showMessageError(msg: msg)
+            }
+        })
+    }
+    
+    private func getProfile() {
+        UserRequest.getProfileUser { (success, msg) in
+            if success {
+                self.getAllPostTypes()
+            } else {
+                self.view?.showMessageError(msg: msg)
+            }
+        }
+    }
+    
+    private func getFriends() {
+        UserRequest.fetchFollowing(fromProfile: user.profile!, followingDownloaded: self.following, pagination: Paginations.friends) { (success, msg, following) in
             if success {
                 for f in following! {
                     self.following.append(f)
                 }
                 self.getPostsByFriends()
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessageError(msg: msg)
             }
         }
     }
     
-    func getPostsByFriends(){
-        PostRequest.fetchPostByFollowing(postsDownloaded: friendsPosts, following: following, pagination: pagination) { (success, msg, posts) in
+    private func getPostsByFriends(){
+        PostRequest.fetchPostByFollowing(postsDownloaded: friendsPosts, following: following, pagination: Paginations.postsByFriends) { (success, msg, posts) in
             if success {
                 for post in posts! {
                     self.friendsPosts.append(post)
                 }
-                self.controller?.reload()
+                self.view?.reload()
                 self.currentPostsFriendsCount = self.friendsPosts.count
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessageError(msg: msg)
             }
         }
     }
     
-    func getPostsOfTheOtherUsers() {
-        PostRequest.getPostsThatNotContain(friends: following, pagination: pagination) { (success, msg, posts) in
+    private func getPostsOfTheOtherUsers() {
+        PostRequest.getPostsThatNotContain(friends: following, pagination: Paginations.postsByCity) { (success, msg, posts) in
             if success {
                 posts!.forEach {
                     self.othersPosts.append($0)
                 }
-                self.controller?.reload()
+                self.view?.reload()
             } else {
-                self.controller?.showMessageError(msg: msg)
+                self.view?.showMessageError(msg: msg)
             }
         }
     }
@@ -128,22 +135,19 @@ class HomePresenter: NSObject {
         completionHandler(true, "Success", image)
     }
     
-    
-    
-    func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    private func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         PostRequest.getAllTypes { (success, msg) in
             completionHandler(success, msg)
         }
     }
     
-    func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    private func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         PostRequest.getAllConditions { (success, msg) in
             completionHandler(success, msg)
         }
     }
     
-    func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        
+    private func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         SchemeRequest.getAllStatus { (success, msg) in
             completionHandler(success, msg)
         }

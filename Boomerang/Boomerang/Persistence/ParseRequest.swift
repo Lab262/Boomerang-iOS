@@ -708,4 +708,17 @@ extension UIImageView {
         self.image = image
         completionHandler(true, "Success")
     }
+    
+    func getUserImageFrom(file: PFFile, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+        loadAnimation()
+        file.getDataInBackground { (data, error) in
+            if error == nil {
+                self.image = UIImage(data: data!)
+                completionHandler(true, "Success")
+            } else {
+                completionHandler(false, error!.localizedDescription)
+            }
+            self.unload()
+        }
+    }
 }

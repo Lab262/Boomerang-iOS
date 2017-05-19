@@ -57,6 +57,17 @@ struct NotificationKeys {
     static let popToRootOthers = "popToRootOthers"
 }
 
+//MARK - Paginations
+
+struct Paginations {
+    static let friends = 3
+    static let postsByFriends = 3
+    static let postsByCity = 3
+    static let schemes = 3
+    static let notifications = 3
+    static let comments = 3
+}
+
 //MARK - Status Scheme Ids
 
 struct StatusSchemeId {
