@@ -46,6 +46,7 @@ class HomePresenter: NSObject {
                                 if success {
                                     if success {
                                         self.getFriends()
+                                        self.getPostsOfTheOtherUsers()
                                     } else {
                                         print ("ERROR GET POST CONDITIONS \(msg)")
                                     }

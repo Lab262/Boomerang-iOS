@@ -46,7 +46,6 @@ class HomeMainViewController: UIViewController {
         super.viewDidLoad()
         presenter.setControllerDelegate(controller: self)
         presenter.updatePostsFriends()
-        presenter.getPostsOfTheOtherUsers()
         self.navigationController?.navigationBar.isHidden = true
         setUserInformationsInHUD()
         self.searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
