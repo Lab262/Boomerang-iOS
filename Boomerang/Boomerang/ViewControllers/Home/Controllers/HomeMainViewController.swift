@@ -75,11 +75,17 @@ class HomeMainViewController: UIViewController {
         if let controller = segue.destination as? MorePostViewController {
             switch currentSectionPost! {
             case .recommended:
-                controller.presenter.posts = presenter.getFeaturedPosts()
+                presenter.getFeaturedPosts().forEach {
+                    controller.presenter.posts.append($0)
+                }
             case .friends:
-                controller.presenter.posts = presenter.friendsPosts
+                presenter.friendsPosts.forEach {
+                    controller.presenter.posts.append($0)
+                }
             case .city:
-                controller.presenter.posts = presenter.othersPosts
+                presenter.othersPosts.forEach {
+                    controller.presenter.posts.append($0)
+                }
             }
         }
     }
@@ -90,22 +96,11 @@ extension HomeMainViewController: UITableViewDataSource {
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return 1
-        case 2:
-            return 1
-        default:
-            return 0
-        }
+        return 1
     }
     
     
@@ -130,12 +125,11 @@ extension HomeMainViewController: UITableViewDelegate {
 
         switch section {
         case 1:
-            header?.titleLabel.text = "Meus migos"
+            header?.titleLabel.text = HomeHeaderTitles.myFriends
         case 2:
-            header?.titleLabel.text = "Em Brasília"
+            header?.titleLabel.text = HomeHeaderTitles.myCity
         default:
             return nil
-            
         }
         return header
     }
@@ -170,21 +164,9 @@ extension HomeMainViewController: UITableViewDelegate {
 extension HomeMainViewController {
     
     func setupUserInformationsInHUD(){
-        greetingText.text = "Olar, \(presenter.user.firstName!)"
-    
+        greetingText.text = HomeHeaderTitles.greeting + presenter.user.firstName!
         profileImage.getUserImageFrom(file: presenter.user.photo!) { (success, msg) in
-            
         }
-//        presenter.getUserImage { (success, msg, image) in
-//            if success {
-//                self.profileImage.unload()
-//                self.profileImage.image = image
-//                self.presenter.user.profileImage = image
-//            } else {
-//                self.profileImage.unload()
-//                self.showMessageError(msg: msg)
-//            }
-//        }
     }
     
     func setupViewDelegate() {

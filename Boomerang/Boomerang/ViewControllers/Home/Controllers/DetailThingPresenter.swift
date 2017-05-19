@@ -112,6 +112,7 @@ class DetailThingPresenter: NSObject {
     
     func enterInterestedList() {
         let interested = Interested(user: profile, post: post, currentMessage: "Estou interessado, fico feliz em ajudar")
+        
         interested.saveObjectInBackground { (success, msg) in
             if success {
                 self.createInterestedChat(completionHandler: { (success, msg, chat) in
@@ -119,7 +120,7 @@ class DetailThingPresenter: NSObject {
                         self.createSchemeInProgress(chat: chat, completionHandler: { (success, msg) in
                             if success {
                                 self.view?.interestedTitleButton = self.exitInterestedTitleButton
-                                self.view?.showMessage(isSuccess: success, msg: "Você está dentro da lista de interessados. Agora é só aguardar.")
+                                self.view?.showMessage(isSuccess: success, msg: NotificationSuccessMessages.enterInterestedList)
                             } else {
                                 self.view?.showMessage(isSuccess: success, msg: msg)
                             }
@@ -139,7 +140,7 @@ class DetailThingPresenter: NSObject {
         PostRequest.exitInterestedListOf(profile: profile!, post: post) { (success, msg) in
             if success {
                 self.view?.interestedTitleButton = self.enterInterestedTitleButton
-                self.view?.showMessage(isSuccess: success, msg: "Você saiu da lista de interessados.")
+                self.view?.showMessage(isSuccess: success, msg: NotificationSuccessMessages.exitInterestedList)
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }

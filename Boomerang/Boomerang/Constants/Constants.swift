@@ -15,6 +15,7 @@ enum SectionPost: Int {
 }
 
 //MARK - Segue Identifiers
+
 struct SegueIdentifiers {
     static let detailThingToInterestedList = "goToInterestedList"
     static let profileToDetailThing = "goToDetailThing"
@@ -75,6 +76,7 @@ struct StatusSchemeId {
 }
 
 //MARK - Strings contents
+
 struct TransactionCellStrings {
     static let titleDonate = "Você está doando "
     static let actionDonate = " está te doando "
@@ -102,6 +104,19 @@ struct TypePostTitles {
     static let donate = "Doação"
 }
 
+//MARK - Notification Success Messages
 
+struct NotificationSuccessMessages {
+    static let enterInterestedList = "Estou interessado, fico feliz em ajudar"
+    static let exitInterestedList = "Você saiu da lista de interessados."
+}
+
+//MARK - Home Header Titles
+
+struct HomeHeaderTitles {
+    static let greeting = "Olar, "
+    static let myFriends = "Meus migos"
+    static let myCity = "Em Brasília"
+}
 
 

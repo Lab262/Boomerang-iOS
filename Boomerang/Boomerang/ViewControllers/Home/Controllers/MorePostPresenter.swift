@@ -17,7 +17,6 @@ class MorePostPresenter: NSObject {
     var pagination: Int = 10
     var view: ViewDelegate?
     
-    
     func setViewDelegate(view: ViewDelegate) {
         self.view = view
     }
