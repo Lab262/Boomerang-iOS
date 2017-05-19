@@ -126,7 +126,7 @@
                         <outlet property="profileImage" destination="SXu-VK-YbB" id="Wrj-j8-vki"/>
                         <outlet property="searchBar" destination="8NO-f7-jeX" id="AtU-5H-KSh"/>
                         <outlet property="tableView" destination="YTg-zH-wsh" id="yLx-B4-LaL"/>
-                        <segue destination="OAa-qd-sUY" kind="show" identifier="showDetailThing" id="AL7-AX-imq"/>
+                        <segue destination="OAa-qd-sUY" kind="show" identifier="goToDetailThing" id="AL7-AX-imq"/>
                         <segue destination="Nkf-dN-nrN" kind="show" identifier="goToMorePosts" id="Go6-gi-o13"/>
                     </connections>
                 </viewController>
@@ -197,6 +197,7 @@
                     <connections>
                         <outlet property="navigationBar" destination="eTH-5p-7hf" id="IJc-ll-ssG"/>
                         <outlet property="tableView" destination="nAt-8R-zUn" id="CVd-PN-jtU"/>
+                        <segue destination="OAa-qd-sUY" kind="show" identifier="goToDetailThing" id="Oq6-Oc-jjw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUt-h8-VZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -485,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZn-gt-8L5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245.5999999999999" y="891.90404797601207"/>
+            <point key="canvasLocation" x="2212" y="892"/>
         </scene>
         <!--Interested List View Controller-->
         <scene sceneID="C9b-vo-CFc">
@@ -589,4 +590,7 @@
         <image name="bg_nav" width="375" height="163"/>
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Oq6-Oc-jjw"/>
+    </inferredMetricsTieBreakers>
 </document>

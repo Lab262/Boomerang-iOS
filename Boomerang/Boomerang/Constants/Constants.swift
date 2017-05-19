@@ -8,11 +8,19 @@
 
 import Foundation
 
+enum SectionPost: Int {
+    case recommended = 0
+    case friends = 1
+    case city = 2
+}
+
 //MARK - Segue Identifiers
 struct SegueIdentifiers {
     static let detailThingToInterestedList = "goToInterestedList"
     static let profileToDetailThing = "goToDetailThing"
+    static let homeToDetailThing = "goToDetailThing"
     static let transactionToDetailThing = "goToDetailThing"
+    static let morePostToDetailThing = "goToDetailThing"
     static let detailThingToProfile = "goToProfile"
     static let transactionToProfile = "goToProfile"
     static let segmentTransactionToTransaction = "goToTransaction"

@@ -67,7 +67,7 @@ extension BoomerThingCollection: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
+        //self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
         
         print(indexPath)
     }

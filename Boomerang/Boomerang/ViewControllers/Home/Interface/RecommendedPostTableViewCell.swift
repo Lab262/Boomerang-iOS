@@ -24,7 +24,8 @@ class RecommendedPostTableViewCell: UITableViewCell {
     let spaceCells: CGFloat = 2
     let sizeCells: Int = 8
     var delegate: UpdateCellDelegate?
-    var presenter = HomePresenter()
+   // var presenter = HomePresenter()
+    var presenter = PostPresenter()
     
     static var identifier: String {
         return "recommendedCell"
@@ -67,7 +68,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
     func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        if presenter.getFeaturedPosts().endIndex == indexPath.row {
+        if presenter.posts.endIndex == indexPath.row {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
             
@@ -79,7 +80,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
             
-            cell.presenter.post = presenter.getFeaturedPosts()[indexPath.row]
+            cell.presenter.post = presenter.posts[indexPath.row]
             cell.setupCell()
             unloadPlaceholderImage()
             
@@ -106,10 +107,10 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if presenter.getFeaturedPosts().count > 0 {
-            return presenter.getFeaturedPosts().count+1
+        if presenter.posts.count > 0 {
+            return presenter.posts.count+1
         } else {
-            return presenter.getFeaturedPosts().count
+            return presenter.posts.count
         }
     }
     
@@ -127,14 +128,11 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
 
 extension RecommendedPostTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if indexPath.row == presenter.getFeaturedPosts().endIndex {
-            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToMorePost, typePost: "Featured", indexPath: indexPath)
+        if indexPath.row == presenter.posts.endIndex {
+            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToMorePost, sectionPost: .recommended, didSelectItemAt: indexPath)
         } else {
-            self.selectionDelegate?.pushFor(identifier: "showDetailThing", typePost: "Featured", indexPath: indexPath)
+            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToDetailThing, sectionPost: .recommended, didSelectItemAt: indexPath)
         }
-        
-        
     }
 }
 
@@ -178,7 +176,7 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath: IndexPath = postCollectionView.indexPathForItem(at: visiblePoint)!
         
-        if visibleIndexPath.row >= presenter.friendsPosts.endIndex-1 {
+        if visibleIndexPath.row >= presenter.posts.endIndex-1 {
             delegate?.updateCell()
         }
     }
@@ -187,7 +185,7 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
 extension RecommendedPostTableViewCell: PageIndicatorViewDelegate {
     
     var numberOfPages: Int {
-        return presenter.getFeaturedPosts().count
+        return presenter.posts.count
     }
     
     var indicatorHeight: CGFloat {

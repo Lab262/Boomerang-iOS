@@ -127,20 +127,4 @@ extension HomeTableViewController: UITableViewDelegate {
 //    }
 }
 
-extension HomeTableViewController: CollectionViewSelectionDelegate {
-   
-    func pushFor(identifier: String, typePost: String, indexPath: IndexPath) {
-        
-    }
-    
-    func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath) {
-        
-        if colletionViewDelegate === boomerThingDelegate {
-            self.performSegue(withIdentifier: "showDetailThing", sender: self)
-        } else {
-            
-        }
-    }
-}
-
 

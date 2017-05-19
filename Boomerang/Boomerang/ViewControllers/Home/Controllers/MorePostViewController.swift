@@ -57,9 +57,9 @@ class MorePostViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let controller = segue.destination as? ThingDetailViewController {
-            //controller.presenter.setPost(post: presenter.posts[currentIndex!.row])
+            let indexPathRow = tableView.indexPathForSelectedRow!.row
+            controller.presenter.setPost(post: presenter.posts[indexPathRow])
         }
     }
 
@@ -87,11 +87,10 @@ extension MorePostViewController : UITableViewDataSource {
 extension MorePostViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: SegueIdentifiers.morePostToDetailThing, sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return MorePostTableViewCell.cellHeight * UIView.heightScaleProportion()
     }
 }

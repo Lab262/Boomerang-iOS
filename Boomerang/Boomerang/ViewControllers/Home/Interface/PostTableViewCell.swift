@@ -71,7 +71,8 @@ extension PostTableViewCell: UICollectionViewDelegateFlowLayout {
 
 extension PostTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
+        self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToDetailThing, sectionPost: SectionPost(rawValue:self.tag)!, didSelectItemAt: indexPath)
+        //self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
     }
 }
 

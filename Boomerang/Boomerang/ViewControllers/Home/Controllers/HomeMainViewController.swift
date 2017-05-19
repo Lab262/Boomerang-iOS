@@ -19,7 +19,7 @@ class HomeMainViewController: UIViewController {
     internal var homeTableViewController: HomeTableViewController!
     internal var homeBoomerThingsData = [String: [BoomerThing]]()
     var boomerThingDelegate: UICollectionViewDelegate?
-    var typePost: String = ""
+    var currentSectionPost: SectionPost?
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -83,18 +83,25 @@ class HomeMainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let controller = segue.destination as? ThingDetailViewController {
-            if typePost == "Featured" {
+            switch currentSectionPost! {
+            case .recommended:
                 controller.presenter.setPost(post: presenter.getFeaturedPosts()[currentIndex!.row])
-            } else if typePost == "Friend" {
+            case .friends:
                 controller.presenter.setPost(post: presenter.friendsPosts[currentIndex!.row])
-            } else {
+            case .city:
                 controller.presenter.setPost(post: presenter.othersPosts[currentIndex!.row])
             }
-            
         }
         
         if let controller = segue.destination as? MorePostViewController {
-            controller.presenter.posts = presenter.getFeaturedPosts()
+            switch currentSectionPost! {
+            case .recommended:
+                controller.presenter.posts = presenter.getFeaturedPosts()
+            case .friends:
+                controller.presenter.posts = presenter.friendsPosts
+            case .city:
+                controller.presenter.posts = presenter.othersPosts
+            }
         }
     }
 }
@@ -216,7 +223,7 @@ extension HomeMainViewController {
     func generateRecommendedCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath) as! RecommendedPostTableViewCell
         
-        cell.presenter.friendsPosts = presenter.getFeaturedPosts()
+        cell.presenter.posts = presenter.getFeaturedPosts()
         cell.updateCell()
         cell.delegate = self
         cell.selectionDelegate = self
@@ -230,6 +237,7 @@ extension HomeMainViewController {
         
         cell.presenter.posts = presenter.friendsPosts
         cell.reloadCollection()
+        cell.tag = SectionPost.friends.rawValue
         cell.delegate = self
         cell.selectionDelegate = self
         
@@ -241,6 +249,7 @@ extension HomeMainViewController {
         
         cell.presenter.posts = presenter.othersPosts
         cell.reloadCollection()
+        cell.tag = SectionPost.city.rawValue
         cell.delegate = self
         cell.selectionDelegate = self
         
@@ -326,18 +335,16 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
     
     func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath) {
         if colletionViewDelegate === boomerThingDelegate {
-            print ("SHOW DETAIL")
             self.currentIndex = indexPath
-            self.performSegue(withIdentifier: "showDetailThing", sender: self)
+            self.performSegue(withIdentifier: SegueIdentifiers.homeToDetailThing, sender: self)
         } else {
             
         }
     }
     
-    func pushFor(identifier: String, typePost: String, indexPath: IndexPath) {
-        
+    func pushFor(identifier: String, sectionPost: SectionPost, didSelectItemAt indexPath: IndexPath) {
         self.currentIndex = indexPath
-        self.typePost = typePost
+        self.currentSectionPost = sectionPost
         self.performSegue(withIdentifier: identifier, sender: self)
     }
 }
