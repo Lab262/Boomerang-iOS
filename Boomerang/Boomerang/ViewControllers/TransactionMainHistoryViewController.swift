@@ -58,6 +58,7 @@ class TransactionMainHistoryViewController: UIViewController {
                 button!.titleLabel?.font = UIFont.montserratRegular(size: 16)
                 button!.alpha = 0.5
             }
+            button?.titleLabel?.setDynamicFont()
         }
     }
     
