@@ -20,7 +20,7 @@
         <scene sceneID="mtw-Jj-Pa6">
             <objects>
                 <navigationController navigationBarHidden="YES" id="aJg-2A-R9N" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="af4-35-Bzl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="af4-35-Bzl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -282,13 +282,24 @@
                                     <outlet property="delegate" destination="shC-dA-vya" id="8GO-3q-FSW"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTq-ly-gCw">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.62745098039215685" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Arremessar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="iTq-ly-gCw" firstAttribute="top" secondItem="6Sd-Iz-Jb3" secondAttribute="bottom" constant="597" id="Fws-bn-Ytv"/>
+                            <constraint firstItem="iTq-ly-gCw" firstAttribute="leading" secondItem="7Jo-pP-gMf" secondAttribute="leading" id="HtB-3f-RdL"/>
                             <constraint firstItem="Kc3-A7-MHE" firstAttribute="top" secondItem="7Jo-pP-gMf" secondAttribute="bottom" id="PVy-va-b01"/>
                             <constraint firstItem="7Jo-pP-gMf" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="RQj-ko-5iZ"/>
                             <constraint firstItem="7Jo-pP-gMf" firstAttribute="top" secondItem="ebX-LI-CWe" secondAttribute="top" id="Y9k-6M-LYd"/>
+                            <constraint firstItem="iTq-ly-gCw" firstAttribute="trailing" secondItem="7Jo-pP-gMf" secondAttribute="trailing" id="bsb-DB-k1a"/>
                             <constraint firstAttribute="trailing" secondItem="7Jo-pP-gMf" secondAttribute="trailing" id="cTx-Fc-gc3"/>
+                            <constraint firstItem="Kc3-A7-MHE" firstAttribute="top" secondItem="iTq-ly-gCw" secondAttribute="bottom" id="oIv-0y-ZVT"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
@@ -298,7 +309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1n-i6-6wA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1311" y="143"/>
+            <point key="canvasLocation" x="1364" y="115"/>
         </scene>
         <!--Feedback Confirmation View Controller-->
         <scene sceneID="VPB-6m-anQ">
