@@ -98,7 +98,7 @@ extension PhotoThingTableViewCell: UIScrollViewDelegate {
 extension PhotoThingTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 345, height: 291)
+        return CGSize(width: 345*UIView.widthScaleProportion(), height: 291*UIView.widthScaleProportion())
     }
 }
 
