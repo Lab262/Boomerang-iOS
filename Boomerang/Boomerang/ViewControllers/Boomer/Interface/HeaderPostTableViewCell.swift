@@ -12,6 +12,7 @@ class HeaderPostTableViewCell: UITableViewCell {
     static var cellIdentifier = "HeaderPostCell"
     var highlights: [UIImage] = []
 
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var touchAreaThrowButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!

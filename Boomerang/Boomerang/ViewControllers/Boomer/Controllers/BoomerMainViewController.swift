@@ -22,14 +22,24 @@ class BoomerMainViewController: UIViewController {
     var titlePost = String()
     var presenter = HomePresenter()
     
+    @IBOutlet weak var buttonDonateImage: UIImageView!
+    @IBOutlet weak var buttonHaveImage: UIImageView!
+    @IBOutlet weak var buttonNeedImage: UIImageView!
     @IBAction func showMenu(_ sender: Any) {
         
         //TabBarController.showMenu()
     }
     override func viewDidLoad() {
         setUserInformationsInHUD()
+     
+    }
+    override func viewDidAppear(_ animated: Bool) {
+           self.animationButtos()
     }
     
+    func animationButtos(){
+     
+    }
     override func viewWillAppear(_ animated: Bool) {
         //self.getProfilePhoto()
 
@@ -77,20 +87,6 @@ class BoomerMainViewController: UIViewController {
         
         guard let image = user?.profileImage else {
             profileImage.loadAnimation()
-            
-            
-            
-            //            UserRequest.getProfilePhoto(user: user!, completionHandler: { (success, msg, photo) in
-            //
-            //                if success {
-            //                    self.user?.profileImage = photo
-            //                    self.profileImage.image = photo
-            //                    self.profileImage.unload()
-            //                } else {
-            //
-            //                }
-            //            })
-            
             return
         }
         

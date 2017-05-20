@@ -23,8 +23,9 @@ class ThrowViewController: UIViewController {
     var titleHeader = String()
     var imagePost: UIImage?
     var allimages:[UIImage]?
-    
-    
+    var headerHeight = CGFloat(240)
+    var isHidden = false
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
@@ -199,6 +200,7 @@ class ThrowViewController: UIViewController {
         
         header.touchAreaThrowButton.addTarget(self, action:#selector(throwAction(_:)), for:.touchUpInside)
         
+    
         
         if let images = allimages {
             header.highlights = images
@@ -221,7 +223,7 @@ class ThrowViewController: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 240
+        return headerHeight
     }
     
     
@@ -374,11 +376,9 @@ extension ThrowViewController: UITableViewDataSource {
 
 extension ThrowViewController: UITableViewDelegate {
     
-
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          if indexPath.row == 0 {
-            return CGFloat(80)
+            return 80
         }else if indexPath.row == 1 {
             return CGFloat(100)
         }else if indexPath.row == 2 {
@@ -405,9 +405,26 @@ extension ThrowViewController: UITableViewDelegate {
                    }else {
             return CGFloat(0)
         }
-        
-       
     }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        
+        print("aqui ------>",offsetY)
+        if offsetY < 0 {
+            
+        }
+        
+    }
+    
+    
+    func updateImageScale(_ yOffset: CGFloat) {
+        
+        
+    }
+    
+    
+
 }
 
 extension ThrowViewController: UIIButtonWithPickerDelegate{
