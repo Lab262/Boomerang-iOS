@@ -25,4 +25,8 @@ extension UIFont {
     class func montserratRegular(size:CGFloat) -> UIFont {
         return UIFont(name: "Montserrat-Regular", size: size)!
     }
+    
+    class func montserratBlack(size:CGFloat) -> UIFont {
+        return UIFont(name: "Montserrat-Black", size: size)!
+    }
 }

@@ -14,10 +14,11 @@ import ParseFacebookUtilsV4
 class AuthenticationMainViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var facebookButton: UIButton!
     
     let defaultTextTitleWelcome = "Bem vindo"
     let defaultTextDescriptionWelcome = " a rede social mais amorzinho que você respeita"
-    let defaultSizeFontWelcomeLabel:CGFloat = 13
+    let defaultSizeFontWelcomeLabel:CGFloat = 14
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class AuthenticationMainViewController: UIViewController {
     }
     
     func setupCustomLabel(){
-        let textWelcomeLabel = NSMutableAttributedString(string: defaultTextTitleWelcome, attributes: [NSForegroundColorAttributeName: UIColor.yellowBoomerColor, NSFontAttributeName: UIFont.montserratBold(size: defaultSizeFontWelcomeLabel)])
+        let textWelcomeLabel = NSMutableAttributedString(string: defaultTextTitleWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratBlack(size: defaultSizeFontWelcomeLabel)])
         let textWelcomeDescriptionLabel = NSMutableAttributedString(string: defaultTextDescriptionWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratLight(size: defaultSizeFontWelcomeLabel)])
         
         textWelcomeLabel.append(textWelcomeDescriptionLabel)
