@@ -14,7 +14,6 @@ class CommentRequest: NSObject {
     static func getCommentsCount(by post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         
         ParseRequest.queryCountContainedIn(className: "Comment", key: "post", value: [post]) { (success, msg, count) in
-            
             if success {
                 completionHandler(true, msg, count)
             } else {
@@ -23,8 +22,34 @@ class CommentRequest: NSObject {
         }
     }
     
+    static func fetchLastCommentsBy(post: Post, commentsObject: [Comment], pagination: Int,  completionHandler: @escaping (_ success: Bool, _ msg: String, [Comment]?) -> Void) {
+        
+        var comments: [Comment] = [Comment]()
+        var queryParams = [String : [Any]]()
+        queryParams["post"] = [post]
+        queryParams["createdAt"] = [commentsObject[0].createdDate!]
+     
+        var notContainedObjects = [String: [Any]]()
+        var notContainedObjectIds = [String]()
+        
+        commentsObject.forEach {
+            notContainedObjectIds.append($0.objectId!)
+        }
+        
+        notContainedObjects["objectId"] = notContainedObjectIds
+        
+        ParseRequest.queryEqualToValueNotContainedObjects(className: "Comment", queryType: .and, whereTypes: [.equal, .greaterThan], params: queryParams, notContainedObjects: notContainedObjects, includes: ["author"], pagination: pagination) { (success, msg, objects) in
+            if success {
+                for object in objects! {
+                    comments.append(Comment(object: object))
+                }
+                completionHandler(true, "Success", comments)
+            } else {
+                completionHandler(false, msg.debugDescription, nil)
+            }
+        }
+    }
 
-    
     static func fetchCommentsBy(post: Post, commentsObject: [Comment], pagination: Int,  completionHandler: @escaping (_ success: Bool, _ msg: String, [Comment]?) -> Void) {
         
         var comments: [Comment] = [Comment]()

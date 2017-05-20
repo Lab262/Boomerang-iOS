@@ -15,19 +15,18 @@ protocol ViewDelegate {
 }
 
 class HomeMainViewController: UIViewController {
-
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var greetingText: UILabel!
+    @IBOutlet weak var navigationBarView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    
     var boomerThingDelegate: UICollectionViewDelegate?
     var currentSectionPost: SectionPost?
     var currentIndex: IndexPath?
     let tableViewTopInset: CGFloat = 0
     let tableViewBottomInset: CGFloat = 40.0
     var presenter = HomePresenter()
-    
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var greetingText: UILabel!
-    @IBOutlet weak var navigationBarView: UIView!
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -265,13 +264,9 @@ extension HomeMainViewController: UIScrollViewDelegate {
     
     func updateNavigationBarAlpha(_ yOffset: CGFloat) {
         let navbarAlphaThreshold: CGFloat = 64.0
-        
         if yOffset > (tableViewTopInset - navbarAlphaThreshold) {
-            
             let alpha = (yOffset - tableViewTopInset + navbarAlphaThreshold)/navbarAlphaThreshold
-            
             navigationBarView.backgroundColor = navigationBarView.backgroundColor?.withAlphaComponent(alpha)
-            
         } else {
             navigationBarView.backgroundColor = navigationBarView.backgroundColor?.withAlphaComponent(0.0)
         }
@@ -281,7 +276,6 @@ extension HomeMainViewController: UIScrollViewDelegate {
         let informationAlphaThreshold: CGFloat = 20.0
         
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-    
         if yOffset > 0 {
             let alpha = (yOffset)/informationAlphaThreshold
             cell?.backgroundColor = cell!.backgroundColor?.withAlphaComponent(alpha)
@@ -309,23 +303,12 @@ extension HomeMainViewController: UpdateCellDelegate{
     func unload() {
         
     }
-
     func updateCell() {
         getTimeLinePosts()
     }
 }
 
 extension HomeMainViewController: CollectionViewSelectionDelegate {
-    
-    func collectionViewDelegate(_ colletionViewDelegate: UICollectionViewDelegate, didSelectItemAt indexPath: IndexPath) {
-        if colletionViewDelegate === boomerThingDelegate {
-            self.currentIndex = indexPath
-            self.performSegue(withIdentifier: SegueIdentifiers.homeToDetailThing, sender: self)
-        } else {
-            
-        }
-    }
-    
     func pushFor(identifier: String, sectionPost: SectionPost, didSelectItemAt indexPath: IndexPath) {
         self.currentIndex = indexPath
         self.currentSectionPost = sectionPost

@@ -248,6 +248,7 @@ class ThingDetailViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let controller = segue.destination as? InterestedListViewController {
             controller.presenter.setPost(post: presenter.post)
         }
@@ -273,13 +274,14 @@ class ThingDetailViewController: UIViewController {
         
         cell.moreButton.addTarget(self, action: #selector(updateComments(_:)), for: .touchUpInside)
     
-        let commentsMissing = commentCount! - presenter.comments.count
+        let commentsMissing = presenter.commentCount
         cell.moreButton.setTitle("Mais \(commentsMissing.description) comentários", for: .normal)
         cell.moreButton.isEnabled = true
         
         if commentsMissing <= 0 {
             commentCount = commentsMissing
         }
+        
         return cell
     }
     

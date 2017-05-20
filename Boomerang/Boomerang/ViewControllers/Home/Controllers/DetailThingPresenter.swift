@@ -28,8 +28,9 @@ class DetailThingPresenter: NSObject {
     let exitInterestedTitleButton: String = TitleButtons.exitInterested
     let recommendedTitleButton: String = TitleButtons.recommended
     let interestedListTitleButton: String = TitleButtons.interestedList
-    
     var view: DetailThingDelegate?
+    var commentCount = 0
+    
     
     func setViewDelegate(view: DetailThingDelegate) {
         self.view = view
@@ -57,9 +58,24 @@ class DetailThingPresenter: NSObject {
         }
     }
     
+    func getLastComments() {
+        CommentRequest.fetchLastCommentsBy(post: self.post, commentsObject: self.comments, pagination: Paginations.comments) { (success, msg, comments) in
+            if success {
+                for comment in comments! {
+                   self.comments.insert(comment, at: 0)
+                }
+                self.view?.reload()
+                self.currentCommentsCount = self.comments.count
+            } else {
+                self.view?.showMessage(isSuccess: false, msg: msg)
+            }
+        }
+    }
+    
     func getLastsComments(isUpdate: Bool = false) {
         CommentRequest.fetchCommentsBy(post: self.post, commentsObject: self.comments, pagination: Paginations.comments) { (success, msg, comments) in
             if success {
+                self.commentCount = self.commentCount - comments!.count
                 for comment in comments! {
                     if isUpdate {
                         self.comments.insert(comment, at: 0)
@@ -78,6 +94,7 @@ class DetailThingPresenter: NSObject {
     func getCommentCounts() {
         CommentRequest.getCommentsCount(by: self.post) { (success, msg, count) in
             if success {
+                self.commentCount = count!
                 self.view?.commentCount = count
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
@@ -88,7 +105,8 @@ class DetailThingPresenter: NSObject {
     func saveComment(comment: Comment) {
         comment.saveObjectInBackground { (success, msg) in
             if success {
-                self.getLastsComments(isUpdate: true)
+                //self.getLastsComments(isUpdate: true)
+                self.getLastComments()
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }
@@ -96,7 +114,6 @@ class DetailThingPresenter: NSObject {
     }
     
     func createSchemeInProgress(chat: Chat, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        
         let scheme = Scheme(post: post, requester: profile!, owner: getAuthorOfPost(), chat: chat)
         scheme.saveObjectInBackground { (success, msg) in
              completionHandler(success, msg)
@@ -111,6 +128,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func enterInterestedList() {
+        
         let interested = Interested(user: profile, post: post, currentMessage: "Estou interessado, fico feliz em ajudar")
         
         interested.saveObjectInBackground { (success, msg) in

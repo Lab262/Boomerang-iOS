@@ -59,7 +59,7 @@ class SchemeRequest: NSObject {
         notContainedObjects["objectId"] = notContainedObjectIds
         notContainedObjects["status"] = getNotContainedStatus(statusScheme: notContainedStatus)
 
-        ParseRequest.queryEqualToValueNotContainedObjects(className: "Scheme", queryType: .or, whereType: .equal, params: queryParams, notContainedObjects: notContainedObjects, includes: ["requester", "owner", "post"], pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryEqualToValueNotContainedObjects(className: "Scheme", queryType: .or, whereTypes: [.equal], params: queryParams, notContainedObjects: notContainedObjects, includes: ["requester", "owner", "post"], pagination: pagination) { (success, msg, objects) in
             if success {
                 for obj in objects! {
                     let scheme = Scheme(object: obj)
