@@ -74,17 +74,20 @@ class HomeMainViewController: UIViewController {
         if let controller = segue.destination as? MorePostViewController {
             switch currentSectionPost! {
             case .recommended:
-                presenter.getFeaturedPosts().forEach {
-                    controller.presenter.posts.append($0)
-                }
+                controller.presenter.posts = presenter.getFeaturedPosts()
+//                presenter.getFeaturedPosts().forEach {
+//                    controller.presenter.posts.append($0)
+//                }
             case .friends:
-                presenter.friendsPosts.forEach {
-                    controller.presenter.posts.append($0)
-                }
+                controller.presenter.posts = presenter.friendsPosts
+//                presenter.friendsPosts.forEach {
+//                    controller.presenter.posts.append($0)
+//                }
             case .city:
-                presenter.othersPosts.forEach {
-                    controller.presenter.posts.append($0)
-                }
+                controller.presenter.posts = presenter.othersPosts
+               // presenter.othersPosts.forEach {
+                  //  controller.presenter.posts.append($0)
+                //}
             }
         }
     }
@@ -198,6 +201,7 @@ extension HomeMainViewController {
 extension HomeMainViewController {
     
     func generateHeaderTitle(_ tableView: UITableView, viewForHeaderInSection section: Int) -> HomeCollectionHeader? {
+        
         let header = tableView.dequeueReusableCell(withIdentifier:HomeCollectionHeader.identifier) as! HomeCollectionHeader
         
         return header

@@ -38,7 +38,7 @@ class CommentRequest: NSObject {
         
         notContainedObjects["objectId"] = notContainedObjectIds
         
-        ParseRequest.queryEqualToValueNotContainedObjects(className: "Comment", queryType: .and, whereTypes: [.equal, .greaterThan], params: queryParams, notContainedObjects: notContainedObjects, includes: ["author"], pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryEqualToValueNotContainedObjects(className: "Comment", queryType: .and, whereTypes: [.equal, .greaterThan], params: queryParams, cachePolicy: .cacheElseNetwork, notContainedObjects: notContainedObjects, includes: ["author"], pagination: pagination) { (success, msg, objects) in
             if success {
                 for object in objects! {
                     comments.append(Comment(object: object))

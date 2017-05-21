@@ -66,6 +66,7 @@ struct Paginations {
     static let schemes = 3
     static let notifications = 3
     static let comments = 3
+    static let morePosts = 10
 }
 
 //MARK - Status Scheme Ids

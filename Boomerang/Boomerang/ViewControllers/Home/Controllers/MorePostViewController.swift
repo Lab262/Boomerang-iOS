@@ -44,7 +44,7 @@ class MorePostViewController: UIViewController {
         //tableView.tableFooterView = refreshIndicatorInTableViewFooter()
     }
     
-    func getMorePosts() {
+    func getMorePosts(){
         presenter.getMorePosts()
     }
     

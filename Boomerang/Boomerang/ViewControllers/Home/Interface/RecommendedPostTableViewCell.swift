@@ -169,16 +169,16 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        var visibleRect = CGRect()
-        visibleRect.origin = postCollectionView.contentOffset
-        visibleRect.size = postCollectionView.bounds.size
-        
-        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        let visibleIndexPath: IndexPath = postCollectionView.indexPathForItem(at: visiblePoint)!
-        
-        if visibleIndexPath.row >= presenter.posts.endIndex-1 {
-            delegate?.updateCell()
-        }
+//        var visibleRect = CGRect()
+//        visibleRect.origin = postCollectionView.contentOffset
+//        visibleRect.size = postCollectionView.bounds.size
+//        
+//        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+//        let visibleIndexPath: IndexPath = postCollectionView.indexPathForItem(at: visiblePoint)!
+//        
+//        if visibleIndexPath.row >= presenter.posts.endIndex-1 {
+//            delegate?.updateCell()
+//        }
     }
 }
 

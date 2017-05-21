@@ -237,9 +237,10 @@ class ParseRequest: NSObject {
         }
     }
     
-    static func setupQuery(className: String, key: String, values: [Any], pagination: Int, notContainedObjects: [String: [Any]]?, whereType: WhereType, includes: [String]?, order: String = "createdAt") -> PFQuery<PFObject> {
+    static func setupQuery(className: String, key: String, values: [Any], cachePolicy: PFCachePolicy, pagination: Int, notContainedObjects: [String: [Any]]?, whereType: WhereType, includes: [String]?, order: String = "createdAt") -> PFQuery<PFObject> {
         
         let query = PFQuery(className: className)
+        query.cachePolicy = cachePolicy
         
         if whereType == .equal {
            query.whereKey(key, equalTo: values[0])
@@ -265,9 +266,10 @@ class ParseRequest: NSObject {
         return query
     }
     
-    static func setupQueryAnd(className: String, params: [String: [Any]], pagination: Int, notContainedObjects: [String: [Any]]?, whereTypes: [WhereType], includes: [String]?, order: String = "createdAt") -> PFQuery<PFObject> {
+    static func setupQueryAnd(className: String, params: [String: [Any]], cachePolicy: PFCachePolicy, pagination: Int, notContainedObjects: [String: [Any]]?, whereTypes: [WhereType], includes: [String]?, order: String = "createdAt") -> PFQuery<PFObject> {
         
         let query = PFQuery(className: className)
+        query.cachePolicy = cachePolicy
         
         if whereTypes[0] == .equal && whereTypes[1] == .greaterThan {
             for (i, param) in params.enumerated() {
@@ -305,14 +307,14 @@ class ParseRequest: NSObject {
         return query
     }
     
-    static func queryEqualToValueNotContainedObjects(className: String, queryType: QueryType, whereTypes: [WhereType], params: [String: [Any]], notContainedObjects: [String: [Any]]?, includes: [String]?, pagination: Int, order: String = "createdAt", completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> ()) {
+    static func queryEqualToValueNotContainedObjects(className: String, queryType: QueryType, whereTypes: [WhereType], params: [String: [Any]], cachePolicy: PFCachePolicy, notContainedObjects: [String: [Any]]?, includes: [String]?, pagination: Int, order: String = "createdAt", completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> ()) {
         
         switch queryType {
         
         case .common:
             var query = PFQuery()
             for param in params {
-                query = setupQuery(className: className, key: param.key, values: param.value, pagination: pagination, notContainedObjects: notContainedObjects, whereType: whereTypes[0], includes: includes)
+                query = setupQuery(className: className, key: param.key, values: param.value, cachePolicy: cachePolicy, pagination: pagination, notContainedObjects: notContainedObjects, whereType: whereTypes[0], includes: includes)
             }
             
             query.findObjectsInBackground { (objects, error) in
@@ -326,7 +328,7 @@ class ParseRequest: NSObject {
         case .or:
             var allQueries = [PFQuery]()
             for param in params {
-                let query = setupQuery(className: className, key: param.key, values: param.value, pagination: pagination, notContainedObjects: notContainedObjects!, whereType: whereTypes[0], includes: includes!)
+                let query = setupQuery(className: className, key: param.key, values: param.value, cachePolicy: cachePolicy, pagination: pagination, notContainedObjects: notContainedObjects!, whereType: whereTypes[0], includes: includes!)
                 allQueries.append(query)
             }
             findMultipleObjectsAt(querys: allQueries, indexQuery: 0, allObjects: [PFObject](), completionHandler: { (success, msg, objects) in
@@ -336,7 +338,7 @@ class ParseRequest: NSObject {
         case .and:
             var query = PFQuery()
             
-            query = setupQueryAnd(className: className, params: params, pagination: pagination, notContainedObjects: notContainedObjects, whereTypes: whereTypes, includes: includes)
+            query = setupQueryAnd(className: className, params: params, cachePolicy: cachePolicy, pagination: pagination, notContainedObjects: notContainedObjects, whereTypes: whereTypes, includes: includes)
             
             query.findObjectsInBackground { (objects, error) in
                 if error == nil {
@@ -449,14 +451,14 @@ class ParseRequest: NSObject {
         }
     }
 
-    static func queryContainedIn(className: String, queryType: QueryType, whereType: WhereType, includes: [String]?, params: [String: [Any]], notContainedObjects: [String: [Any]], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    static func queryContainedIn(className: String, queryType: QueryType, whereType: WhereType, includes: [String]?, cachePolicy: PFCachePolicy, params: [String: [Any]], notContainedObjects: [String: [Any]], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         switch queryType {
         case .common:
             
             var query = PFQuery()
             for param in params {
-                query = setupQuery(className: className, key: param.key, values: param.value, pagination: pagination, notContainedObjects: notContainedObjects, whereType: whereType, includes: includes)
+                query = setupQuery(className: className, key: param.key, values: param.value, cachePolicy: cachePolicy, pagination: pagination, notContainedObjects: notContainedObjects, whereType: whereType, includes: includes)
             }
             
             query.findObjectsInBackground { (objects, error) in
