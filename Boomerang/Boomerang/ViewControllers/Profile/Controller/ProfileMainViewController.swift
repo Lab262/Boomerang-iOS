@@ -36,6 +36,14 @@ class ProfileMainViewController: UIViewController {
     }
     
     func popToRoot(_ notification : Notification){
+        popRootViewController()
+    }
+    
+    func popButtonToRoot(_ sender : UIButton){
+        popRootViewController()
+    }
+    
+    func popRootViewController(){
         navigationController?.popToRootViewController(animated: true)
     }
     
@@ -83,6 +91,7 @@ extension ProfileMainViewController: UICollectionViewDataSource {
             headerView.delegate = self
             headerView.presenter = presenter
             headerView.updateCell()
+            headerView.backButton.addTarget(self, action: #selector(popButtonToRoot(_:)), for: .touchUpInside)
             
             return headerView
         }

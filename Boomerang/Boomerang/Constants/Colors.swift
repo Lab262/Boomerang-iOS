@@ -83,5 +83,17 @@ extension UIColor {
         }
     }
     
+    //MARK: - COLORS PRINCIPALS BOOMER
+    static var purplePrincipalBoomerColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("491C3E")
+        }
+    }
+    static var yellowPrincipalBoomerColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("F6A01F")
+        }
+    }
+    
     
 }
