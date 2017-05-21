@@ -31,6 +31,8 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var boomerAmountLabel: UILabel!
     
+    @IBOutlet weak var backButton: UIButton!
+    
     var inputConfigurationButtons = [(deselectedImage: #imageLiteral(resourceName: "inventory_all_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_all_icon_selected")), (deselectedImage: #imageLiteral(resourceName: "inventory_need_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_need_icon_selected")), (deselectedImage: #imageLiteral(resourceName: "inventory_have_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_have_icon_selected")), (deselectedImage: #imageLiteral(resourceName: "inventory_donation_icon_unselected"), selectedImage: #imageLiteral(resourceName: "inventory_donation_icon_selected"))]
     
     
@@ -46,14 +48,20 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     func configureButtonAction() {
         if presenter.authorPostIsCurrent() {
+            self.backButton.isHidden = true
             button.setTitle(titleButtonEditProfile, for: .normal)
         } else {
+            self.backButton.isHidden = false
             presenter.alreadyFollowing(completionHandler: { (success, msg, alreadyFollowing) in
                 if success {
                     if alreadyFollowing! {
-                        self.button.setTitle("Unfollow", for: .normal)
+                        self.button.backgroundColor = UIColor.yellowPrincipalBoomerColor
+                        self.button.setTitleColor(UIColor.white, for: .normal)
+                        self.button.setTitle(ProfileTitles.unfollow, for: .normal)
                     } else {
-                        self.button.setTitle("Follow", for: .normal)
+                        self.button.backgroundColor = UIColor.white
+                        self.button.setTitleColor(UIColor.purplePrincipalBoomerColor, for: .normal)
+                        self.button.setTitle(ProfileTitles.follow, for: .normal)
                     }
                     
                 }
@@ -81,20 +89,24 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     }
     
     @IBAction func buttonAction(_ sender: Any) {
-        if button.currentTitle == "Unfollow" {
+        if button.currentTitle == ProfileTitles.unfollow {
             presenter.unfollowUser(completionHandler: { (success, msg) in
                 if success {
-                    self.button.setTitle("Follow", for: .normal)
+                    self.button.backgroundColor = UIColor.white
+                    self.button.setTitleColor(UIColor.purplePrincipalBoomerColor, for: .normal)
+                    self.button.setTitle(ProfileTitles.follow, for: .normal)
                     let currentCount = Int(self.followersLabel.text!)
                     self.followersLabel.text = String(currentCount!-1)
                 } else {
                     print ("unfollow error")
                 }
             })
-        } else if button.currentTitle == "Follow" {
+        } else if button.currentTitle == ProfileTitles.follow {
             presenter.followUser(completionHandler: { (success, msg) in
                 if success {
-                    self.button.setTitle("Unfollow", for: .normal)
+                    self.button.backgroundColor = UIColor.yellowPrincipalBoomerColor
+                    self.button.setTitleColor(UIColor.white, for: .normal)
+                    self.button.setTitle(ProfileTitles.unfollow, for: .normal)
                     let currentCount = Int(self.followersLabel.text!)
                     self.followersLabel.text = String(currentCount!+1)
                 } else {

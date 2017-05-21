@@ -119,4 +119,11 @@ struct HomeHeaderTitles {
     static let myCity = "Em Brasília"
 }
 
+//MARK - Profile Title
+
+struct ProfileTitles {
+    static let follow = "Seguir"
+    static let unfollow = "Seguindo"
+}
+
 
