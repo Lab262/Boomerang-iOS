@@ -307,6 +307,58 @@ class ParseRequest: NSObject {
         return query
     }
     
+    static func queryToUpdateToDeletedWithParams(className: String, params: [String: Any], completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let query = PFQuery(className: className)
+        
+        for param in params {
+            query.whereKey(param.key, equalTo: param.value)
+        }
+        
+        query.findObjectsInBackground { (objects, error) in
+            if let _ = error {
+                completionHandler(false, error!.localizedDescription)
+            } else {
+                for object in objects! {
+                    object["isDeleted"] = true
+                    object.saveInBackground(block: { (success, error) in
+                        if let _ = error {
+                            completionHandler(success, error!.localizedDescription)
+                        } else {
+                            completionHandler(success, "Save Success")
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
+    static func queryToUpdateToDeleted(className: String? = nil, object: PFObject, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let query = PFQuery(className: className ?? object.parseClassName)
+    
+        query.getObjectInBackground(withId: object.objectId!) { (object, error) in
+            
+            if let _ = error {
+                completionHandler(false, error!.localizedDescription)
+            } else {
+                if let obj = object {
+                    obj["isDeleted"] = true
+                    obj.saveInBackground(block: { (success, error) in
+                        if let _ = error {
+                            completionHandler(success, error!.localizedDescription)
+                        } else {
+                            completionHandler(success, "Save success")
+                        }
+                    })
+                } else {
+                    completionHandler(false, "object is nil")
+                }
+            }
+        }
+    }
+    
+    
     static func queryEqualToValueNotContainedObjects(className: String, queryType: QueryType, whereTypes: [WhereType], params: [String: [Any]], cachePolicy: PFCachePolicy, notContainedObjects: [String: [Any]]?, includes: [String]?, pagination: Int, order: String = "createdAt", completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> ()) {
         
         switch queryType {

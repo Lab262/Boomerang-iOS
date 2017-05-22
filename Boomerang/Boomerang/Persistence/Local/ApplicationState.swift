@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseLiveQuery
 
 
 enum UpdateType {
@@ -24,7 +25,7 @@ protocol UpdatePostDelegate {
 class ApplicationState: NSObject {
     
     var delegate: UpdatePostDelegate?
-    
+    let liveQueryClient = ParseLiveQuery.Client(server: "http://localhost:1337/parse", applicationId: "myAppId", clientKey: "")
     var currentPost: Post? {
         didSet{
             

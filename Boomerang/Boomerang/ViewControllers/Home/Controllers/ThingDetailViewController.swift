@@ -18,14 +18,15 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: ThingBar!
-    let liveQueryClient = ParseLiveQuery.Client()
-    fileprivate var subscription: Subscription<Comment>?
+   
+//    let liveQueryClient = ParseLiveQuery.Client(server: "http://localhost:1337/parse", applicationId: "myAppId", clientKey: "")
+   // fileprivate var subscription: Subscription<Comment>?
     
-    var commentQuery: PFQuery<Comment> {
-        return (Comment.query()?
-            .whereKey("post", equalTo: presenter.post)
-            .order(byAscending: "createdAt") as! PFQuery<Comment>)
-    }
+//    var commentQuery: PFQuery<Comment> {
+//        return (Comment.query()?
+//            .whereKey("post", equalTo: presenter.post)
+//            .order(byAscending: "createdAt") as! PFQuery<Comment>)
+//    }
 
     var commentCount: Int? = 0 {
         didSet{
@@ -64,20 +65,15 @@ class ThingDetailViewController: UIViewController {
         container?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
-    func subscribeToUpdates() {
-        subscription = liveQueryClient
-            .subscribe(commentQuery)
-            .handle(Event.created) { _, comment in
-                self.printMessage(comment)
-        }
-    }
     
-    fileprivate func printMessage(_ comment: Comment) {
-       // let createdAt = comment.createdAt ?? Date()
-        
-        
-       // print("\(createdAt) \(comment. ?? "unknown"): \(message.message ?? "")")
-    }
+//    fileprivate func printMessage(_ comment: Comment) {
+//        let createdAt = comment.createdAt ?? Date()
+//        
+//        
+//       print("\(comment.content)")
+//        
+//        
+//    }
 
 
     func registerNibs(){
@@ -106,7 +102,11 @@ class ThingDetailViewController: UIViewController {
         setupKeyboardNotifications()
         getCommentsCount()
         registerObservers()
-        subscribeToUpdates()
+        setupSubscribe()
+    }
+    
+    func setupSubscribe() {
+        presenter.subscribeToUpdateComment()
     }
     
     func getCommentsCount() {

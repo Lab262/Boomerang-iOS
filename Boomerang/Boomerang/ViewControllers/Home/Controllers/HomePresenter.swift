@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Parse
+import ParseLiveQuery
 
 class HomePresenter: NSObject {
 
@@ -20,6 +21,12 @@ class HomePresenter: NSObject {
     var post: Post = Post()
     var user: User = ApplicationState.sharedInstance.currentUser!
     var currentPostsFriendsCount = 0
+    
+    fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
+    
+    fileprivate var subscriptionFollowCreated: Subscription<Follow>?
+    
+    fileprivate var subscriptionFollowUpdated: Subscription<Follow>?
     
     func setControllerDelegate(view: ViewDelegate) {
         self.view = view
@@ -81,13 +88,19 @@ class HomePresenter: NSObject {
         }
     }
     
-    private func getFriends() {
+    fileprivate func getFriends() {
         UserRequest.fetchFollowing(fromProfile: user.profile!, followingDownloaded: self.following, pagination: Paginations.friends) { (success, msg, following) in
             if success {
-                for f in following! {
-                    self.following.append(f)
+                if following!.count < 1 {
+                    self.following = following!
+                    self.friendsPosts = [Post]()
+                    self.view?.reload()
+                } else {
+                    for f in following! {
+                        self.following.append(f)
+                    }
+                    self.getPostsByFriends()
                 }
-                self.getPostsByFriends()
             } else {
                 self.view?.showMessageError(msg: msg)
             }
@@ -139,3 +152,34 @@ class HomePresenter: NSObject {
         }
     }
 }
+
+//MARK - Live Querys
+
+extension HomePresenter {
+    
+    var followQuery: PFQuery<Follow>? {
+        return (Follow.query()?
+            .whereKey("from", equalTo: self.user.profile!)
+            .order(byAscending: "createdAt") as! PFQuery<Follow>)
+    }
+    
+    func subscribeToUpdateFollow() {
+        
+        subscriptionFollowCreated = liveQueryClient
+            .subscribe(followQuery!)
+            .handle(Event.created) { _, follow in
+                self.getFriends()
+        }
+        
+        subscriptionFollowUpdated = liveQueryClient
+            .subscribe(followQuery!)
+            .handle(Event.updated) { _, follow in
+                self.getFriends()
+        }
+    }
+    
+    func printMessage(follow: Follow) {
+        
+    }
+}
+

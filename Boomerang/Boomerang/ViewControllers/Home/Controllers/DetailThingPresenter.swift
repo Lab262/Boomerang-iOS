@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseLiveQuery
 
 
 protocol DetailThingDelegate {
@@ -30,7 +31,8 @@ class DetailThingPresenter: NSObject {
     let interestedListTitleButton: String = TitleButtons.interestedList
     var view: DetailThingDelegate?
     var commentCount = 0
-    
+    let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
+    var subscription: Subscription<Comment>?
     
     func setViewDelegate(view: DetailThingDelegate) {
         self.view = view
@@ -241,5 +243,29 @@ class DetailThingPresenter: NSObject {
                 }
             })
         }
+    }
+}
+
+
+//MARK - Live Querys
+
+extension DetailThingPresenter {
+    
+    var commentQuery: PFQuery<Comment>? {
+        return (Comment.query()?
+            .whereKey("post", equalTo: post)
+            .order(byAscending: "createdAt") as! PFQuery<Comment>)
+    }
+    
+    func subscribeToUpdateComment() {
+        subscription = liveQueryClient
+            .subscribe(commentQuery!)
+            .handle(Event.created) { _, comment in
+                self.printMessage(comment: comment)
+        }
+    }
+    
+    func printMessage(comment: Comment) {
+        
     }
 }

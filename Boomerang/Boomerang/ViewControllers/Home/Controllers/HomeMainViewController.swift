@@ -44,6 +44,11 @@ class HomeMainViewController: UIViewController {
         registerNib()
         registerObservers()
         getTimeLinePosts()
+        setupSubscribe()
+    }
+    
+    func setupSubscribe() {
+        presenter.subscribeToUpdateFollow()
     }
     
     func getTimeLinePosts() {
@@ -75,19 +80,10 @@ class HomeMainViewController: UIViewController {
             switch currentSectionPost! {
             case .recommended:
                 controller.presenter.posts = presenter.getFeaturedPosts()
-//                presenter.getFeaturedPosts().forEach {
-//                    controller.presenter.posts.append($0)
-//                }
             case .friends:
                 controller.presenter.posts = presenter.friendsPosts
-//                presenter.friendsPosts.forEach {
-//                    controller.presenter.posts.append($0)
-//                }
             case .city:
                 controller.presenter.posts = presenter.othersPosts
-               // presenter.othersPosts.forEach {
-                  //  controller.presenter.posts.append($0)
-                //}
             }
         }
     }
