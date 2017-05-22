@@ -266,6 +266,9 @@ extension DetailThingPresenter {
     }
     
     func printMessage(comment: Comment) {
-        
+        if comment.author?.objectId != self.profile?.objectId {
+            self.comments.insert(comment, at: 0)
+            self.view?.reload()
+        }
     }
 }

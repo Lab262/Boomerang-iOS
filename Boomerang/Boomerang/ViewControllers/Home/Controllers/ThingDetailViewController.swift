@@ -19,15 +19,6 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: ThingBar!
    
-//    let liveQueryClient = ParseLiveQuery.Client(server: "http://localhost:1337/parse", applicationId: "myAppId", clientKey: "")
-   // fileprivate var subscription: Subscription<Comment>?
-    
-//    var commentQuery: PFQuery<Comment> {
-//        return (Comment.query()?
-//            .whereKey("post", equalTo: presenter.post)
-//            .order(byAscending: "createdAt") as! PFQuery<Comment>)
-//    }
-
     var commentCount: Int? = 0 {
         didSet{
             tableView.reloadData()

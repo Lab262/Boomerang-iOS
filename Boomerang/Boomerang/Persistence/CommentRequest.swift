@@ -27,7 +27,11 @@ class CommentRequest: NSObject {
         var comments: [Comment] = [Comment]()
         var queryParams = [String : [Any]]()
         queryParams["post"] = [post]
-        queryParams["createdAt"] = [commentsObject[0].createdDate!]
+        
+        if commentsObject.count > 1 {
+            queryParams["createdAt"] = [commentsObject[0].createdDate!]
+        }
+       
      
         var notContainedObjects = [String: [Any]]()
         var notContainedObjectIds = [String]()
