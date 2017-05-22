@@ -95,5 +95,17 @@ extension UIColor {
         }
     }
     
+    //MARK: - COLORS SEARCH BAR
+    static var backgroundSearchColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("DCB4D2")
+        }
+    }
+    
+    static var textSearchColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("905A82")
+        }
+    }
     
 }

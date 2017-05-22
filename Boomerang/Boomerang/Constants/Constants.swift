@@ -161,5 +161,10 @@ struct ObjectKeys {
     static let objectId = "objectId"
 }
 
+//MARK - SearchBar placeholder
+struct SearchBarTitles {
+    static let placeholder = "O que você procura?"
+}
+
 
 
