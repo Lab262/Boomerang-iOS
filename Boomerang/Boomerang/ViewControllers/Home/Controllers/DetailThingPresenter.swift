@@ -108,7 +108,7 @@ class DetailThingPresenter: NSObject {
         comment.saveObjectInBackground { (success, msg) in
             if success {
                 //self.getLastsComments(isUpdate: true)
-                self.getLastComments()
+                //self.getLastComments()
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }
@@ -253,8 +253,8 @@ extension DetailThingPresenter {
     
     var commentQuery: PFQuery<Comment>? {
         return (Comment.query()?
-            .whereKey("post", equalTo: post)
-            .order(byAscending: "createdAt") as! PFQuery<Comment>)
+            .whereKey("post", equalTo: post).includeKey("author")
+            .order(byAscending: "createdAt")as! PFQuery<Comment>)
     }
     
     func subscribeToUpdateComment() {
@@ -266,9 +266,6 @@ extension DetailThingPresenter {
     }
     
     func printMessage(comment: Comment) {
-        if comment.author?.objectId != self.profile?.objectId {
-            self.comments.insert(comment, at: 0)
-            self.view?.reload()
-        }
+        self.getLastComments()
     }
 }

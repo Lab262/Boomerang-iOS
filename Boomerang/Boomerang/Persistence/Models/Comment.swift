@@ -43,6 +43,7 @@ class Comment: PFObject {
         if let author = object["author"] as? Profile {
             self.author = Profile(object: author)
         }
+        
     }
 }
 
