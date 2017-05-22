@@ -32,6 +32,7 @@ class Post: PFObject {
     var typePost: TypePost?
     var condition: Condition?
     var createdDate: Date?
+    var updateDate: Date?
     var relations: [Photo]?
     var countPhotos = 0
     var photos = [UIImage]()
@@ -49,6 +50,7 @@ class Post: PFObject {
     func setInformationsUserByPFObject(object: PFObject){
         self.objectId = object.objectId
         self.createdDate = object.createdAt
+        self.updateDate = object.updatedAt
         
         if let title = object["title"] as? String {
             self.title = title

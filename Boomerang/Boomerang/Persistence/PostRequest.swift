@@ -12,11 +12,20 @@ import Parse
 class PostRequest: NSObject {
     
     
-    static func fetchFeaturedPosts(completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
+    static func fetchFeaturedPosts(postsDownloaded:[Post], completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
+        var params = [String: [Any]]()
         
-        PFCloud.callFunction(inBackground: CloudFunctions.featuredPosts, withParameters: [ServerKeys.pagination: Paginations.postsFeatureds, ServerKeys.include: ObjectsKeys.authorPost]) { (objects, error) in
+        if postsDownloaded.count > 1 {
+            params[ObjectKeys.updatedAt] = [postsDownloaded.first!.updateDate!]
+            params[ObjectKeys.objectId] = postsDownloaded
+        }
+        
+        params[ServerKeys.include] = [PostKeys.author]
+        params[ServerKeys.pagination] = [Paginations.postsFeatureds]
+        
+        PFCloud.callFunction(inBackground: CloudFunctions.featuredPosts, withParameters: params) { (objects, error) in
             if let _ = error {
                 completionHandler(false, error!.localizedDescription, nil)
             } else {

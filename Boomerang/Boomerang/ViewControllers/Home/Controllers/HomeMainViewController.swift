@@ -48,7 +48,7 @@ class HomeMainViewController: UIViewController {
     }
     
     func setupSubscribe() {
-        presenter.subscribeToUpdateFollow()
+        presenter.setupSubscribes()
     }
     
     func getTimeLinePosts() {

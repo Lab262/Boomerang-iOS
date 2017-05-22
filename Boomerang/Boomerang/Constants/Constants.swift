@@ -57,20 +57,6 @@ struct NotificationKeys {
     static let popToRootOthers = "popToRootOthers"
 }
 
-
-//MARK - Server keys
-
-struct ServerKeys {
-    static let include = "include"
-    static let pagination = "pagination"
-}
-
-//MARK - PF Objects keys
-
-struct ObjectsKeys {
-    static let authorPost = "author"
-}
-
 //MARK - Paginations
 
 struct Paginations {
@@ -146,5 +132,34 @@ struct ProfileTitles {
 struct CloudFunctions {
     static let featuredPosts = "featuredPosts"
 }
+
+//MARK - Server keys
+
+struct ServerKeys {
+    static let include = "include"
+    static let pagination = "pagination"
+}
+
+//MARK - Post keys
+
+struct PostKeys {
+    static let author = "author"
+}
+
+//MARK - Follow keys
+
+struct FollowKeys {
+    static let from = "from"
+}
+
+
+//MARK - PF Object keys
+
+struct ObjectKeys {
+    static let updatedAt = "updatedAt"
+    static let createdAt = "createdAt"
+    static let objectId = "objectId"
+}
+
 
 

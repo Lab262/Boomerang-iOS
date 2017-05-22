@@ -250,6 +250,7 @@ class ParseRequest: NSObject {
         
         query.limit = pagination
         query.order(byDescending: order)
+       
 
         if let allIncludes = includes {
             allIncludes.forEach {

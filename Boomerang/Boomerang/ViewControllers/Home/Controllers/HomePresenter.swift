@@ -25,12 +25,19 @@ class HomePresenter: NSObject {
     fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
     
     fileprivate var subscriptionFollowCreated: Subscription<Follow>?
-    
     fileprivate var subscriptionFollowUpdated: Subscription<Follow>?
+    
+    fileprivate var subscriptionPostCreated: Subscription<Post>?
+    fileprivate var subscriptionPostUpdated: Subscription<Post>?
+    
+    //var liveQuerySetups: [(query: PFQuery<PFObject>, event: Event<T>, theFunction: ())]?  // someTuple is of type (top: Int, bottom: Int)
+    
+    //var liveQuerySetups = [(query: followQuery, event: Event.created, theFunction: self.getFriends()), (query: followQuery, event: Event.updated, theFunction: self.getFriends())]
     
     func setControllerDelegate(view: ViewDelegate) {
         self.view = view
     }
+    
     
     func getTimeLinePosts() {
         getProfile()
@@ -46,7 +53,7 @@ class HomePresenter: NSObject {
 //    }
 //    
     func getFeaturedPosts() {
-        PostRequest.fetchFeaturedPosts { (success, msg, posts) in
+        PostRequest.fetchFeaturedPosts(postsDownloaded: self.featuredPosts) { (success, msg, posts) in
             if success {
                 posts!.forEach {
                     self.featuredPosts.append($0)
@@ -164,20 +171,38 @@ class HomePresenter: NSObject {
             completionHandler(success, msg)
         }
     }
+    
+    fileprivate func appendNewPostInFeatured(post: Post) {
+        self.featuredPosts.removeLast()
+        self.featuredPosts.insert(post, at: 0)
+        self.view?.reload()
+    }
 }
 
 //MARK - Live Querys
 
 extension HomePresenter {
     
-    var followQuery: PFQuery<Follow>? {
+    fileprivate var followQuery: PFQuery<Follow>? {
         return (Follow.query()?
-            .whereKey("from", equalTo: self.user.profile!)
-            .order(byAscending: "createdAt") as! PFQuery<Follow>)
+            .whereKey(FollowKeys.from, equalTo: self.user.profile!)
+            .order(byAscending: ObjectKeys.createdAt) as! PFQuery<Follow>)
     }
     
-    func subscribeToUpdateFollow() {
-        
+    fileprivate var postQuery: PFQuery<Post>? {
+        var objectIds = [String]()
+        self.featuredPosts.forEach {
+            objectIds.append($0.objectId!)
+        }
+        return (Post.query()?.whereKey("objectId", notContainedIn: objectIds).order(byDescending: ObjectKeys.createdAt) as! PFQuery<Post>)
+    }
+    
+    func setupSubscribes() {
+        subscribeToFollow()
+        subscribeToPosts()
+    }
+
+    func subscribeToFollow() {
         subscriptionFollowCreated = liveQueryClient
             .subscribe(followQuery!)
             .handle(Event.created) { _, follow in
@@ -191,7 +216,21 @@ extension HomePresenter {
         }
     }
     
-    func printMessage(follow: Follow) {
+    func subscribeToPosts() {
+        subscriptionPostCreated = liveQueryClient
+            .subscribe(postQuery!)
+            .handle(Event.created) { _, post in
+                self.appendNewPostInFeatured(post: post)
+        }
+        
+        subscriptionPostUpdated = liveQueryClient
+            .subscribe(postQuery!)
+            .handle(Event.updated) { _, post in
+               
+        }
+    }
+    
+    fileprivate func printMessage(follow: Follow) {
         
     }
 }
