@@ -57,10 +57,25 @@ struct NotificationKeys {
     static let popToRootOthers = "popToRootOthers"
 }
 
+
+//MARK - Server keys
+
+struct ServerKeys {
+    static let include = "include"
+    static let pagination = "pagination"
+}
+
+//MARK - PF Objects keys
+
+struct ObjectsKeys {
+    static let authorPost = "author"
+}
+
 //MARK - Paginations
 
 struct Paginations {
     static let friends = 3
+    static let postsFeatureds = 4
     static let postsByFriends = 3
     static let postsByCity = 3
     static let schemes = 3
@@ -124,6 +139,12 @@ struct HomeHeaderTitles {
 struct ProfileTitles {
     static let follow = "Seguir"
     static let unfollow = "Seguindo"
+}
+
+//MARK - PFCloud functions
+
+struct CloudFunctions {
+    static let featuredPosts = "featuredPosts"
 }
 
 

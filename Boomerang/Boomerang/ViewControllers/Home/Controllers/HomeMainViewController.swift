@@ -68,7 +68,7 @@ class HomeMainViewController: UIViewController {
         if let controller = segue.destination as? ThingDetailViewController {
             switch currentSectionPost! {
             case .recommended:
-                controller.presenter.post = presenter.getFeaturedPosts()[currentIndex!.row]
+                controller.presenter.post = presenter.featuredPosts[currentIndex!.row]
             case .friends:
                 controller.presenter.post = presenter.friendsPosts[currentIndex!.row]
             case .city:
@@ -79,7 +79,7 @@ class HomeMainViewController: UIViewController {
         if let controller = segue.destination as? MorePostViewController {
             switch currentSectionPost! {
             case .recommended:
-                controller.presenter.posts = presenter.getFeaturedPosts()
+                controller.presenter.posts = presenter.featuredPosts
             case .friends:
                 controller.presenter.posts = presenter.friendsPosts
             case .city:
@@ -206,7 +206,7 @@ extension HomeMainViewController {
     func generateRecommendedCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedPostTableViewCell.identifier, for: indexPath) as! RecommendedPostTableViewCell
         
-        cell.presenter.posts = presenter.getFeaturedPosts()
+        cell.presenter.posts = presenter.featuredPosts
         cell.updateCell()
         cell.delegate = self
         cell.selectionDelegate = self
@@ -288,9 +288,12 @@ extension HomeMainViewController: UIScrollViewDelegate {
 extension HomeMainViewController: ViewDelegate {
     
     func reload(){
-        if presenter.friendsPosts.count != presenter.currentPostsFriendsCount {
-            tableView.reloadData()
-        }
+        
+        tableView.reloadData()
+//        
+//        if presenter.friendsPosts.count != presenter.currentPostsFriendsCount {
+//            tableView.reloadData()
+//        }
     }
 
     func showMessageError(msg: String) {

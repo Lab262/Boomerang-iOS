@@ -13,7 +13,7 @@ import ParseLiveQuery
 
 class HomePresenter: NSObject {
 
-    private var featuredPosts = [Post]()
+    var featuredPosts = [Post]()
     private var view: ViewDelegate?
     var following: [Profile] = [Profile]()
     var friendsPosts: [Post] = [Post]()
@@ -36,15 +36,27 @@ class HomePresenter: NSObject {
         getProfile()
     }
     
-    func getFeaturedPosts() -> [Post] {
-        featuredPosts = [Post]()
-        let allPosts = friendsPosts + othersPosts
-        for post in allPosts where post.isFeatured! {
-            featuredPosts.append(post)
+//    func getFeaturedPosts() -> [Post] {
+//        featuredPosts = [Post]()
+//        let allPosts = friendsPosts + othersPosts
+//        for post in allPosts where post.isFeatured! {
+//            featuredPosts.append(post)
+//        }
+//        return featuredPosts
+//    }
+//    
+    func getFeaturedPosts() {
+        PostRequest.fetchFeaturedPosts { (success, msg, posts) in
+            if success {
+                posts!.forEach {
+                    self.featuredPosts.append($0)
+                }
+                self.view?.reload()
+            } else {
+                self.view?.showMessageError(msg: msg)
+            }
         }
-        return featuredPosts
     }
-    
     
     private func getAllPostTypes() {
         requestAllPostTypes(completionHandler: { (success, msg) in
@@ -72,6 +84,7 @@ class HomePresenter: NSObject {
             if success {
                 self.getFriends()
                 self.getPostsOfTheOtherUsers()
+                self.getFeaturedPosts()
             } else {
                 self.view?.showMessageError(msg: msg)
             }

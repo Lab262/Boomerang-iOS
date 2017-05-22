@@ -11,6 +11,26 @@ import Parse
 
 class PostRequest: NSObject {
     
+    
+    static func fetchFeaturedPosts(completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
+        
+        var posts: [Post] = [Post]()
+        
+        PFCloud.callFunction(inBackground: CloudFunctions.featuredPosts, withParameters: [ServerKeys.pagination: Paginations.postsFeatureds, ServerKeys.include: ObjectsKeys.authorPost]) { (objects, error) in
+            if let _ = error {
+                completionHandler(false, error!.localizedDescription, nil)
+            } else {
+                for object in objects! as! [PFObject] {
+                    let post = Post(object: object)
+                    
+                    posts.append(post)
+                }
+                
+                completionHandler(true, "success", posts)
+            }
+        }
+    }
+    
     static func fetchPostByFollowing(postsDownloaded: [Post], following: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
