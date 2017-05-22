@@ -14,7 +14,8 @@ class TextViewHandler: NSObject, UITextViewDelegate {
     
     var textView: UITextView?
     var completation: textFieldEnd!
-    
+    var numberOfRows:CGFloat = 4
+
     
     init(textView: UITextView) {
         
@@ -35,20 +36,30 @@ class TextViewHandler: NSObject, UITextViewDelegate {
         
         print ("entrou end")
         textView.resignFirstResponder()
-        self.completation(textView.text)
+        //self.completation(textView.text)
         return true
         
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        print ("entrou")
-        if text == "\n"
-        {
+        if text != "\n"{
+            let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+            
+            var textWidth: CGFloat = UIEdgeInsetsInsetRect(textView.frame, textView.textContainerInset).width
+            
+            textWidth -= 2.0 * textView.textContainer.lineFragmentPadding
+            
+            let boundingRect: CGRect = newText.boundingRect(with: CGSize(width: textWidth, height: 0), options: [NSStringDrawingOptions.usesLineFragmentOrigin,NSStringDrawingOptions.usesFontLeading], attributes: [NSFontAttributeName: textView.font!], context: nil)
+            
+            let numberOfLines = boundingRect.height / textView.font!.lineHeight
+            
+            return numberOfLines <= self.numberOfRows
+        
+        }else {
             textView.resignFirstResponder()
-            return false
+            return true
         }
-        return true
     }
     
     
@@ -66,13 +77,18 @@ class TextViewHandler: NSObject, UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         print ("text view did enditing")
         textView.resignFirstResponder()
-        self.completation(textView.text)
+     
     }
-    
+   
+   func textViewDidBeginEditing(_ textView: UITextView) {
+      textView.text = ""
+   }
+   
+   
     func textFieldShouldReturn(_ textView: UITextView) -> Bool {
         
         textView.resignFirstResponder()
-        self.completation(textView.text)
+      
         
         return true
     }

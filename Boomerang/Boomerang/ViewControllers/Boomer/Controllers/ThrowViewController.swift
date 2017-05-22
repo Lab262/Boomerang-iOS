@@ -59,8 +59,12 @@ class ThrowViewController: UIViewController {
     
         self.tableView.register(UINib(nibName: "HeaderPostTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderPostTableViewCell.cellIdentifier)
     
-    self.tableView.register(UINib(nibName: "TextFieldWithImageTableViewCell", bundle: nil), forCellReuseIdentifier: TextFieldWithImageTableViewCell.identifier)
-    
+        self.tableView.register(UINib(nibName: "TextFieldWithImageTableViewCell", bundle: nil), forCellReuseIdentifier: TextFieldWithImageTableViewCell.identifier)
+        
+          self.tableView.register(UINib(nibName: "FieldDatePickerTableViewCell", bundle: nil), forCellReuseIdentifier: FieldDatePickerTableViewCell.cellIdentifier)
+        
+        
+        
     }
 
     
@@ -123,9 +127,9 @@ class ThrowViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.cellIdentifier, for: indexPath) as! DescriptionTextTableViewCell
         cell.selectionStyle = .none
         
-        cell.handler!.completation = { (text) -> Void in
-            self.descriptionThing = text
-        }
+       // cell.handler!.completation = { (text) -> Void in
+         //   self.descriptionThing = text
+       // }
         return cell
         
     }
@@ -165,6 +169,15 @@ class ThrowViewController: UIViewController {
         
     }
     
+    func generateFieldDatePickerTableViewCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier:FieldDatePickerTableViewCell.cellIdentifier, for: indexPath) as! FieldDatePickerTableViewCell
+        
+        return cell
+        
+    }
+    
+    
     func generateSimpleTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
@@ -198,9 +211,6 @@ class ThrowViewController: UIViewController {
       
         header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
         
-        header.touchAreaThrowButton.addTarget(self, action:#selector(throwAction(_:)), for:.touchUpInside)
-        
-    
         
         if let images = allimages {
             header.highlights = images
@@ -340,9 +350,9 @@ extension ThrowViewController: UITableViewDataSource {
                 case .donate:
                     return generateWithDrawalCell(tableView, indexPath:indexPath)
                 case .have:
-                    return generateDescriptionCell(tableView, indexPath:indexPath)
+                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
                 case .need:
-                    return generateDescriptionCell(tableView, indexPath:indexPath)
+                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
                 }
             case 4:
                 switch typeVC {
@@ -384,7 +394,7 @@ extension ThrowViewController: UITableViewDelegate {
         }else if indexPath.row == 2 {
             switch typeVC {
                 case .donate:
-                    return CGFloat(175)
+                    return CGFloat(100)
                 case .have, .need:
                     return CGFloat(80)
             }
