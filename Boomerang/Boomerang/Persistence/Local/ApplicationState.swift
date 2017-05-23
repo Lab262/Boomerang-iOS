@@ -25,6 +25,7 @@ protocol UpdatePostDelegate {
 class ApplicationState: NSObject {
     
     var delegate: UpdatePostDelegate?
+    
     let liveQueryClient = ParseLiveQuery.Client(server: AppConfig.parse.baseClientConfig.server, applicationId: AppConfig.parse.baseClientConfig.applicationId, clientKey: AppConfig.parse.baseClientConfig.clientKey)
     
     var currentPost: Post? {

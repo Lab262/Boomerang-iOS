@@ -17,37 +17,37 @@ extension Date {
         return date
     }
     
-    func getDayAndMonthToDate() -> String {
-        let calendar = Calendar.current
+    func timeSinceNow() -> String {
+        let calender:Calendar = Calendar.current
+        let components:DateComponents = calender.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self, to: Date())
         
-//        let year = calendar.component(.year, from: self)
-//        let month = calendar.component(.month, from: self)
-//        let day = calendar.component(.day, from: self)
-        //mo
+        var timeAgo: String = ""
         
-        return ""
+        if components.year! == 1 {
+            timeAgo = "\(components.year!)" + TimeAgo.oneYear
+        } else if components.year! > 1 {
+            timeAgo = "\(components.year!)" + TimeAgo.year
+        } else if components.month! == 1 {
+            timeAgo = "\(components.month!)" + TimeAgo.oneMonth
+        } else if components.month! > 1 {
+            timeAgo = "\(components.month!)" + TimeAgo.month
+        } else if components.day! == 1 {
+            timeAgo = "\(components.day!)" + TimeAgo.oneDay
+        } else if components.day! > 1 {
+            timeAgo = "\(components.day!)" + TimeAgo.day
+        } else if components.hour! == 1 {
+            timeAgo = "\(components.hour!)" + TimeAgo.oneHour
+        } else if components.hour! > 1 {
+            timeAgo = "\(components.hour!)" + TimeAgo.hour
+        } else if components.minute! == 1 {
+            timeAgo = "\(components.minute!)" + TimeAgo.oneMin
+        } else if components.minute! > 1 {
+            timeAgo = "\(components.minute!)" + TimeAgo.min
+        } else if components.second! < 60 {
+            timeAgo = TimeAgo.now
+        }
+        
+        return timeAgo
     }
     
-    func getFormatterDate() -> String {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withDay, .withDashSeparatorInDate, .withMonth]
-        
-        let date = formatter.string(from: self)
-        
-        return date
-    }
-    
-//    static let iso8601Formatter: ISO8601DateFormatter = {
-//        let formatter = ISO8601DateFormatter()
-//        let date = formatter.string(from: self)
-//        formatter.formatOptions = [.withFullDate,
-//                                   .withTime,
-//                                   .withDashSeparatorInDate,
-//                                   .withColonSeparatorInTime,
-//                                    ]
-//        
-//        return formatter
-//    }()
-    
-   // func getMonth
 }

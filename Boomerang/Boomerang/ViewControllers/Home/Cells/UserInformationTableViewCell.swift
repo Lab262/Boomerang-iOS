@@ -48,8 +48,7 @@ class UserInformationTableViewCell: UITableViewCell {
 
     func updateCellUI(){
         userNameLabel.text = presenter.post.author!.fullName
-        //dateLabel.text = post!.createdDate!.getStringToDate(dateFormat: "dd/MM/yyyy")
-        dateLabel.text = presenter.post.createdDate?.getFormatterDate()
+        dateLabel.text = presenter.post.createdDate!.timeSinceNow()
         
         userImage.loadAnimation()
         

@@ -103,6 +103,7 @@ class ParseRequest: NSObject {
         
         let query = PFQuery(className: className)
         query.whereKey(key, equalTo: value)
+        query.whereKey(ObjectKeys.isDeleted, notEqualTo: true)
         
         query.countObjectsInBackground { (count, error) in
             if error == nil {
@@ -117,6 +118,7 @@ class ParseRequest: NSObject {
         
         let query = PFQuery(className: className)
         query.whereKey(key, containedIn: value)
+        
         
         query.countObjectsInBackground { (count, error) in
             if error == nil {

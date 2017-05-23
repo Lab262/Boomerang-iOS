@@ -23,9 +23,8 @@ class ViewUtil: NSObject {
         }else{
             return nil
         }
-        
     }
-    
+  
   
     static func alertControllerWithTitle (title: String, withMessage message: String) -> UIAlertController {
         
@@ -55,9 +54,6 @@ class ViewUtil: NSObject {
         return image
         
     }
-
-
-
 }
 
 extension UIView {
@@ -114,7 +110,6 @@ extension UIView {
             let xCenterConstraint = NSLayoutConstraint(item: activity, attribute: .centerX, relatedBy: .equal, toItem: lockView, attribute: .centerX, multiplier: 1, constant: 0)
             
             let yCenterConstraint = NSLayoutConstraint(item: activity, attribute: .centerY, relatedBy: .equal, toItem: lockView, attribute: .centerY, multiplier: 1, constant: 0)
-            
             
             NSLayoutConstraint.activate([xCenterConstraint, yCenterConstraint])
             

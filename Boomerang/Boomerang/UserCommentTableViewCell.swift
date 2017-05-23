@@ -42,7 +42,7 @@ class UserCommentTableViewCell: UITableViewCell {
     func updateCellUI(){
         userNameLabel.text = comment!.author!.fullName
         userDescriptionLabel.text = comment!.content
-        dateLabel.text = comment!.createdDate!.getStringToDate(dateFormat: "dd/MM/yyyy")
+        dateLabel.text = comment!.createdDate!.timeSinceNow()
         getUserPhotoImage()
     }
     

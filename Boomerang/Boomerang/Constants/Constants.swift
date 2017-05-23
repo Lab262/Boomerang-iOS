@@ -159,7 +159,25 @@ struct ObjectKeys {
     static let updatedAt = "updatedAt"
     static let createdAt = "createdAt"
     static let objectId = "objectId"
+    static let isDeleted = "isDeleted"
 }
+
+//MARK - PF Object keys
+
+struct TimeAgo {
+    static let now = "Agora"
+    static let oneMin = " minuto atrás"
+    static let min = " minutos atrás"
+    static let oneHour = " hora atrás"
+    static let hour = " horas atrás"
+    static let oneDay = " dia atrás"
+    static let day = " dias atrás"
+    static let oneMonth = " mês atrás"
+    static let month = " mêses atrás"
+    static let oneYear = " ano atrás"
+    static let year = " anos atrás"
+}
+
 
 
 
