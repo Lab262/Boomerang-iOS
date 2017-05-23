@@ -57,19 +57,19 @@ class TransactionDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let viewController = segue.destination as? ThingDetailViewController  {
-            viewController.presenter.post = presenter.getScheme().post!
+            viewController.presenter.post = presenter.scheme.post!
         }
         
         if let viewController = segue.destination as? ProfileMainViewController  {
-            viewController.presenter.setProfile(profile: presenter.getScheme().dealer!)
+            viewController.presenter.setProfile(profile: presenter.scheme.dealer!)
         }
         
         if let viewController = segue.destination as? EvaluationViewController  {
-            viewController.presenter.setScheme(scheme: presenter.getScheme())
+            viewController.presenter.setScheme(scheme: presenter.scheme)
         }
         
         if let viewController = segue.destination as? MessagesChatViewController  {
-            viewController.chat = presenter.getChat()
+            viewController.chat = presenter.chat
             viewController.profile = presenter.getUserOwnATransaction()
         }
     }
@@ -103,7 +103,7 @@ class TransactionDetailViewController: UIViewController {
         
         cell.profileLinkButton.addTarget(self, action: #selector(goLinkProfile(_:)), for: .touchUpInside)
         cell.chatButton.addTarget(self, action: #selector(goChat(_:)), for: .touchUpInside)
-        cell.presenter.setScheme(scheme: presenter.getScheme())
+        cell.presenter.setScheme(scheme: presenter.scheme)
         cell.updateInformationsCell()
         
         return cell
@@ -178,7 +178,6 @@ extension TransactionDetailViewController: TransactionDetailDelegate {
     func reload() {
         
     }
-
     
     func showMessage(msg: String) {
         

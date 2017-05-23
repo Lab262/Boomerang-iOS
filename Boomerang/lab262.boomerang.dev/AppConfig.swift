@@ -23,5 +23,4 @@ class AppConfig: NSObject {
             $0.server = "http://api-boomerang-dev.herokuapp.com/parse"
         }
     }
-    
 }

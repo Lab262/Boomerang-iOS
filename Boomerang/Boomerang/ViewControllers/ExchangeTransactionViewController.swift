@@ -40,7 +40,7 @@ class ExchangeTransactionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? TransactionDetailViewController {
             
-            destinationVC.presenter.setScheme(scheme: presenter.getSchemes()[tableView.indexPathForSelectedRow!.row])
+            destinationVC.presenter.scheme = presenter.getSchemes()[tableView.indexPathForSelectedRow!.row]
         }
     }
 }

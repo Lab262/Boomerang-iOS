@@ -18,52 +18,32 @@ protocol TransactionDetailDelegate {
 
 class TransactionDetailPresenter: NSObject {
 
-    fileprivate var scheme: Scheme = Scheme()
+    var scheme: Scheme = Scheme()
     fileprivate var view: TransactionDetailDelegate?
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
-    fileprivate var chat: Chat = Chat()
+    var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
+    var chat: Chat = Chat()
     
     func setViewDelegate(view: TransactionDetailDelegate) {
         self.view = view
     }
-    
-    func getUser() -> User {
-        return user
-    }
-    
-    func setScheme(scheme: Scheme) {
-        self.scheme = scheme
-    }
-    
-    func getScheme() -> Scheme {
-        return scheme
-    }
-    
+
     func getCreatedPost() -> Date {
         return scheme.post!.createdDate!
     }
     
-    func setChat(chat: Chat) {
-        self.chat = chat
-    }
-    
-    func getChat() -> Chat {
-        return chat
-    }
-    
     func getUserOwnATransaction() -> Profile {
-        if getScheme().owner == self.user.profile {
-            return getScheme().requester!
+        if scheme.owner == profile {
+            return scheme.requester!
         } else {
-            return getScheme().owner!
+            return scheme.owner!
         }
     }
  
     func fetchChat() {
         self.view?.startingLoadingView()
-        ChatRequest.getChatOf(requester: getScheme().requester!, owner: getScheme().owner!, post: getScheme().post!) { (success, msg, chat) in
+        ChatRequest.getChatOf(requester: scheme.requester!, owner: scheme.owner!, post: scheme.post!) { (success, msg, chat) in
             if success {
-                self.setChat(chat: chat!)
+                self.chat = chat!
                 self.view?.pushForChatView()
             } else {
                 self.view?.showMessage(msg: msg)
