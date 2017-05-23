@@ -15,7 +15,8 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var navigationBar: IconNavigationBar!
     @IBOutlet weak var bgPostImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-     let placeholder = ["Nome do Produto","Nome do Produto","Local de retirada","placeholder"]
+    @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
+    let placeholder = ["Nome do Produto","Nome do Produto","Local de retirada","placeholder"]
     var fields:[String] = []
     var nameThing = String ()
     var descriptionThing = String ()
@@ -25,7 +26,11 @@ class ThrowViewController: UIViewController {
     var allimages:[UIImage]?
     var headerHeight = CGFloat(240)
     var isHidden = false
-        
+    var displayExpandedHeader = true
+    let expandedHeight = CGFloat(240)
+    let colapsedHeight = CGFloat(100)
+    var expandeIndexPath = IndexPath(row:0, section:0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
@@ -109,7 +114,9 @@ class ThrowViewController: UIViewController {
     
     func generateTextFieldWithImageCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:TextFieldWithImageTableViewCell.identifier, for: indexPath) as! TextFieldWithImageTableViewCell
-        cell.anexPhotoButton.delegate = self
+        
+        
+        
         
         return cell
         
@@ -210,7 +217,7 @@ class ThrowViewController: UIViewController {
         let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.cellIdentifier) as! HeaderPostTableViewCell
       
         header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
-        
+        header.delegate = self
         
         if let images = allimages {
             header.highlights = images
@@ -232,9 +239,7 @@ class ThrowViewController: UIViewController {
         return header
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return headerHeight
-    }
+  
     
     
     func createPost () {
@@ -356,12 +361,22 @@ extension ThrowViewController: UITableViewDataSource {
                 }
             case 4:
                 switch typeVC {
+                case .donate:
+                    return generateWithDrawalCell(tableView, indexPath:indexPath)
+                case .have:
+                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
+                case .need:
+                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
+            }
+        
+            case 5:
+                switch typeVC {
                     case .donate:
                         return  UITableViewCell()
                     case .have:
-                        return generateTextFieldWithImageCell(tableView, indexPath:indexPath)
+                        return generateDescriptionCell(tableView, indexPath:indexPath)
                     case .need:
-                        return generateTextFieldWithImageCell(tableView, indexPath:indexPath)
+                        return generateDescriptionCell(tableView, indexPath:indexPath)
                     
                 }
             case 6:
@@ -400,7 +415,7 @@ extension ThrowViewController: UITableViewDelegate {
             }
             
         }else if indexPath.row == 3 {
-            return CGFloat(150)
+            return CGFloat(200)
         }else if indexPath.row == 4 {
             return CGFloat(250)
         }else if indexPath.row == 5 {
@@ -421,20 +436,15 @@ extension ThrowViewController: UITableViewDelegate {
         let offsetY = scrollView.contentOffset.y
         
         print("aqui ------>",offsetY)
-        if offsetY < 0 {
-            
-        }
+      
         
     }
     
+ 
     
-    func updateImageScale(_ yOffset: CGFloat) {
-        
-        
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return headerHeight
     }
-    
-    
-
 }
 
 extension ThrowViewController: UIIButtonWithPickerDelegate{

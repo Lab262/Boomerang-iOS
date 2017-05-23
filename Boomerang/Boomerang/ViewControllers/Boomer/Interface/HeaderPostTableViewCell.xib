@@ -29,6 +29,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ru-Mz-kPg">
                         <rect key="frame" x="0.0" y="0.0" width="434" height="192"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_addphoto" translatesAutoresizingMaskIntoConstraints="NO" id="BWk-OK-m8v">
+                                <rect key="frame" x="0.0" y="0.0" width="434" height="192"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JIl-dh-mM2">
                                 <rect key="frame" x="0.0" y="0.0" width="434" height="192"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -43,9 +46,6 @@
                                     <outlet property="delegate" destination="KGk-i7-Jjw" id="AJV-G1-XYG"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_addphoto" translatesAutoresizingMaskIntoConstraints="NO" id="BWk-OK-m8v">
-                                <rect key="frame" x="0.0" y="0.0" width="434" height="192"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzZ-Et-e6V">
                                 <rect key="frame" x="178" y="157" width="80" height="80"/>
                                 <constraints>
@@ -53,13 +53,6 @@
                                     <constraint firstAttribute="width" constant="80" id="r7V-sU-erP"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="ic_buttonBommer"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-k2-4IN">
-                                <rect key="frame" x="9" y="11" width="13" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="k0y-js-Z1J"/>
-                                </constraints>
-                                <state key="normal" image="ic_button_back_white"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhl-Tg-062">
                                 <rect key="frame" x="116" y="133" width="202" height="128"/>
@@ -84,6 +77,13 @@
                                 <color key="textColor" red="0.67843137254901964" green="0.45098039215686275" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-k2-4IN">
+                                <rect key="frame" x="9" y="11" width="13" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="k0y-js-Z1J"/>
+                                </constraints>
+                                <state key="normal" image="ic_button_back_white"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -126,7 +126,7 @@
             <connections>
                 <outlet property="backButton" destination="d7h-k2-4IN" id="6yp-X1-TOB"/>
                 <outlet property="collectionView" destination="JIl-dh-mM2" id="piJ-3a-ffl"/>
-                <outlet property="throwButton" destination="FzZ-Et-e6V" id="6im-Wh-Urg"/>
+                <outlet property="photo" destination="BWk-OK-m8v" id="j18-ys-6FX"/>
                 <outlet property="titleLabel" destination="gyV-vP-RQz" id="4ZO-A9-aJG"/>
                 <outlet property="touchAreaThrowButton" destination="Fhl-Tg-062" id="wUY-ua-wrn"/>
             </connections>

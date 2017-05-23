@@ -25,14 +25,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="JlU-G3-ru7">
-                        <rect key="frame" x="8" y="85" width="332" height="1"/>
+                        <rect key="frame" x="20" y="85" width="318" height="1"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="naR-1a-vjk"/>
                         </constraints>
                     </view>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome do Produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ymL-ur-9KJ">
-                        <rect key="frame" x="8" y="46" width="332" height="37"/>
+                        <rect key="frame" x="20" y="46" width="318" height="37"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="37" id="am0-eE-AJJ"/>
                         </constraints>
@@ -46,7 +46,7 @@
                         </userDefinedRuntimeAttributes>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo do Preciso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFk-xc-1Vy">
-                        <rect key="frame" x="8" y="17" width="140.5" height="21"/>
+                        <rect key="frame" x="20" y="18" width="140.5" height="20"/>
                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -55,12 +55,12 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="ymL-ur-9KJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="38" id="AYI-B2-tnb"/>
-                    <constraint firstItem="ymL-ur-9KJ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-5.5" id="IAn-4G-AjZ"/>
+                    <constraint firstItem="ymL-ur-9KJ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-0.5" id="IAn-4G-AjZ"/>
                     <constraint firstItem="ymL-ur-9KJ" firstAttribute="leading" secondItem="JlU-G3-ru7" secondAttribute="leading" id="Kk4-IE-mzS"/>
                     <constraint firstItem="ymL-ur-9KJ" firstAttribute="trailing" secondItem="JlU-G3-ru7" secondAttribute="trailing" id="YiM-UA-4D8"/>
                     <constraint firstItem="ymL-ur-9KJ" firstAttribute="leading" secondItem="iFk-xc-1Vy" secondAttribute="leading" id="cst-gi-QLJ"/>
                     <constraint firstItem="ymL-ur-9KJ" firstAttribute="top" secondItem="iFk-xc-1Vy" secondAttribute="bottom" constant="8" symbolic="YES" id="eMN-kH-V6j"/>
-                    <constraint firstItem="ymL-ur-9KJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="kdG-C6-4At"/>
+                    <constraint firstItem="ymL-ur-9KJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="kdG-C6-4At"/>
                     <constraint firstItem="JlU-G3-ru7" firstAttribute="top" secondItem="ymL-ur-9KJ" secondAttribute="bottom" constant="2" id="vZW-vJ-dTB"/>
                 </constraints>
             </tableViewCellContentView>

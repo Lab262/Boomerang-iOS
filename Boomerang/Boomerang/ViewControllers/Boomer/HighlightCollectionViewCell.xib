@@ -21,16 +21,24 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mkT-dd-OU3">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="179"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifu-zK-63a" customClass="UIButtonWithPicker" customModule="lab262_boomerang_dev" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="179"/>
+                    </button>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="ifu-zK-63a" firstAttribute="height" secondItem="mkT-dd-OU3" secondAttribute="height" id="3GF-OA-JVm"/>
                 <constraint firstAttribute="bottom" secondItem="mkT-dd-OU3" secondAttribute="bottom" id="7QB-ye-fEf"/>
                 <constraint firstItem="mkT-dd-OU3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8mw-o8-ZuO"/>
+                <constraint firstItem="ifu-zK-63a" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="G7q-nH-PJg"/>
                 <constraint firstAttribute="trailing" secondItem="mkT-dd-OU3" secondAttribute="trailing" id="jSj-jl-hZX"/>
                 <constraint firstItem="mkT-dd-OU3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jVa-hQ-rWp"/>
+                <constraint firstItem="ifu-zK-63a" firstAttribute="width" secondItem="mkT-dd-OU3" secondAttribute="width" id="lBa-tz-Zre"/>
+                <constraint firstItem="ifu-zK-63a" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="rqF-An-X8x"/>
             </constraints>
             <size key="customSize" width="350" height="179"/>
             <connections>
+                <outlet property="anexPhotoButton" destination="ifu-zK-63a" id="hmX-xT-UFA"/>
                 <outlet property="imageView" destination="mkT-dd-OU3" id="k7F-DG-E8y"/>
             </connections>
             <point key="canvasLocation" x="66" y="14.5"/>
