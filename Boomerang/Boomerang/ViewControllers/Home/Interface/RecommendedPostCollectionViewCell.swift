@@ -47,6 +47,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     func setupCell(){
         descriptionPostLabel.text = presenter.post.content
         userNameLabel.text = presenter.post.author!.fullName
+        timeLabel.text = presenter.post.createdDate!.timeSinceNow()
         presenter.getIconPost(iconImage: typePostImage, height: heightPostIconConstraint, width: widthPostIconConstraint)
         userImage.getUserImage(profile: presenter.post.author!) { (success, msg) in
         }
