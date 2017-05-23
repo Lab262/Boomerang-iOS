@@ -12,20 +12,22 @@ class HeaderPostTableViewCell: UITableViewCell {
     static var cellIdentifier = "HeaderPostCell"
     var highlights: [UIImage] = []
 
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var touchAreaThrowButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    
+    @IBOutlet weak var addPhotoButton: UIButton!
+    @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
     @IBOutlet weak var throwButton: UIButton!
     @IBOutlet weak var photo: UIImageView!
+    var delegate: UIIButtonWithPickerDelegate? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
        self.registerNibs()
-        self.setUpCollectionView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,10 +36,7 @@ class HeaderPostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUpCollectionView() {
-    }
 
-    
     func registerNibs() {
         collectionView.registerNibFrom(HighlightCollectionViewCell.self)
     }
@@ -64,6 +63,7 @@ extension HeaderPostTableViewCell: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HighlightCollectionViewCell.identifier, for: indexPath) as! HighlightCollectionViewCell
         
+        cell.anexPhotoButton.delegate = self.delegate
         cell.imageView.image = highlights[indexPath.item]
         
         return cell
