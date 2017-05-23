@@ -27,8 +27,20 @@ class TransactionSegmentViewController: UIViewController {
 
     override func viewDidLoad(){
         super.viewDidLoad()
+        setupViewDelegate()
+        getTransactions()
+        setupSubscriptions()
+    }
+    
+    func setupViewDelegate() {
         presenter.setViewDelegate(view: self)
+    }
+    func getTransactions(){
         presenter.getTransactions()
+    }
+    
+    func setupSubscriptions(){
+        presenter.setupSubscriptions()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,7 +91,7 @@ extension TransactionSegmentViewController: SegmentControlButtonDelegate {
 // MARK: - Presenter protocol
 extension TransactionSegmentViewController: ViewDelegate {
     func reload() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationKey), object: presenter.getSchemes(), userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationKey), object: presenter.schemes, userInfo: nil)
     }
     func showMessageError(msg: String) {
         present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)

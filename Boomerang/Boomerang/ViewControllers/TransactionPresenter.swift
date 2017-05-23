@@ -7,42 +7,30 @@
 //
 
 import UIKit
-
+import ParseLiveQuery
 
 
 class TransactionPresenter: NSObject {
     
     fileprivate let pagination = Paginations.schemes
-    fileprivate var schemes: [Scheme] = [Scheme]()
-    fileprivate var scheme: Scheme = Scheme()
+    var schemes: [Scheme] = [Scheme]()
+    var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
     var notContainedStatusScheme: [StatusScheme] = [StatusScheme]()
+    
+    fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
+    
+    fileprivate var subscriptionOwnerSchemeCreated: Subscription<Scheme>?
+    fileprivate var subscriptionOwnerSchemeUpdated: Subscription<Scheme>?
+    fileprivate var subscriptionRequesterSchemeCreated: Subscription<Scheme>?
+    fileprivate var subscriptionRequesterSchemeUpdated: Subscription<Scheme>?
     
     func setViewDelegate(view: ViewDelegate) {
         self.view = view
     }
     
-    func getUser() -> User {
-        return user
-    }
-    
-    func getSchemes() -> [Scheme] {
-        return schemes
-    }
-    
-    func setSchemes(schemes: [Scheme]) {
-        self.schemes = schemes
-    }
-    
-    func setScheme(scheme: Scheme) {
-        self.scheme = scheme
-    }
-    
-    func getScheme() -> Scheme {
-        return scheme
-    }
-    
+  
     // MARK: ARRUMAR ESSA MERDA
     
     func getTransactions() {
@@ -59,8 +47,8 @@ class TransactionPresenter: NSObject {
         }
     }
     
-    func requestSchemeUser(){
-        SchemeRequest.getSchemesForUser(owner: getUser().profile!, schemesDownloaded: getSchemes(), notContainedStatus: notContainedStatusScheme, pagination: pagination) { (success, msg, schemes) in
+    private func requestSchemeUser(){
+        SchemeRequest.getSchemesForUser(owner: profile, schemesDownloaded: schemes, notContainedStatus: notContainedStatusScheme, pagination: pagination) { (success, msg, schemes) in
             
             if success {
                 for scheme in schemes! {
@@ -73,10 +61,94 @@ class TransactionPresenter: NSObject {
         }
     }
     
-    func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    private func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         SchemeRequest.getAllStatus { (success, msg) in
             completionHandler(success, msg)
         }
     }
+    
+    fileprivate func requestOwnerSchemesUser() {
+        SchemeRequest.getOwnerSchemesForUser(owner: profile, schemesDownloaded: schemes, notContainedStatus: notContainedStatusScheme, pagination: pagination) { (success, msg, schemes) in
+            
+            if success {
+                for scheme in schemes! {
+                    self.schemes.append(scheme)
+                }
+                self.view?.reload()
+            } else {
+                self.view?.showMessageError(msg: msg)
+            }
+        }
+    }
+    
+    fileprivate func requestRequesterSchemesUser(){
+        SchemeRequest.getRequesterSchemesForUser(requester: profile, schemesDownloaded: schemes, notContainedStatus: notContainedStatusScheme, pagination: pagination) { (success, msg, schemes) in
+            
+            if success {
+                for scheme in schemes! {
+                    self.schemes.append(scheme)
+                }
+                self.view?.reload()
+            } else {
+                self.view?.showMessageError(msg: msg)
+            }
+        }
+    }
 }
+
+//MARK - Live Querys
+
+extension TransactionPresenter {
+    
+    fileprivate var schemeOwnerQuery: PFQuery<Scheme>? {
+        return (Scheme.query()?
+            .whereKey(SchemeKeys.owner, equalTo: profile)
+            .order(byAscending: ObjectKeys.createdAt) as! PFQuery<Scheme>)
+    }
+    
+    fileprivate var schemeRequesterQuery: PFQuery<Scheme>? {
+        return (Scheme.query()?
+            .whereKey(SchemeKeys.requester, equalTo: profile)
+            .order(byAscending: ObjectKeys.createdAt) as! PFQuery<Scheme>)
+    }
+
+    func setupSubscriptions() {
+        subscriptionToOwnerSchemeQuery()
+        subscriptionToRequesterSchemeQuery()
+    }
+    
+    func subscriptionToOwnerSchemeQuery() {
+        subscriptionOwnerSchemeCreated = liveQueryClient
+            .subscribe(schemeOwnerQuery!)
+            .handle(Event.created) { _, scheme in
+                self.requestOwnerSchemesUser()
+        }
+        
+        subscriptionOwnerSchemeUpdated = liveQueryClient
+            .subscribe(schemeOwnerQuery!)
+            .handle(Event.updated) { _, scheme in
+                self.requestOwnerSchemesUser()
+                
+        }
+    }
+    
+
+    func subscriptionToRequesterSchemeQuery() {
+        subscriptionRequesterSchemeCreated = liveQueryClient
+            .subscribe(schemeRequesterQuery!)
+            .handle(Event.created) { _, scheme in
+                self.requestRequesterSchemesUser()
+                
+        }
+        
+        subscriptionRequesterSchemeUpdated = liveQueryClient
+            .subscribe(schemeRequesterQuery!)
+            .handle(Event.updated) { _, scheme in
+                self.requestRequesterSchemesUser()
+                
+        }
+    }
+}
+
+

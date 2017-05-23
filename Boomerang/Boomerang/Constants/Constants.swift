@@ -165,6 +165,7 @@ struct SchemeKeys {
     static let requester = "requester"
     static let owner = "owner"
     static let post = "post"
+    
 }
 
 //MARK - Scheme Status keys
@@ -209,4 +210,12 @@ struct SearchBarTitles {
 
 struct EvaluationTitles {
     static let placeholder = "Maximo de 140 caracteres, tá bom, migo?"
+}
+
+//MARK - Transaction Titles
+
+struct TransactionTitles {
+    static let have = "Empréstimo feito com"
+    static let donate = "Doação feita com"
+    static let need = "Troca feita com"
 }

@@ -103,7 +103,7 @@ class TransactionDetailViewController: UIViewController {
         
         cell.profileLinkButton.addTarget(self, action: #selector(goLinkProfile(_:)), for: .touchUpInside)
         cell.chatButton.addTarget(self, action: #selector(goChat(_:)), for: .touchUpInside)
-        cell.presenter.setScheme(scheme: presenter.scheme)
+        cell.presenter.scheme = presenter.scheme
         cell.updateInformationsCell()
         
         return cell
