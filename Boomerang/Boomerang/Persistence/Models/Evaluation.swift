@@ -14,7 +14,8 @@ class Evaluation: PFObject {
     @NSManaged var scheme: Scheme?
     @NSManaged var comment: String?
     @NSManaged var amountStars: NSNumber?
-    
+    @NSManaged var owner: Profile?
+    @NSManaged var requester: Profile?
     var createdDate: Date?
     
     override init(){
@@ -25,13 +26,14 @@ class Evaluation: PFObject {
     convenience init(scheme: Scheme, comment: String, amountStars: NSNumber) {
         self.init()
         self.scheme = scheme
+        self.owner = scheme.owner
+        self.requester = scheme.requester
         self.comment = comment
         self.amountStars = amountStars
     }
     
     convenience init(object: PFObject) {
         self.init()
-        
         self.setInformationsBy(object: object)
     }
     

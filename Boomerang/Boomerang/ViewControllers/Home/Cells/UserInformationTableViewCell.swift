@@ -17,8 +17,6 @@ class UserInformationTableViewCell: UITableViewCell {
     
     @IBOutlet var evaluationStarImage: [UIImageView]!
     
-    
-    
     var presenter: DetailThingPresenter = DetailThingPresenter()
     
     static var identifier: String {
@@ -45,6 +43,7 @@ class UserInformationTableViewCell: UITableViewCell {
         dateLabel.setDynamicFont()
         cityLabel.setDynamicFont()
     }
+    
 
     func updateCellUI(){
         userNameLabel.text = presenter.post.author!.fullName
@@ -57,3 +56,5 @@ class UserInformationTableViewCell: UITableViewCell {
         }
     }
 }
+
+

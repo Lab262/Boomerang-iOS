@@ -12,7 +12,7 @@ import UIKit
 
 class TransactionPresenter: NSObject {
     
-    fileprivate let pagination = 3
+    fileprivate let pagination = Paginations.schemes
     fileprivate var schemes: [Scheme] = [Scheme]()
     fileprivate var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?

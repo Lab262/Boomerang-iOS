@@ -74,6 +74,11 @@ struct Paginations {
 
 struct StatusSchemeId {
     static let progress = "FGoq2742yY"
+    static let finished = "gTRgdWgkJR"
+    static let canceled = "cHsRNXQpWS"
+    static let negotiation = "5MxzhBHxB7"
+    static let done = "j0MewQGDsX"
+    
 }
 
 //MARK - Strings contents
@@ -152,6 +157,23 @@ struct FollowKeys {
     static let from = "from"
 }
 
+//MARK - Scheme keys
+
+struct SchemeKeys {
+    static let className = "Scheme"
+    static let status = "status"
+    static let requester = "requester"
+    static let owner = "owner"
+    static let post = "post"
+}
+
+//MARK - Scheme Status keys
+
+struct SchemeStatusKeys {
+    static let className = "SchemeStatus"
+}
+
+
 
 //MARK - PF Object keys
 
@@ -183,4 +205,8 @@ struct SearchBarTitles {
     static let placeholder = "O que você procura?"
 }
 
+//MARK - SearchBar placeholder
 
+struct EvaluationTitles {
+    static let placeholder = "Maximo de 140 caracteres, tá bom, migo?"
+}

@@ -18,34 +18,19 @@ protocol EvaluationDelegate {
 
 class EvaluationPresenter: NSObject {
     
-    private var scheme: Scheme?
-    private var user: User = User.current()!
-    private var view: EvaluationDelegate?
-    private var placeHolderText: String = "Maximo de 140 caracteres, tá bom, migo?"
+    var scheme: Scheme!
+    var user: User = User.current()!
+    fileprivate var view: EvaluationDelegate?
+    var placeHolderText: String = EvaluationTitles.placeholder
     
     func setViewDelegate(view: EvaluationDelegate){
         self.view = view
     }
     
-    func setScheme(scheme: Scheme) {
-        self.scheme = scheme
-    }
-    
-    func getScheme() -> Scheme {
-        return self.scheme!
-    }
-    
-    func getUser() -> User {
-        return self.user
-    }
-    
-    func getPlaceHolderText() -> String {
-        return self.placeHolderText
-    }
-    
     func createEvaluationBy(starButtons: [UIButton], comment: String) {
         if verifyTextIsValid(text: comment) {
-            let evaluation = Evaluation(scheme: getScheme(), comment: comment, amountStars: NSNumber(integerLiteral: getAmountStars(starButtons: starButtons)))
+   
+            let evaluation = Evaluation(scheme: scheme, comment: comment, amountStars: NSNumber(integerLiteral: getAmountStars(starButtons: starButtons)))
             saveEvaluation(evaluation: evaluation)
         } else {
             self.view?.showMessage(error: "Avaliação inválida! :(")
@@ -74,7 +59,7 @@ class EvaluationPresenter: NSObject {
     }
     
     private func verifyTextIsValid(text: String) -> Bool {
-        if text == "" || text == getPlaceHolderText() {
+        if text == "" || text == placeHolderText {
             return false
         } else {
             return true
