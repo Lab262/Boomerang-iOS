@@ -162,7 +162,7 @@ struct ObjectKeys {
     static let isDeleted = "isDeleted"
 }
 
-//MARK - PF Object keys
+//MARK - Time Ago Strings
 
 struct TimeAgo {
     static let now = "Agora"
@@ -178,6 +178,9 @@ struct TimeAgo {
     static let year = " anos atrás"
 }
 
-
+//MARK - SearchBar placeholder
+struct SearchBarTitles {
+    static let placeholder = "O que você procura?"
+}
 
 

@@ -177,6 +177,12 @@ extension HomeMainViewController {
     
     func setupSearchBarConfiguration() {
         searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
+        searchBar.setBackgroundSearchBarColor(color: UIColor.backgroundSearchColor)
+        searchBar.setCursorSearchBarColor(color: UIColor.textSearchColor)
+        searchBar.setPlaceholderSearchBarColor(color: UIColor.textSearchColor)
+        searchBar.setTextSearchBarColor(color: UIColor.textSearchColor)
+        searchBar.setIconSearchBarColor(color: UIColor.textSearchColor)
+        searchBar.setClearIconSearchBarColor(color: UIColor.textSearchColor)
     }
     
     func setupTableViewConfiguration() {
