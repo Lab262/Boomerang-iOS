@@ -15,7 +15,8 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var navigationBar: IconNavigationBar!
     @IBOutlet weak var bgPostImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-     let placeholder = ["Nome do Produto","Nome do Produto","Local de retirada","placeholder"]
+    @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
+    let placeholder = ["Nome do Produto","Nome do Produto","Local de retirada","placeholder"]
     var fields:[String] = []
     var nameThing = String ()
     var descriptionThing = String ()
@@ -23,7 +24,12 @@ class ThrowViewController: UIViewController {
     var titleHeader = String()
     var imagePost: UIImage?
     var allimages:[UIImage]?
-    
+    var headerHeight = CGFloat(240)
+    var isHidden = false
+    var displayExpandedHeader = true
+    let expandedHeight = CGFloat(240)
+    let colapsedHeight = CGFloat(100)
+    var expandeIndexPath = IndexPath(row:0, section:0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +64,12 @@ class ThrowViewController: UIViewController {
     
         self.tableView.register(UINib(nibName: "HeaderPostTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderPostTableViewCell.cellIdentifier)
     
-    self.tableView.register(UINib(nibName: "TextFieldWithImageTableViewCell", bundle: nil), forCellReuseIdentifier: TextFieldWithImageTableViewCell.identifier)
-    
+        self.tableView.register(UINib(nibName: "TextFieldWithImageTableViewCell", bundle: nil), forCellReuseIdentifier: TextFieldWithImageTableViewCell.identifier)
+        
+          self.tableView.register(UINib(nibName: "FieldDatePickerTableViewCell", bundle: nil), forCellReuseIdentifier: FieldDatePickerTableViewCell.cellIdentifier)
+        
+        
+        
     }
 
     
@@ -82,20 +92,20 @@ class ThrowViewController: UIViewController {
         
         switch  typeVC.hashValue {
         case 0 :
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_need_post")
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_have")
             cell.titlePost.text = titleHeader
             break
         case  1 :
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_have_post")
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_need")
             cell.titlePost.text = titleHeader
             break
         case  2 :
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_donate_post")
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_donate")
             cell.titlePost.text = titleHeader
             break
         default:
             cell.titlePost.text = titleHeader
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_donate_post")
+            cell.imagePost.image = #imageLiteral(resourceName: "ic_have")
         }
         
         return cell
@@ -104,7 +114,9 @@ class ThrowViewController: UIViewController {
     
     func generateTextFieldWithImageCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:TextFieldWithImageTableViewCell.identifier, for: indexPath) as! TextFieldWithImageTableViewCell
-        cell.anexPhotoButton.delegate = self
+        
+        
+        
         
         return cell
         
@@ -122,9 +134,9 @@ class ThrowViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.cellIdentifier, for: indexPath) as! DescriptionTextTableViewCell
         cell.selectionStyle = .none
         
-        cell.handler!.completation = { (text) -> Void in
-            self.descriptionThing = text
-        }
+       // cell.handler!.completation = { (text) -> Void in
+         //   self.descriptionThing = text
+       // }
         return cell
         
     }
@@ -164,6 +176,15 @@ class ThrowViewController: UIViewController {
         
     }
     
+    func generateFieldDatePickerTableViewCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier:FieldDatePickerTableViewCell.cellIdentifier, for: indexPath) as! FieldDatePickerTableViewCell
+        
+        return cell
+        
+    }
+    
+    
     func generateSimpleTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
@@ -196,9 +217,7 @@ class ThrowViewController: UIViewController {
         let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.cellIdentifier) as! HeaderPostTableViewCell
       
         header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
-        
-        header.touchAreaThrowButton.addTarget(self, action:#selector(throwAction(_:)), for:.touchUpInside)
-        
+        header.delegate = self
         
         if let images = allimages {
             header.highlights = images
@@ -220,9 +239,7 @@ class ThrowViewController: UIViewController {
         return header
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 240
-    }
+  
     
     
     func createPost () {
@@ -338,18 +355,28 @@ extension ThrowViewController: UITableViewDataSource {
                 case .donate:
                     return generateWithDrawalCell(tableView, indexPath:indexPath)
                 case .have:
-                    return generateDescriptionCell(tableView, indexPath:indexPath)
+                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
                 case .need:
-                    return generateDescriptionCell(tableView, indexPath:indexPath)
+                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
                 }
             case 4:
+                switch typeVC {
+                case .donate:
+                    return generateWithDrawalCell(tableView, indexPath:indexPath)
+                case .have:
+                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
+                case .need:
+                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
+            }
+        
+            case 5:
                 switch typeVC {
                     case .donate:
                         return  UITableViewCell()
                     case .have:
-                        return generateTextFieldWithImageCell(tableView, indexPath:indexPath)
+                        return generateDescriptionCell(tableView, indexPath:indexPath)
                     case .need:
-                        return generateTextFieldWithImageCell(tableView, indexPath:indexPath)
+                        return generateDescriptionCell(tableView, indexPath:indexPath)
                     
                 }
             case 6:
@@ -374,23 +401,21 @@ extension ThrowViewController: UITableViewDataSource {
 
 extension ThrowViewController: UITableViewDelegate {
     
-
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          if indexPath.row == 0 {
-            return CGFloat(80)
+            return 80
         }else if indexPath.row == 1 {
             return CGFloat(100)
         }else if indexPath.row == 2 {
             switch typeVC {
                 case .donate:
-                    return CGFloat(175)
+                    return CGFloat(100)
                 case .have, .need:
                     return CGFloat(80)
             }
             
         }else if indexPath.row == 3 {
-            return CGFloat(150)
+            return CGFloat(200)
         }else if indexPath.row == 4 {
             return CGFloat(250)
         }else if indexPath.row == 5 {
@@ -405,8 +430,20 @@ extension ThrowViewController: UITableViewDelegate {
                    }else {
             return CGFloat(0)
         }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
         
-       
+        print("aqui ------>",offsetY)
+      
+        
+    }
+    
+ 
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return headerHeight
     }
 }
 

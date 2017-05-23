@@ -20,14 +20,29 @@ class BoomerMainViewController: UIViewController {
     var user = ApplicationState.sharedInstance.currentUser
     var type: TypePost = TypePost.need
     var titlePost = String()
+    var presenter = HomePresenter()
+    
+    @IBOutlet weak var buttonDonateImage: UIImageView!
+    @IBOutlet weak var buttonHaveImage: UIImageView!
+    @IBOutlet weak var buttonNeedImage: UIImageView!
     @IBAction func showMenu(_ sender: Any) {
         
         //TabBarController.showMenu()
     }
+    override func viewDidLoad() {
+//        setUserInformationsInHUD()
+     
+    }
+    override func viewDidAppear(_ animated: Bool) {
+           self.animationButtos()
+    }
     
+    func animationButtos(){
+     
+    }
     override func viewWillAppear(_ animated: Bool) {
-        //self.getProfilePhoto()
-        
+        self.getProfilePhoto()
+
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goThrowVC") {
@@ -72,20 +87,6 @@ class BoomerMainViewController: UIViewController {
         
         guard let image = user?.profileImage else {
             profileImage.loadAnimation()
-            
-            
-            
-            //            UserRequest.getProfilePhoto(user: user!, completionHandler: { (success, msg, photo) in
-            //
-            //                if success {
-            //                    self.user?.profileImage = photo
-            //                    self.profileImage.image = photo
-            //                    self.profileImage.unload()
-            //                } else {
-            //
-            //                }
-            //            })
-            
             return
         }
         
@@ -94,3 +95,20 @@ class BoomerMainViewController: UIViewController {
     }
 
 }
+//extension BoomerMainViewController {
+//    
+//    func setUserInformationsInHUD(){
+//        
+//        self.profileImage.loadAnimation()
+//        presenter.getUserImage { (success, msg, image) in
+//            if success {
+//                self.profileImage.unload()
+//                self.profileImage.image = image
+//                self.presenter.getUser().profileImage = image
+//            } else {
+//                self.profileImage.unload()
+//            }
+//        }
+//    }
+//}
+
