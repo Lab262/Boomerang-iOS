@@ -511,7 +511,6 @@ class ParseRequest: NSObject {
                             completionHandler(false, error.debugDescription, nil)
                         }
                     })
-                   // completionHandler(true, "Success", objects)
                 } else {
                     completionHandler(false, error.debugDescription, nil)
                 }
@@ -565,20 +564,6 @@ class ParseRequest: NSObject {
         default:
             break
         }
-//        
-//        let query = PFQuery(className: className)
-//        query.whereKey(key, containedIn: value)
-//        query.limit = pagination
-//        
-//        query.findObjectsInBackground { (objects, error) in
-//            
-//            if error == nil {
-//                completionHandler(true, "Success", objects)
-//                
-//            } else {
-//                completionHandler(false, error.debugDescription, nil)
-//            }
-//        }
     }
     
     static func queryContainedInWithInclude(className: String, key: String, value: [Any], include: String, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {

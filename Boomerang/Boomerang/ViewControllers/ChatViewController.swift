@@ -40,8 +40,7 @@ class ChatViewController: JSQMessagesViewController {
     func configureCollectionView() {
         collectionView?.collectionViewLayout.incomingAvatarViewSize = .zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = .zero
-        collectionView?.collectionViewLayout.springinessEnabled = false
-        automaticallyScrollsToMostRecentMessage = false
+        automaticallyScrollsToMostRecentMessage = true
         collectionView?.reloadData()
         collectionView?.layoutIfNeeded()
     }
