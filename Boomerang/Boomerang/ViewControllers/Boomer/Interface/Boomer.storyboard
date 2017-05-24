@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -108,13 +107,13 @@
                                 <rect key="frame" x="261" y="264" width="72" height="72"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="ic_have_boomer" translatesAutoresizingMaskIntoConstraints="NO" id="r2C-5Y-HBK">
-                                <rect key="frame" x="152.5" y="264" width="72" height="72"/>
+                                <rect key="frame" x="152" y="264" width="72" height="72"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_donate_boomer" translatesAutoresizingMaskIntoConstraints="NO" id="u6j-Nm-K5a">
                                 <rect key="frame" x="43.5" y="264" width="72" height="72"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQ8-Rq-caW">
-                                <rect key="frame" x="33" y="356" width="92" height="28"/>
+                                <rect key="frame" x="33" y="356" width="91.5" height="28"/>
                                 <color key="backgroundColor" red="0.56862745098039214" green="0.21568627450980393" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <state key="normal" title="Preciso">
@@ -127,7 +126,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3w-Sn-5oR">
-                                <rect key="frame" x="142" y="356" width="92" height="28"/>
+                                <rect key="frame" x="141.5" y="356" width="92" height="28"/>
                                 <color key="backgroundColor" red="0.56862745098039214" green="0.21568627450980393" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <state key="normal" title="Tenho">
@@ -140,7 +139,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-vS-cYo">
-                                <rect key="frame" x="250.5" y="356" width="92" height="28"/>
+                                <rect key="frame" x="250.5" y="356" width="91.5" height="28"/>
                                 <color key="backgroundColor" red="0.56862745098039214" green="0.21568627450980393" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <state key="normal" title="Doação">
@@ -153,19 +152,19 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LvH-6G-AlT">
-                                <rect key="frame" x="33" y="264" width="92" height="120"/>
+                                <rect key="frame" x="33" y="264" width="91.5" height="120"/>
                                 <connections>
                                     <action selector="iNeedaction:" destination="0JS-4Y-MWq" eventType="touchUpInside" id="YJa-8f-gpZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhi-DJ-LXI">
-                                <rect key="frame" x="142" y="264" width="92" height="120"/>
+                                <rect key="frame" x="141.5" y="264" width="92" height="120"/>
                                 <connections>
                                     <action selector="iHaveAction:" destination="0JS-4Y-MWq" eventType="touchUpInside" id="aXN-Pn-Mv6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTN-O2-eOJ">
-                                <rect key="frame" x="250.5" y="264" width="92" height="120"/>
+                                <rect key="frame" x="250.5" y="264" width="91.5" height="120"/>
                                 <connections>
                                     <action selector="donateAction:" destination="0JS-4Y-MWq" eventType="touchUpInside" id="kLV-JG-QI7"/>
                                 </connections>
@@ -254,12 +253,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Jo-pP-gMf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="667" id="Wvx-uG-0HN"/>
-                                    <constraint firstAttribute="width" constant="375" id="zie-RL-yxB"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="shC-dA-vya" id="NOf-oc-svN"/>
                                     <outlet property="delegate" destination="shC-dA-vya" id="8GO-3q-FSW"/>
@@ -269,23 +264,26 @@
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.62745098039215685" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="NaW-K6-HiV"/>
+                                    <constraint firstAttribute="height" constant="50" id="eQ9-aR-6wn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="19"/>
                                 <state key="normal" title="Arremessar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="throwAction:" destination="shC-dA-vya" eventType="touchUpInside" id="jGq-zl-r65"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="iTq-ly-gCw" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="OPJ-yq-XQd"/>
                             <constraint firstItem="Kc3-A7-MHE" firstAttribute="top" secondItem="iTq-ly-gCw" secondAttribute="bottom" id="PH2-gH-L47"/>
-                            <constraint firstItem="Kc3-A7-MHE" firstAttribute="top" secondItem="7Jo-pP-gMf" secondAttribute="bottom" id="PVy-va-b01"/>
                             <constraint firstItem="7Jo-pP-gMf" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="RQj-ko-5iZ"/>
                             <constraint firstItem="7Jo-pP-gMf" firstAttribute="top" secondItem="ebX-LI-CWe" secondAttribute="top" id="Y9k-6M-LYd"/>
+                            <constraint firstAttribute="trailing" secondItem="iTq-ly-gCw" secondAttribute="trailing" id="bKC-0g-pme"/>
                             <constraint firstAttribute="trailing" secondItem="7Jo-pP-gMf" secondAttribute="trailing" id="cTx-Fc-gc3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iTq-ly-gCw" secondAttribute="trailing" constant="-16" id="cwb-9X-bNz"/>
-                            <constraint firstItem="iTq-ly-gCw" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leadingMargin" constant="-16" id="kcH-DF-TbQ"/>
+                            <constraint firstItem="iTq-ly-gCw" firstAttribute="top" secondItem="7Jo-pP-gMf" secondAttribute="bottom" id="s0s-0k-jiD"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
@@ -295,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1n-i6-6wA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306" y="143"/>
+            <point key="canvasLocation" x="1304.8" y="142.57871064467767"/>
         </scene>
         <!--Feedback Confirmation View Controller-->
         <scene sceneID="VPB-6m-anQ">

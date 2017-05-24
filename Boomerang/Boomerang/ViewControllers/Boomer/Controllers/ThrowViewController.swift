@@ -24,7 +24,7 @@ class ThrowViewController: UIViewController {
     var titleHeader = String()
     var imagePost: UIImage?
     var allimages:[UIImage]?
-    var headerHeight = CGFloat(240)
+    var headerHeight = CGFloat(200)
     var isHidden = false
     var displayExpandedHeader = true
     let expandedHeight = CGFloat(240)
