@@ -180,6 +180,10 @@
 		605300EF1ED3A29E00584418 /* UISearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605300EE1ED3A29E00584418 /* UISearchBarExtension.swift */; };
 		605300F01ED3A29E00584418 /* UISearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605300EE1ED3A29E00584418 /* UISearchBarExtension.swift */; };
 		605300F11ED3A29E00584418 /* UISearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605300EE1ED3A29E00584418 /* UISearchBarExtension.swift */; };
+		605300F21ED5F38400584418 /* BoomerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F744CD81EC25ECB00AF724A /* BoomerPresenter.swift */; };
+		605300F31ED5F38500584418 /* BoomerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F744CD81EC25ECB00AF724A /* BoomerPresenter.swift */; };
+		605300F41ED5F39100584418 /* FeedbackConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9841061EB179AA00A937A3 /* FeedbackConfirmationViewController.swift */; };
+		605300F51ED5F39200584418 /* FeedbackConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9841061EB179AA00A937A3 /* FeedbackConfirmationViewController.swift */; };
 		605DEF3A1ECCD03800D1D233 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605DEF391ECCD03800D1D233 /* UILabelExtension.swift */; };
 		605DEF3B1ECCD03800D1D233 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605DEF391ECCD03800D1D233 /* UILabelExtension.swift */; };
 		605DEF3C1ECCD03800D1D233 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605DEF391ECCD03800D1D233 /* UILabelExtension.swift */; };
@@ -251,7 +255,6 @@
 		A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE06381DD09D7300BFDC4D /* BoomerThing.swift */; };
 		A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE063A1DD0A13E00BFDC4D /* Dictionary+Indexable.swift */; };
 		ABE35325F3C26FD15718BE56 /* Pods_lab262_boomerang_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8A72A18B28776E445F9EC0 /* Pods_lab262_boomerang_dev.framework */; };
-		BA455F8AF71EF03037491F19 /* Pods_Boomerang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */; };
 		D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E491E8AA7CE008174D2 /* DetailThingPresenter.swift */; };
 		D40C0E4C1E8AAD58008174D2 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E4B1E8AAD58008174D2 /* CommentRequest.swift */; };
 		D40C0E4D1E8B020A008174D2 /* PhotoThingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */; };
@@ -1245,7 +1248,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA455F8AF71EF03037491F19 /* Pods_Boomerang.framework in Frameworks */,
 				D80B7259AA749C6E7284827E /* Pods_lab262_boomerang_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3337,6 +3339,7 @@
 				D4AD97791EA9ACFD00C9FAB9 /* WantBorrowTableViewCell.swift in Sources */,
 				D42F22EA1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */,
 				D4AD977A1EA9ACFD00C9FAB9 /* TextViewHandler.swift in Sources */,
+				605300F41ED5F39100584418 /* FeedbackConfirmationViewController.swift in Sources */,
 				D484FA3E1EADB3180054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4CA48B01EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */,
 				D4AD977B1EA9ACFD00C9FAB9 /* SchemeRequest.swift in Sources */,
@@ -3494,6 +3497,7 @@
 				D4AD97F11EA9ACFD00C9FAB9 /* AuthenticationMainViewController.swift in Sources */,
 				D4AD97F21EA9ACFD00C9FAB9 /* TransactionFilterPresenter.swift in Sources */,
 				D4CA48A71EC9F49E003C17F6 /* Recommended.swift in Sources */,
+				605300F21ED5F38400584418 /* BoomerPresenter.swift in Sources */,
 				D4B3B5571EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				D4AD97F31EA9ACFD00C9FAB9 /* ThrowButtonTableViewCell.swift in Sources */,
 				D4AD97F41EA9ACFD00C9FAB9 /* UIView+IBInspector.swift in Sources */,
@@ -3517,6 +3521,7 @@
 				D4AD98451EA9AD0400C9FAB9 /* WantBorrowTableViewCell.swift in Sources */,
 				D42F22EB1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */,
 				D4AD98461EA9AD0400C9FAB9 /* TextViewHandler.swift in Sources */,
+				605300F51ED5F39200584418 /* FeedbackConfirmationViewController.swift in Sources */,
 				D484FA3F1EADB3190054E415 /* SearchFriendsTableViewCell.swift in Sources */,
 				D4CA48B11EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */,
 				D4AD98471EA9AD0400C9FAB9 /* SchemeRequest.swift in Sources */,
@@ -3674,6 +3679,7 @@
 				D4AD98BD1EA9AD0400C9FAB9 /* AuthenticationMainViewController.swift in Sources */,
 				D4AD98BE1EA9AD0400C9FAB9 /* TransactionFilterPresenter.swift in Sources */,
 				D4CA48A81EC9F49E003C17F6 /* Recommended.swift in Sources */,
+				605300F31ED5F38500584418 /* BoomerPresenter.swift in Sources */,
 				D4B3B5581EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				D4AD98BF1EA9AD0400C9FAB9 /* ThrowButtonTableViewCell.swift in Sources */,
 				D4AD98C01EA9AD0400C9FAB9 /* UIView+IBInspector.swift in Sources */,
