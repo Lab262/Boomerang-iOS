@@ -16,29 +16,51 @@ class SwitchButtonTableViewCell: UITableViewCell {
     @IBOutlet weak var borrowedButton: UIButton!
     @IBOutlet weak var swapButton: UIButton!
     @IBOutlet weak var swapImageView: UIImageView!
+    
+    var firstOptionTitle: String? {
+        didSet{
+            let title = firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white)
+            borrowedButton.setAttributedTitle(title, for: .normal)
+        }
+    }
+    
+    var secondOptionTitle: String? {
+        didSet{
+            let title = secondOptionTitle?.with(characterSpacing: 1.3,color:.unselectedTextButtonColor)
+            swapButton.setAttributedTitle(title, for: .normal)
+        }
+    }
    
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        borrowedButton.titleEdgeInsets.left = 20;
+        swapButton.titleEdgeInsets.left = 20;
         // Initialization code
     }
     @IBAction func borrowAction(_ sender: Any) {
         self.boorowedImageView.image = #imageLiteral(resourceName: "ic_swipe_check")
-        self.borrowedButton.backgroundColor = UIColor.colorWithHexString("903A7B")
-        self.borrowedButton.setTitleColor(UIColor.white, for: .normal)
+        self.borrowedButton.backgroundColor = .unselectedTextButtonColor
+        
+        let titleFirst = firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white)
+        borrowedButton.setAttributedTitle(titleFirst, for: .normal)
         
         self.swapImageView.image =  #imageLiteral(resourceName: "ic_swipeOval")
         self.swapButton.backgroundColor = UIColor.white
-        self.swapButton.setTitleColor(UIColor.colorWithHexString("903A7B"), for: .normal)
+        
+        let titleSecond = secondOptionTitle?.with(characterSpacing: 1.3,color:.unselectedTextButtonColor)
+        swapButton.setAttributedTitle(titleSecond, for: .normal)
     }
     @IBAction func swapAction(_ sender: Any) {
         self.boorowedImageView.image = #imageLiteral(resourceName: "ic_swipeOval")
         self.borrowedButton.backgroundColor = UIColor.white
-        self.borrowedButton.setTitleColor(UIColor.colorWithHexString("903A7B"), for: .normal)
+        let titleFirst = firstOptionTitle?.with(characterSpacing: 1.3,color:.unselectedTextButtonColor)
+        borrowedButton.setAttributedTitle(titleFirst, for: .normal)
         
         self.swapImageView.image =  #imageLiteral(resourceName: "ic_swipe_check")
-        self.swapButton.backgroundColor =  UIColor.colorWithHexString("903A7B")
-        self.swapButton.setTitleColor(UIColor.white, for: .normal)
+        self.swapButton.backgroundColor =  .unselectedTextButtonColor
+        let titleSecond = secondOptionTitle?.with(characterSpacing: 1.3,color:UIColor.white)
+        swapButton.setAttributedTitle(titleSecond, for: .normal)
         
        
     }

@@ -236,3 +236,10 @@ struct TransactionTitles {
     static let donate = "Doação feita com"
     static let need = "Troca feita com"
 }
+
+//MARK - Create Post Titles
+
+struct CreatePostTitles {
+    static let borrowed = "Emprestado"
+    static let toSwitch = "Para troca"
+}

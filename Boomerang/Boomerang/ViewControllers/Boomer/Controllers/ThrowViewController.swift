@@ -145,6 +145,8 @@ class ThrowViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.cellIdentifier, for: indexPath) as! SwitchButtonTableViewCell
         cell.selectionStyle = .none
+        cell.firstOptionTitle = CreatePostTitles.borrowed
+        cell.secondOptionTitle = CreatePostTitles.toSwitch
         
         return cell
         

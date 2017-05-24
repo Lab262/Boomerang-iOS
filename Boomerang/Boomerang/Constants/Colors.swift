@@ -108,4 +108,13 @@ extension UIColor {
         }
     }
     
+    //MARK: - COLORS CREATE POST
+    static var unselectedTextButtonColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("903A7B")
+        }
+    }
+    
+    
+    
 }
