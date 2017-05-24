@@ -13,8 +13,10 @@ class DescriptionTextTableViewCell: UITableViewCell {
     var handler: TextViewHandler?
 
     @IBOutlet weak var textView: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.textView?.textContainerInset.left = 10;
         self.handler = TextViewHandler(textView: textView)
     }
 

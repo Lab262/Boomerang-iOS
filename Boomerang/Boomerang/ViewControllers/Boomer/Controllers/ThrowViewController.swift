@@ -337,9 +337,7 @@ extension ThrowViewController: UITableViewDataSource {
                 switch typeVC {
                     case .donate:
                        return generateNameProducTextCell(tableView, indexPath:indexPath)
-                    case .have:
-                       return generateSwitchButtonCell(tableView, indexPath:indexPath)
-                    case .need:
+                    case .have, .need:
                         return generateSwitchButtonCell(tableView, indexPath:indexPath)
 
                 }
@@ -347,19 +345,21 @@ extension ThrowViewController: UITableViewDataSource {
                 switch typeVC {
                     case .donate:
                         return generateDescriptionCell(tableView, indexPath:indexPath)
-                    case .have:
-                        return generateNameProducTextCell(tableView, indexPath:indexPath)
-                    case .need:
+                    case .have, .need:
                         return generateNameProducTextCell(tableView, indexPath:indexPath)
                 }
             case 3:
                 switch typeVC {
                 case .donate:
-                    return generateWithDrawalCell(tableView, indexPath:indexPath)
-                case .have:
-                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
-                case .need:
-                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
+                    return generateDescriptionCell(tableView, indexPath:indexPath)
+                case .have, .need:
+                    return generateDescriptionCell(tableView, indexPath:indexPath)
+//                case .donate:
+//                    return generateWithDrawalCell(tableView, indexPath:indexPath)
+//                case .have:
+//                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
+//                case .need:
+//                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
                 }
             case 4:
                 switch typeVC {
@@ -417,7 +417,7 @@ extension ThrowViewController: UITableViewDelegate {
             }
             
         }else if indexPath.row == 3 {
-            return CGFloat(200)
+            return CGFloat(100)
         }else if indexPath.row == 4 {
             return CGFloat(250)
         }else if indexPath.row == 5 {
