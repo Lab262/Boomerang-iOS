@@ -11,23 +11,6 @@ import Parse
 
 class ChatRequest: NSObject {
     
-    static func createChat(requester: Profile, owner: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        
-        let chat = PFObject(className: "Chat")
-        
-        chat["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
-        chat["requester"] = ["__type": "Pointer", "className": "_User", "objectId": requester.objectId]
-        chat["owner"] = ["__type": "Pointer", "className": "_User", "objectId": owner.objectId]
-        
-        chat.saveInBackground { (success, error) in
-            if error == nil {
-                completionHandler(success, "success")
-            } else {
-                completionHandler(success, error!.localizedDescription)
-            }
-        }
-    }
-    
     static func createMessageInChat(message: Message, chat: Chat, completionHandler: @escaping (_ success: Bool, _ msg: String?) -> ()) {
         
         let object = PFObject(className: message.parseClassName)
@@ -86,11 +69,18 @@ class ChatRequest: NSObject {
         }
     }
     
-    static func getMessagesInBackground(chat: Chat, skip: Int, pagination: Int,completionHandler: @escaping (_ success: Bool, _ msg: String, _ msgs: [Message]?) -> Void) {
+    static func getMessagesInBackground(chat: Chat, pagination: Int,completionHandler: @escaping (_ success: Bool, _ msg: String, _ msgs: [Message]?) -> Void) {
         
         var messages = [Message]()
+        var messagesIds = [String]()
+        chat.messagesArray.forEach {
+            messagesIds.append($0.objectId!)
+        }
         
-        chat.getRelationsInBackgroundBy(key: "messages", keyColunm: nil, isNotContained: nil, pagination: pagination, skip: skip, notContainedKeys: nil) { (success, msg, objects) in
+        let notContainedObjects = [ObjectKeys.objectId: messagesIds]
+        
+        chat.getRelationsInBackgroundBy(key: "messages", keyColunm: nil, isNotContained: nil, pagination: pagination, notContainedKeys: nil, cachePolicy: .cacheElseNetwork, notContainedObjects: notContainedObjects) { (success, msg, objects) in
+            
             if success {
                 for object in objects! {
                     let relation = Message(object: object)
@@ -102,5 +92,19 @@ class ChatRequest: NSObject {
                 completionHandler(success, msg, nil)
             }
         }
+        
+        
+//        chat.getRelationsInBackgroundBy(key: "messages", keyColunm: nil, isNotContained: nil, pagination: pagination, notContainedKeys: nil) { (success, msg, objects) in
+//            if success {
+//                for object in objects! {
+//                    let relation = Message(object: object)
+//                    messages.append(relation)
+//                    chat.messagesArray.append(relation)
+//                }
+//                completionHandler(success, msg, messages)
+//            } else {
+//                completionHandler(success, msg, nil)
+//            }
+//        }
     }
 }

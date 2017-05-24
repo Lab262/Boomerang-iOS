@@ -179,7 +179,7 @@ class PostRequest: NSObject {
             }
         }
         
-        post.getRelationsInBackgroundBy(key: "photos", keyColunm: "imageFile", isNotContained: true, notContainedKeys: notContainedKeys ) { (success, msg, objects) in
+        post.getRelationsInBackgroundBy(key: "photos", keyColunm: "imageFile", isNotContained: true, pagination: 100, notContainedKeys: notContainedKeys, cachePolicy: .networkElseCache ) { (success, msg, objects) in
             if success {
                 if post.relations == nil {
                     post.relations = [Photo]()

@@ -38,7 +38,7 @@ class MessagesChatViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? ChatViewController {
-            controller.presenter.setChat(chat: chat!)
+            controller.presenter.chat = chat!
         }
     }
 

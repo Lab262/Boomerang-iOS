@@ -20,7 +20,6 @@ class TransactionPresenter: NSObject {
     var notContainedStatusScheme: [StatusScheme] = [StatusScheme]()
     
     fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
-    
     fileprivate var subscriptionOwnerSchemeCreated: Subscription<Scheme>?
     fileprivate var subscriptionOwnerSchemeUpdated: Subscription<Scheme>?
     fileprivate var subscriptionRequesterSchemeCreated: Subscription<Scheme>?

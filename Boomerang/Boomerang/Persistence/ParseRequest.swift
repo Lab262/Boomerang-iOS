@@ -632,13 +632,21 @@ extension PFObject {
         
     }
     
-    func getRelationsInBackgroundBy(key: String, keyColunm: String? = "", isNotContained: Bool? = false, pagination: Int? = 100, skip: Int? = 0, notContainedKeys: [Any]? = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    func getRelationsInBackgroundBy(key: String, keyColunm: String? = "", isNotContained: Bool? = false, pagination: Int, notContainedKeys: [Any]? = [Any](), cachePolicy: PFCachePolicy, notContainedObjects: [String: [Any]]? = nil, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+        
+
         
         let relation = self.relation(forKey: key)
         let query = relation.query()
-        query.limit = pagination!
-        query.skip = skip!
-        query.order(byAscending: "createdAt")
+        query.limit = pagination
+        query.cachePolicy = cachePolicy
+        query.order(byAscending: ObjectKeys.createdAt)
+        
+        if let allNotContainedObjects = notContainedObjects {
+            allNotContainedObjects.forEach {
+                query.whereKey($0.key, notContainedIn: $0.value)
+            }
+        }
         
 //        if isNotContained! {
 //            query.whereKey(keyColunm!, notContainedIn: notContainedKeys!)
@@ -668,7 +676,7 @@ extension PFObject {
     
     func getRelationsInBackgroundWithDataBy(key: String, keyFile: String, isNotContained: Bool = false, notContainedKeys: [Any] = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ relations: [PFObject]?, _ data: Data?) -> Void) {
         
-        getRelationsInBackgroundBy(key: key, keyColunm: keyFile, isNotContained: isNotContained, notContainedKeys: notContainedKeys) { (success, msg, relations) in
+        getRelationsInBackgroundBy(key: key, keyColunm: keyFile, isNotContained: isNotContained, pagination: 100, notContainedKeys: notContainedKeys, cachePolicy: .networkElseCache) { (success, msg, relations) in
             if success {
                 for relation in relations! {
                     relation.getDataInBackgroundBy(key: keyFile, completionHandler: { (success, msg, data) in

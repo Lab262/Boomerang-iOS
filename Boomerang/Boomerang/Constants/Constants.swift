@@ -68,6 +68,7 @@ struct Paginations {
     static let notifications = 3
     static let comments = 10
     static let morePosts = 10
+    static let messages = 5
 }
 
 //MARK - Status Scheme Ids
@@ -165,8 +166,16 @@ struct SchemeKeys {
     static let requester = "requester"
     static let owner = "owner"
     static let post = "post"
-    
 }
+
+//MARK - Chat keys
+
+struct ChatKeys {
+    static let className = "Chat"
+    static let messages = "messages"
+}
+
+
 
 //MARK - Scheme Status keys
 
