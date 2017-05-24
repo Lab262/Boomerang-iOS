@@ -65,46 +65,40 @@ class TabBarController: UIViewController {
     }
 
     @IBAction func selectButton(_ sender: UIButton) {
-        for button in buttons {
-            
-            if button.tag == sender.tag {
-                if sender.tag == 2 {
-                    self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
-                    self.imgViewCenterOption.image = #imageLiteral(resourceName: "ic_boomerangWhite")
-                    self.viewContainerCenterOption.backgroundColor = .yellowBoomerColor
-                }else{
-                    button.isSelected = true
-                }
-            } else {
-                if sender.tag == 2 {
-                    self.imgViewCenterOption.image = #imageLiteral(resourceName: "tabbar_boomer_icon")
-                    self.viewContainerCenterOption.backgroundColor = .white
-                }else{
-                    button.isSelected = false
-                }
-            }
-            
-//            if sender.tag == 2 {
-//                self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
-//                self.imgViewCenterOption.image = #imageLiteral(resourceName: "ic_boomerangWhite")
-//                self.viewContainerCenterOption.backgroundColor = .yellowBoomerColor
-//            } else {
-//                
-//                self.imgViewCenterOption.image = #imageLiteral(resourceName: "tabbar_boomer_icon")
-//                self.viewContainerCenterOption.backgroundColor = .white
-//                if button.tag == sender.tag {
-//                    button.isSelected = true
-//                } else {
-//                    button.isSelected = false
-//                }
-//            }
-        }
+        
+        changeStatesButtons(tag: sender.tag)
         
         if self.uiTabBarController.selectedIndex == sender.tag {
             self.setupNotification(tabBarIndexView: uiTabBarController.selectedIndex)
         }
         
         self.uiTabBarController.selectedIndex = sender.tag
+    }
+    
+    func selectButtonPost(tag: Int){
+        if tag == 2 {
+            self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
+            self.imgViewCenterOption.image = #imageLiteral(resourceName: "ic_boomerangWhite")
+            self.viewContainerCenterOption.backgroundColor = .yellowBoomerColor
+        }else{
+            self.imgViewCenterOption.image = #imageLiteral(resourceName: "tabbar_boomer_icon")
+            self.viewContainerCenterOption.backgroundColor = .white
+        }
+    }
+    
+    func changeStatesButtons(tag: Int){
+        
+        selectButtonPost(tag: tag)
+        
+        for button in buttons {
+            if button.tag != 2 {
+                if button.tag == tag {
+                    button.isSelected = true
+                }else{
+                    button.isSelected = false
+                }
+            }
+        }
     }
 
 
