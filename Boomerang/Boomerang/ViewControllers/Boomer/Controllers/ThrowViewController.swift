@@ -403,7 +403,7 @@ extension ThrowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          if indexPath.row == 0 {
-            return 80
+            return 65.5
         }else if indexPath.row == 1 {
             return CGFloat(100)
         }else if indexPath.row == 2 {
