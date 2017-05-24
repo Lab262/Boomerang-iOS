@@ -22,10 +22,11 @@ class HeaderPostTableViewCell: UITableViewCell {
     @IBOutlet weak var photo: UIImageView!
     var delegate: UIIButtonWithPickerDelegate? = nil
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-       self.registerNibs()
+        self.registerNibs()
+        self.configureLabel()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,6 +35,10 @@ class HeaderPostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configureLabel(){
+        let title = titleLabel.text?.with(characterSpacing: 1.67, color:titleLabel.textColor)
+        titleLabel.attributedText = title
+    }
 
     func registerNibs() {
         collectionView.registerNibFrom(HighlightCollectionViewCell.self)
