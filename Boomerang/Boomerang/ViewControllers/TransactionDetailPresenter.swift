@@ -32,11 +32,12 @@ class TransactionDetailPresenter: NSObject {
     }
     
     func getUserOwnATransaction() -> Profile {
-        if scheme.owner == profile {
-            return scheme.requester!
-        } else {
-            return scheme.owner!
-        }
+        return scheme.dealer!
+//        if scheme.owner == profile {
+//            return scheme.requester!
+//        } else {
+//            return scheme.owner!
+//        }
     }
     
     func finalizeScheme() {

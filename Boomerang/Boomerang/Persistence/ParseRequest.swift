@@ -634,8 +634,6 @@ extension PFObject {
     
     func getRelationsInBackgroundBy(key: String, keyColunm: String? = "", isNotContained: Bool? = false, pagination: Int, notContainedKeys: [Any]? = [Any](), cachePolicy: PFCachePolicy, notContainedObjects: [String: [Any]]? = nil, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
-
-        
         let relation = self.relation(forKey: key)
         let query = relation.query()
         query.limit = pagination
@@ -647,10 +645,6 @@ extension PFObject {
                 query.whereKey($0.key, notContainedIn: $0.value)
             }
         }
-        
-//        if isNotContained! {
-//            query.whereKey(keyColunm!, notContainedIn: notContainedKeys!)
-//        }
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {

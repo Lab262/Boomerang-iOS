@@ -13,56 +13,28 @@ class ChatRequest: NSObject {
     
     static func createMessageInChat(message: Message, chat: Chat, completionHandler: @escaping (_ success: Bool, _ msg: String?) -> ()) {
         
-        let object = PFObject(className: message.parseClassName)
-        let keys = message.allKeys
-        let values = keys.map { message.value(forKey: $0) }
-        
-        for case let (i, value?) in values.enumerated() {
-            object[keys[i]] = value
-        }
-        
-        object.saveInBackground { (success, error) in
+        message.saveInBackground { (success, error) in
             if success {
-                let query = PFQuery(className: "Chat")
-                query.getObjectInBackground(withId: chat.objectId!) { (chat, error) in
-                    if error == nil {
-                        let relation = chat?.relation(forKey:"messages")
-                        relation?.add(object)
-                        chat?.saveInBackground(block: { (success, error) in
-                            completionHandler(success, error?.localizedDescription)
-                        })
-                    } else {
-                        completionHandler(success, error?.localizedDescription)
-                    }
-                }
-            } else {
-                completionHandler(success, error?.localizedDescription)
+                chat.messages.add(message)
+                chat.saveInBackground(block: { (success, error) in
+                    completionHandler(success, error?.localizedDescription)
+                })
             }
         }
     }
     
     static func getChatOf(requester: Profile, owner: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ chat: Chat?) -> ()) {
         
-        var queryParams = [String : Any]()
-        queryParams["requester"] = requester
-        queryParams["owner"] = owner
-        queryParams["post"] = post
+        var queryParams = [String : [Any]]()
+        queryParams[ChatKeys.requester] = [requester]
+        queryParams[ChatKeys.owner] = [owner]
+        queryParams[ChatKeys.post] = [post]
         
-        ParseRequest.queryEqualToValue(className: "Chat", queryParams: queryParams, includes: nil) { (success, msg, objects) in
+        ParseRequest.queryEqualToValueNotContainedObjects(className: Chat.parseClassName(), queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkElseCache, notContainedObjects: nil, includes: nil, pagination: 100) { (success, msg, objects) in
+            
             if success {
-                let chat: Chat?
-                
-                if objects!.count > 0 {
-                    chat = Chat(object: objects!.first!)
-                    chat?.post = post
-                    chat?.requester = requester
-                    chat?.owner = owner
-                    
-                    completionHandler(success, msg, chat)
-                } else {
-                   completionHandler(false, msg, nil)
-                }
-                
+                let chat = objects?.first as? Chat
+                completionHandler(success, msg, chat)
             } else {
                 completionHandler(false, msg, nil)
             }
@@ -77,34 +49,23 @@ class ChatRequest: NSObject {
             messagesIds.append($0.objectId!)
         }
         
-        let notContainedObjects = [ObjectKeys.objectId: messagesIds]
+        var notContainedObjects = [String: [Any]]()
         
-        chat.getRelationsInBackgroundBy(key: "messages", keyColunm: nil, isNotContained: nil, pagination: pagination, notContainedKeys: nil, cachePolicy: .cacheElseNetwork, notContainedObjects: notContainedObjects) { (success, msg, objects) in
-            
+        if messagesIds.count > 1 {
+            notContainedObjects[ObjectKeys.objectId] = messagesIds
+        }
+        
+        chat.getRelationsInBackgroundBy(key: ChatKeys.messages, keyColunm: nil, isNotContained: nil, pagination: pagination, notContainedKeys: nil, cachePolicy: .networkElseCache, notContainedObjects: notContainedObjects) { (success, msg, objects) in
             if success {
                 for object in objects! {
-                    let relation = Message(object: object)
-                    messages.append(relation)
-                    chat.messagesArray.append(relation)
+                    let message = object as? Message
+                    messages.append(message!)
+                    chat.messagesArray.append(message!)
                 }
                 completionHandler(success, msg, messages)
             } else {
                 completionHandler(success, msg, nil)
             }
         }
-        
-        
-//        chat.getRelationsInBackgroundBy(key: "messages", keyColunm: nil, isNotContained: nil, pagination: pagination, notContainedKeys: nil) { (success, msg, objects) in
-//            if success {
-//                for object in objects! {
-//                    let relation = Message(object: object)
-//                    messages.append(relation)
-//                    chat.messagesArray.append(relation)
-//                }
-//                completionHandler(success, msg, messages)
-//            } else {
-//                completionHandler(success, msg, nil)
-//            }
-//        }
     }
 }

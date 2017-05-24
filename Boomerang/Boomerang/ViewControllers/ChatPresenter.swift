@@ -26,6 +26,7 @@ class ChatPresenter: NSObject {
     
     fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
     fileprivate var subscriptionChatUpdated: Subscription<Chat>?
+    fileprivate var subscriptionMessageCreated: Subscription<Message>?
     
     
     func setViewDelegate(view: ChatDelegate) {
@@ -33,7 +34,7 @@ class ChatPresenter: NSObject {
     }
     
     func convertMessageForJSQMessage(message: Message) {
-        let message = JSQMessage(senderId: message.user?.objectId, senderDisplayName: "", date: message.createdDate!, text: message.message!)
+        let message = JSQMessage(senderId: message.user?.objectId, senderDisplayName: "", date: message.createdAt!, text: message.message!)
         messages.append(message!)
     }
     
@@ -82,15 +83,32 @@ extension ChatPresenter {
             .order(byAscending: ObjectKeys.updatedAt) as! PFQuery<Chat>)
     }
     
+    fileprivate var messageQuery: PFQuery<Message>? {
+        let userMessage: Profile = profile.objectId != chat.owner!.objectId! ? chat.owner! : chat.requester!
+        return (Message.query()?
+            .whereKey(MessageKeys.user, equalTo: userMessage)
+            .order(byAscending: ObjectKeys.createdAt) as! PFQuery<Message>)
+    }
+    
 
     func setupSubscriptions() {
-        subscriptionToChatQuery()
+       // subscriptionToChatQuery()
+        subscriptionToMessageQuery()
     }
     
     func subscriptionToChatQuery() {
         subscriptionChatUpdated = liveQueryClient
             .subscribe(chatQuery!)
             .handle(Event.updated) { _, chat in
+                
+                self.requestMessagesOfChat()
+        }
+    }
+    
+    func subscriptionToMessageQuery() {
+        subscriptionMessageCreated = liveQueryClient
+            .subscribe(messageQuery!)
+            .handle(Event.created) { _, mesage in
                 
                 self.requestMessagesOfChat()
         }
