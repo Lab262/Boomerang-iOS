@@ -216,7 +216,7 @@
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTL-uU-asz">
                                                 <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_boomerangWhite" translatesAutoresizingMaskIntoConstraints="NO" id="TKu-lQ-7zT">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_boomer_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TKu-lQ-7zT">
                                                         <rect key="frame" x="19" y="14" width="24" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="Qfd-fS-TaO"/>
@@ -224,7 +224,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.96470588235294119" green="0.62745098039215685" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="63" id="KlW-p6-vIh"/>
                                                     <constraint firstAttribute="height" constant="63" id="Lbp-Ue-Mct"/>
@@ -370,7 +370,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_boomerangWhite" width="24" height="34"/>
+        <image name="tabbar_boomer_icon" width="24" height="34"/>
         <image name="tabbar_home_icon" width="22" height="18"/>
         <image name="tabbar_notifications_icon" width="23" height="5"/>
         <image name="tabbar_profile_icon" width="22" height="22"/>

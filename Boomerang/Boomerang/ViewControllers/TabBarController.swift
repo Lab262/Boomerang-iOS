@@ -20,7 +20,7 @@ class TabBarController: UIViewController {
     
     @IBOutlet var buttons: [UIButton]!
     
-    var inputConfigurationButtons = [(deselectedImage: #imageLiteral(resourceName: "tabbar_home_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_home_icon_selected"), selectIndex: 0), (deselectedImage: #imageLiteral(resourceName: "tabbar_profile_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_profile_icon_selected"), selectIndex: 1), (deselectedImage: #imageLiteral(resourceName: "tabbar_boomer_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_boomer_icon"), selectIndex: 2), (deselectedImage: #imageLiteral(resourceName: "tabbar_schemas_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_schemas_icon_selected"), selectIndex: 3), (deselectedImage: #imageLiteral(resourceName: "tabbar_notifications_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_notifications_icon_selected"), selectIndex: 4)]
+    var inputConfigurationButtons = [(deselectedImage: #imageLiteral(resourceName: "tabbar_home_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_home_icon_selected"), selectIndex: 0), (deselectedImage: #imageLiteral(resourceName: "tabbar_profile_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_profile_icon_selected"), selectIndex: 1), (deselectedImage: #imageLiteral(resourceName: "tabbar_boomer_icon"), selectedImage: #imageLiteral(resourceName: "ic_boomerangWhite"), selectIndex: 2), (deselectedImage: #imageLiteral(resourceName: "tabbar_schemas_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_schemas_icon_selected"), selectIndex: 3), (deselectedImage: #imageLiteral(resourceName: "tabbar_notifications_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_notifications_icon_selected"), selectIndex: 4)]
 
     
     override func viewDidLoad() {
@@ -32,12 +32,11 @@ class TabBarController: UIViewController {
     
     func configureButtons(){
         for (index, button) in buttons.enumerated() {
-            if index != 2 {
+            if button.tag != 2 {
                 button.setImage(inputConfigurationButtons[index].deselectedImage, for: .normal)
                 button.setImage(inputConfigurationButtons[index].selectedImage, for: .selected)
+                button.tag = inputConfigurationButtons[index].selectIndex
             }
-            
-            button.tag = inputConfigurationButtons[index].selectIndex
         }
         
         
@@ -70,15 +69,38 @@ class TabBarController: UIViewController {
 
     @IBAction func selectButton(_ sender: UIButton) {
         for button in buttons {
-            if sender.tag == 2 {
-                self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
-            } else {
-                if button.tag == sender.tag {
+            
+            if button.tag == sender.tag {
+                if sender.tag == 2 {
+                    self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
+                    self.imgViewCenterOption.image = #imageLiteral(resourceName: "ic_boomerangWhite")
+                    self.viewContainerCenterOption.backgroundColor = .yellowBoomerColor
+                }else{
                     button.isSelected = true
-                } else {
+                }
+            } else {
+                if sender.tag == 2 {
+                    self.imgViewCenterOption.image = #imageLiteral(resourceName: "tabbar_boomer_icon")
+                    self.viewContainerCenterOption.backgroundColor = .white
+                }else{
                     button.isSelected = false
                 }
             }
+            
+//            if sender.tag == 2 {
+//                self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
+//                self.imgViewCenterOption.image = #imageLiteral(resourceName: "ic_boomerangWhite")
+//                self.viewContainerCenterOption.backgroundColor = .yellowBoomerColor
+//            } else {
+//                
+//                self.imgViewCenterOption.image = #imageLiteral(resourceName: "tabbar_boomer_icon")
+//                self.viewContainerCenterOption.backgroundColor = .white
+//                if button.tag == sender.tag {
+//                    button.isSelected = true
+//                } else {
+//                    button.isSelected = false
+//                }
+//            }
         }
         
         if self.uiTabBarController.selectedIndex == sender.tag {

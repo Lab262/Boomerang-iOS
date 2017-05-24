@@ -84,13 +84,16 @@ class BoomerMainViewController: UIViewController {
     }
     
     func getProfilePhoto(){
-        
-        guard let image = user?.profileImage else {
-            profileImage.loadAnimation()
-            return
+        self.profileImage.getUserImage(profile: self.user!.profile!) { (success, msg) in
+            
         }
         
-        profileImage.image = image
+//        guard let image = user?.profileImage else {
+//            profileImage.loadAnimation()
+//            return
+//        }
+//        
+//        profileImage.image = image
         
     }
 
