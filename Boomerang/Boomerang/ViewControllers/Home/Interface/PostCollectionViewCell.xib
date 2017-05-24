@@ -42,13 +42,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ferramentas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4s-vz-pue">
-                                <rect key="frame" x="64" y="15" width="103" height="20"/>
+                                <rect key="frame" x="64" y="15" width="90" height="19"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJe-xy-yLW">
-                                <rect key="frame" x="102" y="43" width="4" height="4"/>
+                                <rect key="frame" x="102" y="42" width="4" height="4"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="31v-97-d3w"/>
@@ -63,7 +63,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duo-Ul-SFy">
-                                <rect key="frame" x="64" y="37" width="35" height="16"/>
+                                <rect key="frame" x="64" y="36" width="35" height="16"/>
                                 <string key="text">12 jan   
 </string>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
@@ -71,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozp-0U-dht" userLabel="Água Claras">
-                                <rect key="frame" x="109" y="37" width="72" height="16"/>
+                                <rect key="frame" x="109" y="36" width="72" height="16"/>
                                 <string key="text">Água Claras   
 </string>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
