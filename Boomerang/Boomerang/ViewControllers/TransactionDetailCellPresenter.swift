@@ -17,54 +17,43 @@ protocol TransactionDetailCellDelegate {
 
 class TransactionDetailCellPresenter: NSObject {
     
-    fileprivate var scheme: Scheme = Scheme()
+    var scheme: Scheme = Scheme()
     fileprivate var view: TransactionDetailCellDelegate?
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
     
     func setViewDelegate(view: TransactionDetailCellDelegate) {
         self.view = view
     }
     
-    func setScheme(scheme: Scheme) {
-        self.scheme = scheme
-    }
-    
-    func getScheme() -> Scheme {
-        return self.scheme
-    }
-    
     func getPostName() -> String {
-        return getScheme().post!.title!
+        return scheme.post!.title!
     }
     
     func getStartDateScheme() -> Date {
-        return getScheme().createdDate!
+        return scheme.createdDate!
     }
     
     func getTypeTransaction() -> TypePost {
-        return getScheme().post!.typePost!
-    }
-    
-    func getUser() -> User {
-        return user
+        return scheme.post!.typePost!
     }
     
     func getUserOwnATransaction() -> Profile {
-        if getScheme().owner == self.user.profile {
-            return getScheme().requester!
-        } else {
-            return getScheme().owner!
-        }
+        return self.scheme.dealer!
+//        if scheme.owner == self.profile {
+//            return scheme.requester!
+//        } else {
+//            return scheme.owner!
+//        }
     }
     
     func getTitleOfTransaction() -> String {
         switch getTypeTransaction() {
         case .have:
-            return "Empréstimo feito com"
+            return TransactionTitles.have
         case .donate:
-            return "Doação feita com"
+            return TransactionTitles.donate
         case .need:
-            return "Troca feita com"
+            return TransactionTitles.need
         }
     }
     

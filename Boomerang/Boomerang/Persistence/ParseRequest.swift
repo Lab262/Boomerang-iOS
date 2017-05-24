@@ -72,6 +72,7 @@ class ParseRequest: NSObject {
         }
     }
     
+    
     static func updateForIsDeletedObjectBy(className: String, queryParams: [String: Any], completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         let query = PFQuery(className: className)
@@ -83,7 +84,35 @@ class ParseRequest: NSObject {
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
                 objects?.forEach {
-                    $0["isDeleted"] = true
+                    $0[ObjectKeys.isDeleted] = true
+                }
+                PFObject.saveAll(inBackground: objects, block: { (success, error) in
+                    if error == nil {
+                        completionHandler(true, "success")
+                    } else {
+                        completionHandler(false, error!.localizedDescription)
+                    }
+                })
+            } else {
+                completionHandler(false, error!.localizedDescription)
+            }
+        }
+    }
+    
+    static func updateObject(className: String, queryParams: [String: Any], colunmsUpdated: [String: Any], completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let query = PFQuery(className: className)
+        
+        for queryParam in queryParams {
+            query.whereKey(queryParam.key, equalTo: queryParam.value)
+        }
+        
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                objects?.forEach {
+                    for colunm in colunmsUpdated {
+                        $0[colunm.key] = colunm.value
+                    }
                 }
                 PFObject.saveAll(inBackground: objects, block: { (success, error) in
                     if error == nil {
@@ -189,6 +218,8 @@ class ParseRequest: NSObject {
     
     // QUERY 2
     
+
+    
     static func queryEqualToValue2(className: String, queryParams: [String: Any], includes: [String]?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
             let query = PFQuery(className: className)
@@ -217,8 +248,15 @@ class ParseRequest: NSObject {
         }
 
     
-    static func findMultipleObjectsAt(querys: [PFQuery<PFObject>], indexQuery: Int,  allObjects: [PFObject], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]) -> ()) {
-        var localObjects = allObjects
+    static func findMultipleObjectsAt(querys: [PFQuery<PFObject>], indexQuery: Int, allObjects: [PFObject], completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]) -> ()) {
+        
+        var localObjects = [PFObject]()
+        print ("ALL OBJECTS: \(allObjects)")
+        allObjects.forEach {
+            localObjects.append($0)
+        }
+        
+        
         querys[indexQuery].findObjectsInBackground { (objects, error) in
             if error == nil {
                 objects?.forEach {
@@ -227,7 +265,7 @@ class ParseRequest: NSObject {
                 var index = indexQuery
                 index += index + 1
                 if index > querys.count {
-                    completionHandler(true, "success", objects!)
+                    completionHandler(true, "success", localObjects)
                 } else {
                     findMultipleObjectsAt(querys: querys, indexQuery: index, allObjects: localObjects, completionHandler: { (success, msg, objects) in
                         completionHandler(success, msg, objects)
@@ -386,6 +424,7 @@ class ParseRequest: NSObject {
                 let query = setupQuery(className: className, key: param.key, values: param.value, cachePolicy: cachePolicy, pagination: pagination, notContainedObjects: notContainedObjects!, whereType: whereTypes[0], includes: includes!)
                 allQueries.append(query)
             }
+            
             findMultipleObjectsAt(querys: allQueries, indexQuery: 0, allObjects: [PFObject](), completionHandler: { (success, msg, objects) in
                     completionHandler(success, msg, objects)
                 })
@@ -472,7 +511,6 @@ class ParseRequest: NSObject {
                             completionHandler(false, error.debugDescription, nil)
                         }
                     })
-                   // completionHandler(true, "Success", objects)
                 } else {
                     completionHandler(false, error.debugDescription, nil)
                 }
@@ -526,20 +564,6 @@ class ParseRequest: NSObject {
         default:
             break
         }
-//        
-//        let query = PFQuery(className: className)
-//        query.whereKey(key, containedIn: value)
-//        query.limit = pagination
-//        
-//        query.findObjectsInBackground { (objects, error) in
-//            
-//            if error == nil {
-//                completionHandler(true, "Success", objects)
-//                
-//            } else {
-//                completionHandler(false, error.debugDescription, nil)
-//            }
-//        }
     }
     
     static func queryContainedInWithInclude(className: String, key: String, value: [Any], include: String, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
@@ -593,17 +617,19 @@ extension PFObject {
         
     }
     
-    func getRelationsInBackgroundBy(key: String, keyColunm: String? = "", isNotContained: Bool? = false, pagination: Int? = 100, skip: Int? = 0, notContainedKeys: [Any]? = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
+    func getRelationsInBackgroundBy(key: String, keyColunm: String? = "", isNotContained: Bool? = false, pagination: Int, notContainedKeys: [Any]? = [Any](), cachePolicy: PFCachePolicy, notContainedObjects: [String: [Any]]? = nil, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         let relation = self.relation(forKey: key)
         let query = relation.query()
-        query.limit = pagination!
-        query.skip = skip!
-        query.order(byAscending: "createdAt")
+        query.limit = pagination
+        query.cachePolicy = cachePolicy
+        query.order(byAscending: ObjectKeys.createdAt)
         
-//        if isNotContained! {
-//            query.whereKey(keyColunm!, notContainedIn: notContainedKeys!)
-//        }
+        if let allNotContainedObjects = notContainedObjects {
+            allNotContainedObjects.forEach {
+                query.whereKey($0.key, notContainedIn: $0.value)
+            }
+        }
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
@@ -629,7 +655,7 @@ extension PFObject {
     
     func getRelationsInBackgroundWithDataBy(key: String, keyFile: String, isNotContained: Bool = false, notContainedKeys: [Any] = [Any](), completionHandler: @escaping (_ success: Bool, _ msg: String, _ relations: [PFObject]?, _ data: Data?) -> Void) {
         
-        getRelationsInBackgroundBy(key: key, keyColunm: keyFile, isNotContained: isNotContained, notContainedKeys: notContainedKeys) { (success, msg, relations) in
+        getRelationsInBackgroundBy(key: key, keyColunm: keyFile, isNotContained: isNotContained, pagination: 100, notContainedKeys: notContainedKeys, cachePolicy: .networkElseCache) { (success, msg, relations) in
             if success {
                 for relation in relations! {
                     relation.getDataInBackgroundBy(key: keyFile, completionHandler: { (success, msg, data) in

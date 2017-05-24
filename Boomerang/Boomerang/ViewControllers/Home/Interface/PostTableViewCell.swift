@@ -31,7 +31,6 @@ class PostTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNib()
-        // Initialization code
     }
     
     func reloadCollection(){
@@ -40,23 +39,42 @@ class PostTableViewCell: UITableViewCell {
 
     func registerNib(){
         collectionView.registerNibFrom(PostCollectionViewCell.self)
-    }}
-
-extension PostTableViewCell: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return presenter.posts.count
+        collectionView.registerNibFrom(SeeMoreCollectionViewCell.self)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
-    
         cell.presenter.post = presenter.posts[indexPath.row]
         cell.setupCell()
         
         return cell
+    }
+    
+    func generateSeeMoreCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeeMoreCollectionViewCell.identifier, for: indexPath) as! SeeMoreCollectionViewCell
+        
+        return cell
+    }
+}
+
+extension PostTableViewCell: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if presenter.posts.count > 0 {
+            return presenter.posts.count+1
+        } else {
+            return presenter.posts.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        switch indexPath.row {
+        case presenter.posts.endIndex:
+            return generateSeeMoreCell(collectionView, cellForItemAt: indexPath)
+        default:
+            return generatePostCell(collectionView, cellForItemAt: indexPath)
+        }
     }
 
 }
@@ -71,8 +89,11 @@ extension PostTableViewCell: UICollectionViewDelegateFlowLayout {
 
 extension PostTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToDetailThing, sectionPost: SectionPost(rawValue:self.tag)!, didSelectItemAt: indexPath)
-        //self.selectionDelegate?.collectionViewDelegate(self, didSelectItemAt: indexPath)
+        if indexPath.row == presenter.posts.endIndex {
+            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToMorePost, sectionPost: SectionPost(rawValue:self.tag)!, didSelectItemAt: indexPath)
+        } else {
+            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToDetailThing, sectionPost: SectionPost(rawValue:self.tag)!, didSelectItemAt: indexPath)
+        }
     }
 }
 

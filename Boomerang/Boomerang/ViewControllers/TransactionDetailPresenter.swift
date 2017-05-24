@@ -13,7 +13,7 @@ protocol TransactionDetailDelegate {
     func reload()
     func startingLoadingView()
     func finishLoadingView()
-    func pushForChatView()
+    func push(identifier: String)
 }
 
 class TransactionDetailPresenter: NSObject {
@@ -32,10 +32,23 @@ class TransactionDetailPresenter: NSObject {
     }
     
     func getUserOwnATransaction() -> Profile {
-        if scheme.owner == profile {
-            return scheme.requester!
-        } else {
-            return scheme.owner!
+        return scheme.dealer!
+//        if scheme.owner == profile {
+//            return scheme.requester!
+//        } else {
+//            return scheme.owner!
+//        }
+    }
+    
+    func finalizeScheme() {
+        view?.startingLoadingView()
+        SchemeRequest.finalize(for: scheme) { (success, msg) in
+            if success {
+                self.view?.push(identifier: SegueIdentifiers.detailTransactionToEvaluation)
+            } else {
+                self.view?.showMessage(msg: msg)
+            }
+            self.view?.finishLoadingView()
         }
     }
  
@@ -44,7 +57,7 @@ class TransactionDetailPresenter: NSObject {
         ChatRequest.getChatOf(requester: scheme.requester!, owner: scheme.owner!, post: scheme.post!) { (success, msg, chat) in
             if success {
                 self.chat = chat!
-                self.view?.pushForChatView()
+                self.view?.push(identifier: SegueIdentifiers.detailTransactionToChat)
             } else {
                 self.view?.showMessage(msg: msg)
             }

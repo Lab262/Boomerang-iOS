@@ -21,7 +21,16 @@ class ChatViewController: JSQMessagesViewController {
         setupPresenterDelegate()
         setupDelegateProperties()
         configureCollectionView()
+        requestMessages()
+        setupSubscriptions()
+    }
+    
+    func requestMessages() {
         presenter.requestMessagesOfChat()
+    }
+    
+    func setupSubscriptions() {
+        presenter.setupSubscriptions()
     }
     
     func setupPresenterDelegate() {
@@ -31,15 +40,14 @@ class ChatViewController: JSQMessagesViewController {
     func configureCollectionView() {
         collectionView?.collectionViewLayout.incomingAvatarViewSize = .zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = .zero
-        collectionView?.collectionViewLayout.springinessEnabled = false
-        automaticallyScrollsToMostRecentMessage = false
+        automaticallyScrollsToMostRecentMessage = true
         collectionView?.reloadData()
         collectionView?.layoutIfNeeded()
     }
     
     func setupDelegateProperties() {
-        self.senderId = presenter.getUser().profile?.objectId!
-        self.senderDisplayName = presenter.getUser().fullName
+        self.senderId = presenter.profile.objectId!
+        self.senderDisplayName = presenter.profile.fullName
     }
     
     func setupBubbles() {
@@ -55,16 +63,16 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.getMessages().count
+        return presenter.messages.count
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageDataForItemAt indexPath: IndexPath) -> JSQMessageData {
-        return presenter.getMessages()[indexPath.item]
+        return presenter.messages[indexPath.item]
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageBubbleImageDataForItemAt indexPath: IndexPath) -> JSQMessageBubbleImageDataSource {
         
-        return presenter.getMessages()[indexPath.item].senderId == self.senderId ? outgoingBubble : incomingBubble
+        return presenter.messages[indexPath.item].senderId == self.senderId ? outgoingBubble : incomingBubble
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView, avatarImageDataForItemAt indexPath: IndexPath) -> JSQMessageAvatarImageDataSource? {

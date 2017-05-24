@@ -38,9 +38,6 @@ class TabBarController: UIViewController {
                 button.tag = inputConfigurationButtons[index].selectIndex
             }
         }
-        
-        
-        
         uiTabBarController.selectedIndex = 0
         buttons[0].isSelected = true
     }

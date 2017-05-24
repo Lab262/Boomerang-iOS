@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ParseLiveQuery
 import JSQMessagesViewController
 
 protocol ChatDelegate {
@@ -17,31 +18,23 @@ protocol ChatDelegate {
 
 class ChatPresenter: NSObject {
     
-    fileprivate let pagination = 50
-    fileprivate var skip = 0
-    fileprivate var chat: Chat = Chat()
+    fileprivate let pagination = Paginations.messages
+    var chat: Chat = Chat()
     fileprivate var view: ChatDelegate?
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
-    fileprivate var messages = [JSQMessage]()
+    var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
+    var messages = [JSQMessage]()
+    
+    fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
+    fileprivate var subscriptionChatUpdated: Subscription<Chat>?
+    fileprivate var subscriptionMessageCreated: Subscription<Message>?
+    
     
     func setViewDelegate(view: ChatDelegate) {
         self.view = view
     }
     
-    func setChat(chat: Chat) {
-        self.chat = chat
-    }
-    
-    func getUser() -> User {
-        return self.user
-    }
-    
-    func getMessages() -> [JSQMessage] {
-        return messages
-    }
-    
     func convertMessageForJSQMessage(message: Message) {
-        let message = JSQMessage(senderId: message.user?.objectId, senderDisplayName: "", date: message.createdDate!, text: message.message!)
+        let message = JSQMessage(senderId: message.user?.objectId, senderDisplayName: "", date: message.createdAt!, text: message.message!)
         messages.append(message!)
     }
     
@@ -51,9 +44,7 @@ class ChatPresenter: NSObject {
     }
     
     func requestMessagesOfChat() {
-        skip = chat.messagesArray.endIndex
-        
-        ChatRequest.getMessagesInBackground(chat: chat, skip: skip, pagination: pagination) { (success, msg, msgs) in
+        ChatRequest.getMessagesInBackground(chat: chat, pagination: pagination) { (success, msg, msgs) in
             if success {
                 for newMessage in msgs! {
                     self.setMessage(message: newMessage)
@@ -83,3 +74,47 @@ class ChatPresenter: NSObject {
         }
     }
 }
+
+extension ChatPresenter {
+    
+    fileprivate var chatQuery: PFQuery<Chat>? {
+        return (Chat.query()?
+            .whereKey(ObjectKeys.objectId, equalTo: chat.objectId!)
+            .order(byAscending: ObjectKeys.updatedAt) as! PFQuery<Chat>)
+    }
+    
+    fileprivate var messageQuery: PFQuery<Message>? {
+        let userMessage: Profile = profile.objectId != chat.owner!.objectId! ? chat.owner! : chat.requester!
+        return (Message.query()?
+            .whereKey(MessageKeys.user, equalTo: userMessage)
+            .order(byAscending: ObjectKeys.createdAt) as! PFQuery<Message>)
+    }
+    
+
+    func setupSubscriptions() {
+       // subscriptionToChatQuery()
+        subscriptionToMessageQuery()
+    }
+    
+    func subscriptionToChatQuery() {
+        subscriptionChatUpdated = liveQueryClient
+            .subscribe(chatQuery!)
+            .handle(Event.updated) { _, chat in
+                
+                self.requestMessagesOfChat()
+        }
+    }
+    
+    func subscriptionToMessageQuery() {
+        subscriptionMessageCreated = liveQueryClient
+            .subscribe(messageQuery!)
+            .handle(Event.created) { _, mesage in
+                
+                self.requestMessagesOfChat()
+        }
+    }
+    
+}
+
+
+

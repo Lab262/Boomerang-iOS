@@ -15,6 +15,7 @@ class TransactionMainViewController: UIViewController {
             setFontButtonBySegmentSelected()
         }
     }
+    
     var segmentControlButtonDelegate: SegmentControlButtonDelegate?
     
     @IBOutlet weak var navigationBar: IconNavigationBar!

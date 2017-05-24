@@ -11,23 +11,6 @@ import Parse
 
 class SchemeRequest: NSObject {
     
-//    static func createScheme(requester: Profile, owner: Profile, chat: Chat, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-//        
-//        let scheme = PFObject(className: "Scheme")
-//        scheme["post"] = ["__type": "Pointer", "className": "Post", "objectId": post.objectId]
-//        scheme["requester"] = ["__type": "Pointer", "className": "_User", "objectId": requester.objectId]
-//        scheme["owner"] = ["__type": "Pointer", "className": "_User", "objectId": owner.objectId]
-//        scheme["chat"] = ["__type": "Pointer", "className": "Chat", "objectId": chat.objectId]
-//        
-//        scheme.saveInBackground { (success, error) in
-//            if error == nil {
-//                completionHandler(success, "success")
-//            } else {
-//                completionHandler(success, error!.localizedDescription)
-//            }
-//        }
-//    }
-    
     static func getNotContainedStatus(statusScheme: [StatusScheme]) -> [SchemeStatus] {
         
         let allStatus = ApplicationState.sharedInstance.schemeStatus
@@ -42,12 +25,28 @@ class SchemeRequest: NSObject {
         return notContainedStatusObject
     }
     
+    static func finalize(for scheme: Scheme, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let allStatus = ApplicationState.sharedInstance.schemeStatus
+        var queryParams = [String: Any]()
+        queryParams[ObjectKeys.objectId] = scheme.objectId
+        var colunmsUpdated = [String: Any]()
+        
+        for status in allStatus where status.objectId == StatusSchemeId.finished {
+            colunmsUpdated[SchemeKeys.status] = status
+        }
+        
+        ParseRequest.updateObject(className: scheme.parseClassName, queryParams: queryParams, colunmsUpdated: colunmsUpdated) { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
     static func getSchemesForUser(owner: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusScheme], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
         
         var schemes = [Scheme]()
         var queryParams = [String : [Any]]()
-        queryParams["owner"] = [owner]
-        queryParams["requester"] = [owner]
+        queryParams[SchemeKeys.owner] = [owner]
+        queryParams[SchemeKeys.requester] = [owner]
         
         var notContainedObjects = [String: [Any]]()
         var notContainedObjectIds = [String]()
@@ -56,10 +55,10 @@ class SchemeRequest: NSObject {
             notContainedObjectIds.append($0.objectId!)
         }
         
-        notContainedObjects["objectId"] = notContainedObjectIds
-        notContainedObjects["status"] = getNotContainedStatus(statusScheme: notContainedStatus)
+        notContainedObjects[ObjectKeys.objectId] = notContainedObjectIds
+        notContainedObjects[SchemeKeys.status] = getNotContainedStatus(statusScheme: notContainedStatus)
 
-        ParseRequest.queryEqualToValueNotContainedObjects(className: "Scheme", queryType: .or, whereTypes: [.equal], params: queryParams, cachePolicy: .cacheElseNetwork, notContainedObjects: notContainedObjects, includes: ["requester", "owner", "post"], pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryEqualToValueNotContainedObjects(className: SchemeKeys.className, queryType: .or, whereTypes: [.equal], params: queryParams, cachePolicy: .networkElseCache, notContainedObjects: notContainedObjects, includes: [SchemeKeys.requester, SchemeKeys.owner,SchemeKeys.post], pagination: pagination) { (success, msg, objects) in
             if success {
                 for obj in objects! {
                     let scheme = Scheme(object: obj)
@@ -72,10 +71,73 @@ class SchemeRequest: NSObject {
         }
     }
     
+    
+    static func getRequesterSchemesForUser(requester: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusScheme], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
+        
+        var schemes = [Scheme]()
+        var queryParams = [String : [Any]]()
+        queryParams[SchemeKeys.requester] = [requester]
+        
+        var notContainedObjects = [String: [Any]]()
+        var notContainedObjectIds = [String]()
+        
+        schemesDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+        
+        notContainedObjects[ObjectKeys.objectId] = notContainedObjectIds
+        notContainedObjects[SchemeKeys.status] = getNotContainedStatus(statusScheme: notContainedStatus)
+        
+        ParseRequest.queryEqualToValueNotContainedObjects(className: SchemeKeys.className, queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkElseCache, notContainedObjects: notContainedObjects, includes: [SchemeKeys.owner, SchemeKeys.post, SchemeKeys.requester], pagination: pagination) { (success, msg, objects) in
+            
+            if success {
+                for obj in objects! {
+                    let scheme = Scheme(object: obj)
+                    schemes.append(scheme)
+                }
+                completionHandler(success, msg, schemes)
+            } else {
+                completionHandler(success, msg, nil)
+            }
+        }
+    }
+    
+    static func getOwnerSchemesForUser(owner: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusScheme], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
+        
+        var schemes = [Scheme]()
+        var queryParams = [String : [Any]]()
+        queryParams[SchemeKeys.owner] = [owner]
+        
+        var notContainedObjects = [String: [Any]]()
+        var notContainedObjectIds = [String]()
+        
+        schemesDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+        
+        notContainedObjects[ObjectKeys.objectId] = notContainedObjectIds
+        notContainedObjects[SchemeKeys.status] = getNotContainedStatus(statusScheme: notContainedStatus)
+        
+        ParseRequest.queryEqualToValueNotContainedObjects(className: SchemeKeys.className, queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkElseCache, notContainedObjects: notContainedObjects, includes: [SchemeKeys.owner, SchemeKeys.post, SchemeKeys.requester], pagination: pagination) { (success, msg, objects) in
+            
+            if success {
+                for obj in objects! {
+                    let scheme = Scheme(object: obj)
+                    schemes.append(scheme)
+                }
+                completionHandler(success, msg, schemes)
+            } else {
+                completionHandler(success, msg, nil)
+            }
+        }
+
+    }
+    
+    
     static func getAllStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         var schemeStatus = [SchemeStatus]()
-        ParseRequest.queryGetAllObjects(className: "SchemeStatus") { (success, msg, objects) in
+        ParseRequest.queryGetAllObjects(className: SchemeStatus.parseClassName()) { (success, msg, objects) in
             if success {
                 objects!.forEach {
                     let status = SchemeStatus(object: $0)

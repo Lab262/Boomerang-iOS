@@ -65,7 +65,7 @@ class TransactionDetailViewController: UIViewController {
         }
         
         if let viewController = segue.destination as? EvaluationViewController  {
-            viewController.presenter.setScheme(scheme: presenter.scheme)
+            viewController.presenter.scheme = presenter.scheme
         }
         
         if let viewController = segue.destination as? MessagesChatViewController  {
@@ -103,14 +103,14 @@ class TransactionDetailViewController: UIViewController {
         
         cell.profileLinkButton.addTarget(self, action: #selector(goLinkProfile(_:)), for: .touchUpInside)
         cell.chatButton.addTarget(self, action: #selector(goChat(_:)), for: .touchUpInside)
-        cell.presenter.setScheme(scheme: presenter.scheme)
+        cell.presenter.scheme = presenter.scheme
         cell.updateInformationsCell()
         
         return cell
     }
     
     @IBAction func finalizeTransaction(_ sender: Any) {
-        performSegue(withIdentifier: SegueIdentifiers.detailTransactionToEvaluation, sender: self)
+        presenter.finalizeScheme()
     }
 }
 
@@ -184,16 +184,16 @@ extension TransactionDetailViewController: TransactionDetailDelegate {
     }
     
     func startingLoadingView() {
-        
+        self.view.loadAnimation()
     }
     
     func finishLoadingView() {
-        
+        self.view.unload()
     }
     
-    func pushForChatView() {
-        performSegue(withIdentifier: SegueIdentifiers.detailTransactionToChat, sender: self)
+    func push(identifier: String) {
+        //performSegue(withIdentifier: SegueIdentifiers.detailTransactionToChat, sender: self)
+         performSegue(withIdentifier: identifier, sender: self)
     }
-    
     
 }

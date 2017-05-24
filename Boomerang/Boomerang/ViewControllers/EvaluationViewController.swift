@@ -44,7 +44,7 @@ class EvaluationViewController: UIViewController {
     }
     
     func setupPlaceholderInTextView(){
-        textView.text = presenter.getPlaceHolderText()
+        textView.text = presenter.placeHolderText
     }
     
     func configureStarButtons() {
@@ -123,7 +123,7 @@ class EvaluationViewController: UIViewController {
 extension EvaluationViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == presenter.getPlaceHolderText() {
+        if textView.text == presenter.placeHolderText {
             textView.text = ""
             textView.textColor = .black
         }
@@ -131,7 +131,7 @@ extension EvaluationViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
-            textView.text = presenter.getPlaceHolderText()
+            textView.text = presenter.placeHolderText
             textView.textColor = UIColor.colorWithHexString("BFBFBF")
         }
     }
