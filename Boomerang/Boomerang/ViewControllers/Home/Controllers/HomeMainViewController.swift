@@ -80,10 +80,14 @@ class HomeMainViewController: UIViewController {
             switch currentSectionPost! {
             case .recommended:
                 controller.presenter.posts = presenter.featuredPosts
+                controller.presenter.sectionPost = currentSectionPost
             case .friends:
                 controller.presenter.posts = presenter.friendsPosts
+                controller.presenter.sectionPost = currentSectionPost
+                controller.presenter.friends = presenter.following
             case .city:
                 controller.presenter.posts = presenter.othersPosts
+                controller.presenter.sectionPost = currentSectionPost
             }
         }
     }

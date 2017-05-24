@@ -15,6 +15,7 @@ class MorePostPresenter: NSObject {
     var friends: [Profile] = [Profile]()
     var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
     var view: ViewDelegate?
+    var sectionPost: SectionPost?
     
     func setViewDelegate(view: ViewDelegate) {
         self.view = view

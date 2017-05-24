@@ -66,27 +66,14 @@ class RecommendedPostTableViewCell: UITableViewCell {
     }
     
     func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        if presenter.posts.endIndex == indexPath.row {
+    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
+        cell.presenter.post = presenter.posts[indexPath.row]
+        cell.setupCell()
+        unloadPlaceholderImage()
             
-            cell.userNameLabel.text = "MAIS POSTS"
-            
-            return cell
-         
-        } else {
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
-            
-            cell.presenter.post = presenter.posts[indexPath.row]
-            cell.setupCell()
-            unloadPlaceholderImage()
-            
-            return cell
-        }
-
+        return cell
     }
     
     func generatePageControlCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -107,11 +94,7 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if presenter.posts.count > 0 {
-            return presenter.posts.count+1
-        } else {
-            return presenter.posts.count
-        }
+        return presenter.posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -128,11 +111,7 @@ extension RecommendedPostTableViewCell: UICollectionViewDataSource {
 
 extension RecommendedPostTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == presenter.posts.endIndex {
-            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToMorePost, sectionPost: .recommended, didSelectItemAt: indexPath)
-        } else {
-            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToDetailThing, sectionPost: .recommended, didSelectItemAt: indexPath)
-        }
+        self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToDetailThing, sectionPost: .recommended, didSelectItemAt: indexPath)
     }
 }
 

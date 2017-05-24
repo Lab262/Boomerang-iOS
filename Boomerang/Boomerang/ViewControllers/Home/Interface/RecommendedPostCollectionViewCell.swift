@@ -24,7 +24,6 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var heightPostIconConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthPostIconConstraint: NSLayoutConstraint!
     
-    
     var presenter: PostPresenter = PostPresenter()
     
     static var identifier: String {

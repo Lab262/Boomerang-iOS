@@ -805,6 +805,12 @@
 		D4CA48AF1EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */; };
 		D4CA48B01EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */; };
 		D4CA48B11EC9F621003C17F6 /* RecommendedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */; };
+		D4CF4D9D1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CF4D9B1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift */; };
+		D4CF4D9E1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CF4D9B1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift */; };
+		D4CF4D9F1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CF4D9B1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift */; };
+		D4CF4DA01ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */; };
+		D4CF4DA11ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */; };
+		D4CF4DA21ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */; };
 		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
@@ -1199,6 +1205,8 @@
 		D4CA48A51EC9F49E003C17F6 /* Recommended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommended.swift; sourceTree = "<group>"; };
 		D4CA48A91EC9F5AB003C17F6 /* RecommendedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedViewController.swift; sourceTree = "<group>"; };
 		D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedPresenter.swift; sourceTree = "<group>"; };
+		D4CF4D9B1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SeeMoreCollectionViewCell.xib; path = ../Cells/SeeMoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -2123,6 +2131,7 @@
 				D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */,
 				D498F03C1E808A95002E8972 /* PhotoThingCollectionViewCell.swift */,
 				D48735051E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift */,
+				D4CF4D9B1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift */,
 			);
 			name = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -2155,6 +2164,7 @@
 				D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */,
 				D48735061E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib */,
 				D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */,
+				D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */,
 			);
 			name = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -2691,6 +2701,7 @@
 				A4E463011DCAEB1500A611C0 /* Transaction.storyboard in Resources */,
 				2F4958351ECD32C50001554E /* Tenho_00039.png in Resources */,
 				2F4958361ECD32C50001554E /* Tenho_00040.png in Resources */,
+				D4CF4DA01ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */,
 				2F49580E1ECD32C40001554E /* Tenho_00000.png in Resources */,
 				A4F89B341DA809B100949A35 /* LaunchScreen.storyboard in Resources */,
 				A44E0C681DD092650028F06C /* Montserrat-Bold.otf in Resources */,
@@ -2748,6 +2759,7 @@
 				D4AD981A1EA9ACFD00C9FAB9 /* PhotoThingTableViewCell.xib in Resources */,
 				D4AD981B1EA9ACFD00C9FAB9 /* BoomerMessageAndNotificationsCell.xib in Resources */,
 				D4AD981C1EA9ACFD00C9FAB9 /* ThingNavigationBar.xib in Resources */,
+				D4CF4DA11ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */,
 				D4AD981D1EA9ACFD00C9FAB9 /* UserCommentTableViewCell.xib in Resources */,
 				D4AD981E1EA9ACFD00C9FAB9 /* Boomer.storyboard in Resources */,
 				D4788DEB1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */,
@@ -2816,6 +2828,7 @@
 				D4AD98E61EA9AD0400C9FAB9 /* PhotoThingTableViewCell.xib in Resources */,
 				D4AD98E71EA9AD0400C9FAB9 /* BoomerMessageAndNotificationsCell.xib in Resources */,
 				D4AD98E81EA9AD0400C9FAB9 /* ThingNavigationBar.xib in Resources */,
+				D4CF4DA21ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */,
 				D4AD98E91EA9AD0400C9FAB9 /* UserCommentTableViewCell.xib in Resources */,
 				D4AD98EA1EA9AD0400C9FAB9 /* Boomer.storyboard in Resources */,
 				D4788DEC1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */,
@@ -3231,6 +3244,7 @@
 				D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */,
 				A4FE06391DD09D7300BFDC4D /* BoomerThing.swift in Sources */,
 				D436BF2C1E95B19500BC7F00 /* TransactionPresenter.swift in Sources */,
+				D4CF4D9D1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
 				D436BF221E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift in Sources */,
 				D4E4BEBA1E8256B000F8DC2E /* PHFComposeBarView.m in Sources */,
@@ -3437,6 +3451,7 @@
 				D4AD97D01EA9ACFD00C9FAB9 /* BoomerThingCollection.swift in Sources */,
 				D4AD97D11EA9ACFD00C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */,
 				D4AD97D21EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
+				D4CF4D9E1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD97D31EA9ACFD00C9FAB9 /* TransactionCellPresenter.swift in Sources */,
 				D4AD97D41EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.swift in Sources */,
 				D4AD97D51EA9ACFD00C9FAB9 /* Follow.swift in Sources */,
@@ -3616,6 +3631,7 @@
 				D4AD989C1EA9AD0400C9FAB9 /* BoomerThingCollection.swift in Sources */,
 				D4AD989D1EA9AD0400C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */,
 				D4AD989E1EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
+				D4CF4D9F1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD989F1EA9AD0400C9FAB9 /* TransactionCellPresenter.swift in Sources */,
 				D4AD98A01EA9AD0400C9FAB9 /* ThingInformationTableViewCell.swift in Sources */,
 				D4AD98A11EA9AD0400C9FAB9 /* Follow.swift in Sources */,
