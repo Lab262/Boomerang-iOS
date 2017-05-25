@@ -43,6 +43,12 @@ class SearchFriendsTableViewCell: UITableViewCell {
         }
     }
     
+    var facebookFriend: BoomerCellData? {
+        didSet{
+            updateCellByFacebookFriend()
+        }
+    }
+    
     let followButtonHighlightedTitle = "Seguindo"
     let followButtonHighlightedBackgroundColor = UIColor.colorWithHexString("F6A01F")
     let followButtonHighlightedTitleColor = UIColor.white
@@ -68,6 +74,11 @@ class SearchFriendsTableViewCell: UITableViewCell {
         cityLabel.text = "Brasília - DF"
         userImage.getUserImage(profile: profile!) { (success, msg) in
         }
+    }
+    
+    func updateCellByFacebookFriend() {
+        nameLabel.text = facebookFriend?.dataTitle
+        cityLabel.text = facebookFriend?.dataSubDescription
     }
     
     func changeFollowButtonStyle() {
