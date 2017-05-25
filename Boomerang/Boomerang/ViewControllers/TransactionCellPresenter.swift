@@ -24,41 +24,28 @@ protocol TransactionCellDelegate {
 
 class TransactionCellPresenter: NSObject {
     
-    fileprivate var scheme: Scheme = Scheme()
+    var scheme: Scheme = Scheme()
     fileprivate var view: TransactionCellDelegate?
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    var user: User = ApplicationState.sharedInstance.currentUser!
     
     func setViewDelegate(view: TransactionCellDelegate) {
         self.view = view
     }
     
-    func setScheme(scheme: Scheme) {
-        self.scheme = scheme
-    }
-    
-    func getScheme() -> Scheme {
-        return self.scheme
-    }
-    
     func getPostName() -> String {
-        return getScheme().post!.title!
+        return scheme.post!.title!
     }
-    
-    func getUser() -> User {
-        return user
-    }
-    
     
     func getRequesterOfTransaction() -> Profile {
-        return getScheme().requester!
+        return scheme.requester!
     }
     
     func getOwnerOfTransaction() -> Profile {
-        return getScheme().owner!
+        return scheme.owner!
     }
     
     func getPost() -> Post {
-        return getScheme().post!
+        return scheme.post!
     }
     
     func getImageOfUser(user: Profile, type: TypeUser){
@@ -77,6 +64,18 @@ class TransactionCellPresenter: NSObject {
             self.view?.finishLoadingPhoto(typeUser: type)
             
         })
+    }
+    
+    func setupDevolutionDescriptionStyle(label: UILabel) {
+        if scheme.statusScheme == .negotiation {
+            label.font = UIFont.montserratRegular(size: 13)
+            label.textColor = UIColor.yellowTransactioColor
+        } else if scheme.post?.condition == .loan {
+            label.font = UIFont.montserratLight(size: 13)
+            label.textColor = UIColor.black
+        } else {
+            label.text = ""
+        }
     }
     
     func getInformationsTransactionByTypeOfPost(isFromUser: Bool, postCondition: Condition) {
@@ -118,12 +117,12 @@ class TransactionCellPresenter: NSObject {
     }
     
     func getInformationsOfTransaction(){
-        if getScheme().owner?.objectId == self.user.profile?.objectId {
-            scheme.dealer = getScheme().requester
+        if scheme.owner?.objectId == self.user.profile?.objectId {
+            scheme.dealer = scheme.requester
             getInformationsTransactionByTypeOfPost(isFromUser: true, postCondition: getPost().condition!)
             view?.fromImage = self.user.profileImage
         } else {
-            scheme.dealer = getScheme().owner
+            scheme.dealer = scheme.owner
             getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().condition!)
             view?.toImage = self.user.profileImage
         }
