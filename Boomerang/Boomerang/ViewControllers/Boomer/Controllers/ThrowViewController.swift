@@ -24,7 +24,7 @@ class ThrowViewController: UIViewController {
     var titleHeader = String()
     var imagePost: UIImage?
     var allimages:[UIImage]?
-    var headerHeight = CGFloat(240)
+    var headerHeight = CGFloat(200)
     var isHidden = false
     var displayExpandedHeader = true
     let expandedHeight = CGFloat(240)
@@ -93,19 +93,19 @@ class ThrowViewController: UIViewController {
         switch  typeVC.hashValue {
         case 0 :
             cell.imagePost.image = #imageLiteral(resourceName: "ic_have")
-            cell.titlePost.text = titleHeader
+            cell.titlePostString = titleHeader
             break
         case  1 :
             cell.imagePost.image = #imageLiteral(resourceName: "ic_need")
-            cell.titlePost.text = titleHeader
+            cell.titlePostString = titleHeader
             break
         case  2 :
             cell.imagePost.image = #imageLiteral(resourceName: "ic_donate")
-            cell.titlePost.text = titleHeader
+            cell.titlePostString = titleHeader
             break
         default:
-            cell.titlePost.text = titleHeader
             cell.imagePost.image = #imageLiteral(resourceName: "ic_have")
+            cell.titlePostString = titleHeader
         }
         
         return cell
@@ -145,6 +145,8 @@ class ThrowViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.cellIdentifier, for: indexPath) as! SwitchButtonTableViewCell
         cell.selectionStyle = .none
+        cell.firstOptionTitle = CreatePostTitles.borrowed
+        cell.secondOptionTitle = CreatePostTitles.toSwitch
         
         return cell
         
@@ -335,9 +337,7 @@ extension ThrowViewController: UITableViewDataSource {
                 switch typeVC {
                     case .donate:
                        return generateNameProducTextCell(tableView, indexPath:indexPath)
-                    case .have:
-                       return generateSwitchButtonCell(tableView, indexPath:indexPath)
-                    case .need:
+                    case .have, .need:
                         return generateSwitchButtonCell(tableView, indexPath:indexPath)
 
                 }
@@ -345,19 +345,21 @@ extension ThrowViewController: UITableViewDataSource {
                 switch typeVC {
                     case .donate:
                         return generateDescriptionCell(tableView, indexPath:indexPath)
-                    case .have:
-                        return generateNameProducTextCell(tableView, indexPath:indexPath)
-                    case .need:
+                    case .have, .need:
                         return generateNameProducTextCell(tableView, indexPath:indexPath)
                 }
             case 3:
                 switch typeVC {
                 case .donate:
-                    return generateWithDrawalCell(tableView, indexPath:indexPath)
-                case .have:
-                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
-                case .need:
-                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
+                    return generateDescriptionCell(tableView, indexPath:indexPath)
+                case .have, .need:
+                    return generateDescriptionCell(tableView, indexPath:indexPath)
+//                case .donate:
+//                    return generateWithDrawalCell(tableView, indexPath:indexPath)
+//                case .have:
+//                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
+//                case .need:
+//                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
                 }
             case 4:
                 switch typeVC {
@@ -403,7 +405,7 @@ extension ThrowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          if indexPath.row == 0 {
-            return 80
+            return 65.5
         }else if indexPath.row == 1 {
             return CGFloat(100)
         }else if indexPath.row == 2 {
@@ -415,7 +417,7 @@ extension ThrowViewController: UITableViewDelegate {
             }
             
         }else if indexPath.row == 3 {
-            return CGFloat(200)
+            return CGFloat(100)
         }else if indexPath.row == 4 {
             return CGFloat(250)
         }else if indexPath.row == 5 {

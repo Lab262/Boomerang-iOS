@@ -22,12 +22,9 @@ class TextViewHandler: NSObject, UITextViewDelegate {
         super.init()
         
         self.textView = textView
-        
         self.textView?.delegate = self
-        
-        
         self.textView?.isEditable = true
-        
+      
         NotificationCenter.default.addObserver(self, selector: (#selector(TextViewHandler.didEnd(_:))), name: NSNotification.Name(rawValue: "DISMISS_KEYBOARD"), object: nil)
         
     }

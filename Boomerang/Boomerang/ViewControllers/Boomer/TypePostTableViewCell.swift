@@ -14,6 +14,14 @@ class TypePostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titlePost: UILabel!
     @IBOutlet weak var imagePost: UIImageView!
+    
+    var titlePostString: String? {
+        didSet{
+            let title = titlePostString?.with(characterSpacing: 2, color:titlePost.textColor)
+            titlePost.attributedText = title
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
