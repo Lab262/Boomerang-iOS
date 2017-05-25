@@ -419,7 +419,7 @@ extension ThrowViewController: UITableViewDelegate {
         }else if indexPath.row == 3 {
             return CGFloat(100)
         }else if indexPath.row == 4 {
-            return CGFloat(250)
+            return CGFloat(70)
         }else if indexPath.row == 5 {
             switch typeVC {
             case .donate:

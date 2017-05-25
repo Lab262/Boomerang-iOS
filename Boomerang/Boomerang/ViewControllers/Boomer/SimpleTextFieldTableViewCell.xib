@@ -65,6 +65,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="textField" destination="ymL-ur-9KJ" id="G1E-UW-evK"/>
+                <outlet property="titleLabel" destination="iFk-xc-1Vy" id="fFS-Ba-LlC"/>
             </connections>
             <point key="canvasLocation" x="61.5" y="105.5"/>
         </tableViewCell>

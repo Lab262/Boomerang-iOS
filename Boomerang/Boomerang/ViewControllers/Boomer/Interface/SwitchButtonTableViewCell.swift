@@ -36,7 +36,8 @@ class SwitchButtonTableViewCell: UITableViewCell {
         super.awakeFromNib()
         borrowedButton.titleEdgeInsets.left = 20;
         swapButton.titleEdgeInsets.left = 20;
-        // Initialization code
+        borrowedButton.titleLabel?.setDynamicFont()
+        swapButton.titleLabel?.setDynamicFont()
     }
     @IBAction func borrowAction(_ sender: Any) {
         self.boorowedImageView.image = #imageLiteral(resourceName: "ic_swipe_check")

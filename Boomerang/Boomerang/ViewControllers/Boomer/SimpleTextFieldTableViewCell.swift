@@ -14,10 +14,12 @@ class SimpleTextFieldTableViewCell: UITableViewCell {
     @IBOutlet weak var textField: UITextField!
     var handler: TextFieldHandler?
 
-    
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.titleLabel.setDynamicFont()
+        self.textField.font = UIFont(name: (self.textField.font?.fontName)!, size: (self.textField.font?.pointSize)!*UIView.widthScaleProportion())!
         self.handler = TextFieldHandler(_textField: textField)
 
     }

@@ -13,8 +13,12 @@ class FieldDatePickerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dateTextField: UITextField!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.titleLabel.setDynamicFont()
+        self.dateTextField.font = UIFont(name: (self.dateTextField.font?.fontName)!, size: (self.dateTextField.font?.pointSize)!*UIView.widthScaleProportion())!
         // Initialization code
     }
     @IBAction func textFieldEditing(_ sender: Any) {

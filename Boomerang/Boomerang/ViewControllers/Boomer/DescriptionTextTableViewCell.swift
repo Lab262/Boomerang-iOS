@@ -14,9 +14,13 @@ class DescriptionTextTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.titleLabel.setDynamicFont()
         self.textView?.textContainerInset.left = 10;
+        self.textView.font = UIFont(name: (self.textView.font?.fontName)!, size: (self.textView.font?.pointSize)!*UIView.widthScaleProportion())!
         self.handler = TextViewHandler(textView: textView)
     }
 
