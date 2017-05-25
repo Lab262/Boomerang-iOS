@@ -40,9 +40,10 @@ class ChatViewController: JSQMessagesViewController {
     func configureCollectionView() {
         collectionView?.collectionViewLayout.incomingAvatarViewSize = .zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = .zero
+        collectionView.collectionViewLayout.messageBubbleFont = UIFont.montserratSemiBold(size: 14)
+        
+        inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
-        collectionView?.reloadData()
-        collectionView?.layoutIfNeeded()
     }
     
     func setupDelegateProperties() {
@@ -52,6 +53,7 @@ class ChatViewController: JSQMessagesViewController {
     
     func setupBubbles() {
         incomingBubble = JSQMessagesBubbleImageFactory(bubble: .jsq_bubbleCompactTailless(), capInsets: .zero).incomingMessagesBubbleImage(with: UIColor.friendMessageChatBackgroundColor)
+        
         outgoingBubble = JSQMessagesBubbleImageFactory(bubble: .jsq_bubbleCompactTailless(), capInsets: .zero).incomingMessagesBubbleImage(with: UIColor.myMessageChatBackgroundColor)
     }
     
@@ -60,8 +62,10 @@ class ChatViewController: JSQMessagesViewController {
     override func didPressSend(_ button: UIButton, withMessageText text: String, senderId: String, senderDisplayName: String, date: Date) {
         presenter.sendMessage(senderId: senderId, text: text)
         self.finishSendingMessage(animated: true)
+        
     }
     
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.messages.count
     }
@@ -75,30 +79,6 @@ class ChatViewController: JSQMessagesViewController {
         return presenter.messages[indexPath.item].senderId == self.senderId ? outgoingBubble : incomingBubble
     }
     
-    override func collectionView(_ collectionView: JSQMessagesCollectionView, avatarImageDataForItemAt indexPath: IndexPath) -> JSQMessageAvatarImageDataSource? {
-        
-        return nil
-    }
-
-    override func collectionView(_ collectionView: JSQMessagesCollectionView, attributedTextForCellTopLabelAt indexPath: IndexPath) -> NSAttributedString? {
-
-        return nil
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath) -> NSAttributedString? {
-
-        return nil
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout, heightForCellTopLabelAt indexPath: IndexPath) -> CGFloat {
-  
-        return 0.0
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout, heightForMessageBubbleTopLabelAt indexPath: IndexPath) -> CGFloat {
-        
-        return 0.0
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -111,7 +91,6 @@ extension ChatViewController: ChatDelegate {
     }
     
     func updateStatusMessage(success: Bool) {
-        // indicator sender
         reload()
     }
     
