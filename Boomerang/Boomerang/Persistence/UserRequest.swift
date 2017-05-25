@@ -30,13 +30,61 @@ class UserRequest: NSObject {
     }
     
     static func getProfileUser(completionHandler: @escaping (_ sucess: Bool, _ msg: String) -> ()) {
-      
         let user = PFUser.current()!
         user.fetchObjectInBackgroundBy(key: "profile") { (success, msg, profile) in
             if success {
                 completionHandler(success, msg)
             } else {
                 completionHandler(success, msg)
+            }
+        }
+    }
+    
+    static func getAllProfiles(profilesDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ profiles: [Profile]?) -> Void)  {
+        
+        var notContainedObjectIds = [String]()
+        notContainedObjectIds.append(ApplicationState.sharedInstance.currentUser!.profile!.objectId!)
+        profilesDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+        
+        var profiles = [Profile]()
+        let notContainedObjects = [ObjectKeys.objectId: notContainedObjectIds]
+        
+        ParseRequest.queryGetAllObjects(className: Profile.parseClassName(), notContainedObjects: notContainedObjects, pagination: pagination, includes: nil) { (success,  msg, objects) in
+            if success {
+                objects!.forEach {
+                    let profile = $0 as? Profile
+                    profiles.append(profile!)
+                }
+                completionHandler(success, msg, profiles)
+            } else {
+                completionHandler(success, msg, nil)
+            }
+        }
+    }
+    
+    static func getProfileByFacebookIds(facebookIds: [String], friendsDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ facebookFriends: [Profile]?) -> Void)  {
+        
+        var friends: [Profile] = [Profile]()
+        let queryParams = [ProfileKeys.facebookId: facebookIds]
+        var notContainedObjectIds = [String]()
+        
+        friendsDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+        
+        let notContainedObjects = [ObjectKeys.objectId: notContainedObjectIds]
+        
+        ParseRequest.queryContainedIn(className: Profile.parseClassName(), queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .cacheElseNetwork, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
+            if success {
+                objects!.forEach {
+                    let friend = $0 as? Profile
+                    friends.append(friend!)
+                }
+                completionHandler(success, msg, friends)
+            } else {
+                completionHandler(success, msg, nil)
             }
         }
     }
@@ -94,22 +142,6 @@ class UserRequest: NSObject {
         }
     }
     
-    static func createFollow(currentProfile: Profile, otherProfile: Profile,  completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        
-//        let follow = PFObject(className: "Follow")
-//        
-//        follow["from"] = ["__type": "Pointer", "className": "_User", "objectId": currentUser.objectId]
-//        follow["to"] = ["__type": "Pointer", "className": "_User", "objectId": otherUser.objectId]
-//        
-//        follow.saveInBackground { (success, error) in
-//            if error == nil {
-//                completionHandler(true, "success")
-//            } else {
-//                completionHandler(false, error!.localizedDescription)
-//            }
-//        }
-    }
-    
     
     static func getProfileCountOf(key: String, className: String, profile: Profile, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         
@@ -127,6 +159,7 @@ class UserRequest: NSObject {
         var queryParams = [String : Any]()
         queryParams["from"] = currentProfile
         queryParams["to"] = otherProfile
+        print ("OTHER PROFILE\(otherProfile)")
         
         ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, includes: nil) { (success, msg, objects) in
             if success {
@@ -138,7 +171,6 @@ class UserRequest: NSObject {
             }
         }
     }
-    
     
 
     static func fetchFollowing(fromProfile: Profile, followingDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {

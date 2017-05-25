@@ -27,7 +27,6 @@ class RecommendedPresenter: NSObject {
         self.view = view
     }
     
-    
     func createRecommendation(friend: Profile) {
         let recommendation = Recommended(sender: sender, post: post, receiver: friend)
         

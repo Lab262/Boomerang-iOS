@@ -9,7 +9,6 @@
 import UIKit
 
 class SearchFriendsTableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -17,7 +16,9 @@ class SearchFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var backgroundSupportView: UIView!
+    
 
+    var presenter: SearchFriendsCellPresenter = SearchFriendsCellPresenter()
     
     static var identifier: String {
         return "searchFriendsCell"
@@ -43,12 +44,6 @@ class SearchFriendsTableViewCell: UITableViewCell {
         }
     }
     
-    var facebookFriend: BoomerCellData? {
-        didSet{
-            updateCellByFacebookFriend()
-        }
-    }
-    
     let followButtonHighlightedTitle = "Seguindo"
     let followButtonHighlightedBackgroundColor = UIColor.colorWithHexString("F6A01F")
     let followButtonHighlightedTitleColor = UIColor.white
@@ -62,11 +57,25 @@ class SearchFriendsTableViewCell: UITableViewCell {
         followButton.layer.cornerRadius = followButton.frame.height/2
         containerView.layer.cornerRadius = 4
         configureDynamicFonts()
+        setupViewDelegate()
+    }
+    
+    func setupViewDelegate() {
+        presenter.setViewDelegate(view: self)
     }
     
     func configureDynamicFonts(){
         nameLabel.setDynamicFont()
         cityLabel.setDynamicFont()
+    }
+    
+    
+    func setupCellInformations() {
+        presenter.getIsAlreadyFollwing()
+        nameLabel.text = presenter.profile.fullName
+        cityLabel.text = "Brasília - DF"
+        userImage.getUserImage(profile: presenter.profile) { (success, msg) in
+        }
     }
     
     func updateCellInformations() {
@@ -76,13 +85,7 @@ class SearchFriendsTableViewCell: UITableViewCell {
         }
     }
     
-    func updateCellByFacebookFriend() {
-        nameLabel.text = facebookFriend?.dataTitle
-        cityLabel.text = facebookFriend?.dataSubDescription
-    }
-    
     func changeFollowButtonStyle() {
-        
         let animationDuration = 0.07
         
         if following! {
@@ -98,13 +101,25 @@ class SearchFriendsTableViewCell: UITableViewCell {
             }
             followButton.setTitle(followButtonNormalTitle, for: .normal)
         }
-        followButton.bouncingAnimation(duration: 0.4)
+        //followButton.bouncingAnimation(duration: 0.4)
     }
     
     @IBAction func followAction(_ sender: Any) {
-        following = !following!
+        let action: FollowButtonAction = following! ? .follow : .unfollow
+        presenter.followAction(action: action)
+    }
+}
+
+extension SearchFriendsTableViewCell: SearchFriendsCellDelegate {
+
+    func showMessage(msg: String) {
+        // message error
     }
     
-    
-    
+    func buttonActionResult(success: Bool, action: FollowButtonAction) {
+        
+//        if success {
+//            following = !following!
+//        }
+    }
 }

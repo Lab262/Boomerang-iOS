@@ -476,70 +476,71 @@ class ParseRequest: NSObject {
 
     static func queryEqualToValue(className: String, queryParams: [String: Any], includes: [String]?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
-        if queryParams.count > 1 {
-            var allQueries = [PFQuery]()
-            for queryParam in queryParams {
-                let query = PFQuery(className: className)
-                query.whereKey(queryParam.key, equalTo: queryParam.value)
-                if let keys = selectKeys {
-                    query.selectKeys(keys)
-                }
-                if let allIncludes = includes {
-                    for include in allIncludes {
-                        query.includeKey(include)
-                    }
-                }
-                allQueries.append(query)
-            }
-            var allObjects = [PFObject]()
-            let firstQuery = allQueries.first
-            
-            firstQuery?.findObjectsInBackground { (objects, error) in
-            
-                if error == nil {
-                    for object in objects! {
-                        allObjects.append(object)
-                    }
-                    let secondQuery = allQueries.last
-                    secondQuery?.findObjectsInBackground(block: { (objects, error) in
-                        if error == nil {
-                            for object in objects! {
-                                allObjects.append(object)
-                            }
-                            completionHandler(true, "Success", allObjects)
-                        } else {
-                            completionHandler(false, error.debugDescription, nil)
-                        }
-                    })
-                } else {
-                    completionHandler(false, error.debugDescription, nil)
-                }
-            }
-        } else {
-            
-            let query = PFQuery(className: className)
-            query.skip = skip!
-            query.limit = pagination!
-            query.order(byDescending: "createdAt")
+//        if queryParams.count > 1 {
+//            var allQueries = [PFQuery]()
+//            for queryParam in queryParams {
+//                let query = PFQuery(className: className)
+//                query.whereKey(queryParam.key, equalTo: queryParam.value)
+//                if let keys = selectKeys {
+//                    query.selectKeys(keys)
+//                }
+//                if let allIncludes = includes {
+//                    for include in allIncludes {
+//                        query.includeKey(include)
+//                    }
+//                }
+//                allQueries.append(query)
+//            }
+//            var allObjects = [PFObject]()
+//            let firstQuery = allQueries.first
+//            
+//            firstQuery?.findObjectsInBackground { (objects, error) in
+//            
+//                if error == nil {
+//                    for object in objects! {
+//                        allObjects.append(object)
+//                    }
+//                    let secondQuery = allQueries.last
+//                    secondQuery?.findObjectsInBackground(block: { (objects, error) in
+//                        if error == nil {
+//                            for object in objects! {
+//                                allObjects.append(object)
+//                            }
+//                            completionHandler(true, "Success", allObjects)
+//                        } else {
+//                            completionHandler(false, error.debugDescription, nil)
+//                        }
+//                    })
+//                } else {
+//                    completionHandler(false, error.debugDescription, nil)
+//                }
+//            }
+//        } else {
+        
+        let query = PFQuery(className: className)
+        query.skip = skip!
+        query.limit = pagination!
+        query.order(byDescending: "createdAt")
            
-            for queryParam in queryParams {
-                query.whereKey(queryParam.key, equalTo: queryParam.value)
-            }
-            if let keys = selectKeys {
-                query.selectKeys(keys)
-            }
+        for queryParam in queryParams {
+            query.whereKey(queryParam.key, equalTo: queryParam.value)
+        }
+        
+        if let keys = selectKeys {
+            query.selectKeys(keys)
+        }
             
-            if let allIncludes = includes {
-                for include in allIncludes {
-                    query.includeKey(include)
-                }
+        if let allIncludes = includes {
+            for include in allIncludes {
+                query.includeKey(include)
             }
-            query.findObjectsInBackground { (objects, error) in
-                if error == nil {
-                    completionHandler(true, "Success", objects)
-                } else {
-                    completionHandler(false, error.debugDescription, nil)
-                }
+        }
+        
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                completionHandler(true, "Success", objects)
+            } else {
+                completionHandler(false, error.debugDescription, nil)
             }
         }
     }
@@ -547,8 +548,8 @@ class ParseRequest: NSObject {
     static func queryContainedIn(className: String, queryType: QueryType, whereType: WhereType, includes: [String]?, cachePolicy: PFCachePolicy, params: [String: [Any]], notContainedObjects: [String: [Any]], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
         switch queryType {
-        case .common:
             
+        case .common:
             var query = PFQuery()
             for param in params {
                 query = setupQuery(className: className, key: param.key, values: param.value, cachePolicy: cachePolicy, pagination: pagination, notContainedObjects: notContainedObjects, whereType: whereType, includes: includes)
@@ -623,6 +624,7 @@ extension PFObject {
         let query = relation.query()
         query.limit = pagination
         query.cachePolicy = cachePolicy
+        
         query.order(byAscending: ObjectKeys.createdAt)
         
         if let allNotContainedObjects = notContainedObjects {
