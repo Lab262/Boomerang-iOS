@@ -41,7 +41,6 @@ class ChatViewController: JSQMessagesViewController {
         collectionView?.collectionViewLayout.incomingAvatarViewSize = .zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = .zero
         collectionView.collectionViewLayout.messageBubbleFont = UIFont.montserratSemiBold(size: 14)
-        
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
     }
@@ -62,9 +61,7 @@ class ChatViewController: JSQMessagesViewController {
     override func didPressSend(_ button: UIButton, withMessageText text: String, senderId: String, senderDisplayName: String, date: Date) {
         presenter.sendMessage(senderId: senderId, text: text)
         self.finishSendingMessage(animated: true)
-        
     }
-    
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.messages.count
