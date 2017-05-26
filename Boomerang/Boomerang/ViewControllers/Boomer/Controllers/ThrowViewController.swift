@@ -17,7 +17,7 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
     
-    var fields:[Int:String] = []
+    var fields:[Int:String] = [:]
     
     var nameThing = String ()
     var descriptionThing = String ()

@@ -33,6 +33,8 @@ class UserRequest: NSObject {
         let user = PFUser.current()!
         user.fetchObjectInBackgroundBy(key: "profile") { (success, msg, profile) in
             if success {
+                ApplicationState.sharedInstance.currentUser = PFUser.current() as? User
+                ApplicationState.sharedInstance.currentUser!.profile = Profile(object: profile!)
                 completionHandler(success, msg)
             } else {
                 completionHandler(success, msg)
@@ -190,7 +192,7 @@ class UserRequest: NSObject {
         ParseRequest.queryEqualToValueNotContainedObjects(className: "Follow", queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkOnly, notContainedObjects: notContainedObjects, includes: ["to"], pagination: pagination) { (success, msg, objects) in
             if success {
                 for object in objects! {
-                    following.append(Profile(object: object.object(forKey: "to") as! PFObject))
+                    following.append(object as! Profile)
                 }
                 completionHandler(true, "Success", following)
             } else {

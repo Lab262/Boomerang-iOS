@@ -59,11 +59,12 @@ class Scheme: PFObject {
         self.createdDate = object.createdAt
         
         if let requester = object["requester"] as? Profile {
-            self.requester = Profile(object: requester)
+            self.requester = requester             //self.requester = Profile(object: requester)
         }
         
         if let owner = object["owner"] as? Profile {
-            self.owner = Profile(object: owner)
+             self.owner = owner
+            //self.owner = Profile(object: owner)
         }
         
         if let post = object["post"] as? Post {
