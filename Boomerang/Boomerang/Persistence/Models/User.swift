@@ -24,39 +24,43 @@ class User: PFUser {
     static var current: User? {
         return PFUser.current() as? User
     }
-
-    convenience init(user: PFUser) {
-        self.init()
-        
-        setInformationsUserByPFUser(user: user)
-    }
     
-    func setInformationsUserByPFUser(user: PFUser){
-        
-        self.objectId = user.objectId
-        
-        if let firstName = user["firstName"] as? String {
-            self.fullName = firstName
-            self.firstName = firstName
-        }
-        
-        if let lastName = user["lastName"] as? String {
-            self.fullName?.append(" \(lastName)")
-            self.lastName = lastName
-        }
-        
-        if let email = user["email"] as? String {
-            self.email = email
-        }
-        
-        if let photo = user["photo"] as? PFFile {
-            self.photo = photo
-        }
-        
-        if let profile = user["profile"] as? Profile {
-            self.profile = profile
-        }
+    override init() {
+        super.init()
     }
+
+//    convenience init(user: PFUser) {
+//        self.init()
+//        
+//        setInformationsUserByPFUser(user: user)
+//    }
+//    
+//    func setInformationsUserByPFUser(user: PFUser){
+//        
+//        self.objectId = user.objectId
+//        
+//        if let firstName = user["firstName"] as? String {
+//            self.fullName = firstName
+//            self.firstName = firstName
+//        }
+//        
+//        if let lastName = user["lastName"] as? String {
+//            self.fullName?.append(" \(lastName)")
+//            self.lastName = lastName
+//        }
+//        
+//        if let email = user["email"] as? String {
+//            self.email = email
+//        }
+//        
+//        if let photo = user["photo"] as? PFFile {
+//            self.photo = photo
+//        }
+//        
+//        if let profile = user["profile"] as? Profile {
+//            self.profile = profile
+//        }
+//    }
 }
 
 

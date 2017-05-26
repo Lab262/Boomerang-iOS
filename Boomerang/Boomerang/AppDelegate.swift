@@ -31,29 +31,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
         
-        self.window!.rootViewController = self.setInitialStoryboardBySeasonUser()
+        setInitialStoryboardBySeasonUser { (success, msg, viewController) in
+            if success {
+                self.requestAllPostTypes(completionHandler: { (success, msg) in
+                    if success {
+                        self.requestAllPostConditions(completionHandler: { (success, msg) in
+                            if success {
+                                self.requestSchemeStatus(completionHandler: { (success, msg) in
+                                    if success {
+                                        self.window?.rootViewController = viewController
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+                
+            }
+        }
         
         NotificationsManager.registerForNotifications()
         
         return true
     }
-
     
-    func setInitialStoryboardBySeasonUser() -> UIViewController? {
+    private func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.getAllTypes { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    private func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.getAllConditions { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    private func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        SchemeRequest.getAllStatus { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+
+    func setInitialStoryboardBySeasonUser(completionHandler: @escaping (_ sucess: Bool, _ msg: String, _ viewController: UIViewController) -> ()) {
         
         var initialViewController: UIViewController? = nil
-        initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
         
         if let _ = PFUser.current() {
-            initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
-            
+            UserRequest.getProfileUser(completionHandler: { (success, msg) in
+                if success {
+                    initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
+                    completionHandler(success, "msg", initialViewController!)
+                }
+            })
         }else {
-            
             initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "")
+            completionHandler(true, "msg", initialViewController!)
         }
-        
-        return initialViewController
-        
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

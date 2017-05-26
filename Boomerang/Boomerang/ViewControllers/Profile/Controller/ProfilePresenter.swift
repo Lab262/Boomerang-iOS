@@ -19,11 +19,13 @@ class ProfilePresenter: NSObject {
     fileprivate var havePosts: [Post] = [Post]()
     fileprivate var donatePosts: [Post] = [Post]()
     fileprivate var currentPostType: TypePost? = nil
+    
     fileprivate var post: Post = Post(){
         didSet{
             profile = post.author!
         }
     }
+    
     fileprivate var currentPostsCount = 0
     fileprivate var controller: ViewDelegate?
     
