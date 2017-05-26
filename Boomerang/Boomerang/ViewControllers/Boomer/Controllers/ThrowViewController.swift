@@ -16,7 +16,7 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var bgPostImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
-    let placeholder = ["Nome do Produto","Nome do Produto","Local de retirada","placeholder"]
+    
     var fields:[String] = []
     var nameThing = String ()
     var descriptionThing = String ()
@@ -31,9 +31,14 @@ class ThrowViewController: UIViewController {
     let colapsedHeight = CGFloat(100)
     var expandeIndexPath = IndexPath(row:0, section:0)
     
+    let defaultSize16:CGFloat = 16
+    let defaultSize14:CGFloat = 14
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
     }
     
     
@@ -51,25 +56,17 @@ class ThrowViewController: UIViewController {
     }
     
     func registerNib() {
-       
-         self.tableView.register(UINib(nibName: "SwitchButtonTableViewCell", bundle: nil), forCellReuseIdentifier: SwitchButtonTableViewCell.cellIdentifier)
+        
+        self.tableView.register(UINib(nibName: "SwitchButtonTableViewCell", bundle: nil), forCellReuseIdentifier: SwitchButtonTableViewCell.cellIdentifier)
         
         self.tableView.register(UINib(nibName: "SimpleTextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: SimpleTextFieldTableViewCell.cellIdentifier)
         
         self.tableView.register(UINib(nibName: "DescriptionTextTableViewCell", bundle: nil), forCellReuseIdentifier: DescriptionTextTableViewCell.cellIdentifier)
         
         self.tableView.register(UINib(nibName: "TypePostTableViewCell", bundle: nil), forCellReuseIdentifier: TypePostTableViewCell.cellIdentifier)
-    
-          self.tableView.register(UINib(nibName: "WithdrawalTableViewCell", bundle: nil), forCellReuseIdentifier: WithdrawalTableViewCell.cellIdentifier)
-    
+        
         self.tableView.register(UINib(nibName: "HeaderPostTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderPostTableViewCell.cellIdentifier)
-    
-        self.tableView.register(UINib(nibName: "TextFieldWithImageTableViewCell", bundle: nil), forCellReuseIdentifier: TextFieldWithImageTableViewCell.identifier)
-        
-          self.tableView.register(UINib(nibName: "FieldDatePickerTableViewCell", bundle: nil), forCellReuseIdentifier: FieldDatePickerTableViewCell.cellIdentifier)
-        
-        
-        
+                
     }
 
     
@@ -84,43 +81,19 @@ class ThrowViewController: UIViewController {
         self.createPost()
     }
     
+    //MARK: Generate Tables Views Cells
     
-    func generateHeadPostCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func generateHeadPostCell (_ tableView: UITableView, indexPath: IndexPath, image: UIImage) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:TypePostTableViewCell.cellIdentifier, for: indexPath) as! TypePostTableViewCell
         cell.selectionStyle = .none
-        
-        switch  typeVC.hashValue {
-        case 0 :
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_have")
-            cell.titlePostString = titleHeader
-            break
-        case  1 :
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_need")
-            cell.titlePostString = titleHeader
-            break
-        case  2 :
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_donate")
-            cell.titlePostString = titleHeader
-            break
-        default:
-            cell.imagePost.image = #imageLiteral(resourceName: "ic_have")
-            cell.titlePostString = titleHeader
-        }
+        cell.imagePost.image = image
+        cell.titlePostString = titleHeader
         
         return cell
         
     }
     
-    func generateTextFieldWithImageCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:TextFieldWithImageTableViewCell.identifier, for: indexPath) as! TextFieldWithImageTableViewCell
-        
-        
-        
-        
-        return cell
-        
-    }
     func generateNavigation(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:HeaderPostTableViewCell.cellIdentifier, for: indexPath) as! HeaderPostTableViewCell
         cell.selectionStyle = .none
@@ -129,10 +102,12 @@ class ThrowViewController: UIViewController {
         
     }
     
-    func generateDescriptionCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func generateDescriptionCell (_ tableView: UITableView, indexPath: IndexPath, titleCell: String, sizeFont: CGFloat) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.cellIdentifier, for: indexPath) as! DescriptionTextTableViewCell
         cell.selectionStyle = .none
+        cell.titleLabel.text = titleCell
+        cell.defaultSizeFont = sizeFont
         
        // cell.handler!.completation = { (text) -> Void in
          //   self.descriptionThing = text
@@ -141,75 +116,29 @@ class ThrowViewController: UIViewController {
         
     }
     
-    func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath, firstTitle: String, secondTitle: String) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.cellIdentifier, for: indexPath) as! SwitchButtonTableViewCell
         cell.selectionStyle = .none
-        cell.firstOptionTitle = CreatePostTitles.borrowed
-        cell.secondOptionTitle = CreatePostTitles.toSwitch
+        cell.firstOptionTitle = firstTitle
+        cell.secondOptionTitle = secondTitle
         
         return cell
         
     }
     
-    
-    
-    func generateWithDrawalCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier:WithdrawalTableViewCell.cellIdentifier, for: indexPath) as! WithdrawalTableViewCell
-        cell.selectionStyle = .none
-        
-     
-        return cell
-        
-    }
-    
-    func generateNameProducTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func generateSimpleTextFieldCell (_ tableView: UITableView, indexPath: IndexPath, title: String, placeholder: String) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
-         cell.selectionStyle = .none
-        cell.textField.placeholder = "Nome do Produto"
+        
+        cell.selectionStyle = .none
+        cell.titleLabel.text = title
+        cell.textField.placeholder = placeholder
         
         cell.handler!.completation = { (text) -> Void in
             self.nameThing = text
         }
         
-        return cell
-        
-    }
-    
-    func generateFieldDatePickerTableViewCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier:FieldDatePickerTableViewCell.cellIdentifier, for: indexPath) as! FieldDatePickerTableViewCell
-        
-        return cell
-        
-    }
-    
-    
-    func generateSimpleTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
-        cell.selectionStyle = .none
-        cell.textField.placeholder = placeholder[indexPath.row]
-        
-        cell.handler!.completation = { (text) -> Void in
-           
-        }
-        return cell
-        
-    }
-    
-    
-    func generateWithDrawTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
-        cell.selectionStyle = .none
-        cell.textField.placeholder = placeholder[indexPath.row]
-        
-        cell.handler!.completation = { (text) -> Void in
-            
-        }
         return cell
         
     }
@@ -239,6 +168,71 @@ class ThrowViewController: UIViewController {
         }
         
         return header
+    }
+    
+    //MARK: Generate Tables Views
+    
+    func generateTableViewNeed(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        switch indexPath.row {
+        case  0:
+            return generateHeadPostCell(tableView, indexPath:indexPath, image: #imageLiteral(resourceName: "ic_need"))
+        case  1:
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch)
+        case 2:
+            return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleNeed, placeholder: CreatePostTitles.placeholderTitleNeed)
+        case 3:
+            return generateDescriptionCell(tableView, indexPath:indexPath, titleCell: CreatePostTitles.titleDescription, sizeFont: defaultSize16)
+        case 4:
+            return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleHowLong, placeholder: CreatePostTitles.placeholderConversation)
+        case 5:
+            return generateDescriptionCell(tableView, indexPath:indexPath, titleCell: CreatePostTitles.titleChangeBorrowed, sizeFont: defaultSize14)
+        case 6:
+            return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
+        case 7:
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    func generateTableViewHave(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        switch indexPath.row {
+        case  0:
+            return generateHeadPostCell(tableView, indexPath:indexPath, image: #imageLiteral(resourceName: "ic_have"))
+        case  1:
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch)
+        case 2:
+            return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleHave, placeholder: CreatePostTitles.placeholderTitleHave)
+        case 3:
+            return generateDescriptionCell(tableView, indexPath:indexPath, titleCell: CreatePostTitles.titleDescription, sizeFont: defaultSize16)
+        case 4:
+            return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleHowLong, placeholder: CreatePostTitles.placeholderConversation)
+        case 5:
+            return generateDescriptionCell(tableView, indexPath:indexPath, titleCell: CreatePostTitles.titleChangeBorrowed, sizeFont: defaultSize14)
+        case 6:
+            return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
+        case 7:
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    func generateTableViewDonate(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        switch indexPath.row {
+        case  0:
+            return generateHeadPostCell(tableView, indexPath:indexPath, image: #imageLiteral(resourceName: "ic_donate"))
+        case  1:
+            return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleDonate, placeholder: CreatePostTitles.placeholderTitleDonate)
+        case 2:
+            return generateDescriptionCell(tableView, indexPath:indexPath, titleCell: CreatePostTitles.titleDescription, sizeFont: defaultSize16)
+        case 3:
+            return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
+        case 4:
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+        default:
+            return UITableViewCell()
+        }
     }
     
   
@@ -330,109 +324,20 @@ extension ThrowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
-            case  0:
-                return generateHeadPostCell(tableView, indexPath:indexPath)
-            case  1:
-                switch typeVC {
-                    case .donate:
-                       return generateNameProducTextCell(tableView, indexPath:indexPath)
-                    case .have, .need:
-                        return generateSwitchButtonCell(tableView, indexPath:indexPath)
-
-                }
-            case 2:
-                switch typeVC {
-                    case .donate:
-                        return generateDescriptionCell(tableView, indexPath:indexPath)
-                    case .have, .need:
-                        return generateNameProducTextCell(tableView, indexPath:indexPath)
-                }
-            case 3:
-                switch typeVC {
-                case .donate:
-                    return generateDescriptionCell(tableView, indexPath:indexPath)
-                case .have, .need:
-                    return generateDescriptionCell(tableView, indexPath:indexPath)
-//                case .donate:
-//                    return generateWithDrawalCell(tableView, indexPath:indexPath)
-//                case .have:
-//                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
-//                case .need:
-//                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
-                }
-            case 4:
-                switch typeVC {
-                case .donate:
-                    return generateWithDrawalCell(tableView, indexPath:indexPath)
-                case .have:
-                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
-                case .need:
-                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
-            }
         
-            case 5:
-                switch typeVC {
-                    case .donate:
-                        return  UITableViewCell()
-                    case .have:
-                        return generateDescriptionCell(tableView, indexPath:indexPath)
-                    case .need:
-                        return generateDescriptionCell(tableView, indexPath:indexPath)
-                    
-                }
-            case 6:
-                switch typeVC {
-                case .donate:
-                    return  UITableViewCell()
-                case .have:
-                    return generateWithDrawalCell(tableView, indexPath:indexPath)
-                case .need:
-                    return generateWithDrawalCell(tableView, indexPath:indexPath)
-                
-            }
-            
-        default:
-                return UITableViewCell()
+        switch typeVC {
+        case .need:
+            return generateTableViewNeed(tableView, cellForRowAt: indexPath)
+        case .have:
+            return generateTableViewHave(tableView, cellForRowAt: indexPath)
+        case .donate:
+            return generateTableViewDonate(tableView, cellForRowAt: indexPath)
         }
     }
-    
-  
-    
 }
 
+
 extension ThrowViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         if indexPath.row == 0 {
-            return 65.5
-        }else if indexPath.row == 1 {
-            return CGFloat(100)
-        }else if indexPath.row == 2 {
-            switch typeVC {
-                case .donate:
-                    return CGFloat(100)
-                case .have, .need:
-                    return CGFloat(80)
-            }
-            
-        }else if indexPath.row == 3 {
-            return CGFloat(100)
-        }else if indexPath.row == 4 {
-            return CGFloat(250)
-        }else if indexPath.row == 5 {
-            switch typeVC {
-            case .donate:
-                return CGFloat(0)
-            case .have:
-                return CGFloat(100)
-            case .need:
-                return CGFloat(100)
-            }
-                   }else {
-            return CGFloat(0)
-        }
-    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
@@ -443,7 +348,6 @@ extension ThrowViewController: UITableViewDelegate {
     }
     
  
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return headerHeight
     }

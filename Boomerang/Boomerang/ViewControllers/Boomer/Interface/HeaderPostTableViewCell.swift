@@ -27,6 +27,7 @@ class HeaderPostTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.registerNibs()
         self.configureLabel()
+        titleLabel.setDynamicFont()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

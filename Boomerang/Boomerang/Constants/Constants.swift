@@ -250,4 +250,17 @@ struct TransactionTitles {
 struct CreatePostTitles {
     static let borrowed = "Emprestado"
     static let toSwitch = "Para troca"
+    static let validated = "Tá valendo"
+    static let notValidated = "Ñ tá valendo"
+    static let titleDescription = "Descrição"
+    static let titleChangeBorrowed = "O que posso dar em troca ou emprestado?"
+    static let titleNeed = "Título do Preciso"
+    static let placeholderTitleNeed = "Casinha de Cachorro"
+    static let titleHave = "Título do que Tenho"
+    static let placeholderTitleHave = "Ferramentas de Jardinagem"
+    static let titleDonate = "Título Doação"
+    static let placeholderTitleDonate = "Casinha de Cachorro"
+    static let titleHowLong = "Por quanto tempo (se for emprestado)"
+    static let titlePlace = "Local de retirada"
+    static let placeholderConversation = "Na base da conversa é o default"
 }

@@ -24,6 +24,7 @@ class TypePostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        titlePost.setDynamicFont()
         // Initialization code
     }
 
