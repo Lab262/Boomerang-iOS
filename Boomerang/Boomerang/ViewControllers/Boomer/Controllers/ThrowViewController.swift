@@ -23,6 +23,9 @@ class ThrowViewController: UIViewController {
     var descriptionThing = String ()
     
     var typeVC = TypePost.have
+    var typeScheme:Condition?
+    var isAvailable:Bool?
+    
     var titleHeader = String()
     var allimages:[UIImage]?
     
@@ -66,12 +69,14 @@ class ThrowViewController: UIViewController {
     
     @IBAction func throwAction(_ sender: Any) {
         
-        if let msgErro = self.verifyInformationsFields() {
+        parseFields()
+        
+        if let msgErro = self.verifyEmptyParams() {
             self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
             return
         }
-        
-        self.createPost()
+//
+//        self.createPost()
     }
     
     //MARK: Generate Tables Views Cells
@@ -102,19 +107,34 @@ class ThrowViewController: UIViewController {
         cell.titleLabel.text = titleCell
         cell.defaultSizeFont = sizeFont
         
-       // cell.handler!.completation = { (text) -> Void in
-         //   self.descriptionThing = text
-       // }
+        cell.handler!.completion = { (text) -> Void in
+            self.fields[indexPath.row] = text
+        }
         return cell
         
     }
     
-    func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath, firstTitle: String, secondTitle: String) -> UITableViewCell {
+    func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath, firstTitle: String, secondTitle: String, isTypeScheme:Bool) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.identifier, for: indexPath) as! SwitchButtonTableViewCell
         cell.selectionStyle = .none
         cell.firstOptionTitle = firstTitle
         cell.secondOptionTitle = secondTitle
+        
+        cell.handlerOptionSelected = {selected in
+            
+            if isTypeScheme {
+                if selected {
+                    self.typeScheme = Condition.loan
+                }else{
+                    self.typeScheme = Condition.exchange
+                }
+            }else{
+                self.isAvailable = selected
+            }
+            
+            cell.isFirstOptionSelected = selected
+        }
         
         return cell
         
@@ -128,8 +148,8 @@ class ThrowViewController: UIViewController {
         cell.titleLabel.text = title
         cell.textField.placeholder = placeholder
         
-        cell.handler!.completation = { (text) -> Void in
-            self.nameThing = text
+        cell.handler!.completion = { (text) -> Void in
+            self.fields[indexPath.row] = text
         }
         
         return cell
@@ -170,7 +190,7 @@ class ThrowViewController: UIViewController {
         case  0:
             return generateHeadPostCell(tableView, indexPath:indexPath, image: #imageLiteral(resourceName: "ic_need"))
         case  1:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch, isTypeScheme: true)
         case 2:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleNeed, placeholder: CreatePostTitles.placeholderTitleNeed)
         case 3:
@@ -182,7 +202,7 @@ class ThrowViewController: UIViewController {
         case 6:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
         case 7:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated, isTypeScheme: false)
         default:
             return UITableViewCell()
         }
@@ -193,7 +213,7 @@ class ThrowViewController: UIViewController {
         case  0:
             return generateHeadPostCell(tableView, indexPath:indexPath, image: #imageLiteral(resourceName: "ic_have"))
         case  1:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch, isTypeScheme: true)
         case 2:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleHave, placeholder: CreatePostTitles.placeholderTitleHave)
         case 3:
@@ -205,7 +225,7 @@ class ThrowViewController: UIViewController {
         case 6:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
         case 7:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated, isTypeScheme: false)
         default:
             return UITableViewCell()
         }
@@ -222,13 +242,68 @@ class ThrowViewController: UIViewController {
         case 3:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
         case 4:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated, isTypeScheme: false)
         default:
             return UITableViewCell()
         }
     }
     
-  
+    //MARK: Parse Fields
+    func parseFields(){
+        switch typeVC {
+        case .need, .have:
+            parseFieldsNeedOrHave()
+        case .donate:
+            parseFieldsDonate()
+        }
+    }
+    
+    func parseFieldsNeedOrHave(){
+        self.params[CreatePostTitles.keyParseTitle] = self.fields[2]
+        self.params[CreatePostTitles.keyParseContent] = self.fields[3]
+        self.params[CreatePostTitles.keyParseTime] = self.fields[4]
+        self.params[CreatePostTitles.keyParseExchangeDescription] = self.fields[5]
+        self.params[CreatePostTitles.keyParsePlace] = self.fields[6]
+    }
+    
+    func parseFieldsDonate(){
+        self.params[CreatePostTitles.keyParseTitle] = self.fields[1]
+        self.params[CreatePostTitles.keyParseContent] = self.fields[2]
+        self.params[CreatePostTitles.keyParsePlace] = self.fields[3]
+    }
+    
+    func verifyEmptyParams() -> String? {
+        var msgErro: String?
+        
+        if typeVC == .need || typeVC == .have {
+            if typeScheme == nil {
+                msgErro = CreatePostTitles.msgErrorTypeScheme
+                return msgErro
+            }
+        }
+        
+        if self.params[CreatePostTitles.keyParseTitle] == nil || self.params[CreatePostTitles.keyParseTitle] == "" {
+            msgErro = CreatePostTitles.msgErrorTitle
+            return msgErro
+        }
+        
+        if self.params[CreatePostTitles.keyParseContent] == nil || self.params[CreatePostTitles.keyParseContent] == "" {
+            msgErro = CreatePostTitles.msgErrorDescription
+            return msgErro
+        }
+        
+        if self.params[CreatePostTitles.keyParsePlace] == nil || self.params[CreatePostTitles.keyParsePlace] == "" {
+            msgErro = CreatePostTitles.msgErrorPlace
+            return msgErro
+        }
+        
+        if self.isAvailable == nil {
+            msgErro = CreatePostTitles.msgErrorIsAvailable
+            return msgErro
+        }
+        
+        return msgErro
+    }
     
     
     func createPost () {
@@ -240,8 +315,8 @@ class ThrowViewController: UIViewController {
         let pictureFileObject = PFFile (data:pictureData!)
         
         post.author = ApplicationState.sharedInstance.currentUser?.profile
-        post.title =  self.nameThing
-        post.content = self.descriptionThing
+//        post.title =  self.nameThing
+//        post.content = self.descriptionThing
         post.typePost = TypePost(rawValue: typeVC.rawValue)
         post.type = post.typePost.map { $0.rawValue }
       
@@ -276,29 +351,6 @@ class ThrowViewController: UIViewController {
         })
         
       
-        
-    }
-    
-    func verifyInformationsFields () -> String? {
-        
-        var msgErro: String?
-        
-        if  self.nameThing == "" {
-            
-            msgErro = "Campo nome produto inválido!"
-            
-            return msgErro
-        }
-        
-        if self.descriptionThing == "" {
-            
-            msgErro = "Descrição inválida"
-            
-            return msgErro
-        }
-        
-        
-        return msgErro
         
     }
     

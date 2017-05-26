@@ -26,13 +26,13 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBy-Ql-ODd">
                         <rect key="frame" x="13" y="0.5" width="169" height="42"/>
-                        <color key="backgroundColor" red="0.56470588235294117" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="42" id="Nvf-4O-3Nn"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                         <state key="normal" title="Emprestado">
-                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleColor" red="0.56470588235294117" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -46,10 +46,10 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
-                            <action selector="borrowAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="CMZ-5b-EeO"/>
+                            <action selector="clickButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eLi-r6-vhD"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_swipe_check" translatesAutoresizingMaskIntoConstraints="NO" id="WZD-aL-uUp">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_swipeOval" translatesAutoresizingMaskIntoConstraints="NO" id="WZD-aL-uUp">
                         <rect key="frame" x="24.5" y="14.5" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="DEb-vN-wzl"/>
@@ -75,7 +75,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
-                            <action selector="swapAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Uj6-Lc-l6M"/>
+                            <action selector="clickButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="g1F-Ld-Pej"/>
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_swipeOval" translatesAutoresizingMaskIntoConstraints="NO" id="QUK-gy-hRW">
@@ -100,8 +100,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="boorowedImageView" destination="WZD-aL-uUp" id="6yw-Ih-wSC"/>
                 <outlet property="borrowedButton" destination="HBy-Ql-ODd" id="lpo-r3-ipl"/>
+                <outlet property="borrowedImageView" destination="WZD-aL-uUp" id="mXe-D3-eS4"/>
                 <outlet property="swapButton" destination="mNS-pc-4z6" id="OCg-Oj-D34"/>
                 <outlet property="swapImageView" destination="QUK-gy-hRW" id="HVS-Py-luZ"/>
             </connections>
@@ -110,6 +110,5 @@
     </objects>
     <resources>
         <image name="ic_swipeOval" width="28" height="28"/>
-        <image name="ic_swipe_check" width="15" height="15"/>
     </resources>
 </document>
