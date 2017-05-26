@@ -9,11 +9,17 @@
 import UIKit
 
 class TypePostTableViewCell: UITableViewCell {
-    static var cellIdentifier = "typePostCell"
-    
 
     @IBOutlet weak var titlePost: UILabel!
     @IBOutlet weak var imagePost: UIImageView!
+    
+    static var identifier: String {
+        return "typePostCell"
+    }
+    
+    static var nibName: String {
+        return "TypePostTableViewCell"
+    }
     
     var titlePostString: String? {
         didSet{

@@ -9,12 +9,19 @@
 import UIKit
 
 class DescriptionTextTableViewCell: UITableViewCell {
-    static var cellIdentifier = "descriptionTextCell"
-    var handler: TextViewHandler?
 
     @IBOutlet weak var textView: UITextView!
-    
     @IBOutlet weak var titleLabel: UILabel!
+    
+    var handler: TextViewHandler?
+    
+    static var identifier: String {
+        return "descriptionTextCell"
+    }
+    
+    static var nibName: String {
+        return "DescriptionTextTableViewCell"
+    }
     
     var defaultSizeFont: CGFloat? {
         didSet{

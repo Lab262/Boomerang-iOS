@@ -10,6 +10,7 @@ import UIKit
 
 class HighlightCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
+    
     static var identifier: String {
         return "highlightCollectionViewCell"
     }

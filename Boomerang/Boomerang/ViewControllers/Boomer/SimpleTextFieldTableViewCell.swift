@@ -10,11 +10,19 @@ import UIKit
 
 
 class SimpleTextFieldTableViewCell: UITableViewCell {
-    static var cellIdentifier = "simpleTextCell"
-    @IBOutlet weak var textField: UITextField!
-    var handler: TextFieldHandler?
 
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    var handler: TextFieldHandler?
+    
+    static var identifier: String {
+        return "simpleTextCell"
+    }
+    
+    static var nibName: String {
+        return "SimpleTextFieldTableViewCell"
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

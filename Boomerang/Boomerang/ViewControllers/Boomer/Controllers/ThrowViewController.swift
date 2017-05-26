@@ -17,19 +17,16 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
     
-    var fields:[String] = []
+    var fields:[Int:String] = []
+    
     var nameThing = String ()
     var descriptionThing = String ()
+    
     var typeVC = TypePost.have
     var titleHeader = String()
-    var imagePost: UIImage?
     var allimages:[UIImage]?
+    
     var headerHeight = CGFloat(200)
-    var isHidden = false
-    var displayExpandedHeader = true
-    let expandedHeight = CGFloat(240)
-    let colapsedHeight = CGFloat(100)
-    var expandeIndexPath = IndexPath(row:0, section:0)
     
     let defaultSize16:CGFloat = 16
     let defaultSize14:CGFloat = 14
@@ -57,16 +54,12 @@ class ThrowViewController: UIViewController {
     
     func registerNib() {
         
-        self.tableView.register(UINib(nibName: "SwitchButtonTableViewCell", bundle: nil), forCellReuseIdentifier: SwitchButtonTableViewCell.cellIdentifier)
+        tableView.registerNibFrom(SwitchButtonTableViewCell.self)
+        tableView.registerNibFrom(SimpleTextFieldTableViewCell.self)
+        tableView.registerNibFrom(DescriptionTextTableViewCell.self)
+        tableView.registerNibFrom(TypePostTableViewCell.self)
+        tableView.registerNibFrom(HeaderPostTableViewCell.self)
         
-        self.tableView.register(UINib(nibName: "SimpleTextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: SimpleTextFieldTableViewCell.cellIdentifier)
-        
-        self.tableView.register(UINib(nibName: "DescriptionTextTableViewCell", bundle: nil), forCellReuseIdentifier: DescriptionTextTableViewCell.cellIdentifier)
-        
-        self.tableView.register(UINib(nibName: "TypePostTableViewCell", bundle: nil), forCellReuseIdentifier: TypePostTableViewCell.cellIdentifier)
-        
-        self.tableView.register(UINib(nibName: "HeaderPostTableViewCell", bundle: nil), forCellReuseIdentifier: HeaderPostTableViewCell.cellIdentifier)
-                
     }
 
     
@@ -85,7 +78,7 @@ class ThrowViewController: UIViewController {
     
     func generateHeadPostCell (_ tableView: UITableView, indexPath: IndexPath, image: UIImage) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier:TypePostTableViewCell.cellIdentifier, for: indexPath) as! TypePostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:TypePostTableViewCell.identifier, for: indexPath) as! TypePostTableViewCell
         cell.selectionStyle = .none
         cell.imagePost.image = image
         cell.titlePostString = titleHeader
@@ -95,7 +88,7 @@ class ThrowViewController: UIViewController {
     }
     
     func generateNavigation(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:HeaderPostTableViewCell.cellIdentifier, for: indexPath) as! HeaderPostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:HeaderPostTableViewCell.identifier, for: indexPath) as! HeaderPostTableViewCell
         cell.selectionStyle = .none
         cell.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
         return cell
@@ -104,7 +97,7 @@ class ThrowViewController: UIViewController {
     
     func generateDescriptionCell (_ tableView: UITableView, indexPath: IndexPath, titleCell: String, sizeFont: CGFloat) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.cellIdentifier, for: indexPath) as! DescriptionTextTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.identifier, for: indexPath) as! DescriptionTextTableViewCell
         cell.selectionStyle = .none
         cell.titleLabel.text = titleCell
         cell.defaultSizeFont = sizeFont
@@ -118,7 +111,7 @@ class ThrowViewController: UIViewController {
     
     func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath, firstTitle: String, secondTitle: String) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.cellIdentifier, for: indexPath) as! SwitchButtonTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.identifier, for: indexPath) as! SwitchButtonTableViewCell
         cell.selectionStyle = .none
         cell.firstOptionTitle = firstTitle
         cell.secondOptionTitle = secondTitle
@@ -129,7 +122,7 @@ class ThrowViewController: UIViewController {
     
     func generateSimpleTextFieldCell (_ tableView: UITableView, indexPath: IndexPath, title: String, placeholder: String) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.identifier, for: indexPath) as! SimpleTextFieldTableViewCell
         
         cell.selectionStyle = .none
         cell.titleLabel.text = title
@@ -145,7 +138,7 @@ class ThrowViewController: UIViewController {
     
     func generateHeaderView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.cellIdentifier) as! HeaderPostTableViewCell
+        let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.identifier) as! HeaderPostTableViewCell
       
         header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
         header.delegate = self
