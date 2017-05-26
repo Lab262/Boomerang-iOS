@@ -76,7 +76,7 @@ class UserRequest: NSObject {
         
         let notContainedObjects = [ObjectKeys.objectId: notContainedObjectIds]
         
-        ParseRequest.queryContainedIn(className: Profile.parseClassName(), queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .cacheElseNetwork, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryContainedIn(className: Profile.parseClassName(), queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .networkElseCache, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
             if success {
                 objects!.forEach {
                     let friend = $0 as? Profile
