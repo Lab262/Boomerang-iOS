@@ -21,11 +21,8 @@ class ThrowViewController: UIViewController {
     var fields:[Int:String] = [:]
     var params:[String:String] = [:]
     var typeVC = TypePost.have
-    var typeScheme = Condition.loan
-    var isAvailable = true
-    
-    var nameThing = String ()
-    var descriptionThing = String ()
+    var typeScheme:Condition?
+    var isAvailable:Bool?
     
     var titleHeader = String()
     var allimages:[UIImage]?
@@ -71,12 +68,12 @@ class ThrowViewController: UIViewController {
     @IBAction func throwAction(_ sender: Any) {
         
         parseFields()
-//        
-//        if let msgErro = self.verifyInformationsFields() {
-//            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
-//            return
-//        }
-//        
+        
+        if let msgErro = self.verifyEmptyParams() {
+            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
+            return
+        }
+//
 //        self.createPost()
     }
     
@@ -257,10 +254,6 @@ class ThrowViewController: UIViewController {
         case .donate:
             parseFieldsDonate()
         }
-        print(typeVC)
-        print(typeScheme)
-        print(isAvailable)
-        print(params)
     }
     
     func parseFieldsNeedOrHave(){
@@ -277,6 +270,39 @@ class ThrowViewController: UIViewController {
         self.params[CreatePostTitles.keyParsePlace] = self.fields[3]
     }
     
+    func verifyEmptyParams() -> String? {
+        var msgErro: String?
+        
+        if typeVC == .need || typeVC == .have {
+            if typeScheme == nil {
+                msgErro = CreatePostTitles.msgErrorTypeScheme
+                return msgErro
+            }
+        }
+        
+        if self.params[CreatePostTitles.keyParseTitle] == nil || self.params[CreatePostTitles.keyParseTitle] == "" {
+            msgErro = CreatePostTitles.msgErrorTitle
+            return msgErro
+        }
+        
+        if self.params[CreatePostTitles.keyParseContent] == nil || self.params[CreatePostTitles.keyParseContent] == "" {
+            msgErro = CreatePostTitles.msgErrorDescription
+            return msgErro
+        }
+        
+        if self.params[CreatePostTitles.keyParsePlace] == nil || self.params[CreatePostTitles.keyParsePlace] == "" {
+            msgErro = CreatePostTitles.msgErrorPlace
+            return msgErro
+        }
+        
+        if self.isAvailable == nil {
+            msgErro = CreatePostTitles.msgErrorIsAvailable
+            return msgErro
+        }
+        
+        return msgErro
+    }
+    
     
     func createPost () {
         
@@ -287,8 +313,8 @@ class ThrowViewController: UIViewController {
         let pictureFileObject = PFFile (data:pictureData!)
         
         post.author = ApplicationState.sharedInstance.currentUser?.profile
-        post.title =  self.nameThing
-        post.content = self.descriptionThing
+//        post.title =  self.nameThing
+//        post.content = self.descriptionThing
         post.typePost = TypePost(rawValue: typeVC.rawValue)
         post.type = post.typePost.map { $0.rawValue }
       
@@ -323,29 +349,6 @@ class ThrowViewController: UIViewController {
         })
         
       
-        
-    }
-    
-    func verifyInformationsFields () -> String? {
-        
-        var msgErro: String?
-        
-        if  self.nameThing == "" {
-            
-            msgErro = "Campo nome produto inválido!"
-            
-            return msgErro
-        }
-        
-        if self.descriptionThing == "" {
-            
-            msgErro = "Descrição inválida"
-            
-            return msgErro
-        }
-        
-        
-        return msgErro
         
     }
     

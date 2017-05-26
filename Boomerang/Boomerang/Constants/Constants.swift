@@ -279,4 +279,11 @@ struct CreatePostTitles {
     static let keyParseExchangeDescription = "exchangeDescription"
     static let keyParsePlace = "place"
     static let keyParseTime = "loanTime"
+    
+    //Messages erros form
+    static let msgErrorTitle = "Campo de Título inválido!"
+    static let msgErrorDescription = "Campo de Descrição inválido!"
+    static let msgErrorPlace = "Campo de Local de retirada inválido!"
+    static let msgErrorIsAvailable = "Opção de Tá valendo não selecionada!"
+    static let msgErrorTypeScheme = "Opção de Tipo do Esquema não selecionada!"
 }
