@@ -41,7 +41,7 @@ class AuthenticationMainViewController: UIViewController {
             if let url = URL(string: "https://graph.facebook.com/" + userId + "/picture?type=large") {
                 do {
                     let contents = try Data(contentsOf: url)
-                    photoInPFFile = PFFile(data: contents)
+                    photoInPFFile = PFFile(data: contents, contentType: "image/jpeg")
                     completionHandler(true, "success", photoInPFFile)
                 } catch {
                     // contents could not be loaded

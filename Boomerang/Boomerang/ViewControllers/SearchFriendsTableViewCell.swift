@@ -106,6 +106,8 @@ class SearchFriendsTableViewCell: UITableViewCell {
     
     @IBAction func followAction(_ sender: Any) {
         let action: FollowButtonAction = following! ? .follow : .unfollow
+        
+        
         presenter.followAction(action: action)
     }
 }

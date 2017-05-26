@@ -30,6 +30,8 @@ class SearchFriendsCellPresenter: NSObject {
     }
     
     func followAction(action: FollowButtonAction) {
+        
+        
         actionRequesterFor(action: action) { (success, msg) in
             if success {
                 //self.view?.buttonActionResult(success: success, action: action)
