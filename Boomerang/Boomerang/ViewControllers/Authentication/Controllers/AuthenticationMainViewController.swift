@@ -103,6 +103,7 @@ class AuthenticationMainViewController: UIViewController {
                         self.getPhotoOfFacebookInPFFile(userId: userId, completionHandler: { (success, msg, userPhoto) in
                             if success {
                                 profile.setObject(userPhoto!, forKey: "photo")
+                                profile.setObject(userId, forKey: "facebookId")
                                 newUser.setObject(userPhoto!, forKey: "photo")
                                 newUser.setObject(profile, forKey: "profile")
                                 newUser.saveInBackground(block: { (success, error) in

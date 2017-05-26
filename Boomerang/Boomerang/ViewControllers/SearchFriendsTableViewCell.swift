@@ -16,10 +16,6 @@ class SearchFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var backgroundSupportView: UIView!
-    
-
-    var presenter: SearchFriendsCellPresenter = SearchFriendsCellPresenter()
-    
     static var identifier: String {
         return "searchFriendsCell"
     }
@@ -50,6 +46,8 @@ class SearchFriendsTableViewCell: UITableViewCell {
     let followButtonNormalTitle = "Seguir"
     let followButtonNormalBackgroundColor = UIColor.white
     let followButtonNormalTitleColor = UIColor.black
+    var presenter: SearchFriendsCellPresenter = SearchFriendsCellPresenter()
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -105,10 +103,12 @@ class SearchFriendsTableViewCell: UITableViewCell {
     }
     
     @IBAction func followAction(_ sender: Any) {
-        let action: FollowButtonAction = following! ? .follow : .unfollow
         
-        
-        presenter.followAction(action: action)
+        if self.following! {
+            presenter.followAction(action: .unfollow)
+        } else {
+            presenter.followAction(action: .follow)
+        }
     }
 }
 
