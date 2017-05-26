@@ -46,7 +46,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
-                            <action selector="borrowAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="CMZ-5b-EeO"/>
+                            <action selector="clickButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eLi-r6-vhD"/>
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_swipe_check" translatesAutoresizingMaskIntoConstraints="NO" id="WZD-aL-uUp">
@@ -75,7 +75,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
-                            <action selector="swapAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Uj6-Lc-l6M"/>
+                            <action selector="clickButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="g1F-Ld-Pej"/>
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_swipeOval" translatesAutoresizingMaskIntoConstraints="NO" id="QUK-gy-hRW">
@@ -100,8 +100,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="boorowedImageView" destination="WZD-aL-uUp" id="6yw-Ih-wSC"/>
                 <outlet property="borrowedButton" destination="HBy-Ql-ODd" id="lpo-r3-ipl"/>
+                <outlet property="borrowedImageView" destination="WZD-aL-uUp" id="mXe-D3-eS4"/>
                 <outlet property="swapButton" destination="mNS-pc-4z6" id="OCg-Oj-D34"/>
                 <outlet property="swapImageView" destination="QUK-gy-hRW" id="HVS-Py-luZ"/>
             </connections>

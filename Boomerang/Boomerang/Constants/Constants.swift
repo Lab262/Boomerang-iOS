@@ -270,6 +270,13 @@ struct CreatePostTitles {
     static let keyDescription = "descriptionPost"
     static let keyHowLong = "howLong"
     static let keyHaveBorrowOrChange = "haveBorrowOrChange"
-    static let keyPlace = "place"
+    static let keyPlace = "placePost"
     static let keyAvailable = "available"
+    
+    //Keys parse forms
+    static let keyParseTitle = "title"
+    static let keyParseContent = "content"
+    static let keyParseExchangeDescription = "exchangeDescription"
+    static let keyParsePlace = "place"
+    static let keyParseTime = "loanTime"
 }

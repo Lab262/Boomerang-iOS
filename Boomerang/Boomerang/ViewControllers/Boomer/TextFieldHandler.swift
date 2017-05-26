@@ -13,15 +13,14 @@ typealias textFieldEnd = (String!) -> Void
 class TextFieldHandler: NSObject, UITextFieldDelegate {
     
     var textField: UITextField!
-    var completation: textFieldEnd!
-    var dataObject: [String]?
+    var completion: textFieldEnd!
     
     init(_textField: UITextField) {
         super.init()
         
         self.textField = _textField
         self.textField.delegate = self
-        self.textField.addTarget(self, action: #selector(textFieldDidMiss(_:)), for: UIControlEvents.editingDidEnd)
+        self.textField.addTarget(self, action: #selector(textFieldDidEditing(_:)), for: UIControlEvents.editingChanged)
         
         NotificationCenter.default.addObserver(self, selector: (#selector(didEnd(_:))), name: NSNotification.Name(rawValue: "DISMISS_KEYBOARD"), object: nil)
     }
@@ -30,25 +29,18 @@ class TextFieldHandler: NSObject, UITextFieldDelegate {
         self.textField.resignFirstResponder()
     }
     
-    func textFieldDidMiss (_ textField: UITextField) {
-        
-        self.textFieldDidEndEditing(textField)
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        
-        
+    func textFieldDidEditing(_ textField: UITextField) {
+        self.completion(textField.text)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.resignFirstResponder()
-        self.completation(textField.text)
+        self.completion(textField.text)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        self.completation(textField.text)
+        self.completion(textField.text)
         
         return true
     }

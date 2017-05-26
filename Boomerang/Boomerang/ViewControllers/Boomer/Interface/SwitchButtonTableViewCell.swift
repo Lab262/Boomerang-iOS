@@ -10,10 +10,13 @@ import UIKit
 
 class SwitchButtonTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var boorowedImageView: UIImageView!
+    @IBOutlet weak var borrowedImageView: UIImageView!
     @IBOutlet weak var borrowedButton: UIButton!
     @IBOutlet weak var swapButton: UIButton!
     @IBOutlet weak var swapImageView: UIImageView!
+    
+    var handlerOptionSelected: ((Bool) -> ())?
+    var isFirstOptionSelected = true
     
     static var identifier: String {
         return "SwitchButtonCell"
@@ -25,18 +28,27 @@ class SwitchButtonTableViewCell: UITableViewCell {
     
     var firstOptionTitle: String? {
         didSet{
-            let title = firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white)
+            var title:NSAttributedString = NSAttributedString()
+            if isFirstOptionSelected {
+                title = (firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white))!
+            }else{
+                title = (firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.unselectedTextButtonColor))!
+            }
             borrowedButton.setAttributedTitle(title, for: .normal)
         }
     }
     
     var secondOptionTitle: String? {
         didSet{
-            let title = secondOptionTitle?.with(characterSpacing: 1.3,color:.unselectedTextButtonColor)
+            var title:NSAttributedString = NSAttributedString()
+            if isFirstOptionSelected {
+                title = (secondOptionTitle?.with(characterSpacing: 1.3, color:UIColor.unselectedTextButtonColor))!
+            }else{
+                title = (secondOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white))!
+            }
             swapButton.setAttributedTitle(title, for: .normal)
         }
     }
-   
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,31 +57,36 @@ class SwitchButtonTableViewCell: UITableViewCell {
         borrowedButton.titleLabel?.setDynamicFont()
         swapButton.titleLabel?.setDynamicFont()
     }
-    @IBAction func borrowAction(_ sender: Any) {
-        self.boorowedImageView.image = #imageLiteral(resourceName: "ic_swipe_check")
-        self.borrowedButton.backgroundColor = .unselectedTextButtonColor
-        
-        let titleFirst = firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white)
-        borrowedButton.setAttributedTitle(titleFirst, for: .normal)
-        
-        self.swapImageView.image =  #imageLiteral(resourceName: "ic_swipeOval")
-        self.swapButton.backgroundColor = UIColor.white
-        
-        let titleSecond = secondOptionTitle?.with(characterSpacing: 1.3,color:.unselectedTextButtonColor)
-        swapButton.setAttributedTitle(titleSecond, for: .normal)
+    
+    @IBAction func clickButton(_ sender: UIButton) {
+        updateStateButtons(button: sender)
     }
-    @IBAction func swapAction(_ sender: Any) {
-        self.boorowedImageView.image = #imageLiteral(resourceName: "ic_swipeOval")
-        self.borrowedButton.backgroundColor = UIColor.white
-        let titleFirst = firstOptionTitle?.with(characterSpacing: 1.3,color:.unselectedTextButtonColor)
-        borrowedButton.setAttributedTitle(titleFirst, for: .normal)
-        
-        self.swapImageView.image =  #imageLiteral(resourceName: "ic_swipe_check")
-        self.swapButton.backgroundColor =  .unselectedTextButtonColor
-        let titleSecond = secondOptionTitle?.with(characterSpacing: 1.3,color:UIColor.white)
-        swapButton.setAttributedTitle(titleSecond, for: .normal)
-        
-       
+    
+    func updateStateButtons(button: UIButton){
+        if button == self.borrowedButton{
+            selectButton(button: self.borrowedButton, title: firstOptionTitle!, imageView: self.borrowedImageView)
+            unselectButton(button: self.swapButton, title: secondOptionTitle!, imageView: self.swapImageView)
+            self.handlerOptionSelected?(true)
+        }else{
+            selectButton(button: self.swapButton, title: secondOptionTitle!, imageView: self.swapImageView)
+                unselectButton(button: self.borrowedButton, title: firstOptionTitle!, imageView: self.borrowedImageView)
+            self.handlerOptionSelected?(false)
+        }
+    }
+    
+    func selectButton(button: UIButton, title: String, imageView: UIImageView){
+        updatePropertysButtons(button: button, title: title, colorButton: .unselectedTextButtonColor, colorText: UIColor.white, image: #imageLiteral(resourceName: "ic_swipe_check"), imageView: imageView)
+    }
+    
+    func unselectButton(button: UIButton, title: String, imageView: UIImageView){
+        updatePropertysButtons(button: button, title: title, colorButton: UIColor.white, colorText: .unselectedTextButtonColor, image: #imageLiteral(resourceName: "ic_swipeOval"), imageView: imageView)
+    }
+    
+    func updatePropertysButtons(button: UIButton, title:String, colorButton:UIColor, colorText: UIColor, image:UIImage, imageView: UIImageView){
+        imageView.image = image
+        button.backgroundColor = colorButton
+        let titleCustom = title.with(characterSpacing: 1.3,color:colorText)
+        button.setAttributedTitle(titleCustom, for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

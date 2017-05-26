@@ -17,12 +17,16 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
     
-    var fields:[Int:String] = []
+    //Informations form
+    var fields:[Int:String] = [:]
+    var params:[String:String] = [:]
+    var typeVC = TypePost.have
+    var typeScheme = Condition.loan
+    var isAvailable = true
     
     var nameThing = String ()
     var descriptionThing = String ()
     
-    var typeVC = TypePost.have
     var titleHeader = String()
     var allimages:[UIImage]?
     
@@ -66,12 +70,14 @@ class ThrowViewController: UIViewController {
     
     @IBAction func throwAction(_ sender: Any) {
         
-        if let msgErro = self.verifyInformationsFields() {
-            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
-            return
-        }
-        
-        self.createPost()
+        parseFields()
+//        
+//        if let msgErro = self.verifyInformationsFields() {
+//            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
+//            return
+//        }
+//        
+//        self.createPost()
     }
     
     //MARK: Generate Tables Views Cells
@@ -102,19 +108,34 @@ class ThrowViewController: UIViewController {
         cell.titleLabel.text = titleCell
         cell.defaultSizeFont = sizeFont
         
-       // cell.handler!.completation = { (text) -> Void in
-         //   self.descriptionThing = text
-       // }
+        cell.handler!.completion = { (text) -> Void in
+            self.fields[indexPath.row] = text
+        }
         return cell
         
     }
     
-    func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath, firstTitle: String, secondTitle: String) -> UITableViewCell {
+    func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath, firstTitle: String, secondTitle: String, isTypeScheme:Bool) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.identifier, for: indexPath) as! SwitchButtonTableViewCell
         cell.selectionStyle = .none
         cell.firstOptionTitle = firstTitle
         cell.secondOptionTitle = secondTitle
+        
+        cell.handlerOptionSelected = {selected in
+            
+            if isTypeScheme {
+                if selected {
+                    self.typeScheme = Condition.loan
+                }else{
+                    self.typeScheme = Condition.exchange
+                }
+            }else{
+                self.isAvailable = selected
+            }
+            
+            cell.isFirstOptionSelected = selected
+        }
         
         return cell
         
@@ -128,8 +149,8 @@ class ThrowViewController: UIViewController {
         cell.titleLabel.text = title
         cell.textField.placeholder = placeholder
         
-        cell.handler!.completation = { (text) -> Void in
-            self.nameThing = text
+        cell.handler!.completion = { (text) -> Void in
+            self.fields[indexPath.row] = text
         }
         
         return cell
@@ -170,7 +191,7 @@ class ThrowViewController: UIViewController {
         case  0:
             return generateHeadPostCell(tableView, indexPath:indexPath, image: #imageLiteral(resourceName: "ic_need"))
         case  1:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch, isTypeScheme: true)
         case 2:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleNeed, placeholder: CreatePostTitles.placeholderTitleNeed)
         case 3:
@@ -182,7 +203,7 @@ class ThrowViewController: UIViewController {
         case 6:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
         case 7:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated, isTypeScheme: false)
         default:
             return UITableViewCell()
         }
@@ -193,7 +214,7 @@ class ThrowViewController: UIViewController {
         case  0:
             return generateHeadPostCell(tableView, indexPath:indexPath, image: #imageLiteral(resourceName: "ic_have"))
         case  1:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch, isTypeScheme: true)
         case 2:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleHave, placeholder: CreatePostTitles.placeholderTitleHave)
         case 3:
@@ -205,7 +226,7 @@ class ThrowViewController: UIViewController {
         case 6:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
         case 7:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated, isTypeScheme: false)
         default:
             return UITableViewCell()
         }
@@ -222,13 +243,39 @@ class ThrowViewController: UIViewController {
         case 3:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
         case 4:
-            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+            return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated, isTypeScheme: false)
         default:
             return UITableViewCell()
         }
     }
     
-  
+    //MARK: Parse Fields
+    func parseFields(){
+        switch typeVC {
+        case .need, .have:
+            parseFieldsNeedOrHave()
+        case .donate:
+            parseFieldsDonate()
+        }
+        print(typeVC)
+        print(typeScheme)
+        print(isAvailable)
+        print(params)
+    }
+    
+    func parseFieldsNeedOrHave(){
+        self.params[CreatePostTitles.keyParseTitle] = self.fields[2]
+        self.params[CreatePostTitles.keyParseContent] = self.fields[3]
+        self.params[CreatePostTitles.keyParseTime] = self.fields[4]
+        self.params[CreatePostTitles.keyParseExchangeDescription] = self.fields[5]
+        self.params[CreatePostTitles.keyParsePlace] = self.fields[6]
+    }
+    
+    func parseFieldsDonate(){
+        self.params[CreatePostTitles.keyParseTitle] = self.fields[1]
+        self.params[CreatePostTitles.keyParseContent] = self.fields[2]
+        self.params[CreatePostTitles.keyParsePlace] = self.fields[3]
+    }
     
     
     func createPost () {
