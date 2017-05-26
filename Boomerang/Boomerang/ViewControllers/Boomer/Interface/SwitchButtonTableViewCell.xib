@@ -17,15 +17,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchButtonCell" rowHeight="90" id="KGk-i7-Jjw" customClass="SwitchButtonTableViewCell" customModule="lab262_boomerang_dev" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchButtonCell" rowHeight="73" id="KGk-i7-Jjw" customClass="SwitchButtonTableViewCell" customModule="lab262_boomerang_dev" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBy-Ql-ODd">
-                        <rect key="frame" x="13" y="24" width="169" height="42"/>
+                        <rect key="frame" x="13" y="0.5" width="169" height="42"/>
                         <color key="backgroundColor" red="0.56470588235294117" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="42" id="Nvf-4O-3Nn"/>
@@ -50,14 +50,14 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_swipe_check" translatesAutoresizingMaskIntoConstraints="NO" id="WZD-aL-uUp">
-                        <rect key="frame" x="24.5" y="38.5" width="15" height="15"/>
+                        <rect key="frame" x="24.5" y="14.5" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="DEb-vN-wzl"/>
                             <constraint firstAttribute="width" constant="15" id="G2E-Yo-3g3"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNS-pc-4z6">
-                        <rect key="frame" x="193" y="24" width="169" height="42"/>
+                        <rect key="frame" x="193" y="0.5" width="169" height="42"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                         <state key="normal" title="Para troca">
@@ -79,18 +79,19 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_swipeOval" translatesAutoresizingMaskIntoConstraints="NO" id="QUK-gy-hRW">
-                        <rect key="frame" x="206" y="38.5" width="15" height="15"/>
+                        <rect key="frame" x="206" y="14.5" width="15" height="15"/>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="mNS-pc-4z6" firstAttribute="height" secondItem="HBy-Ql-ODd" secondAttribute="height" id="6TC-9q-iWu"/>
                     <constraint firstItem="WZD-aL-uUp" firstAttribute="centerY" secondItem="HBy-Ql-ODd" secondAttribute="centerY" multiplier="1.025" id="BQ0-nW-t6D"/>
                     <constraint firstItem="mNS-pc-4z6" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.48" id="GIc-ZK-Ev0"/>
-                    <constraint firstItem="HBy-Ql-ODd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KZH-ev-Fav"/>
+                    <constraint firstAttribute="bottom" secondItem="HBy-Ql-ODd" secondAttribute="bottom" constant="30" id="Inb-bA-4qY"/>
                     <constraint firstItem="QUK-gy-hRW" firstAttribute="centerY" secondItem="mNS-pc-4z6" secondAttribute="centerY" multiplier="1.025" id="N55-OA-2sY"/>
-                    <constraint firstItem="mNS-pc-4z6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ONl-vn-bke"/>
                     <constraint firstItem="HBy-Ql-ODd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.52" id="YaY-eU-QWQ"/>
                     <constraint firstItem="QUK-gy-hRW" firstAttribute="centerX" secondItem="mNS-pc-4z6" secondAttribute="centerX" multiplier="0.77" id="Ysw-CU-jN7"/>
+                    <constraint firstItem="mNS-pc-4z6" firstAttribute="centerY" secondItem="HBy-Ql-ODd" secondAttribute="centerY" id="dM1-P0-byT"/>
+                    <constraint firstItem="HBy-Ql-ODd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dOt-pe-mTA"/>
                     <constraint firstItem="QUK-gy-hRW" firstAttribute="height" secondItem="WZD-aL-uUp" secondAttribute="height" id="f2y-TT-Byl"/>
                     <constraint firstItem="mNS-pc-4z6" firstAttribute="width" secondItem="HBy-Ql-ODd" secondAttribute="width" id="g2C-kN-RRi"/>
                     <constraint firstItem="HBy-Ql-ODd" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.45" id="ndk-Ii-hv2"/>
@@ -104,7 +105,7 @@
                 <outlet property="swapButton" destination="mNS-pc-4z6" id="OCg-Oj-D34"/>
                 <outlet property="swapImageView" destination="QUK-gy-hRW" id="HVS-Py-luZ"/>
             </connections>
-            <point key="canvasLocation" x="65.5" y="99"/>
+            <point key="canvasLocation" x="65.5" y="85.5"/>
         </tableViewCell>
     </objects>
     <resources>

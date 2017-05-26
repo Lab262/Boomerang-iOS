@@ -43,7 +43,7 @@
                                     <outlet property="delegate" destination="KGk-i7-Jjw" id="AJV-G1-XYG"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzZ-Et-e6V">
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzZ-Et-e6V">
                                 <rect key="frame" x="156" y="133" width="63" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="63" id="03I-ga-Ke1"/>
