@@ -9,8 +9,6 @@
 import UIKit
 
 class HeaderPostTableViewCell: UITableViewCell {
-    static var cellIdentifier = "HeaderPostCell"
-    var highlights: [UIImage] = []
     
     @IBOutlet weak var touchAreaThrowButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -21,6 +19,15 @@ class HeaderPostTableViewCell: UITableViewCell {
     @IBOutlet weak var throwButton: UIButton!
     @IBOutlet weak var photo: UIImageView!
     var delegate: UIIButtonWithPickerDelegate? = nil
+    var highlights: [UIImage] = []
+    
+    static var identifier: String {
+        return "HeaderPostCell"
+    }
+    
+    static var nibName: String {
+        return "HeaderPostTableViewCell"
+    }
     
     
     override func awakeFromNib() {

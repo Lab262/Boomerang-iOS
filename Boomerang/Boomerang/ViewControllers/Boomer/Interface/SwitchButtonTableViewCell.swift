@@ -9,13 +9,19 @@
 import UIKit
 
 class SwitchButtonTableViewCell: UITableViewCell {
-      static var cellIdentifier = "SwitchButtonCell"
-    
     
     @IBOutlet weak var boorowedImageView: UIImageView!
     @IBOutlet weak var borrowedButton: UIButton!
     @IBOutlet weak var swapButton: UIButton!
     @IBOutlet weak var swapImageView: UIImageView!
+    
+    static var identifier: String {
+        return "SwitchButtonCell"
+    }
+    
+    static var nibName: String {
+        return "SwitchButtonTableViewCell"
+    }
     
     var firstOptionTitle: String? {
         didSet{

@@ -263,4 +263,13 @@ struct CreatePostTitles {
     static let titleHowLong = "Por quanto tempo (se for emprestado)"
     static let titlePlace = "Local de retirada"
     static let placeholderConversation = "Na base da conversa é o default"
+    
+    //Keys form create
+    static let keyBorrowOrChange = "borrowOrChange"
+    static let keyTitle = "titlePost"
+    static let keyDescription = "descriptionPost"
+    static let keyHowLong = "howLong"
+    static let keyHaveBorrowOrChange = "haveBorrowOrChange"
+    static let keyPlace = "place"
+    static let keyAvailable = "available"
 }
