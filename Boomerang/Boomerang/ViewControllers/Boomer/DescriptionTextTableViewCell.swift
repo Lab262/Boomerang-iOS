@@ -16,9 +16,16 @@ class DescriptionTextTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    var defaultSizeFont: CGFloat? {
+        didSet{
+            self.titleLabel.font = UIFont(name: (self.titleLabel.font?.fontName)!, size: defaultSizeFont!)
+            self.titleLabel.setDynamicFont()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.titleLabel.setDynamicFont()
+        defaultSizeFont = CGFloat(16)
         self.textView?.textContainerInset.left = 10;
         self.textView.font = UIFont(name: (self.textView.font?.fontName)!, size: (self.textView.font?.pointSize)!*UIView.widthScaleProportion())!
         self.handler = TextViewHandler(textView: textView)

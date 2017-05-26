@@ -31,6 +31,9 @@ class ThrowViewController: UIViewController {
     let colapsedHeight = CGFloat(100)
     var expandeIndexPath = IndexPath(row:0, section:0)
     
+    let defaultSize16:CGFloat = 16
+    let defaultSize14:CGFloat = 14
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
@@ -129,10 +132,12 @@ class ThrowViewController: UIViewController {
         
     }
     
-    func generateDescriptionCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func generateDescriptionCell (_ tableView: UITableView, indexPath: IndexPath, titleCell: String, sizeFont: CGFloat) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:DescriptionTextTableViewCell.cellIdentifier, for: indexPath) as! DescriptionTextTableViewCell
         cell.selectionStyle = .none
+        cell.titleLabel.text = titleCell
+        cell.defaultSizeFont = sizeFont
         
        // cell.handler!.completation = { (text) -> Void in
          //   self.descriptionThing = text
@@ -141,12 +146,12 @@ class ThrowViewController: UIViewController {
         
     }
     
-    func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath, firstTitle: String, secondTitle: String) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.cellIdentifier, for: indexPath) as! SwitchButtonTableViewCell
         cell.selectionStyle = .none
-        cell.firstOptionTitle = CreatePostTitles.borrowed
-        cell.secondOptionTitle = CreatePostTitles.toSwitch
+        cell.firstOptionTitle = firstTitle
+        cell.secondOptionTitle = secondTitle
         
         return cell
         
@@ -164,11 +169,13 @@ class ThrowViewController: UIViewController {
         
     }
     
-    func generateNameProducTextCell (_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func generateNameProductTextCell (_ tableView: UITableView, indexPath: IndexPath, title: String, placeholder: String) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SimpleTextFieldTableViewCell.cellIdentifier, for: indexPath) as! SimpleTextFieldTableViewCell
-         cell.selectionStyle = .none
-        cell.textField.placeholder = "Nome do Produto"
+        
+        cell.selectionStyle = .none
+        cell.titleLabel.text = title
+        cell.textField.placeholder = placeholder
         
         cell.handler!.completation = { (text) -> Void in
             self.nameThing = text
@@ -336,35 +343,31 @@ extension ThrowViewController: UITableViewDataSource {
             case  1:
                 switch typeVC {
                     case .donate:
-                       return generateNameProducTextCell(tableView, indexPath:indexPath)
+                       return generateNameProductTextCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleDonate, placeholder: CreatePostTitles.placeholderTitleDonate)
                     case .have, .need:
-                        return generateSwitchButtonCell(tableView, indexPath:indexPath)
+                        return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.borrowed, secondTitle: CreatePostTitles.toSwitch)
 
                 }
             case 2:
                 switch typeVC {
                     case .donate:
-                        return generateDescriptionCell(tableView, indexPath:indexPath)
-                    case .have, .need:
-                        return generateNameProducTextCell(tableView, indexPath:indexPath)
+                        return generateDescriptionCell(tableView, indexPath:indexPath, titleCell: CreatePostTitles.titleDescription, sizeFont: defaultSize16)
+                    case .have:
+                        return generateNameProductTextCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleHave, placeholder: CreatePostTitles.placeholderTitleHave)
+                case .need:
+                    return generateNameProductTextCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleNeed, placeholder: CreatePostTitles.placeholderTitleNeed)
                 }
             case 3:
                 switch typeVC {
                 case .donate:
-                    return generateDescriptionCell(tableView, indexPath:indexPath)
+                    return generateNameProductTextCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
                 case .have, .need:
-                    return generateDescriptionCell(tableView, indexPath:indexPath)
-//                case .donate:
-//                    return generateWithDrawalCell(tableView, indexPath:indexPath)
-//                case .have:
-//                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
-//                case .need:
-//                    return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
+                    return generateDescriptionCell(tableView, indexPath:indexPath, titleCell: CreatePostTitles.titleDescription, sizeFont: defaultSize16)
                 }
             case 4:
                 switch typeVC {
                 case .donate:
-                    return generateWithDrawalCell(tableView, indexPath:indexPath)
+                    return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
                 case .have:
                     return generateFieldDatePickerTableViewCell(tableView, indexPath:indexPath)
                 case .need:
@@ -375,21 +378,26 @@ extension ThrowViewController: UITableViewDataSource {
                 switch typeVC {
                     case .donate:
                         return  UITableViewCell()
-                    case .have:
-                        return generateDescriptionCell(tableView, indexPath:indexPath)
-                    case .need:
-                        return generateDescriptionCell(tableView, indexPath:indexPath)
+                case .have, .need:
+                    return generateDescriptionCell(tableView, indexPath:indexPath, titleCell: CreatePostTitles.titleChangeBorrowed, sizeFont: defaultSize14)
                     
                 }
             case 6:
                 switch typeVC {
                 case .donate:
                     return  UITableViewCell()
-                case .have:
-                    return generateWithDrawalCell(tableView, indexPath:indexPath)
-                case .need:
-                    return generateWithDrawalCell(tableView, indexPath:indexPath)
+                case .have, .need:
+                    return generateNameProductTextCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
                 
+            }
+
+            case 7:
+                switch typeVC {
+                case .donate:
+                    return  UITableViewCell()
+                case .have, .need:
+                    return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated)
+                    
             }
             
         default:
@@ -429,7 +437,14 @@ extension ThrowViewController: UITableViewDelegate {
             case .need:
                 return CGFloat(100)
             }
-                   }else {
+         }
+        else if indexPath.row == 6 {
+            return CGFloat(100)
+        }
+        else if indexPath.row == 7 {
+            return CGFloat(100)
+        }
+        else {
             return CGFloat(0)
         }
     }
