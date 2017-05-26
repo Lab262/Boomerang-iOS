@@ -16,7 +16,7 @@ class SwitchButtonTableViewCell: UITableViewCell {
     @IBOutlet weak var swapImageView: UIImageView!
     
     var handlerOptionSelected: ((Bool) -> ())?
-    var isFirstOptionSelected = true
+    var isFirstOptionSelected:Bool?
     
     static var identifier: String {
         return "SwitchButtonCell"
@@ -29,8 +29,12 @@ class SwitchButtonTableViewCell: UITableViewCell {
     var firstOptionTitle: String? {
         didSet{
             var title:NSAttributedString = NSAttributedString()
-            if isFirstOptionSelected {
-                title = (firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white))!
+            if isFirstOptionSelected != nil {
+                if isFirstOptionSelected! {
+                    title = (firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white))!
+                }else{
+                    title = (firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.unselectedTextButtonColor))!
+                }
             }else{
                 title = (firstOptionTitle?.with(characterSpacing: 1.3, color:UIColor.unselectedTextButtonColor))!
             }
@@ -41,11 +45,16 @@ class SwitchButtonTableViewCell: UITableViewCell {
     var secondOptionTitle: String? {
         didSet{
             var title:NSAttributedString = NSAttributedString()
-            if isFirstOptionSelected {
-                title = (secondOptionTitle?.with(characterSpacing: 1.3, color:UIColor.unselectedTextButtonColor))!
+            if isFirstOptionSelected != nil {
+                if isFirstOptionSelected! {
+                    title = (secondOptionTitle?.with(characterSpacing: 1.3, color:UIColor.unselectedTextButtonColor))!
+                }else{
+                    title = (secondOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white))!
+                }
             }else{
-                title = (secondOptionTitle?.with(characterSpacing: 1.3, color:UIColor.white))!
+                title = (secondOptionTitle?.with(characterSpacing: 1.3, color:UIColor.unselectedTextButtonColor))!
             }
+            
             swapButton.setAttributedTitle(title, for: .normal)
         }
     }
