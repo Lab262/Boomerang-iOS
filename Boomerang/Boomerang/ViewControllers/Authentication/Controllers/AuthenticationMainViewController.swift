@@ -34,46 +34,6 @@ class AuthenticationMainViewController: UIViewController {
         self.welcomeLabel.attributedText = textWelcomeLabel
     }
     
-//    @IBAction func signInAction(_ sender: Any) {
-//        let permissions = ["public_profile", "email","user_friends"]
-//        
-//        PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
-//            
-//            if let user = user {
-//                if user.isNew {
-//                    self.updateUserByFacebook()
-//                } else {
-//                   self.showHomeVC()
-//                }
-//            }
-//        }
-//    }
-//    
-//    
-//    @IBAction func signUpAction(_ sender: Any) {
-//        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-//        
-//        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-//            
-//            if error == nil {
-//                self.view.loadAnimation()
-//                let fbloginresult : FBSDKLoginManagerLoginResult = result!
-//                
-//                if (result?.isCancelled)! {
-//                    self.view.unload()
-//                    return
-//                }
-//                
-//                if(fbloginresult.grantedPermissions.contains("email")) {
-//                    self.returnUserData()
-//                }
-//            } else {
-//               // error
-//            }
-//            
-//        }
-//    }
-    
     func getPhotoOfFacebookInPFFile (userId: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ file: PFFile?) -> ()) {
         var photoInPFFile: PFFile?
         
@@ -81,7 +41,7 @@ class AuthenticationMainViewController: UIViewController {
             if let url = URL(string: "https://graph.facebook.com/" + userId + "/picture?type=large") {
                 do {
                     let contents = try Data(contentsOf: url)
-                    photoInPFFile = PFFile(data: contents)
+                    photoInPFFile = PFFile(data: contents, contentType: "image/jpeg")
                     completionHandler(true, "success", photoInPFFile)
                 } catch {
                     // contents could not be loaded

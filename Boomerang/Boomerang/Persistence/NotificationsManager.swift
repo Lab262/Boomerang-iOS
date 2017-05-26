@@ -16,7 +16,7 @@ class NotificationsManager: NSObject {
     static func registerForNotifications() {
         
         if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {(accepted, error) in
+            UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge]) {(accepted, error) in
                 if !accepted {
                      print("Notification access denied.")
                 } else {
@@ -129,7 +129,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let application = UIApplication.shared
         NotificationsManager.handleNotificationByApplicationState(application: application, userInfo:  notification.request.content.userInfo)
 
-        completionHandler([.alert,.sound])
+        // completionHandler([.sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -145,11 +145,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension NotificationsManager {
     
     static func handleNotificationByApplicationState(application: UIApplication,userInfo: [AnyHashable: Any]) {
-        PFPush.handle(userInfo)
         NotificationsManager.handleNotificationGeneric(userInfo: userInfo)
         if ( application.applicationState == .inactive || application.applicationState == .background  )
         {
             NotificationsManager.handleNotificationBackground(userInfo: userInfo)
+            PFPush.handle(userInfo)
         } else {
             NotificationsManager.handleNotificationForeground(userInfo: userInfo)
         }

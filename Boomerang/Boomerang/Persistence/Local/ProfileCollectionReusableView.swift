@@ -63,7 +63,6 @@ class ProfileCollectionReusableView: UICollectionReusableView {
                         self.button.setTitleColor(UIColor.purplePrincipalBoomerColor, for: .normal)
                         self.button.setTitle(ProfileTitles.follow, for: .normal)
                     }
-                    
                 }
             })
         }

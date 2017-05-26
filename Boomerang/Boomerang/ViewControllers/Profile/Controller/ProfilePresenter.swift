@@ -133,9 +133,7 @@ class ProfilePresenter: NSObject {
     }
     
     func alreadyFollowing(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool?) -> ()){
-        
         UserRequest.verifyAlreadyFollowingFor(currentProfile: ApplicationState.sharedInstance.currentUser!.profile!, otherProfile: profile) { (success, msg, alreadyFollow) in
-            
             if success {
                 completionHandler(true, msg, alreadyFollow)
             } else {

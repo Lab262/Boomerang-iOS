@@ -51,7 +51,7 @@ extension ExchangeTransactionViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as! TransactionTableViewCell
         
-        cell.presenter.setScheme(scheme: presenter.getSchemes()[indexPath.row])
+        cell.presenter.scheme = presenter.getSchemes()[indexPath.row]
         cell.updateCell()
         
         return cell

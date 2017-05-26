@@ -29,4 +29,5 @@ extension UIFont {
     class func montserratBlack(size:CGFloat) -> UIFont {
         return UIFont(name: "Montserrat-Black", size: size)!
     }
+    
 }

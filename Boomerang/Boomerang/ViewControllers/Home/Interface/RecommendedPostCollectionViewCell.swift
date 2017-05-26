@@ -43,6 +43,8 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         containerIconView.roundCorners(corners: [.bottomLeft], radius: 100.0)
     }
     
+    
+    
     func setupCell(){
         descriptionPostLabel.text = presenter.post.content
         userNameLabel.text = presenter.post.author!.fullName

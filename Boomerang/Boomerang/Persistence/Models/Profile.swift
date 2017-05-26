@@ -13,13 +13,16 @@ import Parse
 
 class Profile: PFObject {
     
+    @NSManaged var facebookId: String?
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
     @NSManaged var email: String?
     @NSManaged var photo: PFFile?
+    var pictureURL: String?
     var profileImage: UIImage?
     var alreadySearched = false
     var follow: Follow?
+    var alreadyFollow: Bool?
     
     var fullName: String {
         if case let (firstName?, lastName?) = (firstName, lastName) {
