@@ -321,7 +321,7 @@ class ThrowViewController: UIViewController {
         let post = Post(author: ApplicationState.sharedInstance.currentUser!.profile!, title: params[CreatePostTitles.keyParseTitle]!, content: params[CreatePostTitles.keyParseContent]!, loanTime: params[CreatePostTitles.keyParseTime]!, exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription]!, place: params[CreatePostTitles.keyParsePlace]!, condition: typeScheme, typePost: typeVC)
         
         let pictureData = UIImagePNGRepresentation((allimages?.first)!)
-        let pictureFileObject = PFFile(data:pictureData!)
+        let pictureFileObject =  PFFile(data: pictureData!, contentType: "image/jpeg")
         
         let photos = PFObject(className:"Photo")
         
