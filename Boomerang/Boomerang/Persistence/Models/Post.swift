@@ -54,14 +54,13 @@ class Post: PFObject {
         super.init()
     }
     
-    convenience init(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String, place: String, condition: Condition?, typePost: TypePost) {
+    convenience init(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: Condition?, typePost: TypePost) {
         self.init()
         
         self.author = author
         self.title = title
         self.content = content
         self.loanTime = loanTime
-        self.exchangeDescription = exchangeDescription
         self.place = place
         
         let postTypes = ApplicationState.sharedInstance.postTypes
@@ -74,6 +73,10 @@ class Post: PFObject {
         
         if let loanTime = loanTime {
             self.loanTime = loanTime
+        }
+        
+        if let exchangeDescription = exchangeDescription {
+            self.exchangeDescription = exchangeDescription
         }
         
         if let condition = condition {
