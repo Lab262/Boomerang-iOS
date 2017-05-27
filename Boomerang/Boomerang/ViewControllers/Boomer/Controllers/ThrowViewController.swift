@@ -424,10 +424,6 @@ extension ThrowViewController: UIScrollViewDelegate {
             
         }
         
-       
-        
-        
-        
     }
 }
 
