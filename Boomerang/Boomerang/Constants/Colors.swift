@@ -115,6 +115,12 @@ extension UIColor {
         }
     }
     
+    static var feedbackTextLabelColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("606060")
+        }
+    }
+    
     
     
 }
