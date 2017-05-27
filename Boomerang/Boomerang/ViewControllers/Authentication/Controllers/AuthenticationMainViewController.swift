@@ -1,3 +1,4 @@
+
 //
 //  AuthenticationMainViewController.swift
 //  Boomerang
@@ -27,10 +28,10 @@ class AuthenticationMainViewController: UIViewController {
     
     func setupCustomLabel(){
         let textWelcomeLabel = NSMutableAttributedString(string: defaultTextTitleWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratBlack(size: defaultSizeFontWelcomeLabel)])
+        
         let textWelcomeDescriptionLabel = NSMutableAttributedString(string: defaultTextDescriptionWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratLight(size: defaultSizeFontWelcomeLabel)])
         
         textWelcomeLabel.append(textWelcomeDescriptionLabel)
-
         self.welcomeLabel.attributedText = textWelcomeLabel
     }
     
@@ -106,13 +107,22 @@ class AuthenticationMainViewController: UIViewController {
                                 profile.setObject(userId, forKey: "facebookId")
                                 newUser.setObject(userPhoto!, forKey: "photo")
                                 newUser.setObject(profile, forKey: "profile")
-                                newUser.saveInBackground(block: { (success, error) in
+                                PFObject.saveAll(inBackground: [profile, newUser], block: { (success, error) in
                                     if success {
+                                        
                                         self.showHomeVC()
                                     } else {
                                         print ("ERROR SAVE")
                                     }
                                 })
+//                                newUser.saveInBackground(block: { (success, error) in
+//                                    if success {
+//                                        
+//                                        self.showHomeVC()
+//                                    } else {
+//                                        print ("ERROR SAVE")
+//                                    }
+//                                })
                             } else {
                                 print ("ERROR PHOTO")
                             }
@@ -122,15 +132,54 @@ class AuthenticationMainViewController: UIViewController {
             }
         }
     }
+    
+    func loginUser() {
+        
+    }
   
     func showHomeVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vcToShow = storyboard.instantiateInitialViewController()!
-        self.present(vcToShow, animated: true, completion: nil)
+       
+        UserRequest.getProfileUser(completionHandler: { (success, msg) in
+            if success {
+                self.requestAllPostTypes(completionHandler: { (success, msg) in
+                    if success {
+                        self.requestAllPostConditions(completionHandler: { (success, msg) in
+                            if success {
+                                self.requestSchemeStatus(completionHandler: { (success, msg) in
+                                    if success {
+                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                        let vcToShow = storyboard.instantiateInitialViewController()!
+                                        self.present(vcToShow, animated: true, completion: nil)
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    private func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.getAllTypes { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    private func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.getAllConditions { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    private func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        SchemeRequest.getAllStatus { (success, msg) in
+            completionHandler(success, msg)
+        }
     }
     
 }

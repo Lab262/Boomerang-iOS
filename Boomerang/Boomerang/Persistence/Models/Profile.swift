@@ -24,6 +24,11 @@ class Profile: PFObject {
     var follow: Follow?
     var alreadyFollow: Bool?
     
+    
+    override init() {
+        super.init()
+    }
+    
     var fullName: String {
         if case let (firstName?, lastName?) = (firstName, lastName) {
             return "\(firstName) \(lastName)"

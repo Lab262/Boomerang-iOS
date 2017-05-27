@@ -74,15 +74,15 @@ struct Paginations {
     
 }
 
+
 //MARK - Status Scheme Ids
 
 struct StatusSchemeId {
-    static let progress = "FGoq2742yY"
-    static let finished = "gTRgdWgkJR"
-    static let canceled = "cHsRNXQpWS"
-    static let negotiation = "5MxzhBHxB7"
-    static let done = "j0MewQGDsX"
-    
+    static let progress = "TDfrBSLDAg"
+    static let finished = "FRuVXEtdMr"
+    static let canceled = "cFGJX3N8cV"
+    static let negotiation = "DCpFv8IIVz"
+    static let done = "4CAG7MqCem"
 }
 
 //MARK - Strings contents
@@ -153,6 +153,7 @@ struct ServerKeys {
 
 struct PostKeys {
     static let author = "author"
+    static let photos = "photos"
 }
 
 //MARK - Follow keys

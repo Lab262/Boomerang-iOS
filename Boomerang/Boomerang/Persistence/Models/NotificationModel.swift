@@ -35,7 +35,8 @@ class NotificationModel: PFObject {
         self.createdDate = object.createdAt
         
         if let sender = object["sender"] as? Profile {
-            self.sender = Profile(object: sender)
+            self.sender = sender
+            //self.sender = Profile(object: sender)
         }
         
         if let post = object["post"] as? Post {

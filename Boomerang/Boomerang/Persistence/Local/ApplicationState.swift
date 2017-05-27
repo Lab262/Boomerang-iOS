@@ -59,6 +59,6 @@ class ApplicationState: NSObject {
     
     private init(singleton: Bool) {
         super.init()
-        self.currentUser = User(user: PFUser.current()!)
+        self.currentUser = PFUser.current() as? User
     }
 }

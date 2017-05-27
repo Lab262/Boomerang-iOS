@@ -66,6 +66,50 @@ class PostRequest: NSObject {
         }
     }
     
+    static func createPost(post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+    
+        let post = Post()
+        
+//        let pictureData = UIImagePNGRepresentation((allimages?.first)!)
+//        let pictureFileObject = PFFile (data:pictureData!)
+//        
+//        post.author = ApplicationState.sharedInstance.currentUser?.profile
+//        //        post.title =  self.nameThing
+//        //        post.content = self.descriptionThing
+//        post.typePost = TypePost(rawValue: typeVC.rawValue)
+//        post.type = post.typePost.map { $0.rawValue }
+//        
+//        ActivitIndicatorView.show(on: self)
+//        
+//        let photos = PFObject(className:"Photo")
+//        photos["imageFile"] = pictureFileObject
+//        
+//        photos.saveInBackground(block: { (success, error) in
+//            if success {
+//                let relation = post.relation(forKey: "photos")
+//                
+//                relation.add(photos)
+//                
+//                post.saveInBackground(block: { (success, error) in
+//                    if success {
+//                        AlertUtils.showAlertError(title:"Arrmessado com sucesso", viewController:self)
+//                        ActivitIndicatorView.hide(on:self)
+//                        
+//                        //self.view.unload()
+//                    }else {
+//                        AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
+//                        ActivitIndicatorView.hide(on:self)
+//                    }
+//                })
+//                
+//                
+//            }else {
+//                AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
+//                self.view.unload()
+//            }
+//        })
+    }
+    
     static func verifyAlreadyInterestedFor(currentProfile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool) -> ()) {
         
         var queryParams = [String : Any]()

@@ -12,18 +12,25 @@ import Parse
 
 class ThrowViewController: UIViewController {
 
-    @IBOutlet weak var navigationBar: IconNavigationBar!
-    @IBOutlet weak var bgPostImage: UIImageView!
+    @IBOutlet weak var addTitleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
+    @IBOutlet weak var coverPostImage: UIImageView!
+    @IBOutlet weak var navigationBarView: UIView!
+    @IBOutlet weak var iconCameraView: UIImageView!
+    @IBOutlet weak var extentAnexButton: UIButton!
+    @IBOutlet weak var coverPostTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var anexButton: UIButtonWithPicker!
+    @IBOutlet weak var anexButtonCenterYConstraint: NSLayoutConstraint!
     
-    //Informations form
     var fields:[Int:String] = [:]
+    var nameThing = String ()
+    var descriptionThing = String ()
     var params:[String:String] = [:]
     var typeVC = TypePost.have
     var typeScheme:Condition?
     var isAvailable:Bool?
     
+    @IBOutlet weak var coverPostHeightConstraint: NSLayoutConstraint!
     var titleHeader = String()
     var allimages:[UIImage]?
     
@@ -31,12 +38,16 @@ class ThrowViewController: UIViewController {
     
     let defaultSize16:CGFloat = 16
     let defaultSize14:CGFloat = 14
+    let navigationBarHeight: CGFloat = 64
+    let coverImageHeight: CGFloat = 165.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
+        tableView.contentInset = UIEdgeInsetsMake(coverImageHeight - navigationBarHeight, 0, 0, 0)
+        self.anexButton.delegate = self
     }
     
     
@@ -59,8 +70,8 @@ class ThrowViewController: UIViewController {
         tableView.registerNibFrom(SimpleTextFieldTableViewCell.self)
         tableView.registerNibFrom(DescriptionTextTableViewCell.self)
         tableView.registerNibFrom(TypePostTableViewCell.self)
-        tableView.registerNibFrom(HeaderPostTableViewCell.self)
-        
+      //  tableView.registerNibFrom(HeaderPostTableViewCell.self)
+
     }
 
     
@@ -73,8 +84,8 @@ class ThrowViewController: UIViewController {
             self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
             return
         }
-//
-//        self.createPost()
+
+        self.createPost()
     }
     
     //MARK: Generate Tables Views Cells
@@ -154,32 +165,32 @@ class ThrowViewController: UIViewController {
         
     }
     
-    func generateHeaderView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.identifier) as! HeaderPostTableViewCell
-      
-        header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
-        header.delegate = self
-        
-        if let images = allimages {
-            header.highlights = images
-            header.titleLabel.text = ""
-        }
-        
-        return header
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let header: UIView?
-        
-        switch section {
-            case 0: header = generateHeaderView(tableView, viewForHeaderInSection: section)
-            default: header = nil
-        }
-        
-        return header
-    }
+//    func generateHeaderView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.identifier) as! HeaderPostTableViewCell
+//      
+//        header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
+//        header.delegate = self
+//        
+//        if let images = allimages {
+//            header.highlights = images
+//            header.titleLabel.text = ""
+//        }
+//        
+//        return header
+//    }
+//
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        let header: UIView?
+//        
+//        switch section {
+//            case 0: header = generateHeaderView(tableView, viewForHeaderInSection: section)
+//            default: header = nil
+//        }
+//        
+//        return header
+//    }
     
     //MARK: Generate Tables Views
     
@@ -307,20 +318,13 @@ class ThrowViewController: UIViewController {
     func createPost () {
         
         self.view.endEditing(true)
-        let post = Post()
+        let post = Post(author: ApplicationState.sharedInstance.currentUser!.profile!, title: params[CreatePostTitles.keyParseTitle]!, content: params[CreatePostTitles.keyParseContent]!, loanTime: params[CreatePostTitles.keyParseTime]!, exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription]!, place: params[CreatePostTitles.keyParsePlace]!, condition: typeScheme, typePost: typeVC)
         
         let pictureData = UIImagePNGRepresentation((allimages?.first)!)
-        let pictureFileObject = PFFile (data:pictureData!)
-        
-        post.author = ApplicationState.sharedInstance.currentUser?.profile
-//        post.title =  self.nameThing
-//        post.content = self.descriptionThing
-        post.typePost = TypePost(rawValue: typeVC.rawValue)
-        post.type = post.typePost.map { $0.rawValue }
-      
-        ActivitIndicatorView.show(on: self)
+        let pictureFileObject = PFFile(data:pictureData!)
         
         let photos = PFObject(className:"Photo")
+        
         photos["imageFile"] = pictureFileObject
         
         photos.saveInBackground(block: { (success, error) in
@@ -333,23 +337,20 @@ class ThrowViewController: UIViewController {
                     if success {
                         AlertUtils.showAlertError(title:"Arrmessado com sucesso", viewController:self)
                         ActivitIndicatorView.hide(on:self)
-
+                        
                         //self.view.unload()
                     }else {
                         AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
                         ActivitIndicatorView.hide(on:self)
                     }
                 })
-            
-            
+                
+                
             }else {
                 AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
                 self.view.unload()
             }
         })
-        
-      
-        
     }
     
 }
@@ -380,19 +381,75 @@ extension ThrowViewController: UITableViewDataSource {
 }
 
 
-extension ThrowViewController: UITableViewDelegate {
+extension ThrowViewController: UIScrollViewDelegate {
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        print("aqui ------>",offsetY)
-      
-        
+        let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
+        updateInformationsCell(yOffset)
+        updateImageScale(yOffset)
     }
     
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //
+        //        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
+        //            tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
+        //
+        //            updateComments()
+        //        }
+    }
+    
+    func updateInformationsCell(_ yOffset: CGFloat) {
+        //let informationAlphaThreshold: CGFloat = 20.0
+        
+        if yOffset > 0 {
+            if self.anexButton.alpha == 1.0 {
+                UIView.animate(withDuration: 0.15, animations: {
+                    self.anexButton.alpha = 0.0
+                })
+            }
+          
+        } else {
+            if self.anexButton.alpha == 0.0 {
+                UIView.animate(withDuration: 0.15, animations: {
+                    self.anexButton.alpha = 1.0
+                })
+            }
+        }
+        
+        if yOffset > 98 {
+            if self.iconCameraView.alpha == 1.0 {
+                UIView.animate(withDuration: 0.15, animations: {
+                    self.iconCameraView.alpha = 0.0
+                })
+            }
+        } else {
+            if self.iconCameraView.alpha == 0.0 {
+                UIView.animate(withDuration: 0.15, animations: {
+                    self.iconCameraView.alpha = 1.0
+                })
+            }
+        }
+    }
  
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return headerHeight
+    func updateImageScale(_ yOffset: CGFloat) {
+        
+        if yOffset < 0 {
+            coverPostHeightConstraint.constant = coverImageHeight - yOffset
+        } else if coverPostHeightConstraint.constant != coverImageHeight {
+            coverPostHeightConstraint.constant = coverImageHeight
+            
+        } else if yOffset <= coverImageHeight - navigationBarHeight {
+            coverPostTopConstraint.constant = -(yOffset * 0.5)
+            anexButtonCenterYConstraint.constant = +(yOffset * 0.5)
+            
+        }
+        
+       
+        
+        
+        
     }
 }
 
@@ -401,7 +458,10 @@ extension ThrowViewController: UIIButtonWithPickerDelegate{
     
     func didPickEditedImage(image: [UIImage]){
         allimages = image
-        self.tableView.reloadData()
+        self.addTitleLabel.isHidden = true
+        self.iconCameraView.isHidden = true
+        self.coverPostImage.image = image[0]
+       // self.tableView.reloadData()
     }
 
 }

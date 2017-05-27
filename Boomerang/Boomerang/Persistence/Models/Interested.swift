@@ -38,7 +38,8 @@ class Interested: PFObject {
         self.objectId = object.objectId
         
         if let user = object["user"] as? Profile {
-            self.user = Profile(object: user)
+            self.user = user
+           // self.user = Profile(object: user)
         }
         
         if let currentMessage = object["currentMessage"] as? String {

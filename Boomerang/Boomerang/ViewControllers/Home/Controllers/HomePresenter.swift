@@ -40,7 +40,10 @@ class HomePresenter: NSObject {
     
     
     func getTimeLinePosts() {
-        getProfile()
+       //getProfile()
+        self.getFriends()
+        self.getPostsOfTheOtherUsers()
+        self.getFeaturedPosts()
     }
     
 //    func getFeaturedPosts() -> [Post] {
@@ -65,48 +68,48 @@ class HomePresenter: NSObject {
         }
     }
     
-    private func getAllPostTypes() {
-        requestAllPostTypes(completionHandler: { (success, msg) in
-            if success {
-                self.getAllPostConditions()
-            } else {
-                self.view?.showMessageError(msg: msg)
-            }
-        })
-    }
+//    private func getAllPostTypes() {
+//        requestAllPostTypes(completionHandler: { (success, msg) in
+//            if success {
+//                self.getAllPostConditions()
+//            } else {
+//                self.view?.showMessageError(msg: msg)
+//            }
+//        })
+//    }
+//    
+//    private func getAllPostConditions() {
+//        requestAllPostConditions(completionHandler: { (success, msg) in
+//            if success {
+//                self.getAllSchemeStatus()
+//            } else {
+//                self.view?.showMessageError(msg: msg)
+//            }
+//        })
+//    }
+//    
+//    
+//    private func getAllSchemeStatus() {
+//        requestSchemeStatus(completionHandler: { (success, msg) in
+//            if success {
+//                self.getFriends()
+//                self.getPostsOfTheOtherUsers()
+//                self.getFeaturedPosts()
+//            } else {
+//                self.view?.showMessageError(msg: msg)
+//            }
+//        })
+//    }
     
-    private func getAllPostConditions() {
-        requestAllPostConditions(completionHandler: { (success, msg) in
-            if success {
-                self.getAllSchemeStatus()
-            } else {
-                self.view?.showMessageError(msg: msg)
-            }
-        })
-    }
-    
-    
-    private func getAllSchemeStatus() {
-        requestSchemeStatus(completionHandler: { (success, msg) in
-            if success {
-                self.getFriends()
-                self.getPostsOfTheOtherUsers()
-                self.getFeaturedPosts()
-            } else {
-                self.view?.showMessageError(msg: msg)
-            }
-        })
-    }
-    
-    private func getProfile() {
-        UserRequest.getProfileUser { (success, msg) in
-            if success {
-                self.getAllPostTypes()
-            } else {
-                self.view?.showMessageError(msg: msg)
-            }
-        }
-    }
+//    private func getProfile() {
+//        UserRequest.getProfileUser { (success, msg) in
+//            if success {
+//                self.getAllPostTypes()
+//            } else {
+//                self.view?.showMessageError(msg: msg)
+//            }
+//        }
+//    }
     
     fileprivate func getFriends() {
         UserRequest.fetchFollowing(fromProfile: user.profile!, followingDownloaded: self.following, pagination: Paginations.friends) { (success, msg, following) in
@@ -153,24 +156,24 @@ class HomePresenter: NSObject {
             }
         }
     }
-    
-    private func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        PostRequest.getAllTypes { (success, msg) in
-            completionHandler(success, msg)
-        }
-    }
-    
-    private func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        PostRequest.getAllConditions { (success, msg) in
-            completionHandler(success, msg)
-        }
-    }
-    
-    private func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-        SchemeRequest.getAllStatus { (success, msg) in
-            completionHandler(success, msg)
-        }
-    }
+//    
+//    private func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+//        PostRequest.getAllTypes { (success, msg) in
+//            completionHandler(success, msg)
+//        }
+//    }
+//    
+//    private func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+//        PostRequest.getAllConditions { (success, msg) in
+//            completionHandler(success, msg)
+//        }
+//    }
+//    
+//    private func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+//        SchemeRequest.getAllStatus { (success, msg) in
+//            completionHandler(success, msg)
+//        }
+//    }
     
     fileprivate func appendNewPostInFeatured(post: Post) {
         self.featuredPosts.removeLast()
