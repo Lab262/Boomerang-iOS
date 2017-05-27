@@ -51,7 +51,7 @@ class UserInformationTableViewCell: UITableViewCell {
         
         userImage.loadAnimation()
         
-        userImage.getUserImageFrom(file: presenter.profile!.photo!) { (success, msg) in
+        userImage.getUserImageFrom(file: presenter.post.author!.photo!) { (success, msg) in
             
         }
     }
