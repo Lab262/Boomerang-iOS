@@ -164,33 +164,7 @@ class ThrowViewController: UIViewController {
         return cell
         
     }
-    
-//    func generateHeaderView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.identifier) as! HeaderPostTableViewCell
-//      
-//        header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
-//        header.delegate = self
-//        
-//        if let images = allimages {
-//            header.highlights = images
-//            header.titleLabel.text = ""
-//        }
-//        
-//        return header
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        let header: UIView?
-//        
-//        switch section {
-//            case 0: header = generateHeaderView(tableView, viewForHeaderInSection: section)
-//            default: header = nil
-//        }
-//        
-//        return header
-//    }
+
     
     //MARK: Generate Tables Views
     
@@ -327,6 +301,8 @@ class ThrowViewController: UIViewController {
         
         photos["imageFile"] = pictureFileObject
         
+        self.view.loadAnimation()
+        
         photos.saveInBackground(block: { (success, error) in
             if success {
                 let relation = post.relation(forKey: "photos")
@@ -343,6 +319,8 @@ class ThrowViewController: UIViewController {
                         AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
                         ActivitIndicatorView.hide(on:self)
                     }
+                    
+                    self.view.unload()
                 })
                 
                 

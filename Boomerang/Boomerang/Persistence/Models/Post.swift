@@ -54,7 +54,7 @@ class Post: PFObject {
         super.init()
     }
     
-    convenience init(author: Profile, title: String, content: String, loanTime: String, exchangeDescription: String, place: String, condition: Condition?, typePost: TypePost) {
+    convenience init(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String, place: String, condition: Condition?, typePost: TypePost) {
         self.init()
         
         self.author = author
@@ -69,6 +69,11 @@ class Post: PFObject {
     
         for postType in postTypes where postType.type == typePost.rawValue {
             self.type = postType
+        }
+        
+        
+        if let loanTime = loanTime {
+            self.loanTime = loanTime
         }
         
         if let condition = condition {
