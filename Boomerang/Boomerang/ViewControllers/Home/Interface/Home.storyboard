@@ -568,7 +568,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcr-AS-ZtQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n0d-99-g7M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0d-99-g7M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -588,6 +588,6 @@
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AL7-AX-imq"/>
+        <segue reference="Oq6-Oc-jjw"/>
     </inferredMetricsTieBreakers>
 </document>

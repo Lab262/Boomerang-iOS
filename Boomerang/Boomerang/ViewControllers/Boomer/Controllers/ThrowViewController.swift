@@ -12,16 +12,18 @@ import Parse
 
 class ThrowViewController: UIViewController {
 
-    @IBOutlet weak var navigationBar: IconNavigationBar!
-    @IBOutlet weak var bgPostImage: UIImageView!
+    @IBOutlet weak var addTitleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var anexPhotoButton: UIButtonWithPicker!
+    @IBOutlet weak var anexButton: UIButton!
+    @IBOutlet weak var coverPostImage: UIImageView!
+    @IBOutlet weak var navigationBarView: UIView!
+    @IBOutlet weak var iconCameraView: UIImageView!
+    @IBOutlet weak var extentAnexButton: UIButton!
     
     var fields:[Int:String] = [:]
-    
     var nameThing = String ()
     var descriptionThing = String ()
-    
+    var params:[String:String] = [:]
     var typeVC = TypePost.have
     var typeScheme:Condition?
     var isAvailable:Bool?
@@ -33,12 +35,15 @@ class ThrowViewController: UIViewController {
     
     let defaultSize16:CGFloat = 16
     let defaultSize14:CGFloat = 14
+    let navigationBarHeight: CGFloat = 64
+    let coverImageHeight: CGFloat = 165.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
+        tableView.contentInset = UIEdgeInsetsMake(coverImageHeight - navigationBarHeight, 0, 0, 0)
     }
     
     
@@ -61,8 +66,8 @@ class ThrowViewController: UIViewController {
         tableView.registerNibFrom(SimpleTextFieldTableViewCell.self)
         tableView.registerNibFrom(DescriptionTextTableViewCell.self)
         tableView.registerNibFrom(TypePostTableViewCell.self)
-        tableView.registerNibFrom(HeaderPostTableViewCell.self)
-        
+      //  tableView.registerNibFrom(HeaderPostTableViewCell.self)
+
     }
 
     
@@ -156,32 +161,32 @@ class ThrowViewController: UIViewController {
         
     }
     
-    func generateHeaderView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.identifier) as! HeaderPostTableViewCell
-      
-        header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
-        header.delegate = self
-        
-        if let images = allimages {
-            header.highlights = images
-            header.titleLabel.text = ""
-        }
-        
-        return header
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let header: UIView?
-        
-        switch section {
-            case 0: header = generateHeaderView(tableView, viewForHeaderInSection: section)
-            default: header = nil
-        }
-        
-        return header
-    }
+//    func generateHeaderView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        let header = tableView.dequeueReusableCell(withIdentifier: HeaderPostTableViewCell.identifier) as! HeaderPostTableViewCell
+//      
+//        header.backButton.addTarget(self, action:#selector(backAction(_:)), for:.touchUpInside)
+//        header.delegate = self
+//        
+//        if let images = allimages {
+//            header.highlights = images
+//            header.titleLabel.text = ""
+//        }
+//        
+//        return header
+//    }
+//
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        let header: UIView?
+//        
+//        switch section {
+//            case 0: header = generateHeaderView(tableView, viewForHeaderInSection: section)
+//            default: header = nil
+//        }
+//        
+//        return header
+//    }
     
     //MARK: Generate Tables Views
     
@@ -382,20 +387,63 @@ extension ThrowViewController: UITableViewDataSource {
 }
 
 
-extension ThrowViewController: UITableViewDelegate {
+extension ThrowViewController: UIScrollViewDelegate {
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        print("aqui ------>",offsetY)
-      
-        
+        let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
+        updateInformationsCell(yOffset)
     }
     
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //
+        //        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
+        //            tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
+        //
+        //            updateComments()
+        //        }
+    }
+    
+    func updateInformationsCell(_ yOffset: CGFloat) {
+        //let informationAlphaThreshold: CGFloat = 20.0
+        
+        if yOffset > 0 {
+            if self.anexButton.alpha == 1.0 {
+                UIView.animate(withDuration: 0.15, animations: {
+                    self.anexButton.alpha = 0.0
+                })
+            }
+          
+        } else {
+            if self.anexButton.alpha == 0.0 {
+                UIView.animate(withDuration: 0.15, animations: {
+                    self.anexButton.alpha = 1.0
+                })
+            }
+        }
+        
+        if yOffset > 98 {
+            if self.iconCameraView.alpha == 1.0 {
+                UIView.animate(withDuration: 0.15, animations: {
+                    self.iconCameraView.alpha = 0.0
+                })
+            }
+        } else {
+            if self.iconCameraView.alpha == 0.0 {
+                UIView.animate(withDuration: 0.15, animations: {
+                    self.iconCameraView.alpha = 1.0
+                })
+            }
+        }
+        
+        print ("Y OFFSET --> \(yOffset)")
+
+    }
  
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return headerHeight
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return headerHeight
+//    }
 }
 
 extension ThrowViewController: UIIButtonWithPickerDelegate{

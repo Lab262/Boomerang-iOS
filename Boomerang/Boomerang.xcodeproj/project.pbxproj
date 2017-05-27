@@ -287,6 +287,9 @@
 		D44EE9E71ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */; };
 		D44EE9E81ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */; };
 		D44EE9E91ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */; };
+		D45095D41ED8E54B00DFFDCA /* UIImageViewWithPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45095D31ED8E54B00DFFDCA /* UIImageViewWithPicker.swift */; };
+		D45095D51ED8E54B00DFFDCA /* UIImageViewWithPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45095D31ED8E54B00DFFDCA /* UIImageViewWithPicker.swift */; };
+		D45095D61ED8E54B00DFFDCA /* UIImageViewWithPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45095D31ED8E54B00DFFDCA /* UIImageViewWithPicker.swift */; };
 		D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */; };
 		D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */; };
 		D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */; };
@@ -1093,6 +1096,7 @@
 		D44C9A0E1EB00D59004B7796 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D44C9A151EB00D9B004B7796 /* ChatPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedRequest.swift; sourceTree = "<group>"; };
+		D45095D31ED8E54B00DFFDCA /* UIImageViewWithPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewWithPicker.swift; sourceTree = "<group>"; };
 		D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCommentTableViewCell.swift; path = ../../../UserCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCommentTableViewCell.xib; path = ../../../UserCommentTableViewCell.xib; sourceTree = "<group>"; };
 		D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -1809,6 +1813,7 @@
 				6010BF731EBBA9C1008B5F02 /* UIFontExtension.swift */,
 				605DEF391ECCD03800D1D233 /* UILabelExtension.swift */,
 				605300EE1ED3A29E00584418 /* UISearchBarExtension.swift */,
+				D45095D31ED8E54B00DFFDCA /* UIImageViewWithPicker.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -3304,6 +3309,7 @@
 				D4B55D731E987EE100CC1A69 /* PageIndicatorView.swift in Sources */,
 				D4C8ECD81EC1FD5400E3CB17 /* PostType.swift in Sources */,
 				A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */,
+				D45095D41ED8E54B00DFFDCA /* UIImageViewWithPicker.swift in Sources */,
 				6010BF741EBBA9C1008B5F02 /* UIFontExtension.swift in Sources */,
 				D49955B71EA3AAEF00D89038 /* TransactionFilterPresenter.swift in Sources */,
 				D4B3B5561EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
@@ -3492,6 +3498,7 @@
 				D4AD97F11EA9ACFD00C9FAB9 /* AuthenticationMainViewController.swift in Sources */,
 				D4AD97F21EA9ACFD00C9FAB9 /* TransactionFilterPresenter.swift in Sources */,
 				D4CA48A71EC9F49E003C17F6 /* Recommended.swift in Sources */,
+				D45095D51ED8E54B00DFFDCA /* UIImageViewWithPicker.swift in Sources */,
 				605300F21ED5F38400584418 /* BoomerPresenter.swift in Sources */,
 				D4B3B5571EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				D4AD97F41EA9ACFD00C9FAB9 /* UIView+IBInspector.swift in Sources */,
@@ -3672,6 +3679,7 @@
 				D4AD98BD1EA9AD0400C9FAB9 /* AuthenticationMainViewController.swift in Sources */,
 				D4AD98BE1EA9AD0400C9FAB9 /* TransactionFilterPresenter.swift in Sources */,
 				D4CA48A81EC9F49E003C17F6 /* Recommended.swift in Sources */,
+				D45095D61ED8E54B00DFFDCA /* UIImageViewWithPicker.swift in Sources */,
 				605300F31ED5F38500584418 /* BoomerPresenter.swift in Sources */,
 				D4B3B5581EAF96DF008E6566 /* NotificationRequester.swift in Sources */,
 				D4AD98C01EA9AD0400C9FAB9 /* UIView+IBInspector.swift in Sources */,
