@@ -43,7 +43,7 @@ class TransactionFilterPresenter: NSObject {
     
     func filterSchemesFor(postCondition: Condition) -> [Scheme] {
         let filteredSchemes = (self.schemes.filter { scheme in
-            return scheme.post?.condition == postCondition
+            return scheme.post?.postCondition == postCondition
         })
         return filteredSchemes
     }

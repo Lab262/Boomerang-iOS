@@ -256,7 +256,7 @@
                                 <rect key="frame" x="75" y="40" width="225" height="90"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="01f-ja-hSo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="01f-ja-hSo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="2b2-I1-wYJ"/>
@@ -280,12 +280,22 @@
                                             <constraint firstAttribute="width" constant="13" id="Unb-VB-ZRd"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKi-30-tT4">
+                                        <rect key="frame" x="8.5" y="13.5" width="26" height="42"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="shC-dA-vya" eventType="touchUpInside" id="3Dc-0g-p6h"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="GRk-Yv-qNb"/>
+                                    <constraint firstItem="FKi-30-tT4" firstAttribute="width" secondItem="WON-q7-5W2" secondAttribute="width" multiplier="2" id="Ky9-ie-f7f"/>
                                     <constraint firstItem="WON-q7-5W2" firstAttribute="leading" secondItem="ZPg-k8-0ji" secondAttribute="leading" constant="15" id="Piq-ms-hv6"/>
                                     <constraint firstItem="WON-q7-5W2" firstAttribute="top" secondItem="ZPg-k8-0ji" secondAttribute="top" constant="24" id="UjC-Pq-Zg6"/>
+                                    <constraint firstItem="FKi-30-tT4" firstAttribute="centerY" secondItem="WON-q7-5W2" secondAttribute="centerY" id="e1Y-jt-7If"/>
+                                    <constraint firstItem="FKi-30-tT4" firstAttribute="height" secondItem="WON-q7-5W2" secondAttribute="height" multiplier="2" id="niz-Oc-MIa"/>
+                                    <constraint firstItem="FKi-30-tT4" firstAttribute="centerX" secondItem="WON-q7-5W2" secondAttribute="centerX" id="ob2-7W-tk1"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTq-ly-gCw">
@@ -315,7 +325,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPK-x5-9bB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPK-x5-9bB" customClass="UIButtonWithPicker" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="156" y="133" width="63" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="63" id="2ob-ZP-Lz4"/>
@@ -354,8 +364,11 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="addTitleLabel" destination="hy3-Mz-1vW" id="DXN-LE-xk9"/>
-                        <outlet property="anexButton" destination="EPK-x5-9bB" id="z1c-Kg-cSY"/>
+                        <outlet property="anexButton" destination="EPK-x5-9bB" id="HAH-xf-rFM"/>
+                        <outlet property="anexButtonCenterYConstraint" destination="7P6-mf-y2T" id="1Je-hd-bdn"/>
+                        <outlet property="coverPostHeightConstraint" destination="2b2-I1-wYJ" id="GUA-M3-OfE"/>
                         <outlet property="coverPostImage" destination="01f-ja-hSo" id="oDl-LJ-zna"/>
+                        <outlet property="coverPostTopConstraint" destination="yLi-Qt-H8p" id="zKp-2N-ddn"/>
                         <outlet property="extentAnexButton" destination="7HI-Gu-RkD" id="diw-we-b2M"/>
                         <outlet property="iconCameraView" destination="BFk-kt-4yF" id="DTH-gM-Sic"/>
                         <outlet property="navigationBarView" destination="ZPg-k8-0ji" id="g4F-LX-SQy"/>

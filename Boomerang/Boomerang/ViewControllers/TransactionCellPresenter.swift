@@ -70,7 +70,7 @@ class TransactionCellPresenter: NSObject {
         if scheme.statusScheme == .negotiation {
             label.font = UIFont.montserratRegular(size: 13)
             label.textColor = UIColor.yellowTransactioColor
-        } else if scheme.post?.condition == .loan {
+        } else if scheme.post?.postCondition == .loan {
             label.font = UIFont.montserratLight(size: 13)
             label.textColor = UIColor.black
         } else {
@@ -119,11 +119,11 @@ class TransactionCellPresenter: NSObject {
     func getInformationsOfTransaction(){
         if scheme.owner?.objectId == self.user.profile?.objectId {
             scheme.dealer = scheme.requester
-            getInformationsTransactionByTypeOfPost(isFromUser: true, postCondition: getPost().condition!)
+            getInformationsTransactionByTypeOfPost(isFromUser: true, postCondition: getPost().postCondition!)
             view?.fromImage = self.user.profileImage
         } else {
             scheme.dealer = scheme.owner
-            getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().condition!)
+            getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().postCondition!)
             view?.toImage = self.user.profileImage
         }
     }

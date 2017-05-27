@@ -38,8 +38,7 @@ class UIButtonWithPicker: UIButton {
     
     func changePhoto() {
        
-       
-        imagePicker.imageLimit = 5
+        imagePicker.imageLimit = 1
         imagePicker.delegate = self
 
         self.currentVC!.present(imagePicker, animated: true, completion: nil)

@@ -63,6 +63,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Boomerang deseja ter acesso a sua localização?</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Boomerang deseja ter acesso a câmera?</string>
 	<key>NSPhotoLibraryUsageDescription</key>

@@ -24,22 +24,63 @@ enum Condition: String {
 class Post: PFObject {
     
     @NSManaged var id: String?
-    @NSManaged var type: String?
+    @NSManaged var type: PostType?
     @NSManaged var author: Profile?
     @NSManaged var title: String?
     @NSManaged var content: String?
+    @NSManaged var condition: PostCondition?
+    @NSManaged var loanTime: String?
+    @NSManaged var sharedAmount: NSNumber?
+    @NSManaged var commentAmount: NSNumber?
+    @NSManaged var likeAmount: NSNumber?
+    @NSManaged var exchangeDescription: String?
+    @NSManaged var place: String?
+    
     var isFeatured: Bool? = false
     var typePost: TypePost?
-    var condition: Condition?
+    var postCondition: Condition?
     var createdDate: Date?
     var updateDate: Date?
     var relations: [Photo]?
     var countPhotos = 0
-    var photos = [UIImage]()
+    var photosImage = [UIImage]()
+    
+    var photos: PFRelation<Photo> {
+        return self.relation(forKey: PostKeys.photos) as! PFRelation<Photo>
+    }
     
     
     override init(){
         super.init()
+    }
+    
+    convenience init(author: Profile, title: String, content: String, loanTime: String, exchangeDescription: String, place: String, condition: Condition?, typePost: TypePost) {
+        self.init()
+        
+        self.author = author
+        self.title = title
+        self.content = content
+        self.loanTime = loanTime
+        self.exchangeDescription = exchangeDescription
+        self.place = place
+        
+        let postTypes = ApplicationState.sharedInstance.postTypes
+        let conditions = ApplicationState.sharedInstance.postConditions
+    
+        for postType in postTypes where postType.type == typePost.rawValue {
+            self.type = postType
+        }
+        
+        if let condition = condition {
+            for cond in conditions where cond.condition == condition.rawValue {
+                self.condition = cond
+            }
+        } else {
+            for cond in conditions where cond.condition == Condition.donation.rawValue {
+                self.condition = cond
+            }
+        }
+        
     }
     
     convenience init(object: PFObject) {
@@ -70,7 +111,7 @@ class Post: PFObject {
         if let conditionObject = object["condition"] as? PostCondition {
             let postConditions = ApplicationState.sharedInstance.postConditions
             for condition in postConditions where condition.objectId == conditionObject.objectId {
-                self.condition = Condition(rawValue: condition.condition!)
+                self.postCondition = Condition(rawValue: condition.condition!)!
             }
         }
         

@@ -14,11 +14,13 @@ class ThrowViewController: UIViewController {
 
     @IBOutlet weak var addTitleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var anexButton: UIButton!
     @IBOutlet weak var coverPostImage: UIImageView!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var iconCameraView: UIImageView!
     @IBOutlet weak var extentAnexButton: UIButton!
+    @IBOutlet weak var coverPostTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var anexButton: UIButtonWithPicker!
+    @IBOutlet weak var anexButtonCenterYConstraint: NSLayoutConstraint!
     
     var fields:[Int:String] = [:]
     var nameThing = String ()
@@ -28,6 +30,7 @@ class ThrowViewController: UIViewController {
     var typeScheme:Condition?
     var isAvailable:Bool?
     
+    @IBOutlet weak var coverPostHeightConstraint: NSLayoutConstraint!
     var titleHeader = String()
     var allimages:[UIImage]?
     
@@ -44,6 +47,7 @@ class ThrowViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         tableView.contentInset = UIEdgeInsetsMake(coverImageHeight - navigationBarHeight, 0, 0, 0)
+        self.anexButton.delegate = self
     }
     
     
@@ -80,8 +84,8 @@ class ThrowViewController: UIViewController {
             self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
             return
         }
-//
-//        self.createPost()
+
+        self.createPost()
     }
     
     //MARK: Generate Tables Views Cells
@@ -314,20 +318,13 @@ class ThrowViewController: UIViewController {
     func createPost () {
         
         self.view.endEditing(true)
-        let post = Post()
+        let post = Post(author: ApplicationState.sharedInstance.currentUser!.profile!, title: params[CreatePostTitles.keyParseTitle]!, content: params[CreatePostTitles.keyParseContent]!, loanTime: params[CreatePostTitles.keyParseTime]!, exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription]!, place: params[CreatePostTitles.keyParsePlace]!, condition: typeScheme, typePost: typeVC)
         
         let pictureData = UIImagePNGRepresentation((allimages?.first)!)
-        let pictureFileObject = PFFile (data:pictureData!)
-        
-        post.author = ApplicationState.sharedInstance.currentUser?.profile
-//        post.title =  self.nameThing
-//        post.content = self.descriptionThing
-        post.typePost = TypePost(rawValue: typeVC.rawValue)
-        post.type = post.typePost.map { $0.rawValue }
-      
-        ActivitIndicatorView.show(on: self)
+        let pictureFileObject = PFFile(data:pictureData!)
         
         let photos = PFObject(className:"Photo")
+        
         photos["imageFile"] = pictureFileObject
         
         photos.saveInBackground(block: { (success, error) in
@@ -340,23 +337,20 @@ class ThrowViewController: UIViewController {
                     if success {
                         AlertUtils.showAlertError(title:"Arrmessado com sucesso", viewController:self)
                         ActivitIndicatorView.hide(on:self)
-
+                        
                         //self.view.unload()
                     }else {
                         AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
                         ActivitIndicatorView.hide(on:self)
                     }
                 })
-            
-            
+                
+                
             }else {
                 AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
                 self.view.unload()
             }
         })
-        
-      
-        
     }
     
 }
@@ -393,6 +387,7 @@ extension ThrowViewController: UIScrollViewDelegate {
         
         let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
         updateInformationsCell(yOffset)
+        updateImageScale(yOffset)
     }
     
     
@@ -436,14 +431,26 @@ extension ThrowViewController: UIScrollViewDelegate {
                 })
             }
         }
-        
-        print ("Y OFFSET --> \(yOffset)")
-
     }
  
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return headerHeight
-//    }
+    func updateImageScale(_ yOffset: CGFloat) {
+        
+        if yOffset < 0 {
+            coverPostHeightConstraint.constant = coverImageHeight - yOffset
+        } else if coverPostHeightConstraint.constant != coverImageHeight {
+            coverPostHeightConstraint.constant = coverImageHeight
+            
+        } else if yOffset <= coverImageHeight - navigationBarHeight {
+            coverPostTopConstraint.constant = -(yOffset * 0.5)
+            anexButtonCenterYConstraint.constant = +(yOffset * 0.5)
+            
+        }
+        
+       
+        
+        
+        
+    }
 }
 
 extension ThrowViewController: UIIButtonWithPickerDelegate{
@@ -451,7 +458,10 @@ extension ThrowViewController: UIIButtonWithPickerDelegate{
     
     func didPickEditedImage(image: [UIImage]){
         allimages = image
-        self.tableView.reloadData()
+        self.addTitleLabel.isHidden = true
+        self.iconCameraView.isHidden = true
+        self.coverPostImage.image = image[0]
+       // self.tableView.reloadData()
     }
 
 }
