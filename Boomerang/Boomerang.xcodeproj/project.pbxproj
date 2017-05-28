@@ -8,6 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		15A9695E7C40F106168D95E7 /* Pods_lab262_boomerang_production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1D359A27DB99BC6291D103 /* Pods_lab262_boomerang_production.framework */; };
+		2F0BABF61EDA156D00B31AFA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */; };
+		2F0BABF71EDA170C00B31AFA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */; };
+		2F0BABF81EDA170D00B31AFA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */; };
+		2F0BABFB1EDA230300B31AFA /* NotificationSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */; };
+		2F0BABFC1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */; };
+		2F0BABFD1EDA26D600B31AFA /* NotificationSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */; };
+		2F0BABFE1EDA26D700B31AFA /* NotificationSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */; };
+		2F0BABFF1EDA298F00B31AFA /* NotificationSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */; };
+		2F0BAC001EDA299000B31AFA /* NotificationSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */; };
+		2F0BAC031EDA5DF800B31AFA /* DistanceRadiusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BAC011EDA5DF800B31AFA /* DistanceRadiusTableViewCell.swift */; };
+		2F0BAC041EDA5DF800B31AFA /* DistanceRadiusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BAC021EDA5DF800B31AFA /* DistanceRadiusTableViewCell.xib */; };
+		2F0BAC051EDA649F00B31AFA /* DistanceRadiusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BAC011EDA5DF800B31AFA /* DistanceRadiusTableViewCell.swift */; };
+		2F0BAC061EDA64A000B31AFA /* DistanceRadiusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BAC011EDA5DF800B31AFA /* DistanceRadiusTableViewCell.swift */; };
+		2F0BAC071EDA64A900B31AFA /* DistanceRadiusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BAC021EDA5DF800B31AFA /* DistanceRadiusTableViewCell.xib */; };
+		2F0BAC081EDA64AA00B31AFA /* DistanceRadiusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BAC021EDA5DF800B31AFA /* DistanceRadiusTableViewCell.xib */; };
+		2F0BAC0B1EDA667800B31AFA /* LogOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BAC091EDA667800B31AFA /* LogOutTableViewCell.swift */; };
+		2F0BAC0C1EDA667800B31AFA /* LogOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BAC0A1EDA667800B31AFA /* LogOutTableViewCell.xib */; };
+		2F0BAC0D1EDA67F400B31AFA /* LogOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BAC0A1EDA667800B31AFA /* LogOutTableViewCell.xib */; };
+		2F0BAC0E1EDA67F500B31AFA /* LogOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BAC0A1EDA667800B31AFA /* LogOutTableViewCell.xib */; };
+		2F0BAC0F1EDA67F800B31AFA /* LogOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BAC091EDA667800B31AFA /* LogOutTableViewCell.swift */; };
+		2F0BAC101EDA67F900B31AFA /* LogOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BAC091EDA667800B31AFA /* LogOutTableViewCell.swift */; };
 		2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */; };
 		2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */; };
 		2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */; };
@@ -472,7 +493,6 @@
 		D4AD97D11EA9ACFD00C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48735011E7885000065E13A /* UICollectionViewCell+Utils.swift */; };
 		D4AD97D21EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */; };
 		D4AD97D31EA9ACFD00C9FAB9 /* TransactionCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */; };
-		D4AD97D41EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4AD97D51EA9ACFD00C9FAB9 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40DBB9C1E9684000075E74B /* Follow.swift */; };
 		D4AD97D61EA9ACFD00C9FAB9 /* String+CharacterSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48735001E7885000065E13A /* String+CharacterSpacing.swift */; };
 		D4AD97D71EA9ACFD00C9FAB9 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134DF1E9C7088003F55E4 /* Scheme.swift */; };
@@ -515,7 +535,6 @@
 		D4AD97FD1EA9ACFD00C9FAB9 /* SelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */; };
 		D4AD98011EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */; };
 		D4AD98021EA9ACFD00C9FAB9 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C611DD092650028F06C /* Montserrat-ExtraBold.otf */; };
-		D4AD98031EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4AD98041EA9ACFD00C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */; };
 		D4AD98051EA9ACFD00C9FAB9 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */; };
 		D4AD98061EA9ACFD00C9FAB9 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A449676D1DDA1F4600990008 /* ChatTableViewCell.xib */; };
@@ -653,7 +672,6 @@
 		D4AD989D1EA9AD0400C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48735011E7885000065E13A /* UICollectionViewCell+Utils.swift */; };
 		D4AD989E1EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */; };
 		D4AD989F1EA9AD0400C9FAB9 /* TransactionCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */; };
-		D4AD98A01EA9AD0400C9FAB9 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4AD98A11EA9AD0400C9FAB9 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40DBB9C1E9684000075E74B /* Follow.swift */; };
 		D4AD98A21EA9AD0400C9FAB9 /* String+CharacterSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48735001E7885000065E13A /* String+CharacterSpacing.swift */; };
 		D4AD98A31EA9AD0400C9FAB9 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134DF1E9C7088003F55E4 /* Scheme.swift */; };
@@ -696,7 +714,6 @@
 		D4AD98C91EA9AD0400C9FAB9 /* SelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */; };
 		D4AD98CD1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */; };
 		D4AD98CE1EA9AD0400C9FAB9 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C611DD092650028F06C /* Montserrat-ExtraBold.otf */; };
-		D4AD98CF1EA9AD0400C9FAB9 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4AD98D01EA9AD0400C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */; };
 		D4AD98D11EA9AD0400C9FAB9 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */; };
 		D4AD98D21EA9AD0400C9FAB9 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A449676D1DDA1F4600990008 /* ChatTableViewCell.xib */; };
@@ -803,8 +820,6 @@
 		D4CF4DA01ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */; };
 		D4CF4DA11ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */; };
 		D4CF4DA21ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */; };
-		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
-		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
 		D4E4BEA61E822FBE00F8DC2E /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */; };
 		D4E4BEA91E8233EF00F8DC2E /* ThingConditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */; };
@@ -848,6 +863,13 @@
 		1406A4FAF041DC652AC67292 /* Pods-lab262.boomerang.production.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.release.xcconfig"; sourceTree = "<group>"; };
 		1A1D359A27DB99BC6291D103 /* Pods_lab262_boomerang_production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boomerang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSwitchTableViewCell.swift; sourceTree = "<group>"; };
+		2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		2F0BAC011EDA5DF800B31AFA /* DistanceRadiusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceRadiusTableViewCell.swift; sourceTree = "<group>"; };
+		2F0BAC021EDA5DF800B31AFA /* DistanceRadiusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DistanceRadiusTableViewCell.xib; sourceTree = "<group>"; };
+		2F0BAC091EDA667800B31AFA /* LogOutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutTableViewCell.swift; sourceTree = "<group>"; };
+		2F0BAC0A1EDA667800B31AFA /* LogOutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogOutTableViewCell.xib; sourceTree = "<group>"; };
 		2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoNavigationBar.swift; sourceTree = "<group>"; };
 		2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoNavigationBar.xib; sourceTree = "<group>"; };
 		2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -1195,8 +1217,6 @@
 		D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedPresenter.swift; sourceTree = "<group>"; };
 		D4CF4D9B1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SeeMoreCollectionViewCell.xib; path = ../Cells/SeeMoreCollectionViewCell.xib; sourceTree = "<group>"; };
-		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
-		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTableViewCell.xib; path = ../Cells/DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThingConditionTableViewCell.swift; path = ../Interface/ThingConditionTableViewCell.swift; sourceTree = "<group>"; };
@@ -2055,6 +2075,7 @@
 				D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */,
 				D484FA2B1EACFA3D0054E415 /* NotificationViewController.swift */,
 				D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */,
+				2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2073,6 +2094,12 @@
 				D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */,
 				D484FA3B1EADB3180054E415 /* SearchFriendsTableViewCell.swift */,
 				D484FA3C1EADB3180054E415 /* SearchFriendsTableViewCell.xib */,
+				2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */,
+				2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */,
+				2F0BAC011EDA5DF800B31AFA /* DistanceRadiusTableViewCell.swift */,
+				2F0BAC021EDA5DF800B31AFA /* DistanceRadiusTableViewCell.xib */,
+				2F0BAC091EDA667800B31AFA /* LogOutTableViewCell.swift */,
+				2F0BAC0A1EDA667800B31AFA /* LogOutTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2112,7 +2139,6 @@
 			children = (
 				A4FE06311DD09AA200BFDC4D /* HomeCollectionHeader.swift */,
 				D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */,
-				D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */,
 				D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */,
 				D498F0341E808861002E8972 /* PhotoThingTableViewCell.swift */,
 				D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */,
@@ -2148,7 +2174,6 @@
 				D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */,
 				D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */,
 				D498F0351E808861002E8972 /* PhotoThingTableViewCell.xib */,
-				D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */,
 				D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */,
 				D4A012F81E7AC85600B3B811 /* PostTableViewCell.xib */,
 				A4FE062D1DD0967E00BFDC4D /* HomeCollectionHeader.xib */,
@@ -2575,6 +2600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F49580F1ECD32C40001554E /* Tenho_00001.png in Resources */,
+				2F0BAC0C1EDA667800B31AFA /* LogOutTableViewCell.xib in Resources */,
 				2F4957BE1ECD32AF0001554E /* preciso9.png in Resources */,
 				2F4957B61ECD32AF0001554E /* preciso1.png in Resources */,
 				2F49582C1ECD32C50001554E /* Tenho_00030.png in Resources */,
@@ -2586,7 +2612,6 @@
 				A44E0C691DD092650028F06C /* Montserrat-ExtraBold.otf in Resources */,
 				2F4958231ECD32C40001554E /* Tenho_00021.png in Resources */,
 				2F4958141ECD32C40001554E /* Tenho_00006.png in Resources */,
-				D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */,
 				2F2F07991E688DF400C61A6D /* DescriptionTextTableViewCell.xib in Resources */,
 				D433D07F1E91D8E700112B32 /* Montserrat-Medium.ttf in Resources */,
 				A449676E1DDA1F4600990008 /* ChatTableViewCell.xib in Resources */,
@@ -2680,6 +2705,7 @@
 				2F4957BF1ECD32AF0001554E /* preciso10.png in Resources */,
 				2F49586A1ECD32D90001554E /* doar_00014.png in Resources */,
 				2F4958601ECD32D90001554E /* doar_00004.png in Resources */,
+				2F0BAC041EDA5DF800B31AFA /* DistanceRadiusTableViewCell.xib in Resources */,
 				2F4958721ECD32D90001554E /* doar_00022.png in Resources */,
 				2F3C79CF1E995B930013F4F9 /* HighlightCollectionViewCell.xib in Resources */,
 				D436BF2E1E95B50E00BC7F00 /* TransactionTableViewCell.xib in Resources */,
@@ -2749,6 +2775,7 @@
 				2FC9E06C1E8CB7A100A048A4 /* SwitchButtonTableViewCell.xib in Resources */,
 				2F4958611ECD32D90001554E /* doar_00005.png in Resources */,
 				2F4958631ECD32D90001554E /* doar_00007.png in Resources */,
+				2F0BABFC1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				60A0F1121ED9F2B100585888 /* EmptyView.xib in Resources */,
 				2F4958771ECD32D90001554E /* doar_00027.png in Resources */,
 			);
@@ -2767,12 +2794,13 @@
 			files = (
 				D4AD98011EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */,
 				D4AD98021EA9ACFD00C9FAB9 /* Montserrat-ExtraBold.otf in Resources */,
-				D4AD98031EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.xib in Resources */,
+				2F0BAC071EDA64A900B31AFA /* DistanceRadiusTableViewCell.xib in Resources */,
 				D4AD98041EA9ACFD00C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */,
 				D4AD98051EA9ACFD00C9FAB9 /* Montserrat-Medium.ttf in Resources */,
 				D4AD98061EA9ACFD00C9FAB9 /* ChatTableViewCell.xib in Resources */,
 				D4AD98071EA9ACFD00C9FAB9 /* HomeCollectionHeader.xib in Resources */,
 				D4AD98081EA9ACFD00C9FAB9 /* Montserrat-SemiBold.otf in Resources */,
+				2F0BABFF1EDA298F00B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				D4AD98091EA9ACFD00C9FAB9 /* IconNavigationBar.xib in Resources */,
 				D4AD980A1EA9ACFD00C9FAB9 /* TypePostTableViewCell.xib in Resources */,
 				D4AD980B1EA9ACFD00C9FAB9 /* BoomerMyThingCell.xib in Resources */,
@@ -2787,6 +2815,7 @@
 				D4AD98141EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.xib in Resources */,
 				D4AD98161EA9ACFD00C9FAB9 /* Profile.storyboard in Resources */,
 				D4AD98171EA9ACFD00C9FAB9 /* PageControlCollectionViewCell.xib in Resources */,
+				2F0BAC0D1EDA67F400B31AFA /* LogOutTableViewCell.xib in Resources */,
 				D4AD98181EA9ACFD00C9FAB9 /* TextFieldGroupTableViewCell.xib in Resources */,
 				D4AD98191EA9ACFD00C9FAB9 /* Montserrat-UltraLight.otf in Resources */,
 				D4AD981A1EA9ACFD00C9FAB9 /* PhotoThingTableViewCell.xib in Resources */,
@@ -2832,12 +2861,13 @@
 			files = (
 				D4AD98CD1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */,
 				D4AD98CE1EA9AD0400C9FAB9 /* Montserrat-ExtraBold.otf in Resources */,
-				D4AD98CF1EA9AD0400C9FAB9 /* ThingInformationTableViewCell.xib in Resources */,
+				2F0BAC081EDA64AA00B31AFA /* DistanceRadiusTableViewCell.xib in Resources */,
 				D4AD98D01EA9AD0400C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */,
 				D4AD98D11EA9AD0400C9FAB9 /* Montserrat-Medium.ttf in Resources */,
 				D4AD98D21EA9AD0400C9FAB9 /* ChatTableViewCell.xib in Resources */,
 				D4AD98D31EA9AD0400C9FAB9 /* HomeCollectionHeader.xib in Resources */,
 				D4AD98D41EA9AD0400C9FAB9 /* Montserrat-SemiBold.otf in Resources */,
+				2F0BAC001EDA299000B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				D4AD98D51EA9AD0400C9FAB9 /* IconNavigationBar.xib in Resources */,
 				D4AD98D61EA9AD0400C9FAB9 /* TypePostTableViewCell.xib in Resources */,
 				D4AD98D71EA9AD0400C9FAB9 /* BoomerMyThingCell.xib in Resources */,
@@ -2852,6 +2882,7 @@
 				D4AD98E01EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.xib in Resources */,
 				D4AD98E21EA9AD0400C9FAB9 /* Profile.storyboard in Resources */,
 				D4AD98E31EA9AD0400C9FAB9 /* PageControlCollectionViewCell.xib in Resources */,
+				2F0BAC0E1EDA67F500B31AFA /* LogOutTableViewCell.xib in Resources */,
 				D4AD98E41EA9AD0400C9FAB9 /* TextFieldGroupTableViewCell.xib in Resources */,
 				D4AD98E51EA9AD0400C9FAB9 /* Montserrat-UltraLight.otf in Resources */,
 				D4AD98E61EA9AD0400C9FAB9 /* PhotoThingTableViewCell.xib in Resources */,
@@ -2921,7 +2952,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81F257C77482D4401703111B /* [CP] Embed Pods Frameworks */ = {
@@ -2981,7 +3012,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD98391EA9ACFD00C9FAB9 /* Adding tags to comment */ = {
@@ -3056,7 +3087,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD99051EA9AD0400C9FAB9 /* Adding tags to comment */ = {
@@ -3161,7 +3192,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3197,6 +3228,7 @@
 				D42F22E91EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */,
 				D4C5BBD11ED7513A008EB531 /* AddBoomerPresenter.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
+				2F0BAC031EDA5DF800B31AFA /* DistanceRadiusTableViewCell.swift in Sources */,
 				D40C0E4C1E8AAD58008174D2 /* CommentRequest.swift in Sources */,
 				2F2F07901E6733CC00C61A6D /* ThrowViewController.swift in Sources */,
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
@@ -3282,10 +3314,12 @@
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
 				D44C9A0F1EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				605DEF3A1ECCD03800D1D233 /* UILabelExtension.swift in Sources */,
+				2F0BABF61EDA156D00B31AFA /* SettingViewController.swift in Sources */,
 				D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */,
 				D43C6B271EB2B2D300F118AA /* Conversation.swift in Sources */,
 				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
 				D4788DDE1ECE18E700E5E55F /* MorePostViewController.swift in Sources */,
+				2F0BAC0B1EDA667800B31AFA /* LogOutTableViewCell.swift in Sources */,
 				D436BF2A1E95A97300BC7F00 /* TransactionTableViewCell.swift in Sources */,
 				D498F03E1E808A95002E8972 /* PhotoThingCollectionViewCell.swift in Sources */,
 				A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */,
@@ -3293,8 +3327,8 @@
 				D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */,
 				D492C1DE1EBB7579004243DE /* ThingBar.swift in Sources */,
 				D464AE771EA53C4B0084056A /* TransactionCellPresenter.swift in Sources */,
-				D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */,
 				D40DBB9D1E9684000075E74B /* Follow.swift in Sources */,
+				2F0BABFB1EDA230300B31AFA /* NotificationSwitchTableViewCell.swift in Sources */,
 				D48735031E7885000065E13A /* String+CharacterSpacing.swift in Sources */,
 				D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
@@ -3388,6 +3422,7 @@
 				D4AD978A1EA9ACFD00C9FAB9 /* CommentRequest.swift in Sources */,
 				D4C5BBD21ED7513D008EB531 /* AddBoomerPresenter.swift in Sources */,
 				D4AD978B1EA9ACFD00C9FAB9 /* ThrowViewController.swift in Sources */,
+				2F0BAC051EDA649F00B31AFA /* DistanceRadiusTableViewCell.swift in Sources */,
 				D4CA48A01EC7DA87003C17F6 /* PostCondition.swift in Sources */,
 				D4AD978C1EA9ACFD00C9FAB9 /* UIView+Animations.swift in Sources */,
 				D4AD978D1EA9ACFD00C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
@@ -3473,19 +3508,21 @@
 				D4AD97CB1EA9ACFD00C9FAB9 /* AddBoomerCell.swift in Sources */,
 				D44C9A101EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD97CC1EA9ACFD00C9FAB9 /* CGOperations.swift in Sources */,
+				2F0BABF71EDA170C00B31AFA /* SettingViewController.swift in Sources */,
 				D43C6B281EB2B2D300F118AA /* Conversation.swift in Sources */,
 				D4AD97CD1EA9ACFD00C9FAB9 /* User.swift in Sources */,
 				D4AD97CE1EA9ACFD00C9FAB9 /* TransactionTableViewCell.swift in Sources */,
 				D484FA271EACF4EA0054E415 /* OtherActionsSegmentViewController.swift in Sources */,
+				2F0BAC0F1EDA67F800B31AFA /* LogOutTableViewCell.swift in Sources */,
 				D4AD97CF1EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.swift in Sources */,
 				D4AD97D01EA9ACFD00C9FAB9 /* BoomerThingCollection.swift in Sources */,
 				D4AD97D11EA9ACFD00C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */,
 				D4AD97D21EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
 				D4CF4D9E1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD97D31EA9ACFD00C9FAB9 /* TransactionCellPresenter.swift in Sources */,
-				D4AD97D41EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.swift in Sources */,
 				D4AD97D51EA9ACFD00C9FAB9 /* Follow.swift in Sources */,
 				D4C8ECD91EC1FD5400E3CB17 /* PostType.swift in Sources */,
+				2F0BABFD1EDA26D600B31AFA /* NotificationSwitchTableViewCell.swift in Sources */,
 				D4AD97D61EA9ACFD00C9FAB9 /* String+CharacterSpacing.swift in Sources */,
 				D4AD97D71EA9ACFD00C9FAB9 /* Scheme.swift in Sources */,
 				D4AD97D81EA9ACFD00C9FAB9 /* Dictionary+Indexable.swift in Sources */,
@@ -3570,6 +3607,7 @@
 				D4AD98561EA9AD0400C9FAB9 /* CommentRequest.swift in Sources */,
 				D4C5BBD31ED7513E008EB531 /* AddBoomerPresenter.swift in Sources */,
 				D4AD98571EA9AD0400C9FAB9 /* ThrowViewController.swift in Sources */,
+				2F0BAC061EDA64A000B31AFA /* DistanceRadiusTableViewCell.swift in Sources */,
 				D4CA48A11EC7DA87003C17F6 /* PostCondition.swift in Sources */,
 				D4AD98581EA9AD0400C9FAB9 /* UIView+Animations.swift in Sources */,
 				D4AD98591EA9AD0400C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
@@ -3655,19 +3693,21 @@
 				D4AD98971EA9AD0400C9FAB9 /* AddBoomerCell.swift in Sources */,
 				D44C9A111EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD98981EA9AD0400C9FAB9 /* CGOperations.swift in Sources */,
+				2F0BABF81EDA170D00B31AFA /* SettingViewController.swift in Sources */,
 				D43C6B291EB2B2D300F118AA /* Conversation.swift in Sources */,
 				D4AD98991EA9AD0400C9FAB9 /* User.swift in Sources */,
 				D4AD989A1EA9AD0400C9FAB9 /* TransactionTableViewCell.swift in Sources */,
 				D484FA281EACF4EB0054E415 /* OtherActionsSegmentViewController.swift in Sources */,
+				2F0BAC101EDA67F900B31AFA /* LogOutTableViewCell.swift in Sources */,
 				D4AD989B1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.swift in Sources */,
 				D4AD989C1EA9AD0400C9FAB9 /* BoomerThingCollection.swift in Sources */,
 				D4AD989D1EA9AD0400C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */,
 				D4AD989E1EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
 				D4CF4D9F1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD989F1EA9AD0400C9FAB9 /* TransactionCellPresenter.swift in Sources */,
-				D4AD98A01EA9AD0400C9FAB9 /* ThingInformationTableViewCell.swift in Sources */,
 				D4AD98A11EA9AD0400C9FAB9 /* Follow.swift in Sources */,
 				D4C8ECDA1EC1FD5400E3CB17 /* PostType.swift in Sources */,
+				2F0BABFE1EDA26D700B31AFA /* NotificationSwitchTableViewCell.swift in Sources */,
 				D4AD98A21EA9AD0400C9FAB9 /* String+CharacterSpacing.swift in Sources */,
 				D4AD98A31EA9AD0400C9FAB9 /* Scheme.swift in Sources */,
 				D4AD98A41EA9AD0400C9FAB9 /* Dictionary+Indexable.swift in Sources */,

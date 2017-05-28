@@ -67,9 +67,12 @@ class TransactionCellPresenter: NSObject {
     }
     
     func setupDevolutionDescriptionStyle(label: UILabel) {
+        
+        
         if scheme.statusScheme == .negotiation {
             label.font = UIFont.montserratRegular(size: 13)
             label.textColor = UIColor.yellowTransactioColor
+            label.text = "Em aberto"
         } else if scheme.post?.postCondition == .loan {
             label.font = UIFont.montserratLight(size: 13)
             label.textColor = UIColor.black
@@ -97,6 +100,7 @@ class TransactionCellPresenter: NSObject {
                     descriptionTransaction = getCustomAttributtedTextStartsWithPhrase(title: TransactionCellStrings.titleDonate)
                 } else {
                     descriptionTransaction = getCustomAttributtedTextStartsWithName(title: TransactionCellStrings.actionDonate)
+                    
                 }
             case .loan:
                 if isFromUser {
@@ -107,9 +111,10 @@ class TransactionCellPresenter: NSObject {
                 }
             case .exchange:
                 if isFromUser {
-                    descriptionTransaction = getCustomAttributtedTextStartsWithName(title: TransactionCellStrings.actionExchange)
-                } else {
                     descriptionTransaction = getCustomAttributtedTextStartsWithPhrase(title: TransactionCellStrings.titleExchange)
+                } else {
+                    
+                    descriptionTransaction = getCustomAttributtedTextStartsWithName(title: TransactionCellStrings.actionExchange)
                 }
         }
         
@@ -120,11 +125,11 @@ class TransactionCellPresenter: NSObject {
         if scheme.owner?.objectId == self.user.profile?.objectId {
             scheme.dealer = scheme.requester
             getInformationsTransactionByTypeOfPost(isFromUser: true, postCondition: getPost().postCondition!)
-            view?.fromImage = self.user.profileImage
+           // view?.fromImage = self.user.photo.getdata
         } else {
             scheme.dealer = scheme.owner
             getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().postCondition!)
-            view?.toImage = self.user.profileImage
+            //iew?.toImage = self.user.profileImage
         }
     }
     

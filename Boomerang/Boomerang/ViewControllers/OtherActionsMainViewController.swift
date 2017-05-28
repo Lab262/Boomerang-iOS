@@ -17,11 +17,12 @@ class OtherActionsMainViewController: UIViewController {
     }
     var segmentControlButtonDelegate: SegmentControlButtonDelegate?
     
-    @IBOutlet weak var viewLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewRightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewLeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var notificationsButton: UIButton!
     @IBOutlet weak var searchFriendsTransactionButton: UIButton!
-    
+    @IBOutlet weak var settingButton: UIButton!
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
@@ -48,22 +49,20 @@ class OtherActionsMainViewController: UIViewController {
     }
     
     func setFontButtonBySegmentSelected(){
-        switch segmentSelected! {
-        case 0:
-            notificationsButton.titleLabel?.font = UIFont.montserratBold(size: 16)
-            notificationsButton.alpha = 1.0
-            searchFriendsTransactionButton.titleLabel?.font = UIFont.montserratRegular(size: 16)
-            searchFriendsTransactionButton.alpha = 0.56
-        case 1:
-            searchFriendsTransactionButton.titleLabel?.font = UIFont.montserratBold(size: 16)
-            searchFriendsTransactionButton.alpha = 1.0
-            notificationsButton.titleLabel?.font = UIFont.montserratRegular(size: 16)
-            notificationsButton.alpha = 0.56
-        default:
-            break
+        let buttons = [notificationsButton, searchFriendsTransactionButton, settingButton]
+        
+        for (i, button) in buttons.enumerated() {
+            if i == segmentSelected {
+                button!.titleLabel?.font = UIFont.montserratBold(size: 16)
+                button!.alpha = 1.0
+            } else {
+                button!.titleLabel?.font = UIFont.montserratRegular(size: 16)
+                button!.alpha = 0.5
+            }
+            button?.titleLabel?.setDynamicFont()
         }
-        configureDynamicsFonts()
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segmentVC = segue.destination as? OtherActionsSegmentViewController {
@@ -73,22 +72,31 @@ class OtherActionsMainViewController: UIViewController {
     }
 
     @IBAction func showNotifications(_ sender: UIButton? = nil) {
-        setSelectionIndication(true, trailing: false)
+        setSelectionIndication(true, false, trailing: false)
         segmentControlButtonDelegate?.segmentSelected(0)
     }
     
     
     @IBAction func showSearchFriends(_ sender: UIButton? = nil) {
-        setSelectionIndication(false, trailing: true)
+        setSelectionIndication(false, true, trailing: false)
         segmentControlButtonDelegate?.segmentSelected(1)
     }
+    @IBAction func showSettings(_ sender: Any? = nil) {
+        setSelectionIndication(false, false, trailing: true)
+        segmentControlButtonDelegate?.segmentSelected(2)
     
-    func setSelectionIndication(_ leading: Bool, trailing: Bool) {
+    }
+    
+    
+    
+    func setSelectionIndication(_ leading: Bool, _ center: Bool, trailing: Bool) {
         viewLeftConstraint.isActive = false
+        viewCenterConstraint.isActive = false
         viewRightConstraint.isActive = false
         
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions(), animations: {
             self.viewLeftConstraint.isActive = leading
+            self.viewCenterConstraint.isActive = center
             self.viewRightConstraint.isActive = trailing
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -97,8 +105,6 @@ class OtherActionsMainViewController: UIViewController {
 
 extension OtherActionsMainViewController: SegmentControlPageDelegate {
     
-    
-   // var notContainedStatusScheme: [StatusScheme] = [.done]
     func segmentScrolled(_ viewIndex: Int) {
         switch viewIndex {
         case 0:
@@ -107,6 +113,9 @@ extension OtherActionsMainViewController: SegmentControlPageDelegate {
         case 1:
             showSearchFriends()
             segmentSelected = 1
+        case 2:
+            showSettings()
+            segmentSelected = 2
         default: break
             
         }

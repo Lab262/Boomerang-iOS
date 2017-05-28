@@ -35,6 +35,7 @@ class Post: PFObject {
     @NSManaged var likeAmount: NSNumber?
     @NSManaged var exchangeDescription: String?
     @NSManaged var place: String?
+    @NSManaged var isAvailable: Bool
     
     var isFeatured: Bool? = false
     var typePost: TypePost?
@@ -54,6 +55,19 @@ class Post: PFObject {
         super.init()
     }
     
+    func queryPhotos(completionHandler: (([Photo]?) -> ())? = nil) {
+        if self.relations == nil {
+            photos.query().findObjectsInBackground { (photos, error) in
+                if let photos = photos {
+                    self.relations = photos
+                }
+                completionHandler?(photos)
+            }
+        } else {
+            completionHandler?(self.relations)
+        }
+    }
+    
     convenience init(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: Condition?, typePost: TypePost) {
         self.init()
         
@@ -70,6 +84,7 @@ class Post: PFObject {
             self.type = postType
         }
         
+        self.isAvailable = true
         
         if let loanTime = loanTime {
             self.loanTime = loanTime
@@ -78,6 +93,7 @@ class Post: PFObject {
         if let exchangeDescription = exchangeDescription {
             self.exchangeDescription = exchangeDescription
         }
+        
         
         if let condition = condition {
             for cond in conditions where cond.condition == condition.rawValue {
@@ -105,6 +121,18 @@ class Post: PFObject {
             self.title = title
         }
         
+        if let place = object["place"] as? String {
+            self.place = place
+        }
+        
+        if let exchangeDescription = object["exchangeDescription"] as? String {
+            self.exchangeDescription = exchangeDescription
+        }
+        
+        if let loanTime = object["loanTime"] as? String {
+            self.loanTime = loanTime
+        }
+        
         if let content = object["content"] as? String {
             self.content = content
         }
@@ -121,6 +149,10 @@ class Post: PFObject {
             for condition in postConditions where condition.objectId == conditionObject.objectId {
                 self.postCondition = Condition(rawValue: condition.condition!)!
             }
+        }
+        
+        if let isAvailable = object["isAvailable"] as? Bool {
+            self.isAvailable = isAvailable
         }
         
         if let author = object["author"] as? Profile {

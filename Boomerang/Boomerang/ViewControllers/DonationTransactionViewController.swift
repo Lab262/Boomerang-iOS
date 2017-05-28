@@ -51,7 +51,7 @@ class DonationTransactionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? TransactionDetailViewController {
             
-            destinationVC.presenter.scheme = presenter.getSchemes()[tableView.indexPathForSelectedRow!.row]
+            destinationVC.presenter.scheme = presenter.getSchemesFor(postCondition: .donation)[tableView.indexPathForSelectedRow!.row]
         }
     }
 
@@ -63,7 +63,7 @@ extension DonationTransactionViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as! TransactionTableViewCell
         
-        cell.presenter.scheme = presenter.getSchemes()[indexPath.row]
+        cell.presenter.scheme = presenter.getSchemesFor(postCondition: .donation)[indexPath.row]
         cell.updateCell()
         
         return cell

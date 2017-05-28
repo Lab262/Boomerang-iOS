@@ -21,18 +21,24 @@ class TransactionTableViewCell: UITableViewCell {
     var fromImage: UIImage? {
         didSet{
             fromUserImage.image = fromImage
+            self.toUserImage.getUserImageFrom(file: presenter.user.profile!.photo!) { (success, msg) in
+            }
         }
     }
     
     var toImage: UIImage? {
         didSet{
             toUserImage.image = toImage
+            
+            self.fromUserImage.getUserImageFrom(file: presenter.user.profile!.photo!) { (success, msg) in
+            }
         }
     }
     
     var descriptionTransaction: NSMutableAttributedString? {
         didSet{
             transactionLabel.attributedText = descriptionTransaction
+           
         }
     }
     
@@ -52,7 +58,6 @@ class TransactionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         presenter.setViewDelegate(view: self)
         containerView.layer.cornerRadius = 9
-        presenter.setupDevolutionDescriptionStyle(label: devolutionLabel)
         configureDynamicFont()
     }
     
@@ -63,6 +68,7 @@ class TransactionTableViewCell: UITableViewCell {
     
     func updateCell(){
         presenter.getInformationsOfTransaction()
+        presenter.setupDevolutionDescriptionStyle(label: devolutionLabel)
     }
 }
 

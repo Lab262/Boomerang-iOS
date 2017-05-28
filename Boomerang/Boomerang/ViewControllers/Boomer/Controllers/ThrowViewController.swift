@@ -21,6 +21,7 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var coverPostTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var anexButton: UIButtonWithPicker!
     @IBOutlet weak var anexButtonCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var anexAreaButton: UIButtonWithPicker!
     
     var fields:[Int:String] = [:]
     var nameThing = String ()
@@ -48,6 +49,7 @@ class ThrowViewController: UIViewController {
         tableView.estimatedRowHeight = 50
         tableView.contentInset = UIEdgeInsetsMake(coverImageHeight - navigationBarHeight, 0, 0, 0)
         self.anexButton.delegate = self
+        self.anexAreaButton.delegate = self
     }
     
     
@@ -258,6 +260,11 @@ class ThrowViewController: UIViewController {
     func verifyEmptyParams() -> String? {
         var msgErro: String?
         
+        if allimages?.first == nil {
+            msgErro = CreatePostTitles.msgErrorImage
+            return msgErro
+        }
+        
         if typeVC == .need || typeVC == .have {
             if typeScheme == nil {
                 msgErro = CreatePostTitles.msgErrorTypeScheme
@@ -302,7 +309,7 @@ class ThrowViewController: UIViewController {
                         condition: typeScheme,
                         typePost: typeVC)
         
-        let pictureData = UIImagePNGRepresentation((allimages?.first)!)
+        let pictureData = UIImageJPEGRepresentation((allimages?.first)!, 0.2)
         let pictureFileObject =  PFFile(data: pictureData!, contentType: "image/jpeg")
         
         let photos = PFObject(className:"Photo")
@@ -319,8 +326,7 @@ class ThrowViewController: UIViewController {
                 
                 post.saveInBackground(block: { (success, error) in
                     if success {
-                        AlertUtils.showAlertError(title:"Arrmessado com sucesso", viewController:self)
-                        ActivitIndicatorView.hide(on:self)
+                        self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Boomer", identifier: "feedbackCreatePost")!, animated: true, completion: nil)
                         
                         //self.view.unload()
                     }else {

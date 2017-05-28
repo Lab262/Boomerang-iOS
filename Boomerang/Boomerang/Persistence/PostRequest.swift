@@ -52,7 +52,7 @@ class PostRequest: NSObject {
         
         let notContainedObjects = ["objectId": notContainedObjectIds]
         
-        ParseRequest.queryContainedIn(className: "Post", queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .cacheElseNetwork, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryContainedIn(className: "Post", queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .networkElseCache, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
             if success {
                 for obj in objects! {
                     let post = Post(object: obj)
@@ -192,18 +192,28 @@ class PostRequest: NSObject {
         var queryParams = [String : Any]()
         queryParams["author"] = profile
         
-        ParseRequest.queryEqualToValue(className: "Post", queryParams: queryParams, includes: nil) { (success, msg, objects) in
-            if success {
+        let query = PFQuery(className: Post.parseClassName())
+        query.skip = skip
+        query.cachePolicy = .networkElseCache
+        query.limit = pagination
+        query.order(byDescending: "createdAt")
+        query.whereKey("author", equalTo: profile)
+        
+        
+        
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
                 for obj in objects! {
                     let post = Post(object: obj)
                     post.author = profile
                     posts.append(post)
                 }
-                completionHandler(true, msg, posts)
+                completionHandler(true, "", posts)
             } else {
-                completionHandler(false, msg, nil)
+                completionHandler(false, error.debugDescription, nil)
             }
         }
+
     }
     
     static func findAuthorByPost(following: [Profile], authorId: String) -> Profile? {
@@ -269,6 +279,26 @@ class PostRequest: NSObject {
         
         ParseRequest.updateForIsDeletedObjectBy(className: "Interested", queryParams: queryParams) { (success, msg) in
             completionHandler(success, msg)
+        }
+    }
+    
+    static func updatePostIsAvailable(isAvailable: Bool, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let query = PFQuery(className: "Post")
+        
+        query.getObjectInBackground(withId: post.objectId!) { (object, error) in
+            if error == nil {
+                object!["isAvailable"] = isAvailable
+                object?.saveInBackground(block: { (success, error) in
+                    if success {
+                        completionHandler(success, "success")
+                    } else {
+                        completionHandler(false, error!.localizedDescription)
+                    }
+                })
+            } else {
+                completionHandler(false, error!.localizedDescription)
+            }
         }
     }
     

@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import ParseLiveQuery
 
 class NotificationPresenter: NSObject {
     
-    fileprivate let pagination = 3
+    fileprivate let pagination = Paginations.notifications
     fileprivate var skip = 0
     fileprivate var notifications: [NotificationModel] = [NotificationModel]()
     fileprivate var view: ViewDelegate?
     fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
+    
+    fileprivate var subscriptionNotificationCreated: Subscription<NotificationModel>?
     
     func setViewDelegate(view: ViewDelegate) {
         self.view = view
@@ -31,8 +35,8 @@ class NotificationPresenter: NSObject {
     
     
     func requestNotifications() {
-        skip = notifications.endIndex
-        NotificationRequester.getNotifications(by: getUser().profile!, pagination: pagination, skip: skip) { (success, msg, notifications) in
+        
+        NotificationRequester.getNotifications(profile: getUser().profile!, notificationDownloaded: self.notifications, pagination: pagination) { (success, msg, notifications) in
             
             if success {
                 for notification in notifications! {
@@ -45,3 +49,29 @@ class NotificationPresenter: NSObject {
         }
     }
 }
+
+//MARK - Live Querys
+
+extension NotificationPresenter {
+    
+    fileprivate var notificationQuery: PFQuery<NotificationModel>? {
+        return (NotificationModel.query()?
+            .whereKey(NotificationModelKeys.receiver, equalTo: self.user.profile!)
+            .order(byAscending: ObjectKeys.createdAt) as! PFQuery<NotificationModel>)
+    }
+    
+
+    func setupSubscribes() {
+        subscribeToNotification()
+    }
+    
+    func subscribeToNotification() {
+        subscriptionNotificationCreated = liveQueryClient
+            .subscribe(notificationQuery!)
+            .handle(Event.created) { _, follow in
+                self.requestNotifications()
+        }
+    }
+}
+
+
