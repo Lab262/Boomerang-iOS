@@ -49,6 +49,7 @@ class ThrowViewController: UIViewController {
         tableView.estimatedRowHeight = 50
         tableView.contentInset = UIEdgeInsetsMake(coverImageHeight - navigationBarHeight, 0, 0, 0)
         self.anexButton.delegate = self
+        self.anexAreaButton.delegate = self
     }
     
     
