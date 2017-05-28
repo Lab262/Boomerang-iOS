@@ -121,6 +121,12 @@ extension UIColor {
         }
     }
     
+    //MARK: - COLORS TIMELINE
+    static var timeColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("9DAAB3")
+        }
+    }
     
     
 }

@@ -13,7 +13,6 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var containerCellView: UIView!
     @IBOutlet weak var containerIconView: UIView!
     @IBOutlet weak var typePostImage: UIImageView!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -41,14 +40,30 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         containerIconView.roundCorners(corners: [.bottomLeft], radius: 100.0)
+        configureDynamicFont()
+    }
+    
+    func configureDynamicFont(){
+        userNameLabel.setDynamicFont()
+        descriptionPostLabel.setDynamicFont()
+        commentAmountLabel.setDynamicFont()
+        likeAmountLabel.setDynamicFont()
+        sharedAmountLabel.setDynamicFont()
     }
     
     
-    
     func setupCell(){
-        descriptionPostLabel.text = presenter.post.content
+        descriptionPostLabel.text = presenter.post.title!
         userNameLabel.text = presenter.post.author!.fullName
-        timeLabel.text = presenter.post.createdDate!.timeSinceNow()
+        
+        let userName = NSMutableAttributedString(string: presenter.post.author!.fullName, attributes: [NSFontAttributeName : UIFont.montserratSemiBold(size: 13.0),NSForegroundColorAttributeName:UIColor.black])
+        
+        let time = NSMutableAttributedString(string: "     " + presenter.post.createdDate!.timeSinceNow(), attributes: [NSFontAttributeName : UIFont.montserratRegular(size: 9.0),NSForegroundColorAttributeName:UIColor.timeColor])
+        
+        userName.append(time)
+        
+        userNameLabel.attributedText = userName
+        
         presenter.getIconPost(iconImage: typePostImage, height: heightPostIconConstraint, width: widthPostIconConstraint)
         userImage.getUserImage(profile: presenter.post.author!) { (success, msg) in
         }

@@ -37,7 +37,7 @@ class ExchangeTransactionViewController: UIViewController {
         if let schemes = notification.object as! [Scheme]? {
             presenter.setSchemes(schemes: schemes)
             reload()
-            if presenter.getSchemes().count == 0{
+            if presenter.getSchemesFor(postCondition: .exchange).count == 0{
                 self.tableView.isHidden = true
                 self.emptyView.isHidden = false
             }else{

@@ -12,6 +12,9 @@ class NotificationViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var emptyView: EmptyView!
+    
+    @IBOutlet weak var bgEmptyImageView: UIImageView!
     var tableViewLeftInset: CGFloat = 15
     var tableViewRightInset: CGFloat = 15
     var presenter = NotificationPresenter()
@@ -21,10 +24,17 @@ class NotificationViewController: UIViewController {
         registerNib()
         setPresenterDelegate()
         getNotifications()
+        configureEmptyView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    func configureEmptyView(){
+        self.emptyView.emptyButton.isHidden = true
+        self.emptyView.isHidden = true
+        self.bgEmptyImageView.isHidden = true
     }
 
     func setPresenterDelegate() {

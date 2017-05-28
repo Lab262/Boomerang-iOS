@@ -35,7 +35,13 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        configureDynamicFont()
+    }
+    
+    func configureDynamicFont(){
+        self.titleLabel.setDynamicFont()
+        self.dateLabel.setDynamicFont()
+        self.cityLabel.setDynamicFont()
     }
     
     func setupCell(){
