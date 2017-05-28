@@ -81,6 +81,7 @@ class Post: PFObject {
             self.exchangeDescription = exchangeDescription
         }
         
+        
         if let condition = condition {
             for cond in conditions where cond.condition == condition.rawValue {
                 self.condition = cond
@@ -105,6 +106,18 @@ class Post: PFObject {
         
         if let title = object["title"] as? String {
             self.title = title
+        }
+        
+        if let place = object["place"] as? String {
+            self.place = place
+        }
+        
+        if let exchangeDescription = object["exchangeDescription"] as? String {
+            self.exchangeDescription = exchangeDescription
+        }
+        
+        if let loanTime = object["loanTime"] as? String {
+            self.loanTime = loanTime
         }
         
         if let content = object["content"] as? String {
