@@ -114,6 +114,16 @@ struct TypePostTitles {
     static let donate = "Doação"
 }
 
+//MARK - Detail Post Title
+
+struct DetailPostTitles {
+    static let titleNeedChangeOrLoan = "Posso trocar/emprestar"
+    static let titleHaveChangeOrLoan = "Quero em troca/emprestado"
+    static let titleTime = "Tempo que preciso emprestado"
+    static let titlePlace = "Local de retirada"
+    
+}
+
 //MARK - Notification Success Messages
 
 struct NotificationSuccessMessages {
