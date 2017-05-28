@@ -26,6 +26,7 @@ class Scheme: PFObject {
     @NSManaged var status: SchemeStatus?
     @NSManaged var chat: Chat?
     var statusScheme: StatusScheme?
+    var condition: Condition?
     var createdDate: Date?
     var dealer: Profile?
     
@@ -70,7 +71,14 @@ class Scheme: PFObject {
         if let post = object["post"] as? Post {
             self.post = Post(object: post)
         }
-        
+//        
+//        if let conditionObject = object ["condition"] as? SchemeStatus {
+//            let postConditions = ApplicationState.sharedInstance.postConditions
+//            for condition in postConditions where condition.objectId == conditionObject.objectId {
+//                self.condition = Condition(rawValue: condition.condition!)
+//            }
+//        }
+//        
         if let statusObject = object ["status"] as? SchemeStatus {
             let statusPost = ApplicationState.sharedInstance.schemeStatus
             for status in statusPost where status.objectId == statusObject.objectId {
