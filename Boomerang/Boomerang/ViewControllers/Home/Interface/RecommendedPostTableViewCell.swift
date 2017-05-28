@@ -51,7 +51,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        loadPlaceholderImage(#imageLiteral(resourceName: "placeholder_image"), CGRect(x: self.frame.origin.x+10, y: frame.origin.y, width: 345, height: 288))
+       
         registerNib()
         initializePageIndicatorView()
     }
@@ -71,8 +71,8 @@ class RecommendedPostTableViewCell: UITableViewCell {
             
         cell.presenter.post = presenter.posts[indexPath.row]
         cell.setupCell()
-        unloadPlaceholderImage()
-            
+        
+        
         return cell
     }
     
