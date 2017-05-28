@@ -71,6 +71,7 @@ struct Paginations {
     static let morePosts = 10
     static let messages = 100
     static let profiles = 20
+    static let pagination = 10
     
 }
 
@@ -175,6 +176,12 @@ struct FollowKeys {
 
 struct ProfileKeys {
     static let facebookId = "facebookId"
+}
+
+//MARK - Notification keys
+
+struct NotificationModelKeys {
+    static let receiver = "receiver"
 }
 
 //MARK - Scheme keys
