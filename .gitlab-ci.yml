@@ -1,6 +1,6 @@
 before_script:
-  - if ! gem list "fastlane" -i > /dev/null 2>&1; then echo "fastlane not installed. Installing..."; gem install fastlane; fi 
-  - if ! gem list "cocoapods" -i > /dev/null 2>&1; then echo "cocoapods not installed. Installing..."; gem install cocoapods; fi   
+  - if ! gem list "fastlane" -i > /dev/null 2>&1; then echo "fastlane not installed. Installing..."; gem install fastlane; fi
+  - if ! gem list "cocoapods" -i > /dev/null 2>&1; then echo "cocoapods not installed. Installing..."; gem install cocoapods; fi
   - cd Boomerang
 
 stages:
@@ -11,7 +11,7 @@ deploy_beta:
   script:
     - fastlane beta
   only:
-    - dev
+    - test
 
 deploy_production:
   stage: deploy
