@@ -17,10 +17,10 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    # app_final_bundle = app_base_bundle + ".test"
-    # match(type: "appstore", app_identifier: app_final_bundle) # more information: https://codesigning.guide
-    # increment_build_number
-    # gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
+    app_final_bundle = app_base_bundle + ".test"
+    match(type: "appstore", app_identifier: app_final_bundle) # more information: https://codesigning.guide
+    increment_build_number
+    gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
     pilot(username: "thiago.mb@icloud.com",team_name:"Thiago Bernardes")
     slack(message: 'Successfully distributed a new TestFlight beta build')
   end
