@@ -120,11 +120,11 @@ class TransactionCellPresenter: NSObject {
         if scheme.owner?.objectId == self.user.profile?.objectId {
             scheme.dealer = scheme.requester
             getInformationsTransactionByTypeOfPost(isFromUser: true, postCondition: getPost().postCondition!)
-            view?.fromImage = self.user.profileImage
+           // view?.fromImage = self.user.photo.getdata
         } else {
             scheme.dealer = scheme.owner
             getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().postCondition!)
-            view?.toImage = self.user.profileImage
+            //iew?.toImage = self.user.profileImage
         }
     }
     

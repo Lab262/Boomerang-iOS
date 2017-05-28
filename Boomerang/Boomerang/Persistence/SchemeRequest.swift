@@ -41,6 +41,43 @@ class SchemeRequest: NSObject {
         }
     }
     
+    static func updateScheme(scheme: Scheme, statusScheme: StatusScheme, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let allStatus = ApplicationState.sharedInstance.schemeStatus
+        var queryParams = [String: Any]()
+        queryParams[ObjectKeys.objectId] = scheme.objectId
+        var colunmsUpdated = [String: Any]()
+        
+        
+        for status in allStatus where status.status == statusScheme.rawValue {
+            colunmsUpdated[SchemeKeys.status] = status
+        }
+        
+        ParseRequest.updateObject(className: scheme.parseClassName, queryParams: queryParams, colunmsUpdated: colunmsUpdated) { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    static func getSchemeFor(owner: Profile, requester: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ scheme: Scheme?) -> ()) {
+        
+        let query = PFQuery(className: Scheme.parseClassName())
+        query.whereKey(SchemeKeys.owner, equalTo: owner)
+        query.whereKey(SchemeKeys.requester, equalTo: requester)
+        query.whereKey(SchemeKeys.post, equalTo: post)
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if objects!.count > 0 {
+                    let scheme = objects![0] as? Scheme
+                    completionHandler(true, "success", scheme!)
+                } else {
+                    completionHandler(false, "sem objects", nil)
+                }
+            } else {
+                completionHandler(false, error.debugDescription, nil)
+            }
+        }
+    }
+    
     static func getSchemesForUser(owner: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusScheme], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
         
         var schemes = [Scheme]()

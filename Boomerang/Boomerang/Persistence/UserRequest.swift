@@ -189,10 +189,12 @@ class UserRequest: NSObject {
         let notContainedObjects = ["objectId": notContainedObjectIds]
         
         
-        ParseRequest.queryEqualToValueNotContainedObjects(className: "Follow", queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkOnly, notContainedObjects: notContainedObjects, includes: ["to"], pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryEqualToValueNotContainedObjects(className: "Follow", queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkElseCache, notContainedObjects: notContainedObjects, includes: ["to"], pagination: pagination) { (success, msg, objects) in
             if success {
                 for object in objects! {
-                    following.append(object as! Profile)
+                    
+                    let follow = Profile(object: object.object(forKey: "to")! as! PFObject)
+                    following.append(follow)
                 }
                 completionHandler(true, "Success", following)
             } else {
