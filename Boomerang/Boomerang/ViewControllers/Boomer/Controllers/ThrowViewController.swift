@@ -258,6 +258,11 @@ class ThrowViewController: UIViewController {
     func verifyEmptyParams() -> String? {
         var msgErro: String?
         
+        if allimages?.first == nil {
+            msgErro = CreatePostTitles.msgErrorImage
+            return msgErro
+        }
+        
         if typeVC == .need || typeVC == .have {
             if typeScheme == nil {
                 msgErro = CreatePostTitles.msgErrorTypeScheme
