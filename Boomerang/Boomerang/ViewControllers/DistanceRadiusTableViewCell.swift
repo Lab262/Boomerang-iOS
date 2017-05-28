@@ -47,7 +47,8 @@ class DistanceRadiusTableViewCell: UITableViewCell {
         
     }
     @IBAction func sliderAction(_ sender: Any) {
-        self.numberKMlabel.text =  ("\(self.sliderRadius.value)KM")
+        let numberRadius = Int(self.sliderRadius.value)
+        self.numberKMlabel.text =  ("\(numberRadius)KM")
     }
 
     
