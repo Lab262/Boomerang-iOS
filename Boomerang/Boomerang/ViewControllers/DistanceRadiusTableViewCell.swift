@@ -14,17 +14,42 @@ class DistanceRadiusTableViewCell: UITableViewCell {
     @IBOutlet weak var lessButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var numberKMlabel: UILabel!
+    var radiusKM:Int =  100
+    
     static var identifier: String {
         return "DistanceRadiusCell"
     }
     
     static var cellHeight: CGFloat {
-        return 150
+        return 140
     }
     
     static var nibName: String {
         return "DistanceRadiusTableViewCell"
     }
+    @IBAction func moreAction(_ sender: Any) {
+        if self.radiusKM < 800{
+            self.radiusKM += 100
+            self.numberKMlabel.text = ("\(self.radiusKM)KM")
+            self.sliderRadius.value = Float(self.radiusKM)
+        }
+        
+
+    
+    }
+  
+    @IBAction func lessAction(_ sender: Any) {
+        if self.radiusKM > 100{
+            self.radiusKM -= 100
+            self.numberKMlabel.text = ("\(self.radiusKM)KM")
+            self.sliderRadius.value = Float(self.radiusKM)
+        }
+        
+    }
+    @IBAction func sliderAction(_ sender: Any) {
+        self.numberKMlabel.text =  ("\(self.sliderRadius.value)KM")
+    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

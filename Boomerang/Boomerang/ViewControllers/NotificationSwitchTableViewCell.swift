@@ -10,6 +10,7 @@ import UIKit
 
 class NotificationSwitchTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var `switch`: UISwitch!
     static var identifier: String {
         return "notificationSwithcCell"
     }

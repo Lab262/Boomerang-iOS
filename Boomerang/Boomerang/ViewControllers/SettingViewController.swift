@@ -55,8 +55,7 @@ class SettingViewController: UIViewController {
         
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
-        
-        // Present the controller
+      
         self.present(alertController, animated: true, completion: nil)
         
     }

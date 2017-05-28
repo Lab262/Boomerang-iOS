@@ -21,14 +21,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="notificationSwithcCell" rowHeight="70" id="3il-OV-uck" customClass="NotificationSwitchTableViewCell" customModule="lab262_boomerang_dev" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3il-OV-uck" id="4NE-Un-SEA">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HuE-1N-sCc">
-                        <rect key="frame" x="15" y="0.0" width="345" height="70"/>
+                        <rect key="frame" x="15" y="0.0" width="290" height="70"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -37,16 +37,16 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsO-zo-XZz">
-                        <rect key="frame" x="15" y="0.0" width="345" height="70"/>
+                        <rect key="frame" x="15" y="0.0" width="290" height="70"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notificações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pw1-ib-F6b">
-                                <rect key="frame" x="20" y="27" width="101.5" height="19"/>
+                                <rect key="frame" x="20" y="27" width="89.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não fique por fora, matenha ativo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN5-2K-yFR">
-                                <rect key="frame" x="20" y="49" width="197" height="14"/>
+                                <rect key="frame" x="20" y="49" width="180" height="14"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
                                 <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -69,13 +69,13 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khZ-nV-P2z">
-                        <rect key="frame" x="302" y="35" width="51" height="31"/>
+                        <rect key="frame" x="239" y="34" width="51" height="31"/>
                         <color key="onTintColor" red="0.96470588239999999" green="0.62745098040000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </switch>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="khZ-nV-P2z" secondAttribute="trailing" constant="16" id="3gT-DO-rMI"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="khZ-nV-P2z" secondAttribute="trailing" constant="24" id="3gT-DO-rMI"/>
                     <constraint firstItem="wsO-zo-XZz" firstAttribute="leading" secondItem="4NE-Un-SEA" secondAttribute="leading" constant="15" id="3z7-xW-NvG"/>
                     <constraint firstAttribute="bottom" secondItem="wsO-zo-XZz" secondAttribute="bottom" id="41h-Zd-oRM"/>
                     <constraint firstItem="HuE-1N-sCc" firstAttribute="height" secondItem="wsO-zo-XZz" secondAttribute="height" id="6bs-tL-KGN"/>
@@ -83,12 +83,15 @@
                     <constraint firstItem="HuE-1N-sCc" firstAttribute="centerY" secondItem="wsO-zo-XZz" secondAttribute="centerY" id="Jrn-dV-lwn"/>
                     <constraint firstItem="wsO-zo-XZz" firstAttribute="top" secondItem="4NE-Un-SEA" secondAttribute="top" id="N33-2l-L8H"/>
                     <constraint firstItem="HuE-1N-sCc" firstAttribute="centerX" secondItem="wsO-zo-XZz" secondAttribute="centerX" id="OOg-bH-tOf"/>
-                    <constraint firstItem="khZ-nV-P2z" firstAttribute="centerY" secondItem="wsO-zo-XZz" secondAttribute="centerY" constant="15.5" id="fn4-kc-jkn"/>
+                    <constraint firstItem="khZ-nV-P2z" firstAttribute="centerY" secondItem="wsO-zo-XZz" secondAttribute="centerY" constant="14.5" id="fn4-kc-jkn"/>
                     <constraint firstItem="HuE-1N-sCc" firstAttribute="width" secondItem="wsO-zo-XZz" secondAttribute="width" id="tix-di-UTO"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="-20" y="165"/>
+            <connections>
+                <outlet property="switch" destination="khZ-nV-P2z" id="aiu-94-27j"/>
+            </connections>
+            <point key="canvasLocation" x="-21" y="165"/>
         </tableViewCell>
     </objects>
 </document>

@@ -16,7 +16,7 @@ class LogOutTableViewCell: UITableViewCell {
     
     @IBOutlet weak var logoutButton: UIButton!
     static var cellHeight: CGFloat {
-        return 45
+        return 40
     }
     
     static var nibName: String {
