@@ -31,7 +31,10 @@
                         <rect key="frame" x="15" y="8" width="345" height="134"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raio de Distância" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4c-xt-WgQ">
-                                <rect key="frame" x="20" y="25" width="214" height="20"/>
+                                <rect key="frame" x="20" y="25" width="214" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="ozL-y1-UwK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,7 +84,7 @@
                             <constraint firstItem="VyS-HD-B0L" firstAttribute="top" secondItem="BCy-mL-ows" secondAttribute="bottom" constant="17" id="Qk0-wU-Rpu"/>
                             <constraint firstItem="VyS-HD-B0L" firstAttribute="leading" secondItem="ILY-ki-H9x" secondAttribute="trailing" constant="8" id="UhY-w4-jZS"/>
                             <constraint firstItem="ILY-ki-H9x" firstAttribute="leading" secondItem="h4P-Az-9aK" secondAttribute="trailing" constant="6" id="cYB-PY-8HM"/>
-                            <constraint firstItem="BCy-mL-ows" firstAttribute="centerY" secondItem="e4c-xt-WgQ" secondAttribute="centerY" constant="1.5" id="fAr-GS-cxE"/>
+                            <constraint firstItem="BCy-mL-ows" firstAttribute="centerY" secondItem="e4c-xt-WgQ" secondAttribute="centerY" constant="-2.5" id="fAr-GS-cxE"/>
                             <constraint firstAttribute="trailing" secondItem="BCy-mL-ows" secondAttribute="trailing" constant="21" id="mEG-SH-gCy"/>
                             <constraint firstItem="VyS-HD-B0L" firstAttribute="centerY" secondItem="ILY-ki-H9x" secondAttribute="centerY" id="pLO-to-5uD"/>
                         </constraints>
