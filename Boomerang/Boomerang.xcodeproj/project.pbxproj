@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		15A9695E7C40F106168D95E7 /* Pods_lab262_boomerang_production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1D359A27DB99BC6291D103 /* Pods_lab262_boomerang_production.framework */; };
+		2F0BABF61EDA156D00B31AFA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */; };
+		2F0BABF71EDA170C00B31AFA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */; };
+		2F0BABF81EDA170D00B31AFA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */; };
+		2F0BABFB1EDA230300B31AFA /* NotificationSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */; };
+		2F0BABFC1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */; };
+		2F0BABFD1EDA26D600B31AFA /* NotificationSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */; };
+		2F0BABFE1EDA26D700B31AFA /* NotificationSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */; };
+		2F0BABFF1EDA298F00B31AFA /* NotificationSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */; };
+		2F0BAC001EDA299000B31AFA /* NotificationSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */; };
 		2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */; };
 		2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */; };
 		2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */; };
@@ -842,6 +851,9 @@
 		1406A4FAF041DC652AC67292 /* Pods-lab262.boomerang.production.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.release.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.release.xcconfig"; sourceTree = "<group>"; };
 		1A1D359A27DB99BC6291D103 /* Pods_lab262_boomerang_production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lab262_boomerang_production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7FADB5EC2C97421F163EB1 /* Pods_Boomerang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boomerang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSwitchTableViewCell.swift; sourceTree = "<group>"; };
+		2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoNavigationBar.swift; sourceTree = "<group>"; };
 		2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoNavigationBar.xib; sourceTree = "<group>"; };
 		2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -2037,6 +2049,7 @@
 				D484FA251EACF4E90054E415 /* OtherActionsSegmentViewController.swift */,
 				D484FA2B1EACFA3D0054E415 /* NotificationViewController.swift */,
 				D484FA2F1EACFA590054E415 /* SearchFriendsViewController.swift */,
+				2F0BABF51EDA156D00B31AFA /* SettingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2055,6 +2068,8 @@
 				D484FA341EAD8B660054E415 /* NotificationTableViewCell.xib */,
 				D484FA3B1EADB3180054E415 /* SearchFriendsTableViewCell.swift */,
 				D484FA3C1EADB3180054E415 /* SearchFriendsTableViewCell.xib */,
+				2F0BABF91EDA230300B31AFA /* NotificationSwitchTableViewCell.swift */,
+				2F0BABFA1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2731,6 +2746,7 @@
 				2FC9E06C1E8CB7A100A048A4 /* SwitchButtonTableViewCell.xib in Resources */,
 				2F4958611ECD32D90001554E /* doar_00005.png in Resources */,
 				2F4958631ECD32D90001554E /* doar_00007.png in Resources */,
+				2F0BABFC1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				2F4958771ECD32D90001554E /* doar_00027.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2754,6 +2770,7 @@
 				D4AD98061EA9ACFD00C9FAB9 /* ChatTableViewCell.xib in Resources */,
 				D4AD98071EA9ACFD00C9FAB9 /* HomeCollectionHeader.xib in Resources */,
 				D4AD98081EA9ACFD00C9FAB9 /* Montserrat-SemiBold.otf in Resources */,
+				2F0BABFF1EDA298F00B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				D4AD98091EA9ACFD00C9FAB9 /* IconNavigationBar.xib in Resources */,
 				D4AD980A1EA9ACFD00C9FAB9 /* TypePostTableViewCell.xib in Resources */,
 				D4AD980B1EA9ACFD00C9FAB9 /* BoomerMyThingCell.xib in Resources */,
@@ -2818,6 +2835,7 @@
 				D4AD98D21EA9AD0400C9FAB9 /* ChatTableViewCell.xib in Resources */,
 				D4AD98D31EA9AD0400C9FAB9 /* HomeCollectionHeader.xib in Resources */,
 				D4AD98D41EA9AD0400C9FAB9 /* Montserrat-SemiBold.otf in Resources */,
+				2F0BAC001EDA299000B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				D4AD98D51EA9AD0400C9FAB9 /* IconNavigationBar.xib in Resources */,
 				D4AD98D61EA9AD0400C9FAB9 /* TypePostTableViewCell.xib in Resources */,
 				D4AD98D71EA9AD0400C9FAB9 /* BoomerMyThingCell.xib in Resources */,
@@ -3260,6 +3278,7 @@
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
 				D44C9A0F1EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				605DEF3A1ECCD03800D1D233 /* UILabelExtension.swift in Sources */,
+				2F0BABF61EDA156D00B31AFA /* SettingViewController.swift in Sources */,
 				D4A013041E7B181F00B3B811 /* CGOperations.swift in Sources */,
 				D43C6B271EB2B2D300F118AA /* Conversation.swift in Sources */,
 				2FF1771B1E4F60650005F026 /* User.swift in Sources */,
@@ -3273,6 +3292,7 @@
 				D464AE771EA53C4B0084056A /* TransactionCellPresenter.swift in Sources */,
 				D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */,
 				D40DBB9D1E9684000075E74B /* Follow.swift in Sources */,
+				2F0BABFB1EDA230300B31AFA /* NotificationSwitchTableViewCell.swift in Sources */,
 				D48735031E7885000065E13A /* String+CharacterSpacing.swift in Sources */,
 				D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */,
 				A4FE063B1DD0A13E00BFDC4D /* Dictionary+Indexable.swift in Sources */,
@@ -3450,6 +3470,7 @@
 				D4AD97CB1EA9ACFD00C9FAB9 /* AddBoomerCell.swift in Sources */,
 				D44C9A101EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD97CC1EA9ACFD00C9FAB9 /* CGOperations.swift in Sources */,
+				2F0BABF71EDA170C00B31AFA /* SettingViewController.swift in Sources */,
 				D43C6B281EB2B2D300F118AA /* Conversation.swift in Sources */,
 				D4AD97CD1EA9ACFD00C9FAB9 /* User.swift in Sources */,
 				D4AD97CE1EA9ACFD00C9FAB9 /* TransactionTableViewCell.swift in Sources */,
@@ -3463,6 +3484,7 @@
 				D4AD97D41EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.swift in Sources */,
 				D4AD97D51EA9ACFD00C9FAB9 /* Follow.swift in Sources */,
 				D4C8ECD91EC1FD5400E3CB17 /* PostType.swift in Sources */,
+				2F0BABFD1EDA26D600B31AFA /* NotificationSwitchTableViewCell.swift in Sources */,
 				D4AD97D61EA9ACFD00C9FAB9 /* String+CharacterSpacing.swift in Sources */,
 				D4AD97D71EA9ACFD00C9FAB9 /* Scheme.swift in Sources */,
 				D4AD97D81EA9ACFD00C9FAB9 /* Dictionary+Indexable.swift in Sources */,
@@ -3631,6 +3653,7 @@
 				D4AD98971EA9AD0400C9FAB9 /* AddBoomerCell.swift in Sources */,
 				D44C9A111EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD98981EA9AD0400C9FAB9 /* CGOperations.swift in Sources */,
+				2F0BABF81EDA170D00B31AFA /* SettingViewController.swift in Sources */,
 				D43C6B291EB2B2D300F118AA /* Conversation.swift in Sources */,
 				D4AD98991EA9AD0400C9FAB9 /* User.swift in Sources */,
 				D4AD989A1EA9AD0400C9FAB9 /* TransactionTableViewCell.swift in Sources */,
@@ -3644,6 +3667,7 @@
 				D4AD98A01EA9AD0400C9FAB9 /* ThingInformationTableViewCell.swift in Sources */,
 				D4AD98A11EA9AD0400C9FAB9 /* Follow.swift in Sources */,
 				D4C8ECDA1EC1FD5400E3CB17 /* PostType.swift in Sources */,
+				2F0BABFE1EDA26D700B31AFA /* NotificationSwitchTableViewCell.swift in Sources */,
 				D4AD98A21EA9AD0400C9FAB9 /* String+CharacterSpacing.swift in Sources */,
 				D4AD98A31EA9AD0400C9FAB9 /* Scheme.swift in Sources */,
 				D4AD98A41EA9AD0400C9FAB9 /* Dictionary+Indexable.swift in Sources */,

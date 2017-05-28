@@ -323,7 +323,7 @@
                                 <rect key="frame" x="0.0" y="48" width="375" height="523"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="50" id="4iJ-QM-tnC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="50" id="4iJ-QM-tnC">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4iJ-QM-tnC" id="twd-Ot-q54">
@@ -396,12 +396,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juC-Ik-082" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1120.8" y="2087.4062968515746"/>
+            <point key="canvasLocation" x="1086" y="2118"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting View Controller-->
         <scene sceneID="1ag-sY-wFE">
             <objects>
-                <viewController id="nVa-n2-p05" sceneMemberID="viewController">
+                <viewController id="nVa-n2-p05" customClass="SettingViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Si-hQ-yYX"/>
                         <viewControllerLayoutGuide type="bottom" id="9ct-qK-3DI"/>
@@ -414,7 +414,7 @@
                                 <rect key="frame" x="0.0" y="48" width="375" height="523"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="50" id="XDq-TO-Qlw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleSettingCell" rowHeight="50" id="XDq-TO-Qlw">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XDq-TO-Qlw" id="UWz-R0-ewP">
@@ -428,8 +428,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJR-CA-Xge">
                                                     <rect key="frame" x="15" y="0.0" width="345" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recomendados do Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9i-ts-kJc">
-                                                            <rect key="frame" x="71" y="16" width="203" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9i-ts-kJc">
+                                                            <rect key="frame" x="173" y="24.5" width="0.0" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                             <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -463,9 +463,13 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nVa-n2-p05" id="vjN-7M-8Pn"/>
+                                    <outlet property="delegate" destination="nVa-n2-p05" id="qv0-ex-EtU"/>
+                                </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.22352941179999999" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="VRG-Fq-aEX" secondAttribute="trailing" constant="-16" id="2mG-5a-GAe"/>
                             <constraint firstItem="9ct-qK-3DI" firstAttribute="top" secondItem="VRG-Fq-aEX" secondAttribute="bottom" id="FZd-cN-qSI"/>
@@ -473,10 +477,13 @@
                             <constraint firstItem="VRG-Fq-aEX" firstAttribute="leading" secondItem="tZh-A2-azl" secondAttribute="leadingMargin" constant="-16" id="i6e-LE-29f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="VRG-Fq-aEX" id="H7E-lY-agf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgl-Yr-gn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="2087"/>
+            <point key="canvasLocation" x="1926" y="2118"/>
         </scene>
     </scenes>
     <resources>
