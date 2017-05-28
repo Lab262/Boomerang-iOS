@@ -275,16 +275,38 @@
                                     <outlet property="delegate" destination="lwI-ha-fq8" id="UMc-5O-qh5"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocF-wu-cir" customClass="EmptyView" customModule="lab262_boomerang_dev" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="375" height="441"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Está tudo tranquilo por aqui"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="descriptionLabelText" value="Você ainda não foi notificado. Mas rlx, já já  alguém te lança um boomer ;)"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="notificationEmptyImage"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_throw_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="vyM-wb-Ie2">
+                                <rect key="frame" x="-10" y="349" width="395" height="222"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ib3-OU-oB4" secondAttribute="trailing" id="423-uH-mUx"/>
                             <constraint firstItem="ib3-OU-oB4" firstAttribute="top" secondItem="rwh-RR-nOB" secondAttribute="bottom" id="7X4-Mc-9aY"/>
+                            <constraint firstItem="Xyv-P9-P9x" firstAttribute="top" secondItem="ocF-wu-cir" secondAttribute="bottom" constant="80" id="RwY-Yx-xyf"/>
+                            <constraint firstItem="vyM-wb-Ie2" firstAttribute="leading" secondItem="flB-Rm-Y8h" secondAttribute="leading" constant="-10" id="SBd-dz-I88"/>
+                            <constraint firstAttribute="bottom" secondItem="vyM-wb-Ie2" secondAttribute="bottom" id="X7g-MM-bji"/>
                             <constraint firstItem="ib3-OU-oB4" firstAttribute="leading" secondItem="flB-Rm-Y8h" secondAttribute="leading" id="e2T-Rh-ulw"/>
+                            <constraint firstItem="ocF-wu-cir" firstAttribute="top" secondItem="rwh-RR-nOB" secondAttribute="bottom" constant="50" id="gHc-LC-IiY"/>
                             <constraint firstItem="Xyv-P9-P9x" firstAttribute="top" secondItem="ib3-OU-oB4" secondAttribute="bottom" id="hbZ-gv-pbe"/>
+                            <constraint firstAttribute="trailing" secondItem="ocF-wu-cir" secondAttribute="trailing" id="la3-wa-j7P"/>
+                            <constraint firstItem="ocF-wu-cir" firstAttribute="leading" secondItem="flB-Rm-Y8h" secondAttribute="leading" id="rkY-nd-TBM"/>
+                            <constraint firstAttribute="trailing" secondItem="vyM-wb-Ie2" secondAttribute="trailing" constant="-10" id="vuE-8t-esH"/>
+                            <constraint firstItem="vyM-wb-Ie2" firstAttribute="height" secondItem="ib3-OU-oB4" secondAttribute="height" multiplier="0.388" id="xRM-ve-0cx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bgEmptyImageView" destination="vyM-wb-Ie2" id="uTq-KY-1Ss"/>
+                        <outlet property="emptyView" destination="ocF-wu-cir" id="dvt-Ye-l9m"/>
                         <outlet property="tableView" destination="ib3-OU-oB4" id="AvH-YC-mDR"/>
                         <segue destination="ZQf-iB-Odv" kind="show" identifier="goToDetailThing" id="tnC-tF-Vds"/>
                     </connections>
@@ -488,5 +510,7 @@
     </scenes>
     <resources>
         <image name="bg_nav" width="375" height="163"/>
+        <image name="bg_throw_bottom" width="375" height="241"/>
+        <image name="notificationEmptyImage" width="103" height="122"/>
     </resources>
 </document>

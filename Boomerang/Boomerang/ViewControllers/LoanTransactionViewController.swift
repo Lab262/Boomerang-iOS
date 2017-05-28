@@ -11,6 +11,8 @@ import UIKit
 class LoanTransactionViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var emptyView: EmptyView!
     var presenter = TransactionFilterPresenter()
     var notificationKey: String!
     
@@ -19,6 +21,7 @@ class LoanTransactionViewController: UIViewController {
         registerNib()
         registerObservers()
         presenter.setViewDelegate(view: self)
+        self.emptyView.isHidden = true
     }
     
     func registerNib(){
@@ -33,6 +36,13 @@ class LoanTransactionViewController: UIViewController {
         if let schemes = notification.object as! [Scheme]? {
             presenter.setSchemes(schemes: schemes)
             reload()
+            if presenter.getSchemesFor(postCondition: .loan).count == 0{
+                self.tableView.isHidden = true
+                self.emptyView.isHidden = false
+            }else{
+                self.tableView.isHidden = false
+                self.emptyView.isHidden = true
+            }
         }
     }
     

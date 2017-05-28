@@ -11,6 +11,8 @@ import UIKit
 class ExchangeTransactionViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyView: EmptyView!
+    
     var presenter = TransactionFilterPresenter()
     var notificationKey: String!
 
@@ -20,6 +22,7 @@ class ExchangeTransactionViewController: UIViewController {
         registerNib()
         registerObservers()
         presenter.setViewDelegate(view: self)
+        self.emptyView.isHidden = true
     }
     
     func registerNib(){
@@ -34,6 +37,13 @@ class ExchangeTransactionViewController: UIViewController {
         if let schemes = notification.object as! [Scheme]? {
             presenter.setSchemes(schemes: schemes)
             reload()
+            if presenter.getSchemesFor(postCondition: .exchange).count == 0{
+                self.tableView.isHidden = true
+                self.emptyView.isHidden = false
+            }else{
+                self.tableView.isHidden = false
+                self.emptyView.isHidden = true
+            }
         }
     }
     

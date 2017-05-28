@@ -12,6 +12,8 @@ class ProfileMainViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var parallaxBackgroundHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var emptyView: EmptyView!
     internal var lastContentOffset: CGFloat = 0
     internal var backgroundIsFreezy = false
     
@@ -28,7 +30,12 @@ class ProfileMainViewController: UIViewController {
         //self.view.loadAnimation()
         presenter.getPostsOfUser()
         registerObservers()
-        
+        configureEmptyView()
+    }
+    
+    func configureEmptyView(){
+        self.emptyView.imageEmpty.isHidden = true
+        self.emptyView.isHidden = true
     }
     
     func registerObservers(){

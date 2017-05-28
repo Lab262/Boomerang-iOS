@@ -28,28 +28,34 @@ class CommentRequest: NSObject {
         var queryParams = [String : [Any]]()
         queryParams["post"] = [post]
         
+        let query = PFQuery(className: "Comment")
+        query.cachePolicy = .networkElseCache
+        query.whereKey("post", equalTo: post)
+
+        
         if commentsObject.count > 1 {
-            queryParams["createdAt"] = [commentsObject[0].createdDate!]
+            query.whereKey("createdAt", greaterThan: commentsObject[0].createdDate!)
         }
        
-     
-        var notContainedObjects = [String: [Any]]()
         var notContainedObjectIds = [String]()
         
         commentsObject.forEach {
             notContainedObjectIds.append($0.objectId!)
         }
-        
-        notContainedObjects["objectId"] = notContainedObjectIds
-        
-        ParseRequest.queryEqualToValueNotContainedObjects(className: "Comment", queryType: .and, whereTypes: [.equal, .greaterThan], params: queryParams, cachePolicy: .cacheElseNetwork, notContainedObjects: notContainedObjects, includes: ["author"], pagination: pagination) { (success, msg, objects) in
-            if success {
+    
+        query.whereKey("objectId", notContainedIn: notContainedObjectIds)
+        query.limit = pagination
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
                 for object in objects! {
                     comments.append(Comment(object: object))
                 }
                 completionHandler(true, "Success", comments)
             } else {
-                completionHandler(false, msg.debugDescription, nil)
+                completionHandler(false, error.debugDescription, nil)
             }
         }
     }
