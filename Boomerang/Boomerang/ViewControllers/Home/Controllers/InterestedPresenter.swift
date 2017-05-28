@@ -107,7 +107,6 @@ class InterestedPresenter: NSObject {
     }
     
     func createScheme(){
-        
         SchemeRequest.getSchemeFor(owner: getUser().profile!, requester: getRequester(), post: getPost()) { (success, msg, scheme) in
             if success {
                 SchemeRequest.updateScheme(scheme: scheme!, statusScheme: .progress, completionHandler: { (success, msg) in

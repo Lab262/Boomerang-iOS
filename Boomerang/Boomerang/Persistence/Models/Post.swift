@@ -35,6 +35,7 @@ class Post: PFObject {
     @NSManaged var likeAmount: NSNumber?
     @NSManaged var exchangeDescription: String?
     @NSManaged var place: String?
+    @NSManaged var isAvailable: Bool
     
     var isFeatured: Bool? = false
     var typePost: TypePost?
@@ -70,6 +71,7 @@ class Post: PFObject {
             self.type = postType
         }
         
+        self.isAvailable = true
         
         if let loanTime = loanTime {
             self.loanTime = loanTime
@@ -121,6 +123,10 @@ class Post: PFObject {
             for condition in postConditions where condition.objectId == conditionObject.objectId {
                 self.postCondition = Condition(rawValue: condition.condition!)!
             }
+        }
+        
+        if let isAvailable = object["isAvailable"] as? Bool {
+            self.isAvailable = isAvailable
         }
         
         if let author = object["author"] as? Profile {
