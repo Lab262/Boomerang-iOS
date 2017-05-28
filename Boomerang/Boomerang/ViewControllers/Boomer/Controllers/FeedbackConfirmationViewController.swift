@@ -26,6 +26,7 @@ class FeedbackConfirmationViewController: UIViewController {
     }
 
     @IBAction func clickButton(_ sender: Any) {
+        self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Main")!, animated: true, completion: nil)
     }
 
 }
