@@ -60,7 +60,7 @@ struct NotificationKeys {
 //MARK - Paginations
 
 struct Paginations {
-    static let friends = 3
+    static let friends = 50
     static let facebookFriends = 20
     static let postsFeatureds = 4
     static let postsByFriends = 3

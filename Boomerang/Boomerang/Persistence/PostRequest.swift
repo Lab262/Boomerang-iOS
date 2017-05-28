@@ -52,7 +52,7 @@ class PostRequest: NSObject {
         
         let notContainedObjects = ["objectId": notContainedObjectIds]
         
-        ParseRequest.queryContainedIn(className: "Post", queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .cacheElseNetwork, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryContainedIn(className: "Post", queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .networkElseCache, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
             if success {
                 for obj in objects! {
                     let post = Post(object: obj)
