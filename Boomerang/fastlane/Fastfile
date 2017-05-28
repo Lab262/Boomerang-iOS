@@ -1,79 +1,45 @@
-# Customise this file, documentation can be found here:
-# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
-# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
-# can also be listed using the `fastlane actions` command
-
-# Change the syntax highlighting to Ruby
-# All lines starting with a # are ignored when running `fastlane`
-
-# If you want to automatically update fastlane if a new version is available:
-# update_fastlane
-
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "1.105.3"
+fastlane_version "2.35.1"
 
 default_platform :ios
+
+app_base_bundle = "lab262.boomerang"
 
 platform :ios do
   before_all do
     ENV['DEVELOPER_DIR'] = '/Applications/Xcode.app/'
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "hhdv-tiws-qlmu-dvzc"
     cocoapods
-
-  end
-
-  desc "Runs all the tests"
-  lane :test do
-    scan(workspace:"Boomerang.xcworkspace", scheme: "Boomerang", devices: ["iPhone 6"], clean: true)
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    match(type: "appstore") # more information: https://codesigning.guide
-    increment_build_number
-    gym(scheme: "Boomerang",include_bitcode: false, clean: true)
-    pilot(username: "thiago.mb@icloud.com")
-    slack(message: 'Successfully distributed a new beta build', slack_url: "https://hooks.slack.com/services/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")
-
-    # sh "your_script.sh"
-    # You can also use other beta testing services here (run `fastlane actions`)
+    # app_final_bundle = app_base_bundle + ".test"
+    # match(type: "appstore", app_identifier: app_final_bundle) # more information: https://codesigning.guide
+    # increment_build_number
+    # gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
+    pilot(username: "thiago.mb@icloud.com",team_name:"Thiago Bernardes")
+    slack(message: 'Successfully distributed a new TestFlight beta build')
   end
 
   desc "Deploy a new version to the App Store"
   lane :release do
+    app_final_bundle = app_base_bundle + ".production"
     match(type: "appstore")
     increment_version_number
-    # snapshot
-    gym(scheme: "Boomerang",include_bitcode: false, clean: true)
-    deliver(force: true)
-    slack(message: 'Successfully released a new App Store build', slack_url: "https://hooks.slack.com/services/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")
-
-    # frameit
+    gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
+    deliver(username: "thiago.mb@icloud.com",team_name:"Thiago Bernardes",force: true,app_identifier:app_final_bundle)
+    slack(message: 'Successfully released a new App Store build')
   end
 
-  # You can define as many lanes as you want
-
   after_all do |lane|
-    # This block is called, only if the executed lane was successful
 
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
   end
 
   error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
+
   end
 end
-
-
-# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
-# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
-
-# fastlane reports which actions are used
-# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
