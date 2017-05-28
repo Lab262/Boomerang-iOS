@@ -22,7 +22,7 @@
         <scene sceneID="mtw-Jj-Pa6">
             <objects>
                 <navigationController navigationBarHidden="YES" id="aJg-2A-R9N" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="af4-35-Bzl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="af4-35-Bzl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -382,7 +382,7 @@
         <!--Feedback Confirmation View Controller-->
         <scene sceneID="VPB-6m-anQ">
             <objects>
-                <viewController storyboardIdentifier="feed" id="U4G-HY-4Cp" customClass="FeedbackConfirmationViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="feedbackCreatePost" id="U4G-HY-4Cp" customClass="FeedbackConfirmationViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8tu-pV-tWh"/>
                         <viewControllerLayoutGuide type="bottom" id="fRY-MS-pZZ"/>

@@ -282,6 +282,7 @@ struct CreatePostTitles {
     static let keyParseTime = "loanTime"
     
     //Messages erros form
+    static let msgErrorImage = "Nenhuma imagem foi selecionada!"
     static let msgErrorTitle = "Campo de Título inválido!"
     static let msgErrorDescription = "Campo de Descrição inválido!"
     static let msgErrorPlace = "Campo de Local de retirada inválido!"
