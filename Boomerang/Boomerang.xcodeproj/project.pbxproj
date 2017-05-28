@@ -472,7 +472,6 @@
 		D4AD97D11EA9ACFD00C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48735011E7885000065E13A /* UICollectionViewCell+Utils.swift */; };
 		D4AD97D21EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */; };
 		D4AD97D31EA9ACFD00C9FAB9 /* TransactionCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */; };
-		D4AD97D41EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4AD97D51EA9ACFD00C9FAB9 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40DBB9C1E9684000075E74B /* Follow.swift */; };
 		D4AD97D61EA9ACFD00C9FAB9 /* String+CharacterSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48735001E7885000065E13A /* String+CharacterSpacing.swift */; };
 		D4AD97D71EA9ACFD00C9FAB9 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134DF1E9C7088003F55E4 /* Scheme.swift */; };
@@ -515,7 +514,6 @@
 		D4AD97FD1EA9ACFD00C9FAB9 /* SelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */; };
 		D4AD98011EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */; };
 		D4AD98021EA9ACFD00C9FAB9 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C611DD092650028F06C /* Montserrat-ExtraBold.otf */; };
-		D4AD98031EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4AD98041EA9ACFD00C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */; };
 		D4AD98051EA9ACFD00C9FAB9 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */; };
 		D4AD98061EA9ACFD00C9FAB9 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A449676D1DDA1F4600990008 /* ChatTableViewCell.xib */; };
@@ -653,7 +651,6 @@
 		D4AD989D1EA9AD0400C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48735011E7885000065E13A /* UICollectionViewCell+Utils.swift */; };
 		D4AD989E1EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */; };
 		D4AD989F1EA9AD0400C9FAB9 /* TransactionCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */; };
-		D4AD98A01EA9AD0400C9FAB9 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
 		D4AD98A11EA9AD0400C9FAB9 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40DBB9C1E9684000075E74B /* Follow.swift */; };
 		D4AD98A21EA9AD0400C9FAB9 /* String+CharacterSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48735001E7885000065E13A /* String+CharacterSpacing.swift */; };
 		D4AD98A31EA9AD0400C9FAB9 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C134DF1E9C7088003F55E4 /* Scheme.swift */; };
@@ -696,7 +693,6 @@
 		D4AD98C91EA9AD0400C9FAB9 /* SelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C99AE1E68B67100A17E71 /* SelectionDelegate.swift */; };
 		D4AD98CD1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F03D1E808A95002E8972 /* PhotoThingCollectionViewCell.xib */; };
 		D4AD98CE1EA9AD0400C9FAB9 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C611DD092650028F06C /* Montserrat-ExtraBold.otf */; };
-		D4AD98CF1EA9AD0400C9FAB9 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4AD98D01EA9AD0400C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2F07971E688DF400C61A6D /* DescriptionTextTableViewCell.xib */; };
 		D4AD98D11EA9AD0400C9FAB9 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */; };
 		D4AD98D21EA9AD0400C9FAB9 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A449676D1DDA1F4600990008 /* ChatTableViewCell.xib */; };
@@ -803,8 +799,6 @@
 		D4CF4DA01ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */; };
 		D4CF4DA11ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */; };
 		D4CF4DA21ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */; };
-		D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */; };
-		D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */; };
 		D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
 		D4E4BEA61E822FBE00F8DC2E /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */; };
 		D4E4BEA91E8233EF00F8DC2E /* ThingConditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */; };
@@ -1195,8 +1189,6 @@
 		D4CA48AE1EC9F621003C17F6 /* RecommendedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedPresenter.swift; sourceTree = "<group>"; };
 		D4CF4D9B1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SeeMoreCollectionViewCell.xib; path = ../Cells/SeeMoreCollectionViewCell.xib; sourceTree = "<group>"; };
-		D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingInformationTableViewCell.swift; sourceTree = "<group>"; };
-		D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThingInformationTableViewCell.xib; path = ../Cells/ThingInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTableViewCell.xib; path = ../Cells/DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThingConditionTableViewCell.swift; path = ../Interface/ThingConditionTableViewCell.swift; sourceTree = "<group>"; };
@@ -2112,7 +2104,6 @@
 			children = (
 				A4FE06311DD09AA200BFDC4D /* HomeCollectionHeader.swift */,
 				D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */,
-				D4D1873C1E66823700C4F012 /* ThingInformationTableViewCell.swift */,
 				D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */,
 				D498F0341E808861002E8972 /* PhotoThingTableViewCell.swift */,
 				D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */,
@@ -2148,7 +2139,6 @@
 				D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */,
 				D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */,
 				D498F0351E808861002E8972 /* PhotoThingTableViewCell.xib */,
-				D4D1873D1E66823700C4F012 /* ThingInformationTableViewCell.xib */,
 				D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */,
 				D4A012F81E7AC85600B3B811 /* PostTableViewCell.xib */,
 				A4FE062D1DD0967E00BFDC4D /* HomeCollectionHeader.xib */,
@@ -2586,7 +2576,6 @@
 				A44E0C691DD092650028F06C /* Montserrat-ExtraBold.otf in Resources */,
 				2F4958231ECD32C40001554E /* Tenho_00021.png in Resources */,
 				2F4958141ECD32C40001554E /* Tenho_00006.png in Resources */,
-				D4D1873F1E66823700C4F012 /* ThingInformationTableViewCell.xib in Resources */,
 				2F2F07991E688DF400C61A6D /* DescriptionTextTableViewCell.xib in Resources */,
 				D433D07F1E91D8E700112B32 /* Montserrat-Medium.ttf in Resources */,
 				A449676E1DDA1F4600990008 /* ChatTableViewCell.xib in Resources */,
@@ -2767,7 +2756,6 @@
 			files = (
 				D4AD98011EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */,
 				D4AD98021EA9ACFD00C9FAB9 /* Montserrat-ExtraBold.otf in Resources */,
-				D4AD98031EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.xib in Resources */,
 				D4AD98041EA9ACFD00C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */,
 				D4AD98051EA9ACFD00C9FAB9 /* Montserrat-Medium.ttf in Resources */,
 				D4AD98061EA9ACFD00C9FAB9 /* ChatTableViewCell.xib in Resources */,
@@ -2832,7 +2820,6 @@
 			files = (
 				D4AD98CD1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */,
 				D4AD98CE1EA9AD0400C9FAB9 /* Montserrat-ExtraBold.otf in Resources */,
-				D4AD98CF1EA9AD0400C9FAB9 /* ThingInformationTableViewCell.xib in Resources */,
 				D4AD98D01EA9AD0400C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */,
 				D4AD98D11EA9AD0400C9FAB9 /* Montserrat-Medium.ttf in Resources */,
 				D4AD98D21EA9AD0400C9FAB9 /* ChatTableViewCell.xib in Resources */,
@@ -3293,7 +3280,6 @@
 				D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */,
 				D492C1DE1EBB7579004243DE /* ThingBar.swift in Sources */,
 				D464AE771EA53C4B0084056A /* TransactionCellPresenter.swift in Sources */,
-				D4D1873E1E66823700C4F012 /* ThingInformationTableViewCell.swift in Sources */,
 				D40DBB9D1E9684000075E74B /* Follow.swift in Sources */,
 				D48735031E7885000065E13A /* String+CharacterSpacing.swift in Sources */,
 				D4C134E01E9C7088003F55E4 /* Scheme.swift in Sources */,
@@ -3483,7 +3469,6 @@
 				D4AD97D21EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
 				D4CF4D9E1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD97D31EA9ACFD00C9FAB9 /* TransactionCellPresenter.swift in Sources */,
-				D4AD97D41EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.swift in Sources */,
 				D4AD97D51EA9ACFD00C9FAB9 /* Follow.swift in Sources */,
 				D4C8ECD91EC1FD5400E3CB17 /* PostType.swift in Sources */,
 				D4AD97D61EA9ACFD00C9FAB9 /* String+CharacterSpacing.swift in Sources */,
@@ -3665,7 +3650,6 @@
 				D4AD989E1EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
 				D4CF4D9F1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD989F1EA9AD0400C9FAB9 /* TransactionCellPresenter.swift in Sources */,
-				D4AD98A01EA9AD0400C9FAB9 /* ThingInformationTableViewCell.swift in Sources */,
 				D4AD98A11EA9AD0400C9FAB9 /* Follow.swift in Sources */,
 				D4C8ECDA1EC1FD5400E3CB17 /* PostType.swift in Sources */,
 				D4AD98A21EA9AD0400C9FAB9 /* String+CharacterSpacing.swift in Sources */,

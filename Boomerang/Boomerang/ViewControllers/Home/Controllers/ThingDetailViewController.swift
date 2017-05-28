@@ -48,7 +48,7 @@ class ThingDetailViewController: UIViewController {
     var keyboardFrameSize: CGRect?
     var currentCommentsCount = 0
     
-    var inputFieldsCondition: [Fields]?
+    var inputFieldsCondition: [Fields] = []
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.hideTabBar()
@@ -92,6 +92,7 @@ class ThingDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupInformations()
         setPresenterDelegate()
         registerNibs()
         configureButtons()
@@ -102,7 +103,6 @@ class ThingDetailViewController: UIViewController {
         getCommentsCount()
         registerObservers()
         setupSubscribe()
-        setupInformations()
     }
     
     func setupInformations(){
@@ -136,19 +136,19 @@ class ThingDetailViewController: UIViewController {
     func setFieldExchange(title:String){
         let fieldExchange = Fields.init(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: title, descriptionCondition: presenter.post.exchangeDescription!, constraintIconWidth: 14.0*UIView.heightScaleProportion(), constraintIconHeight: 15.0*UIView.heightScaleProportion())
         
-        self.inputFieldsCondition?.append(fieldExchange)
+        self.inputFieldsCondition.append(fieldExchange)
     }
     
     func setFieldTime(){
         let fieldTime = Fields.init(iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: DetailPostTitles.titleTime, descriptionCondition: presenter.post.loanTime!, constraintIconWidth: 16.0*UIView.heightScaleProportion(), constraintIconHeight: 16.0*UIView.heightScaleProportion())
         
-        self.inputFieldsCondition?.append(fieldTime)
+        self.inputFieldsCondition.append(fieldTime)
     }
     
     func setFieldPlace(){
         let fieldPlace = Fields.init(iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: DetailPostTitles.titlePlace, descriptionCondition: presenter.post.place!, constraintIconWidth: 15.0*UIView.heightScaleProportion(), constraintIconHeight: 18.0*UIView.heightScaleProportion())
         
-        self.inputFieldsCondition?.append(fieldPlace)
+        self.inputFieldsCondition.append(fieldPlace)
     }
     
     func setupSubscribe() {
@@ -375,7 +375,7 @@ class ThingDetailViewController: UIViewController {
     func generateConditionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ThingConditionTableViewCell.identifier, for: indexPath) as! ThingConditionTableViewCell
-        cell.cellData = inputFieldsCondition?[indexPath.row-3]
+        cell.cellData = inputFieldsCondition[indexPath.row-3]
         
         return cell
     }
@@ -387,9 +387,9 @@ class ThingDetailViewController: UIViewController {
         var index: Int?
         
         if commentCount! > 0 {
-            index = (presenter.comments.count-1)-(indexPath.row-(inputFieldsCondition?.count)!-5)
+            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-5)
         } else {
-            index = (presenter.comments.count-1)-(indexPath.row-(inputFieldsCondition?.count)!-4)
+            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-4)
         }
         
         cell.comment = presenter.comments[index!]
@@ -415,7 +415,7 @@ class ThingDetailViewController: UIViewController {
 extension ThingDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case (inputFieldsCondition?.count)!+3:
+        case inputFieldsCondition.count+3:
             return textFieldHeight
         default:
             return UITableViewAutomaticDimension
@@ -442,11 +442,11 @@ extension ThingDetailViewController: UITableViewDelegate {
             return generateUserInformationsCell(tableView, cellForRowAt: indexPath)
         case 2:
             return generateUserDescriptionCell(tableView, cellForRowAt: indexPath)
-        case 3..<(inputFieldsCondition?.count)!+3:
+        case 3..<inputFieldsCondition.count+3:
             return generateConditionCell(tableView, cellForRowAt: indexPath)
-        case (inputFieldsCondition?.count)!+3:
+        case inputFieldsCondition.count+3:
             return generateTextFieldCell(tableView, cellForRowAt: indexPath)
-        case (inputFieldsCondition?.count)!+4:
+        case inputFieldsCondition.count+4:
             if commentCount! > 0 {
                 return generateMoreButton(tableView, cellForRowAt: indexPath)
             } else {
@@ -459,8 +459,8 @@ extension ThingDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let rows = (inputFieldsCondition?.count)! + 4 + presenter.comments.count
-        let rowsWithMoreButton = (inputFieldsCondition?.count)! + 5 + presenter.comments.count
+        let rows = inputFieldsCondition.count + 4 + presenter.comments.count
+        let rowsWithMoreButton = inputFieldsCondition.count + 5 + presenter.comments.count
         
         if commentCount! > 0 {
             return rowsWithMoreButton

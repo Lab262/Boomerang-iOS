@@ -30,6 +30,7 @@ class TextFieldGroupTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         commentButton.layer.cornerRadius = commentButton.frame.height/2
+        commentButton.titleLabel?.setDynamicFont()
     }
 
 }
