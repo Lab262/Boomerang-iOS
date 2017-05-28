@@ -60,7 +60,7 @@ struct NotificationKeys {
 //MARK - Paginations
 
 struct Paginations {
-    static let friends = 3
+    static let friends = 50
     static let facebookFriends = 20
     static let postsFeatureds = 4
     static let postsByFriends = 3
@@ -112,6 +112,16 @@ struct TypePostTitles {
     static let have = "Tenho"
     static let need = "Preciso"
     static let donate = "Doação"
+}
+
+//MARK - Detail Post Title
+
+struct DetailPostTitles {
+    static let titleNeedChangeOrLoan = "Posso trocar/emprestar"
+    static let titleHaveChangeOrLoan = "Quero em troca/emprestado"
+    static let titleTime = "Tempo que preciso emprestado"
+    static let titlePlace = "Local de retirada"
+    
 }
 
 //MARK - Notification Success Messages
@@ -282,6 +292,7 @@ struct CreatePostTitles {
     static let keyParseTime = "loanTime"
     
     //Messages erros form
+    static let msgErrorImage = "Nenhuma imagem foi selecionada!"
     static let msgErrorTitle = "Campo de Título inválido!"
     static let msgErrorDescription = "Campo de Descrição inválido!"
     static let msgErrorPlace = "Campo de Local de retirada inválido!"

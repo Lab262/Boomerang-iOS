@@ -36,7 +36,13 @@ class UserCommentTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        configureDynamicLabel()
+    }
+    
+    func configureDynamicLabel(){
+        userNameLabel.setDynamicFont()
+        userDescriptionLabel.setDynamicFont()
+        dateLabel.setDynamicFont()
     }
 
     func updateCellUI(){

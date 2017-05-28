@@ -27,12 +27,16 @@ class TransactionTableViewCell: UITableViewCell {
     var toImage: UIImage? {
         didSet{
             toUserImage.image = toImage
+            self.fromUserImage.getUserImageFrom(file: presenter.user.profile!.photo!) { (success, msg) in
+            }
         }
     }
     
     var descriptionTransaction: NSMutableAttributedString? {
         didSet{
             transactionLabel.attributedText = descriptionTransaction
+            self.toUserImage.getUserImageFrom(file: presenter.user.profile!.photo!) { (success, msg) in
+            }
         }
     }
     

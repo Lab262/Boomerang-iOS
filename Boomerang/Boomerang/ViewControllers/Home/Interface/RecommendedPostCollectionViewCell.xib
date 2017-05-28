@@ -13,9 +13,6 @@
         <array key="Montserrat-Bold.otf">
             <string>Montserrat-Bold</string>
         </array>
-        <array key="Montserrat-Regular.otf">
-            <string>Montserrat-Regular</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -85,8 +82,8 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maria Luice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yP-si-BYS">
-                                        <rect key="frame" x="64" y="39" width="75" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maria Luice" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yP-si-BYS">
+                                        <rect key="frame" x="64" y="39" width="204" height="16"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -125,42 +122,36 @@ máximo de caracteres help in a numb</string>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="11" id="ZJb-5v-ctv"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="9"/>
+                                                <color key="textColor" red="0.67450980392156867" green="0.72156862745098038" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7MN-AN-0MI">
-                                        <rect key="frame" x="218.5" y="258.5" width="29" height="14"/>
+                                        <rect key="frame" x="219" y="258.5" width="29.5" height="14"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="sharing-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Y4-Q2-fWk">
                                                 <rect key="frame" x="0.0" y="0.0" width="16" height="14"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqu-NX-ikt">
-                                                <rect key="frame" x="20" y="0.0" width="9" height="14"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="20" y="0.0" width="9.5" height="14"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="9"/>
+                                                <color key="textColor" red="0.67450980392156867" green="0.72156862745098038" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrV-zC-Hlh">
-                                        <rect key="frame" x="149" y="42" width="24" height="11"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
-                                        <color key="textColor" red="0.61568627450980395" green="0.66666666666666663" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="u2J-nV-WwW">
-                                        <rect key="frame" x="159" y="257.5" width="27" height="15"/>
+                                        <rect key="frame" x="159.5" y="257.5" width="27.5" height="15"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="749" image="comment-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="wws-9K-gzf">
                                                 <rect key="frame" x="0.0" y="0.0" width="14" height="15"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKe-Kq-sTU">
-                                                <rect key="frame" x="18" y="0.0" width="9" height="15"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="18" y="0.0" width="9.5" height="15"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="9"/>
+                                                <color key="textColor" red="0.67450980392156867" green="0.72156862745098038" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -171,13 +162,13 @@ máximo de caracteres help in a numb</string>
                                     <constraint firstItem="7MN-AN-0MI" firstAttribute="centerY" secondItem="lHJ-gV-0Nq" secondAttribute="centerY" id="3eR-ng-TRu"/>
                                     <constraint firstItem="24k-AY-dHE" firstAttribute="centerY" secondItem="rnf-LL-onv" secondAttribute="centerY" multiplier="1.2" id="4h6-hL-Vkm"/>
                                     <constraint firstItem="24k-AY-dHE" firstAttribute="height" secondItem="rnf-LL-onv" secondAttribute="height" multiplier="0.5" id="7j5-NZ-SrM"/>
+                                    <constraint firstItem="ygh-1N-5PZ" firstAttribute="leading" secondItem="4yP-si-BYS" secondAttribute="trailing" constant="10" id="Cyv-vf-Io2"/>
                                     <constraint firstItem="24k-AY-dHE" firstAttribute="leading" secondItem="rnf-LL-onv" secondAttribute="leading" constant="11" id="FCM-3L-dxK"/>
                                     <constraint firstItem="HFF-Yz-2vs" firstAttribute="top" secondItem="rnf-LL-onv" secondAttribute="top" id="FrQ-3m-z3x"/>
                                     <constraint firstItem="Ndy-iR-ir3" firstAttribute="width" secondItem="rnf-LL-onv" secondAttribute="width" multiplier="0.62" id="JnG-h8-1IH"/>
                                     <constraint firstItem="PZM-9d-leP" firstAttribute="centerY" secondItem="rnf-LL-onv" secondAttribute="centerY" multiplier="0.35" id="K1X-aa-tNm"/>
                                     <constraint firstItem="lHJ-gV-0Nq" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" multiplier="0.65" id="Q9F-3U-VV5"/>
                                     <constraint firstItem="7MN-AN-0MI" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" multiplier="1.35" id="aPT-oD-8Pl"/>
-                                    <constraint firstItem="NrV-zC-Hlh" firstAttribute="centerY" secondItem="4yP-si-BYS" secondAttribute="centerY" id="awr-6F-5Ei"/>
                                     <constraint firstItem="PZM-9d-leP" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" multiplier="0.21" id="fVR-ek-Gyx"/>
                                     <constraint firstItem="Ndy-iR-ir3" firstAttribute="leading" secondItem="4yP-si-BYS" secondAttribute="leading" id="hMe-br-0Bp"/>
                                     <constraint firstItem="u2J-nV-WwW" firstAttribute="top" secondItem="24k-AY-dHE" secondAttribute="bottom" constant="10" id="jxq-qr-5sD"/>
@@ -187,7 +178,6 @@ máximo de caracteres help in a numb</string>
                                     <constraint firstAttribute="trailing" secondItem="24k-AY-dHE" secondAttribute="trailing" constant="11" id="nbD-0u-d5F"/>
                                     <constraint firstItem="4yP-si-BYS" firstAttribute="top" secondItem="PZM-9d-leP" secondAttribute="top" constant="10" id="p3c-v0-Wkj"/>
                                     <constraint firstItem="lHJ-gV-0Nq" firstAttribute="centerY" secondItem="u2J-nV-WwW" secondAttribute="centerY" id="rXF-ad-OVv"/>
-                                    <constraint firstItem="NrV-zC-Hlh" firstAttribute="leading" secondItem="4yP-si-BYS" secondAttribute="trailing" constant="10" id="vfx-xa-NPb"/>
                                     <constraint firstItem="u2J-nV-WwW" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" id="zVf-Y0-47B"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -244,7 +234,6 @@ máximo de caracteres help in a numb</string>
                 <outlet property="likeAmountLabel" destination="Cwm-Po-2Cu" id="U3B-QK-kjU"/>
                 <outlet property="postImage" destination="fBW-eY-Bzv" id="kMN-zy-BcX"/>
                 <outlet property="sharedAmountLabel" destination="Fqu-NX-ikt" id="p4i-TD-5F3"/>
-                <outlet property="timeLabel" destination="NrV-zC-Hlh" id="VXJ-HQ-4wX"/>
                 <outlet property="typePostImage" destination="57Y-I8-iV6" id="QJt-nD-nXd"/>
                 <outlet property="userImage" destination="PZM-9d-leP" id="2bo-pP-KTg"/>
                 <outlet property="userNameLabel" destination="4yP-si-BYS" id="qiU-X2-IlC"/>

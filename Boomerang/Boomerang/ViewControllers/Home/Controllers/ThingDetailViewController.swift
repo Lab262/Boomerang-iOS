@@ -10,9 +10,17 @@ import UIKit
 import ParseLiveQuery
 import Parse
 
+struct Fields {
+    let iconCondition: UIImage
+    let titleCondition: String
+    let descriptionCondition: String
+    let constraintIconWidth: CGFloat
+    let constraintIconHeight: CGFloat
+}
 
 class ThingDetailViewController: UIViewController {
     
+    @IBOutlet weak var buttonsStackView: UIStackView!
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -40,7 +48,7 @@ class ThingDetailViewController: UIViewController {
     var keyboardFrameSize: CGRect?
     var currentCommentsCount = 0
     
-    var inputFieldsCondition = [(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: "Posso trocar/emprestar", descriptionCondition: "Tenho uma mesa de ping pong aqui parada. ou então bora conversar.", constraintIconWidth: 14.0, constraintIconHeight: 15.0), (iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: "Tempo que preciso emprestado", descriptionCondition: "1 semana, mas a gente conversa.", constraintIconWidth: 16.0, constraintIconHeight: 16.0), (iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: "Local de retirada", descriptionCondition: "Qualquer lugar em Brasília.", constraintIconWidth: 15.0, constraintIconHeight: 18.0)]
+    var inputFieldsCondition: [Fields] = []
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.hideTabBar()
@@ -77,13 +85,14 @@ class ThingDetailViewController: UIViewController {
     }
     
     func configureTableView(){
-        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
+        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, buttonsStackView.frame.height, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupInformations()
         setPresenterDelegate()
         registerNibs()
         configureButtons()
@@ -94,6 +103,52 @@ class ThingDetailViewController: UIViewController {
         getCommentsCount()
         registerObservers()
         setupSubscribe()
+    }
+    
+    func setupInformations(){
+        switch presenter.getCurrentType() {
+        case TypePostTitles.have:
+            setInformationsHave()
+        case TypePostTitles.need:
+            setInformationsNeed()
+        case TypePostTitles.donate:
+            setInformationsDonate()
+        default:break
+        }
+    }
+    
+    func setInformationsHave(){
+        setFieldExchange(title: DetailPostTitles.titleHaveChangeOrLoan)
+        setFieldTime()
+        setFieldPlace()
+    }
+    
+    func setInformationsNeed(){
+        setFieldExchange(title: DetailPostTitles.titleNeedChangeOrLoan)
+        setFieldTime()
+        setFieldPlace()
+    }
+    
+    func setInformationsDonate(){
+        setFieldPlace()
+    }
+    
+    func setFieldExchange(title:String){
+        let fieldExchange = Fields.init(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: title, descriptionCondition: presenter.post.exchangeDescription!, constraintIconWidth: 14.0*UIView.heightScaleProportion(), constraintIconHeight: 15.0*UIView.heightScaleProportion())
+        
+        self.inputFieldsCondition.append(fieldExchange)
+    }
+    
+    func setFieldTime(){
+        let fieldTime = Fields.init(iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: DetailPostTitles.titleTime, descriptionCondition: presenter.post.loanTime!, constraintIconWidth: 16.0*UIView.heightScaleProportion(), constraintIconHeight: 16.0*UIView.heightScaleProportion())
+        
+        self.inputFieldsCondition.append(fieldTime)
+    }
+    
+    func setFieldPlace(){
+        let fieldPlace = Fields.init(iconCondition: #imageLiteral(resourceName: "local-icon"), titleCondition: DetailPostTitles.titlePlace, descriptionCondition: presenter.post.place!, constraintIconWidth: 15.0*UIView.heightScaleProportion(), constraintIconHeight: 18.0*UIView.heightScaleProportion())
+        
+        self.inputFieldsCondition.append(fieldPlace)
     }
     
     func setupSubscribe() {
@@ -128,8 +183,15 @@ class ThingDetailViewController: UIViewController {
             secondButton.setTitle(presenter.recommendedTitleButton, for: .normal)
         } else {
             secondButton.isHidden = true
-            firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
-            firstButton.setTitle(presenter.interestedListTitleButton, for: .normal)
+            if !presenter.post.isAvailable {
+//                tableViewBottomToStackViewConstraint.isActive = false
+//                tableViewBottomToSuperViewConstraint.isActive = true
+//                self.tableView.layoutIfNeeded()
+                firstButton.isHidden = true
+            } else {
+                firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
+                firstButton.setTitle(presenter.interestedListTitleButton, for: .normal)
+            }
         }
     }
     

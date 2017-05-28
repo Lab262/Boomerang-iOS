@@ -215,6 +215,12 @@ extension HomePresenter {
         subscriptionFollowUpdated = liveQueryClient
             .subscribe(followQuery!)
             .handle(Event.updated) { _, follow in
+                
+                for (index, f) in self.following.enumerated() where
+                    f.objectId! == follow.objectId! {
+                    self.friendsPosts.remove(at: index)
+                }
+
                 self.getFriends()
         }
     }

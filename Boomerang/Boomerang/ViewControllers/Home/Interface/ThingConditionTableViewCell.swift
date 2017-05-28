@@ -23,7 +23,7 @@ class ThingConditionTableViewCell: UITableViewCell {
     }
     
     
-    var cellData: (iconCondition: UIImage, titleCondition: String, descriptionCondition: String, constraintIconWidth: Double, constraintIconHeight: Double)? {
+    var cellData: (Fields)? {
         
         didSet{
             updateCellUI()
@@ -38,8 +38,8 @@ class ThingConditionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        // Initialization code
+        titleConditionLabel.setDynamicFont()
+        descriptionConditionLabel.setDynamicFont()
     }
 
     func updateCellUI(){

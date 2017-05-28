@@ -22,9 +22,11 @@ class SeeMoreCollectionViewCell: UICollectionViewCell {
         return "SeeMoreCollectionViewCell"
     }
 
+    @IBOutlet weak var seeMoreLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.seeMoreLabel.setDynamicFont()
     }
 
 }
