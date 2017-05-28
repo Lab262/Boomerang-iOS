@@ -14,6 +14,7 @@ protocol InterestedDelegate {
     func startingLoadingView()
     func finishLoadingView()
     func pushForChatView()
+    func presentTo(storyBoard: String, identifier: String)
 }
 class InterestedPresenter: NSObject {
     
@@ -107,34 +108,29 @@ class InterestedPresenter: NSObject {
     }
     
     func createScheme(){
-        
+        self.view?.startingLoadingView()
         SchemeRequest.getSchemeFor(owner: getUser().profile!, requester: getRequester(), post: getPost()) { (success, msg, scheme) in
             if success {
                 SchemeRequest.updateScheme(scheme: scheme!, statusScheme: .progress, completionHandler: { (success, msg) in
-                    
                     if success {
+                        PostRequest.updatePostIsAvailable(isAvailable: false, post: self.post, completionHandler: { (success, msg) in
+                            if success {
+                                self.view?.presentTo(storyBoard: "Main", identifier: "")
+                            } else {
+                                self.view?.showMessage(msg: msg)
+                            }
+                        })
                         print ("UPDATE SUCCESS")
                     } else {
                         print ("UPDATE FAIL")
                     }
+                    self.view?.finishLoadingView()
                 })
             } else {
                 self.view?.showMessage(msg: msg)
             }
+            self.view?.finishLoadingView()
         }
-        
-        //SchemeRequest.updateScheme(scheme: <#T##Scheme#>, statusScheme: <#T##StatusScheme#>, completionHandler: <#T##(Bool, String) -> ()#>)
-        
-//        let scheme = Scheme(post: getPost(), requester: getRequester(), owner: getUser().profile!, chat: getChat())
-//        
-//        scheme.saveObjectInBackground { (success, msg) in
-//            if success {
-//                self.view?.showMessage(msg: "Esquema iniciado :)")
-//                // push pra alguma tela
-//            } else {
-//                self.view?.showMessage(msg: msg)
-//            }
-//        }
     }
     
     func getUserPhotoImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){

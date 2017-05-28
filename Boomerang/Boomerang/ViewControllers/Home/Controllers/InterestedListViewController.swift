@@ -145,6 +145,10 @@ extension InterestedListViewController: InterestedDelegate {
     func pushForChatView() {
         performSegue(withIdentifier: SegueIdentifiers.interestedToChat, sender: self)
     }
+    
+    func presentTo(storyBoard: String, identifier: String) {
+        self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Main")!, animated: true, completion: nil)
+    }
 }
 
 

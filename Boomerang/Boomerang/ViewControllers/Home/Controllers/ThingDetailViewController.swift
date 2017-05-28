@@ -20,6 +20,7 @@ struct Fields {
 
 class ThingDetailViewController: UIViewController {
     
+    @IBOutlet weak var buttonsStackView: UIStackView!
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -84,7 +85,7 @@ class ThingDetailViewController: UIViewController {
     }
     
     func configureTableView(){
-        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, 0, 0)
+        tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, buttonsStackView.frame.height, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
     }
@@ -182,8 +183,15 @@ class ThingDetailViewController: UIViewController {
             secondButton.setTitle(presenter.recommendedTitleButton, for: .normal)
         } else {
             secondButton.isHidden = true
-            firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
-            firstButton.setTitle(presenter.interestedListTitleButton, for: .normal)
+            if !presenter.post.isAvailable {
+//                tableViewBottomToStackViewConstraint.isActive = false
+//                tableViewBottomToSuperViewConstraint.isActive = true
+//                self.tableView.layoutIfNeeded()
+                firstButton.isHidden = true
+            } else {
+                firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
+                firstButton.setTitle(presenter.interestedListTitleButton, for: .normal)
+            }
         }
     }
     

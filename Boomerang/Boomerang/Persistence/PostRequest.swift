@@ -272,6 +272,26 @@ class PostRequest: NSObject {
         }
     }
     
+    static func updatePostIsAvailable(isAvailable: Bool, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        let query = PFQuery(className: "Post")
+        
+        query.getObjectInBackground(withId: post.objectId!) { (object, error) in
+            if error == nil {
+                object!["isAvailable"] = isAvailable
+                object?.saveInBackground(block: { (success, error) in
+                    if success {
+                        completionHandler(success, "success")
+                    } else {
+                        completionHandler(false, error!.localizedDescription)
+                    }
+                })
+            } else {
+                completionHandler(false, error!.localizedDescription)
+            }
+        }
+    }
+    
     static func getAllTypes (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         var allTypes = [PostType]()

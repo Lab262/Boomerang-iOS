@@ -48,7 +48,7 @@ class Scheme: PFObject {
         self.chat = chat
         
         let statusPost = ApplicationState.sharedInstance.schemeStatus
-        for status in statusPost where status.objectId == StatusSchemeId.progress {
+        for status in statusPost where status.status! == StatusScheme.negotiation.rawValue {
             self.status = status
         }
         
