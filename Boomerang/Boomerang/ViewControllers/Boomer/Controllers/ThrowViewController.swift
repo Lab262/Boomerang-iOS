@@ -21,6 +21,7 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var coverPostTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var anexButton: UIButtonWithPicker!
     @IBOutlet weak var anexButtonCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var anexAreaButton: UIButtonWithPicker!
     
     var fields:[Int:String] = [:]
     var nameThing = String ()
