@@ -50,7 +50,7 @@ class ExchangeTransactionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? TransactionDetailViewController {
             
-            destinationVC.presenter.scheme = presenter.getSchemes()[tableView.indexPathForSelectedRow!.row]
+            destinationVC.presenter.scheme = presenter.getSchemesFor(postCondition: .exchange)[tableView.indexPathForSelectedRow!.row]
         }
     }
 }
@@ -61,7 +61,7 @@ extension ExchangeTransactionViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as! TransactionTableViewCell
         
-        cell.presenter.scheme = presenter.getSchemes()[indexPath.row]
+        cell.presenter.scheme = presenter.getSchemesFor(postCondition: .exchange)[indexPath.row]
         cell.updateCell()
         
         return cell

@@ -521,6 +521,13 @@ extension ThingDetailViewController: UIScrollViewDelegate {
 }
 
 extension ThingDetailViewController: DetailThingDelegate {
+    func startLoading() {
+        self.view.loadAnimation()
+    }
+
+    func finishLoading() {
+        self.view.unload()
+    }
     
     func reload() {
         if presenter.comments.count != presenter.currentCommentsCount {
