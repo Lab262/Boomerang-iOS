@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Boomer</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -63,10 +65,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Boomerang deseja ter acesso a sua localização?</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Boomerang deseja ter acesso a câmera?</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Boomerang deseja ter acesso a sua localização?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>O Boomerang deseja ter acesso a galeria de fotos?</string>
 	<key>UIAppFonts</key>

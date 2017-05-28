@@ -3850,6 +3850,7 @@
 				CODE_SIGN_ENTITLEMENTS = lab262.boomerang.test/lab262.boomerang.test.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = B865ENT4P3;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -3927,6 +3928,7 @@
 				CODE_SIGN_ENTITLEMENTS = lab262.boomerang.production/lab262.boomerang.production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = B865ENT4P3;
 				INFOPLIST_FILE = Boomerang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
