@@ -97,6 +97,7 @@ class TransactionCellPresenter: NSObject {
                     descriptionTransaction = getCustomAttributtedTextStartsWithPhrase(title: TransactionCellStrings.titleDonate)
                 } else {
                     descriptionTransaction = getCustomAttributtedTextStartsWithName(title: TransactionCellStrings.actionDonate)
+                    
                 }
             case .loan:
                 if isFromUser {
@@ -107,9 +108,10 @@ class TransactionCellPresenter: NSObject {
                 }
             case .exchange:
                 if isFromUser {
-                    descriptionTransaction = getCustomAttributtedTextStartsWithName(title: TransactionCellStrings.actionExchange)
-                } else {
                     descriptionTransaction = getCustomAttributtedTextStartsWithPhrase(title: TransactionCellStrings.titleExchange)
+                } else {
+                    
+                    descriptionTransaction = getCustomAttributtedTextStartsWithName(title: TransactionCellStrings.actionExchange)
                 }
         }
         
