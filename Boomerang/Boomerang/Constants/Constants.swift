@@ -34,6 +34,7 @@ struct SegueIdentifiers {
     static let transactionToHistoric = "goToHistoric"
     static let detailThingToRecommended = "goToRecommended"
     static let homeToMorePost = "goToMorePosts"
+    static let searchFriendsToProfile = "goToProfile"
 }
 
 //MARK - Storyboard Ids
@@ -183,6 +184,7 @@ struct ProfileKeys {
 
 struct NotificationModelKeys {
     static let receiver = "receiver"
+    static let hasBeenSeen = "hasBeenSeen"
 }
 
 //MARK - Scheme keys

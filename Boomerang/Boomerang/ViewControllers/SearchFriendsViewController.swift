@@ -53,6 +53,12 @@ class SearchFriendsViewController: UIViewController {
         cell.setupCellInformations()
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? ProfileMainViewController {
+            controller.presenter.setProfile(profile: presenter.profiles[tableView.indexPathForSelectedRow!.row-1])
+        }
+    }
 
 }
 
@@ -78,6 +84,9 @@ extension SearchFriendsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if indexPath.row >= 1 {
+            performSegue(withIdentifier: SegueIdentifiers.searchFriendsToProfile, sender: self)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
