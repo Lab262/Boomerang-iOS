@@ -829,7 +829,7 @@ extension UIImageView {
     
     func getUserImage(profile: Profile, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
         guard let image = profile.profileImage else {
-            self.loadAnimation()
+            loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
             profile.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
                 if success {
                     self.image = UIImage(data: data!)
@@ -846,7 +846,7 @@ extension UIImageView {
     }
     
     func getUserImageFrom(file: PFFile, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
-        loadAnimation()
+        loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
         file.getDataInBackground { (data, error) in
             if error == nil {
                 self.image = UIImage(data: data!)

@@ -31,6 +31,8 @@ class EvaluationViewController: UIViewController {
         setupPlaceholderInTextView()
         setupKeyboardNotifications()
         setupPresenterDelegate()
+        userImage.getUserImageFrom(file: presenter.user.photo!) { (success, msg) in
+        }
     }
     
     func setupPresenterDelegate(){

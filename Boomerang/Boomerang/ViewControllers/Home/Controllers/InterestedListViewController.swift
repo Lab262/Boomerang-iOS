@@ -12,8 +12,8 @@ class InterestedListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var presenter: InterestedPresenter = InterestedPresenter()
-    let tableViewTopInset: CGFloat = 94.0
-    let tableViewBottomInset: CGFloat = 40.0
+    let tableViewTopInset: CGFloat = 94.0*UIView.heightScaleProportion()
+    let tableViewBottomInset: CGFloat = 40.0*UIView.heightScaleProportion()
     
     @IBOutlet weak var navigationBar: IconNavigationBar!
     
@@ -85,7 +85,7 @@ extension InterestedListViewController : UITableViewDataSource {
         cell.initializeSchemeButton.tag = indexPath.row
         cell.initializeSchemeButton.addTarget(self, action: #selector(createScheme(_:)), for: .touchUpInside)
         cell.loadViewCell()
-        cell.countLabel.text = "\(indexPath.row)"
+        cell.countLabel.text = "\(indexPath.row+1)"
         
         return cell
     }

@@ -41,7 +41,13 @@ class MorePostViewController: UIViewController {
     
     func configureTableView(){
         tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, tableViewBottomInset, 0)
-        //tableView.tableFooterView = refreshIndicatorInTableViewFooter()
+        tableView.tableFooterView = refreshIndicatorInTableViewFooter()
+    }
+    
+    func refreshIndicatorInTableViewFooter() -> UIView {
+        let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
+        viewIndicator.backgroundColor = UIColor.clear
+        return viewIndicator
     }
     
     func getMorePosts(){
@@ -71,6 +77,9 @@ extension MorePostViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MorePostTableViewCell.identifier, for: indexPath) as! MorePostTableViewCell
         
+        
+        cell.coverImage.image = nil
+        cell.userImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
         
         cell.setupCell()
@@ -95,14 +104,39 @@ extension MorePostViewController: UITableViewDelegate {
     }
 }
 
-extension MorePostViewController: ViewDelegate {
+extension MorePostViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
+            presenter.getMorePosts()
+        }
+    }
+}
+
+extension MorePostViewController: MorePostDelegate {
     
     func reload() {
         tableView.reloadData()
     }
     
-    func showMessageError(msg: String) {
-        print ("ERROR MORE POST CONTROLLER: \(msg)")
+    func showMessage(isSuccess: Bool, msg: String) {
+        
+    }
+    
+    func startLoading() {
+        
+    }
+    
+    func finishLoading() {
+        
+    }
+    
+    func startFooterLoading() {
+        tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
+    }
+    
+    func finishFooterLoading() {
+        self.tableView.tableFooterView?.unload()
     }
 }
 

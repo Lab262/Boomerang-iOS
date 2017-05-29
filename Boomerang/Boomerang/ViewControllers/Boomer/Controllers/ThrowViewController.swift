@@ -30,6 +30,7 @@ class ThrowViewController: UIViewController {
     var typeVC = TypePost.have
     var typeScheme:Condition?
     var isAvailable:Bool?
+    var boolTypeScheme:Bool?
     
     @IBOutlet weak var coverPostHeightConstraint: NSLayoutConstraint!
     var titleHeader = String()
@@ -129,10 +130,11 @@ class ThrowViewController: UIViewController {
     func generateSwitchButtonCell (_ tableView: UITableView, indexPath: IndexPath, firstTitle: String, secondTitle: String, isTypeScheme:Bool) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:SwitchButtonTableViewCell.identifier, for: indexPath) as! SwitchButtonTableViewCell
+        
         cell.selectionStyle = .none
         cell.firstOptionTitle = firstTitle
         cell.secondOptionTitle = secondTitle
-        
+
         cell.handlerOptionSelected = {selected in
             
             if isTypeScheme {
@@ -141,6 +143,7 @@ class ThrowViewController: UIViewController {
                 }else{
                     self.typeScheme = Condition.exchange
                 }
+                self.boolTypeScheme = selected
             }else{
                 self.isAvailable = selected
             }
@@ -293,6 +296,18 @@ class ThrowViewController: UIViewController {
             return msgErro
         }
         
+        if typeVC == .need || typeVC == .have {
+            if self.params[CreatePostTitles.keyParseTime] == nil || self.params[CreatePostTitles.keyParseTime] == "" {
+                msgErro = CreatePostTitles.msgErrorTime
+                return msgErro
+            }
+            
+            if self.params[CreatePostTitles.keyParseExchangeDescription] == nil || self.params[CreatePostTitles.keyParseExchangeDescription] == "" {
+                msgErro = CreatePostTitles.msgErrorExchangeDescription
+                return msgErro
+            }
+        }
+        
         return msgErro
     }
     
@@ -400,6 +415,7 @@ extension ThrowViewController: UIScrollViewDelegate {
             if self.anexButton.alpha == 1.0 {
                 UIView.animate(withDuration: 0.15, animations: {
                     self.anexButton.alpha = 0.0
+                    self.anexAreaButton.isEnabled = false
                 })
             }
           
@@ -407,6 +423,7 @@ extension ThrowViewController: UIScrollViewDelegate {
             if self.anexButton.alpha == 0.0 {
                 UIView.animate(withDuration: 0.15, animations: {
                     self.anexButton.alpha = 1.0
+                    self.anexAreaButton.isEnabled = true
                 })
             }
         }

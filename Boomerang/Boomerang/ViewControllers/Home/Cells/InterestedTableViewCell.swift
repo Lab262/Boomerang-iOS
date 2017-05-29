@@ -39,6 +39,15 @@ class InterestedTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureDynamicFont()
+    }
+    
+    func configureDynamicFont(){
+        countLabel.setDynamicFont()
+        nameLabel.setDynamicFont()
+        messageLabel.setDynamicFont()
+        dateLabel.setDynamicFont()
+        cityLabel.setDynamicFont()
     }
     
     @IBAction func initializeScheme(_ sender: Any) {

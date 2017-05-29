@@ -15,6 +15,7 @@ class TextViewHandler: NSObject, UITextViewDelegate {
    var textView: UITextView?
    var completion: textViewEnd!
    var numberOfRows:CGFloat = 4
+   var placeholder : String?
    
    
    init(textView: UITextView) {
@@ -24,6 +25,7 @@ class TextViewHandler: NSObject, UITextViewDelegate {
       self.textView = textView
       self.textView?.delegate = self
       self.textView?.isEditable = true
+      self.placeholder = textView.text
       
       NotificationCenter.default.addObserver(self, selector: (#selector(TextViewHandler.didEnd(_:))), name: NSNotification.Name(rawValue: "DISMISS_KEYBOARD"), object: nil)
       
@@ -73,7 +75,9 @@ class TextViewHandler: NSObject, UITextViewDelegate {
    }
    
    func textViewDidBeginEditing(_ textView: UITextView) {
-      textView.text = ""
+      if textView.text == self.placeholder {
+         textView.text = ""
+      }
    }
    
    func textViewDidEndEditing(_ textView: UITextView) {

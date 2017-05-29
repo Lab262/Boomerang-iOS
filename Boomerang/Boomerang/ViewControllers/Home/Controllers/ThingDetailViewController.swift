@@ -87,7 +87,14 @@ class ThingDetailViewController: UIViewController {
     func configureTableView(){
         tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, buttonsStackView.frame.height, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 100
+        tableView.tableFooterView = refreshIndicatorInTableViewFooter()
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.view.endEditing(true)
+        self.tableView.endEditing(true)
     }
     
     override func viewDidLoad() {
@@ -155,9 +162,16 @@ class ThingDetailViewController: UIViewController {
         presenter.subscribeToUpdateComment()
     }
     
+    func refreshIndicatorInTableViewFooter() -> UIView {
+        let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
+        viewIndicator.backgroundColor = UIColor.clear
+        return viewIndicator
+    }
+    
+    
     func getCommentsCount() {
         presenter.getCommentCounts()
-        updateComments()
+      
     }
     
     func registerObservers(){
@@ -314,12 +328,6 @@ class ThingDetailViewController: UIViewController {
         }
     }
     
-    func refreshIndicatorInTableViewFooter() -> UIView {
-        let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
-        viewIndicator.backgroundColor = UIColor.white
-        return viewIndicator
-    }
-    
     func generateMoreButton(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MoreCommentTableViewCell.identifier, for: indexPath) as! MoreCommentTableViewCell
@@ -378,6 +386,8 @@ class ThingDetailViewController: UIViewController {
         
         return cell
     }
+    
+    
     
     func generateUserCommentCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -528,10 +538,18 @@ extension ThingDetailViewController: DetailThingDelegate {
         self.view.unload()
     }
     
+    func startFooterLoading() {
+         tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
+    }
+    
+    func finishFooterLoading() {
+        self.tableView.tableFooterView?.unload()
+    }
+    
     func reload() {
-        if presenter.comments.count != presenter.currentCommentsCount {
+//        if presenter.comments.count != presenter.currentCommentsCount {
             tableView.reloadData()
-        }
+//        }
     }
     
     func showMessage(isSuccess: Bool, msg: String) {
@@ -543,7 +561,10 @@ extension ThingDetailViewController: DetailThingDelegate {
 extension ThingDetailViewController: PHFComposeBarViewDelegate {
     
     func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
-        if composeBarView.text != "" {
+        
+        let letters = CharacterSet.letters
+        
+        if composeBarView.text != "" && composeBarView.text != "\n" && composeBarView.text.rangeOfCharacter(from: letters) != nil {
             presenter.createComment(text: composeBarView.text.trimmingCharacters(in: .whitespacesAndNewlines))
         }
         composeBarView.setText("", animated: true)

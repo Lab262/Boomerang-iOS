@@ -67,8 +67,8 @@ struct Paginations {
     static let postsByCity = 3
     static let schemes = 3
     static let notifications = 3
-    static let comments = 10
-    static let morePosts = 10
+    static let comments = 4
+    static let morePosts = 2
     static let messages = 100
     static let profiles = 20
     static let pagination = 10
@@ -273,11 +273,11 @@ struct CreatePostTitles {
     static let titleDescription = "Descrição"
     static let titleChangeBorrowed = "O que posso dar em troca ou emprestado?"
     static let titleNeed = "Título do Preciso"
-    static let placeholderTitleNeed = "Casinha de Cachorro"
+    static let placeholderTitleNeed = "Digite aqui"
     static let titleHave = "Título do que Tenho"
-    static let placeholderTitleHave = "Ferramentas de Jardinagem"
+    static let placeholderTitleHave = "Digite aqui"
     static let titleDonate = "Título Doação"
-    static let placeholderTitleDonate = "Casinha de Cachorro"
+    static let placeholderTitleDonate = "Digite aqui"
     static let titleHowLong = "Por quanto tempo (se for emprestado)"
     static let titlePlace = "Local de retirada"
     static let placeholderConversation = "Na base da conversa é o default"
@@ -305,4 +305,6 @@ struct CreatePostTitles {
     static let msgErrorPlace = "Campo de Local de retirada inválido!"
     static let msgErrorIsAvailable = "Opção de Tá valendo não selecionada!"
     static let msgErrorTypeScheme = "Opção de Tipo do Esquema não selecionada!"
+    static let msgErrorTime = "Campo de Por quanto tempo inválido!"
+    static let msgErrorExchangeDescription = "Campo de O que posso dar em troca inválido!"
 }

@@ -53,22 +53,24 @@ class UserCommentTableViewCell: UITableViewCell {
     }
     
     func getUserPhotoImage() {
-        guard let image = comment?.author?.profileImage else {
-            userPhotoImage.loadAnimation()
-            comment?.author?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
-                
-                if success {
-                    self.comment?.author?.profileImage = UIImage(data: data!)
-                    self.userPhotoImage.image = UIImage(data: data!)
-                    self.userPhotoImage.unload()
-                } else {
-                    // error
-                }
-            })
-            
-            return
+        self.userPhotoImage.getUserImage(profile: comment!.author!) { (success, msg) in
         }
-        
-        userPhotoImage.image = image
+//        guard let image = comment?.author?.profileImage else {
+//            userPhotoImage.loadAnimation()
+//            comment?.author?.getDataInBackgroundBy(key: #keyPath(User.photo), completionHandler: { (success, msg, data) in
+//                
+//                if success {
+//                    self.comment?.author?.profileImage = UIImage(data: data!)
+//                    self.userPhotoImage.image = UIImage(data: data!)
+//                    self.userPhotoImage.unload()
+//                } else {
+//                    // error
+//                }
+//            })
+//            
+//            return
+//        }
+//        
+//        userPhotoImage.image = image
     }
 }

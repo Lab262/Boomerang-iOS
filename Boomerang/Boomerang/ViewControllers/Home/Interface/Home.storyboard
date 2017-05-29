@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lcr-AS-ZtQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lcr-AS-ZtQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -511,9 +511,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="containerIconImageHidden" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wep-AY-WV6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wep-AY-WV6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="nqi-1T-dTg" id="ldI-wT-9uv"/>
@@ -539,10 +538,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="y1K-iB-3MG" secondAttribute="trailing" id="6y3-cn-lEK"/>
+                            <constraint firstItem="Wep-AY-WV6" firstAttribute="leading" secondItem="Rab-6R-rkf" secondAttribute="leading" id="CTf-mP-FQP"/>
                             <constraint firstAttribute="trailing" secondItem="6dc-WD-jNs" secondAttribute="trailing" id="FFh-MW-i3b"/>
                             <constraint firstItem="y1K-iB-3MG" firstAttribute="leading" secondItem="Rab-6R-rkf" secondAttribute="leading" id="KCf-cU-VEH"/>
+                            <constraint firstItem="hpc-Xh-0FE" firstAttribute="top" secondItem="Wep-AY-WV6" secondAttribute="bottom" id="WWp-0O-MXF"/>
                             <constraint firstItem="y1K-iB-3MG" firstAttribute="top" secondItem="Rab-6R-rkf" secondAttribute="topMargin" id="il5-Tr-eOA"/>
+                            <constraint firstAttribute="trailing" secondItem="Wep-AY-WV6" secondAttribute="trailing" id="j5a-4X-Zls"/>
                             <constraint firstItem="6dc-WD-jNs" firstAttribute="top" secondItem="Rab-6R-rkf" secondAttribute="top" id="ltE-nS-mNN"/>
+                            <constraint firstItem="Wep-AY-WV6" firstAttribute="top" secondItem="Rab-6R-rkf" secondAttribute="top" id="o48-Rh-xyL"/>
                             <constraint firstItem="6dc-WD-jNs" firstAttribute="leading" secondItem="Rab-6R-rkf" secondAttribute="leading" id="tbf-Ga-Oa3"/>
                         </constraints>
                     </view>

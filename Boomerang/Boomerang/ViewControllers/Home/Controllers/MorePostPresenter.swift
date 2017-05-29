@@ -9,28 +9,43 @@
 import UIKit
 
 
+protocol MorePostDelegate {
+    func reload()
+    func showMessage(isSuccess: Bool, msg: String)
+    func startFooterLoading()
+    func finishFooterLoading()
+    func startLoading()
+    func finishLoading()
+}
+
 class MorePostPresenter: NSObject {
     
     var posts: [Post] = [Post]()
     var friends: [Profile] = [Profile]()
     var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
-    var view: ViewDelegate?
+    var view: MorePostDelegate?
     var sectionPost: SectionPost?
     
-    func setViewDelegate(view: ViewDelegate) {
+    func setViewDelegate(view: MorePostDelegate) {
         self.view = view
     }
 
     func getMorePosts() {
+        self.view?.startFooterLoading()
         PostRequest.getPostsThatNotContain(friends: friends, postsDownloaded: posts, pagination: Paginations.morePosts) { (success, msg, posts) in
             if success {
-                posts!.forEach {
-                    self.posts.append($0)
+                if posts!.count > 0 {
+                    posts!.forEach {
+                        self.posts.append($0)
+                    }
+                    self.view?.reload()
                 }
-                self.view?.reload()
+              
             } else {
-                self.view?.showMessageError(msg: msg)
+                self.view?.showMessage(isSuccess: false, msg: msg)
             }
+            
+            self.view?.finishFooterLoading()
         }
     }
 }

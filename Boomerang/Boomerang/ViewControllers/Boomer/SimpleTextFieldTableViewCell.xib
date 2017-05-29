@@ -35,7 +35,7 @@
                         </constraints>
                     </view>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome do Produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ymL-ur-9KJ">
-                        <rect key="frame" x="19" y="32" width="138" height="18"/>
+                        <rect key="frame" x="19" y="32" width="337.5" height="18"/>
                         <color key="textColor" red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
@@ -59,6 +59,7 @@
                     <constraint firstItem="ymL-ur-9KJ" firstAttribute="top" secondItem="iFk-xc-1Vy" secondAttribute="bottom" constant="8" id="RQY-Yt-xWe"/>
                     <constraint firstItem="iFk-xc-1Vy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Vxn-PV-V3P"/>
                     <constraint firstItem="JlU-G3-ru7" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.9" id="Wb1-4A-Ms5"/>
+                    <constraint firstItem="ymL-ur-9KJ" firstAttribute="width" secondItem="JlU-G3-ru7" secondAttribute="width" id="Y13-u5-Ysf"/>
                     <constraint firstItem="iFk-xc-1Vy" firstAttribute="leading" secondItem="JlU-G3-ru7" secondAttribute="leading" id="Y6h-pX-FfY"/>
                     <constraint firstItem="JlU-G3-ru7" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="oHS-0A-B7P"/>
                     <constraint firstItem="JlU-G3-ru7" firstAttribute="top" secondItem="ymL-ur-9KJ" secondAttribute="bottom" constant="9" id="pna-cH-Nqp"/>
