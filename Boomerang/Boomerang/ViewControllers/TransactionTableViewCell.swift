@@ -69,6 +69,7 @@ class TransactionTableViewCell: UITableViewCell {
     func updateCell(){
         presenter.getInformationsOfTransaction()
         presenter.setupDevolutionDescriptionStyle(label: devolutionLabel)
+        configureDynamicFont()
     }
 }
 
