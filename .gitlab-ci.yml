@@ -12,10 +12,14 @@ deploy_beta:
     - fastlane beta
   only:
     - test
-
+  tags:
+    - ios10
+    
 deploy_production:
   stage: deploy
   script:
     - fastlane release
   only:
     - master
+  tags:
+    - ios10
