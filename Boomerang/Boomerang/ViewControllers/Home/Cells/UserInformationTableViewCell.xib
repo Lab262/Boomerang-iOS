@@ -50,7 +50,7 @@
                         <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="center" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ohq-5c-EJj">
+                    <stackView opaque="NO" alpha="0.0" contentMode="center" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ohq-5c-EJj">
                         <rect key="frame" x="256" y="19.5" width="99" height="14"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-4U-rrd">

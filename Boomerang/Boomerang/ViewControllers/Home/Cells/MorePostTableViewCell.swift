@@ -52,6 +52,8 @@ class MorePostTableViewCell: UITableViewCell {
         presenter.getIconPost(iconImage: postIconImage, height: heightPostIconConstraint, width: widthPostIconConstraint)
         userImage.getUserImage(profile: presenter.post.author!) { (success, msg) in
         }
+        hourLabel.text = presenter.post.createdDate!.timeSinceNow()
+        
         
         presenter.getCountPhotos()
         presenter.getCoverOfPost { (success, msg, image) in

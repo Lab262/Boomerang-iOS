@@ -49,6 +49,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     func configureButtonAction() {
         if presenter.authorPostIsCurrent() {
             self.backButton.isHidden = true
+            button.isHidden = true
             button.setTitle(titleButtonEditProfile, for: .normal)
         } else {
             self.backButton.isHidden = false
