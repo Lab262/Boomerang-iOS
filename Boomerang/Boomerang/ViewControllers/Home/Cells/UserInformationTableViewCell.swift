@@ -35,7 +35,6 @@ class UserInformationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         configureDynamicFont()
-        // Initialization code
     }
     
     func configureDynamicFont(){
