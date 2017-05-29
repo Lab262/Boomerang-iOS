@@ -45,6 +45,7 @@ class HomeMainViewController: UIViewController {
         registerObservers()
         getTimeLinePosts()
         setupSubscribe()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func setupSubscribe() {
@@ -326,6 +327,17 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
         self.currentIndex = indexPath
         self.currentSectionPost = sectionPost
         self.performSegue(withIdentifier: identifier, sender: self)
+    }
+}
+extension HomeMainViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeMainViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
