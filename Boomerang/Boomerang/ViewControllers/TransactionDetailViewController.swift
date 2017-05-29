@@ -88,10 +88,6 @@ class TransactionDetailViewController: UIViewController {
             viewController.presenter.setProfile(profile: presenter.scheme.dealer!)
         }
         
-        if let viewController = segue.destination as? EvaluationViewController  {
-            viewController.presenter.scheme = presenter.scheme
-        }
-        
         if let viewController = segue.destination as? MessagesChatViewController  {
             viewController.chat = presenter.chat
             viewController.profile = presenter.getUserOwnATransaction()
@@ -218,7 +214,10 @@ extension TransactionDetailViewController: TransactionDetailDelegate {
     func push(identifier: String) {
         
         if identifier == SegueIdentifiers.detailTransactionToEvaluation {
-            self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Transaction", identifier: "evaluationView")!, animated: true, completion: nil)
+            
+            let viewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Transaction", identifier: "evaluationView") as? EvaluationViewController
+            viewController?.presenter.scheme = presenter.scheme
+            self.present(viewController!, animated: true, completion: nil)
         } else {
             performSegue(withIdentifier: identifier, sender: self)
         }

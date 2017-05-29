@@ -263,6 +263,14 @@ struct TransactionTitles {
     static let need = "Troca feita com"
 }
 
+//MARK - Evaluation Titles
+
+struct EvaluationTransactionTitles {
+    static let evaluateTitle = "Avalie "
+    static let evaluateDescription = " e nos diga como foi a sua experiência com ela."
+    
+}
+
 //MARK - Create Post Titles
 
 struct CreatePostTitles {
