@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="obE-ua-UmT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="obE-ua-UmT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -301,7 +301,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" navigationBarHidden="YES" id="4j5-QE-t7v" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BHX-ud-ZhU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="BHX-ud-ZhU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -422,7 +422,7 @@
                                 </variation>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mq-8h-9jC">
-                                <rect key="frame" x="0.0" y="128" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="128" width="375" height="459"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="PoE-sV-9Kb" kind="embed" id="kYF-IT-WU3"/>
@@ -440,7 +440,7 @@
                             <constraint firstItem="eyQ-FR-Ndw" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="YDi-n8-sha"/>
                             <constraint firstAttribute="trailing" secondItem="9mq-8h-9jC" secondAttribute="trailing" id="YRW-vT-H4k"/>
                             <constraint firstAttribute="trailing" secondItem="tbE-OD-9tx" secondAttribute="trailing" id="eBS-3V-5Vq"/>
-                            <constraint firstItem="dKa-LT-aJj" firstAttribute="top" secondItem="9mq-8h-9jC" secondAttribute="bottom" id="i6S-hE-UfX"/>
+                            <constraint firstItem="dKa-LT-aJj" firstAttribute="top" secondItem="9mq-8h-9jC" secondAttribute="bottom" constant="80" id="i6S-hE-UfX"/>
                             <constraint firstItem="DKf-7U-gkP" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="iub-WA-B18"/>
                             <constraint firstItem="tbE-OD-9tx" firstAttribute="top" secondItem="iJM-kS-XcD" secondAttribute="top" id="kLD-io-dOS"/>
                             <constraint firstItem="DKf-7U-gkP" firstAttribute="top" secondItem="eyQ-FR-Ndw" secondAttribute="bottom" id="ove-0I-hO6"/>
@@ -554,7 +554,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirley Schmidt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mf1-IZ-jfp">
-                                        <rect key="frame" x="117.5" y="36.5" width="140.5" height="23.5"/>
+                                        <rect key="frame" x="106.5" y="35.5" width="163" height="24"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -576,7 +576,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WnW-0b-yq0">
-                                        <rect key="frame" x="128" y="66" width="120" height="16"/>
+                                        <rect key="frame" x="128" y="65.5" width="120" height="16"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_star_full" translatesAutoresizingMaskIntoConstraints="NO" id="DDW-qt-wsP">
                                                 <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -676,7 +676,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obE-ua-UmT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vbn-Kd-cio">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vbn-Kd-cio">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -996,7 +996,7 @@ Vamos ver</string>
                                 </variation>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzv-bd-Un8">
-                                <rect key="frame" x="0.0" y="128" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="128" width="375" height="459"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="PoE-sV-9Kb" kind="embed" id="6VA-ae-3Up"/>
@@ -1008,7 +1008,7 @@ Vamos ver</string>
                             <constraint firstAttribute="trailing" secondItem="1H6-rt-RYL" secondAttribute="trailing" id="BkN-RK-Vul"/>
                             <constraint firstItem="pzv-bd-Un8" firstAttribute="leading" secondItem="hFu-IX-8tT" secondAttribute="leading" id="E36-qv-JYd"/>
                             <constraint firstItem="1jV-rK-qwS" firstAttribute="top" secondItem="hFu-IX-8tT" secondAttribute="top" id="J4S-0w-QlW"/>
-                            <constraint firstItem="bCi-Vg-Ley" firstAttribute="top" secondItem="pzv-bd-Un8" secondAttribute="bottom" id="LNx-ON-7mT"/>
+                            <constraint firstItem="bCi-Vg-Ley" firstAttribute="top" secondItem="pzv-bd-Un8" secondAttribute="bottom" constant="80" id="LNx-ON-7mT"/>
                             <constraint firstItem="IsE-o3-nZw" firstAttribute="leading" secondItem="hFu-IX-8tT" secondAttribute="leading" id="Nvw-aX-qYo"/>
                             <constraint firstAttribute="trailing" secondItem="pzv-bd-Un8" secondAttribute="trailing" id="OeM-ta-Y6j"/>
                             <constraint firstAttribute="trailing" secondItem="IsE-o3-nZw" secondAttribute="trailing" id="WMt-7K-ahb"/>
@@ -1403,7 +1403,7 @@ Vamos ver</string>
         <image name="white_back_button" width="13" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6VA-ae-3Up"/>
+        <segue reference="kYF-IT-WU3"/>
         <segue reference="2Ee-Kc-PiE"/>
     </inferredMetricsTieBreakers>
 </document>

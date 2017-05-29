@@ -147,9 +147,15 @@ class ThrowViewController: UIViewController {
             }else{
                 self.isAvailable = selected
             }
-            
-            cell.isFirstOptionSelected = selected
         }
+        
+        if isTypeScheme {
+            cell.isFirstOptionSelected = self.boolTypeScheme
+        }else{
+            cell.isFirstOptionSelected = self.isAvailable
+        }
+        
+        
         
         return cell
         
