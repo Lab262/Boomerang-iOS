@@ -70,7 +70,7 @@ class ChatViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageDataForItemAt indexPath: IndexPath) -> JSQMessageData {
         return presenter.messages[indexPath.item]
     }
-    
+        
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageBubbleImageDataForItemAt indexPath: IndexPath) -> JSQMessageBubbleImageDataSource {
         
         return presenter.messages[indexPath.item].senderId == self.senderId ? outgoingBubble : incomingBubble

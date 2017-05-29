@@ -34,12 +34,12 @@ class ChatPresenter: NSObject {
     }
     
     func convertMessageForJSQMessage(message: Message) {
-        let message = JSQMessage(senderId: message.user?.objectId, senderDisplayName: "", date: message.createdAt!, text: message.message!)
+        let message = JSQMessage(senderId: message.sender?.objectId, senderDisplayName: "", date: message.createdAt!, text: message.message!)
         messages.append(message!)
     }
     
     fileprivate func setMessage(message: Message) {
-        let jsqMessage = JSQMessage(senderId: message.user!.objectId, senderDisplayName: "", date: Date(), text: message.message)
+        let jsqMessage = JSQMessage(senderId: message.sender!.objectId, senderDisplayName: "", date: Date(), text: message.message)
         self.messages.append(jsqMessage!)
     }
     
@@ -57,10 +57,16 @@ class ChatPresenter: NSObject {
     }
     
     private func createMessage(senderId: String, text: String) -> Message {
-        let userMessage: Profile = senderId == chat.owner!.objectId! ? chat.owner! : chat.requester!
-        let message = Message(message: text, user: userMessage, chatId: chat.objectId!)
-        setMessage(message: message)
-        return message
+       
+        var message: Message?
+        
+        if senderId == chat.owner!.objectId! {
+            message = Message(message: text, sender: chat.owner!, receiver: chat.requester!, chatId: chat.objectId!)
+        } else {
+            message = Message(message: text, sender: chat.requester!, receiver: chat.owner!, chatId: chat.objectId!)
+        }
+        setMessage(message: message!)
+        return message!
     }
     
     func sendMessage(senderId: String, text: String) {
@@ -99,7 +105,7 @@ extension ChatPresenter {
             .subscribe(messageQuery!)
             .handle(Event.created) { _, message in
                 
-               if message.user?.objectId != self.profile.objectId {
+               if message.sender?.objectId != self.profile.objectId {
                     self.setMessage(message: message)
                     self.view?.reload()
                 }
