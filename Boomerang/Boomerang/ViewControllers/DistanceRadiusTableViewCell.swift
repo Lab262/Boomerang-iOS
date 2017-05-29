@@ -33,9 +33,6 @@ class DistanceRadiusTableViewCell: UITableViewCell {
             self.numberKMlabel.text = ("\(self.radiusKM)KM")
             self.sliderRadius.value = Float(self.radiusKM)
         }
-        
-
-    
     }
   
     @IBAction func lessAction(_ sender: Any) {
@@ -46,8 +43,10 @@ class DistanceRadiusTableViewCell: UITableViewCell {
         }
         
     }
+    
     @IBAction func sliderAction(_ sender: Any) {
         let numberRadius = Int(self.sliderRadius.value)
+        self.radiusKM = numberRadius
         self.numberKMlabel.text =  ("\(numberRadius)KM")
     }
 
@@ -55,6 +54,7 @@ class DistanceRadiusTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.numberKMlabel.text = ("\(self.radiusKM)KM")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

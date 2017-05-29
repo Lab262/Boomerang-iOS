@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aJg-2A-R9N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aJg-2A-R9N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,7 +70,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O que você precisa ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aia-7g-kWg">
-                                        <rect key="frame" x="20" y="41" width="245" height="29"/>
+                                        <rect key="frame" x="20" y="41.5" width="228.5" height="28"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -281,7 +282,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKi-30-tT4">
-                                        <rect key="frame" x="8.5" y="13.5" width="26" height="42"/>
+                                        <rect key="frame" x="9" y="14" width="26" height="42"/>
                                         <connections>
                                             <action selector="backAction:" destination="shC-dA-vya" eventType="touchUpInside" id="3Dc-0g-p6h"/>
                                         </connections>
@@ -320,7 +321,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add uma capa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy3-Mz-1vW">
-                                <rect key="frame" x="121" y="97" width="132" height="22"/>
+                                <rect key="frame" x="128" y="97" width="118" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -332,6 +333,12 @@
                                     <constraint firstAttribute="height" constant="64" id="gyU-ts-0WO"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="ic_buttonBommer"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeu-1u-k7I" customClass="UIButtonWithPicker" customModule="lab262_boomerang_dev" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="CqZ-TX-Rdu"/>
+                                </constraints>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -345,9 +352,12 @@
                             <constraint firstItem="01f-ja-hSo" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="EhR-TL-ENG"/>
                             <constraint firstItem="7HI-Gu-RkD" firstAttribute="centerX" secondItem="ebX-LI-CWe" secondAttribute="centerX" id="IHY-jP-0TN"/>
                             <constraint firstAttribute="trailing" secondItem="01f-ja-hSo" secondAttribute="trailing" id="Kt2-se-7no"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zeu-1u-k7I" secondAttribute="trailing" constant="-16" id="LEi-qC-Ox2"/>
+                            <constraint firstItem="zeu-1u-k7I" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leadingMargin" constant="-16" id="N8k-JL-Htp"/>
                             <constraint firstItem="iTq-ly-gCw" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="OPJ-yq-XQd"/>
                             <constraint firstItem="Kc3-A7-MHE" firstAttribute="top" secondItem="iTq-ly-gCw" secondAttribute="bottom" id="PH2-gH-L47"/>
                             <constraint firstItem="7Jo-pP-gMf" firstAttribute="leading" secondItem="ebX-LI-CWe" secondAttribute="leading" id="RQj-ko-5iZ"/>
+                            <constraint firstItem="zeu-1u-k7I" firstAttribute="top" secondItem="6Sd-Iz-Jb3" secondAttribute="bottom" constant="44" id="SP4-XX-d9o"/>
                             <constraint firstItem="BFk-kt-4yF" firstAttribute="centerX" secondItem="ebX-LI-CWe" secondAttribute="centerX" id="WHw-M1-mp2"/>
                             <constraint firstItem="EPK-x5-9bB" firstAttribute="top" secondItem="7HI-Gu-RkD" secondAttribute="bottom" constant="3" id="Y31-Zn-1VA"/>
                             <constraint firstItem="7HI-Gu-RkD" firstAttribute="width" secondItem="01f-ja-hSo" secondAttribute="width" multiplier="0.6" id="YAk-EO-Yc0"/>
@@ -364,6 +374,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="addTitleLabel" destination="hy3-Mz-1vW" id="DXN-LE-xk9"/>
+                        <outlet property="anexAreaButton" destination="zeu-1u-k7I" id="vMj-z9-YAX"/>
                         <outlet property="anexButton" destination="EPK-x5-9bB" id="HAH-xf-rFM"/>
                         <outlet property="anexButtonCenterYConstraint" destination="7P6-mf-y2T" id="1Je-hd-bdn"/>
                         <outlet property="coverPostHeightConstraint" destination="2b2-I1-wYJ" id="GUA-M3-OfE"/>
@@ -392,7 +403,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boomerang lançado com sucesso!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHt-ZO-nMx">
-                                <rect key="frame" x="66.5" y="292.5" width="243.5" height="48"/>
+                                <rect key="frame" x="66.5" y="292.5" width="243.5" height="47"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.37647058823529411" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -404,7 +415,7 @@
                                 <rect key="frame" x="-10" y="461" width="395" height="259"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bV4-Za-yKj">
-                                <rect key="frame" x="110" y="380.5" width="155" height="42"/>
+                                <rect key="frame" x="110" y="379.5" width="155" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <state key="normal" title="Ok, obrigado!">

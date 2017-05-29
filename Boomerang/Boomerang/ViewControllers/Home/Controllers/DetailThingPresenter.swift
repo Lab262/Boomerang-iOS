@@ -16,6 +16,8 @@ protocol DetailThingDelegate {
     var commentCount: Int? {set get}
     func showMessage(isSuccess: Bool, msg: String)
     var interestedTitleButton: String? {set get}
+    func startLoading()
+    func finishLoading()
 }
 
 
@@ -75,6 +77,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func getLastsComments(isUpdate: Bool = false) {
+     
         CommentRequest.fetchCommentsBy(post: self.post, commentsObject: self.comments, pagination: Paginations.comments) { (success, msg, comments) in
             if success {
                 self.commentCount = self.commentCount - comments!.count
@@ -85,9 +88,11 @@ class DetailThingPresenter: NSObject {
                         self.comments.append(comment)
                     }
                 }
+              
                 self.view?.reload()
                 self.currentCommentsCount = self.comments.count
             } else {
+   
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }
         }
@@ -131,6 +136,7 @@ class DetailThingPresenter: NSObject {
     
     func enterInterestedList() {
         
+        self.view?.startLoading()
         let interested = Interested(user: profile, post: post, currentMessage: "Estou interessado, fico feliz em ajudar")
         
         interested.saveObjectInBackground { (success, msg) in
@@ -141,28 +147,37 @@ class DetailThingPresenter: NSObject {
                             if success {
                                 self.view?.interestedTitleButton = self.exitInterestedTitleButton
                                 self.view?.showMessage(isSuccess: success, msg: NotificationSuccessMessages.enterInterestedList)
+                                 self.view?.finishLoading()
                             } else {
                                 self.view?.showMessage(isSuccess: success, msg: msg)
+                                self.view?.finishLoading()
                             }
+                            self.view?.finishLoading()
                         })
                        
                     } else {
                         self.view?.showMessage(isSuccess: success, msg: msg)
+                         self.view?.finishLoading()
                     }
+                   
                 })
             } else {
                 self.view?.showMessage(isSuccess: success, msg: msg)
+                self.view?.finishLoading()
             }
         }
     }
 
     func exitInterestedList() {
+        self.view?.startLoading()
         PostRequest.exitInterestedListOf(profile: profile!, post: post) { (success, msg) in
             if success {
                 self.view?.interestedTitleButton = self.enterInterestedTitleButton
                 self.view?.showMessage(isSuccess: success, msg: NotificationSuccessMessages.exitInterestedList)
+                self.view?.finishLoading()
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
+                self.view?.finishLoading()
             }
         }
     }

@@ -25,6 +25,11 @@ class NotificationViewController: UIViewController {
         setPresenterDelegate()
         getNotifications()
         configureEmptyView()
+        setupSubscribes()
+    }
+    
+    func setupSubscribes() {
+        presenter.subscribeToNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PostPresenter: NSObject {
     
@@ -21,49 +22,95 @@ class PostPresenter: NSObject {
     }
     
     func getCountPhotos(){
-        if post.countPhotos < 1 {
-            post.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
-                if success {
-                    self.post.countPhotos = count!
-                    ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: true, updateType: .amount)
-                } else {
-                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: true, updateType: .amount)
-                }
-            })
-        }
+//        if post.countPhotos < 1 {
+//            post.getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
+//                if success {
+//                    self.post.countPhotos = count!
+//                    ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: true, updateType: .amount)
+//                } else {
+//                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, succe=ss: true, updateType: .amount)
+//                }
+//            })
+//        }
     }
     
     func getCoverOfPost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
-        PostRequest.getRelationsInBackground(post: post) { (success, msg) in
-            if success {
-                self.downloadCoverImagePost(completionHandler: { (success, msg, image) in
+        
+        post.queryPhotos { (photos) in
+            if photos != nil {
+            self.downloadCoverImagePost(file: photos![0].imageFile!, completionHandler: { (success, msg, image) in
+                if success {
                     completionHandler(success, msg, image)
-                })
-            } else {
-                completionHandler(false, msg, nil)
+                } else {
+                    completionHandler(success, "download error", nil)
+                }
+           
+            })
+//                self.downloadCoverImagePost(completionHandler: { (success, msg, image) in
+//                    completionHandler(success, msg, image)
+//                    //                })
             }
         }
+        
+//        PostRequest.getRelationsInBackground(post: post) { (success, msg) in
+//            if success {
+//                self.downloadCoverImagePost(completionHandler: { (success, msg, image) in
+//                    completionHandler(success, msg, image)
+//                })
+//            } else {
+//                completionHandler(false, msg, nil)
+//            }
+//        }
     }
     
-    func downloadCoverImagePost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
-        if let relations = post.relations {
-            guard let cover = relations.first?.photo else {
-                relations.first?.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
-                    
-                    if success {
-                        relations.first?.photo = UIImage(data: data!)
-                        relations.first?.isDownloadedImage = true
-                        completionHandler(success, msg, relations.first?.photo)
-                    } else {
-                        completionHandler(success, msg, nil)
-                    }
-                })
-                return
+    func downloadCoverImagePost(file: PFFile, completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
+        
+        
+        file.getDataInBackground { (data, error) in
+            if error == nil {
+                let image = UIImage(data: data!)
+                completionHandler(true, "success", image)
+            } else {
+                completionHandler(false, "fail", nil)
             }
-            
-            completionHandler(true, "success", cover)
         }
-    }
+    
+//        if let relations = post.relations {
+//            guard let cover = relations.first?.photo else {
+//                relations.first?.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+//                    
+//                    if success {
+//                        relations.first?.photo = UIImage(data: data!)
+//                        relations.first?.isDownloadedImage = true
+//                        completionHandler(success, msg, relations.first?.photo)
+//                    } else {
+//                        completionHandler(success, msg, nil)
+//                    }
+//                })
+//                return
+//            }
+//            
+//            completionHandler(true, "success", cover)
+        }
+
+//        if let relations = post.relations {
+//            guard let cover = relations.first?.photo else {
+//                relations.first?.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
+//                    
+//                    if success {
+//                        relations.first?.photo = UIImage(data: data!)
+//                        relations.first?.isDownloadedImage = true
+//                        completionHandler(success, msg, relations.first?.photo)
+//                    } else {
+//                        completionHandler(success, msg, nil)
+//                    }
+//                })
+//                return
+//            }
+//            
+//            completionHandler(true, "success", cover)
+//        }
+//    }
     
     func getIconPost(iconImage: UIImageView, height: NSLayoutConstraint, width: NSLayoutConstraint) {
         if post.typePost == .have {

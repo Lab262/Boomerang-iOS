@@ -83,7 +83,8 @@ extension ProfileMainViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfilePostCollectionViewCell.identifier, for: indexPath) as! ProfilePostCollectionViewCell
         
-        cell.presenter.setPost(post: presenter.getAllPosts()[indexPath.row])
+        cell.coverPostImage.image = nil
+        cell.presenter.setPost(post: presenter.getPostsForCurrentFilter()[indexPath.row])
         cell.updatePostCell()
         
         return cell

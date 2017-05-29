@@ -58,7 +58,6 @@ class TransactionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         presenter.setViewDelegate(view: self)
         containerView.layer.cornerRadius = 9
-        presenter.setupDevolutionDescriptionStyle(label: devolutionLabel)
         configureDynamicFont()
     }
     
@@ -69,6 +68,7 @@ class TransactionTableViewCell: UITableViewCell {
     
     func updateCell(){
         presenter.getInformationsOfTransaction()
+        presenter.setupDevolutionDescriptionStyle(label: devolutionLabel)
     }
 }
 

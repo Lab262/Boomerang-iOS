@@ -21,6 +21,7 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var coverPostTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var anexButton: UIButtonWithPicker!
     @IBOutlet weak var anexButtonCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var anexAreaButton: UIButtonWithPicker!
     
     var fields:[Int:String] = [:]
     var nameThing = String ()
@@ -48,6 +49,8 @@ class ThrowViewController: UIViewController {
         tableView.estimatedRowHeight = 50
         tableView.contentInset = UIEdgeInsetsMake(coverImageHeight - navigationBarHeight, 0, 0, 0)
         self.anexButton.delegate = self
+        self.anexAreaButton.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     
@@ -450,6 +453,17 @@ extension ThrowViewController: UIIButtonWithPickerDelegate{
        // self.tableView.reloadData()
     }
 
+}
+extension ThrowViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ThrowViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 

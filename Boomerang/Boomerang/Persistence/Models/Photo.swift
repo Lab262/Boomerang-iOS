@@ -19,8 +19,7 @@ class Photo: PFObject {
         self.init()
         setInformationsUserByPFObject(object: object)
     }
-    
-    
+
     func setInformationsUserByPFObject(object: PFObject){
         self.objectId = object.objectId
         

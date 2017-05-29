@@ -44,6 +44,7 @@ class PostTableViewCell: UITableViewCell {
     
     func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
+        cell.coverImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
         cell.setupCell()
         
