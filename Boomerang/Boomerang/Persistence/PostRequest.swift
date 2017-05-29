@@ -266,7 +266,21 @@ class PostRequest: NSObject {
         queryParams["post"] = post
         
         ParseRequest.updateForIsDeletedObjectBy(className: "Interested", queryParams: queryParams) { (success, msg) in
-            completionHandler(success, msg)
+            if success {
+                var querySchemes = [String : Any]()
+                querySchemes["requester"] = profile
+                querySchemes["owner"] = post.author!
+                querySchemes["post"] = post
+                ParseRequest.updateForIsDeletedObjectBy(className: Scheme.parseClassName(), queryParams: querySchemes, completionHandler: { (success, msg) in
+                    if success {
+                        completionHandler(success, msg)
+                    } else {
+                        completionHandler(success, msg)
+                    }
+                })
+            } else {
+                completionHandler(success, msg)
+            }
         }
     }
     

@@ -66,7 +66,7 @@ class TransactionMainHistoryViewController: UIViewController {
         if let segmentVC = segue.destination as? TransactionSegmentViewController {
             segmentControlButtonDelegate = segmentVC
             segmentVC.segmentControlPageDelegate = self
-            segmentVC.presenter.notContainedStatusScheme = [.done, .progress]
+            segmentVC.presenter.notContainedStatusScheme = [.done, .progress, .negotiation]
             segmentVC.notificationKey = NotificationKeys.updateHistoricSchemes
         }
     }
