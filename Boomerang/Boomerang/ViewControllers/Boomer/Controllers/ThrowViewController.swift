@@ -293,6 +293,18 @@ class ThrowViewController: UIViewController {
             return msgErro
         }
         
+        if typeVC == .need || typeVC == .have {
+            if self.params[CreatePostTitles.keyParseTime] == nil || self.params[CreatePostTitles.keyParseTime] == "" {
+                msgErro = CreatePostTitles.msgErrorTime
+                return msgErro
+            }
+            
+            if self.params[CreatePostTitles.keyParseExchangeDescription] == nil || self.params[CreatePostTitles.keyParseExchangeDescription] == "" {
+                msgErro = CreatePostTitles.msgErrorExchangeDescription
+                return msgErro
+            }
+        }
+        
         return msgErro
     }
     

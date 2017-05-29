@@ -54,7 +54,6 @@ class RecommendedPostTableViewCell: UITableViewCell {
        
         registerNib()
         initializePageIndicatorView()
-        self.postCollectionView.backgroundColor = UIColor.black
     }
     
     func initializePageIndicatorView(){

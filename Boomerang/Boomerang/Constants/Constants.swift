@@ -305,4 +305,6 @@ struct CreatePostTitles {
     static let msgErrorPlace = "Campo de Local de retirada inválido!"
     static let msgErrorIsAvailable = "Opção de Tá valendo não selecionada!"
     static let msgErrorTypeScheme = "Opção de Tipo do Esquema não selecionada!"
+    static let msgErrorTime = "Campo de Por quanto tempo inválido!"
+    static let msgErrorExchangeDescription = "Campo de O que posso dar em troca inválido!"
 }
