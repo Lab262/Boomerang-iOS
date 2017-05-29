@@ -12,7 +12,8 @@ import Parse
 class Message: PFObject {
     
     @NSManaged var message: String?
-    @NSManaged var user: Profile?
+    @NSManaged var sender: Profile?
+    @NSManaged var receiver: Profile?
     @NSManaged var chatId: String
     @NSManaged var isRead: Bool
     
@@ -26,11 +27,12 @@ class Message: PFObject {
 //        self.setInformationsBy(object: object)
 //    }
 //    
-    init(message: String, user: Profile, chatId: String) {
+    init(message: String, sender: Profile, receiver: Profile, chatId: String) {
         super.init()
         self.isRead = false
         self.message = message
-        self.user = user
+        self.sender = sender
+        self.receiver = receiver
         self.chatId = chatId
     }
     

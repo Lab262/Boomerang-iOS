@@ -177,21 +177,18 @@ class ThingDetailViewController: UIViewController {
     }
     
     func configureButtons(){
-        if !presenter.authorPostIsCurrent() {
+        
+        if !presenter.post.isAvailable {
+            firstButton.isHidden = true
+            secondButton.isHidden = true
+        } else if !presenter.authorPostIsCurrent(){
             presenter.alreadyInterested()
             secondButton.isHidden = false
             secondButton.setTitle(presenter.recommendedTitleButton, for: .normal)
         } else {
             secondButton.isHidden = true
-            if !presenter.post.isAvailable {
-//                tableViewBottomToStackViewConstraint.isActive = false
-//                tableViewBottomToSuperViewConstraint.isActive = true
-//                self.tableView.layoutIfNeeded()
-                firstButton.isHidden = true
-            } else {
-                firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
-                firstButton.setTitle(presenter.interestedListTitleButton, for: .normal)
-            }
+            firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
+            firstButton.setTitle(presenter.interestedListTitleButton, for: .normal)
         }
     }
     
