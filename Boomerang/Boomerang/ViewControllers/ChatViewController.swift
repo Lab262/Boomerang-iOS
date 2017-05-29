@@ -77,6 +77,14 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? JSQMessagesCollectionViewCellIncoming {
+            cell.textView.textColor = .black
+        } else if let cell = cell as? JSQMessagesCollectionViewCellOutgoing {
+            cell.textView.textColor = .white
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
