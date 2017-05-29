@@ -28,7 +28,7 @@ class PostPresenter: NSObject {
 //                    self.post.countPhotos = count!
 //                    ApplicationState.sharedInstance.callDelegateUpdate(post: self.post, success: true, updateType: .amount)
 //                } else {
-//                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: true, updateType: .amount)
+//                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, succe=ss: true, updateType: .amount)
 //                }
 //            })
 //        }

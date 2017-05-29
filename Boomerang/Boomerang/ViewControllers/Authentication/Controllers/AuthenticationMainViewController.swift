@@ -64,7 +64,16 @@ class AuthenticationMainViewController: UIViewController {
                 if user.isNew {
                     self.updateUserByFacebook()
                 } else {
-                    self.showHomeVC()
+                    PFInstallation.current()?.setObject(user, forKey: "user")
+                    
+                    PFObject.saveAll(inBackground: [PFInstallation.current()!], block: { (success, error) in
+                        if let _ = error {
+                            
+                        } else {
+                            self.showHomeVC()
+                        }
+                    })
+                   
                 }
             }
         }
@@ -107,7 +116,10 @@ class AuthenticationMainViewController: UIViewController {
                                 profile.setObject(userId, forKey: "facebookId")
                                 newUser.setObject(userPhoto!, forKey: "photo")
                                 newUser.setObject(profile, forKey: "profile")
-                                PFObject.saveAll(inBackground: [profile, newUser], block: { (success, error) in
+                                PFInstallation.current()?.setObject(newUser, forKey: "user")
+                                let instalation = PFInstallation.current()
+                                
+                                PFObject.saveAll(inBackground: [profile, newUser, instalation!], block: { (success, error) in
                                     if success {
                                         
                                         self.showHomeVC()

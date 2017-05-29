@@ -164,6 +164,7 @@ struct ServerKeys {
 struct PostKeys {
     static let author = "author"
     static let photos = "photos"
+    static let isAvailable = "isAvailable"
 }
 
 //MARK - Follow keys
@@ -205,8 +206,8 @@ struct ChatKeys {
 
 struct MessageKeys {
     static let user = "user"
+    static let chatId = "chatId"
 }
-
 
 
 

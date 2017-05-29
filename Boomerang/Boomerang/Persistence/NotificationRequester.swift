@@ -25,6 +25,7 @@ class NotificationRequester: NSObject {
         query.includeKey("sender")
         query.includeKey("post")
         query.selectKeys(["sender", "post", "hasBeenSeen", "notificationDescription"])
+        query.whereKey("objectId", notContainedIn: objectIds)
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
