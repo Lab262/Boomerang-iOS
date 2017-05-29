@@ -32,7 +32,7 @@ class SchemeRequest: NSObject {
         queryParams[ObjectKeys.objectId] = scheme.objectId
         var colunmsUpdated = [String: Any]()
         
-        for status in allStatus where status.objectId == StatusSchemeId.finished {
+        for status in allStatus where status.status == StatusScheme.finished.rawValue {
             colunmsUpdated[SchemeKeys.status] = status
         }
         

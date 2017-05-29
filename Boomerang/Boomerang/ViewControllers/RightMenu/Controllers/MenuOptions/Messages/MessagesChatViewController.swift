@@ -24,6 +24,8 @@ class MessagesChatViewController: UIViewController {
     }
     
     func setupInformationsHeader() {
+        userImage.getUserImage(profile: profile!) { (success, msg) in
+        }
         userName.text = profile?.fullName
     }
     

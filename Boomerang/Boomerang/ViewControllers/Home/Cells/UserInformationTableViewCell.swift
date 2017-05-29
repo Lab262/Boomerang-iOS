@@ -48,7 +48,6 @@ class UserInformationTableViewCell: UITableViewCell {
         userNameLabel.text = presenter.post.author!.fullName
         dateLabel.text = presenter.post.createdDate!.timeSinceNow()
         
-        userImage.loadAnimation()
         
         userImage.getUserImageFrom(file: presenter.post.author!.photo!) { (success, msg) in
             
