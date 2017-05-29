@@ -21,6 +21,7 @@ class SearchFriendsViewController: UIViewController {
         registerNib()
         setupViewDelegate()
         getProfiles()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func getProfiles() {
@@ -105,6 +106,17 @@ extension SearchFriendsViewController: SearchFriendsDelegate {
     
     func unloadingView() {
         self.view.unload()
+    }
+}
+extension SearchFriendsViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchFriendsViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

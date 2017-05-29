@@ -50,6 +50,7 @@ class ThrowViewController: UIViewController {
         tableView.contentInset = UIEdgeInsetsMake(coverImageHeight - navigationBarHeight, 0, 0, 0)
         self.anexButton.delegate = self
         self.anexAreaButton.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     
@@ -452,6 +453,17 @@ extension ThrowViewController: UIIButtonWithPickerDelegate{
        // self.tableView.reloadData()
     }
 
+}
+extension ThrowViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ThrowViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 
