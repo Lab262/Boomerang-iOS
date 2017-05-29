@@ -273,7 +273,18 @@ class PostRequest: NSObject {
                 querySchemes["post"] = post
                 ParseRequest.updateForIsDeletedObjectBy(className: Scheme.parseClassName(), queryParams: querySchemes, completionHandler: { (success, msg) in
                     if success {
-                        completionHandler(success, msg)
+                        var queryChat = [String : Any]()
+                        queryChat["requester"] = profile
+                        queryChat["owner"] = post.author!
+                        queryChat["post"] = post
+                       
+                        ParseRequest.updateForIsDeletedObjectBy(className: Chat.parseClassName(), queryParams: queryChat, completionHandler: { (success, msg) in
+                            if success {
+                                completionHandler(success, msg)
+                            } else {
+                                completionHandler(success, msg)
+                            }
+                        })
                     } else {
                         completionHandler(success, msg)
                     }

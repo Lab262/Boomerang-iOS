@@ -131,7 +131,13 @@ class DetailThingPresenter: NSObject {
     func createSchemeInProgress(chat: Chat, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         let scheme = Scheme(post: post, requester: profile!, owner: getAuthorOfPost(), chat: chat)
         scheme.saveObjectInBackground { (success, msg) in
-             completionHandler(success, msg)
+            if success {
+                SchemeRequest.updateChatScheme(scheme: scheme, chat: chat, completionHandler: { (success, msg) in
+                    completionHandler(success, msg)
+                })
+            } else {
+                completionHandler(success, msg)
+            }
         }
     }
     
@@ -145,7 +151,7 @@ class DetailThingPresenter: NSObject {
     func enterInterestedList() {
         
         self.view?.startLoading()
-        let interested = Interested(user: profile, post: post, currentMessage: "Estou interessado, fico feliz em ajudar")
+        let interested = Interested(user: profile, post: post, currentMessage: "Estou interessado.")
         
         interested.saveObjectInBackground { (success, msg) in
             if success {
