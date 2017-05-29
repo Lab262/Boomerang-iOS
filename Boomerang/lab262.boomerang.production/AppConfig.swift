@@ -17,6 +17,12 @@ class AppConfig: NSObject {
             $0.clientKey = ""
             $0.server = "http://api-boomerang-prd.herokuapp.com/parse"
         }
+        
+//        static let baseClientConfig = ParseClientConfiguration { //local parse server dev
+//            $0.applicationId = "myAppId"
+//            $0.clientKey = ""
+//            $0.server = "http://192.168.15.2:1337/parse"
+//        }
     }
     
 }

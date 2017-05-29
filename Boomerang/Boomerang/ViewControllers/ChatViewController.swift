@@ -70,12 +70,20 @@ class ChatViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageDataForItemAt indexPath: IndexPath) -> JSQMessageData {
         return presenter.messages[indexPath.item]
     }
-    
+        
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageBubbleImageDataForItemAt indexPath: IndexPath) -> JSQMessageBubbleImageDataSource {
         
         return presenter.messages[indexPath.item].senderId == self.senderId ? outgoingBubble : incomingBubble
     }
     
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? JSQMessagesCollectionViewCellIncoming {
+            cell.textView.textColor = .black
+        } else if let cell = cell as? JSQMessagesCollectionViewCellOutgoing {
+            cell.textView.textColor = .white
+        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

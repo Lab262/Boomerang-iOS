@@ -34,12 +34,12 @@ class ChatPresenter: NSObject {
     }
     
     func convertMessageForJSQMessage(message: Message) {
-        let message = JSQMessage(senderId: message.user?.objectId, senderDisplayName: "", date: message.createdAt!, text: message.message!)
+        let message = JSQMessage(senderId: message.sender?.objectId, senderDisplayName: "", date: message.createdAt!, text: message.message!)
         messages.append(message!)
     }
     
-    private func setMessage(message: Message) {
-        let jsqMessage = JSQMessage(senderId: message.user!.objectId, senderDisplayName: "", date: Date(), text: message.message)
+    fileprivate func setMessage(message: Message) {
+        let jsqMessage = JSQMessage(senderId: message.sender!.objectId, senderDisplayName: "", date: Date(), text: message.message)
         self.messages.append(jsqMessage!)
     }
     
@@ -57,10 +57,16 @@ class ChatPresenter: NSObject {
     }
     
     private func createMessage(senderId: String, text: String) -> Message {
-        let userMessage: Profile = senderId == chat.owner!.objectId! ? chat.owner! : chat.requester!
-        let message = Message(message: text, user: userMessage)
-        setMessage(message: message)
-        return message
+       
+        var message: Message?
+        
+        if senderId == chat.owner!.objectId! {
+            message = Message(message: text, sender: chat.owner!, receiver: chat.requester!, chatId: chat.objectId!)
+        } else {
+            message = Message(message: text, sender: chat.requester!, receiver: chat.owner!, chatId: chat.objectId!)
+        }
+        setMessage(message: message!)
+        return message!
     }
     
     func sendMessage(senderId: String, text: String) {
@@ -84,33 +90,26 @@ extension ChatPresenter {
     }
     
     fileprivate var messageQuery: PFQuery<Message>? {
-        let userMessage: Profile = profile.objectId != chat.owner!.objectId! ? chat.owner! : chat.requester!
         return (Message.query()?
-            .whereKey(MessageKeys.user, equalTo: userMessage)
+            .whereKey(MessageKeys.chatId, equalTo: chat.objectId!)
             .order(byAscending: ObjectKeys.createdAt) as! PFQuery<Message>)
     }
     
-
     func setupSubscriptions() {
        // subscriptionToChatQuery()
         subscriptionToMessageQuery()
     }
     
-    func subscriptionToChatQuery() {
-        subscriptionChatUpdated = liveQueryClient
-            .subscribe(chatQuery!)
-            .handle(Event.updated) { _, chat in
-                
-                self.requestMessagesOfChat()
-        }
-    }
-    
     func subscriptionToMessageQuery() {
         subscriptionMessageCreated = liveQueryClient
             .subscribe(messageQuery!)
-            .handle(Event.created) { _, mesage in
+            .handle(Event.created) { _, message in
                 
-                self.requestMessagesOfChat()
+               if message.sender?.objectId != self.profile.objectId {
+                    self.setMessage(message: message)
+                    self.view?.reload()
+                }
+                //self.requestMessagesOfChat()
         }
     }
     

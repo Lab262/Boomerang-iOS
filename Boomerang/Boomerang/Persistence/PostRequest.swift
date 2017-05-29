@@ -143,11 +143,11 @@ class PostRequest: NSObject {
         
         var profiles = friends
         
+        let query = PFQuery(className: Post.parseClassName())
+        query.limit = pagination
+        query.includeKey("author")
+       
         profiles.append(ApplicationState.sharedInstance.currentUser!.profile!)
-        
-        var notContainedObjects = [String: [Any]]()
-        
-        notContainedObjects["author"] = profiles
         
         var notContainedObjectIds = [String]()
         
@@ -155,35 +155,23 @@ class PostRequest: NSObject {
             downloadedPosts.forEach {
                 notContainedObjectIds.append($0.objectId!)
             }
-            notContainedObjects["objectId"] = notContainedObjectIds
         }
+        query.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+        query.whereKey(PostKeys.author, notContainedIn: profiles)
+        query.whereKey(PostKeys.isAvailable, equalTo: true)
         
-        ParseRequest.queryGetAllObjects(className: "Post", notContainedObjects: notContainedObjects, pagination: pagination, includes: ["author"]) { (success, msg, objects) in
-            if success {
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
                 for object in objects! {
                     let post = Post(object: object)
-                    //post.author = Profile(object: object.object(forKey: "author") as! PFObject)
                     posts.append(post)
                 }
-                completionHandler(true, "Success", posts)
+                completionHandler(true, "success", posts)
             } else {
-                completionHandler(false, msg.debugDescription, nil)
+                completionHandler(false, (error?.localizedDescription)!, nil)
             }
         }
-        
-        
-//        ParseRequest.queryEqualToValueNotContainedObjects(className: "Post", queryType: .common, whereType: .none, params: [String: [Any]](), notContainedObjects: notContainedObjects, includes: ["author"], pagination: pagination) { (success, msg, objects) in
-//            if success {
-//                for object in objects! {
-//                    let post = Post(object: object)
-//                    post.author = Profile(object: object.object(forKey: "author") as! PFObject)
-//                    posts.append(post)
-//                }
-//                completionHandler(true, "Success", posts)
-//            } else {
-//                completionHandler(false, msg.debugDescription, nil)
-//            }
-//        }
+ 
     }
     
     static func getPostsFor(profile: Profile, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
