@@ -196,8 +196,17 @@ extension TransactionDetailViewController: TransactionDetailDelegate {
     }
     
     func push(identifier: String) {
+        
+        if identifier == SegueIdentifiers.detailTransactionToEvaluation {
+            self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Transaction", identifier: "evaluationView")!, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: identifier, sender: self)
+        }
+        
         //performSegue(withIdentifier: SegueIdentifiers.detailTransactionToChat, sender: self)
-         performSegue(withIdentifier: identifier, sender: self)
+        
+        
+        
     }
     
 }
