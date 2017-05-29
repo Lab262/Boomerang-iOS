@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="width" constant="4" id="d3C-yD-ar4"/>
                                 </constraints>
                             </view>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="donate_icon" translatesAutoresizingMaskIntoConstraints="NO" id="em2-Qc-BRX">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="donate_icon" translatesAutoresizingMaskIntoConstraints="NO" id="em2-Qc-BRX">
                                 <rect key="frame" x="225" y="16.5" width="27" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="g3P-GK-hDh"/>
