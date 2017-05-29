@@ -9,12 +9,13 @@ stages:
 deploy_beta:
   stage: deploy
   script:
+    - whoami
     - fastlane beta
   only:
     - test
   tags:
     - ios10
-    
+
 deploy_production:
   stage: deploy
   script:
