@@ -387,6 +387,8 @@ class ThingDetailViewController: UIViewController {
         return cell
     }
     
+    
+    
     func generateUserCommentCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: UserCommentTableViewCell.identifier, for: indexPath) as! UserCommentTableViewCell
@@ -559,7 +561,10 @@ extension ThingDetailViewController: DetailThingDelegate {
 extension ThingDetailViewController: PHFComposeBarViewDelegate {
     
     func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
-        if composeBarView.text != "" {
+        
+        let letters = CharacterSet.letters
+        
+        if composeBarView.text != "" && composeBarView.text != "\n" && composeBarView.text.rangeOfCharacter(from: letters) != nil {
             presenter.createComment(text: composeBarView.text.trimmingCharacters(in: .whitespacesAndNewlines))
         }
         composeBarView.setText("", animated: true)
