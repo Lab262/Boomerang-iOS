@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6tJ-GG-Y7U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6tJ-GG-Y7U">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -413,11 +413,20 @@
                     <connections>
                         <outlet property="searchBar" destination="6yI-zn-Z9W" id="R7D-dN-zXv"/>
                         <outlet property="tableView" destination="MXU-YC-co1" id="1zT-5c-MHq"/>
+                        <segue destination="xWH-hl-94I" kind="show" identifier="goToProfile" id="0Ix-XT-r2P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juC-Ik-082" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086" y="2118"/>
+        </scene>
+        <!--profileView-->
+        <scene sceneID="Gou-4v-DRS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="profileView" id="xWH-hl-94I" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Lv-3a-Nff" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="961" y="2519"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="1ag-sY-wFE">

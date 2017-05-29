@@ -34,8 +34,22 @@ class NotificationPresenter: NSObject {
     }
     
     
+    func readNotification() {
+        NotificationRequester.getNotifications(profile: getUser().profile!, notificationDownloaded: self.notifications, pagination: pagination) { (success, msg, notifications) in
+            
+            if success {
+                for notification in notifications! {
+                    self.notifications.append(notification)
+                }
+                self.view?.reload()
+                print("NOTIFICATION COUNT: \(self.notifications.count)")
+            } else {
+                self.view?.showMessageError(msg: msg)
+            }
+        }
+    }
+    
     func requestNotifications() {
-        
         NotificationRequester.getNotifications(profile: getUser().profile!, notificationDownloaded: self.notifications, pagination: pagination) { (success, msg, notifications) in
             
             if success {
