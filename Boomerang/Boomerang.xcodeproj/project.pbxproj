@@ -2795,7 +2795,6 @@
 				D4AD98011EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */,
 				D4AD98021EA9ACFD00C9FAB9 /* Montserrat-ExtraBold.otf in Resources */,
 				2F0BAC071EDA64A900B31AFA /* DistanceRadiusTableViewCell.xib in Resources */,
-				D4AD98031EA9ACFD00C9FAB9 /* ThingInformationTableViewCell.xib in Resources */,
 				D4AD98041EA9ACFD00C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */,
 				D4AD98051EA9ACFD00C9FAB9 /* Montserrat-Medium.ttf in Resources */,
 				D4AD98061EA9ACFD00C9FAB9 /* ChatTableViewCell.xib in Resources */,
@@ -2863,7 +2862,6 @@
 				D4AD98CD1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */,
 				D4AD98CE1EA9AD0400C9FAB9 /* Montserrat-ExtraBold.otf in Resources */,
 				2F0BAC081EDA64AA00B31AFA /* DistanceRadiusTableViewCell.xib in Resources */,
-				D4AD98CF1EA9AD0400C9FAB9 /* ThingInformationTableViewCell.xib in Resources */,
 				D4AD98D01EA9AD0400C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */,
 				D4AD98D11EA9AD0400C9FAB9 /* Montserrat-Medium.ttf in Resources */,
 				D4AD98D21EA9AD0400C9FAB9 /* ChatTableViewCell.xib in Resources */,
@@ -2954,7 +2952,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81F257C77482D4401703111B /* [CP] Embed Pods Frameworks */ = {
@@ -3014,7 +3012,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD98391EA9ACFD00C9FAB9 /* Adding tags to comment */ = {
@@ -3089,7 +3087,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD99051EA9AD0400C9FAB9 /* Adding tags to comment */ = {
@@ -3194,7 +3192,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
