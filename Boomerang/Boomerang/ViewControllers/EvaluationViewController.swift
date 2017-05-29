@@ -118,7 +118,6 @@ class EvaluationViewController: UIViewController {
                 self.doneButton.alpha = 1.0
         },
             completion: nil)
-
     }
 }
 

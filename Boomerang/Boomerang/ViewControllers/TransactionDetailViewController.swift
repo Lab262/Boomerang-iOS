@@ -32,7 +32,7 @@ class TransactionDetailViewController: UIViewController {
         setupPresenterDelegate()
         setupPopoverAction()
         
-        if self.presenter.scheme.statusScheme == .done || self.presenter.scheme.statusScheme == .finished {
+        if self.presenter.scheme.statusScheme == .done || self.presenter.scheme.statusScheme == .finished || self.presenter.scheme.statusScheme == .negotiation{
             self.finalizeButton.isHidden = true
         }
     }
