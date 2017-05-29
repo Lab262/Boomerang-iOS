@@ -15,6 +15,8 @@ class LogOutTableViewCell: UITableViewCell {
     }
     
     @IBOutlet weak var logoutButton: UIButton!
+    
+    
     static var cellHeight: CGFloat {
         return 40
     }
@@ -27,7 +29,7 @@ class LogOutTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        logoutButton.titleLabel?.setDynamicFont()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
