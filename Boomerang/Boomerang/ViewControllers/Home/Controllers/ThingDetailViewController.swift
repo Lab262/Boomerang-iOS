@@ -559,7 +559,7 @@ extension ThingDetailViewController: DetailThingDelegate {
 extension ThingDetailViewController: PHFComposeBarViewDelegate {
     
     func composeBarViewDidPressButton(_ composeBarView: PHFComposeBarView!) {
-        if composeBarView.text != "" {
+        if composeBarView.text != ""  && composeBarView.text != "\n"{
             presenter.createComment(text: composeBarView.text.trimmingCharacters(in: .whitespacesAndNewlines))
         }
         composeBarView.setText("", animated: true)
