@@ -54,6 +54,7 @@ class RecommendedPostTableViewCell: UITableViewCell {
        
         registerNib()
         initializePageIndicatorView()
+        self.postCollectionView.backgroundColor = UIColor.black
     }
     
     func initializePageIndicatorView(){
@@ -123,7 +124,7 @@ extension RecommendedPostTableViewCell: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
         case postCollectionView:
-            return CGSize(width: RecommendedPostCollectionViewCell.cellSize.width * UIView.widthScaleProportion(), height: RecommendedPostCollectionViewCell.cellSize.height * UIView.heightScaleProportion())
+            return CGSize(width: RecommendedPostCollectionViewCell.cellSize.width * UIView.heightScaleProportion(), height: RecommendedPostCollectionViewCell.cellSize.height * UIView.heightScaleProportion())
         default:
             return CGSize()
         }
@@ -142,6 +143,16 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
         let flowLayout = (self.postCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
         
         let indexPath = postCollectionView.indexPathForItem(at: self.postCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: postCollectionView.frame.width/2, y: 0))
+        
+        //GABIARRAAAAAAAA CONSERTAAAAA
+        if UIScreen.main.bounds.width == 320.0 {
+            let indexPath2 = postCollectionView.indexPathForItem(at: self.postCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: postCollectionView.frame.width/2, y: 0)+CGPoint(x: 0, y: 19.5))
+            
+            if let index = indexPath2 {
+                pageIndicatorView?.selectedPage = index.row
+            }
+        }
+        
         
         if let index = indexPath {
             pageIndicatorView?.selectedPage = index.row
