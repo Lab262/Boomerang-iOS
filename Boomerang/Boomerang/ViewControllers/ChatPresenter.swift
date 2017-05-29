@@ -38,7 +38,7 @@ class ChatPresenter: NSObject {
         messages.append(message!)
     }
     
-    private func setMessage(message: Message) {
+    fileprivate func setMessage(message: Message) {
         let jsqMessage = JSQMessage(senderId: message.user!.objectId, senderDisplayName: "", date: Date(), text: message.message)
         self.messages.append(jsqMessage!)
     }
@@ -58,7 +58,7 @@ class ChatPresenter: NSObject {
     
     private func createMessage(senderId: String, text: String) -> Message {
         let userMessage: Profile = senderId == chat.owner!.objectId! ? chat.owner! : chat.requester!
-        let message = Message(message: text, user: userMessage)
+        let message = Message(message: text, user: userMessage, chatId: chat.objectId!)
         setMessage(message: message)
         return message
     }
@@ -84,33 +84,26 @@ extension ChatPresenter {
     }
     
     fileprivate var messageQuery: PFQuery<Message>? {
-        let userMessage: Profile = profile.objectId != chat.owner!.objectId! ? chat.owner! : chat.requester!
         return (Message.query()?
-            .whereKey(MessageKeys.user, equalTo: userMessage)
+            .whereKey(MessageKeys.chatId, equalTo: chat.objectId!)
             .order(byAscending: ObjectKeys.createdAt) as! PFQuery<Message>)
     }
     
-
     func setupSubscriptions() {
        // subscriptionToChatQuery()
         subscriptionToMessageQuery()
     }
     
-    func subscriptionToChatQuery() {
-        subscriptionChatUpdated = liveQueryClient
-            .subscribe(chatQuery!)
-            .handle(Event.updated) { _, chat in
-                
-                self.requestMessagesOfChat()
-        }
-    }
-    
     func subscriptionToMessageQuery() {
         subscriptionMessageCreated = liveQueryClient
             .subscribe(messageQuery!)
-            .handle(Event.created) { _, mesage in
+            .handle(Event.created) { _, message in
                 
-                self.requestMessagesOfChat()
+               if message.user?.objectId != self.profile.objectId {
+                    self.setMessage(message: message)
+                    self.view?.reload()
+                }
+                //self.requestMessagesOfChat()
         }
     }
     

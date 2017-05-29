@@ -205,8 +205,8 @@ struct ChatKeys {
 
 struct MessageKeys {
     static let user = "user"
+    static let chatId = "chatId"
 }
-
 
 
 

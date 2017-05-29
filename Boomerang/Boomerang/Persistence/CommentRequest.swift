@@ -29,7 +29,7 @@ class CommentRequest: NSObject {
         queryParams["post"] = [post]
         
         let query = PFQuery(className: "Comment")
-        query.cachePolicy = .networkElseCache
+        query.cachePolicy = .networkOnly
         query.whereKey("post", equalTo: post)
 
         

@@ -43,6 +43,7 @@ class NotificationPresenter: NSObject {
                     self.notifications.append(notification)
                 }
                 self.view?.reload()
+                print("NOTIFICATION COUNT: \(self.notifications.count)")
             } else {
                 self.view?.showMessageError(msg: msg)
             }
