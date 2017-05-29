@@ -16,6 +16,8 @@ protocol DetailThingDelegate {
     var commentCount: Int? {set get}
     func showMessage(isSuccess: Bool, msg: String)
     var interestedTitleButton: String? {set get}
+    func startFooterLoading()
+    func finishFooterLoading()
     func startLoading()
     func finishLoading()
 }
@@ -63,21 +65,24 @@ class DetailThingPresenter: NSObject {
     }
     
     func getLastComments() {
+         self.view?.startFooterLoading()
         CommentRequest.fetchLastCommentsBy(post: self.post, commentsObject: self.comments, pagination: Paginations.comments) { (success, msg, comments) in
             if success {
                 for comment in comments! {
                    self.comments.insert(comment, at: 0)
                 }
                 self.view?.reload()
-                self.currentCommentsCount = self.comments.count
+                self.view?.finishFooterLoading()
+                //self.currentCommentsCount = self.comments.count
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
+                self.view?.finishFooterLoading()
             }
         }
     }
     
     func getLastsComments(isUpdate: Bool = false) {
-     
+        self.view?.startFooterLoading()
         CommentRequest.fetchCommentsBy(post: self.post, commentsObject: self.comments, pagination: Paginations.comments) { (success, msg, comments) in
             if success {
                 self.commentCount = self.commentCount - comments!.count
@@ -88,11 +93,13 @@ class DetailThingPresenter: NSObject {
                         self.comments.append(comment)
                     }
                 }
+                
+                self.view?.finishFooterLoading()
               
                 self.view?.reload()
-                self.currentCommentsCount = self.comments.count
+                //self.currentCommentsCount = self.comments.count
             } else {
-   
+                self.view?.finishFooterLoading()
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }
         }
@@ -103,6 +110,7 @@ class DetailThingPresenter: NSObject {
             if success {
                 self.commentCount = count!
                 self.view?.commentCount = count
+                self.getLastsComments()
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }

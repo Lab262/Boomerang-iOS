@@ -31,6 +31,10 @@ class TransactionDetailViewController: UIViewController {
         configureTableView()
         setupPresenterDelegate()
         setupPopoverAction()
+        
+        if self.presenter.scheme.statusScheme == .done || self.presenter.scheme.statusScheme == .finished {
+            self.finalizeButton.isHidden = true
+        }
     }
     
     func setupPopoverAction(){

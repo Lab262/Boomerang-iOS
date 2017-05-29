@@ -58,6 +58,7 @@ class AuthenticationMainViewController: UIViewController {
     @IBAction func facebookAction(_ sender: Any) {
         let permissions = ["public_profile", "email","user_friends"]
         
+        self.view.loadAnimation()
         PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
             
             if let user = user {
@@ -159,6 +160,7 @@ class AuthenticationMainViewController: UIViewController {
                             if success {
                                 self.requestSchemeStatus(completionHandler: { (success, msg) in
                                     if success {
+                                        self.view.unload()
                                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                         let vcToShow = storyboard.instantiateInitialViewController()!
                                         self.present(vcToShow, animated: true, completion: nil)

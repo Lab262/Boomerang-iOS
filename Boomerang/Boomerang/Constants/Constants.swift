@@ -67,7 +67,7 @@ struct Paginations {
     static let postsByCity = 3
     static let schemes = 3
     static let notifications = 3
-    static let comments = 10
+    static let comments = 4
     static let morePosts = 10
     static let messages = 100
     static let profiles = 20

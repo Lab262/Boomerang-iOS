@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Crashlytics.self])
         
-        
         Parse.initialize(with: AppConfig.parse.baseClientConfig)
         
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
