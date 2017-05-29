@@ -192,18 +192,28 @@ class PostRequest: NSObject {
         var queryParams = [String : Any]()
         queryParams["author"] = profile
         
-        ParseRequest.queryEqualToValue(className: "Post", queryParams: queryParams, includes: nil) { (success, msg, objects) in
-            if success {
+        let query = PFQuery(className: Post.parseClassName())
+        query.skip = skip
+        query.cachePolicy = .networkElseCache
+        query.limit = pagination
+        query.order(byDescending: "createdAt")
+        query.whereKey("author", equalTo: profile)
+        
+        
+        
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
                 for obj in objects! {
                     let post = Post(object: obj)
                     post.author = profile
                     posts.append(post)
                 }
-                completionHandler(true, msg, posts)
+                completionHandler(true, "", posts)
             } else {
-                completionHandler(false, msg, nil)
+                completionHandler(false, error.debugDescription, nil)
             }
         }
+
     }
     
     static func findAuthorByPost(following: [Profile], authorId: String) -> Profile? {

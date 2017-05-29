@@ -68,7 +68,8 @@ class RecommendedPostTableViewCell: UITableViewCell {
     func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
-            
+        
+        cell.postImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
         cell.setupCell()
         

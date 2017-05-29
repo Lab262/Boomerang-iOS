@@ -55,6 +55,19 @@ class Post: PFObject {
         super.init()
     }
     
+    func queryPhotos(completionHandler: (([Photo]?) -> ())? = nil) {
+        if self.relations == nil {
+            photos.query().findObjectsInBackground { (photos, error) in
+                if let photos = photos {
+                    self.relations = photos
+                }
+                completionHandler?(photos)
+            }
+        } else {
+            completionHandler?(self.relations)
+        }
+    }
+    
     convenience init(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: Condition?, typePost: TypePost) {
         self.init()
         
