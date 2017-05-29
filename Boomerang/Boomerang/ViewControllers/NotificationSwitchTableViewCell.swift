@@ -11,6 +11,11 @@ import UIKit
 class NotificationSwitchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var `switch`: UISwitch!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     static var identifier: String {
         return "notificationSwithcCell"
     }
@@ -26,6 +31,8 @@ class NotificationSwitchTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        titleLabel.setDynamicFont()
+        descriptionLabel.setDynamicFont()
     
     }
 

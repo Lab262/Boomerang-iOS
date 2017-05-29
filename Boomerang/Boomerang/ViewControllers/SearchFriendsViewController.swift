@@ -14,14 +14,16 @@ class SearchFriendsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let tableViewTopInset: CGFloat = 10.0
     var presenter = SearchFriendsPresenter()
+    let tableViewBottomInset = CGFloat(80.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSearchBar()
+        setupSearchBarConfiguration()
         registerNib()
         setupViewDelegate()
         getProfiles()
         self.hideKeyboardWhenTappedAround()
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
     }
     
     func getProfiles() {
@@ -33,8 +35,14 @@ class SearchFriendsViewController: UIViewController {
         presenter.setViewDelegate(view: self)
     }
     
-    func configureSearchBar() {
+    func setupSearchBarConfiguration() {
         searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
+        searchBar.setBackgroundSearchBarColor(color: UIColor.backgroundSearchColor)
+        searchBar.setCursorSearchBarColor(color: UIColor.textSearchColor)
+        searchBar.setPlaceholderSearchBarColor(color: UIColor.textSearchColor)
+        searchBar.setTextSearchBarColor(color: UIColor.textSearchColor)
+        searchBar.setIconSearchBarColor(color: UIColor.textSearchColor)
+        searchBar.setClearIconSearchBarColor(color: UIColor.textSearchColor)
     }
     
     func registerNib(){

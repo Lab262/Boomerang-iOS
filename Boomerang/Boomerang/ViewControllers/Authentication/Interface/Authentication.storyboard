@@ -35,7 +35,25 @@
                         <subviews>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-Qx-C6j" customClass="GradientView" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem vindo a rede social mais amorzinho que você respeita" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jir-hp-yFh">
+                                        <rect key="frame" x="56" y="408.5" width="262.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconFirstPageLogin" translatesAutoresizingMaskIntoConstraints="NO" id="2fR-KL-XfV">
+                                        <rect key="frame" x="146.5" y="345.5" width="81" height="43"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="jir-hp-yFh" firstAttribute="top" secondItem="2fR-KL-XfV" secondAttribute="bottom" constant="20" id="1h0-Px-lNi"/>
+                                    <constraint firstItem="jir-hp-yFh" firstAttribute="centerX" secondItem="DJO-Qx-C6j" secondAttribute="centerX" id="Bwz-Z3-bbo"/>
+                                    <constraint firstItem="2fR-KL-XfV" firstAttribute="centerY" secondItem="DJO-Qx-C6j" secondAttribute="centerY" multiplier="1.1" id="FHw-7N-GrH"/>
+                                    <constraint firstItem="jir-hp-yFh" firstAttribute="width" secondItem="DJO-Qx-C6j" secondAttribute="width" multiplier="0.7" id="Kyn-fe-iB1"/>
+                                    <constraint firstItem="2fR-KL-XfV" firstAttribute="centerX" secondItem="DJO-Qx-C6j" secondAttribute="centerX" id="W8E-P1-ElB"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                         <color key="value" red="0.71255916357040405" green="0.25571197271347046" blue="0.60099023580551147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -73,11 +91,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8x-7M-uVa" userLabel="Divider">
-                                <rect key="frame" x="172" y="241" width="30" height="4"/>
+                                <rect key="frame" x="157" y="241" width="60" height="4"/>
                                 <color key="backgroundColor" red="0.98431372549019602" green="0.73333333333333328" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="0VQ-Vl-3gU"/>
-                                    <constraint firstAttribute="width" constant="30" id="gJ5-w7-EXx"/>
+                                    <constraint firstAttribute="width" constant="60" id="gJ5-w7-EXx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -85,12 +103,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem vindo a rede social mais amorzinho que você respeita" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jir-hp-yFh">
-                                <rect key="frame" x="56.5" y="258" width="262.5" height="34"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAy-jm-J2M">
                                 <rect key="frame" x="37" y="567" width="300" height="50"/>
                                 <subviews>
@@ -137,13 +149,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jir-hp-yFh" firstAttribute="width" secondItem="DJO-Qx-C6j" secondAttribute="width" multiplier="0.7" id="3lJ-GQ-EqE"/>
                             <constraint firstItem="SAy-jm-J2M" firstAttribute="width" secondItem="DJO-Qx-C6j" secondAttribute="width" multiplier="0.8" id="9x6-IF-ylx"/>
                             <constraint firstItem="DJO-Qx-C6j" firstAttribute="height" secondItem="6hQ-UJ-Hzx" secondAttribute="height" id="ImZ-Ao-ILm"/>
                             <constraint firstItem="SAy-jm-J2M" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="MdO-ym-f0Y"/>
-                            <constraint firstItem="jir-hp-yFh" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="Mrr-F1-kAH"/>
                             <constraint firstItem="G8x-7M-uVa" firstAttribute="top" secondItem="hgw-5K-Jyv" secondAttribute="bottom" constant="15" id="SLh-H6-Y3s"/>
-                            <constraint firstItem="jir-hp-yFh" firstAttribute="top" secondItem="G8x-7M-uVa" secondAttribute="bottom" constant="13" id="SfI-cQ-Hgn"/>
                             <constraint firstItem="DJO-Qx-C6j" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="VCu-nX-h0Y"/>
                             <constraint firstItem="hgw-5K-Jyv" firstAttribute="top" secondItem="agE-nl-h5s" secondAttribute="bottom" constant="8" id="VGH-Wu-tUq"/>
                             <constraint firstItem="agE-nl-h5s" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="jf6-RL-fha"/>
@@ -260,5 +269,6 @@ FACEBOOK</string>
         <image name="boomer_logo" width="85" height="85"/>
         <image name="ic_add_friends" width="23" height="27"/>
         <image name="ic_button_back" width="13" height="21"/>
+        <image name="iconFirstPageLogin" width="81" height="43"/>
     </resources>
 </document>

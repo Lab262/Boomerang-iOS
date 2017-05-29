@@ -27,7 +27,7 @@ class MoreCommentTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        moreButton.titleLabel?.setDynamicFont()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -16,6 +16,8 @@ class DistanceRadiusTableViewCell: UITableViewCell {
     @IBOutlet weak var numberKMlabel: UILabel!
     var radiusKM:Int =  100
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     static var identifier: String {
         return "DistanceRadiusCell"
     }
@@ -55,6 +57,8 @@ class DistanceRadiusTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.numberKMlabel.text = ("\(self.radiusKM)KM")
+        titleLabel.setDynamicFont()
+        numberKMlabel.setDynamicFont()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
