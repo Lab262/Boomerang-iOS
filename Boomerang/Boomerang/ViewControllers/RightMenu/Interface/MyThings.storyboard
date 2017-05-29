@@ -113,7 +113,7 @@
                                 </variation>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPM-Dx-w22">
-                                <rect key="frame" x="0.0" y="96" width="375" height="491"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="FHa-Tr-uk3" kind="embed" id="aFG-It-arf"/>
@@ -126,7 +126,7 @@
                             <constraint firstItem="rTV-Hb-y8T" firstAttribute="height" secondItem="vzy-Fe-4g2" secondAttribute="height" multiplier="0.244" id="FvX-9n-zJF"/>
                             <constraint firstAttribute="trailing" secondItem="iPM-Dx-w22" secondAttribute="trailing" id="WSP-FK-kud"/>
                             <constraint firstItem="rTV-Hb-y8T" firstAttribute="top" secondItem="vzy-Fe-4g2" secondAttribute="top" id="Wav-8z-qkz"/>
-                            <constraint firstItem="WHz-Fp-yi0" firstAttribute="top" secondItem="iPM-Dx-w22" secondAttribute="bottom" constant="80" id="ebr-KD-Ueh"/>
+                            <constraint firstItem="WHz-Fp-yi0" firstAttribute="top" secondItem="iPM-Dx-w22" secondAttribute="bottom" id="ebr-KD-Ueh"/>
                             <constraint firstItem="rTV-Hb-y8T" firstAttribute="leading" secondItem="vzy-Fe-4g2" secondAttribute="leading" id="fpB-Zr-NQ8"/>
                             <constraint firstAttribute="trailing" secondItem="rTV-Hb-y8T" secondAttribute="trailing" id="iWA-4C-clA"/>
                             <constraint firstItem="iPM-Dx-w22" firstAttribute="top" secondItem="vzy-Fe-4g2" secondAttribute="top" constant="96" id="rxT-Wl-xuV"/>
@@ -283,20 +283,27 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="notificationEmptyImage"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_throw_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="BXL-QW-spo">
+                                <rect key="frame" x="0.0" y="349.5" width="375" height="221.5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BXL-QW-spo" firstAttribute="height" secondItem="ib3-OU-oB4" secondAttribute="height" multiplier="0.388" id="3pE-NF-yD4"/>
                             <constraint firstAttribute="trailing" secondItem="ib3-OU-oB4" secondAttribute="trailing" id="423-uH-mUx"/>
                             <constraint firstItem="ib3-OU-oB4" firstAttribute="top" secondItem="rwh-RR-nOB" secondAttribute="bottom" id="7X4-Mc-9aY"/>
+                            <constraint firstItem="BXL-QW-spo" firstAttribute="centerX" secondItem="flB-Rm-Y8h" secondAttribute="centerX" id="NTf-kK-qqm"/>
                             <constraint firstItem="Xyv-P9-P9x" firstAttribute="top" secondItem="ocF-wu-cir" secondAttribute="bottom" id="RwY-Yx-xyf"/>
                             <constraint firstItem="ib3-OU-oB4" firstAttribute="leading" secondItem="flB-Rm-Y8h" secondAttribute="leading" id="e2T-Rh-ulw"/>
                             <constraint firstItem="ocF-wu-cir" firstAttribute="top" secondItem="rwh-RR-nOB" secondAttribute="bottom" constant="50" id="gHc-LC-IiY"/>
                             <constraint firstItem="Xyv-P9-P9x" firstAttribute="top" secondItem="ib3-OU-oB4" secondAttribute="bottom" id="hbZ-gv-pbe"/>
                             <constraint firstAttribute="trailing" secondItem="ocF-wu-cir" secondAttribute="trailing" id="la3-wa-j7P"/>
+                            <constraint firstItem="Xyv-P9-P9x" firstAttribute="top" secondItem="BXL-QW-spo" secondAttribute="bottom" id="pH5-5j-6IM"/>
                             <constraint firstItem="ocF-wu-cir" firstAttribute="leading" secondItem="flB-Rm-Y8h" secondAttribute="leading" id="rkY-nd-TBM"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emptyImageView" destination="BXL-QW-spo" id="RLh-53-gfa"/>
                         <outlet property="emptyView" destination="ocF-wu-cir" id="dvt-Ye-l9m"/>
                         <outlet property="tableView" destination="ib3-OU-oB4" id="AvH-YC-mDR"/>
                         <segue destination="ZQf-iB-Odv" kind="show" identifier="goToDetailThing" id="tnC-tF-Vds"/>
@@ -441,12 +448,12 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_throw_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="dkP-CT-hLC">
-                                <rect key="frame" x="0.0" y="273" width="375" height="298"/>
+                                <rect key="frame" x="0.0" y="349.5" width="375" height="221.5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dkP-CT-hLC" firstAttribute="height" secondItem="qoK-ug-ZNa" secondAttribute="height" multiplier="0.522" id="FIT-Qz-hKx"/>
+                            <constraint firstItem="dkP-CT-hLC" firstAttribute="height" secondItem="qoK-ug-ZNa" secondAttribute="height" multiplier="0.388" id="FIT-Qz-hKx"/>
                             <constraint firstItem="qoK-ug-ZNa" firstAttribute="bottom" secondItem="9ct-qK-3DI" secondAttribute="top" id="Mhi-Ad-N0H"/>
                             <constraint firstItem="qoK-ug-ZNa" firstAttribute="leading" secondItem="tZh-A2-azl" secondAttribute="leading" id="XZc-Zx-9PE"/>
                             <constraint firstItem="qoK-ug-ZNa" firstAttribute="centerX" secondItem="dkP-CT-hLC" secondAttribute="centerX" id="Xbb-7T-c8M"/>

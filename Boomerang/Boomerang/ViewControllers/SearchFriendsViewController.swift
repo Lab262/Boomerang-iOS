@@ -14,6 +14,7 @@ class SearchFriendsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let tableViewTopInset: CGFloat = 10.0
     var presenter = SearchFriendsPresenter()
+    let tableViewBottomInset = CGFloat(80.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class SearchFriendsViewController: UIViewController {
         setupViewDelegate()
         getProfiles()
         self.hideKeyboardWhenTappedAround()
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
     }
     
     func getProfiles() {

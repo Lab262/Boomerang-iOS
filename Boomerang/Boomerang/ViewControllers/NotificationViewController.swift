@@ -14,9 +14,12 @@ class NotificationViewController: UIViewController {
     
     @IBOutlet weak var emptyView: EmptyView!
     
+    @IBOutlet weak var emptyImageView: UIImageView!
+    
     var tableViewLeftInset: CGFloat = 15
     var tableViewRightInset: CGFloat = 15
     var presenter = NotificationPresenter()
+    let tableViewBottomInset = CGFloat(80.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,7 @@ class NotificationViewController: UIViewController {
         getNotifications()
         configureEmptyView()
         setupSubscribes()
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
     }
     
     func setupSubscribes() {
@@ -38,6 +42,7 @@ class NotificationViewController: UIViewController {
     func configureEmptyView(){
         self.emptyView.emptyButton.isHidden = true
         self.emptyView.isHidden = true
+        self.emptyImageView.isHidden = true
     }
 
     func setPresenterDelegate() {
@@ -101,9 +106,11 @@ extension NotificationViewController: ViewDelegate {
     func reload() {
         if presenter.getNotifications().count == 0{
             self.emptyView.isHidden = false
+            self.emptyImageView.isHidden = false
             self.tableView.isHidden = true
         }else{
             self.emptyView.isHidden = true
+            self.emptyImageView.isHidden = true
             self.tableView.isHidden = false
         }
         
