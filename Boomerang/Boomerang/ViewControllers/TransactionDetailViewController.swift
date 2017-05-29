@@ -17,6 +17,8 @@ class TransactionDetailViewController: UIViewController {
     
     @IBOutlet weak var finalizeButton: UIButton!
     
+    @IBOutlet weak var thingNavigationBar: ThingNavigationBar!
+    
     var presenter: TransactionDetailPresenter = TransactionDetailPresenter()
     
     @IBOutlet weak var tableView: UITableView!
@@ -35,6 +37,24 @@ class TransactionDetailViewController: UIViewController {
         if self.presenter.scheme.statusScheme == .done || self.presenter.scheme.statusScheme == .finished {
             self.finalizeButton.isHidden = true
         }
+        configureNavigationsBars()
+    }
+    
+    func configureNavigationsBars(){
+        
+        switch presenter.scheme.post!.typePost! {
+        case .have:
+            navigationBar.titleLabelText = TypePostTitles.have
+        case .need:
+            navigationBar.titleLabelText = TypePostTitles.need
+        case .donate:
+            navigationBar.titleLabelText = TypePostTitles.donate
+        }
+
+        thingNavigationBar.thingNameLabel.text = presenter.scheme.post?.title
+        
+        navigationBar.titleBarLabel.setDynamicFont()
+        thingNavigationBar.thingNameLabel.setDynamicFont()
     }
     
     func setupPopoverAction(){

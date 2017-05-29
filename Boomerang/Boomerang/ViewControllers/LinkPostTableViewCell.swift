@@ -29,6 +29,12 @@ class LinkPostTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = 9
+        configureDynamicFont()
+    }
+    
+    func configureDynamicFont(){
+        datePostLabel.setDynamicFont()
+        showPostButton.titleLabel?.setDynamicFont()
     }
 
     @IBAction func showPost(_ sender: Any) {

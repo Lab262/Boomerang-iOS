@@ -1113,6 +1113,7 @@ Vamos ver</string>
                         <outlet property="finalizeButton" destination="miM-Rd-R9M" id="BKC-HL-zq6"/>
                         <outlet property="navigationBar" destination="Yto-6u-jjP" id="mkm-7b-GFP"/>
                         <outlet property="tableView" destination="DRi-Ib-CFk" id="ory-ZA-TOe"/>
+                        <outlet property="thingNavigationBar" destination="LcP-Xa-82g" id="CqJ-Hc-WPE"/>
                         <segue destination="aRZ-Gk-s7Q" kind="show" identifier="goToDetailThing" id="sbt-fT-9mr"/>
                         <segue destination="63j-9b-CYi" kind="show" identifier="goToProfile" id="llk-ds-PF0"/>
                         <segue destination="adt-ZK-Kg5" kind="show" identifier="goToChat" id="sj0-K6-G93"/>
