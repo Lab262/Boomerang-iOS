@@ -11,6 +11,20 @@ import Parse
 
 class NotificationRequester: NSObject {
     
+    static func readNotification(notification: NotificationModel, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    
+        var queryParams = [String: Any]()
+        queryParams[ObjectKeys.objectId] = notification.objectId
+//        var colunmsUpdated = [String: Any]()
+//        
+//        colunmsUpdated[NotificationModelKeys.hasBeenSeen] = status
+//        
+//        ParseRequest.updateObject(className: NotificationModel.parseClassName().parseClassName, queryParams: queryParams, colunmsUpdated: colunmsUpdated) { (success, msg) in
+//            completionHandler(success, msg)
+//        }
+
+    }
+    
     static func getNotifications(profile: Profile, notificationDownloaded: [NotificationModel], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [NotificationModel]?) -> ()) {
         
         var notifications: [NotificationModel] = [NotificationModel]()

@@ -17,6 +17,8 @@ class TransactionDetailViewController: UIViewController {
     
     @IBOutlet weak var finalizeButton: UIButton!
     
+    @IBOutlet weak var thingNavigationBar: ThingNavigationBar!
+    
     var presenter: TransactionDetailPresenter = TransactionDetailPresenter()
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,9 +34,27 @@ class TransactionDetailViewController: UIViewController {
         setupPresenterDelegate()
         setupPopoverAction()
         
-        if self.presenter.scheme.statusScheme == .done || self.presenter.scheme.statusScheme == .finished {
+        if self.presenter.scheme.statusScheme == .done || self.presenter.scheme.statusScheme == .finished || self.presenter.scheme.statusScheme == .negotiation{
             self.finalizeButton.isHidden = true
         }
+        configureNavigationsBars()
+    }
+    
+    func configureNavigationsBars(){
+        
+        switch presenter.scheme.post!.typePost! {
+        case .have:
+            navigationBar.titleLabelText = TypePostTitles.have
+        case .need:
+            navigationBar.titleLabelText = TypePostTitles.need
+        case .donate:
+            navigationBar.titleLabelText = TypePostTitles.donate
+        }
+
+        thingNavigationBar.thingNameLabel.text = presenter.scheme.post?.title
+        
+        navigationBar.titleBarLabel.setDynamicFont()
+        thingNavigationBar.thingNameLabel.setDynamicFont()
     }
     
     func setupPopoverAction(){
@@ -66,10 +86,6 @@ class TransactionDetailViewController: UIViewController {
         
         if let viewController = segue.destination as? ProfileMainViewController  {
             viewController.presenter.setProfile(profile: presenter.scheme.dealer!)
-        }
-        
-        if let viewController = segue.destination as? EvaluationViewController  {
-            viewController.presenter.scheme = presenter.scheme
         }
         
         if let viewController = segue.destination as? MessagesChatViewController  {
@@ -198,7 +214,10 @@ extension TransactionDetailViewController: TransactionDetailDelegate {
     func push(identifier: String) {
         
         if identifier == SegueIdentifiers.detailTransactionToEvaluation {
-            self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Transaction", identifier: "evaluationView")!, animated: true, completion: nil)
+            
+            let viewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Transaction", identifier: "evaluationView") as? EvaluationViewController
+            viewController?.presenter.scheme = presenter.scheme
+            self.present(viewController!, animated: true, completion: nil)
         } else {
             performSegue(withIdentifier: identifier, sender: self)
         }

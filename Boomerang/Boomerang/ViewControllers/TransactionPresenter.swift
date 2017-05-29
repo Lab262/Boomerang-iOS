@@ -22,8 +22,10 @@ class TransactionPresenter: NSObject {
     fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
     fileprivate var subscriptionOwnerSchemeCreated: Subscription<Scheme>?
     fileprivate var subscriptionOwnerSchemeUpdated: Subscription<Scheme>?
+    fileprivate var subscriptionOwnerSchemeDeleted: Subscription<Scheme>?
     fileprivate var subscriptionRequesterSchemeCreated: Subscription<Scheme>?
     fileprivate var subscriptionRequesterSchemeUpdated: Subscription<Scheme>?
+    fileprivate var subscriptionRequesterSchemeDeleted: Subscription<Scheme>?
     
     func setViewDelegate(view: ViewDelegate) {
         self.view = view
@@ -111,6 +113,8 @@ extension TransactionPresenter {
             .whereKey(SchemeKeys.requester, equalTo: profile)
             .order(byAscending: ObjectKeys.createdAt) as! PFQuery<Scheme>)
     }
+    
+    
 
     func setupSubscriptions() {
         subscriptionToOwnerSchemeQuery()
@@ -127,8 +131,19 @@ extension TransactionPresenter {
         subscriptionOwnerSchemeUpdated = liveQueryClient
             .subscribe(schemeOwnerQuery!)
             .handle(Event.updated) { _, scheme in
+                for (index, s) in self.schemes.enumerated() where
+                    s.objectId! == scheme.objectId! {
+                        self.schemes.remove(at: index)
+                }
+                
                 self.requestOwnerSchemesUser()
                 
+        }
+        
+        subscriptionOwnerSchemeDeleted = liveQueryClient
+            .subscribe(schemeOwnerQuery!)
+            .handle(Event.deleted) { _, scheme in
+                self.requestOwnerSchemesUser()
         }
     }
     
@@ -144,8 +159,19 @@ extension TransactionPresenter {
         subscriptionRequesterSchemeUpdated = liveQueryClient
             .subscribe(schemeRequesterQuery!)
             .handle(Event.updated) { _, scheme in
-                self.requestRequesterSchemesUser()
                 
+                for (index, s) in self.schemes.enumerated() where
+                    s.objectId! == scheme.objectId! {
+                        self.schemes.remove(at: index)
+                }
+
+                self.requestRequesterSchemesUser()
+        }
+        
+        subscriptionRequesterSchemeDeleted = liveQueryClient
+            .subscribe(schemeRequesterQuery!)
+            .handle(Event.deleted) { _, scheme in
+                self.requestRequesterSchemesUser()
         }
     }
 }

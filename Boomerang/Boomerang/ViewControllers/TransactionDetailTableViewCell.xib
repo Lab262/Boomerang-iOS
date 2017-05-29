@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -115,7 +115,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Di6-8r-vSY">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Di6-8r-vSY">
                                 <rect key="frame" x="-1" y="274" width="359" height="43"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srM-zv-h1y">
@@ -223,11 +223,14 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="cancelButton" destination="srM-zv-h1y" id="K2C-O9-xvT"/>
+                <outlet property="cancelProcessLabel" destination="0BX-CO-gET" id="tcB-wk-Ylf"/>
                 <outlet property="chatButton" destination="tqZ-fU-58m" id="E4o-S6-dc3"/>
                 <outlet property="containerView" destination="jfA-yj-P8g" id="jrt-qS-M9S"/>
                 <outlet property="dateTransactionLabel" destination="ocg-tf-0qz" id="Vt9-ff-Ir5"/>
+                <outlet property="goToChatLabel" destination="aFb-4I-cMw" id="eA3-TZ-QHc"/>
                 <outlet property="nameUserLabel" destination="qlE-mA-ofV" id="Jf1-gJ-AIZ"/>
                 <outlet property="profileLinkButton" destination="waR-7L-bWu" id="f6b-Ip-0EY"/>
+                <outlet property="startLabel" destination="DfT-rm-eJ3" id="QwT-gs-jqh"/>
                 <outlet property="titleOfTransactionLabel" destination="psg-in-g9j" id="aaQ-Uh-oja"/>
                 <outlet property="userImage" destination="9OX-3h-MHQ" id="7yw-LX-7xo"/>
             </connections>

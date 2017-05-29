@@ -46,7 +46,7 @@ class Scheme: PFObject {
         self.post = post
         self.requester = requester
         self.owner = owner
-        self.chat = chat
+        //self.chat = chat
         
         let statusPost = ApplicationState.sharedInstance.schemeStatus
         for status in statusPost where status.status! == StatusScheme.negotiation.rawValue {

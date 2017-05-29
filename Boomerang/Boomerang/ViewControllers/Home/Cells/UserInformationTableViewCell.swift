@@ -34,6 +34,7 @@ class UserInformationTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.cityLabel.text = "Asa Norte"
         configureDynamicFont()
     }
     

@@ -15,6 +15,7 @@ class ExchangeTransactionViewController: UIViewController {
     
     var presenter = TransactionFilterPresenter()
     var notificationKey: String!
+    let tableViewBottomInset = CGFloat(80.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class ExchangeTransactionViewController: UIViewController {
         registerObservers()
         presenter.setViewDelegate(view: self)
         self.emptyView.isHidden = true
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
     }
     
     func registerNib(){

@@ -16,7 +16,20 @@ class SwitchButtonTableViewCell: UITableViewCell {
     @IBOutlet weak var swapImageView: UIImageView!
     
     var handlerOptionSelected: ((Bool) -> ())?
-    var isFirstOptionSelected:Bool?
+    var isFirstOptionSelected:Bool? {
+        
+        didSet {
+            if let selected = isFirstOptionSelected {
+                if selected {
+                    selectButton(button: self.borrowedButton, title: firstOptionTitle!, imageView: self.borrowedImageView)
+                } else {
+                    selectButton(button: self.swapButton, title: secondOptionTitle!, imageView: self.swapImageView)
+                }
+            } else {
+                deselectButtons()
+            }
+        }
+    }
     
     static var identifier: String {
         return "SwitchButtonCell"
@@ -75,10 +88,12 @@ class SwitchButtonTableViewCell: UITableViewCell {
         if button == self.borrowedButton{
             selectButton(button: self.borrowedButton, title: firstOptionTitle!, imageView: self.borrowedImageView)
             unselectButton(button: self.swapButton, title: secondOptionTitle!, imageView: self.swapImageView)
+            isFirstOptionSelected = true
             self.handlerOptionSelected?(true)
         }else{
             selectButton(button: self.swapButton, title: secondOptionTitle!, imageView: self.swapImageView)
                 unselectButton(button: self.borrowedButton, title: firstOptionTitle!, imageView: self.borrowedImageView)
+            isFirstOptionSelected = false
             self.handlerOptionSelected?(false)
         }
     }
@@ -98,6 +113,16 @@ class SwitchButtonTableViewCell: UITableViewCell {
         button.setAttributedTitle(titleCustom, for: .normal)
     }
 
+    override func prepareForReuse() {
+        isFirstOptionSelected = nil
+    }
+    
+    func deselectButtons() {
+        
+        unselectButton(button: self.borrowedButton, title: firstOptionTitle!, imageView: self.borrowedImageView)
+        unselectButton(button: self.swapButton, title: secondOptionTitle!, imageView: self.swapImageView)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

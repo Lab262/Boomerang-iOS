@@ -52,6 +52,7 @@ class ThrowViewController: UIViewController {
         self.anexButton.delegate = self
         self.anexAreaButton.delegate = self
         self.hideKeyboardWhenTappedAround()
+        self.setupKeyboardNotifications()
     }
     
     
@@ -68,6 +69,12 @@ class ThrowViewController: UIViewController {
 
     }
     
+    func setupKeyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
     func registerNib() {
         
         tableView.registerNibFrom(SwitchButtonTableViewCell.self)
@@ -76,6 +83,45 @@ class ThrowViewController: UIViewController {
         tableView.registerNibFrom(TypePostTableViewCell.self)
       //  tableView.registerNibFrom(HeaderPostTableViewCell.self)
 
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let  obj = notification.userInfo?["UIKeyboardFrameEndUserInfoKey"] {
+            var keyboardFrame = CGRect.null
+            if (obj as AnyObject).responds(to: #selector(NSValue.getValue(_:))) {
+                (obj as AnyObject).getValue(&keyboardFrame)
+                UIView.animate(
+                    withDuration: 0.25,
+                    delay: 0.0,
+                    options: UIViewAnimationOptions(),
+                    animations: {
+                        () -> Void in
+                        self.anexButton.isHidden = true
+                        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height, 0.0)
+                        self.tableView.scrollIndicatorInsets = self.tableView.contentInset
+                        self.tableView.scrollToRow(at: IndexPath.init(row: 3, section: 0) , at: .bottom, animated: true)
+                       
+                },
+                    completion: nil)
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(
+            withDuration: 0.25,
+            delay: 0.0,
+            options: UIViewAnimationOptions(),
+            animations: {
+                () -> Void in
+                self.anexButton.isHidden = false
+                self.tableView.contentInset =  UIEdgeInsetsMake(self.coverImageHeight - self.navigationBarHeight, 0, 0, 0)
+                self.anexButton.layoutIfNeeded()
+                self.tableView.layoutIfNeeded()
+                self.view.layoutIfNeeded()
+                
+        },
+            completion: nil)
     }
 
     
@@ -147,9 +193,15 @@ class ThrowViewController: UIViewController {
             }else{
                 self.isAvailable = selected
             }
-            
-            cell.isFirstOptionSelected = selected
         }
+        
+        if isTypeScheme {
+            cell.isFirstOptionSelected = self.boolTypeScheme
+        }else{
+            cell.isFirstOptionSelected = self.isAvailable
+        }
+        
+        
         
         return cell
         

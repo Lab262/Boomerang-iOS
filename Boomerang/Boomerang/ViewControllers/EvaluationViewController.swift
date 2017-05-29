@@ -31,8 +31,38 @@ class EvaluationViewController: UIViewController {
         setupPlaceholderInTextView()
         setupKeyboardNotifications()
         setupPresenterDelegate()
-        userImage.getUserImageFrom(file: presenter.user.photo!) { (success, msg) in
+        setupInformations()
+        configureDynamicFont()
+    }
+    
+    func configureDynamicFont(){
+        navigationTitleLabel.setDynamicFont()
+        evaluationCommentLabel.setDynamicFont()
+    }
+    
+    func setupInformations(){
+        
+        var nameUser = ""
+        if presenter.scheme.owner?.objectId == User.current()?.objectId {
+            nameUser = (presenter.scheme.dealer?.fullName)!
+            userImage.getUserImageFrom(file: (presenter.scheme.dealer?.photo!)!) { (success, msg) in
+            }
+        }else{
+            nameUser = (presenter.scheme.owner?.fullName)!
+            userImage.getUserImageFrom(file: (presenter.scheme.owner?.photo!)!) { (success, msg) in
+            }
         }
+        
+        let textEvaluate = NSMutableAttributedString(string: EvaluationTransactionTitles.evaluateTitle, attributes: [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.montserratLight(size: 16*UIView.widthScaleProportion())])
+        
+        let nameUserLabel = NSMutableAttributedString(string: nameUser, attributes: [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.montserratBold(size: 16*UIView.widthScaleProportion())])
+        
+        let textEvaluateDescription = NSMutableAttributedString(string: EvaluationTransactionTitles.evaluateDescription, attributes: [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.montserratLight(size: 16*UIView.widthScaleProportion())])
+        
+        textEvaluate.append(nameUserLabel)
+        textEvaluate.append(textEvaluateDescription)
+        
+        self.evaluationTextLabel.attributedText = textEvaluate
     }
     
     func setupPresenterDelegate(){
@@ -118,7 +148,6 @@ class EvaluationViewController: UIViewController {
                 self.doneButton.alpha = 1.0
         },
             completion: nil)
-
     }
 }
 
