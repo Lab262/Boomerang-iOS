@@ -9,7 +9,7 @@ app_base_bundle = "lab262.boomerang"
 platform :ios do
   before_all do
     ENV['DEVELOPER_DIR'] = '/Applications/Xcode.app/'
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
     ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "hhdv-tiws-qlmu-dvzc"
     cocoapods
   end
