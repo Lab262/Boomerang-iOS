@@ -34,6 +34,7 @@ struct SegueIdentifiers {
     static let transactionToHistoric = "goToHistoric"
     static let detailThingToRecommended = "goToRecommended"
     static let homeToMorePost = "goToMorePosts"
+    static let searchFriendsToProfile = "goToProfile"
 }
 
 //MARK - Storyboard Ids
@@ -183,6 +184,7 @@ struct ProfileKeys {
 
 struct NotificationModelKeys {
     static let receiver = "receiver"
+    static let hasBeenSeen = "hasBeenSeen"
 }
 
 //MARK - Scheme keys
@@ -261,6 +263,14 @@ struct TransactionTitles {
     static let have = "Empréstimo feito com"
     static let donate = "Doação feita com"
     static let need = "Troca feita com"
+}
+
+//MARK - Evaluation Titles
+
+struct EvaluationTransactionTitles {
+    static let evaluateTitle = "Avalie "
+    static let evaluateDescription = " e nos diga como foi a sua experiência com ela."
+    
 }
 
 //MARK - Create Post Titles

@@ -13,10 +13,12 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var tableViewLeftInset: CGFloat = 15
     var tableViewRightInset: CGFloat = 15
+    let tableViewBottomInset = CGFloat(80.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
         
     }
     

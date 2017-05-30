@@ -64,8 +64,20 @@ class InterestedListViewController: UIViewController {
     }
     
     func createScheme(_ sender: UIButton) {
-        presenter.setInterested(interested: presenter.getInteresteds()[sender.tag])
-        presenter.createScheme()
+        let alert = UIAlertController(title: "Atenção", message: "Deseja fechar o esquema?", preferredStyle: .alert)
+        
+        let action1 = UIAlertAction(title: "Sim", style: .default) { (UIAlertAction) in
+            self.presenter.setInterested(interested: self.presenter.getInteresteds()[sender.tag])
+            self.presenter.createScheme()
+        }
+        
+        let action2 = UIAlertAction(title: "Não", style: .default, handler: nil)
+     
+        alert.addAction(action1)
+        alert.addAction(action2)
+        
+        self.present(alert, animated: true, completion: nil)
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,7 +112,7 @@ extension InterestedListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.setInterested(interested: presenter.getInteresteds()[indexPath.row])
-        presenter.fetchChat()
+        //presenter.fetchChat()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -143,7 +155,7 @@ extension InterestedListViewController: InterestedDelegate {
     }
     
     func pushForChatView() {
-        performSegue(withIdentifier: SegueIdentifiers.interestedToChat, sender: self)
+     //   performSegue(withIdentifier: SegueIdentifiers.interestedToChat, sender: self)
     }
     
     func presentTo(storyBoard: String, identifier: String) {

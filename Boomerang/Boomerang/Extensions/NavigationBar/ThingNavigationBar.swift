@@ -15,7 +15,6 @@ class ThingNavigationBar: UIView {
     @IBOutlet weak var containerIconImage: UIImageView!
     
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

@@ -57,6 +57,21 @@ class SchemeRequest: NSObject {
         }
     }
     
+    static func updateChatScheme(scheme: Scheme, chat: Chat, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+       
+        var queryParams = [String: Any]()
+        queryParams[ObjectKeys.objectId] = scheme.objectId
+        var colunmsUpdated = [String: Any]()
+      
+        colunmsUpdated["chat"] = chat
+
+        
+        ParseRequest.updateObject(className: scheme.parseClassName, queryParams: queryParams, colunmsUpdated: colunmsUpdated) { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
     static func getSchemeFor(owner: Profile, requester: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ scheme: Scheme?) -> ()) {
         
         let query = PFQuery(className: Scheme.parseClassName())

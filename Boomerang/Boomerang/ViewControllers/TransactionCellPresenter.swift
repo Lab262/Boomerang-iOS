@@ -74,7 +74,7 @@ class TransactionCellPresenter: NSObject {
             label.textColor = UIColor.yellowTransactioColor
             label.text = "Em aberto"
         } else if scheme.post?.postCondition == .loan {
-            label.font = UIFont.montserratLight(size: 13)
+            label.font = UIFont.montserratRegular(size: 13)
             label.textColor = UIColor.black
         } else {
             label.text = ""

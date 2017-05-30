@@ -21,6 +21,11 @@ class TransactionDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleOfTransactionLabel: UILabel!
     
+    @IBOutlet weak var startLabel: UILabel!
+    
+    @IBOutlet weak var goToChatLabel: UILabel!
+    
+    @IBOutlet weak var cancelProcessLabel: UILabel!
     var photo: UIImage? {
         didSet {
             userImage?.image = photo
@@ -43,6 +48,16 @@ class TransactionDetailTableViewCell: UITableViewCell {
         super.awakeFromNib()
         presenter.setViewDelegate(view: self)
         containerView.layer.cornerRadius = 5
+        configureDymaicFont()
+    }
+    
+    func configureDymaicFont(){
+        nameUserLabel.setDynamicFont()
+        dateTransactionLabel.setDynamicFont()
+        titleOfTransactionLabel.setDynamicFont()
+        startLabel.setDynamicFont()
+        goToChatLabel.setDynamicFont()
+        cancelProcessLabel.setDynamicFont()
     }
     
     func updateInformationsCell(){
