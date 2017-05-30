@@ -191,12 +191,11 @@ class UserRequest: NSObject {
         
         ParseRequest.queryEqualToValueNotContainedObjects(className: "Follow", queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkOnly, notContainedObjects: notContainedObjects, includes: ["to"], pagination: pagination) { (success, msg, objects) in
             if success {
-                
-                
                 for object in objects! {
-                    
-                    let follow = Profile(object: object.object(forKey: "to")! as! PFObject)
-                    following.append(follow)
+                    if let follow =  object.object(forKey: "to") as? PFObject {
+                        let profile = Profile(object: follow)
+                        following.append(profile)
+                    }
                 }
                 completionHandler(true, "Success", following)
             } else {
