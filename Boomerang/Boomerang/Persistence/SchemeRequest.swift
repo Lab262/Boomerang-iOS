@@ -81,8 +81,10 @@ class SchemeRequest: NSObject {
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
                 if objects!.count > 0 {
-                    let scheme = objects![0] as? Scheme
-                    completionHandler(true, "success", scheme!)
+                    if let scheme = objects![0] as? Scheme {
+                        completionHandler(true, "success", scheme)
+                    }
+                
                 } else {
                     completionHandler(false, "sem objects", nil)
                 }

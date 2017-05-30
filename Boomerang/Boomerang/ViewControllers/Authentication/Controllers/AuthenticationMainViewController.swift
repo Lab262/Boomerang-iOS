@@ -95,7 +95,6 @@ class AuthenticationMainViewController: UIViewController {
                 if let data = result as? [String: Any] {
                     
                     if let firstName = data["first_name"] as? String {
-                        newUser.setObject(firstName, forKey: "username")
                         newUser.setObject(firstName, forKey: "firstName")
                         profile.setObject(firstName, forKey: "firstName")
                     }
@@ -111,6 +110,7 @@ class AuthenticationMainViewController: UIViewController {
                     }
                     
                     if let userId = data["id"] as? String {
+                        newUser.setObject(userId, forKey: "username")
                         self.getPhotoOfFacebookInPFFile(userId: userId, completionHandler: { (success, msg, userPhoto) in
                             if success {
                                 profile.setObject(userPhoto!, forKey: "photo")

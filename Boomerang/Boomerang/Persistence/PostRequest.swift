@@ -145,6 +145,7 @@ class PostRequest: NSObject {
         
         let query = PFQuery(className: Post.parseClassName())
         query.limit = pagination
+        query.order(byDescending: "createdAt")
         query.includeKey("author")
        
         profiles.append(ApplicationState.sharedInstance.currentUser!.profile!)
@@ -162,9 +163,11 @@ class PostRequest: NSObject {
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
-                for object in objects! {
-                    let post = Post(object: object)
-                    posts.append(post)
+                if let objects = objects {
+                    for object in objects {
+                        let post = Post(object: object)
+                        posts.append(post)
+                    }
                 }
                 completionHandler(true, "success", posts)
             } else {

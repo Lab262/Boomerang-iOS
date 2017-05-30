@@ -34,8 +34,10 @@ class UserRequest: NSObject {
         user.fetchObjectInBackgroundBy(key: "profile") { (success, msg, profile) in
             if success {
                 ApplicationState.sharedInstance.currentUser = PFUser.current() as? User
-                ApplicationState.sharedInstance.currentUser!.profile = Profile(object: profile!)
-                completionHandler(success, msg)
+                if let profile = profile {
+                    ApplicationState.sharedInstance.currentUser!.profile = Profile(object: profile)
+                    completionHandler(success, msg)
+                }
             } else {
                 completionHandler(success, msg)
             }
@@ -56,8 +58,9 @@ class UserRequest: NSObject {
         ParseRequest.queryGetAllObjects(className: Profile.parseClassName(), notContainedObjects: notContainedObjects, pagination: pagination, includes: nil) { (success,  msg, objects) in
             if success {
                 objects!.forEach {
-                    let profile = $0 as? Profile
-                    profiles.append(profile!)
+                    if let profile = $0 as? Profile {
+                        profiles.append(profile)
+                    }
                 }
                 completionHandler(success, msg, profiles)
             } else {

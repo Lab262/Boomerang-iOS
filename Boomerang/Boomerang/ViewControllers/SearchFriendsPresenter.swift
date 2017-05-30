@@ -13,6 +13,8 @@ protocol SearchFriendsDelegate {
     func loadingView()
     func unloadingView()
     func showMessage(msg: String)
+    func startFooterLoading()
+    func finishFooterLoading()
 }
 
 class SearchFriendsPresenter: NSObject {
@@ -26,15 +28,19 @@ class SearchFriendsPresenter: NSObject {
     }
     
     func getProfiles() {
+        self.view?.startFooterLoading()
         UserRequest.getAllProfiles(profilesDownloaded: profiles, pagination: pagination) { (success, msg, profiles) in
             if success {
-                profiles!.forEach {
-                    self.profiles.append($0)
+                if profiles!.count > 1 {
+                    profiles!.forEach {
+                        self.profiles.append($0)
+                        self.view?.reload()
+                    }
                 }
-                self.view?.unloadingView()
-                self.view?.reload()
+                self.view?.finishFooterLoading()
             } else {
                 self.view?.showMessage(msg: msg)
+                self.view?.finishFooterLoading()
                 
             }
         }

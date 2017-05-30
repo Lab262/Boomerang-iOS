@@ -24,10 +24,10 @@ class SearchFriendsViewController: UIViewController {
         getProfiles()
         self.hideKeyboardWhenTappedAround()
         tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
+        self.tableView.tableFooterView = refreshIndicatorInTableViewFooter()
     }
     
     func getProfiles() {
-        self.view.loadAnimation()
         presenter.getProfiles()
     }
     
@@ -62,12 +62,27 @@ class SearchFriendsViewController: UIViewController {
         return cell
     }
     
+    func refreshIndicatorInTableViewFooter() -> UIView {
+        let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
+        viewIndicator.backgroundColor = UIColor.clear
+        return viewIndicator
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? ProfileMainViewController {
             controller.presenter.setProfile(profile: presenter.profiles[tableView.indexPathForSelectedRow!.row-1])
         }
     }
 
+}
+
+extension SearchFriendsViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
+            presenter.getProfiles()
+        }
+    }
 }
 
 extension SearchFriendsViewController : UITableViewDataSource {
@@ -123,6 +138,14 @@ extension SearchFriendsViewController: SearchFriendsDelegate {
     
     func unloadingView() {
         self.view.unload()
+    }
+    
+    func startFooterLoading() {
+        tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
+    }
+    
+    func finishFooterLoading() {
+        self.tableView.tableFooterView?.unload()
     }
 }
 extension SearchFriendsViewController {
