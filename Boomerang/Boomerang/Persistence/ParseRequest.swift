@@ -374,6 +374,17 @@ class ParseRequest: NSObject {
         }
     }
     
+    static func saveAllObjects(objects: [PFObject], completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        PFObject.saveAll(inBackground: objects, block: { (success, error) in
+            if error == nil, success == true {
+                completionHandler(success, "")
+            } else {
+                completionHandler(success, error!.localizedDescription)
+            }
+        })
+    }
+    
     static func queryToUpdateToDeleted(className: String? = nil, object: PFObject, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         let query = PFQuery(className: className ?? object.parseClassName)

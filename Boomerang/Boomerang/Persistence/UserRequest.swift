@@ -8,9 +8,61 @@
 
 import UIKit
 import Parse
+import ParseFacebookUtilsV4
 
 
 class UserRequest: NSObject {
+    
+    static func facebookLoginUser(completionHandler: @escaping (_ success: Bool, _ msg: String, _ user: PFUser?) -> ()) {
+        
+        let permissions = [FacebookParams.publicProfile, FacebookParams.email, FacebookParams.userFriends]
+        
+        PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
+            if let user = user, error == nil {
+                completionHandler(true, "", user)
+            } else {
+                completionHandler(false, error?.localizedDescription ?? "user nil", nil)
+            }
+        }
+    }
+    
+    
+    static func getFacebookUserPhoto (userId: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ file: PFFile?) -> ()) {
+        
+        var file: PFFile?
+        
+        DispatchQueue.main.async {
+            if let url = URL(string: FacebookUrls.graph + userId + FacebookUrls.pictureLarge) {
+                do {
+                    let contents = try Data(contentsOf: url)
+                    file = PFFile(data: contents, contentType: ImageFile.jpeg)
+                    completionHandler(true, "", file)
+                } catch {
+                    completionHandler(false, "contents could not be loaded", nil)
+                }
+            } else {
+                completionHandler(false, "url not working", nil)
+            }
+        }
+    }
+
+    
+    static func requestFacebookParameters(completionHandler: @escaping (_ success: Bool, _ msg: String, _ result: Any?) -> ())  {
+        
+        let requestParameters = [FacebookParams.fieldsKey: FacebookParams.id + ", " + FacebookParams.email + ", " + FacebookParams.firstName + ", " + FacebookParams.lastName]
+        
+        let userDetails = FBSDKGraphRequest(graphPath: FacebookParams.meGraphPath, parameters: requestParameters)
+        
+        userDetails?.start(completionHandler: { (_, result, error) in
+            if let result = result, error == nil {
+                completionHandler(true, "", result)
+            } else {
+                completionHandler(false, "", error?.localizedDescription ?? "result is nil")
+            }
+        })
+
+    }
+
     
     static func createAccountUser(user: User, pass: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
         

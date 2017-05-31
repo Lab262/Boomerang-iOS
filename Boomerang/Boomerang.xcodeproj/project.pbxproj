@@ -839,6 +839,9 @@
 		D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */; };
 		D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C71E6CE67E00F5C1D6 /* ApplicationState.swift */; };
 		D4EEC1CA1E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */; };
+		D4FB71721EDE638E00852AD9 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB71711EDE638E00852AD9 /* AuthenticationPresenter.swift */; };
+		D4FB71731EDE638E00852AD9 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB71711EDE638E00852AD9 /* AuthenticationPresenter.swift */; };
+		D4FB71741EDE638E00852AD9 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB71711EDE638E00852AD9 /* AuthenticationPresenter.swift */; };
 		D4FBBCE51E90706400611F63 /* InterestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCE31E90706400611F63 /* InterestedTableViewCell.swift */; };
 		D4FBBCE61E90706400611F63 /* InterestedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FBBCE41E90706400611F63 /* InterestedTableViewCell.xib */; };
 		D4FBBCE81E907BF700611F63 /* InterestedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBBCE71E907BF700611F63 /* InterestedListViewController.swift */; };
@@ -1240,6 +1243,7 @@
 		D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D4EEC1C71E6CE67E00F5C1D6 /* ApplicationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
 		D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileCollectionReusableView.swift; path = Boomerang/Persistence/Local/ProfileCollectionReusableView.swift; sourceTree = SOURCE_ROOT; };
+		D4FB71711EDE638E00852AD9 /* AuthenticationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationPresenter.swift; sourceTree = "<group>"; };
 		D4FBBCE31E90706400611F63 /* InterestedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedTableViewCell.swift; sourceTree = "<group>"; };
 		D4FBBCE41E90706400611F63 /* InterestedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InterestedTableViewCell.xib; path = ../Cells/InterestedTableViewCell.xib; sourceTree = "<group>"; };
 		D4FBBCE71E907BF700611F63 /* InterestedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedListViewController.swift; sourceTree = "<group>"; };
@@ -1644,6 +1648,7 @@
 		A489B1F31DDA7D0300B239D5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				D4FB71701EDE637400852AD9 /* Presenter */,
 				A489B1F41DDA7D0300B239D5 /* Controllers */,
 				A489B1F51DDA7D0300B239D5 /* Interface */,
 			);
@@ -2414,6 +2419,14 @@
 				D4CA48A51EC9F49E003C17F6 /* Recommended.swift */,
 			);
 			name = PFObjects;
+			sourceTree = "<group>";
+		};
+		D4FB71701EDE637400852AD9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D4FB71711EDE638E00852AD9 /* AuthenticationPresenter.swift */,
+			);
+			name = Presenter;
 			sourceTree = "<group>";
 		};
 		D4FBBCE91E907D2A00611F63 /* Presenters */ = {
@@ -3378,6 +3391,7 @@
 				D4FBBCED1E90818A00611F63 /* Constants.swift in Sources */,
 				D4642BC01E9EC637002C8ADC /* TransactionDetailViewController.swift in Sources */,
 				D4C134E41E9C7A18003F55E4 /* Message.swift in Sources */,
+				D4FB71721EDE638E00852AD9 /* AuthenticationPresenter.swift in Sources */,
 				A42767FD1DD3630400363343 /* AddBoomerMainViewController.swift in Sources */,
 				D48C99AF1E68B67100A17E71 /* SelectionDelegate.swift in Sources */,
 			);
@@ -3572,6 +3586,7 @@
 				D4AD97F91EA9ACFD00C9FAB9 /* Constants.swift in Sources */,
 				D4AD97FA1EA9ACFD00C9FAB9 /* TransactionDetailViewController.swift in Sources */,
 				D4AD97FB1EA9ACFD00C9FAB9 /* Message.swift in Sources */,
+				D4FB71731EDE638E00852AD9 /* AuthenticationPresenter.swift in Sources */,
 				D4AD97FC1EA9ACFD00C9FAB9 /* AddBoomerMainViewController.swift in Sources */,
 				D4AD97FD1EA9ACFD00C9FAB9 /* SelectionDelegate.swift in Sources */,
 			);
@@ -3757,6 +3772,7 @@
 				D4AD98C51EA9AD0400C9FAB9 /* Constants.swift in Sources */,
 				D4AD98C61EA9AD0400C9FAB9 /* TransactionDetailViewController.swift in Sources */,
 				D4AD98C71EA9AD0400C9FAB9 /* Message.swift in Sources */,
+				D4FB71741EDE638E00852AD9 /* AuthenticationPresenter.swift in Sources */,
 				D4AD98C81EA9AD0400C9FAB9 /* AddBoomerMainViewController.swift in Sources */,
 				D4AD98C91EA9AD0400C9FAB9 /* SelectionDelegate.swift in Sources */,
 			);

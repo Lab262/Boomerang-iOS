@@ -14,6 +14,39 @@ enum SectionPost: Int {
     case city = 2
 }
 
+
+//MARK - Facebook Urls
+
+struct FacebookUrls {
+    static let graph = "https://graph.facebook.com/"
+    static let pictureLarge = "/picture?type=large"
+}
+
+//MARK - Facebook Params
+
+struct FacebookParams {
+    static let id = "id"
+    static let publicProfile = "public_profile"
+    static let email = "email"
+    static let firstName = "first_name"
+    static let lastName = "last_name"
+    static let userFriends = "user_friends"
+    static let fieldsKey = "fields"
+    static let meGraphPath = "me"
+}
+
+//MARK - Image File Key
+
+struct ImageFile {
+    static let jpeg = "image/jpeg"
+}
+
+//MARK - Instalation Key
+
+struct InstalationKey {
+    static let user = "user"
+}
+
 //MARK - Segue Identifiers
 
 struct SegueIdentifiers {
@@ -174,10 +207,25 @@ struct FollowKeys {
     static let from = "from"
 }
 
+//MARK - User keys
+
+struct UserKeys {
+    static let firstName = "firstName"
+    static let lastName = "lastName"
+    static let userName = "username"
+    static let email = "email"
+    static let photo = "photo"
+    static let profile = "profile"
+}
+
 //MARK - Profile keys
 
 struct ProfileKeys {
     static let facebookId = "facebookId"
+    static let firstName = "firstName"
+    static let lastName = "lastName"
+    static let email = "email"
+    static let photo = "photo"
 }
 
 //MARK - Notification keys
