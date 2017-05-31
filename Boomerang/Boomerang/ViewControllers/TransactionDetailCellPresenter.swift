@@ -33,8 +33,8 @@ class TransactionDetailCellPresenter: NSObject {
         return scheme.createdDate!
     }
     
-    func getTypeTransaction() -> TypePost {
-        return scheme.post!.typePost!
+    func getTypeTransaction() -> TypePostEnum {
+        return scheme.post!.typePostEnum!
     }
     
     func getUserOwnATransaction() -> Profile {

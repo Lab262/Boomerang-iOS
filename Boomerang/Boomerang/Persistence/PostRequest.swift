@@ -30,12 +30,14 @@ class PostRequest: NSObject {
             if let _ = error {
                 completionHandler(false, error!.localizedDescription, nil)
             } else {
-                for object in objects! as! [PFObject] {
-                    let post = Post(object: object)
-                    
-                    posts.append(post)
-                }
                 
+                if let objects = objects {
+                    for object in objects as! [PFObject] {
+                        let post = object as? Post
+                        post?.setupEnums()
+                        posts.append(post!)
+                    }
+                }                
                 completionHandler(true, "success", posts)
             }
         }
@@ -55,12 +57,17 @@ class PostRequest: NSObject {
         
         ParseRequest.queryContainedIn(className: "Post", queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .networkElseCache, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
             if success {
-                for obj in objects! {
-                    let post = Post(object: obj)
-                    post.author = findAuthorByPost(following: following, authorId: post.author!.objectId!)
-                    posts.append(post)
+                
+                if let objects = objects {
+                    for obj in objects {
+                        let post = obj as? Post
+                        post?.setupEnums()
+                        post?.author = findAuthorByPost(following: following, authorId: post!.author!.objectId!)
+                        posts.append(post!)
+                    }
+                    completionHandler(true, msg, posts)
                 }
-                completionHandler(true, msg, posts)
+                
             } else {
                 completionHandler(false, msg, nil)
             }
@@ -69,8 +76,8 @@ class PostRequest: NSObject {
     
     static func createPost(post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
     
-        let post = Post()
-        
+//        let post = Post()
+//        
 //        let pictureData = UIImagePNGRepresentation((allimages?.first)!)
 //        let pictureFileObject = PFFile (data:pictureData!)
 //        
@@ -166,8 +173,9 @@ class PostRequest: NSObject {
             if error == nil {
                 if let objects = objects {
                     for object in objects {
-                        let post = Post(object: object)
-                        posts.append(post)
+                        let post = object as? Post
+                        post?.setupEnums()
+                        posts.append(post!)
                     }
                 }
                 completionHandler(true, "success", posts)
@@ -191,14 +199,14 @@ class PostRequest: NSObject {
         query.order(byDescending: "createdAt")
         query.whereKey("author", equalTo: profile)
         
-        
-        
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
-                for obj in objects! {
-                    let post = Post(object: obj)
-                    post.author = profile
-                    posts.append(post)
+                if let objects = objects {
+                    for obj in objects {
+                        let post = obj as? Post
+                        post?.author = profile
+                        posts.append(post!)
+                    }
                 }
                 completionHandler(true, "", posts)
             } else {

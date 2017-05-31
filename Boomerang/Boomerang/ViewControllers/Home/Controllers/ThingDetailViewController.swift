@@ -351,12 +351,12 @@ class ThingDetailViewController: UIViewController {
         
         cell.presenter.post = presenter.post
         
-        if cell.presenter.post!.relations == nil {
-            cell.presenter.getCountPhotos(success: false)
-            cell.presenter.getRelationsImages(success: false)
-        } else {
-            cell.presenter.downloadImagesPost(success: true)
-        }
+//        if cell.presenter.post!.relations == nil {
+//           // cell.presenter.getCountPhotos(success: false)
+//            cell.presenter.getRelationsImages(success: false)
+//        } else {
+//            cell.presenter.downloadImagesPost(success: true)
+//        }
         
         return cell
     }

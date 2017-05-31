@@ -28,7 +28,7 @@ class TransactionDetailPresenter: NSObject {
     }
 
     func getCreatedPost() -> Date {
-        return scheme.post!.createdDate!
+        return scheme.post!.createdAt!
     }
     
     func getUserOwnATransaction() -> Profile {

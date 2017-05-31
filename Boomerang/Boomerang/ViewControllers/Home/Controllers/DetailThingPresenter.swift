@@ -46,7 +46,7 @@ class DetailThingPresenter: NSObject {
     }
     
     func getCurrentType() -> String {
-        switch post.typePost! {
+        switch post.typePostEnum! {
         case .have:
             return TypePostTitles.have
         case .need:

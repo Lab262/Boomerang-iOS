@@ -18,7 +18,7 @@ class ProfilePresenter: NSObject {
     fileprivate var needPosts: [Post] = [Post]()
     fileprivate var havePosts: [Post] = [Post]()
     fileprivate var donatePosts: [Post] = [Post]()
-    fileprivate var currentPostType: TypePost? = nil
+    fileprivate var currentPostType: TypePostEnum? = nil
     
     fileprivate var post: Post = Post(){
         didSet{
@@ -64,15 +64,15 @@ class ProfilePresenter: NSObject {
         return allPosts
     }
     
-    func setCurrentPostType(postType: TypePost?) {
+    func setCurrentPostType(postType: TypePostEnum?) {
         currentPostType = postType
     }
     
-    func getCurrentPostType() -> TypePost? {
+    func getCurrentPostType() -> TypePostEnum? {
         return currentPostType
     }
     
-    func getPostsBy(postType: TypePost?) -> [Post] {
+    func getPostsBy(postType: TypePostEnum?) -> [Post] {
         if let type = postType {
             return filterPostsFor(postType:type)
         } else {
@@ -169,9 +169,9 @@ class ProfilePresenter: NSObject {
         }
     }
     
-    func filterPostsFor(postType: TypePost) -> [Post] {
+    func filterPostsFor(postType: TypePostEnum) -> [Post] {
         let filteredPosts = (self.allPosts.filter { post in
-            return post.typePost == postType
+            return post.typePostEnum == postType
         })
         
         currentPostType = postType

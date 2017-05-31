@@ -55,7 +55,7 @@ class PostCollectionViewCell: UICollectionViewCell {
         userImage.getUserImage(profile: presenter.post.author!) { (success, msg) in
         }
         
-        dateLabel.text = presenter.post.createdDate!.timeSinceNow()
+        //dateLabel.text = presenter.post.createdDate!.timeSinceNow()
         
         presenter.getCountPhotos()
         

@@ -13,7 +13,7 @@ class BoomerMainViewController: UIViewController {
     @IBOutlet weak var titleNavigation: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     var user = User.current()!
-    var type: TypePost = TypePost.need
+    var type: TypePostEnum = TypePostEnum.need
     var titlePost = String()
     var presenter = HomePresenter()
     

@@ -69,11 +69,11 @@ class TransactionCellPresenter: NSObject {
     func setupDevolutionDescriptionStyle(label: UILabel) {
         
         
-        if scheme.statusScheme == .negotiation {
+        if scheme.statusSchemeEnum == .negotiation {
             label.font = UIFont.montserratRegular(size: 13)
             label.textColor = UIColor.yellowTransactioColor
             label.text = "Em aberto"
-        } else if scheme.post?.postCondition == .loan {
+        } else if scheme.post?.postConditionEnum == .loan {
             label.font = UIFont.montserratRegular(size: 13)
             label.textColor = UIColor.black
         } else {
@@ -81,7 +81,7 @@ class TransactionCellPresenter: NSObject {
         }
     }
     
-    func getInformationsTransactionByTypeOfPost(isFromUser: Bool, postCondition: Condition) {
+    func getInformationsTransactionByTypeOfPost(isFromUser: Bool, postCondition: ConditionEnum) {
         
         //Get Image
         if isFromUser {
@@ -124,11 +124,11 @@ class TransactionCellPresenter: NSObject {
     func getInformationsOfTransaction(){
         if scheme.owner?.objectId == self.user.profile?.objectId {
             scheme.dealer = scheme.requester
-            getInformationsTransactionByTypeOfPost(isFromUser: true, postCondition: getPost().postCondition!)
+            getInformationsTransactionByTypeOfPost(isFromUser: true, postCondition: getPost().postConditionEnum!)
            // view?.fromImage = self.user.photo.getdata
         } else {
             scheme.dealer = scheme.owner
-            getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().postCondition!)
+            getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().postConditionEnum!)
             //iew?.toImage = self.user.profileImage
         }
     }

@@ -27,8 +27,8 @@ class ThrowViewController: UIViewController {
     var nameThing = String ()
     var descriptionThing = String ()
     var params:[String:String] = [:]
-    var typeVC = TypePost.have
-    var typeScheme:Condition?
+    var typeVC = TypePostEnum.have
+    var typeScheme:ConditionEnum?
     var isAvailable:Bool?
     var boolTypeScheme:Bool?
     
@@ -185,9 +185,9 @@ class ThrowViewController: UIViewController {
             
             if isTypeScheme {
                 if selected {
-                    self.typeScheme = Condition.loan
+                    self.typeScheme = ConditionEnum.loan
                 }else{
-                    self.typeScheme = Condition.exchange
+                    self.typeScheme = ConditionEnum.exchange
                 }
                 self.boolTypeScheme = selected
             }else{

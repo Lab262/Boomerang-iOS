@@ -43,12 +43,17 @@ class NotificationRequester: NSObject {
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
-                for obj in objects! {
-                    let notification = NotificationModel(object: obj)
-                    notification.receiver = profile
-                    notification.post?.author = profile
-                    notifications.append(notification)
+                
+                if let objects = objects {
+                    for obj in objects {
+                        let notification = obj as? NotificationModel
+                        notification?.receiver = profile
+                        notification?.post?.author = profile
+                        notifications.append(notification!)
+                    }
                 }
+                
+               
                 completionHandler(true, "success", notifications)
             } else {
                 completionHandler(false, error!.localizedDescription, nil)

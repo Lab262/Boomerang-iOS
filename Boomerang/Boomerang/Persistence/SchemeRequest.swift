@@ -11,7 +11,7 @@ import Parse
 
 class SchemeRequest: NSObject {
     
-    static func getNotContainedStatus(statusScheme: [StatusScheme]) -> [SchemeStatus] {
+    static func getNotContainedStatus(statusScheme: [StatusSchemeEnum]) -> [SchemeStatus] {
         
         let allStatus = ApplicationState.sharedInstance.schemeStatus
         var notContainedStatusObject = [SchemeStatus]()
@@ -32,7 +32,7 @@ class SchemeRequest: NSObject {
         queryParams[ObjectKeys.objectId] = scheme.objectId
         var colunmsUpdated = [String: Any]()
         
-        for status in allStatus where status.status == StatusScheme.finished.rawValue {
+        for status in allStatus where status.status == StatusSchemeEnum.finished.rawValue {
             colunmsUpdated[SchemeKeys.status] = status
         }
         
@@ -41,7 +41,7 @@ class SchemeRequest: NSObject {
         }
     }
     
-    static func updateScheme(scheme: Scheme, statusScheme: StatusScheme, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    static func updateScheme(scheme: Scheme, statusScheme: StatusSchemeEnum, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         let allStatus = ApplicationState.sharedInstance.schemeStatus
         var queryParams = [String: Any]()
@@ -94,7 +94,7 @@ class SchemeRequest: NSObject {
         }
     }
     
-    static func getSchemesForUser(owner: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusScheme], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
+    static func getSchemesForUser(owner: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusSchemeEnum], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
         
         var schemes = [Scheme]()
         var queryParams = [String : [Any]]()
@@ -113,9 +113,12 @@ class SchemeRequest: NSObject {
 
         ParseRequest.queryEqualToValueNotContainedObjects(className: SchemeKeys.className, queryType: .or, whereTypes: [.equal], params: queryParams, cachePolicy: .networkElseCache, notContainedObjects: notContainedObjects, includes: [SchemeKeys.requester, SchemeKeys.owner,SchemeKeys.post], pagination: pagination) { (success, msg, objects) in
             if success {
-                for obj in objects! {
-                    let scheme = Scheme(object: obj)
-                    schemes.append(scheme)
+                if let objects = objects {
+                    for obj in objects {
+                        let scheme = obj as? Scheme
+                        scheme?.setupEnums()
+                        schemes.append(scheme!)
+                    }
                 }
                 completionHandler(success, msg, schemes)
             } else {
@@ -125,7 +128,7 @@ class SchemeRequest: NSObject {
     }
     
     
-    static func getRequesterSchemesForUser(requester: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusScheme], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
+    static func getRequesterSchemesForUser(requester: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusSchemeEnum], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
         
         var schemes = [Scheme]()
         var queryParams = [String : [Any]]()
@@ -144,9 +147,12 @@ class SchemeRequest: NSObject {
         ParseRequest.queryEqualToValueNotContainedObjects(className: SchemeKeys.className, queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkElseCache, notContainedObjects: notContainedObjects, includes: [SchemeKeys.owner, SchemeKeys.post, SchemeKeys.requester], pagination: pagination) { (success, msg, objects) in
             
             if success {
-                for obj in objects! {
-                    let scheme = Scheme(object: obj)
-                    schemes.append(scheme)
+                if let objects = objects {
+                    for obj in objects {
+                        let scheme = obj as? Scheme
+                        scheme?.setupEnums()
+                        schemes.append(scheme!)
+                    }
                 }
                 completionHandler(success, msg, schemes)
             } else {
@@ -155,7 +161,7 @@ class SchemeRequest: NSObject {
         }
     }
     
-    static func getOwnerSchemesForUser(owner: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusScheme], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
+    static func getOwnerSchemesForUser(owner: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusSchemeEnum], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
         
         var schemes = [Scheme]()
         var queryParams = [String : [Any]]()
@@ -174,9 +180,12 @@ class SchemeRequest: NSObject {
         ParseRequest.queryEqualToValueNotContainedObjects(className: SchemeKeys.className, queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkElseCache, notContainedObjects: notContainedObjects, includes: [SchemeKeys.owner, SchemeKeys.post, SchemeKeys.requester], pagination: pagination) { (success, msg, objects) in
             
             if success {
-                for obj in objects! {
-                    let scheme = Scheme(object: obj)
-                    schemes.append(scheme)
+                if let objects = objects {
+                    for obj in objects {
+                        let scheme = obj as? Scheme
+                        scheme?.setupEnums()
+                        schemes.append(scheme!)
+                    }
                 }
                 completionHandler(success, msg, schemes)
             } else {

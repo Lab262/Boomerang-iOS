@@ -34,7 +34,7 @@ class TransactionDetailViewController: UIViewController {
         setupPresenterDelegate()
         setupPopoverAction()
         
-        if self.presenter.scheme.statusScheme == .done || self.presenter.scheme.statusScheme == .finished || self.presenter.scheme.statusScheme == .negotiation{
+        if self.presenter.scheme.statusSchemeEnum == .done || self.presenter.scheme.statusSchemeEnum == .finished || self.presenter.scheme.statusSchemeEnum == .negotiation{
             self.finalizeButton.isHidden = true
         }
         configureNavigationsBars()
@@ -42,7 +42,7 @@ class TransactionDetailViewController: UIViewController {
     
     func configureNavigationsBars(){
         
-        switch presenter.scheme.post!.typePost! {
+        switch presenter.scheme.post!.typePostEnum! {
         case .have:
             navigationBar.titleLabelText = TypePostTitles.have
         case .need:

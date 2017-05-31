@@ -17,7 +17,7 @@ class TransactionPresenter: NSObject {
     var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?
     var profile: Profile = User.current()!.profile!
-    var notContainedStatusScheme: [StatusScheme] = [StatusScheme]()
+    var notContainedStatusScheme: [StatusSchemeEnum] = [StatusSchemeEnum]()
     
     fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
     fileprivate var subscriptionOwnerSchemeCreated: Subscription<Scheme>?
@@ -35,17 +35,7 @@ class TransactionPresenter: NSObject {
     // MARK: ARRUMAR ESSA MERDA
     
     func getTransactions() {
-        if ApplicationState.sharedInstance.schemeStatus.count < 1 {
-            requestSchemeStatus { (success, msg) in
-                if success {
-                    self.requestSchemeUser()
-                } else {
-                    print ("GET STATUS ERROR")
-                }
-            }
-        } else {
-            requestSchemeUser()
-        }
+        requestSchemeUser()
     }
     
     private func requestSchemeUser(){

@@ -36,14 +36,14 @@ class TransactionFilterPresenter: NSObject {
         return self.schemes
     }
     
-    func getSchemesFor(postCondition: Condition) -> [Scheme] {
+    func getSchemesFor(postCondition: ConditionEnum) -> [Scheme] {
         let filterSchemes = filterSchemesFor(postCondition: postCondition)
         return filterSchemes
     }
     
-    func filterSchemesFor(postCondition: Condition) -> [Scheme] {
+    func filterSchemesFor(postCondition: ConditionEnum) -> [Scheme] {
         let filteredSchemes = (self.schemes.filter { scheme in
-            return scheme.post?.postCondition == postCondition
+            return scheme.post?.postConditionEnum == postCondition
         })
         return filteredSchemes
     }

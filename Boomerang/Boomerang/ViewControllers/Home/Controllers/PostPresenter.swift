@@ -108,11 +108,11 @@ class PostPresenter: NSObject {
         }
 
     func getIconPost(iconImage: UIImageView, height: NSLayoutConstraint, width: NSLayoutConstraint) {
-        if post.typePost == .have {
+        if post.typePostEnum == .have {
             iconImage.image = #imageLiteral(resourceName: "have-icon")
             height.constant = 25.0
             width.constant = 35.0
-        } else if post.typePost == .need {
+        } else if post.typePostEnum == .need {
             iconImage.image = #imageLiteral(resourceName: "need_icon")
             height.constant = 25.0
             width.constant = 17.0

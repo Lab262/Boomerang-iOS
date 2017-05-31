@@ -15,7 +15,12 @@ protocol PhotoThingDelegate {
 }
 
 class PhotoThingPresenter: NSObject {
-    var post:Post? = Post()
+    var post:Post? = Post() {
+        didSet {
+            self.view?.reload()
+            self.downloadImagesPost(success: false)
+        }
+    }
     fileprivate let pagination = 3
     fileprivate var skip = 0
     fileprivate var comments = [Comment]()
@@ -66,11 +71,11 @@ class PhotoThingPresenter: NSObject {
     }
 
     func getIconPost(iconImage: UIImageView, height: NSLayoutConstraint, width: NSLayoutConstraint) {
-        if post!.typePost == .have {
+        if post!.typePostEnum == .have {
             iconImage.image = #imageLiteral(resourceName: "have-icon")
-            height.constant = 25.0
-            width.constant = 35.0
-        } else if post!.typePost == .need {
+            height.constant = 35.0
+            width.constant = 25.0
+        } else if post!.typePostEnum == .need {
             iconImage.image = #imageLiteral(resourceName: "need_icon")
             height.constant = 25.0
             width.constant = 17.0
