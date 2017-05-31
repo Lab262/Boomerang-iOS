@@ -19,7 +19,7 @@ class TransactionDetailCellPresenter: NSObject {
     
     var scheme: Scheme = Scheme()
     fileprivate var view: TransactionDetailCellDelegate?
-    var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
+    var profile: Profile = User.current()!.profile!
     
     func setViewDelegate(view: TransactionDetailCellDelegate) {
         self.view = view

@@ -26,7 +26,7 @@ class TransactionCellPresenter: NSObject {
     
     var scheme: Scheme = Scheme()
     fileprivate var view: TransactionCellDelegate?
-    var user: User = ApplicationState.sharedInstance.currentUser!
+    var user: User = User.current()!
     
     func setViewDelegate(view: TransactionCellDelegate) {
         self.view = view

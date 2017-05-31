@@ -205,6 +205,7 @@ struct PostKeys {
 
 struct FollowKeys {
     static let from = "from"
+    static let to = "to"
 }
 
 //MARK - User keys

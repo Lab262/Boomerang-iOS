@@ -71,8 +71,6 @@ class RecommendedPostTableViewCell: UITableViewCell {
         
         cell.postImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
-        cell.setupCell()
-        
         
         return cell
     }
@@ -151,7 +149,6 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
                 pageIndicatorView?.selectedPage = index.row
             }
         }
-        
         
         if let index = indexPath {
             pageIndicatorView?.selectedPage = index.row

@@ -24,7 +24,7 @@ class RightMenuTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var mainViewController: UIViewController!
-    var user = ApplicationState.sharedInstance.currentUser
+    var user = User.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()

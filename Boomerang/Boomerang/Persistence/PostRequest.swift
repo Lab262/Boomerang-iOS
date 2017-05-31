@@ -11,6 +11,7 @@ import Parse
 
 class PostRequest: NSObject {
     
+    let userDefaults = UserDefaults.standard
     
     static func fetchFeaturedPosts(postsDownloaded:[Post], completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
@@ -148,7 +149,7 @@ class PostRequest: NSObject {
         query.order(byDescending: "createdAt")
         query.includeKey("author")
        
-        profiles.append(ApplicationState.sharedInstance.currentUser!.profile!)
+        profiles.append(User.current()!.profile!)
         
         var notContainedObjectIds = [String]()
         
@@ -322,11 +323,13 @@ class PostRequest: NSObject {
         
         var allTypes = [PostType]()
         
-        ParseRequest.queryGetAllObjects(className: "PostType") { (success, msg, objects) in
+        ParseRequest.queryGetAllObjects(className: PostType.parseClassName()) { (success, msg, objects) in
             if success {
-                objects!.forEach {
-                    let type = PostType(object: $0)
-                    allTypes.append(type)
+                if let objects = objects {
+                    objects.forEach {
+                        let type = $0 as? PostType
+                        allTypes.append(type!)
+                    }
                 }
                 ApplicationState.sharedInstance.postTypes = allTypes
             }
@@ -334,17 +337,21 @@ class PostRequest: NSObject {
         }
     }
     
+    
     static func getAllConditions (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         var allConditions = [PostCondition]()
         
-        ParseRequest.queryGetAllObjects(className: "PostCondition") { (success, msg, objects) in
+        ParseRequest.queryGetAllObjects(className: PostCondition.parseClassName()) { (success, msg, objects) in
             if success {
-                objects!.forEach {
-                    let condition = PostCondition(object: $0)
-                    allConditions.append(condition)
+                if let objects = objects {
+                    objects.forEach {
+                        let condition = $0 as? PostCondition
+                        allConditions.append(condition!)
+                    }
                 }
                 ApplicationState.sharedInstance.postConditions = allConditions
+                
             }
             completionHandler(success, msg)
         }

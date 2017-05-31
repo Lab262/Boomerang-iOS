@@ -15,7 +15,7 @@ class NotificationPresenter: NSObject {
     fileprivate var skip = 0
     fileprivate var notifications: [NotificationModel] = [NotificationModel]()
     fileprivate var view: ViewDelegate?
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate var user: User = User.current()!
     fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
     
     fileprivate var subscriptionNotificationCreated: Subscription<NotificationModel>?

@@ -17,7 +17,7 @@ protocol RecommendedDelegate{
 
 class RecommendedPresenter: NSObject {
     var post: Post?
-    var sender: Profile = ApplicationState.sharedInstance.currentUser!.profile!
+    var sender: Profile = User.current()!.profile!
     var friends: [Profile] = [Profile]()
     
     private var view: RecommendedDelegate?

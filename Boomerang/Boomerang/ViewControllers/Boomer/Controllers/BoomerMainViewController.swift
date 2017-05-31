@@ -12,7 +12,7 @@ class BoomerMainViewController: UIViewController {
 
     @IBOutlet weak var titleNavigation: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
-    var user = ApplicationState.sharedInstance.currentUser
+    var user = User.current()!
     var type: TypePost = TypePost.need
     var titlePost = String()
     var presenter = HomePresenter()
@@ -30,7 +30,7 @@ class BoomerMainViewController: UIViewController {
     }
     
     func getProfilePhoto(){
-        self.profileImage.getUserImage(profile: self.user!.profile!) { (success, msg) in
+        self.profileImage.getUserImage(profile: self.user.profile!) { (success, msg) in
             
         }
     }

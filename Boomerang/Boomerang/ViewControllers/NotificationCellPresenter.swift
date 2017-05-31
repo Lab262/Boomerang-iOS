@@ -22,7 +22,7 @@ class NotificationCellPresenter: NSObject {
     fileprivate var skip = 0
     fileprivate var notification: NotificationModel?
     fileprivate var view: NotificationCellDelegate?
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate var user: User = User.current()!
     
     func setViewDelegate(view: NotificationCellDelegate) {
         self.view = view

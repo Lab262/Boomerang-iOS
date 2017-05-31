@@ -19,11 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool{
         
-        //Fabric.with([Crashlytics.self])
-        
-         // URLS.setupBaseURL()
-
-        
+  
         Fabric.with([Crashlytics.self])
         
         Parse.initialize(with: AppConfig.parse.baseClientConfig)

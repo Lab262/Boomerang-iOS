@@ -368,7 +368,7 @@ class ThrowViewController: UIViewController {
         
         self.view.endEditing(true)
         let post = Post(author:
-            ApplicationState.sharedInstance.currentUser!.profile!,
+            User.current()!.profile!,
                         title: params[CreatePostTitles.keyParseTitle]!,
                         content: params[CreatePostTitles.keyParseContent]!,
                         loanTime: params[CreatePostTitles.keyParseTime],

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Parse
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -37,7 +37,7 @@ class SettingViewController: UIViewController {
     func disconect(){
         var initialViewController: UIViewController? = nil
         
-        ApplicationState.sharedInstance.currentUser = nil
+        //PFUser.current() = nil
         initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "")
         
         self.present(initialViewController!, animated:true, completion:nil)

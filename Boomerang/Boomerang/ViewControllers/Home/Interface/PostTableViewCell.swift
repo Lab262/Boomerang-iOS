@@ -31,27 +31,28 @@ class PostTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNib()
+        setupViewDelegate()
     }
     
-    func reloadCollection(){
-        collectionView.reloadData()
-    }
-
     func registerNib(){
         collectionView.registerNibFrom(PostCollectionViewCell.self)
         collectionView.registerNibFrom(SeeMoreCollectionViewCell.self)
     }
     
-    func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func setupViewDelegate() {
+        presenter.setViewDelegate(view: self)
+    }
+    
+    func generatePostCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
         cell.coverImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
-        cell.setupCell()
         
         return cell
     }
     
-    func generateSeeMoreCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func generateSeeMoreCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeeMoreCollectionViewCell.identifier, for: indexPath) as! SeeMoreCollectionViewCell
         
         return cell
@@ -103,15 +104,23 @@ extension PostTableViewCell: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         var visibleRect = CGRect()
-        
         visibleRect.origin = collectionView.contentOffset
         visibleRect.size = collectionView.bounds.size
         
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        
         let visibleIndexPath: IndexPath = collectionView.indexPathForItem(at: visiblePoint)!
-        
         print(visibleIndexPath)
+    }
+}
+
+extension PostTableViewCell: ViewDelegate {
+    
+    func reload() {
+        self.collectionView.reloadData()
+    }
+    
+    func showMessageError(msg: String) {
+        
     }
 }
 

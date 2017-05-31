@@ -41,6 +41,11 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         containerIconView.roundCorners(corners: [.bottomLeft], radius: 100.0)
         configureDynamicFont()
+        setupViewDelegate()
+    }
+    
+    func setupViewDelegate() {
+        presenter.setViewDelegate(view: self)
     }
     
     func configureDynamicFont(){
@@ -76,5 +81,16 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
                 print ("FAIL COVER POST")
             }
         }
+    }
+}
+
+extension RecommendedPostCollectionViewCell: ViewDelegate {
+    
+    func reload() {
+        setupCell()
+    }
+    
+    func showMessageError(msg: String) {
+        
     }
 }

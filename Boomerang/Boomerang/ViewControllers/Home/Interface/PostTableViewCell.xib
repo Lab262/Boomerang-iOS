@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ESc-Ae-kgV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="227"/>
+                        <rect key="frame" x="0.0" y="-1" width="375" height="228"/>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6NI-fj-WXi" customClass="CenterCellCollectionViewFlowLayout" customModule="lab262_boomerang_dev" customModuleProvider="target">
                             <size key="itemSize" width="50" height="50"/>
@@ -38,10 +38,11 @@
                     <constraint firstItem="ESc-Ae-kgV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3sp-G2-HpI"/>
                     <constraint firstAttribute="bottom" secondItem="ESc-Ae-kgV" secondAttribute="bottom" id="5O3-PN-c0Q"/>
                     <constraint firstAttribute="trailing" secondItem="ESc-Ae-kgV" secondAttribute="trailing" id="Isl-6N-8IJ"/>
-                    <constraint firstItem="ESc-Ae-kgV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WNL-yE-mtX"/>
+                    <constraint firstItem="ESc-Ae-kgV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-1" id="WNL-yE-mtX"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
             <connections>
                 <outlet property="collectionView" destination="ESc-Ae-kgV" id="WFV-fd-6mp"/>
             </connections>

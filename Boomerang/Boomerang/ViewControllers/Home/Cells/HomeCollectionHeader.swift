@@ -15,7 +15,7 @@ class HomeCollectionHeader: UITableViewCell {
     }
     
     static var cellHeight: CGFloat {
-        return 70.0
+        return 65.0
     }
     
     static var nibName: String {

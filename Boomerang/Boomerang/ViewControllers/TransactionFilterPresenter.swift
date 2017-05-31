@@ -14,7 +14,7 @@ class TransactionFilterPresenter: NSObject {
     fileprivate var schemes: [Scheme] = [Scheme]()
     fileprivate var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate var user: User = User.current()!
     
     func setViewDelegate(view: ViewDelegate) {
         self.view = view

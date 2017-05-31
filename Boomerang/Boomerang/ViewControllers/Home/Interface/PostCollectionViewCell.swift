@@ -36,6 +36,11 @@ class PostCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         configureDynamicFont()
+        setupViewDelegate()
+    }
+    
+    func setupViewDelegate(){
+        presenter.setViewDelegate(view: self)
     }
     
     func configureDynamicFont(){
@@ -62,5 +67,14 @@ class PostCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+}
 
+extension PostCollectionViewCell: ViewDelegate {
+    func reload() {
+        setupCell()
+    }
+    
+    func showMessageError(msg: String) {
+        
+    }
 }

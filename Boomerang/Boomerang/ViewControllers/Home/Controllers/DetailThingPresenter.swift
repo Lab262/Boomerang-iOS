@@ -28,7 +28,7 @@ class DetailThingPresenter: NSObject {
     var post: Post = Post()
     var comments = [Comment]()
     var currentCommentsCount = 0
-    var profile = ApplicationState.sharedInstance.currentUser!.profile
+    var profile = User.current()!.profile
     let enterInterestedTitleButton: String = TitleButtons.enterInterested
     let exitInterestedTitleButton: String = TitleButtons.exitInterested
     let recommendedTitleButton: String = TitleButtons.recommended

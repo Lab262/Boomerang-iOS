@@ -11,7 +11,7 @@ import UIKit
 import Parse
 
 class BoomerPresenter: NSObject {
-    fileprivate var user: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate var user: User =  User.current()!
    
     
     func getUserImage(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void) {

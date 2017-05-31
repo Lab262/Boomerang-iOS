@@ -21,17 +21,18 @@ class User: PFUser {
     var follow: Follow?
     
     
-    static var current: User? {
-        return PFUser.current() as? User
-    }
+//    static var current: User? {
+//        return PFUser.current() as? User
+//    }
     
     override init() {
         super.init()
     }
+    
 
 //    convenience init(user: PFUser) {
 //        self.init()
-//        
+//
 //        setInformationsUserByPFUser(user: user)
 //    }
 //    

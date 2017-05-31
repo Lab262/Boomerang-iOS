@@ -40,11 +40,11 @@ class ApplicationState: NSObject {
     
     
     
-    var currentUser: User? {
-        didSet {
-            
-        }
-    }
+//    var currentUser: User? {
+//        didSet {
+//            
+//        }
+//    }
     
     func callDelegateUpdate(post: Post?, success: Bool, updateType: UpdateType){
         ApplicationState.sharedInstance.delegate?.updateRelationsPost(post: post, success: success, updateType: updateType)
@@ -59,6 +59,6 @@ class ApplicationState: NSObject {
     
     private init(singleton: Bool) {
         super.init()
-        self.currentUser = PFUser.current() as? User
+        //self.currentUser = PFUser.current() as? User
     }
 }

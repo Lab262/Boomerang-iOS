@@ -20,7 +20,7 @@ class PhotoThingPresenter: NSObject {
     fileprivate var skip = 0
     fileprivate var comments = [Comment]()
     fileprivate var currentCommentsCount = 0
-    fileprivate var user = ApplicationState.sharedInstance.currentUser
+    fileprivate var user = User.current()
     
     fileprivate let enterInterestedTitleButton: String = "Entrar da fila"
     fileprivate let exitInterestedTitleButton: String = "Sair da fila"

@@ -20,7 +20,7 @@ class TransactionDetailPresenter: NSObject {
 
     var scheme: Scheme = Scheme()
     fileprivate var view: TransactionDetailDelegate?
-    var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
+    var profile: Profile = User.current()!.profile!
     var chat: Chat = Chat()
     
     func setViewDelegate(view: TransactionDetailDelegate) {

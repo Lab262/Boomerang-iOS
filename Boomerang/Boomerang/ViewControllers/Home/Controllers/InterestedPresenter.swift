@@ -25,7 +25,7 @@ class InterestedPresenter: NSObject {
     fileprivate var skip = 0
     fileprivate var view: InterestedDelegate?
     fileprivate var currentInterestedsCount = 0
-    fileprivate var currentUser: User = ApplicationState.sharedInstance.currentUser!
+    fileprivate var currentUser: User = User.current()!
     fileprivate var chat: Chat = Chat()
     
     func setViewDelegate(view: InterestedDelegate) {

@@ -9,16 +9,30 @@
 import UIKit
 import Parse
 
+
+//protocol PostTableCellDelegate {
+//    func reload()
+//}
+
 class PostPresenter: NSObject {
     
-    var post: Post = Post()
-    var posts: [Post] = [Post]()
-    var view: ViewDelegate?
-    var user: User = ApplicationState.sharedInstance.currentUser!
+    var post: Post = Post() {
+        didSet {
+            self.delegate?.reload()
+        }
+    }
+    
+    var posts: [Post] = [Post]() {
+        didSet {
+            self.delegate?.reload()
+        }
+    }
+    var delegate: ViewDelegate?
+    var user: User = User.current()!
     
     
     func setViewDelegate(view: ViewDelegate) {
-        self.view = view
+        self.delegate = view
     }
     
     func getCountPhotos(){
@@ -93,25 +107,6 @@ class PostPresenter: NSObject {
 //            completionHandler(true, "success", cover)
         }
 
-//        if let relations = post.relations {
-//            guard let cover = relations.first?.photo else {
-//                relations.first?.getDataInBackgroundBy(key: "imageFile", completionHandler: { (success, msg, data) in
-//                    
-//                    if success {
-//                        relations.first?.photo = UIImage(data: data!)
-//                        relations.first?.isDownloadedImage = true
-//                        completionHandler(success, msg, relations.first?.photo)
-//                    } else {
-//                        completionHandler(success, msg, nil)
-//                    }
-//                })
-//                return
-//            }
-//            
-//            completionHandler(true, "success", cover)
-//        }
-//    }
-    
     func getIconPost(iconImage: UIImageView, height: NSLayoutConstraint, width: NSLayoutConstraint) {
         if post.typePost == .have {
             iconImage.image = #imageLiteral(resourceName: "have-icon")

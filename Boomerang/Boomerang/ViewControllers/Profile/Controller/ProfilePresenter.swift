@@ -11,7 +11,7 @@ import Parse
 
 class ProfilePresenter: NSObject {
     
-    fileprivate var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
+    fileprivate var profile: Profile = User.current()!.profile!
     fileprivate let pagination = 20
     fileprivate var skip = 0
     fileprivate var allPosts: [Post] = [Post]()
@@ -82,7 +82,7 @@ class ProfilePresenter: NSObject {
     
     func followUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
         
-        let follow = Follow(from: ApplicationState.sharedInstance.currentUser!.profile!, to: profile)
+        let follow = Follow(from: User.current()!.profile!, to: profile)
         
         follow.saveObjectInBackground { (success, msg) in
             if success {
@@ -95,7 +95,7 @@ class ProfilePresenter: NSObject {
     
     func unfollowUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()){
         
-        UserRequest.unfollowUser(currentProfile: ApplicationState.sharedInstance.currentUser!.profile!, otherProfile: profile) { (success, msg) in
+        UserRequest.unfollowUser(currentProfile: User.current()!.profile!, otherProfile: profile) { (success, msg) in
             if success {
                 completionHandler(true, msg)
             } else {
@@ -106,7 +106,7 @@ class ProfilePresenter: NSObject {
     
     func authorPostIsCurrent() -> Bool {
         
-        if self.profile.objectId == ApplicationState.sharedInstance.currentUser?.profile?.objectId {
+        if self.profile.objectId == User.current()!.profile?.objectId {
             return true
         } else {
             return false
@@ -135,7 +135,7 @@ class ProfilePresenter: NSObject {
     }
     
     func alreadyFollowing(completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool?) -> ()){
-        UserRequest.verifyAlreadyFollowingFor(currentProfile: ApplicationState.sharedInstance.currentUser!.profile!, otherProfile: profile) { (success, msg, alreadyFollow) in
+        UserRequest.verifyAlreadyFollowingFor(currentProfile: User.current()!.profile!, otherProfile: profile) { (success, msg, alreadyFollow) in
             if success {
                 completionHandler(true, msg, alreadyFollow)
             } else {

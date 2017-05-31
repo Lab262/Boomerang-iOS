@@ -53,7 +53,7 @@ class UserRequest: NSObject {
         
         let userDetails = FBSDKGraphRequest(graphPath: FacebookParams.meGraphPath, parameters: requestParameters)
         
-        userDetails?.start(completionHandler: { (_, result, error) in
+        userDetails!.start(completionHandler: { (_, result, error) in
             if let result = result, error == nil {
                 completionHandler(true, "", result)
             } else {
@@ -62,34 +62,12 @@ class UserRequest: NSObject {
         })
 
     }
-
-    
-    static func createAccountUser(user: User, pass: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
-        
-        let pfUser = PFUser()
-        
-        pfUser.password = pass
-        pfUser.email = user.email
-        
-        pfUser.signUpInBackground { (success, error) in
-            if error == nil {
-                completionHandler(true, "Sucesso")
-            } else {
-                
-                completionHandler(false, error.debugDescription)
-            }
-        }
-    }
     
     static func getProfileUser(completionHandler: @escaping (_ sucess: Bool, _ msg: String) -> ()) {
-        let user = PFUser.current()!
-        user.fetchObjectInBackgroundBy(key: "profile") { (success, msg, profile) in
+        let user = User.current()!
+        user.fetchObjectInBackgroundBy(key: UserKeys.profile) { (success, msg, profile) in
             if success {
-                ApplicationState.sharedInstance.currentUser = PFUser.current() as? User
-                if let profile = profile {
-                    ApplicationState.sharedInstance.currentUser!.profile = Profile(object: profile)
-                    completionHandler(success, msg)
-                }
+                completionHandler(success, msg)
             } else {
                 completionHandler(success, msg)
             }
@@ -99,7 +77,7 @@ class UserRequest: NSObject {
     static func getAllProfiles(profilesDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ profiles: [Profile]?) -> Void)  {
         
         var notContainedObjectIds = [String]()
-        notContainedObjectIds.append(ApplicationState.sharedInstance.currentUser!.profile!.objectId!)
+        notContainedObjectIds.append(User.current()!.objectId!)
         profilesDownloaded.forEach{
             notContainedObjectIds.append($0.objectId!)
         }
@@ -190,11 +168,11 @@ class UserRequest: NSObject {
     static func unfollowUser(currentProfile: Profile, otherProfile: Profile, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         var queryParams = [String : Any]()
-        queryParams["from"] = currentProfile
-        queryParams["to"] = otherProfile
+        queryParams[FollowKeys.from] = currentProfile
+        queryParams[FollowKeys.to] = otherProfile
         
         
-        ParseRequest.queryToUpdateToDeletedWithParams(className: "Follow", params: queryParams) { (success, msg) in
+        ParseRequest.queryToUpdateToDeletedWithParams(className: Follow.parseClassName(), params: queryParams) { (success, msg) in
             completionHandler(success, "success")
         }
     }
@@ -214,17 +192,20 @@ class UserRequest: NSObject {
     static func verifyAlreadyFollowingFor(currentProfile: Profile, otherProfile: Profile, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyFollow: Bool) -> ()) {
         
         var queryParams = [String : Any]()
-        queryParams["from"] = currentProfile
-        queryParams["to"] = otherProfile
-        print ("OTHER PROFILE\(otherProfile)")
+        queryParams[FollowKeys.from] = currentProfile
+        queryParams[FollowKeys.to] = otherProfile
         
-        ParseRequest.queryEqualToValue(className: "Follow", queryParams: queryParams, includes: nil) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: Follow.parseClassName(), queryParams: queryParams, includes: nil) { (success, msg, objects) in
             if success {
-                if objects!.count > 0 {
-                    completionHandler(true, "Success", true)
-                } else {
-                    completionHandler(true, msg, false)
+                if let objects = objects {
+                    if objects.count > 0 {
+                        completionHandler(true, "Success", true)
+                    } else {
+                        completionHandler(true, "no following", false)
+                    }
                 }
+            } else {
+                completionHandler(success, msg, false)
             }
         }
     }
@@ -233,7 +214,7 @@ class UserRequest: NSObject {
     static func fetchFollowing(fromProfile: Profile, followingDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
         
         var following: [Profile] = [Profile]()
-        let queryParams = ["from" : [fromProfile]]
+        let queryParams = [FollowKeys.from : [fromProfile]]
     
         var notContainedObjectIds = [String]()
         
@@ -241,14 +222,13 @@ class UserRequest: NSObject {
             notContainedObjectIds.append($0.objectId!)
         }
         
-        let notContainedObjects = ["objectId": notContainedObjectIds]
+        let notContainedObjects = [ObjectKeys.objectId: notContainedObjectIds]
         
-        
-        ParseRequest.queryEqualToValueNotContainedObjects(className: "Follow", queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkOnly, notContainedObjects: notContainedObjects, includes: ["to"], pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryEqualToValueNotContainedObjects(className: Follow.parseClassName(), queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkOnly, notContainedObjects: notContainedObjects, includes: [FollowKeys.to], pagination: pagination) { (success, msg, objects) in
             if success {
                 for object in objects! {
-                    if let follow =  object.object(forKey: "to") as? PFObject {
-                        let profile = Profile(object: follow)
+                    if let follow =  object.object(forKey: FollowKeys.to) as? Profile {
+                        let profile = follow
                         following.append(profile)
                     }
                 }

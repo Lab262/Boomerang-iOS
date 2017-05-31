@@ -48,12 +48,12 @@ class SearchFriendsCellPresenter: NSObject {
         
         switch action {
         case .follow:
-            let follow = Follow(from: ApplicationState.sharedInstance.currentUser!.profile!, to: profile)
+            let follow = Follow(from: User.current()!.profile!, to: profile)
             follow.saveObjectInBackground { (success, msg) in
                 completionHandler(success, msg)
             }
         case .unfollow:
-            UserRequest.unfollowUser(currentProfile: ApplicationState.sharedInstance.currentUser!.profile!, otherProfile: profile) { (success, msg) in
+            UserRequest.unfollowUser(currentProfile: User.current()!.profile!, otherProfile: profile) { (success, msg) in
                 completionHandler(success, msg)
             }
         }
@@ -63,7 +63,7 @@ class SearchFriendsCellPresenter: NSObject {
         if let alReadyFollow = profile.alreadyFollow {
             self.view?.following = alReadyFollow
         } else {
-            UserRequest.verifyAlreadyFollowingFor(currentProfile: ApplicationState.sharedInstance.currentUser!.profile!, otherProfile: profile) { (success, msg, alreadyFollow) in
+            UserRequest.verifyAlreadyFollowingFor(currentProfile: User.current()!.profile!, otherProfile: profile) { (success, msg, alreadyFollow) in
                 if success {
                     self.view?.following = alreadyFollow
                     self.profile.alreadyFollow = alreadyFollow

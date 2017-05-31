@@ -14,13 +14,14 @@ import ParseLiveQuery
 class HomePresenter: NSObject {
 
     var featuredPosts = [Post]()
-    private var view: ViewDelegate?
+    private var delegate: ViewDelegate?
     var following: [Profile] = [Profile]()
     var friendsPosts: [Post] = [Post]()
     var othersPosts: [Post] = [Post]()
     var post: Post = Post()
-    var user: User = ApplicationState.sharedInstance.currentUser!
+    var profile: Profile = User.current()!.profile!
     var currentPostsFriendsCount = 0
+    var currentSectionPost: SectionPost?
     
     fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
     
@@ -30,94 +31,37 @@ class HomePresenter: NSObject {
     fileprivate var subscriptionPostCreated: Subscription<Post>?
     fileprivate var subscriptionPostUpdated: Subscription<Post>?
     
-    //var liveQuerySetups: [(query: PFQuery<PFObject>, event: Event<T>, theFunction: ())]?  // someTuple is of type (top: Int, bottom: Int)
     
-    //var liveQuerySetups = [(query: followQuery, event: Event.created, theFunction: self.getFriends()), (query: followQuery, event: Event.updated, theFunction: self.getFriends())]
-    
-    func setControllerDelegate(view: ViewDelegate) {
-        self.view = view
+    func setControllerDelegate(delegate: ViewDelegate) {
+        self.delegate = delegate
     }
     
-    
     func getTimeLinePosts() {
-       //getProfile()
         self.getFriends()
         self.getPostsOfTheOtherUsers()
         self.getFeaturedPosts()
     }
     
-//    func getFeaturedPosts() -> [Post] {
-//        featuredPosts = [Post]()
-//        let allPosts = friendsPosts + othersPosts
-//        for post in allPosts where post.isFeatured! {
-//            featuredPosts.append(post)
-//        }
-//        return featuredPosts
-//    }
-//    
     func getFeaturedPosts() {
         PostRequest.fetchFeaturedPosts(postsDownloaded: self.featuredPosts) { (success, msg, posts) in
             if success {
                 posts!.forEach {
                     self.featuredPosts.append($0)
                 }
-                self.view?.reload()
+                self.delegate?.reload()
             } else {
-                self.view?.showMessageError(msg: msg)
+                self.delegate?.showMessageError(msg: msg)
             }
         }
     }
     
-//    private func getAllPostTypes() {
-//        requestAllPostTypes(completionHandler: { (success, msg) in
-//            if success {
-//                self.getAllPostConditions()
-//            } else {
-//                self.view?.showMessageError(msg: msg)
-//            }
-//        })
-//    }
-//    
-//    private func getAllPostConditions() {
-//        requestAllPostConditions(completionHandler: { (success, msg) in
-//            if success {
-//                self.getAllSchemeStatus()
-//            } else {
-//                self.view?.showMessageError(msg: msg)
-//            }
-//        })
-//    }
-//    
-//    
-//    private func getAllSchemeStatus() {
-//        requestSchemeStatus(completionHandler: { (success, msg) in
-//            if success {
-//                self.getFriends()
-//                self.getPostsOfTheOtherUsers()
-//                self.getFeaturedPosts()
-//            } else {
-//                self.view?.showMessageError(msg: msg)
-//            }
-//        })
-//    }
-    
-//    private func getProfile() {
-//        UserRequest.getProfileUser { (success, msg) in
-//            if success {
-//                self.getAllPostTypes()
-//            } else {
-//                self.view?.showMessageError(msg: msg)
-//            }
-//        }
-//    }
-    
     fileprivate func getFriends() {
-        UserRequest.fetchFollowing(fromProfile: user.profile!, followingDownloaded: self.following, pagination: Paginations.friends) { (success, msg, following) in
+        UserRequest.fetchFollowing(fromProfile: profile, followingDownloaded: self.following, pagination: Paginations.friends) { (success, msg, following) in
             if success {
                 if following!.count < 1 {
                     self.following = following!
                     self.friendsPosts = [Post]()
-                    self.view?.reload()
+                    self.delegate?.reload()
                 } else {
                     for f in following! {
                         self.following.append(f)
@@ -125,7 +69,7 @@ class HomePresenter: NSObject {
                     self.getPostsByFriends()
                 }
             } else {
-                self.view?.showMessageError(msg: msg)
+                self.delegate?.showMessageError(msg: msg)
             }
         }
     }
@@ -136,10 +80,10 @@ class HomePresenter: NSObject {
                 for post in posts! {
                     self.friendsPosts.append(post)
                 }
-                self.view?.reload()
+                self.delegate?.reload()
                 self.currentPostsFriendsCount = self.friendsPosts.count
             } else {
-                self.view?.showMessageError(msg: msg)
+                self.delegate?.showMessageError(msg: msg)
             }
         }
     }
@@ -150,9 +94,9 @@ class HomePresenter: NSObject {
                 posts!.forEach {
                     self.othersPosts.append($0)
                 }
-                self.view?.reload()
+                self.delegate?.reload()
             } else {
-                self.view?.showMessageError(msg: msg)
+                self.delegate?.showMessageError(msg: msg)
             }
         }
     }
@@ -178,7 +122,7 @@ class HomePresenter: NSObject {
     fileprivate func appendNewPostInFeatured(post: Post) {
         self.featuredPosts.removeLast()
         self.featuredPosts.insert(post, at: 0)
-        self.view?.reload()
+        self.delegate?.reload()
     }
 }
 
@@ -188,7 +132,7 @@ extension HomePresenter {
     
     fileprivate var followQuery: PFQuery<Follow>? {
         return (Follow.query()?
-            .whereKey(FollowKeys.from, equalTo: self.user.profile!)
+            .whereKey(FollowKeys.from, equalTo: profile)
             .order(byAscending: ObjectKeys.createdAt) as! PFQuery<Follow>)
     }
     

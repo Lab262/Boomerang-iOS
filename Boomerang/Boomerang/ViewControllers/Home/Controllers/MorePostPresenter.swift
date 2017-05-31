@@ -22,7 +22,7 @@ class MorePostPresenter: NSObject {
     
     var posts: [Post] = [Post]()
     var friends: [Profile] = [Profile]()
-    var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
+    var profile: Profile = User.current()!.profile!
     var view: MorePostDelegate?
     var sectionPost: SectionPost?
     

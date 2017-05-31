@@ -15,6 +15,7 @@ protocol ViewDelegate {
 }
 
 class HomeMainViewController: UIViewController {
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var greetingText: UILabel!
@@ -22,7 +23,6 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var boomerThingDelegate: UICollectionViewDelegate?
-    var currentSectionPost: SectionPost?
     var currentIndex: IndexPath?
     let tableViewTopInset: CGFloat = 0
     let tableViewBottomInset: CGFloat = 40.0
@@ -45,7 +45,7 @@ class HomeMainViewController: UIViewController {
         registerObservers()
         getTimeLinePosts()
         setupSubscribe()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
     }
     
     func setupSubscribe() {
@@ -65,9 +65,8 @@ class HomeMainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let controller = segue.destination as? ThingDetailViewController {
-            switch currentSectionPost! {
+            switch presenter.currentSectionPost! {
             case .recommended:
                 controller.presenter.post = presenter.featuredPosts[currentIndex!.row]
             case .friends:
@@ -78,17 +77,17 @@ class HomeMainViewController: UIViewController {
         }
         
         if let controller = segue.destination as? MorePostViewController {
-            switch currentSectionPost! {
+            switch presenter.currentSectionPost! {
             case .recommended:
                 controller.presenter.posts = presenter.featuredPosts
-                controller.presenter.sectionPost = currentSectionPost
+                controller.presenter.sectionPost = presenter.currentSectionPost
             case .friends:
                 controller.presenter.posts = presenter.friendsPosts
-                controller.presenter.sectionPost = currentSectionPost
+                controller.presenter.sectionPost = presenter.currentSectionPost
                 controller.presenter.friends = presenter.following
             case .city:
                 controller.presenter.posts = presenter.othersPosts
-                controller.presenter.sectionPost = currentSectionPost
+                controller.presenter.sectionPost = presenter.currentSectionPost
             }
         }
     }
@@ -141,9 +140,9 @@ extension HomeMainViewController: UITableViewDelegate {
         
         switch indexPath.section {
         case 0:
-            return 350
+            return 350 * UIView.heightScaleProportion()
         default:
-            return 250
+            return 250 * UIView.heightScaleProportion()
         }
  
     }
@@ -152,9 +151,9 @@ extension HomeMainViewController: UITableViewDelegate {
         
         switch section {
         case 1, 2:
-            return 50
+            return HeaderPostTableViewCell.cellHeight
         default:
-            return 0
+            return CGFloat.leastNonzeroMagnitude
         }
     }
     
@@ -167,13 +166,13 @@ extension HomeMainViewController: UITableViewDelegate {
 extension HomeMainViewController {
     
     func setupUserInformationsInHUD(){
-        greetingText.text = HomeHeaderTitles.greeting + presenter.user.firstName!
-        profileImage.getUserImageFrom(file: presenter.user.photo!) { (success, msg) in
+        greetingText.text = HomeHeaderTitles.greeting + presenter.profile.firstName!
+        profileImage.getUserImageFrom(file: presenter.profile.photo!) { (success, msg) in
         }
     }
     
     func setupViewDelegate() {
-        presenter.setControllerDelegate(view: self)
+        presenter.setControllerDelegate(delegate: self)
     }
     
     func setupNavigationConfiguration() {
@@ -230,7 +229,6 @@ extension HomeMainViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
         
         cell.presenter.posts = presenter.friendsPosts
-        cell.reloadCollection()
         cell.tag = SectionPost.friends.rawValue
         cell.delegate = self
         cell.selectionDelegate = self
@@ -242,22 +240,13 @@ extension HomeMainViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
         
         cell.presenter.posts = presenter.othersPosts
-        cell.reloadCollection()
         cell.tag = SectionPost.city.rawValue
         cell.delegate = self
         cell.selectionDelegate = self
         
         return cell
     }
-    
-    func generateMorePostsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
-        let cell = UITableViewCell(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width/4, height: 250))
-        cell.backgroundColor = UIColor.yellowBoomerColor
-        cell.textLabel?.text = "VIEW MORE"
-        cell.textLabel?.textAlignment = .center
-        
-        return cell
-    }
+
 }
 
 extension HomeMainViewController: UIScrollViewDelegate {
@@ -325,7 +314,7 @@ extension HomeMainViewController: UpdateCellDelegate{
 extension HomeMainViewController: CollectionViewSelectionDelegate {
     func pushFor(identifier: String, sectionPost: SectionPost, didSelectItemAt indexPath: IndexPath) {
         self.currentIndex = indexPath
-        self.currentSectionPost = sectionPost
+        presenter.currentSectionPost = sectionPost
         self.performSegue(withIdentifier: identifier, sender: self)
     }
 }

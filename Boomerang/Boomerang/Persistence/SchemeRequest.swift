@@ -192,9 +192,11 @@ class SchemeRequest: NSObject {
         var schemeStatus = [SchemeStatus]()
         ParseRequest.queryGetAllObjects(className: SchemeStatus.parseClassName()) { (success, msg, objects) in
             if success {
-                objects!.forEach {
-                    let status = SchemeStatus(object: $0)
-                    schemeStatus.append(status)
+                if let objects = objects {
+                    objects.forEach {
+                        let status = $0 as? SchemeStatus
+                        schemeStatus.append(status!)
+                    }
                 }
                 ApplicationState.sharedInstance.schemeStatus = schemeStatus
             }

@@ -21,7 +21,7 @@ class ChatPresenter: NSObject {
     fileprivate let pagination = Paginations.messages
     var chat: Chat = Chat()
     fileprivate var view: ChatDelegate?
-    var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
+    var profile: Profile = User.current()!.profile!
     var messages = [JSQMessage]()
     
     fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient

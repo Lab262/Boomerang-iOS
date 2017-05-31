@@ -16,7 +16,7 @@ class RightMenuCell: UITableViewCell {
     @IBOutlet weak var imageSmallSizeConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundCircleView: UIView!
     
-    var user = ApplicationState.sharedInstance.currentUser
+    var user = User.current()
     
     var cellImage: UIImage? {
         didSet{

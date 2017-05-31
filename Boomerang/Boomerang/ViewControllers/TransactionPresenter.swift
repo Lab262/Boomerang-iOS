@@ -16,7 +16,7 @@ class TransactionPresenter: NSObject {
     var schemes: [Scheme] = [Scheme]()
     var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?
-    var profile: Profile = ApplicationState.sharedInstance.currentUser!.profile!
+    var profile: Profile = User.current()!.profile!
     var notContainedStatusScheme: [StatusScheme] = [StatusScheme]()
     
     fileprivate let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
