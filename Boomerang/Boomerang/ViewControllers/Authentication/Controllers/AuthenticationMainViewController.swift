@@ -55,7 +55,7 @@ class AuthenticationMainViewController: UIViewController {
                     if success {
                         self.requestSchemeStatus(completionHandler: { (success, msg) in
                             if success {
-                                self.view.unload()
+                                self.finishLoadingView()
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                 let vcToShow = storyboard.instantiateInitialViewController()!
                                 self.present(vcToShow, animated: true, completion: nil)

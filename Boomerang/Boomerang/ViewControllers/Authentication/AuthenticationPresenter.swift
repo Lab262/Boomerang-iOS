@@ -37,7 +37,6 @@ class AuthenticationPresenter: NSObject {
                 }
             } else {
                 self.delegate?.showMsg(success: success, msg: msg)
-                self.delegate?.finishLoadingView()
             }
         }
     }
@@ -62,7 +61,6 @@ class AuthenticationPresenter: NSObject {
             } else {
                 self.delegate?.showMsg(success: success, msg: msg)
             }
-            self.delegate?.finishLoadingView()
         }
     }
     
