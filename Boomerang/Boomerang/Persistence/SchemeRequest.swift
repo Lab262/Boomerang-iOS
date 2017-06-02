@@ -170,8 +170,9 @@ class SchemeRequest: NSObject {
                 if let objects = objects {
                     for obj in objects {
                         let scheme = obj as? Scheme
-                        scheme?.setupEnums()
                         scheme?.post?.setupEnums()
+                        scheme?.setupEnums()
+                        scheme?.post?.author = scheme?.owner
                         schemes.append(scheme!)
                     }
                 }
@@ -204,8 +205,9 @@ class SchemeRequest: NSObject {
                 if let objects = objects {
                     for obj in objects {
                         let scheme = obj as? Scheme
-                        scheme?.setupEnums()
                         scheme?.post?.setupEnums()
+                        scheme?.setupEnums()
+                        scheme?.post?.author = scheme?.owner
                         schemes.append(scheme!)
                     }
                 }

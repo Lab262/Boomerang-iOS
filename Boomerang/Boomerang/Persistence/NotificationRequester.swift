@@ -64,7 +64,6 @@ class NotificationRequester: NSObject {
                             notification?.scheme?.requester = profile
                             
                         }
-                        
                         notifications.append(notification!)
                     }
                 }
