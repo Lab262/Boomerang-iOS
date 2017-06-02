@@ -63,9 +63,9 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         
         let userName = NSMutableAttributedString(string: presenter.post.author!.fullName, attributes: [NSFontAttributeName : UIFont.montserratSemiBold(size: 13.0),NSForegroundColorAttributeName:UIColor.black])
         
-        //let time = NSMutableAttributedString(string: "     " + presenter.post.createdDate!.timeSinceNow(), attributes: [NSFontAttributeName : UIFont.montserratRegular(size: 9.0),NSForegroundColorAttributeName:UIColor.timeColor])
+        let time = NSMutableAttributedString(string: "     " + presenter.post.createdAt!.timeSinceNow(), attributes: [NSFontAttributeName : UIFont.montserratRegular(size: 9.0),NSForegroundColorAttributeName:UIColor.timeColor])
         
-       // userName.append(time)
+        userName.append(time)
         
         userNameLabel.attributedText = userName
         
