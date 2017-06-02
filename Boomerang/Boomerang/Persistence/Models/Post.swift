@@ -122,65 +122,7 @@ class Post: PFObject {
                 self.condition = cond
             }
         }
-        
     }
-    
-//    convenience init(object: PFObject) {
-//        self.init()
-//        setInformationsUserByPFObject(object: object)
-//    }
-//    
-//    func setInformationsUserByPFObject(object: PFObject){
-//        self.objectId = object.objectId
-//        self.createdDate = object.createdAt
-//        self.updateDate = object.updatedAt
-//        
-//        if let title = object["title"] as? String {
-//            self.title = title
-//        }
-//        
-//        if let place = object["place"] as? String {
-//            self.place = place
-//        }
-//        
-//        if let exchangeDescription = object["exchangeDescription"] as? String {
-//            self.exchangeDescription = exchangeDescription
-//        }
-//        
-//        if let loanTime = object["loanTime"] as? String {
-//            self.loanTime = loanTime
-//        }
-//        
-//        if let content = object["content"] as? String {
-//            self.content = content
-//        }
-//        
-//        if let typeObject = object["type"] as? PostType {
-//            let postTypes = ApplicationState.sharedInstance.postTypes
-//            for type in postTypes where type.objectId == typeObject.objectId {
-//                self.typePostEnum = TypePostEnum(rawValue: type.type!)
-//            }
-//        }
-//        
-//        if let conditionObject = object["condition"] as? PostCondition {
-//            let postConditions = ApplicationState.sharedInstance.postConditions
-//            for condition in postConditions where condition.objectId == conditionObject.objectId {
-//                self.postConditionEnum = ConditionEnum(rawValue: condition.condition!)!
-//            }
-//        }
-//        
-//        if let isAvailable = object["isAvailable"] as? Bool {
-//            self.isAvailable = isAvailable
-//        }
-//        
-//        if let author = object["author"] as? Profile {
-//            self.author = author
-//        }
-//        
-//        if let isFeatured = object["isFeatured"] as? Bool {
-//            self.isFeatured = isFeatured
-//        }
-//    }
 }
 
 extension Post: PFSubclassing {

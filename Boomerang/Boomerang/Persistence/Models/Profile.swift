@@ -35,34 +35,7 @@ class Profile: PFObject {
         } else {
             return ""
         }
-    }
-    
-    convenience init(object: PFObject) {
-        self.init()
-        
-        setInformationsByObject(object: object)
-    }
-    
-    func setInformationsByObject(object: PFObject){
-        
-        self.objectId = object.objectId
-        
-        if let firstName = object["firstName"] as? String {
-            self.firstName = firstName
-        }
-        
-        if let lastName = object["lastName"] as? String {
-            self.lastName = lastName
-        }
-        
-        if let email = object["email"] as? String {
-            self.email = email
-        }
-        
-        if let photo = object["photo"] as? PFFile {
-            self.photo = photo
-        }
-    }
+    }    
 }
 
 extension Profile: PFSubclassing {

@@ -90,9 +90,11 @@ extension TransactionSegmentViewController: SegmentControlButtonDelegate {
 
 // MARK: - Presenter protocol
 extension TransactionSegmentViewController: ViewDelegate {
+    
     func reload() {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationKey), object: presenter.schemes, userInfo: nil)
     }
+    
     func showMessageError(msg: String) {
         present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)
     }

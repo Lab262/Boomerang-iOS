@@ -149,34 +149,17 @@ class DetailThingPresenter: NSObject {
     }
     
     func enterInterestedList() {
-        
         self.view?.startLoading()
-        let interested = Interested(user: profile, post: post, currentMessage: "Estou interessado.")
+        let interested = Interested(user: profile!, post: post, currentMessage: "Estou interessado tesste")
         
-        interested.saveObjectInBackground { (success, msg) in
+        interested.saveInBackground { (success, error) in
             if success {
-                self.createInterestedChat(completionHandler: { (success, msg, chat) in
-                    if success {
-                        self.createSchemeInProgress(chat: chat, completionHandler: { (success, msg) in
-                            if success {
-                                self.view?.interestedTitleButton = self.exitInterestedTitleButton
-                                self.view?.showMessage(isSuccess: success, msg: NotificationSuccessMessages.enterInterestedList)
-                                 self.view?.finishLoading()
-                            } else {
-                                self.view?.showMessage(isSuccess: success, msg: msg)
-                                self.view?.finishLoading()
-                            }
-                            self.view?.finishLoading()
-                        })
-                       
-                    } else {
-                        self.view?.showMessage(isSuccess: success, msg: msg)
-                         self.view?.finishLoading()
-                    }
-                   
-                })
+                self.view?.interestedTitleButton = self.exitInterestedTitleButton
+                self.view?.showMessage(isSuccess: success, msg: NotificationSuccessMessages.enterInterestedList)
+                self.view?.finishLoading()
             } else {
-                self.view?.showMessage(isSuccess: success, msg: msg)
+                self.view?.showMessage(isSuccess: success, msg: error!.localizedDescription
+                )
                 self.view?.finishLoading()
             }
         }

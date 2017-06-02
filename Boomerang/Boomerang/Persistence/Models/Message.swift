@@ -21,12 +21,6 @@ class Message: PFObject {
         super.init()
     }
     
-//    convenience init(object: PFObject) {
-//        self.init()
-//        
-//        self.setInformationsBy(object: object)
-//    }
-//    
     init(message: String, sender: Profile, receiver: Profile, chatId: String) {
         super.init()
         self.isRead = false
@@ -36,25 +30,6 @@ class Message: PFObject {
         self.chatId = chatId
     }
     
-//    func setInformationsBy(object: PFObject){
-//        
-//        self.objectId = object.objectId
-//        self.createdDate = object.createdAt
-//
-//        
-//        
-//        if let isRead = object["isRead"] as? Bool {
-//            self.isRead = isRead
-//        }
-//        
-//        if let user = object["user"] as? Profile {
-//            self.user = user
-//        }
-//        
-//        if let message = object["message"] as? String {
-//            self.message = message
-//        }
-//    }
 }
 
 

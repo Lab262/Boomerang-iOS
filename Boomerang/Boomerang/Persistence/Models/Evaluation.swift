@@ -31,21 +31,7 @@ class Evaluation: PFObject {
         self.comment = comment
         self.amountStars = amountStars
     }
-    
-    convenience init(object: PFObject) {
-        self.init()
-        self.setInformationsBy(object: object)
-    }
-    
-    func setInformationsBy(object: PFObject){
-        
-        self.objectId = object.objectId
-        self.createdDate = object.createdAt
-        
-        if let amountStars = object["amountStars"] as? NSNumber {
-            self.amountStars = amountStars
-        }
-    }
+
 }
 
 extension Evaluation: PFSubclassing {

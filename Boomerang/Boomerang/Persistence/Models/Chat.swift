@@ -29,16 +29,6 @@ class Chat: PFObject {
         self.requester = requester
         self.owner = owner
     }
-//
-//    convenience init(object: PFObject) {
-//        self.init()
-//        
-//        self.setInformationsBy(object: object)
-//    }
-//    
-//    func setInformationsBy(object: PFObject){
-//        self.objectId = object.objectId
-//    }
 }
 
 extension Chat: PFSubclassing {

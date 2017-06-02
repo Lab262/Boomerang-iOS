@@ -60,8 +60,12 @@ class NotificationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? ThingDetailViewController {
             let selectedIndex = tableView.indexPathForSelectedRow
-            print ("POST: \(presenter.getNotifications()[selectedIndex!.row].post!)")
             destinationVC.presenter.post = presenter.getNotifications()[selectedIndex!.row].post!
+        }
+        
+        if let destinationVC = segue.destination as? TransactionDetailViewController {
+            let selectedIndex = tableView.indexPathForSelectedRow
+            destinationVC.presenter.scheme = presenter.getNotifications()[selectedIndex!.row].scheme!
         }
     }
 }
@@ -93,7 +97,11 @@ extension NotificationViewController : UITableViewDataSource {
 extension NotificationViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: SegueIdentifiers.notificationToDetailThing, sender: self)
+        if let _ = presenter.getNotifications()[indexPath.row].scheme {
+            performSegue(withIdentifier: SegueIdentifiers.notificationToSchemeDetail, sender: self)
+        } else {
+            performSegue(withIdentifier: SegueIdentifiers.notificationToDetailThing, sender: self)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -68,6 +68,7 @@ struct SegueIdentifiers {
     static let detailThingToRecommended = "goToRecommended"
     static let homeToMorePost = "goToMorePosts"
     static let searchFriendsToProfile = "goToProfile"
+    static let notificationToSchemeDetail = "goToSchemeDetail"
 }
 
 //MARK - Storyboard Ids
@@ -77,6 +78,7 @@ struct StoryboardIds {
     static let profileView = "profileView"
     static let transactionView = "navigationTransaction"
     static let chatView = "chatView"
+    static let schemeDetailView = "schemeDetailView"
 }
 
 //MARK - Notification Keys
@@ -90,6 +92,7 @@ struct NotificationKeys {
     static let popToRootSchemes = "popToRootScheme"
     static let popToRootOthers = "popToRootOthers"
 }
+
 
 //MARK - Paginations
 
@@ -184,6 +187,7 @@ struct ProfileTitles {
 
 struct CloudFunctions {
     static let featuredPosts = "featuredPosts"
+    static let enterInterestedList = "enterInterestedList"
 }
 
 //MARK - Server keys
@@ -199,6 +203,13 @@ struct PostKeys {
     static let author = "author"
     static let photos = "photos"
     static let isAvailable = "isAvailable"
+}
+
+//MARK - Interested Keys
+
+struct InterestedKeys {
+    static let user = "user"
+    static let post = "post"
 }
 
 //MARK - Follow keys

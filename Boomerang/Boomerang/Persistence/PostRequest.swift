@@ -46,16 +46,16 @@ class PostRequest: NSObject {
     static func fetchPostByFollowing(postsDownloaded: [Post], following: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
-        let queryParams = ["author" : following]
+        let queryParams = [PostKeys.author: following]
         var notContainedObjectIds = [String]()
         
         postsDownloaded.forEach{
             notContainedObjectIds.append($0.objectId!)
         }
         
-        let notContainedObjects = ["objectId": notContainedObjectIds]
+        let notContainedObjects = [ObjectKeys.objectId: notContainedObjectIds]
         
-        ParseRequest.queryContainedIn(className: "Post", queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .networkElseCache, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
+        ParseRequest.queryContainedIn(className: Post.parseClassName(), queryType: .common, whereType: .containedIn, includes: nil, cachePolicy: .networkElseCache, params: queryParams, notContainedObjects: notContainedObjects, pagination: pagination) { (success, msg, objects) in
             if success {
                 
                 if let objects = objects {
@@ -121,10 +121,10 @@ class PostRequest: NSObject {
     static func verifyAlreadyInterestedFor(currentProfile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool) -> ()) {
         
         var queryParams = [String : Any]()
-        queryParams["user"] = currentProfile
-        queryParams["post"] = post
+        queryParams[InterestedKeys.user] = currentProfile
+        queryParams[InterestedKeys.post] = post
         
-        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, includes: nil) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: Interested.parseClassName(), queryParams: queryParams, includes: nil) { (success, msg, objects) in
             if success {
                 if objects!.count > 0 {
                     completionHandler(true, "Success", true)
@@ -136,7 +136,7 @@ class PostRequest: NSObject {
     }
     
     static func getFollowingPostsCount(following: [Profile], completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
-        ParseRequest.queryCountContainedIn(className: "Post", key: "author", value: following) { (success, msg, count) in
+        ParseRequest.queryCountContainedIn(className: Post.parseClassName(), key: PostKeys.author, value: following) { (success, msg, count) in
             if success {
                 completionHandler(true, msg, count)
             } else {
@@ -153,8 +153,8 @@ class PostRequest: NSObject {
         
         let query = PFQuery(className: Post.parseClassName())
         query.limit = pagination
-        query.order(byDescending: "createdAt")
-        query.includeKey("author")
+        query.order(byDescending: ObjectKeys.createdAt)
+        query.includeKey(PostKeys.author)
        
         profiles.append(User.current()!.profile!)
         
@@ -190,20 +190,21 @@ class PostRequest: NSObject {
         
         var posts: [Post] = [Post]()
         var queryParams = [String : Any]()
-        queryParams["author"] = profile
+        queryParams[PostKeys.author] = profile
         
         let query = PFQuery(className: Post.parseClassName())
         query.skip = skip
         query.cachePolicy = .networkElseCache
         query.limit = pagination
-        query.order(byDescending: "createdAt")
-        query.whereKey("author", equalTo: profile)
+        query.order(byDescending: ObjectKeys.createdAt)
+        query.whereKey(PostKeys.author, equalTo: profile)
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
                 if let objects = objects {
                     for obj in objects {
                         let post = obj as? Post
+                        post?.setupEnums()
                         post?.author = profile
                         posts.append(post!)
                     }
@@ -238,10 +239,13 @@ class PostRequest: NSObject {
                 if post.relations == nil {
                     post.relations = [Photo]()
                 }
-                for object in objects! {
-                    let relation = Photo(object: object)
-                    post.relations?.append(relation)
+                if let objects = objects {
+                    for object in objects {
+                        let relation = object as? Photo
+                        post.relations?.append(relation!)
+                    }
                 }
+              
                 completionHandler(true, "Success")
             } else {
                 completionHandler(false, msg)
@@ -253,15 +257,17 @@ class PostRequest: NSObject {
         
         var interesteds: [Interested] = [Interested]()
         var queryParams = [String : Any]()
-        queryParams["post"] = post
+        queryParams[InterestedKeys.post] = post
         
-        ParseRequest.queryEqualToValue(className: "Interested", queryParams: queryParams, includes: ["user"], selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
+        ParseRequest.queryEqualToValue(className: Interested.parseClassName(), queryParams: queryParams, includes: [InterestedKeys.user], selectKeys: nil, pagination: pagination, skip: skip) { (success, msg, objects) in
             
             if success {
-                for object in objects! {
-                    let interested = Interested(object: object)
-                    interested.post = post
-                    interesteds.append(interested)
+                if let objects = objects {
+                    for object in objects {
+                        let interested = object as? Interested
+                        interested?.post = post
+                        interesteds.append(interested!)
+                    }
                 }
                 completionHandler(true, msg, interesteds)
             } else {
@@ -274,33 +280,12 @@ class PostRequest: NSObject {
     static func exitInterestedListOf(profile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         var queryParams = [String : Any]()
-        queryParams["user"] = profile
-        queryParams["post"] = post
+        queryParams[InterestedKeys.user] = profile
+        queryParams[InterestedKeys.post] = post
         
-        ParseRequest.updateForIsDeletedObjectBy(className: "Interested", queryParams: queryParams) { (success, msg) in
+        ParseRequest.updateForIsDeletedObjectBy(className: Interested.parseClassName(), queryParams: queryParams) { (success, msg) in
             if success {
-                var querySchemes = [String : Any]()
-                querySchemes["requester"] = profile
-                querySchemes["owner"] = post.author!
-                querySchemes["post"] = post
-                ParseRequest.updateForIsDeletedObjectBy(className: Scheme.parseClassName(), queryParams: querySchemes, completionHandler: { (success, msg) in
-                    if success {
-                        var queryChat = [String : Any]()
-                        queryChat["requester"] = profile
-                        queryChat["owner"] = post.author!
-                        queryChat["post"] = post
-                       
-                        ParseRequest.updateForIsDeletedObjectBy(className: Chat.parseClassName(), queryParams: queryChat, completionHandler: { (success, msg) in
-                            if success {
-                                completionHandler(success, msg)
-                            } else {
-                                completionHandler(success, msg)
-                            }
-                        })
-                    } else {
-                        completionHandler(success, msg)
-                    }
-                })
+                 completionHandler(success, msg)
             } else {
                 completionHandler(success, msg)
             }

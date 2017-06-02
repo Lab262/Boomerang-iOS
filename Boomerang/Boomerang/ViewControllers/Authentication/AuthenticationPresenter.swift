@@ -33,11 +33,19 @@ class AuthenticationPresenter: NSObject {
                     self.getFacebookInformations()
                 } else {
                     self.setupUserInstallation(user: user as! User)
-                    self.saveObjects(objects: [PFInstallation.current()!])
+                    self.getProfileUser()
                 }
             } else {
                 self.delegate?.showMsg(success: success, msg: msg)
                 self.delegate?.finishLoadingView()
+            }
+        }
+    }
+    
+    private func getProfileUser() {
+        UserRequest.getProfileUser { (success, msg) in
+            if success {
+                self.saveObjects(objects: [PFInstallation.current()!])
             }
         }
     }
@@ -116,6 +124,7 @@ class AuthenticationPresenter: NSObject {
                         if success {
                             self.setupUserInstallation(user: user)
                             let profile = self.createProfileByUser(user: user)
+                            user.profile = profile
                             self.saveObjects(objects: [user, profile, PFInstallation.current()!])
                         } else {
                             self.delegate?.showMsg(success: success, msg: msg)

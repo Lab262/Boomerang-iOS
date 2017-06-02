@@ -26,26 +26,6 @@ class Comment: PFObject {
         self.content = content
         self.author = author
     }
-    
-    convenience init(object: PFObject) {
-        self.init()
-        setInformationsUserByPFObject(object: object)
-    }
-    
-    func setInformationsUserByPFObject(object: PFObject){
-        self.objectId = object.objectId
-        self.createdDate = object.createdAt
-        
-        if let content = object["content"] as? String {
-            self.content = content
-        }
-        
-        if let author = object["author"] as? Profile {
-            self.author = author
-            //self.author = Profile(object: author)
-        }
-        
-    }
 }
 
 extension Comment: PFSubclassing {

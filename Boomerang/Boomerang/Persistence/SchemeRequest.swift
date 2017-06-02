@@ -57,6 +57,24 @@ class SchemeRequest: NSObject {
         }
     }
     
+    static func createInterestedWithScheme(profile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        var params = [String: Any]()
+        
+        params[InterestedKeys.post] = post
+        params[InterestedKeys.user] = profile
+        
+        PFCloud.callFunction(inBackground: CloudFunctions.enterInterestedList, withParameters: params) { (objects, error) in
+            if let _ = error {
+                completionHandler(false, error!.localizedDescription)
+            } else {
+                
+                completionHandler(true, "success")
+            }
+        }
+        
+    }
+    
     static func updateChatScheme(scheme: Scheme, chat: Chat, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
        
@@ -116,7 +134,9 @@ class SchemeRequest: NSObject {
                 if let objects = objects {
                     for obj in objects {
                         let scheme = obj as? Scheme
+                        scheme?.post?.setupEnums()
                         scheme?.setupEnums()
+                        scheme?.post?.author = scheme?.owner
                         schemes.append(scheme!)
                     }
                 }
@@ -151,6 +171,7 @@ class SchemeRequest: NSObject {
                     for obj in objects {
                         let scheme = obj as? Scheme
                         scheme?.setupEnums()
+                        scheme?.post?.setupEnums()
                         schemes.append(scheme!)
                     }
                 }
@@ -184,6 +205,7 @@ class SchemeRequest: NSObject {
                     for obj in objects {
                         let scheme = obj as? Scheme
                         scheme?.setupEnums()
+                        scheme?.post?.setupEnums()
                         schemes.append(scheme!)
                     }
                 }

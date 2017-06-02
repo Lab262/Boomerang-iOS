@@ -26,26 +26,6 @@ class Interested: PFObject {
         self.post = post
         self.currentMessage = currentMessage
     }
-    
-    convenience init(object: PFObject) {
-        self.init()
-        
-        self.setInformationsUserByPFUser(object: object)
-    }
-    
-    func setInformationsUserByPFUser(object: PFObject){
-        
-        self.objectId = object.objectId
-        
-        if let user = object["user"] as? Profile {
-            self.user = user
-           // self.user = Profile(object: user)
-        }
-        
-        if let currentMessage = object["currentMessage"] as? String {
-            self.currentMessage = currentMessage
-        }
-    }
 }
 
 extension Interested: PFSubclassing {

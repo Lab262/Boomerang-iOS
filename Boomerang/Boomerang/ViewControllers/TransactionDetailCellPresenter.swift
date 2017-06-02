@@ -30,7 +30,7 @@ class TransactionDetailCellPresenter: NSObject {
     }
     
     func getStartDateScheme() -> Date {
-        return scheme.createdDate!
+        return scheme.createdAt!
     }
     
     func getTypeTransaction() -> TypePostEnum {
@@ -38,12 +38,11 @@ class TransactionDetailCellPresenter: NSObject {
     }
     
     func getUserOwnATransaction() -> Profile {
-        return self.scheme.dealer!
-//        if scheme.owner == self.profile {
-//            return scheme.requester!
-//        } else {
-//            return scheme.owner!
-//        }
+        if scheme.owner == self.profile {
+            return scheme.requester!
+        } else {
+            return scheme.owner!
+        }
     }
     
     func getTitleOfTransaction() -> String {

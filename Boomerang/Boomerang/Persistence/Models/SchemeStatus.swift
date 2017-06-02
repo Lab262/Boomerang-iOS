@@ -13,19 +13,6 @@ class SchemeStatus: PFObject {
     
     @NSManaged var status: String?
     
-    
-    convenience init(object: PFObject) {
-        self.init()
-        setInformationsByObject(object: object)
-    }
-    
-    func setInformationsByObject(object: PFObject){
-        self.objectId = object.objectId
-        if let status = object["status"] as? String {
-            self.status = status
-        }
-    }
-
 }
 
 extension SchemeStatus: PFSubclassing {

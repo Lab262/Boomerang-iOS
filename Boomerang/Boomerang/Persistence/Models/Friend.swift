@@ -22,50 +22,8 @@ class Friend: PFObject {
     
     
     var profileImage: UIImage?
-    
-    convenience init(object: PFObject) {
-        self.init()
-        
-        setInformationsUserByPFObject(object: object)
-    }
-    
-    
-    func setInformationsUserByPFObject(object: PFObject){
-        
-        self.objectId = object.objectId
-        
-        if let fistName = object["firstName"] as? String {
-            
-            self.firstName = fistName
-        }
-        
-        if let lastName = object["lastName"] as? String {
-            
-            self.lastName = lastName
-        }
-        
-        if let middleName = object["middleName"] as? String {
-            
-            self.middleName = middleName
-        }
-        
-        if let email = object["email"] as? String {
-            
-            self.email = email
-        }
-        if let imageFile = object["photo"] as? PFFile {
-            
-            self.imageFile = imageFile
-        }
-        if let location = object["location"] as? String {
-            
-            self.location = location
-        }
-    }
-
-    
-    
 }
+
 extension Friend {
     convenience init?(JSON: [String : Any]) {
           self.init()

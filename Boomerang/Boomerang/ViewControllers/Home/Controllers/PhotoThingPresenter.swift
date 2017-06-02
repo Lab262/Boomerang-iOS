@@ -18,7 +18,12 @@ class PhotoThingPresenter: NSObject {
     var post:Post? = Post() {
         didSet {
             self.view?.reload()
-            self.downloadImagesPost(success: false)
+            if post!.relations == nil {
+                getRelationsImages(success: false)
+            } else {
+                self.downloadImagesPost(success: false)
+            }
+           
         }
     }
     fileprivate let pagination = 3

@@ -35,10 +35,12 @@ class NotificationRequester: NSObject {
         }
         
         let query = PFQuery(className: "Notification")
+        query.addDescendingOrder(ObjectKeys.createdAt)
         query.whereKey("receiver", equalTo: profile)
         query.includeKey("sender")
         query.includeKey("post")
-        query.selectKeys(["sender", "post", "hasBeenSeen", "notificationDescription"])
+        query.includeKey("scheme")
+        query.selectKeys(["sender", "post", "hasBeenSeen", "notificationDescription", "scheme"])
         query.whereKey("objectId", notContainedIn: objectIds)
         
         query.findObjectsInBackground { (objects, error) in
@@ -48,12 +50,24 @@ class NotificationRequester: NSObject {
                     for obj in objects {
                         let notification = obj as? NotificationModel
                         notification?.receiver = profile
-                        notification?.post?.author = profile
+                        notification?.post?.setupEnums()
+                        notification?.scheme?.post = notification?.post
+                        if notification?.post?.author?.objectId == profile.objectId {
+                            notification?.post?.author = profile
+                            notification?.scheme?.post?.author = profile
+                            notification?.scheme?.owner = profile
+                            notification?.scheme?.requester = notification?.sender
+                        } else {
+                            notification?.post?.author = notification?.sender
+                            notification?.scheme?.post?.author = notification?.sender
+                            notification?.scheme?.owner = notification?.sender
+                            notification?.scheme?.requester = profile
+                            
+                        }
+                        
                         notifications.append(notification!)
                     }
                 }
-                
-               
                 completionHandler(true, "success", notifications)
             } else {
                 completionHandler(false, error!.localizedDescription, nil)

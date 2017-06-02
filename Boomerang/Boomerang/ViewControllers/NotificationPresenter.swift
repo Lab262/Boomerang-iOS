@@ -49,12 +49,16 @@ class NotificationPresenter: NSObject {
         }
     }
     
-    func requestNotifications() {
+    func requestNotifications(isUpdated: Bool = false) {
         NotificationRequester.getNotifications(profile: getUser().profile!, notificationDownloaded: self.notifications, pagination: pagination) { (success, msg, notifications) in
             
             if success {
                 for notification in notifications! {
-                    self.notifications.append(notification)
+                    if isUpdated {
+                        self.notifications.insert(notification, at: 0)
+                    } else {
+                        self.notifications.append(notification)
+                    }
                 }
                 self.view?.reload()
                 print("NOTIFICATION COUNT: \(self.notifications.count)")
@@ -84,7 +88,7 @@ extension NotificationPresenter {
         subscriptionNotificationCreated = liveQueryClient
             .subscribe(notificationQuery!)
             .handle(Event.created) { _, follow in
-                self.requestNotifications()
+                self.requestNotifications(isUpdated: true)
         }
     }
 }

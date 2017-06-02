@@ -12,18 +12,6 @@ import Parse
 class PostType: PFObject {
     
     @NSManaged var type: String?
-    
-//    convenience init(object: PFObject) {
-//        self.init()
-//        setInformationsByObject(object: object)
-//    }
-//    
-//    func setInformationsByObject(object: PFObject){
-//        self.objectId = object.objectId
-//        if let type = object["type"] as? String {
-//            self.type = type
-//        }
-//    }
 }
 
 extension PostType: PFSubclassing {

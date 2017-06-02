@@ -13,17 +13,6 @@ class PostCondition: PFObject {
 
     @NSManaged var condition: String?
     
-//    convenience init(object: PFObject) {
-//        self.init()
-//        setInformationsByObject(object: object)
-//    }
-//    
-//    func setInformationsByObject(object: PFObject){
-//        self.objectId = object.objectId
-//        if let condition = object["condition"] as? String {
-//            self.condition = condition
-//        }
-//    }
 }
 
 extension PostCondition: PFSubclassing {

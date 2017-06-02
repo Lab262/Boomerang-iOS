@@ -27,22 +27,7 @@ class Follow: PFObject {
         self.to = to
         self.since = Date()
     }
-    
-    convenience init(object: PFUser) {
-        self.init()
-        setInformationsUserByPFObject(object: object)
-    }
-    
-    
-    func setInformationsUserByPFObject(object: PFObject){
-        
-        self.objectId = object.objectId
-        
-        if let follow = object["to"] as? Profile {
-            toFollow?.append(follow)
-        }
-    }
-    
+
 }
 
 

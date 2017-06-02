@@ -445,7 +445,6 @@
 		D4AD979F1EA9ACFD00C9FAB9 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D4AD97A01EA9ACFD00C9FAB9 /* LendingThingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42768011DD3948700363343 /* LendingThingsViewController.swift */; };
 		D4AD97A11EA9ACFD00C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */; };
-		D4AD97A21EA9ACFD00C9FAB9 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */; };
 		D4AD97A31EA9ACFD00C9FAB9 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
 		D4AD97A41EA9ACFD00C9FAB9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0301E7F334E002E8972 /* HomePresenter.swift */; };
 		D4AD97A51EA9ACFD00C9FAB9 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */; };
@@ -624,7 +623,6 @@
 		D4AD986B1EA9AD0400C9FAB9 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D4AD986C1EA9AD0400C9FAB9 /* LendingThingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42768011DD3948700363343 /* LendingThingsViewController.swift */; };
 		D4AD986D1EA9AD0400C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */; };
-		D4AD986E1EA9AD0400C9FAB9 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */; };
 		D4AD986F1EA9AD0400C9FAB9 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
 		D4AD98701EA9AD0400C9FAB9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0301E7F334E002E8972 /* HomePresenter.swift */; };
 		D4AD98711EA9AD0400C9FAB9 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */; };
@@ -835,7 +833,6 @@
 		D4E6A28E1E95CF25005B4E34 /* DonationTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6A28D1E95CF25005B4E34 /* DonationTransactionViewController.swift */; };
 		D4E6A2901E95D0E5005B4E34 /* TransactionSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6A28F1E95D0E5005B4E34 /* TransactionSegmentViewController.swift */; };
 		D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */; };
-		D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */; };
 		D4EEC1C61E6CAE9D00F5C1D6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */; };
 		D4EEC1C81E6CE67E00F5C1D6 /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C71E6CE67E00F5C1D6 /* ApplicationState.swift */; };
 		D4EEC1CA1E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */; };
@@ -1239,7 +1236,6 @@
 		D4E6A28D1E95CF25005B4E34 /* DonationTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationTransactionViewController.swift; sourceTree = "<group>"; };
 		D4E6A28F1E95D0E5005B4E34 /* TransactionSegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionSegmentViewController.swift; sourceTree = "<group>"; };
 		D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
 		D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D4EEC1C71E6CE67E00F5C1D6 /* ApplicationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
 		D4EEC1C91E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileCollectionReusableView.swift; path = Boomerang/Persistence/Local/ProfileCollectionReusableView.swift; sourceTree = SOURCE_ROOT; };
@@ -2401,7 +2397,6 @@
 			children = (
 				2FF1771A1E4F60650005F026 /* User.swift */,
 				D4EEC1C01E6CACFA00F5C1D6 /* Post.swift */,
-				D4EEC1C31E6CAE5B00F5C1D6 /* Thing.swift */,
 				D4EEC1C51E6CAE9D00F5C1D6 /* Comment.swift */,
 				2FAE03061E78C3540062E155 /* Friend.swift */,
 				D40C0E501E8B9A93008174D2 /* Photo.swift */,
@@ -3269,7 +3264,6 @@
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
 				D4E4BEAD1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift in Sources */,
 				D4C8ECDC1EC22B4200E3CB17 /* StatusRequest.swift in Sources */,
-				D4EEC1C41E6CAE5B00F5C1D6 /* Thing.swift in Sources */,
 				D484FA301EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
 				D4788DE71ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */,
 				D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */,
@@ -3463,7 +3457,6 @@
 				D4AD979F1EA9ACFD00C9FAB9 /* ParseRequest.swift in Sources */,
 				D4AD97A01EA9ACFD00C9FAB9 /* LendingThingsViewController.swift in Sources */,
 				D4AD97A11EA9ACFD00C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */,
-				D4AD97A21EA9ACFD00C9FAB9 /* Thing.swift in Sources */,
 				D4C8ECD51EC1FD3B00E3CB17 /* SchemeStatus.swift in Sources */,
 				6010BF711EBB9A59008B5F02 /* GradientView.swift in Sources */,
 				D484FA311EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
@@ -3649,7 +3642,6 @@
 				D4AD986B1EA9AD0400C9FAB9 /* ParseRequest.swift in Sources */,
 				D4AD986C1EA9AD0400C9FAB9 /* LendingThingsViewController.swift in Sources */,
 				D4AD986D1EA9AD0400C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */,
-				D4AD986E1EA9AD0400C9FAB9 /* Thing.swift in Sources */,
 				D4C8ECD61EC1FD3B00E3CB17 /* SchemeStatus.swift in Sources */,
 				6010BF721EBB9A59008B5F02 /* GradientView.swift in Sources */,
 				D484FA321EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,

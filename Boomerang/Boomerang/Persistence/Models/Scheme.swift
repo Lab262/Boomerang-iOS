@@ -27,20 +27,12 @@ class Scheme: PFObject {
     @NSManaged var chat: Chat?
     var statusSchemeEnum: StatusSchemeEnum?
     var condition: ConditionEnum?
-    var createdDate: Date?
     var dealer: Profile?
     
     override init(){
         super.init()
     }
-    
-//    convenience init(object: PFObject) {
-//        self.init()
-//        
-//        self.setInformationsBy(object: object)
-//    }
-    
-    
+        
     func setupEnums() {
         setupStatusScheme()
     }

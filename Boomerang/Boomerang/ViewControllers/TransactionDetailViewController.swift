@@ -85,12 +85,12 @@ class TransactionDetailViewController: UIViewController {
         }
         
         if let viewController = segue.destination as? ProfileMainViewController  {
-            viewController.presenter.setProfile(profile: presenter.scheme.dealer!)
+            viewController.presenter.setProfile(profile: presenter.getDealerTransaction())
         }
         
         if let viewController = segue.destination as? MessagesChatViewController  {
             viewController.chat = presenter.chat
-            viewController.profile = presenter.getUserOwnATransaction()
+            viewController.profile = presenter.getDealerTransaction()
         }
     }
     

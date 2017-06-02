@@ -50,8 +50,11 @@ class CommentRequest: NSObject {
 
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
-                for object in objects! {
-                    comments.append(Comment(object: object))
+                if let objects = objects {
+                    for object in objects {
+                        let comment = object as? Comment
+                        comments.append(comment!)
+                    }
                 }
                 completionHandler(true, "Success", comments)
             } else {
@@ -75,8 +78,11 @@ class CommentRequest: NSObject {
         ParseRequest.queryEqualToValueNotContained(className: "Comment", queryParams: queryParams, notContainedIds: objectIds, includes: ["author"], selectKeys: nil, pagination: pagination) { (success, msg, objects) in
             
             if success {
-                for object in objects! {
-                    comments.append(Comment(object: object))
+                if let objects = objects {
+                    for object in objects {
+                        let comment = object as? Comment
+                        comments.append(comment!)
+                    }
                 }
                 completionHandler(true, "Success", comments)
             } else {
