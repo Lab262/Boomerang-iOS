@@ -39,7 +39,7 @@ Pra quem não sabe, nós somos uma plataforma que tenta ajudar a repensar nossa 
       groups: "Internal",
       wait_processing_interval:1200)
 
-      slack(message: 'Successfully distributed a new TestFlight beta build')
+      slack(message: 'Successfully distributed a new TestFlight ALPHA build')
     end
 
     desc "Submit a new Beta Build to Apple TestFlight"
@@ -60,7 +60,7 @@ Pra quem não sabe, nós somos uma plataforma que tenta ajudar a repensar nossa 
       groups: "Internal",
       wait_processing_interval:1200)
 
-      slack(message: 'Successfully distributed a new TestFlight beta build')
+      slack(message: 'Successfully distributed a new TestFlight BETA build')
     end
 
     desc "Deploy a new version to the App Store"
