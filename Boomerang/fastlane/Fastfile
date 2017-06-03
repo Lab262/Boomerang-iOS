@@ -5,12 +5,6 @@ fastlane_version "2.35.1"
 default_platform :ios
 
 app_base_bundle = "lab262.boomerang"
-app_description = "Olá Futuros Boomers! Como estão?
-
-Pra quem não sabe, nós somos uma plataforma que tenta ajudar a repensar nossa maneira de consumir, diminuindo gastos supérfluos através do aluguel e troca de produtos entre os membros da comunidade.
-
-
-  Equipe Boomerang"
 
 
   platform :ios do
@@ -30,7 +24,12 @@ Pra quem não sabe, nós somos uma plataforma que tenta ajudar a repensar nossa 
       changelog_from_git_commits # this will generate the changelog based on your last commits
       testflight(username: "thiago.mb@icloud.com",
       team_name:"Thiago Bernardes",
-      beta_app_description: app_description,
+      beta_app_description: "Olá Futuros Boomers! Como estão?
+
+      Pra quem não sabe, nós somos uma plataforma que tenta ajudar a repensar nossa maneira de consumir, diminuindo gastos supérfluos através do aluguel e troca de produtos entre os membros da comunidade.
+
+
+        Equipe Boomerang",
       beta_app_feedback_email: "tmb0710@gmail.com",
       skip_submission: false,
       skip_waiting_for_build_processing: false,
@@ -51,7 +50,12 @@ Pra quem não sabe, nós somos uma plataforma que tenta ajudar a repensar nossa 
       changelog_from_git_commits # this will generate the changelog based on your last commits
       testflight(username: "thiago.mb@icloud.com",
       team_name:"Thiago Bernardes",
-      beta_app_description: app_description,
+      beta_app_description: "Olá Futuros Boomers! Como estão?
+
+      Pra quem não sabe, nós somos uma plataforma que tenta ajudar a repensar nossa maneira de consumir, diminuindo gastos supérfluos através do aluguel e troca de produtos entre os membros da comunidade.
+
+
+        Equipe Boomerang",
       beta_app_feedback_email: "tmb0710@gmail.com",
       skip_submission: false,
       skip_waiting_for_build_processing: false,
