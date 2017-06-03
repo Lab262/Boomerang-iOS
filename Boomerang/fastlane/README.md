@@ -30,6 +30,13 @@ xcode-select --install
 
 # Available Actions
 ## iOS
+### ios alpha
+```
+fastlane ios alpha
+```
+Submit a new Alpha Build to Apple TestFlight
+
+This will also make sure the profile is up to date
 ### ios beta
 ```
 fastlane ios beta
