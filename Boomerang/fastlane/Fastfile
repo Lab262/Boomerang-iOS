@@ -36,7 +36,7 @@ Pra quem não sabe, nós somos uma plataforma que tenta ajudar a repensar nossa 
       skip_waiting_for_build_processing: false,
       distribute_external: true,
       changelog: "Novidades e melhorias de performance.",
-      group: "Internal",
+      groups: "Internal",
       wait_processing_interval:1200)
 
       slack(message: 'Successfully distributed a new TestFlight beta build')
@@ -57,7 +57,7 @@ Pra quem não sabe, nós somos uma plataforma que tenta ajudar a repensar nossa 
       skip_waiting_for_build_processing: false,
       distribute_external: true,
       changelog: "Novidades e melhorias de performance.",
-      group: "Internal",
+      groups: "Internal",
       wait_processing_interval:1200)
 
       slack(message: 'Successfully distributed a new TestFlight beta build')
