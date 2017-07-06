@@ -118,7 +118,6 @@ class SwitchButtonTableViewCell: UITableViewCell {
     }
     
     func deselectButtons() {
-        
         unselectButton(button: self.borrowedButton, title: firstOptionTitle!, imageView: self.borrowedImageView)
         unselectButton(button: self.swapButton, title: secondOptionTitle!, imageView: self.swapImageView)
     }

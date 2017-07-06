@@ -22,6 +22,7 @@ class ThrowPresenter: NSObject {
     var typeScheme: ConditionEnum?
     var delegate: ThrowDelegate?
     var params:[String:String] = [:]
+    var fields:[Int:String] = [:]
     var images = [UIImage]()
     var isAvailable = true
     
@@ -131,8 +132,31 @@ class ThrowPresenter: NSObject {
                 return msgErro
             }
         }
-        
         return msgErro
+    }
+    
+    //MARK: Parse Fields
+    func parseFields(){
+        switch typePost {
+        case .need, .have:
+            parseFieldsNeedOrHave()
+        case .donate:
+            parseFieldsDonate()
+        }
+    }
+    
+    func parseFieldsNeedOrHave(){
+        params[CreatePostTitles.keyParseTitle] = self.fields[2]
+        params[CreatePostTitles.keyParseContent] = self.fields[3]
+        params[CreatePostTitles.keyParseTime] = self.fields[4]
+        params[CreatePostTitles.keyParseExchangeDescription] = self.fields[5]
+        params[CreatePostTitles.keyParsePlace] = self.fields[6]
+    }
+    
+    func parseFieldsDonate(){
+        params[CreatePostTitles.keyParseTitle] = self.fields[1]
+        params[CreatePostTitles.keyParseContent] = self.fields[2]
+        params[CreatePostTitles.keyParsePlace] = self.fields[3]
     }
 
 
