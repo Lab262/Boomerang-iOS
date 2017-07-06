@@ -24,22 +24,23 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var anexAreaButton: UIButtonWithPicker!
     
     var fields:[Int:String] = [:]
-    var nameThing = String ()
-    var descriptionThing = String ()
-    var params:[String:String] = [:]
-    var typeVC = TypePostEnum.have
-    var typeScheme:ConditionEnum?
+    var presenter: ThrowPresenter = ThrowPresenter()
+    //var nameThing = String()
+    //var descriptionThing = String ()
+//    var params:[String:String] = [:]
+//    var typeVC = TypePostEnum.have
+//    var typeScheme:ConditionEnum?
     var isAvailable:Bool?
     var boolTypeScheme:Bool?
     
     @IBOutlet weak var coverPostHeightConstraint: NSLayoutConstraint!
     var titleHeader = String()
-    var allimages:[UIImage]?
+   // var allimages:[UIImage]?
     
-    var headerHeight = CGFloat(200)
+    //var headerHeight = CGFloat(200)
     
-    let defaultSize16:CGFloat = 16
-    let defaultSize14:CGFloat = 14
+    let defaultSize16: CGFloat = 16
+    let defaultSize14: CGFloat = 14
     let navigationBarHeight: CGFloat = 64
     let coverImageHeight: CGFloat = 165.0
     
@@ -76,13 +77,11 @@ class ThrowViewController: UIViewController {
     }
     
     func registerNib() {
-        
         tableView.registerNibFrom(SwitchButtonTableViewCell.self)
         tableView.registerNibFrom(SimpleTextFieldTableViewCell.self)
         tableView.registerNibFrom(DescriptionTextTableViewCell.self)
         tableView.registerNibFrom(TypePostTableViewCell.self)
       //  tableView.registerNibFrom(HeaderPostTableViewCell.self)
-
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -130,12 +129,12 @@ class ThrowViewController: UIViewController {
         
         parseFields()
         
-        if let msgErro = self.verifyEmptyParams() {
+        if let msgErro = presenter.verifyEmptyParams() {
             self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
             return
         }
 
-        self.createPost()
+        self.presenter.createPost()
     }
     
     //MARK: Generate Tables Views Cells
@@ -185,9 +184,9 @@ class ThrowViewController: UIViewController {
             
             if isTypeScheme {
                 if selected {
-                    self.typeScheme = ConditionEnum.loan
+                    self.presenter.typeScheme = ConditionEnum.loan
                 }else{
-                    self.typeScheme = ConditionEnum.exchange
+                    self.presenter.typeScheme = ConditionEnum.exchange
                 }
                 self.boolTypeScheme = selected
             }else{
@@ -291,7 +290,7 @@ class ThrowViewController: UIViewController {
     
     //MARK: Parse Fields
     func parseFields(){
-        switch typeVC {
+        switch presenter.typePost {
         case .need, .have:
             parseFieldsNeedOrHave()
         case .donate:
@@ -300,118 +299,117 @@ class ThrowViewController: UIViewController {
     }
     
     func parseFieldsNeedOrHave(){
-        self.params[CreatePostTitles.keyParseTitle] = self.fields[2]
-        self.params[CreatePostTitles.keyParseContent] = self.fields[3]
-        self.params[CreatePostTitles.keyParseTime] = self.fields[4]
-        self.params[CreatePostTitles.keyParseExchangeDescription] = self.fields[5]
-        self.params[CreatePostTitles.keyParsePlace] = self.fields[6]
+        presenter.params[CreatePostTitles.keyParseTitle] = self.fields[2]
+        presenter.params[CreatePostTitles.keyParseContent] = self.fields[3]
+        presenter.params[CreatePostTitles.keyParseTime] = self.fields[4]
+        presenter.params[CreatePostTitles.keyParseExchangeDescription] = self.fields[5]
+        presenter.params[CreatePostTitles.keyParsePlace] = self.fields[6]
     }
     
     func parseFieldsDonate(){
-        self.params[CreatePostTitles.keyParseTitle] = self.fields[1]
-        self.params[CreatePostTitles.keyParseContent] = self.fields[2]
-        self.params[CreatePostTitles.keyParsePlace] = self.fields[3]
+        presenter.params[CreatePostTitles.keyParseTitle] = self.fields[1]
+        presenter.params[CreatePostTitles.keyParseContent] = self.fields[2]
+        presenter.params[CreatePostTitles.keyParsePlace] = self.fields[3]
     }
     
-    func verifyEmptyParams() -> String? {
-        var msgErro: String?
-        
-        if allimages?.first == nil {
-            msgErro = CreatePostTitles.msgErrorImage
-            return msgErro
-        }
-        
-        if typeVC == .need || typeVC == .have {
-            if typeScheme == nil {
-                msgErro = CreatePostTitles.msgErrorTypeScheme
-                return msgErro
-            }
-        }
-        
-        if self.params[CreatePostTitles.keyParseTitle] == nil || self.params[CreatePostTitles.keyParseTitle] == "" {
-            msgErro = CreatePostTitles.msgErrorTitle
-            return msgErro
-        }
-        
-        if self.params[CreatePostTitles.keyParseContent] == nil || self.params[CreatePostTitles.keyParseContent] == "" {
-            msgErro = CreatePostTitles.msgErrorDescription
-            return msgErro
-        }
-        
-        if self.params[CreatePostTitles.keyParsePlace] == nil || self.params[CreatePostTitles.keyParsePlace] == "" {
-            msgErro = CreatePostTitles.msgErrorPlace
-            return msgErro
-        }
-        
-        if self.isAvailable == nil {
-            msgErro = CreatePostTitles.msgErrorIsAvailable
-            return msgErro
-        }
-        
-        if typeVC == .need || typeVC == .have {
-            if self.params[CreatePostTitles.keyParseTime] == nil || self.params[CreatePostTitles.keyParseTime] == "" {
-                msgErro = CreatePostTitles.msgErrorTime
-                return msgErro
-            }
-            
-            if self.params[CreatePostTitles.keyParseExchangeDescription] == nil || self.params[CreatePostTitles.keyParseExchangeDescription] == "" {
-                msgErro = CreatePostTitles.msgErrorExchangeDescription
-                return msgErro
-            }
-        }
-        
-        return msgErro
-    }
+//    func verifyEmptyParams() -> String? {
+//        var msgErro: String?
+//        
+//        if presenter.images.first == nil {
+//            msgErro = CreatePostTitles.msgErrorImage
+//            return msgErro
+//        }
+//        
+//        if presenter.typePost == .need || presenter.typePost == .have {
+//            if presenter.typeScheme == nil {
+//                msgErro = CreatePostTitles.msgErrorTypeScheme
+//                return msgErro
+//            }
+//        }
+//        
+//        if self.params[CreatePostTitles.keyParseTitle] == nil || self.params[CreatePostTitles.keyParseTitle] == "" {
+//            msgErro = CreatePostTitles.msgErrorTitle
+//            return msgErro
+//        }
+//        
+//        if self.params[CreatePostTitles.keyParseContent] == nil || self.params[CreatePostTitles.keyParseContent] == "" {
+//            msgErro = CreatePostTitles.msgErrorDescription
+//            return msgErro
+//        }
+//        
+//        if self.params[CreatePostTitles.keyParsePlace] == nil || self.params[CreatePostTitles.keyParsePlace] == "" {
+//            msgErro = CreatePostTitles.msgErrorPlace
+//            return msgErro
+//        }
+//        
+//        if self.isAvailable == nil {
+//            msgErro = CreatePostTitles.msgErrorIsAvailable
+//            return msgErro
+//        }
+//        
+//        if typeVC == .need || typeVC == .have {
+//            if self.params[CreatePostTitles.keyParseTime] == nil || self.params[CreatePostTitles.keyParseTime] == "" {
+//                msgErro = CreatePostTitles.msgErrorTime
+//                return msgErro
+//            }
+//            
+//            if self.params[CreatePostTitles.keyParseExchangeDescription] == nil || self.params[CreatePostTitles.keyParseExchangeDescription] == "" {
+//                msgErro = CreatePostTitles.msgErrorExchangeDescription
+//                return msgErro
+//            }
+//        }
+//        
+//        return msgErro
+//    }
     
     
-    func createPost () {
-        
-        self.view.endEditing(true)
-        let post = Post(author:
-            User.current()!.profile!,
-                        title: params[CreatePostTitles.keyParseTitle]!,
-                        content: params[CreatePostTitles.keyParseContent]!,
-                        loanTime: params[CreatePostTitles.keyParseTime],
-                        exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription],
-                        place: params[CreatePostTitles.keyParsePlace]!,
-                        condition: typeScheme,
-                        typePost: typeVC)
-        
-        let pictureData = UIImageJPEGRepresentation((allimages?.first)!, 0.2)
-        let pictureFileObject =  PFFile(data: pictureData!, contentType: "image/jpeg")
-        
-        let photos = PFObject(className:"Photo")
-        
-        photos["imageFile"] = pictureFileObject
-        
-        self.view.loadAnimation()
-        
-        photos.saveInBackground(block: { (success, error) in
-            if success {
-                let relation = post.relation(forKey: "photos")
-                
-                relation.add(photos)
-                
-                post.saveInBackground(block: { (success, error) in
-                    if success {
-                        self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Boomer", identifier: "feedbackCreatePost")!, animated: true, completion: nil)
-                        
-                        //self.view.unload()
-                    }else {
-                        AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
-                        ActivitIndicatorView.hide(on:self)
-                    }
-                    
-                    self.view.unload()
-                })
-                
-                
-            }else {
-                AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
-                self.view.unload()
-            }
-        })
-    }
+    //func createPost () {
+//        self.view.endEditing(true)
+//        let post = Post(author:
+//            User.current()!.profile!,
+//                        title: params[CreatePostTitles.keyParseTitle]!,
+//                        content: params[CreatePostTitles.keyParseContent]!,
+//                        loanTime: params[CreatePostTitles.keyParseTime],
+//                        exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription],
+//                        place: params[CreatePostTitles.keyParsePlace]!,
+//                        condition: typeScheme,
+//                        typePost: typeVC)
+//        
+//        let pictureData = UIImageJPEGRepresentation((allimages?.first)!, 0.2)
+//        let pictureFileObject =  PFFile(data: pictureData!, contentType: "image/jpeg")
+//        
+//        let photos = PFObject(className:"Photo")
+//        
+//        photos["imageFile"] = pictureFileObject
+//        
+//        self.view.loadAnimation()
+//        
+//        photos.saveInBackground(block: { (success, error) in
+//            if success {
+//                let relation = post.relation(forKey: "photos")
+//                
+//                relation.add(photos)
+//                
+//                post.saveInBackground(block: { (success, error) in
+//                    if success {
+//                        self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Boomer", identifier: "feedbackCreatePost")!, animated: true, completion: nil)
+//                        
+//                        //self.view.unload()
+//                    }else {
+//                        AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
+//                        ActivitIndicatorView.hide(on:self)
+//                    }
+//                    
+//                    self.view.unload()
+//                })
+//                
+//                
+//            }else {
+//                AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
+//                self.view.unload()
+//            }
+//        })
+   // }
     
 }
 
@@ -429,7 +427,7 @@ extension ThrowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        switch typeVC {
+        switch presenter.typePost {
         case .need:
             return generateTableViewNeed(tableView, cellForRowAt: indexPath)
         case .have:
@@ -514,11 +512,11 @@ extension ThrowViewController: UIScrollViewDelegate {
 extension ThrowViewController: UIIButtonWithPickerDelegate{
     
     
-    func didPickEditedImage(image: [UIImage]){
-        allimages = image
-        self.addTitleLabel.isHidden = true
-        self.iconCameraView.isHidden = true
-        self.coverPostImage.image = image[0]
+    func didPickEditedImage(images: [UIImage]){
+        presenter.images = images
+        addTitleLabel.isHidden = true
+        iconCameraView.isHidden = true
+        coverPostImage.image = images[0]
        // self.tableView.reloadData()
     }
 

@@ -45,7 +45,7 @@ class BoomerMainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goThrowVC") {
             let throwVC = segue.destination as! ThrowViewController
-            throwVC.typeVC = type
+            throwVC.presenter.typePost = type
             throwVC.titleHeader = titlePost
         }
     }

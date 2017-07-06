@@ -66,11 +66,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Boomerang deseja ter acesso a câmera?</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Boomerang deseja ter acesso a sua localização?</string>
+	<string>Boomerang deseja ter acesso a câmera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>O Boomerang deseja ter acesso a galeria de fotos?</string>
+	<string>Boomerang deseja ter acesso a galeria de fotos.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-MediumItalic.ttf</string>

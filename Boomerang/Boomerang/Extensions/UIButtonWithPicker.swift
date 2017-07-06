@@ -11,7 +11,7 @@ import ImagePicker
 
 
 protocol UIIButtonWithPickerDelegate {
-    func didPickEditedImage(image: [UIImage])
+    func didPickEditedImage(images: [UIImage])
 }
 
 class UIButtonWithPicker: UIButton {
@@ -52,7 +52,7 @@ extension UIButtonWithPicker: ImagePickerDelegate {
     }
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
-        self.delegate?.didPickEditedImage(image: images)
+        self.delegate?.didPickEditedImage(images: images)
         self.currentVC?.dismiss(animated: true, completion: nil)
     }
     

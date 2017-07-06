@@ -275,6 +275,9 @@
 		D40C0E511E8B9A93008174D2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E501E8B9A93008174D2 /* Photo.swift */; };
 		D40DBB9D1E9684000075E74B /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40DBB9C1E9684000075E74B /* Follow.swift */; };
 		D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
+		D424C4BD1F0C0ABC00BF46EF /* ThrowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424C4BC1F0C0ABC00BF46EF /* ThrowPresenter.swift */; };
+		D424C4BE1F0C0ABC00BF46EF /* ThrowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424C4BC1F0C0ABC00BF46EF /* ThrowPresenter.swift */; };
+		D424C4BF1F0C0ABC00BF46EF /* ThrowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424C4BC1F0C0ABC00BF46EF /* ThrowPresenter.swift */; };
 		D42F22E91EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
 		D42F22EA1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
 		D42F22EB1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
@@ -1108,6 +1111,7 @@
 		D40C0E501E8B9A93008174D2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D40DBB9C1E9684000075E74B /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
+		D424C4BC1F0C0ABC00BF46EF /* ThrowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowPresenter.swift; sourceTree = "<group>"; };
 		D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionMainHistoryViewController.swift; sourceTree = "<group>"; };
 		D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -1460,6 +1464,7 @@
 			isa = PBXGroup;
 			children = (
 				2F744CD81EC25ECB00AF724A /* BoomerPresenter.swift */,
+				D424C4BC1F0C0ABC00BF46EF /* ThrowPresenter.swift */,
 			);
 			name = Presenters;
 			sourceTree = "<group>";
@@ -3330,6 +3335,7 @@
 				D436BF2A1E95A97300BC7F00 /* TransactionTableViewCell.swift in Sources */,
 				D498F03E1E808A95002E8972 /* PhotoThingCollectionViewCell.swift in Sources */,
 				A4FE06361DD09D0300BFDC4D /* BoomerThingCollection.swift in Sources */,
+				D424C4BD1F0C0ABC00BF46EF /* ThrowPresenter.swift in Sources */,
 				D48735041E7885000065E13A /* UICollectionViewCell+Utils.swift in Sources */,
 				D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */,
 				D492C1DE1EBB7579004243DE /* ThingBar.swift in Sources */,
@@ -3524,6 +3530,7 @@
 				D4AD97CF1EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.swift in Sources */,
 				D4AD97D01EA9ACFD00C9FAB9 /* BoomerThingCollection.swift in Sources */,
 				D4AD97D11EA9ACFD00C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */,
+				D424C4BE1F0C0ABC00BF46EF /* ThrowPresenter.swift in Sources */,
 				D4AD97D21EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
 				D4CF4D9E1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD97D31EA9ACFD00C9FAB9 /* TransactionCellPresenter.swift in Sources */,
@@ -3709,6 +3716,7 @@
 				D4AD989B1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.swift in Sources */,
 				D4AD989C1EA9AD0400C9FAB9 /* BoomerThingCollection.swift in Sources */,
 				D4AD989D1EA9AD0400C9FAB9 /* UICollectionViewCell+Utils.swift in Sources */,
+				D424C4BF1F0C0ABC00BF46EF /* ThrowPresenter.swift in Sources */,
 				D4AD989E1EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
 				D4CF4D9F1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD989F1EA9AD0400C9FAB9 /* TransactionCellPresenter.swift in Sources */,

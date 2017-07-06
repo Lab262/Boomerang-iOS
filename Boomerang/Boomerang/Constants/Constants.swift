@@ -230,6 +230,13 @@ struct UserKeys {
     static let profile = "profile"
 }
 
+//MARK - Parse keys
+
+
+struct ParseKeys {
+    static let contentType = "image/jpeg"
+}
+
 //MARK - Profile keys
 
 struct ProfileKeys {
