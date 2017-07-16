@@ -29,7 +29,6 @@ class Message: PFObject {
         self.receiver = receiver
         self.chatId = chatId
     }
-    
 }
 
 

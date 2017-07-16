@@ -62,10 +62,19 @@ class MorePostViewController: UIViewController {
         tableView.registerNibFrom(MorePostTableViewCell.self)
     }
     
+    func goToProfile(_ sender: UIButton) {
+        self.performSegue(withIdentifier: SegueIdentifiers.morePostToProfile, sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? ThingDetailViewController {
             let indexPathRow = tableView.indexPathForSelectedRow!.row
             controller.presenter.post = presenter.posts[indexPathRow]
+        }
+        
+        if let controller = segue.destination as? ProfileMainViewController {
+            let indexPathRow = tableView.indexPathForSelectedRow!.row
+            controller.presenter.setProfile(profile: presenter.posts[indexPathRow].author!)
         }
     }
 
@@ -81,6 +90,7 @@ extension MorePostViewController : UITableViewDataSource {
         cell.coverImage.image = nil
         cell.userImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
+        cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
         
         cell.setupCell()
         

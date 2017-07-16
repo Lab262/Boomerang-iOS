@@ -69,6 +69,8 @@ struct SegueIdentifiers {
     static let homeToMorePost = "goToMorePosts"
     static let searchFriendsToProfile = "goToProfile"
     static let notificationToSchemeDetail = "goToSchemeDetail"
+    static let homeToProfile = "goToProfile"
+    static let morePostToProfile = "goToProfile"
 }
 
 //MARK - Storyboard Ids
@@ -79,6 +81,7 @@ struct StoryboardIds {
     static let transactionView = "navigationTransaction"
     static let chatView = "chatView"
     static let schemeDetailView = "schemeDetailView"
+    
 }
 
 //MARK - Notification Keys

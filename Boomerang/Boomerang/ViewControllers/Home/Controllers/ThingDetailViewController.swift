@@ -26,6 +26,7 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: ThingBar!
+    var currentIndexPath: IndexPath?
    
     var commentCount: Int? = 0 {
         didSet{
@@ -186,6 +187,12 @@ class ThingDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func goToProfile(_ sender: UIButton) {
+        
+        self.currentIndexPath = IndexPath(row: sender.tag, section: 0)
+        performSegue(withIdentifier: SegueIdentifiers.detailThingToProfile, sender: self)
+    }
+    
     func setPresenterDelegate() {
         presenter.setViewDelegate(view: self)
     }
@@ -320,7 +327,13 @@ class ThingDetailViewController: UIViewController {
         }
         
         if let controller = segue.destination as? ProfileMainViewController {
-            controller.presenter.setPost(post: presenter.post)
+            if let index = self.currentIndexPath {
+                controller.presenter.setProfile(profile: presenter.comments[index.row].author!)
+                self.currentIndexPath = nil
+            } else {
+                controller.presenter.setPost(post: presenter.post)
+            }
+            
         }
         
         if let controller = segue.destination as? RecommendedViewController {
@@ -402,6 +415,8 @@ class ThingDetailViewController: UIViewController {
         }
         
         cell.comment = presenter.comments[index!]
+        cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
+        cell.profileButton.tag = index!
         
         return cell
     }

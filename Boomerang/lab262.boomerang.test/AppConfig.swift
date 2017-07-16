@@ -12,17 +12,17 @@ import Parse
 class AppConfig: NSObject {
     
     struct parse {
-//        static let baseClientConfig = ParseClientConfiguration {
-//            $0.applicationId = "api-boomerang-test"
-//            $0.clientKey = ""
-//            $0.server = "http://api-boomerang-test.herokuapp.com/parse"
-//        }
-        
         static let baseClientConfig = ParseClientConfiguration {
-                $0.applicationId = "api-boomerang-dev"
-                $0.clientKey = ""
-                $0.server = "http://api-boomerang-dev.herokuapp.com/parse"
-            }
+            $0.applicationId = "api-boomerang-test"
+            $0.clientKey = ""
+            $0.server = "http://api-boomerang-test.herokuapp.com/parse"
+        }
+        
+//        static let baseClientConfig = ParseClientConfiguration {
+//                $0.applicationId = "api-boomerang-dev"
+//                $0.clientKey = ""
+//                $0.server = "http://api-boomerang-dev.herokuapp.com/parse"
+//            }
     }
     
 }

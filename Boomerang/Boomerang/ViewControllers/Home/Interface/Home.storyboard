@@ -125,6 +125,7 @@
                         <outlet property="tableView" destination="YTg-zH-wsh" id="yLx-B4-LaL"/>
                         <segue destination="OAa-qd-sUY" kind="show" identifier="goToDetailThing" id="AL7-AX-imq"/>
                         <segue destination="Nkf-dN-nrN" kind="show" identifier="goToMorePosts" id="Go6-gi-o13"/>
+                        <segue destination="MLa-Zh-1Fj" kind="show" identifier="goToProfile" id="62i-PM-F01"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYt-rM-9sf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,6 +196,7 @@
                         <outlet property="navigationBar" destination="eTH-5p-7hf" id="IJc-ll-ssG"/>
                         <outlet property="tableView" destination="nAt-8R-zUn" id="CVd-PN-jtU"/>
                         <segue destination="OAa-qd-sUY" kind="show" identifier="goToDetailThing" id="Oq6-Oc-jjw"/>
+                        <segue destination="MLa-Zh-1Fj" kind="show" identifier="goToProfile" id="y32-IY-2mw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUt-h8-VZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -207,7 +209,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="profileView" id="MLa-Zh-1Fj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pob-r7-Q66" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="1337"/>
+            <point key="canvasLocation" x="1335" y="891"/>
         </scene>
         <!--Recommended View Controller-->
         <scene sceneID="YxE-5O-buv">
@@ -338,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMD-UR-Knd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245.5999999999999" y="1750.9745127436283"/>
+            <point key="canvasLocation" x="2212" y="1750"/>
         </scene>
         <!--Thing Detail View Controller-->
         <scene sceneID="yTL-aV-yR5">
@@ -592,6 +594,7 @@
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AL7-AX-imq"/>
+        <segue reference="Oq6-Oc-jjw"/>
+        <segue reference="jkn-bi-iuA"/>
     </inferredMetricsTieBreakers>
 </document>

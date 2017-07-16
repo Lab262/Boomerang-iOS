@@ -38,6 +38,9 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMw-ce-2Px">
+                        <rect key="frame" x="11.5" y="3" width="60" height="60"/>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVr-0K-ecW">
                         <rect key="frame" x="84.5" y="9.5" width="39" height="17"/>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
@@ -59,7 +62,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="AVr-0K-ecW" firstAttribute="leading" secondItem="eNU-mo-uPw" secondAttribute="trailing" constant="18" id="5A9-Qi-BAh"/>
+                    <constraint firstItem="VMw-ce-2Px" firstAttribute="centerX" secondItem="eNU-mo-uPw" secondAttribute="centerX" id="6Cf-Ro-BTg"/>
+                    <constraint firstItem="VMw-ce-2Px" firstAttribute="centerY" secondItem="eNU-mo-uPw" secondAttribute="centerY" id="JtQ-Ns-ZcR"/>
                     <constraint firstItem="eNU-mo-uPw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.22" id="LKB-C0-kBK"/>
+                    <constraint firstItem="VMw-ce-2Px" firstAttribute="height" secondItem="eNU-mo-uPw" secondAttribute="height" multiplier="1.2" id="Ovh-mH-yp6"/>
                     <constraint firstItem="eNU-mo-uPw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="RhW-SL-PT6"/>
                     <constraint firstItem="AVr-0K-ecW" firstAttribute="top" secondItem="eNU-mo-uPw" secondAttribute="top" multiplier="1.2" id="ZsC-FL-l4q"/>
                     <constraint firstAttribute="bottom" secondItem="dk4-WL-Zzq" secondAttribute="bottom" priority="750" constant="22" id="eaO-YF-egQ"/>
@@ -68,10 +74,12 @@
                     <constraint firstItem="dk4-WL-Zzq" firstAttribute="leading" secondItem="AVr-0K-ecW" secondAttribute="leading" id="mRs-E5-GvV"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dk4-WL-Zzq" secondAttribute="trailing" constant="21" id="ocZ-de-Lwa"/>
                     <constraint firstItem="Osi-Ay-Sg9" firstAttribute="centerY" secondItem="AVr-0K-ecW" secondAttribute="centerY" id="pjG-zj-hGa"/>
+                    <constraint firstItem="VMw-ce-2Px" firstAttribute="width" secondItem="eNU-mo-uPw" secondAttribute="width" multiplier="1.2" id="v3Z-ps-hsW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="Osi-Ay-Sg9" id="vYW-YQ-tam"/>
+                <outlet property="profileButton" destination="VMw-ce-2Px" id="LbN-jz-rZn"/>
                 <outlet property="userDescriptionLabel" destination="dk4-WL-Zzq" id="Ujd-N3-bOG"/>
                 <outlet property="userNameLabel" destination="AVr-0K-ecW" id="xqf-bS-2tL"/>
                 <outlet property="userPhotoImage" destination="eNU-mo-uPw" id="ZHd-JV-kFX"/>

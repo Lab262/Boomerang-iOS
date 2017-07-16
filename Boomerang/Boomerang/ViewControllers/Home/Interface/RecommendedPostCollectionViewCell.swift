@@ -22,6 +22,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sharedAmountLabel: UILabel!
     @IBOutlet weak var heightPostIconConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthPostIconConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profileButton: UIButton!
     
     var presenter: PostPresenter = PostPresenter()
     

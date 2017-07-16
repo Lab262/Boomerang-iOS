@@ -14,6 +14,7 @@ class UserCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userDescriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var profileButton: UIButton!
     
     var comment: Comment? {
         didSet{
@@ -48,7 +49,7 @@ class UserCommentTableViewCell: UITableViewCell {
     func updateCellUI(){
         userNameLabel.text = comment!.author!.fullName
         userDescriptionLabel.text = comment!.content
-        dateLabel.text = comment!.createdDate!.timeSinceNow()
+        dateLabel.text = comment!.createdAt!.timeSinceNow()
         getUserPhotoImage()
     }
     

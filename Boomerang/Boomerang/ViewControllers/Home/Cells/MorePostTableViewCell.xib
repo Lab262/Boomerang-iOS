@@ -72,6 +72,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37h-ch-WFq">
+                                <rect key="frame" x="10.5" y="24.5" width="53" height="53"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="djS-fy-dVG">
                                 <rect key="frame" x="15" y="29" width="44" height="44"/>
                                 <constraints>
@@ -129,7 +133,7 @@ máximo de caracteres help in a numb</string>
                                 </subviews>
                             </stackView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kvt-HK-Etl">
-                                <rect key="frame" x="224.5" y="258" width="29" height="14"/>
+                                <rect key="frame" x="225" y="258" width="29" height="14"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="sharing-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="qCv-CE-F2J">
                                         <rect key="frame" x="0.0" y="0.0" width="16" height="14"/>
@@ -149,7 +153,7 @@ máximo de caracteres help in a numb</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rmK-7e-Y43">
-                                <rect key="frame" x="163.5" y="257" width="27" height="15"/>
+                                <rect key="frame" x="164" y="257" width="27" height="15"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="749" image="comment-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="d7F-fC-cCZ">
                                         <rect key="frame" x="0.0" y="0.0" width="14" height="15"/>
@@ -166,6 +170,7 @@ máximo de caracteres help in a numb</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="su4-lZ-4DM" firstAttribute="centerY" secondItem="rmK-7e-Y43" secondAttribute="centerY" id="5qB-Zm-dux"/>
+                            <constraint firstItem="37h-ch-WFq" firstAttribute="width" secondItem="djS-fy-dVG" secondAttribute="width" multiplier="1.2" id="7hX-Ca-d6M"/>
                             <constraint firstItem="me4-JT-ggt" firstAttribute="centerY" secondItem="trN-FT-Hw7" secondAttribute="centerY" multiplier="1.2" id="An6-bN-9MS"/>
                             <constraint firstItem="kvt-HK-Etl" firstAttribute="centerY" secondItem="su4-lZ-4DM" secondAttribute="centerY" id="DN7-8X-0Vt"/>
                             <constraint firstItem="xuU-f8-XUb" firstAttribute="leading" secondItem="t8Y-qF-XZK" secondAttribute="trailing" constant="10" id="Enq-oj-dod"/>
@@ -174,7 +179,10 @@ máximo de caracteres help in a numb</string>
                             <constraint firstItem="zwF-aV-DSS" firstAttribute="top" secondItem="trN-FT-Hw7" secondAttribute="top" id="JSV-Gh-oNN"/>
                             <constraint firstItem="PGb-EY-kEQ" firstAttribute="leading" secondItem="t8Y-qF-XZK" secondAttribute="leading" id="KXR-dM-klC"/>
                             <constraint firstItem="me4-JT-ggt" firstAttribute="height" secondItem="trN-FT-Hw7" secondAttribute="height" multiplier="0.5" id="QmO-Kw-AFu"/>
+                            <constraint firstItem="37h-ch-WFq" firstAttribute="height" secondItem="djS-fy-dVG" secondAttribute="height" multiplier="1.2" id="UQn-VP-uQP"/>
+                            <constraint firstItem="37h-ch-WFq" firstAttribute="centerY" secondItem="djS-fy-dVG" secondAttribute="centerY" id="Wu0-Qi-JkI"/>
                             <constraint firstItem="me4-JT-ggt" firstAttribute="leading" secondItem="trN-FT-Hw7" secondAttribute="leading" constant="11" id="XMK-cF-Mgn"/>
+                            <constraint firstItem="37h-ch-WFq" firstAttribute="centerX" secondItem="djS-fy-dVG" secondAttribute="centerX" id="cb0-8G-8M5"/>
                             <constraint firstItem="t8Y-qF-XZK" firstAttribute="leading" secondItem="djS-fy-dVG" secondAttribute="trailing" constant="6" id="ihb-D2-gca"/>
                             <constraint firstItem="djS-fy-dVG" firstAttribute="centerY" secondItem="trN-FT-Hw7" secondAttribute="centerY" multiplier="0.35" id="ijT-kK-VSq"/>
                             <constraint firstItem="xuU-f8-XUb" firstAttribute="centerY" secondItem="t8Y-qF-XZK" secondAttribute="centerY" id="iyG-G6-3i2"/>
@@ -234,6 +242,7 @@ máximo de caracteres help in a numb</string>
                 <outlet property="likeAmountLabel" destination="Hn3-or-zC9" id="38i-NC-Tzo"/>
                 <outlet property="nameLabel" destination="t8Y-qF-XZK" id="Wz2-WW-Bhu"/>
                 <outlet property="postIconImage" destination="PtW-b4-L4o" id="hA3-rQ-mkO"/>
+                <outlet property="profileButton" destination="37h-ch-WFq" id="D7g-Xy-sp8"/>
                 <outlet property="sharedAmount" destination="fCU-Tr-fn9" id="Mh7-mO-eTr"/>
                 <outlet property="userImage" destination="djS-fy-dVG" id="25T-fc-cPO"/>
                 <outlet property="widthPostIconConstraint" destination="fnz-SL-3ZG" id="OJo-pS-c6G"/>

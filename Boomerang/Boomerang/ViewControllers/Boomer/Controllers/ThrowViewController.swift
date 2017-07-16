@@ -365,7 +365,6 @@ class ThrowViewController: UIViewController {
     
     
     func createPost () {
-        
         self.view.endEditing(true)
         let post = Post(author:
             User.current()!.profile!,
