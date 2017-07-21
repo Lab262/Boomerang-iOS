@@ -292,6 +292,23 @@ class PostRequest: NSObject {
         }
     }
     
+    
+    
+    static func deleteComment(comment: Comment, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        var queryParams = [String : Any]()
+        queryParams[InterestedKeys.user] = comment
+        
+        ParseRequest.updateForIsDeletedObjectBy(className: Comment.parseClassName(), queryParams: queryParams) { (success, msg) in
+            if success {
+                completionHandler(success, msg)
+            } else {
+                completionHandler(success, msg)
+            }
+        }
+    }
+    
+    
     static func updatePostIsAvailable(isAvailable: Bool, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         let query = PFQuery(className: "Post")
