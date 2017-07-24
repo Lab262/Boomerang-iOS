@@ -74,7 +74,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         userImage.getUserImage(profile: presenter.post.author!) { (success, msg) in
         }
         
-        //presenter.getCountPhotos()
+        presenter.getCountPhotos()
         presenter.getCoverOfPost { (success, msg, image) in
             if success {
                 self.postImage.image = image!
