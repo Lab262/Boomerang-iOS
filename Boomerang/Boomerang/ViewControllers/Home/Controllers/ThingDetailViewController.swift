@@ -42,7 +42,7 @@ class ThingDetailViewController: UIViewController {
     
     let tableViewTopInset: CGFloat = 98.0
     var presenter = DetailThingPresenter()
-    var textFieldHeight: CGFloat = 60
+    var textFieldHeight: CGFloat = 70
     var composeBarView: PHFComposeBarView?
     var initialViewFrame: CGRect?
     var container: UIView?
@@ -79,6 +79,7 @@ class ThingDetailViewController: UIViewController {
     func registerNibs(){
         tableView.registerNibFrom(PhotoThingTableViewCell.self)
         tableView.registerNibFrom(UserInformationTableViewCell.self)
+        tableView.registerNibFrom(AmountPostInteractionTableViewCell.self)
         tableView.registerNibFrom(DescriptionTableViewCell.self)
         tableView.registerNibFrom(ThingConditionTableViewCell.self)
         tableView.registerNibFrom(TextFieldGroupTableViewCell.self)
@@ -383,6 +384,13 @@ class ThingDetailViewController: UIViewController {
         return cell
     }
     
+    func generateAmountPostInteractionCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: AmountPostInteractionTableViewCell.identifier, for: indexPath) as! AmountPostInteractionTableViewCell
+        
+        return cell
+    }
+    
     func generateUserDescriptionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier, for: indexPath) as! DescriptionTableViewCell
@@ -395,7 +403,7 @@ class ThingDetailViewController: UIViewController {
     func generateConditionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ThingConditionTableViewCell.identifier, for: indexPath) as! ThingConditionTableViewCell
-        cell.cellData = inputFieldsCondition[indexPath.row-3]
+        cell.cellData = inputFieldsCondition[indexPath.row-4]
         
         return cell
     }
@@ -409,9 +417,9 @@ class ThingDetailViewController: UIViewController {
         var index: Int?
         
         if commentCount! > 0 {
-            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-5)
+            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-6)
         } else {
-            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-4)
+            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-5)
         }
         
         cell.comment = presenter.comments[index!]
@@ -439,7 +447,7 @@ class ThingDetailViewController: UIViewController {
 extension ThingDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case inputFieldsCondition.count+3:
+        case inputFieldsCondition.count+4:
             return textFieldHeight
         default:
             return UITableViewAutomaticDimension
@@ -465,12 +473,14 @@ extension ThingDetailViewController: UITableViewDelegate {
         case 1:
             return generateUserInformationsCell(tableView, cellForRowAt: indexPath)
         case 2:
+            return generateAmountPostInteractionCell(tableView, cellForRowAt: indexPath)
+        case 3:
             return generateUserDescriptionCell(tableView, cellForRowAt: indexPath)
-        case 3..<inputFieldsCondition.count+3:
+        case 4..<inputFieldsCondition.count+4:
             return generateConditionCell(tableView, cellForRowAt: indexPath)
-        case inputFieldsCondition.count+3:
-            return generateTextFieldCell(tableView, cellForRowAt: indexPath)
         case inputFieldsCondition.count+4:
+            return generateTextFieldCell(tableView, cellForRowAt: indexPath)
+        case inputFieldsCondition.count+5:
             if commentCount! > 0 {
                 return generateMoreButton(tableView, cellForRowAt: indexPath)
             } else {
@@ -483,8 +493,8 @@ extension ThingDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let rows = inputFieldsCondition.count + 4 + presenter.comments.count
-        let rowsWithMoreButton = inputFieldsCondition.count + 5 + presenter.comments.count
+        let rows = inputFieldsCondition.count + 5 + presenter.comments.count
+        let rowsWithMoreButton = inputFieldsCondition.count + 6 + presenter.comments.count
         
         if commentCount! > 0 {
             return rowsWithMoreButton

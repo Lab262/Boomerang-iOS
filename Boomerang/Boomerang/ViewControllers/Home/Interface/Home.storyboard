@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lcr-AS-ZtQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lcr-AS-ZtQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -376,27 +376,59 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="moreCell" rowHeight="50" id="NVP-78-OiR" customClass="MoreCommentTableViewCell" customModule="lab262_boomerang_dev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="moreCell" rowHeight="70" id="NVP-78-OiR" customClass="MoreCommentTableViewCell" customModule="lab262_boomerang_dev" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NVP-78-OiR" id="MGC-e1-gxl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzC-zr-Czk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
-                                                    <state key="normal" title="Ver mais comentários">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5d-4l-CFb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzC-zr-Czk">
+                                                            <rect key="frame" x="15" y="15" width="345" height="43"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="43" id="usJ-BM-0Um"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
+                                                            <state key="normal" title="Ver mais comentários">
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="PzC-zr-Czk" firstAttribute="leading" secondItem="o5d-4l-CFb" secondAttribute="leading" constant="15" id="4EK-wS-W4Z"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PzC-zr-Czk" secondAttribute="bottom" constant="12" id="ju8-tK-d84"/>
+                                                        <constraint firstAttribute="trailing" secondItem="PzC-zr-Czk" secondAttribute="trailing" constant="15" id="sjp-d8-jmq"/>
+                                                        <constraint firstItem="PzC-zr-Czk" firstAttribute="top" secondItem="o5d-4l-CFb" secondAttribute="top" constant="15" id="vrp-Ld-bCt"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                            <real key="value" value="0.29999999999999999"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                            <size key="value" width="0.0" height="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="PzC-zr-Czk" firstAttribute="centerY" secondItem="MGC-e1-gxl" secondAttribute="centerY" id="Aty-Po-DyG"/>
-                                                <constraint firstItem="PzC-zr-Czk" firstAttribute="centerX" secondItem="MGC-e1-gxl" secondAttribute="centerX" id="fAV-ie-0eF"/>
-                                                <constraint firstItem="PzC-zr-Czk" firstAttribute="height" secondItem="MGC-e1-gxl" secondAttribute="height" id="pdH-yq-qEb"/>
-                                                <constraint firstItem="PzC-zr-Czk" firstAttribute="width" secondItem="MGC-e1-gxl" secondAttribute="width" id="vMT-5R-jQU"/>
+                                                <constraint firstAttribute="trailing" secondItem="o5d-4l-CFb" secondAttribute="trailing" id="5Eu-Gy-Fqh"/>
+                                                <constraint firstAttribute="bottom" secondItem="o5d-4l-CFb" secondAttribute="bottom" id="AND-xs-fFY"/>
+                                                <constraint firstItem="o5d-4l-CFb" firstAttribute="leading" secondItem="MGC-e1-gxl" secondAttribute="leading" id="LBX-6V-W4f"/>
+                                                <constraint firstItem="o5d-4l-CFb" firstAttribute="top" secondItem="MGC-e1-gxl" secondAttribute="top" id="TKR-4t-HRB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -574,7 +606,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcr-AS-ZtQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0d-99-g7M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n0d-99-g7M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
