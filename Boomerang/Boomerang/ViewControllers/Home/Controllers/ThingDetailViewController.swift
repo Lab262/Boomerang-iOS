@@ -215,7 +215,7 @@ class ThingDetailViewController: UIViewController {
     }
     
     func initializeComposeBar(){
-        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height, width: self.view.frame.width, height: 100.0)
+        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height - 100, width: self.view.frame.width, height: 100.0)
         composeBarView = PHFComposeBarView(frame: CGRect(x: 0.0, y: (initialViewFrame?.size.height)! - PHFComposeBarViewInitialHeight, width: (initialViewFrame?.size.width)!, height: PHFComposeBarViewInitialHeight))
         composeBarView?.maxCharCount = 160
         composeBarView?.maxLinesCount = 5
@@ -277,14 +277,7 @@ class ThingDetailViewController: UIViewController {
                     options: UIViewAnimationOptions(),
                     animations: {
                         () -> Void in
-                        //self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height+10, 0.0)
-                        self.firstButton.alpha = 0.0
-                        if !self.secondButton.isHidden {
-                            self.secondButton.alpha = 0.0
-                        }
                         self.view.frame.origin.y = -keyboardFrame.size.height
-                        self.container?.frame.origin.y = (self.container?.frame.origin.y)! - 100
-                        
                 },
                     completion: nil)
             }
@@ -298,14 +291,7 @@ class ThingDetailViewController: UIViewController {
             options: UIViewAnimationOptions(),
             animations: {
                 () -> Void in
-                // self.tableView.contentInset = UIEdgeInsets.zero
-                self.firstButton.alpha = 1.0
-                if !self.secondButton.isHidden {
-                    self.secondButton.alpha = 1.0
-                }
-                
                 self.view.frame.origin.y = 0
-                self.container?.frame.origin.y = (self.container?.frame.origin.y)! + 100
         },
             completion: nil)
     }
@@ -347,16 +333,29 @@ class ThingDetailViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: MoreCommentTableViewCell.identifier, for: indexPath) as! MoreCommentTableViewCell
         
         cell.moreButton.addTarget(self, action: #selector(updateComments(_:)), for: .touchUpInside)
-    
-        let commentsMissing = presenter.commentCount
-        cell.moreButton.setTitle("Mais \(commentsMissing.description) comentários", for: .normal)
+        
+        cell.moreButton.setTitle(setupMoreButtonTitle(), for: .normal)
+        
         cell.moreButton.isEnabled = true
         
-        if commentsMissing <= 0 {
-            commentCount = commentsMissing
+        if presenter.commentCount <= 0 {
+            commentCount = presenter.commentCount
         }
         
         return cell
+    }
+    
+    func setupMoreButtonTitle() -> String {
+        let commentsMissing = presenter.commentCount
+        var moreButtonTitle: String
+        
+        if commentsMissing == 1 {
+            moreButtonTitle = "Ver mais \(commentsMissing.description) comentário"
+        } else {
+            moreButtonTitle = "Ver mais \(commentsMissing.description) comentários"
+        }
+        
+        return moreButtonTitle
     }
     
     func generatePhotoThingCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
