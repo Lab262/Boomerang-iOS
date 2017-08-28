@@ -171,6 +171,12 @@
 		2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA93B281E4A881E0080F99A /* UserRequest.swift */; };
 		2FAE03071E78C3540062E155 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE03061E78C3540062E155 /* Friend.swift */; };
 		2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */; };
+		2FBF0F331F520917008E9978 /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF0F321F520917008E9978 /* EditImageViewController.swift */; };
+		2FBF0F351F5210A0008E9978 /* EditPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF0F341F5210A0008E9978 /* EditPhotoCollectionViewCell.swift */; };
+		2FBF0F361F528103008E9978 /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF0F321F520917008E9978 /* EditImageViewController.swift */; };
+		2FBF0F371F528104008E9978 /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF0F321F520917008E9978 /* EditImageViewController.swift */; };
+		2FBF0F381F52829A008E9978 /* EditPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF0F341F5210A0008E9978 /* EditPhotoCollectionViewCell.swift */; };
+		2FBF0F391F52829B008E9978 /* EditPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF0F341F5210A0008E9978 /* EditPhotoCollectionViewCell.swift */; };
 		2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E0691E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift */; };
 		2FC9E06C1E8CB7A100A048A4 /* SwitchButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */; };
 		2FC9E0721E8EFCE200A048A4 /* FieldCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E0711E8EFCE200A048A4 /* FieldCellData.swift */; };
@@ -1012,6 +1018,8 @@
 		2FA93B281E4A881E0080F99A /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		2FAE03061E78C3540062E155 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		2FAE03081E78F7540062E155 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		2FBF0F321F520917008E9978 /* EditImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageViewController.swift; sourceTree = "<group>"; };
+		2FBF0F341F5210A0008E9978 /* EditPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FC9E0691E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchButtonTableViewCell.swift; path = Interface/SwitchButtonTableViewCell.swift; sourceTree = "<group>"; };
 		2FC9E06A1E8CB7A000A048A4 /* SwitchButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchButtonTableViewCell.xib; sourceTree = "<group>"; };
 		2FC9E0711E8EFCE200A048A4 /* FieldCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldCellData.swift; sourceTree = "<group>"; };
@@ -1600,6 +1608,7 @@
 				D4FBBCE71E907BF700611F63 /* InterestedListViewController.swift */,
 				D4B55D721E987EE100CC1A69 /* PageIndicatorView.swift */,
 				D4788DDD1ECE18E700E5E55F /* MorePostViewController.swift */,
+				2FBF0F321F520917008E9978 /* EditImageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2164,6 +2173,7 @@
 				D498F03C1E808A95002E8972 /* PhotoThingCollectionViewCell.swift */,
 				D48735051E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift */,
 				D4CF4D9B1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift */,
+				2FBF0F341F5210A0008E9978 /* EditPhotoCollectionViewCell.swift */,
 			);
 			name = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -2960,7 +2970,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81F257C77482D4401703111B /* [CP] Embed Pods Frameworks */ = {
@@ -3020,7 +3030,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD98391EA9ACFD00C9FAB9 /* Adding tags to comment */ = {
@@ -3095,7 +3105,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD99051EA9AD0400C9FAB9 /* Adding tags to comment */ = {
@@ -3200,7 +3210,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3225,6 +3235,7 @@
 				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
 				D4C5BBD91ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
+				2FBF0F331F520917008E9978 /* EditImageViewController.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
 				D4C134E91E9C8265003F55E4 /* ChatRequest.swift in Sources */,
 				D4AD976E1EA81A1F00C9FAB9 /* EvaluationViewController.swift in Sources */,
@@ -3238,6 +3249,7 @@
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
 				2F0BAC031EDA5DF800B31AFA /* DistanceRadiusTableViewCell.swift in Sources */,
 				D40C0E4C1E8AAD58008174D2 /* CommentRequest.swift in Sources */,
+				2FBF0F351F5210A0008E9978 /* EditPhotoCollectionViewCell.swift in Sources */,
 				2F2F07901E6733CC00C61A6D /* ThrowViewController.swift in Sources */,
 				A40A251A1DCB681A00DF9523 /* UIView+Animations.swift in Sources */,
 				2F2F07941E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift in Sources */,
@@ -3419,6 +3431,7 @@
 				D4AD97801EA9ACFD00C9FAB9 /* AppDelegate.swift in Sources */,
 				D4C5BBDA1ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				D4AD97811EA9ACFD00C9FAB9 /* BoomerMainViewController.swift in Sources */,
+				2FBF0F361F528103008E9978 /* EditImageViewController.swift in Sources */,
 				D4AD97821EA9ACFD00C9FAB9 /* UserRequest.swift in Sources */,
 				D4AD97831EA9ACFD00C9FAB9 /* UIApplication+Navigation.swift in Sources */,
 				D4AD97841EA9ACFD00C9FAB9 /* ChatRequest.swift in Sources */,
@@ -3432,6 +3445,7 @@
 				D4AD978B1EA9ACFD00C9FAB9 /* ThrowViewController.swift in Sources */,
 				2F0BAC051EDA649F00B31AFA /* DistanceRadiusTableViewCell.swift in Sources */,
 				D4CA48A01EC7DA87003C17F6 /* PostCondition.swift in Sources */,
+				2FBF0F381F52829A008E9978 /* EditPhotoCollectionViewCell.swift in Sources */,
 				D4AD978C1EA9ACFD00C9FAB9 /* UIView+Animations.swift in Sources */,
 				D4AD978D1EA9ACFD00C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
 				D4AD978E1EA9ACFD00C9FAB9 /* RightMenuCell.swift in Sources */,
@@ -3604,6 +3618,7 @@
 				D4AD984C1EA9AD0400C9FAB9 /* AppDelegate.swift in Sources */,
 				D4C5BBDB1ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				D4AD984D1EA9AD0400C9FAB9 /* BoomerMainViewController.swift in Sources */,
+				2FBF0F371F528104008E9978 /* EditImageViewController.swift in Sources */,
 				D4AD984E1EA9AD0400C9FAB9 /* UserRequest.swift in Sources */,
 				D4AD984F1EA9AD0400C9FAB9 /* UIApplication+Navigation.swift in Sources */,
 				D4AD98501EA9AD0400C9FAB9 /* ChatRequest.swift in Sources */,
@@ -3617,6 +3632,7 @@
 				D4AD98571EA9AD0400C9FAB9 /* ThrowViewController.swift in Sources */,
 				2F0BAC061EDA64A000B31AFA /* DistanceRadiusTableViewCell.swift in Sources */,
 				D4CA48A11EC7DA87003C17F6 /* PostCondition.swift in Sources */,
+				2FBF0F391F52829B008E9978 /* EditPhotoCollectionViewCell.swift in Sources */,
 				D4AD98581EA9AD0400C9FAB9 /* UIView+Animations.swift in Sources */,
 				D4AD98591EA9AD0400C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
 				D4AD985A1EA9AD0400C9FAB9 /* RightMenuCell.swift in Sources */,

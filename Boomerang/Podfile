@@ -18,7 +18,7 @@ def common_pods
     pod 'Kingfisher', '~> 3.0'
     pod 'PHFComposeBarView', '~> 2.0.1'
     pod 'ImagePicker'
-
+    pod 'Hero'
 end
 
 target 'lab262.boomerang.test' do
