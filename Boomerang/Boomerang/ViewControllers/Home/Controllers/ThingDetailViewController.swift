@@ -10,6 +10,7 @@ import UIKit
 import ParseLiveQuery
 import Parse
 
+
 struct Fields {
     let iconCondition: UIImage
     let titleCondition: String
@@ -326,6 +327,13 @@ class ThingDetailViewController: UIViewController {
         if let controller = segue.destination as? RecommendedViewController {
             controller.presenter.post = presenter.post
         }
+        
+        if let controller = segue.destination as? EditImageViewController {
+            controller.photo = presenter.getImagePostByIndex(0)
+        }
+        
+        
+        
     }
     
     func generateMoreButton(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -350,6 +358,7 @@ class ThingDetailViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: PhotoThingTableViewCell.identifier, for: indexPath) as! PhotoThingTableViewCell
         
         cell.presenter.post = presenter.post
+        cell.delegate = self
         
 //        if cell.presenter.post!.relations == nil {
 //           // cell.presenter.getCountPhotos(success: false)
@@ -581,6 +590,13 @@ extension ThingDetailViewController: PHFComposeBarViewDelegate {
 extension ThingDetailViewController : UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
+    }
+}
+
+extension ThingDetailViewController:PhotoDetailDelegate {
+    
+    func displayPhoto(){
+        self.performSegue(withIdentifier:"detailPhoto", sender:nil)
     }
 }
 
