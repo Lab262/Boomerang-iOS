@@ -191,6 +191,7 @@ struct ProfileTitles {
 struct CloudFunctions {
     static let featuredPosts = "featuredPosts"
     static let enterInterestedList = "enterInterestedList"
+    static let likePost = "likePost"
 }
 
 //MARK - Server keys

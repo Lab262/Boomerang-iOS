@@ -43,6 +43,22 @@ class PostRequest: NSObject {
         }
     }
     
+    static func likePost(post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+    
+        var params = [String: String]()
+        
+        params["postId"] = post.objectId
+        params["profileId"] = User.current()!.profile!.objectId
+                
+        PFCloud.callFunction(inBackground: CloudFunctions.likePost, withParameters: params) { (objects, error) in
+            if let _ = error {
+                completionHandler(false, error!.localizedDescription)
+            } else {
+                completionHandler(true, "success")
+            }
+        }
+    }
+    
     static func fetchPostByFollowing(postsDownloaded: [Post], following: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()

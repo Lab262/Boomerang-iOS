@@ -28,11 +28,26 @@ class AmountPostInteractionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var recommendationAmountButton: UIButton!
     
+    var presenter = AmountPostInteractionPresenter()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        presenter.setViewDelegate(delegate: self)
+        
+    }
+    
+    @IBAction func likedPost(_ sender: Any) {
+        presenter.likedPost()
     }
     
     
     
+}
+
+extension AmountPostInteractionTableViewCell: AmountPostDelegate {
+    
+    func showMessage(isSuccess: Bool, msg: String) {
+        
+    }
 }

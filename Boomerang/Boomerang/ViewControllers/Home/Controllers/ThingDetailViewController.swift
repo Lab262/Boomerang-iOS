@@ -297,13 +297,18 @@ class ThingDetailViewController: UIViewController {
     }
     
     func configureGestureRecognizer(){
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didGesture(_:)))
         panGesture.delegate = self
         tableView.addGestureRecognizer(panGesture)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didGesture(_:)))
+        tapGesture.delegate = self
+        tableView.addGestureRecognizer(tapGesture)
     }
     
-    func didPan(_ gesture : UIGestureRecognizer) {
+    func didGesture(_ gesture : UIGestureRecognizer) {
         tableView.endEditing(true)
+        view.endEditing(true)
     }
 
     
@@ -386,6 +391,8 @@ class ThingDetailViewController: UIViewController {
     func generateAmountPostInteractionCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: AmountPostInteractionTableViewCell.identifier, for: indexPath) as! AmountPostInteractionTableViewCell
+        
+        cell.presenter.post = presenter.post
         
         return cell
     }
