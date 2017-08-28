@@ -45,22 +45,11 @@ class SettingViewController: UIViewController {
     
     
     func showAlertLogout(){
-        let alertController = UIAlertController(title: "Sair", message: "Você deseja mesmo sair?", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "Sair", style: UIAlertActionStyle.default) {
-            UIAlertAction in
-            self.disconect()
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Você deseja mesmo sair?", positiveAction: "Sair", negativeAction: "Cancelar") { (isPositive) in
+            if isPositive {
+                self.disconect()
+            }
         }
-        let cancelAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel) {
-            UIAlertAction in
-        }
-        
-        
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-      
-        self.present(alertController, animated: true, completion: nil)
-        
     }
     
     func generateNotificationCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
