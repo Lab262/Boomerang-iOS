@@ -14,7 +14,7 @@ app_base_bundle = "lab262.boomerang"
       ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "hhdv-tiws-qlmu-dvzc"
       clear_derived_data
       sh 'pod update --verbose'
-      end
+    end
 
     desc "Submit a new Alpha Build to Apple TestFlight"
     desc "This will also make sure the profile is up to date"
