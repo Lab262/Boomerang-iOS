@@ -11,7 +11,7 @@ stages:
 deploy_alpha:
   stage: deploy
   script:
-    # - cd Boomerang
+    - cd Boomerang
     - fastlane alpha
   only:
     - dev
