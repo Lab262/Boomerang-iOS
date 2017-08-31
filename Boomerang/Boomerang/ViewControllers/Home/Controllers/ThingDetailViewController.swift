@@ -82,7 +82,7 @@ class ThingDetailViewController: UIViewController {
         tableView.registerNibFrom(AmountPostInteractionTableViewCell.self)
         tableView.registerNibFrom(DescriptionTableViewCell.self)
         tableView.registerNibFrom(ThingConditionTableViewCell.self)
-        tableView.registerNibFrom(TextFieldGroupTableViewCell.self)
+        tableView.registerNibFrom(ActionsPostTableViewCell.self)
         tableView.registerNibFrom(UserCommentTableViewCell.self)
     }
     
@@ -104,7 +104,7 @@ class ThingDetailViewController: UIViewController {
         setupInformations()
         setPresenterDelegate()
         registerNibs()
-        configureButtons()
+        //configureButtons()
         configureTableView()
         setNavigationInformations()
         initializeComposeBar()
@@ -198,20 +198,35 @@ class ThingDetailViewController: UIViewController {
         presenter.setViewDelegate(view: self)
     }
     
-    func configureButtons(){
+    func configureButtons(actionsPostCell: ActionsPostTableViewCell) {
         
-        if !presenter.post.isAvailable {
-            firstButton.isHidden = true
-            secondButton.isHidden = true
-        } else if !presenter.authorPostIsCurrent(){
-            presenter.alreadyInterested()
-            secondButton.isHidden = false
-            secondButton.setTitle(presenter.recommendedTitleButton, for: .normal)
-        } else {
-            secondButton.isHidden = true
-            firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
-            firstButton.setTitle(presenter.interestedListTitleButton, for: .normal)
+        if actionsPostCell.recommendButton.titleLabel?.text == nil {
+            if !presenter.post.isAvailable {
+                actionsPostCell.isHidden = true
+            } else if !presenter.authorPostIsCurrent() {
+                actionsPostCell.waitingListButton.titleLabel?.loadAnimation()
+                presenter.alreadyInterested(completionHandler: { (success, msg, title) in
+                    if success {
+                        actionsPostCell.waitingListButton.titleLabel?.unload()
+                        actionsPostCell.waitingListButton.setTitle(title, for: .normal)
+                    }
+                })
+                actionsPostCell.recommendButton.isHidden = false
+                actionsPostCell.recommendButton.setTitle(presenter.recommendedTitleButton, for: .normal)
+
+            } else {
+                actionsPostCell.recommendButton.isHidden = true
+                //actionsPostCell.waitingListButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
+                actionsPostCell.waitingListButton.setTitle(presenter.interestedListTitleButton, for: .normal)
+            }
         }
+    }
+    
+    func setupActionButtons(actionsPostCell: ActionsPostTableViewCell) {
+        
+        actionsPostCell.recommendButton.addTarget(self, action: #selector(goToRecommendedView(_:)), for: .touchUpInside)
+        
+        actionsPostCell.waitingListButton.addTarget(self, action: #selector(enterInterestedList(_:)), for: .touchUpInside)
     }
     
     func initializeComposeBar(){
@@ -242,18 +257,40 @@ class ThingDetailViewController: UIViewController {
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
+//        if presenter.authorPostIsCurrent() {
+//            performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
+//        } else {
+//            if self.firstButton.currentTitle == presenter.enterInterestedTitleButton {
+//                presenter.enterInterestedList(completionHandler: { (success, <#String#>, <#String#>) in
+//                    <#code#>
+//                })
+//            } else {
+//                presenter.exitInterestedList()
+//            }
+//        }
+    }
+    
+    func enterInterestedList(_ sender: UIButton) {
         if presenter.authorPostIsCurrent() {
             performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
         } else {
-            if self.firstButton.currentTitle == presenter.enterInterestedTitleButton {
-                presenter.enterInterestedList()
+            if sender.currentTitle == presenter.enterInterestedTitleButton {
+                presenter.enterInterestedList(completionHandler: { (success, msg, title) in
+                    sender.titleLabel?.text = title
+                })
             } else {
-                presenter.exitInterestedList()
+                presenter.exitInterestedList(completionHandler: { (success, msg, title) in
+                    sender.titleLabel?.text = title
+                })
             }
         }
     }
     
     @IBAction func secondButtonAction(_ sender: Any) {
+        self.performSegue(withIdentifier: SegueIdentifiers.detailThingToRecommended, sender: self)
+    }
+    
+    func goToRecommendedView(_ sender: UIButton) {
         self.performSegue(withIdentifier: SegueIdentifiers.detailThingToRecommended, sender: self)
     }
     
@@ -436,11 +473,12 @@ class ThingDetailViewController: UIViewController {
     }
     
     
-    func generateTextFieldCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func generateActionsPostsCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldGroupTableViewCell.identifier, for: indexPath) as! TextFieldGroupTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActionsPostTableViewCell.identifier, for: indexPath) as! ActionsPostTableViewCell
         
-        cell.commentButton.addTarget(self, action: #selector(textFieldFirstResponder(_:)), for: .touchUpInside)
+        configureButtons(actionsPostCell: cell)
+        setupActionButtons(actionsPostCell: cell)
         
         return cell
     }
@@ -453,8 +491,8 @@ class ThingDetailViewController: UIViewController {
 extension ThingDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case inputFieldsCondition.count+4:
-            return textFieldHeight
+//        case inputFieldsCondition.count+4:
+//            return textFieldHeight
         default:
             return UITableViewAutomaticDimension
         }
@@ -485,7 +523,7 @@ extension ThingDetailViewController: UITableViewDelegate {
         case 4..<inputFieldsCondition.count+4:
             return generateConditionCell(tableView, cellForRowAt: indexPath)
         case inputFieldsCondition.count+4:
-            return generateTextFieldCell(tableView, cellForRowAt: indexPath)
+            return generateActionsPostsCell(tableView, cellForRowAt: indexPath)
         case inputFieldsCondition.count+5:
             if commentCount! > 0 {
                 return generateMoreButton(tableView, cellForRowAt: indexPath)

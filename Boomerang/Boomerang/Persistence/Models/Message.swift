@@ -31,8 +31,6 @@ class Message: PFObject {
     }
 }
 
-
-
 extension Message: PFSubclassing {
     static func parseClassName() -> String {
         return "Message"

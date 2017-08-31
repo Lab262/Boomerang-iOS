@@ -43,6 +43,29 @@ class PostRequest: NSObject {
         }
     }
     
+    static func isLikedPost(post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyLiked: Bool) -> ()) {
+        
+        var queryParams = [String : String]()
+        
+        queryParams["profileId"] = User.current()!.profile!.objectId
+        
+        queryParams["postId"] = post.objectId
+        
+        ParseRequest.queryEqualToValue(className: Like.parseClassName(), queryParams: queryParams, includes: nil) { (success, msg, objects) in
+            if success {
+                if let objects = objects {
+                    if objects.count > 0 {
+                        completionHandler(true, "Success", true)
+                    } else {
+                        completionHandler(true, "no liked", false)
+                    }
+                }
+            } else {
+                completionHandler(success, msg, false)
+            }
+        }
+    }
+    
     static func likePost(post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
     
         var params = [String: String]()

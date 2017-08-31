@@ -325,6 +325,9 @@
 		D4642BC31E9ED301002C8ADC /* LinkPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BC11E9ED301002C8ADC /* LinkPostTableViewCell.swift */; };
 		D4642BC41E9ED301002C8ADC /* LinkPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4642BC21E9ED301002C8ADC /* LinkPostTableViewCell.xib */; };
 		D464AE771EA53C4B0084056A /* TransactionCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */; };
+		D46A0A911F53B11300D1E59C /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A0A901F53B11300D1E59C /* Like.swift */; };
+		D46A0A921F53B11300D1E59C /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A0A901F53B11300D1E59C /* Like.swift */; };
+		D46A0A931F53B11300D1E59C /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A0A901F53B11300D1E59C /* Like.swift */; };
 		D4788DDA1ECCE82400E5E55F /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4788DD91ECCE82400E5E55F /* PostPresenter.swift */; };
 		D4788DDB1ECCE82400E5E55F /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4788DD91ECCE82400E5E55F /* PostPresenter.swift */; };
 		D4788DDC1ECCE82400E5E55F /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4788DD91ECCE82400E5E55F /* PostPresenter.swift */; };
@@ -444,7 +447,7 @@
 		D4AD979E1EA9ACFD00C9FAB9 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD97731EA8EEF200C9FAB9 /* Evaluation.swift */; };
 		D4AD979F1EA9ACFD00C9FAB9 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D4AD97A01EA9ACFD00C9FAB9 /* LendingThingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42768011DD3948700363343 /* LendingThingsViewController.swift */; };
-		D4AD97A11EA9ACFD00C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */; };
+		D4AD97A11EA9ACFD00C9FAB9 /* ActionsPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEAB1E824E4600F8DC2E /* ActionsPostTableViewCell.swift */; };
 		D4AD97A31EA9ACFD00C9FAB9 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
 		D4AD97A41EA9ACFD00C9FAB9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0301E7F334E002E8972 /* HomePresenter.swift */; };
 		D4AD97A51EA9ACFD00C9FAB9 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */; };
@@ -553,7 +556,7 @@
 		D4AD98141EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4642BBC1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib */; };
 		D4AD98161EA9ACFD00C9FAB9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462FE1DCAEB0200A611C0 /* Profile.storyboard */; };
 		D4AD98171EA9ACFD00C9FAB9 /* PageControlCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */; };
-		D4AD98181EA9ACFD00C9FAB9 /* TextFieldGroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */; };
+		D4AD98181EA9ACFD00C9FAB9 /* ActionsPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEAC1E824E4600F8DC2E /* ActionsPostTableViewCell.xib */; };
 		D4AD98191EA9ACFD00C9FAB9 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */; };
 		D4AD981A1EA9ACFD00C9FAB9 /* PhotoThingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F0351E808861002E8972 /* PhotoThingTableViewCell.xib */; };
 		D4AD981B1EA9ACFD00C9FAB9 /* BoomerMessageAndNotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */; };
@@ -622,7 +625,7 @@
 		D4AD986A1EA9AD0400C9FAB9 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD97731EA8EEF200C9FAB9 /* Evaluation.swift */; };
 		D4AD986B1EA9AD0400C9FAB9 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D4AD986C1EA9AD0400C9FAB9 /* LendingThingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42768011DD3948700363343 /* LendingThingsViewController.swift */; };
-		D4AD986D1EA9AD0400C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */; };
+		D4AD986D1EA9AD0400C9FAB9 /* ActionsPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEAB1E824E4600F8DC2E /* ActionsPostTableViewCell.swift */; };
 		D4AD986F1EA9AD0400C9FAB9 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
 		D4AD98701EA9AD0400C9FAB9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0301E7F334E002E8972 /* HomePresenter.swift */; };
 		D4AD98711EA9AD0400C9FAB9 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */; };
@@ -731,7 +734,7 @@
 		D4AD98E01EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4642BBC1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib */; };
 		D4AD98E21EA9AD0400C9FAB9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462FE1DCAEB0200A611C0 /* Profile.storyboard */; };
 		D4AD98E31EA9AD0400C9FAB9 /* PageControlCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A013061E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib */; };
-		D4AD98E41EA9AD0400C9FAB9 /* TextFieldGroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */; };
+		D4AD98E41EA9AD0400C9FAB9 /* ActionsPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEAC1E824E4600F8DC2E /* ActionsPostTableViewCell.xib */; };
 		D4AD98E51EA9AD0400C9FAB9 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A44E0C661DD092650028F06C /* Montserrat-UltraLight.otf */; };
 		D4AD98E61EA9AD0400C9FAB9 /* PhotoThingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F0351E808861002E8972 /* PhotoThingTableViewCell.xib */; };
 		D4AD98E71EA9AD0400C9FAB9 /* BoomerMessageAndNotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */; };
@@ -825,8 +828,8 @@
 		D4E4BEA61E822FBE00F8DC2E /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */; };
 		D4E4BEA91E8233EF00F8DC2E /* ThingConditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */; };
 		D4E4BEAA1E8233EF00F8DC2E /* ThingConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEA81E8233EF00F8DC2E /* ThingConditionTableViewCell.xib */; };
-		D4E4BEAD1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */; };
-		D4E4BEAE1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */; };
+		D4E4BEAD1E824E4600F8DC2E /* ActionsPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEAB1E824E4600F8DC2E /* ActionsPostTableViewCell.swift */; };
+		D4E4BEAE1E824E4600F8DC2E /* ActionsPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEAC1E824E4600F8DC2E /* ActionsPostTableViewCell.xib */; };
 		D4E4BEB81E8256B000F8DC2E /* PHFComposeBarView_Button.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEB31E8256B000F8DC2E /* PHFComposeBarView_Button.m */; };
 		D4E4BEB91E8256B000F8DC2E /* PHFComposeBarView_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEB51E8256B000F8DC2E /* PHFComposeBarView_TextView.m */; };
 		D4E4BEBA1E8256B000F8DC2E /* PHFComposeBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEB71E8256B000F8DC2E /* PHFComposeBarView.m */; };
@@ -1145,6 +1148,7 @@
 		D4642BC11E9ED301002C8ADC /* LinkPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkPostTableViewCell.swift; sourceTree = "<group>"; };
 		D4642BC21E9ED301002C8ADC /* LinkPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkPostTableViewCell.xib; sourceTree = "<group>"; };
 		D464AE761EA53C4B0084056A /* TransactionCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellPresenter.swift; sourceTree = "<group>"; };
+		D46A0A901F53B11300D1E59C /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		D4788DD91ECCE82400E5E55F /* PostPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
 		D4788DDD1ECE18E700E5E55F /* MorePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePostViewController.swift; sourceTree = "<group>"; };
 		D4788DE11ECE18FB00E5E55F /* MorePostPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePostPresenter.swift; sourceTree = "<group>"; };
@@ -1231,8 +1235,8 @@
 		D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTableViewCell.xib; path = ../Cells/DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThingConditionTableViewCell.swift; path = ../Interface/ThingConditionTableViewCell.swift; sourceTree = "<group>"; };
 		D4E4BEA81E8233EF00F8DC2E /* ThingConditionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThingConditionTableViewCell.xib; sourceTree = "<group>"; };
-		D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldGroupTableViewCell.swift; sourceTree = "<group>"; };
-		D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldGroupTableViewCell.xib; path = ../Cells/TextFieldGroupTableViewCell.xib; sourceTree = "<group>"; };
+		D4E4BEAB1E824E4600F8DC2E /* ActionsPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsPostTableViewCell.swift; sourceTree = "<group>"; };
+		D4E4BEAC1E824E4600F8DC2E /* ActionsPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActionsPostTableViewCell.xib; path = ../Cells/ActionsPostTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEB11E8256AF00F8DC2E /* Boomerang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Boomerang-Bridging-Header.h"; sourceTree = "<group>"; };
 		D4E4BEB21E8256B000F8DC2E /* PHFComposeBarView_Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHFComposeBarView_Button.h; sourceTree = "<group>"; };
 		D4E4BEB31E8256B000F8DC2E /* PHFComposeBarView_Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHFComposeBarView_Button.m; sourceTree = "<group>"; };
@@ -2157,7 +2161,7 @@
 				D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */,
 				D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */,
 				D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */,
-				D4E4BEAB1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift */,
+				D4E4BEAB1E824E4600F8DC2E /* ActionsPostTableViewCell.swift */,
 				D45165571E8959FE002A21F0 /* UserCommentTableViewCell.swift */,
 				D4FBBCE31E90706400611F63 /* InterestedTableViewCell.swift */,
 				D44BFF241EBD1B6A00E1B2A7 /* MoreCommentTableViewCell.swift */,
@@ -2185,7 +2189,7 @@
 			isa = PBXGroup;
 			children = (
 				D4788DE61ECE1BDD00E5E55F /* MorePostTableViewCell.xib */,
-				D4E4BEAC1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib */,
+				D4E4BEAC1E824E4600F8DC2E /* ActionsPostTableViewCell.xib */,
 				D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */,
 				D498F0351E808861002E8972 /* PhotoThingTableViewCell.xib */,
 				D48734FC1E7884470065E13A /* RecommendedPostTableViewCell.xib */,
@@ -2426,6 +2430,7 @@
 				D4C8ECD71EC1FD5400E3CB17 /* PostType.swift */,
 				D4CA489E1EC7DA87003C17F6 /* PostCondition.swift */,
 				D4CA48A51EC9F49E003C17F6 /* Recommended.swift */,
+				D46A0A901F53B11300D1E59C /* Like.swift */,
 			);
 			name = PFObjects;
 			sourceTree = "<group>";
@@ -2691,7 +2696,7 @@
 				2F4958301ECD32C50001554E /* Tenho_00034.png in Resources */,
 				2F49582D1ECD32C50001554E /* Tenho_00031.png in Resources */,
 				D4A013081E7C2B2A00B3B811 /* PageControlCollectionViewCell.xib in Resources */,
-				D4E4BEAE1E824E4600F8DC2E /* TextFieldGroupTableViewCell.xib in Resources */,
+				D4E4BEAE1E824E4600F8DC2E /* ActionsPostTableViewCell.xib in Resources */,
 				A44E0C6E1DD092650028F06C /* Montserrat-UltraLight.otf in Resources */,
 				2F4958321ECD32C50001554E /* Tenho_00036.png in Resources */,
 				2F4957C51ECD32AF0001554E /* preciso16.png in Resources */,
@@ -2840,7 +2845,7 @@
 				D4AD98161EA9ACFD00C9FAB9 /* Profile.storyboard in Resources */,
 				D4AD98171EA9ACFD00C9FAB9 /* PageControlCollectionViewCell.xib in Resources */,
 				2F0BAC0D1EDA67F400B31AFA /* LogOutTableViewCell.xib in Resources */,
-				D4AD98181EA9ACFD00C9FAB9 /* TextFieldGroupTableViewCell.xib in Resources */,
+				D4AD98181EA9ACFD00C9FAB9 /* ActionsPostTableViewCell.xib in Resources */,
 				D4AD98191EA9ACFD00C9FAB9 /* Montserrat-UltraLight.otf in Resources */,
 				D4AD981A1EA9ACFD00C9FAB9 /* PhotoThingTableViewCell.xib in Resources */,
 				D4AD981B1EA9ACFD00C9FAB9 /* BoomerMessageAndNotificationsCell.xib in Resources */,
@@ -2908,7 +2913,7 @@
 				D4AD98E21EA9AD0400C9FAB9 /* Profile.storyboard in Resources */,
 				D4AD98E31EA9AD0400C9FAB9 /* PageControlCollectionViewCell.xib in Resources */,
 				2F0BAC0E1EDA67F500B31AFA /* LogOutTableViewCell.xib in Resources */,
-				D4AD98E41EA9AD0400C9FAB9 /* TextFieldGroupTableViewCell.xib in Resources */,
+				D4AD98E41EA9AD0400C9FAB9 /* ActionsPostTableViewCell.xib in Resources */,
 				D4AD98E51EA9AD0400C9FAB9 /* Montserrat-UltraLight.otf in Resources */,
 				D4AD98E61EA9AD0400C9FAB9 /* PhotoThingTableViewCell.xib in Resources */,
 				D4AD98E71EA9AD0400C9FAB9 /* BoomerMessageAndNotificationsCell.xib in Resources */,
@@ -3273,6 +3278,7 @@
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,
 				D4C8ECD41EC1FD3B00E3CB17 /* SchemeStatus.swift in Sources */,
+				D46A0A911F53B11300D1E59C /* Like.swift in Sources */,
 				D4FBBCEF1E908E0F00611F63 /* Interested.swift in Sources */,
 				D40C0E4F1E8B1490008174D2 /* Date+Utils.swift in Sources */,
 				2FC9E0721E8EFCE200A048A4 /* FieldCellData.swift in Sources */,
@@ -3280,7 +3286,7 @@
 				D4AD97741EA8EEF200C9FAB9 /* Evaluation.swift in Sources */,
 				D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */,
 				A42768061DD3948700363343 /* LendingThingsViewController.swift in Sources */,
-				D4E4BEAD1E824E4600F8DC2E /* TextFieldGroupTableViewCell.swift in Sources */,
+				D4E4BEAD1E824E4600F8DC2E /* ActionsPostTableViewCell.swift in Sources */,
 				D4C8ECDC1EC22B4200E3CB17 /* StatusRequest.swift in Sources */,
 				D484FA301EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
 				D4788DE71ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */,
@@ -3469,6 +3475,7 @@
 				D4AD97971EA9ACFD00C9FAB9 /* BoomerMyThingCell.swift in Sources */,
 				D4AD97981EA9ACFD00C9FAB9 /* ExperienceThingsViewController.swift in Sources */,
 				D4AD97991EA9ACFD00C9FAB9 /* DefaultsHelper.swift in Sources */,
+				D46A0A921F53B11300D1E59C /* Like.swift in Sources */,
 				D4AD979A1EA9ACFD00C9FAB9 /* Interested.swift in Sources */,
 				D4AD979B1EA9ACFD00C9FAB9 /* Date+Utils.swift in Sources */,
 				D4AD979C1EA9ACFD00C9FAB9 /* FieldCellData.swift in Sources */,
@@ -3476,7 +3483,7 @@
 				D4AD979E1EA9ACFD00C9FAB9 /* Evaluation.swift in Sources */,
 				D4AD979F1EA9ACFD00C9FAB9 /* ParseRequest.swift in Sources */,
 				D4AD97A01EA9ACFD00C9FAB9 /* LendingThingsViewController.swift in Sources */,
-				D4AD97A11EA9ACFD00C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */,
+				D4AD97A11EA9ACFD00C9FAB9 /* ActionsPostTableViewCell.swift in Sources */,
 				D4C8ECD51EC1FD3B00E3CB17 /* SchemeStatus.swift in Sources */,
 				6010BF711EBB9A59008B5F02 /* GradientView.swift in Sources */,
 				D484FA311EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
@@ -3656,6 +3663,7 @@
 				D4AD98631EA9AD0400C9FAB9 /* BoomerMyThingCell.swift in Sources */,
 				D4AD98641EA9AD0400C9FAB9 /* ExperienceThingsViewController.swift in Sources */,
 				D4AD98651EA9AD0400C9FAB9 /* DefaultsHelper.swift in Sources */,
+				D46A0A931F53B11300D1E59C /* Like.swift in Sources */,
 				D4AD98661EA9AD0400C9FAB9 /* Interested.swift in Sources */,
 				D4AD98671EA9AD0400C9FAB9 /* Date+Utils.swift in Sources */,
 				D4AD98681EA9AD0400C9FAB9 /* FieldCellData.swift in Sources */,
@@ -3663,7 +3671,7 @@
 				D4AD986A1EA9AD0400C9FAB9 /* Evaluation.swift in Sources */,
 				D4AD986B1EA9AD0400C9FAB9 /* ParseRequest.swift in Sources */,
 				D4AD986C1EA9AD0400C9FAB9 /* LendingThingsViewController.swift in Sources */,
-				D4AD986D1EA9AD0400C9FAB9 /* TextFieldGroupTableViewCell.swift in Sources */,
+				D4AD986D1EA9AD0400C9FAB9 /* ActionsPostTableViewCell.swift in Sources */,
 				D4C8ECD61EC1FD3B00E3CB17 /* SchemeStatus.swift in Sources */,
 				6010BF721EBB9A59008B5F02 /* GradientView.swift in Sources */,
 				D484FA321EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
