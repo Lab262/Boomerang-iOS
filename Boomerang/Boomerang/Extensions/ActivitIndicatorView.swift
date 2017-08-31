@@ -185,14 +185,14 @@ enum NVActivityIndicatorShape {
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
                         radius: size.width / 2,
                         startAngle: 0,
-                        endAngle: CGFloat(2 * M_PI),
+                        endAngle: CGFloat(2 * Double.pi),
                         clockwise: false);
             layer.fillColor = color.cgColor
         case .circleSemi:
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
                         radius: size.width / 2,
-                        startAngle: CGFloat(-M_PI / 6),
-                        endAngle: CGFloat(-5 * M_PI / 6),
+                        startAngle: CGFloat(-Double.pi / 6),
+                        endAngle: CGFloat(-5 * Double.pi / 6),
                         clockwise: false)
             path.close()
             layer.fillColor = color.cgColor
@@ -200,7 +200,7 @@ enum NVActivityIndicatorShape {
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
                         radius: size.width / 2,
                         startAngle: 0,
-                        endAngle: CGFloat(2 * M_PI),
+                        endAngle: CGFloat(2 * Double.pi),
                         clockwise: false);
             layer.fillColor = nil
             layer.strokeColor = color.cgColor
@@ -208,17 +208,17 @@ enum NVActivityIndicatorShape {
         case .ringTwoHalfVertical:
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
                         radius:size.width / 2,
-                        startAngle:CGFloat(-3 * M_PI_4),
-                        endAngle:CGFloat(-M_PI_4),
+                        startAngle:CGFloat(-3 * Double.pi/4),
+                        endAngle:CGFloat(-Double.pi/4),
                         clockwise:true)
             path.move(
-                to: CGPoint(x: size.width / 2 - size.width / 2 * CGFloat(cos(M_PI_4)),
-                            y: size.height / 2 + size.height / 2 * CGFloat(sin(M_PI_4)))
+                to: CGPoint(x: size.width / 2 - size.width / 2 * CGFloat(cos(Double.pi/4)),
+                            y: size.height / 2 + size.height / 2 * CGFloat(sin(Double.pi/4)))
             )
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
                         radius:size.width / 2,
-                        startAngle:CGFloat(-5 * M_PI_4),
-                        endAngle:CGFloat(-7 * M_PI_4),
+                        startAngle:CGFloat(-5 * Double.pi/4),
+                        endAngle:CGFloat(-7 * Double.pi/4),
                         clockwise:false)
             layer.fillColor = nil
             layer.strokeColor = color.cgColor
@@ -226,17 +226,17 @@ enum NVActivityIndicatorShape {
         case .ringTwoHalfHorizontal:
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
                         radius:size.width / 2,
-                        startAngle:CGFloat(3 * M_PI_4),
-                        endAngle:CGFloat(5 * M_PI_4),
+                        startAngle:CGFloat(3 * Double.pi/4),
+                        endAngle:CGFloat(5 * Double.pi/4),
                         clockwise:true)
             path.move(
-                to: CGPoint(x: size.width / 2 + size.width / 2 * CGFloat(cos(M_PI_4)),
-                            y: size.height / 2 - size.height / 2 * CGFloat(sin(M_PI_4)))
+                to: CGPoint(x: size.width / 2 + size.width / 2 * CGFloat(cos(Double.pi/4)),
+                            y: size.height / 2 - size.height / 2 * CGFloat(sin(Double.pi/4)))
             )
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
                         radius:size.width / 2,
-                        startAngle:CGFloat(-M_PI_4),
-                        endAngle:CGFloat(M_PI_4),
+                        startAngle:CGFloat(-Double.pi/4),
+                        endAngle:CGFloat(Double.pi/4),
                         clockwise:true)
             layer.fillColor = nil
             layer.strokeColor = color.cgColor
@@ -244,8 +244,8 @@ enum NVActivityIndicatorShape {
         case .ringThirdFour:
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
                         radius: size.width / 2,
-                        startAngle: CGFloat(-3 * M_PI_4),
-                        endAngle: CGFloat(-M_PI_4),
+                        startAngle: CGFloat(-3 * Double.pi/4),
+                        endAngle: CGFloat(-Double.pi/4),
                         clockwise: false)
             layer.fillColor = nil
             layer.strokeColor = color.cgColor
@@ -272,7 +272,7 @@ enum NVActivityIndicatorShape {
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
                         radius: size.width / 4,
                         startAngle: 0,
-                        endAngle: CGFloat(2 * M_PI),
+                        endAngle: CGFloat(2 * Double.pi),
                         clockwise: true);
             layer.fillColor = nil
             layer.strokeColor = color.cgColor

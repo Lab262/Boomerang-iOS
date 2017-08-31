@@ -4,7 +4,6 @@ before_script:
   - export LC_ALL=en_US.UTF-8
   - if ! gem list "fastlane" -i > /dev/null 2>&1; then echo "fastlane not installed. Installing..."; gem install fastlane; fi
   - if ! gem list "cocoapods" -i > /dev/null 2>&1; then echo "cocoapods not installed. Installing..."; gem install cocoapods; fi
-  - cd Boomerang
 
 stages:
   - deploy
@@ -12,6 +11,7 @@ stages:
 deploy_alpha:
   stage: deploy
   script:
+    - cd Boomerang
     - fastlane alpha
   only:
     - dev
@@ -21,6 +21,7 @@ deploy_alpha:
 deploy_beta:
   stage: deploy
   script:
+    - cd Boomerang
     - fastlane beta
   only:
     - test
@@ -30,6 +31,7 @@ deploy_beta:
 deploy_production:
   stage: deploy
   script:
+    - cd Boomerang
     - fastlane release
   only:
     - master
