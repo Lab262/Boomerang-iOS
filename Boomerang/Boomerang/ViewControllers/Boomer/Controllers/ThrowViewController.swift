@@ -131,7 +131,9 @@ class ThrowViewController: UIViewController {
         parseFields()
         
         if let msgErro = self.verifyEmptyParams() {
-            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
+            GenericBoomerAlertController.presentMe(inParent: self, withTitle: msgErro, negativeAction: "Ok") { (isPositive) in
+                self.dismiss(animated: true, completion: nil)
+            }
             return
         }
 

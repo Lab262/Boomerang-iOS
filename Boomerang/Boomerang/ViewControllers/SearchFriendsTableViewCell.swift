@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class SearchFriendsTableViewCell: UITableViewCell {
+class SearchFriendsTableViewCell: SwipeTableViewCell {
     
+    @IBOutlet weak var recomendedIndicatorImageView: UIImageView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -21,7 +23,7 @@ class SearchFriendsTableViewCell: UITableViewCell {
     }
     
     static var cellHeight: CGFloat {
-        return 65.0
+        return 61.0
     }
     
     static var nibName: String {
@@ -101,7 +103,18 @@ class SearchFriendsTableViewCell: UITableViewCell {
         }
         //followButton.bouncingAnimation(duration: 0.4)
     }
-    
+
+    func toggleRecomendedAnimation() {
+        self.userImage.bouncingAnimation(duration: 0.25, delay: 0.0)
+        self.recomendedIndicatorImageView.bouncingAnimation(duration: 0.25, delay: 0.0)
+
+        if self.recomendedIndicatorImageView.alpha <= 0 {
+            self.recomendedIndicatorImageView.fadeIn(0.25)
+        } else {
+            self.recomendedIndicatorImageView.fadeOut(0.25)
+        }
+    }
+
     @IBAction func followAction(_ sender: Any) {
         
         if self.following! {

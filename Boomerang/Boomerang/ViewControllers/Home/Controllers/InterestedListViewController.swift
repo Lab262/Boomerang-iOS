@@ -135,7 +135,9 @@ extension InterestedListViewController: InterestedDelegate {
     
     func showMessage(msg: String) {
         self.view.unload()
-        self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: msg, negativeAction: "Ok") { (isPositive) in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func startingLoadingView() {

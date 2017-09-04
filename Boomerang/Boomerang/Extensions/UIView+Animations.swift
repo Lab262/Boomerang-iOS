@@ -280,7 +280,7 @@ extension UIView {
     func bouncingAnimation(_ isZoomIn: Bool = true,
                            duration: TimeInterval = 1.0,
                            delay: TimeInterval = 0.0,
-                           completion: ((Bool) -> Void) = {_ in},
+                           completion: @escaping ((Bool) -> Void) = {_ in},
                            finalAlpha : CGFloat = 1.0 ,
                            animationOptions: UIViewAnimationOptions = []) {
         
@@ -318,8 +318,9 @@ extension UIView {
                                     self.transform = CGAffineTransform.identity;
                                     
                                     }, completion: { (finished :Bool) -> Void in
-                                        
-                                        
+
+                                        completion(finished)
+
                                 })
                                 
                         })

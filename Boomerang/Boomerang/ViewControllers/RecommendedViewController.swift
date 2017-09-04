@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class RecommendedViewController: UIViewController {
 
@@ -60,10 +61,11 @@ class RecommendedViewController: UIViewController {
     func generateRecommendedFriendCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchFriendsTableViewCell.identifier, for: indexPath) as! SearchFriendsTableViewCell
-        
+
         cell.followButton.isHidden = true
         cell.profile = presenter.friends[indexPath.row-1]
-        
+        (cell as SwipeTableViewCell).delegate = self
+
         return cell
     }
     
@@ -99,19 +101,10 @@ extension RecommendedViewController: UITableViewDelegate {
         case 0:
             return 50.0
         default:
-            return SearchFriendsTableViewCell.cellHeight * UIView.heightScaleProportion()
+            return SearchFriendsTableViewCell.cellHeight 
         }
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let recommended = UITableViewRowAction(style: .normal, title: "Recomendar") { action, index in
-            self.presenter.createRecommendation(friend: self.presenter.friends[index.row-1])
-        }
-        
-        recommended.backgroundColor = UIColor.colorWithHexString("E78A00")
-        return [recommended]
-    }
 }
 
 extension RecommendedViewController: RecommendedDelegate {
@@ -121,11 +114,44 @@ extension RecommendedViewController: RecommendedDelegate {
     }
     
     func showMessage(success: Bool, msg: String) {
-        let title = success ? "Success" : "Error"
-        present(ViewUtil.alertControllerWithTitle(title: title, withMessage: msg), animated: true, completion: nil)
+
+        if !success {
+            GenericBoomerAlertController.presentMe(inParent: self, withTitle: msg, negativeAction: "Ok") { (isPositive) in
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     func dismissRowAction() {
         tableView.setEditing(false, animated: true)
+    }
+}
+
+extension RecommendedViewController: SwipeTableViewCellDelegate {
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+
+        guard orientation == .left else { return nil }
+
+        let throwAction = SwipeAction(style: .default, title: nil ) { action, indexPath in
+            let searchFriendsCell = tableView.cellForRow(at: indexPath) as! SearchFriendsTableViewCell
+            searchFriendsCell.toggleRecomendedAnimation()
+                        self.presenter.createRecommendation(friend: self.presenter.friends[indexPath.row-1])
+
+        }
+        throwAction.image = #imageLiteral(resourceName: "throwActionBackground")
+        throwAction.backgroundColor = .white
+        return [throwAction]
+    }
+
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = .selection
+        options.transitionStyle = .reveal
+        options.buttonSpacing = 0
+        options.buttonPadding = -5.0
+        options.backgroundColor = .white
+
+        return options
     }
 }

@@ -100,6 +100,7 @@ extension AddBoomerMainViewController: AddBoomerDelegate {
     }
     
     func showMessage(msg: String) {
-        present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)
-    }
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: msg, negativeAction: "Ok") { (isPositive) in
+            self.dismiss(animated: true, completion: nil)
+        }    }
 }

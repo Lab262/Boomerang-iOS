@@ -35,6 +35,7 @@ PODS:
   - PHFDelegateChain (1.0.1)
   - Starscream (2.0.3)
   - SwiftyJSON (3.1.4)
+  - SwipeCellKit (1.9.1)
 
 DEPENDENCIES:
   - Crashlytics
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - ParseLiveQuery
   - PHFComposeBarView (~> 2.0.1)
   - SwiftyJSON
+  - SwipeCellKit
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -66,7 +68,8 @@ SPEC CHECKSUMS:
   PHFDelegateChain: 491f9cd8a3fb8761f390ff05f74a0e168d48d285
   Starscream: 3fdd5c277e57cca6b5c406d274e3f34a7c88f2ce
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwipeCellKit: e9ff953c820394a4e641cfb0118b6c959506aec2
 
-PODFILE CHECKSUM: 2e493617a80c8f3dce256854c2f1f39a4d1a55e3
+PODFILE CHECKSUM: fac57f8be5062862a4b8b9d0ed67b8a3f6e7b9cf
 
 COCOAPODS: 1.2.1

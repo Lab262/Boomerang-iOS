@@ -22,17 +22,6 @@ class ViewUtil: NSObject {
         }
     }
 
-
-    static func alertControllerWithTitle (title: String, withMessage message: String) -> UIAlertController {
-
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-
-        return alert
-    }
-
-
     static func imageFromColor (_ color: UIColor, forSize size: CGSize, withCornerRadius radius: CGFloat) -> UIImage {
 
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)

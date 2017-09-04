@@ -31,7 +31,7 @@ class GenericBoomerAlertController: UIViewController {
             self.positiveActionLbl.text = positiveActionLbl
 //            self.positiveButtonView.
         } else {
-            self.positiveActionLbl.removeFromSuperview()
+            self.self.positiveButtonView.removeFromSuperview()
         }
     }
     
