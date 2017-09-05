@@ -250,6 +250,12 @@
 		A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB0A1DD2D6C400F270C7 /* MessagesMainViewController.swift */; };
 		A4AFBB0D1DD35D4600F270C7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB0C1DD35D4600F270C7 /* Colors.swift */; };
 		A4AFBB0F1DD3612F00F270C7 /* AddBoomerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AFBB0E1DD3612F00F270C7 /* AddBoomerCell.xib */; };
+		A4C9A98E1F5E14030099AB95 /* PromoCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9A98C1F5E14030099AB95 /* PromoCodeController.swift */; };
+		A4C9A98F1F5E14030099AB95 /* PromoCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9A98C1F5E14030099AB95 /* PromoCodeController.swift */; };
+		A4C9A9901F5E14030099AB95 /* PromoCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9A98C1F5E14030099AB95 /* PromoCodeController.swift */; };
+		A4C9A9911F5E14030099AB95 /* PromoCodeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C9A98D1F5E14030099AB95 /* PromoCodeController.xib */; };
+		A4C9A9921F5E14030099AB95 /* PromoCodeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C9A98D1F5E14030099AB95 /* PromoCodeController.xib */; };
+		A4C9A9931F5E14030099AB95 /* PromoCodeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C9A98D1F5E14030099AB95 /* PromoCodeController.xib */; };
 		A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4CB02661DD261B200B01A6B /* IconNavigationBar.xib */; };
 		A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */; };
 		A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CE0A5F1DD2408200576360 /* NotificationsMainViewController.swift */; };
@@ -1089,6 +1095,8 @@
 		A4AFBB0A1DD2D6C400F270C7 /* MessagesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesMainViewController.swift; sourceTree = "<group>"; };
 		A4AFBB0C1DD35D4600F270C7 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A4AFBB0E1DD3612F00F270C7 /* AddBoomerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBoomerCell.xib; sourceTree = "<group>"; };
+		A4C9A98C1F5E14030099AB95 /* PromoCodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoCodeController.swift; sourceTree = "<group>"; };
+		A4C9A98D1F5E14030099AB95 /* PromoCodeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromoCodeController.xib; sourceTree = "<group>"; };
 		A4CB02661DD261B200B01A6B /* IconNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconNavigationBar.xib; sourceTree = "<group>"; };
 		A4CB02681DD261D900B01A6B /* IconNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconNavigationBar.swift; sourceTree = "<group>"; };
 		A4CE0A5F1DD2408200576360 /* NotificationsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsMainViewController.swift; sourceTree = "<group>"; };
@@ -1639,6 +1647,8 @@
 		A431D0FD1F53B6C7009D7338 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
+				A4C9A98C1F5E14030099AB95 /* PromoCodeController.swift */,
+				A4C9A98D1F5E14030099AB95 /* PromoCodeController.xib */,
 				A431D0FE1F53B6C7009D7338 /* GenericBoomerAlertController.swift */,
 				A431D0FF1F53B6C7009D7338 /* GenericBoomerAlertController.xib */,
 			);
@@ -2802,6 +2812,7 @@
 				2F4958241ECD32C40001554E /* Tenho_00022.png in Resources */,
 				2F49581D1ECD32C40001554E /* Tenho_00015.png in Resources */,
 				D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */,
+				A4C9A9911F5E14030099AB95 /* PromoCodeController.xib in Resources */,
 				A4E463011DCAEB1500A611C0 /* Transaction.storyboard in Resources */,
 				2F4958351ECD32C50001554E /* Tenho_00039.png in Resources */,
 				2F4958361ECD32C50001554E /* Tenho_00040.png in Resources */,
@@ -2843,6 +2854,7 @@
 				D4AD98061EA9ACFD00C9FAB9 /* ChatTableViewCell.xib in Resources */,
 				D4AD98071EA9ACFD00C9FAB9 /* HomeCollectionHeader.xib in Resources */,
 				D4AD98081EA9ACFD00C9FAB9 /* Montserrat-SemiBold.otf in Resources */,
+				A4C9A9921F5E14030099AB95 /* PromoCodeController.xib in Resources */,
 				2F0BABFF1EDA298F00B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				D4AD98091EA9ACFD00C9FAB9 /* IconNavigationBar.xib in Resources */,
 				D4AD980A1EA9ACFD00C9FAB9 /* TypePostTableViewCell.xib in Resources */,
@@ -2912,6 +2924,7 @@
 				D4AD98D21EA9AD0400C9FAB9 /* ChatTableViewCell.xib in Resources */,
 				D4AD98D31EA9AD0400C9FAB9 /* HomeCollectionHeader.xib in Resources */,
 				D4AD98D41EA9AD0400C9FAB9 /* Montserrat-SemiBold.otf in Resources */,
+				A4C9A9931F5E14030099AB95 /* PromoCodeController.xib in Resources */,
 				2F0BAC001EDA299000B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				D4AD98D51EA9AD0400C9FAB9 /* IconNavigationBar.xib in Resources */,
 				D4AD98D61EA9AD0400C9FAB9 /* TypePostTableViewCell.xib in Resources */,
@@ -3389,6 +3402,7 @@
 				2F9841071EB179AA00A937A3 /* FeedbackConfirmationViewController.swift in Sources */,
 				D4E4BEBC1E8269F300F8DC2E /* TextInputTableView.swift in Sources */,
 				2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */,
+				A4C9A98E1F5E14030099AB95 /* PromoCodeController.swift in Sources */,
 				2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */,
 				D4E6A28A1E95C5D1005B4E34 /* TransactionMainViewController.swift in Sources */,
 				D436BF251E95A68B00BC7F00 /* LoanTransactionViewController.swift in Sources */,
@@ -3586,6 +3600,7 @@
 				D4AD97DD1EA9ACFD00C9FAB9 /* UIColorExtension.swift in Sources */,
 				D4AD97DE1EA9ACFD00C9FAB9 /* TextInputTableView.swift in Sources */,
 				D4AD97DF1EA9ACFD00C9FAB9 /* TypePostTableViewCell.swift in Sources */,
+				A4C9A98F1F5E14030099AB95 /* PromoCodeController.swift in Sources */,
 				D4AD97E01EA9ACFD00C9FAB9 /* SwitchButtonTableViewCell.swift in Sources */,
 				D4AD97E11EA9ACFD00C9FAB9 /* TransactionMainViewController.swift in Sources */,
 				D4AD97E21EA9ACFD00C9FAB9 /* LoanTransactionViewController.swift in Sources */,
@@ -3774,6 +3789,7 @@
 				D4AD98A91EA9AD0400C9FAB9 /* UIColorExtension.swift in Sources */,
 				D4AD98AA1EA9AD0400C9FAB9 /* TextInputTableView.swift in Sources */,
 				D4AD98AB1EA9AD0400C9FAB9 /* TypePostTableViewCell.swift in Sources */,
+				A4C9A9901F5E14030099AB95 /* PromoCodeController.swift in Sources */,
 				D4AD98AC1EA9AD0400C9FAB9 /* SwitchButtonTableViewCell.swift in Sources */,
 				D4AD98AD1EA9AD0400C9FAB9 /* TransactionMainViewController.swift in Sources */,
 				D4AD98AE1EA9AD0400C9FAB9 /* LoanTransactionViewController.swift in Sources */,

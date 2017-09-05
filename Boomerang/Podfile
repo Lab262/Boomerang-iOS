@@ -19,7 +19,8 @@ def common_pods
     pod 'PHFComposeBarView', '~> 2.0.1'
     pod 'ImagePicker'
     pod 'SwipeCellKit'
-
+    pod 'ActiveLabel'
+    
 end
 
 target 'lab262.boomerang.test' do
