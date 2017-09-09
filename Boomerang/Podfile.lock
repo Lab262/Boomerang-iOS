@@ -1,4 +1,5 @@
 PODS:
+  - ActiveLabel (0.7.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -35,8 +36,10 @@ PODS:
   - PHFDelegateChain (1.0.1)
   - Starscream (2.0.3)
   - SwiftyJSON (3.1.4)
+  - SwipeCellKit (1.9.1)
 
 DEPENDENCIES:
+  - ActiveLabel
   - Crashlytics
   - Fabric
   - ImagePicker
@@ -47,8 +50,10 @@ DEPENDENCIES:
   - ParseLiveQuery
   - PHFComposeBarView (~> 2.0.1)
   - SwiftyJSON
+  - SwipeCellKit
 
 SPEC CHECKSUMS:
+  ActiveLabel: 68625f22775f51c31bb691ca8de20f1e5a3bc825
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Bolts-Swift: fa98d1b59fc1acea9b21a21306dcdca1c85e3737
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
@@ -66,7 +71,8 @@ SPEC CHECKSUMS:
   PHFDelegateChain: 491f9cd8a3fb8761f390ff05f74a0e168d48d285
   Starscream: 3fdd5c277e57cca6b5c406d274e3f34a7c88f2ce
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwipeCellKit: e9ff953c820394a4e641cfb0118b6c959506aec2
 
-PODFILE CHECKSUM: 2e493617a80c8f3dce256854c2f1f39a4d1a55e3
+PODFILE CHECKSUM: a97ef2bdc646de6369ea6172d2d6d7ed9918fbd6
 
 COCOAPODS: 1.2.1

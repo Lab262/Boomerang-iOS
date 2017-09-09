@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -111,7 +111,7 @@ máximo de caracteres help in a numb</string>
                                             <constraint firstItem="fBW-eY-Bzv" firstAttribute="centerX" secondItem="24k-AY-dHE" secondAttribute="centerX" id="wcS-P8-zD6"/>
                                         </constraints>
                                     </view>
-                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="lHJ-gV-0Nq">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="lHJ-gV-0Nq">
                                         <rect key="frame" x="98" y="256.5" width="30" height="13"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="like-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="PHb-g6-9Gy">
@@ -128,7 +128,7 @@ máximo de caracteres help in a numb</string>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7MN-AN-0MI">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7MN-AN-0MI">
                                         <rect key="frame" x="219" y="256.5" width="29.5" height="14"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="sharing-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Y4-Q2-fWk">
@@ -142,7 +142,7 @@ máximo de caracteres help in a numb</string>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="u2J-nV-WwW">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="u2J-nV-WwW">
                                         <rect key="frame" x="159.5" y="255.5" width="27.5" height="15"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="749" image="comment-count-icon" translatesAutoresizingMaskIntoConstraints="NO" id="wws-9K-gzf">
@@ -156,9 +156,13 @@ máximo de caracteres help in a numb</string>
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DP2-Dv-cKZ">
+                                        <rect key="frame" x="10" y="24" width="52" height="53"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="DP2-Dv-cKZ" firstAttribute="height" secondItem="PZM-9d-leP" secondAttribute="height" multiplier="1.2" id="2st-a4-aSc"/>
                                     <constraint firstItem="7MN-AN-0MI" firstAttribute="centerY" secondItem="lHJ-gV-0Nq" secondAttribute="centerY" id="3eR-ng-TRu"/>
                                     <constraint firstItem="24k-AY-dHE" firstAttribute="centerY" secondItem="rnf-LL-onv" secondAttribute="centerY" multiplier="1.2" id="4h6-hL-Vkm"/>
                                     <constraint firstItem="24k-AY-dHE" firstAttribute="height" secondItem="rnf-LL-onv" secondAttribute="height" multiplier="0.5" id="7j5-NZ-SrM"/>
@@ -168,7 +172,9 @@ máximo de caracteres help in a numb</string>
                                     <constraint firstItem="Ndy-iR-ir3" firstAttribute="width" secondItem="rnf-LL-onv" secondAttribute="width" multiplier="0.62" id="JnG-h8-1IH"/>
                                     <constraint firstItem="PZM-9d-leP" firstAttribute="centerY" secondItem="rnf-LL-onv" secondAttribute="centerY" multiplier="0.35" id="K1X-aa-tNm"/>
                                     <constraint firstItem="lHJ-gV-0Nq" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" multiplier="0.65" id="Q9F-3U-VV5"/>
+                                    <constraint firstItem="DP2-Dv-cKZ" firstAttribute="centerY" secondItem="PZM-9d-leP" secondAttribute="centerY" id="TWX-dm-evr"/>
                                     <constraint firstItem="7MN-AN-0MI" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" multiplier="1.35" id="aPT-oD-8Pl"/>
+                                    <constraint firstItem="DP2-Dv-cKZ" firstAttribute="centerX" secondItem="PZM-9d-leP" secondAttribute="centerX" id="bLy-rw-c0b"/>
                                     <constraint firstItem="PZM-9d-leP" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" multiplier="0.21" id="fVR-ek-Gyx"/>
                                     <constraint firstItem="Ndy-iR-ir3" firstAttribute="leading" secondItem="4yP-si-BYS" secondAttribute="leading" id="hMe-br-0Bp"/>
                                     <constraint firstItem="u2J-nV-WwW" firstAttribute="top" secondItem="24k-AY-dHE" secondAttribute="bottom" constant="10" id="jxq-qr-5sD"/>
@@ -176,6 +182,7 @@ máximo de caracteres help in a numb</string>
                                     <constraint firstAttribute="trailing" secondItem="HFF-Yz-2vs" secondAttribute="trailing" id="lNV-DU-c7b"/>
                                     <constraint firstItem="Ndy-iR-ir3" firstAttribute="top" secondItem="4yP-si-BYS" secondAttribute="bottom" constant="4" id="lyy-H2-gik"/>
                                     <constraint firstAttribute="trailing" secondItem="24k-AY-dHE" secondAttribute="trailing" constant="11" id="nbD-0u-d5F"/>
+                                    <constraint firstItem="DP2-Dv-cKZ" firstAttribute="width" secondItem="PZM-9d-leP" secondAttribute="width" multiplier="1.2" id="oU2-3B-YO1"/>
                                     <constraint firstItem="4yP-si-BYS" firstAttribute="top" secondItem="PZM-9d-leP" secondAttribute="top" constant="10" id="p3c-v0-Wkj"/>
                                     <constraint firstItem="lHJ-gV-0Nq" firstAttribute="centerY" secondItem="u2J-nV-WwW" secondAttribute="centerY" id="rXF-ad-OVv"/>
                                     <constraint firstItem="u2J-nV-WwW" firstAttribute="centerX" secondItem="rnf-LL-onv" secondAttribute="centerX" id="zVf-Y0-47B"/>
@@ -233,13 +240,14 @@ máximo de caracteres help in a numb</string>
                 <outlet property="heightPostIconConstraint" destination="F8V-T3-DfP" id="jr6-nv-3rm"/>
                 <outlet property="likeAmountLabel" destination="Cwm-Po-2Cu" id="U3B-QK-kjU"/>
                 <outlet property="postImage" destination="fBW-eY-Bzv" id="kMN-zy-BcX"/>
+                <outlet property="profileButton" destination="DP2-Dv-cKZ" id="AcM-oP-ORJ"/>
                 <outlet property="sharedAmountLabel" destination="Fqu-NX-ikt" id="p4i-TD-5F3"/>
                 <outlet property="typePostImage" destination="57Y-I8-iV6" id="QJt-nD-nXd"/>
                 <outlet property="userImage" destination="PZM-9d-leP" id="2bo-pP-KTg"/>
                 <outlet property="userNameLabel" destination="4yP-si-BYS" id="qiU-X2-IlC"/>
                 <outlet property="widthPostIconConstraint" destination="Tpk-AM-7d8" id="iQB-wo-FTL"/>
             </connections>
-            <point key="canvasLocation" x="111" y="122.5"/>
+            <point key="canvasLocation" x="111" y="122"/>
         </collectionViewCell>
     </objects>
     <resources>

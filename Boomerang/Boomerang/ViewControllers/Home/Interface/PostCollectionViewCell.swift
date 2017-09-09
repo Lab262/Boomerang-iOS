@@ -31,6 +31,9 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var heightIconPostImage: NSLayoutConstraint!
     @IBOutlet weak var widthIconPostImage: NSLayoutConstraint!
+    
+    @IBOutlet weak var profileButton: UIButton!
+    
     var presenter = PostPresenter()
     
     override func awakeFromNib() {

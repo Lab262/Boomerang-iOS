@@ -33,6 +33,9 @@ class MorePostTableViewCell: UITableViewCell {
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var commentAmount: UILabel!
     @IBOutlet weak var sharedAmount: UILabel!
+    @IBOutlet weak var profileButton: UIButton!
+    
+    
     
     @IBOutlet weak var heightPostIconConstraint: NSLayoutConstraint!
     

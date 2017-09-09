@@ -131,7 +131,9 @@ class ThrowViewController: UIViewController {
         parseFields()
         
         if let msgErro = self.verifyEmptyParams() {
-            self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msgErro), animated: true, completion: nil)
+            GenericBoomerAlertController.presentMe(inParent: self, withTitle: msgErro, negativeAction: "Ok") { (isPositive) in
+                self.dismiss(animated: true, completion: nil)
+            }
             return
         }
 
@@ -365,7 +367,6 @@ class ThrowViewController: UIViewController {
     
     
     func createPost () {
-        
         self.view.endEditing(true)
         let post = Post(author:
             User.current()!.profile!,
@@ -398,7 +399,11 @@ class ThrowViewController: UIViewController {
                         
                         //self.view.unload()
                     }else {
-                        AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
+
+                        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Algo deu errado.", negativeAction: "Ok") { (isPositive) in
+                            self.dismiss(animated: true, completion: nil)
+                        }
+
                         ActivitIndicatorView.hide(on:self)
                     }
                     
@@ -407,7 +412,9 @@ class ThrowViewController: UIViewController {
                 
                 
             }else {
-                AlertUtils.showAlertSuccess(title:"Ops erro!", message:"Algo deu errado.", viewController:self)
+                GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Algo deu errado.", negativeAction: "Ok") { (isPositive) in
+                    self.dismiss(animated: true, completion: nil)
+                }
                 self.view.unload()
             }
         })

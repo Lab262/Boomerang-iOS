@@ -1,5 +1,5 @@
 //
-//  TextFieldGroupTableViewCell.swift
+//  ActionsPostTableViewCell.swift
 //  Boomerang
 //
 //  Created by Huallyd Smadi on 22/03/17.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-
-class TextFieldGroupTableViewCell: UITableViewCell {
+class ActionsPostTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var waitingListButton: UIButton!
+    @IBOutlet weak var recommendButton: UIButton!
     
     
     static var identifier: String {
-        return "textFieldCell"
+        return "actionsPostCell"
     }
     
     static var cellHeight: CGFloat {
@@ -23,14 +23,14 @@ class TextFieldGroupTableViewCell: UITableViewCell {
     }
     
     static var nibName: String {
-        return "TextFieldGroupTableViewCell"
+        return "ActionsPostTableViewCell"
     }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        commentButton.layer.cornerRadius = commentButton.frame.height/2
-        commentButton.titleLabel?.setDynamicFont()
+        waitingListButton.titleLabel?.setDynamicFont()
+        recommendButton.titleLabel?.setDynamicFont()
     }
-
 }
+

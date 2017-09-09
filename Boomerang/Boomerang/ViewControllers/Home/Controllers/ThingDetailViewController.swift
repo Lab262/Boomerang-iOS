@@ -26,6 +26,7 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: ThingBar!
+    var currentIndexPath: IndexPath?
    
     var commentCount: Int? = 0 {
         didSet{
@@ -41,7 +42,7 @@ class ThingDetailViewController: UIViewController {
     
     let tableViewTopInset: CGFloat = 98.0
     var presenter = DetailThingPresenter()
-    var textFieldHeight: CGFloat = 60
+    var textFieldHeight: CGFloat = 70
     var composeBarView: PHFComposeBarView?
     var initialViewFrame: CGRect?
     var container: UIView?
@@ -78,9 +79,10 @@ class ThingDetailViewController: UIViewController {
     func registerNibs(){
         tableView.registerNibFrom(PhotoThingTableViewCell.self)
         tableView.registerNibFrom(UserInformationTableViewCell.self)
+        tableView.registerNibFrom(AmountPostInteractionTableViewCell.self)
         tableView.registerNibFrom(DescriptionTableViewCell.self)
         tableView.registerNibFrom(ThingConditionTableViewCell.self)
-        tableView.registerNibFrom(TextFieldGroupTableViewCell.self)
+        tableView.registerNibFrom(ActionsPostTableViewCell.self)
         tableView.registerNibFrom(UserCommentTableViewCell.self)
     }
     
@@ -102,7 +104,7 @@ class ThingDetailViewController: UIViewController {
         setupInformations()
         setPresenterDelegate()
         registerNibs()
-        configureButtons()
+        //configureButtons()
         configureTableView()
         setNavigationInformations()
         initializeComposeBar()
@@ -186,28 +188,49 @@ class ThingDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func goToProfile(_ sender: UIButton) {
+        
+        self.currentIndexPath = IndexPath(row: sender.tag, section: 0)
+        performSegue(withIdentifier: SegueIdentifiers.detailThingToProfile, sender: self)
+    }
+    
     func setPresenterDelegate() {
         presenter.setViewDelegate(view: self)
     }
     
-    func configureButtons(){
+    func configureButtons(actionsPostCell: ActionsPostTableViewCell) {
         
-        if !presenter.post.isAvailable {
-            firstButton.isHidden = true
-            secondButton.isHidden = true
-        } else if !presenter.authorPostIsCurrent(){
-            presenter.alreadyInterested()
-            secondButton.isHidden = false
-            secondButton.setTitle(presenter.recommendedTitleButton, for: .normal)
-        } else {
-            secondButton.isHidden = true
-            firstButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
-            firstButton.setTitle(presenter.interestedListTitleButton, for: .normal)
+        if actionsPostCell.recommendButton.titleLabel?.text == nil {
+            if !presenter.post.isAvailable {
+                actionsPostCell.isHidden = true
+            } else if !presenter.authorPostIsCurrent() {
+                actionsPostCell.waitingListButton.titleLabel?.loadAnimation()
+                presenter.alreadyInterested(completionHandler: { (success, msg, title) in
+                    if success {
+                        actionsPostCell.waitingListButton.titleLabel?.unload()
+                        actionsPostCell.waitingListButton.setTitle(title, for: .normal)
+                    }
+                })
+                actionsPostCell.recommendButton.isHidden = false
+                actionsPostCell.recommendButton.setTitle(presenter.recommendedTitleButton, for: .normal)
+
+            } else {
+                actionsPostCell.recommendButton.isHidden = true
+                //actionsPostCell.waitingListButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
+                actionsPostCell.waitingListButton.setTitle(presenter.interestedListTitleButton, for: .normal)
+            }
         }
     }
     
+    func setupActionButtons(actionsPostCell: ActionsPostTableViewCell) {
+        
+        actionsPostCell.recommendButton.addTarget(self, action: #selector(goToRecommendedView(_:)), for: .touchUpInside)
+        
+        actionsPostCell.waitingListButton.addTarget(self, action: #selector(enterInterestedList(_:)), for: .touchUpInside)
+    }
+    
     func initializeComposeBar(){
-        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height, width: self.view.frame.width, height: 100.0)
+        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height - 100, width: self.view.frame.width, height: 100.0)
         composeBarView = PHFComposeBarView(frame: CGRect(x: 0.0, y: (initialViewFrame?.size.height)! - PHFComposeBarViewInitialHeight, width: (initialViewFrame?.size.width)!, height: PHFComposeBarViewInitialHeight))
         composeBarView?.maxCharCount = 160
         composeBarView?.maxLinesCount = 5
@@ -234,18 +257,40 @@ class ThingDetailViewController: UIViewController {
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
+//        if presenter.authorPostIsCurrent() {
+//            performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
+//        } else {
+//            if self.firstButton.currentTitle == presenter.enterInterestedTitleButton {
+//                presenter.enterInterestedList(completionHandler: { (success, <#String#>, <#String#>) in
+//                    <#code#>
+//                })
+//            } else {
+//                presenter.exitInterestedList()
+//            }
+//        }
+    }
+    
+    func enterInterestedList(_ sender: UIButton) {
         if presenter.authorPostIsCurrent() {
             performSegue(withIdentifier: SegueIdentifiers.detailThingToInterestedList, sender: self)
         } else {
-            if self.firstButton.currentTitle == presenter.enterInterestedTitleButton {
-                presenter.enterInterestedList()
+            if sender.currentTitle == presenter.enterInterestedTitleButton {
+                presenter.enterInterestedList(completionHandler: { (success, msg, title) in
+                    sender.titleLabel?.text = title
+                })
             } else {
-                presenter.exitInterestedList()
+                presenter.exitInterestedList(completionHandler: { (success, msg, title) in
+                    sender.titleLabel?.text = title
+                })
             }
         }
     }
     
     @IBAction func secondButtonAction(_ sender: Any) {
+        self.performSegue(withIdentifier: SegueIdentifiers.detailThingToRecommended, sender: self)
+    }
+    
+    func goToRecommendedView(_ sender: UIButton) {
         self.performSegue(withIdentifier: SegueIdentifiers.detailThingToRecommended, sender: self)
     }
     
@@ -269,14 +314,7 @@ class ThingDetailViewController: UIViewController {
                     options: UIViewAnimationOptions(),
                     animations: {
                         () -> Void in
-                        //self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height+10, 0.0)
-                        self.firstButton.alpha = 0.0
-                        if !self.secondButton.isHidden {
-                            self.secondButton.alpha = 0.0
-                        }
                         self.view.frame.origin.y = -keyboardFrame.size.height
-                        self.container?.frame.origin.y = (self.container?.frame.origin.y)! - 100
-                        
                 },
                     completion: nil)
             }
@@ -290,26 +328,24 @@ class ThingDetailViewController: UIViewController {
             options: UIViewAnimationOptions(),
             animations: {
                 () -> Void in
-                // self.tableView.contentInset = UIEdgeInsets.zero
-                self.firstButton.alpha = 1.0
-                if !self.secondButton.isHidden {
-                    self.secondButton.alpha = 1.0
-                }
-                
                 self.view.frame.origin.y = 0
-                self.container?.frame.origin.y = (self.container?.frame.origin.y)! + 100
         },
             completion: nil)
     }
     
     func configureGestureRecognizer(){
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didGesture(_:)))
         panGesture.delegate = self
         tableView.addGestureRecognizer(panGesture)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didGesture(_:)))
+        tapGesture.delegate = self
+        tableView.addGestureRecognizer(tapGesture)
     }
     
-    func didPan(_ gesture : UIGestureRecognizer) {
+    func didGesture(_ gesture : UIGestureRecognizer) {
         tableView.endEditing(true)
+        view.endEditing(true)
     }
 
     
@@ -320,7 +356,13 @@ class ThingDetailViewController: UIViewController {
         }
         
         if let controller = segue.destination as? ProfileMainViewController {
-            controller.presenter.setPost(post: presenter.post)
+            if let index = self.currentIndexPath {
+                controller.presenter.setProfile(profile: presenter.comments[index.row].author!)
+                self.currentIndexPath = nil
+            } else {
+                controller.presenter.setPost(post: presenter.post)
+            }
+            
         }
         
         if let controller = segue.destination as? RecommendedViewController {
@@ -333,16 +375,29 @@ class ThingDetailViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: MoreCommentTableViewCell.identifier, for: indexPath) as! MoreCommentTableViewCell
         
         cell.moreButton.addTarget(self, action: #selector(updateComments(_:)), for: .touchUpInside)
-    
-        let commentsMissing = presenter.commentCount
-        cell.moreButton.setTitle("Mais \(commentsMissing.description) comentários", for: .normal)
+        
+        cell.moreButton.setTitle(setupMoreButtonTitle(), for: .normal)
+        
         cell.moreButton.isEnabled = true
         
-        if commentsMissing <= 0 {
-            commentCount = commentsMissing
+        if presenter.commentCount <= 0 {
+            commentCount = presenter.commentCount
         }
         
         return cell
+    }
+    
+    func setupMoreButtonTitle() -> String {
+        let commentsMissing = presenter.commentCount
+        var moreButtonTitle: String
+        
+        if commentsMissing == 1 {
+            moreButtonTitle = "Ver mais \(commentsMissing.description) comentário"
+        } else {
+            moreButtonTitle = "Ver mais \(commentsMissing.description) comentários"
+        }
+        
+        return moreButtonTitle
     }
     
     func generatePhotoThingCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -351,12 +406,12 @@ class ThingDetailViewController: UIViewController {
         
         cell.presenter.post = presenter.post
         
-//        if cell.presenter.post!.relations == nil {
-//           // cell.presenter.getCountPhotos(success: false)
-//            cell.presenter.getRelationsImages(success: false)
-//        } else {
-//            cell.presenter.downloadImagesPost(success: true)
-//        }
+        if cell.presenter.post!.relations == nil {
+           cell.presenter.getCountPhotos(success: false)
+            cell.presenter.getRelationsImages(success: false)
+        } else {
+            cell.presenter.downloadImagesPost(success: true)
+        }
         
         return cell
     }
@@ -366,6 +421,15 @@ class ThingDetailViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserInformationTableViewCell.identifier, for: indexPath) as! UserInformationTableViewCell
         cell.presenter.post = presenter.post
         cell.updateCellUI()
+        
+        return cell
+    }
+    
+    func generateAmountPostInteractionCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: AmountPostInteractionTableViewCell.identifier, for: indexPath) as! AmountPostInteractionTableViewCell
+        
+        cell.presenter.post = presenter.post
         
         return cell
     }
@@ -382,7 +446,7 @@ class ThingDetailViewController: UIViewController {
     func generateConditionCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ThingConditionTableViewCell.identifier, for: indexPath) as! ThingConditionTableViewCell
-        cell.cellData = inputFieldsCondition[indexPath.row-3]
+        cell.cellData = inputFieldsCondition[indexPath.row-4]
         
         return cell
     }
@@ -396,22 +460,25 @@ class ThingDetailViewController: UIViewController {
         var index: Int?
         
         if commentCount! > 0 {
-            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-5)
+            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-6)
         } else {
-            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-4)
+            index = (presenter.comments.count-1)-(indexPath.row-inputFieldsCondition.count-5)
         }
         
         cell.comment = presenter.comments[index!]
+        cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
+        cell.profileButton.tag = index!
         
         return cell
     }
     
     
-    func generateTextFieldCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func generateActionsPostsCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldGroupTableViewCell.identifier, for: indexPath) as! TextFieldGroupTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActionsPostTableViewCell.identifier, for: indexPath) as! ActionsPostTableViewCell
         
-        cell.commentButton.addTarget(self, action: #selector(textFieldFirstResponder(_:)), for: .touchUpInside)
+        configureButtons(actionsPostCell: cell)
+        setupActionButtons(actionsPostCell: cell)
         
         return cell
     }
@@ -424,8 +491,8 @@ class ThingDetailViewController: UIViewController {
 extension ThingDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case inputFieldsCondition.count+3:
-            return textFieldHeight
+//        case inputFieldsCondition.count+4:
+//            return textFieldHeight
         default:
             return UITableViewAutomaticDimension
         }
@@ -450,12 +517,14 @@ extension ThingDetailViewController: UITableViewDelegate {
         case 1:
             return generateUserInformationsCell(tableView, cellForRowAt: indexPath)
         case 2:
+            return generateAmountPostInteractionCell(tableView, cellForRowAt: indexPath)
+        case 3:
             return generateUserDescriptionCell(tableView, cellForRowAt: indexPath)
-        case 3..<inputFieldsCondition.count+3:
+        case 4..<inputFieldsCondition.count+4:
             return generateConditionCell(tableView, cellForRowAt: indexPath)
-        case inputFieldsCondition.count+3:
-            return generateTextFieldCell(tableView, cellForRowAt: indexPath)
         case inputFieldsCondition.count+4:
+            return generateActionsPostsCell(tableView, cellForRowAt: indexPath)
+        case inputFieldsCondition.count+5:
             if commentCount! > 0 {
                 return generateMoreButton(tableView, cellForRowAt: indexPath)
             } else {
@@ -468,8 +537,8 @@ extension ThingDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let rows = inputFieldsCondition.count + 4 + presenter.comments.count
-        let rowsWithMoreButton = inputFieldsCondition.count + 5 + presenter.comments.count
+        let rows = inputFieldsCondition.count + 5 + presenter.comments.count
+        let rowsWithMoreButton = inputFieldsCondition.count + 6 + presenter.comments.count
         
         if commentCount! > 0 {
             return rowsWithMoreButton
@@ -554,8 +623,9 @@ extension ThingDetailViewController: DetailThingDelegate {
     
     func showMessage(isSuccess: Bool, msg: String) {
         let title = isSuccess ? "Certo" : "Erro"
-        present(ViewUtil.alertControllerWithTitle(title: title, withMessage: msg), animated: true, completion: nil)
-    }
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: title, negativeAction: "Ok") { (isPositive) in
+            self.dismiss(animated: true, completion: nil)
+        }    }
 }
 
 extension ThingDetailViewController: PHFComposeBarViewDelegate {

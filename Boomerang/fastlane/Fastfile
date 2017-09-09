@@ -8,6 +8,7 @@ app_base_bundle = "lab262.boomerang"
 
 
   platform :ios do
+    
     before_all do
       ENV['DEVELOPER_DIR'] = '/Applications/Xcode.app/'
       ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
@@ -20,6 +21,10 @@ app_base_bundle = "lab262.boomerang"
     lane :alpha do
       app_final_bundle = app_base_bundle + ".dev"
       match(type: "appstore", app_identifier: app_final_bundle) # more information: https://codesigning.guide
+      increment_build_number_in_plist(
+        build_number: "#{number_of_commits}",
+        target: app_final_bundle
+      )
       gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
       changelog_from_git_commits # this will generate the changelog based on your last commits
       testflight(username: "thiago.mb@icloud.com",
@@ -46,6 +51,10 @@ app_base_bundle = "lab262.boomerang"
     lane :beta do
       app_final_bundle = app_base_bundle + ".test"
       match(type: "appstore", app_identifier: app_final_bundle) # more information: https://codesigning.guide
+      increment_build_number_in_plist(
+        build_number: "#{number_of_commits}",
+        target: app_final_bundle
+      )
       gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
       changelog_from_git_commits # this will generate the changelog based on your last commits
       testflight(username: "thiago.mb@icloud.com",
@@ -71,6 +80,10 @@ app_base_bundle = "lab262.boomerang"
     lane :release do
       app_final_bundle = app_base_bundle + ".production"
       match(type: "appstore")
+      increment_version_number_in_plist( # Set a specific version number
+      version_number: "2.#{number_of_commits}",
+      target: app_final_bundle
+      )
       increment_version_number
       gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
       deliver(username: "thiago.mb@icloud.com",team_name:"Thiago Bernardes",force: true,app_identifier:app_final_bundle)

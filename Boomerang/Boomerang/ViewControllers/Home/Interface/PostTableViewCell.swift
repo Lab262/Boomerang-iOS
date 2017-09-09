@@ -39,6 +39,12 @@ class PostTableViewCell: UITableViewCell {
         collectionView.registerNibFrom(SeeMoreCollectionViewCell.self)
     }
     
+    func goToProfile(_ sender: UIButton) {
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToProfile, sectionPost: SectionPost(rawValue:self.tag)!, didSelectItemAt: indexPath)
+    }
+    
+    
     func setupViewDelegate() {
         presenter.setViewDelegate(view: self)
     }
@@ -47,6 +53,7 @@ class PostTableViewCell: UITableViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
         cell.coverImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
+        cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
         
         return cell
     }

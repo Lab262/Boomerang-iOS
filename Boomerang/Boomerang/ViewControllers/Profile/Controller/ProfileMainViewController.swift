@@ -47,7 +47,8 @@ class ProfileMainViewController: UIViewController {
     }
     
     func popButtonToRoot(_ sender : UIButton){
-        popRootViewController()
+        //popRootViewController()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func popRootViewController(){

@@ -17,20 +17,18 @@ class RecommendedPostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postCollectionView: UICollectionView!
     weak var selectionDelegate: CollectionViewSelectionDelegate?
-    
     @IBOutlet weak var viewPages: UIView!
     
     var pageIndicatorView: PageIndicatorView?
     let spaceCells: CGFloat = 2
     let sizeCells: Int = 8
     var delegate: UpdateCellDelegate?
-   // var presenter = HomePresenter()
+   
     var presenter = PostPresenter()
     
     static var identifier: String {
         return "recommendedCell"
     }
-    
 
     static var cellHeight: CGFloat {
         return 100
@@ -65,12 +63,21 @@ class RecommendedPostTableViewCell: UITableViewCell {
         pageIndicatorView?.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func goToProfile(_ sender: UIButton) {
+        
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        
+        self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToProfile, sectionPost: .recommended, didSelectItemAt: indexPath)
+    }
+    
     func generatePostCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedPostCollectionViewCell.identifier, for: indexPath) as! RecommendedPostCollectionViewCell
         
         cell.postImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
+        cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
+        cell.profileButton.tag = indexPath.row
         
         return cell
     }

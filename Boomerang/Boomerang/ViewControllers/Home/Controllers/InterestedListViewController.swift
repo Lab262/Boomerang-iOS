@@ -64,20 +64,12 @@ class InterestedListViewController: UIViewController {
     }
     
     func createScheme(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Atenção", message: "Deseja fechar o esquema?", preferredStyle: .alert)
-        
-        let action1 = UIAlertAction(title: "Sim", style: .default) { (UIAlertAction) in
-            self.presenter.setInterested(interested: self.presenter.getInteresteds()[sender.tag])
-            self.presenter.createScheme()
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Deseja fechar o esquema?", positiveAction: "Bora", negativeAction: "Não, bora") { (isPositive) in
+            if isPositive {
+                self.presenter.setInterested(interested: self.presenter.getInteresteds()[sender.tag])
+                self.presenter.createScheme()
+            }
         }
-        
-        let action2 = UIAlertAction(title: "Não", style: .default, handler: nil)
-     
-        alert.addAction(action1)
-        alert.addAction(action2)
-        
-        self.present(alert, animated: true, completion: nil)
-       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -143,7 +135,9 @@ extension InterestedListViewController: InterestedDelegate {
     
     func showMessage(msg: String) {
         self.view.unload()
-        self.present(ViewUtil.alertControllerWithTitle(title: "Erro", withMessage: msg), animated: true, completion: nil)
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: msg, negativeAction: "Ok") { (isPositive) in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func startingLoadingView() {

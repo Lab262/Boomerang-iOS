@@ -90,6 +90,15 @@ class HomeMainViewController: UIViewController {
                 controller.presenter.sectionPost = presenter.currentSectionPost
             }
         }
+        
+        if let controller = segue.destination as? ProfileMainViewController {
+            switch presenter.currentSectionPost! {
+            case .recommended:
+                controller.presenter.setProfile(profile: presenter.featuredPosts[currentIndex!.row].author!)
+            default: break
+            }
+            
+        }
     }
 }
 
@@ -312,10 +321,17 @@ extension HomeMainViewController: UpdateCellDelegate{
 }
 
 extension HomeMainViewController: CollectionViewSelectionDelegate {
-    func pushFor(identifier: String, sectionPost: SectionPost, didSelectItemAt indexPath: IndexPath) {
-        self.currentIndex = indexPath
-        presenter.currentSectionPost = sectionPost
-        self.performSegue(withIdentifier: identifier, sender: self)
+    func pushFor(identifier: String, sectionPost: SectionPost?, didSelectItemAt indexPath: IndexPath?) {
+        if identifier == SegueIdentifiers.homeToProfile {
+            self.currentIndex = indexPath
+            presenter.currentSectionPost = sectionPost
+            self.performSegue(withIdentifier: identifier, sender: self)
+        } else {
+            self.currentIndex = indexPath
+            presenter.currentSectionPost = sectionPost
+            self.performSegue(withIdentifier: identifier, sender: self)
+        }
+
     }
 }
 extension HomeMainViewController {

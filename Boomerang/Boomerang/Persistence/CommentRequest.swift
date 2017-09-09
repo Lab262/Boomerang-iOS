@@ -34,7 +34,7 @@ class CommentRequest: NSObject {
 
         
         if commentsObject.count > 1 {
-            query.whereKey("createdAt", greaterThan: commentsObject[0].createdDate!)
+            query.whereKey("createdAt", greaterThan: commentsObject[0].createdAt!)
         }
        
         var notContainedObjectIds = [String]()

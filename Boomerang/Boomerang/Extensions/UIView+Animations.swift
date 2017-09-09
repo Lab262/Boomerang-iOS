@@ -70,17 +70,17 @@ extension UIView {
         
         UIView.animate(withDuration: duration, delay: delay, options: [], animations: {
             
-            var rotationConstant = CGFloat(M_PI * 2.0)
+            var rotationConstant = CGFloat(Double.pi * 2.0)
             
             switch degrees {
             case .degree360:
-                rotationConstant = CGFloat(M_PI * 2.0)
+                rotationConstant = CGFloat(Double.pi * 2.0)
             case .degree180:
-                rotationConstant = CGFloat(M_PI )
+                rotationConstant = CGFloat(Double.pi )
             case .degree90:
-                rotationConstant = CGFloat(M_PI_2)
+                rotationConstant = CGFloat(Double.pi/2)
             case .degree45:
-                rotationConstant = CGFloat(M_PI_4)
+                rotationConstant = CGFloat(Double.pi/4)
             }
             
             switch direction {
@@ -246,8 +246,8 @@ extension UIView {
         arcPath.addArc(center: CGPoint(x: centerPoint.x,
                                        y: centerPoint.y),
                        radius: radius/2,
-                       startAngle: 3.0 * CGFloat(M_PI/2),
-                       endAngle: CGFloat(-M_PI/2),
+                       startAngle: 3.0 * CGFloat(Double.pi/2),
+                       endAngle: CGFloat(-Double.pi/2),
                        clockwise: true, transform: CGAffineTransform.identity)
 
         
@@ -280,7 +280,7 @@ extension UIView {
     func bouncingAnimation(_ isZoomIn: Bool = true,
                            duration: TimeInterval = 1.0,
                            delay: TimeInterval = 0.0,
-                           completion: ((Bool) -> Void) = {_ in},
+                           completion: @escaping ((Bool) -> Void) = {_ in},
                            finalAlpha : CGFloat = 1.0 ,
                            animationOptions: UIViewAnimationOptions = []) {
         
@@ -318,8 +318,9 @@ extension UIView {
                                     self.transform = CGAffineTransform.identity;
                                     
                                     }, completion: { (finished :Bool) -> Void in
-                                        
-                                        
+
+                                        completion(finished)
+
                                 })
                                 
                         })

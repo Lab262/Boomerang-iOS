@@ -29,10 +29,7 @@ class Message: PFObject {
         self.receiver = receiver
         self.chatId = chatId
     }
-    
 }
-
-
 
 extension Message: PFSubclassing {
     static func parseClassName() -> String {

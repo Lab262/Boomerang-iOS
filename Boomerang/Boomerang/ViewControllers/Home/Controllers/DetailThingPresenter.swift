@@ -148,44 +148,51 @@ class DetailThingPresenter: NSObject {
         }
     }
     
-    func enterInterestedList() {
+    func enterInterestedList(completionHandler: @escaping (_ success: Bool, _ msg: String, _ title: String) -> ()) {
         self.view?.startLoading()
         let interested = Interested(user: profile!, post: post, currentMessage: "Estou interessado tesste")
         
         interested.saveInBackground { (success, error) in
             if success {
                 self.view?.interestedTitleButton = self.exitInterestedTitleButton
+                completionHandler(success, "", self.view!.interestedTitleButton!)
                 self.view?.showMessage(isSuccess: success, msg: NotificationSuccessMessages.enterInterestedList)
                 self.view?.finishLoading()
             } else {
                 self.view?.showMessage(isSuccess: success, msg: error!.localizedDescription
                 )
+                completionHandler(success, "", "")
+                
                 self.view?.finishLoading()
             }
         }
     }
 
-    func exitInterestedList() {
+    func exitInterestedList(completionHandler: @escaping (_ success: Bool, _ msg: String, _ title: String) -> ()) {
         self.view?.startLoading()
         PostRequest.exitInterestedListOf(profile: profile!, post: post) { (success, msg) in
             if success {
                 self.view?.interestedTitleButton = self.enterInterestedTitleButton
                 self.view?.showMessage(isSuccess: success, msg: NotificationSuccessMessages.exitInterestedList)
+                completionHandler(success, "", self.view!.interestedTitleButton!)
                 self.view?.finishLoading()
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
+                completionHandler(success, "", "")
                 self.view?.finishLoading()
             }
         }
     }
     
-    func alreadyInterested(){
+    func alreadyInterested(completionHandler: @escaping (_ success: Bool, _ msg: String, _ title: String) -> ()) {
         PostRequest.verifyAlreadyInterestedFor(currentProfile: profile!, post: post) { (success, msg, alreadyInterested) in
             
             if success {
                 self.view?.interestedTitleButton = alreadyInterested ? self.exitInterestedTitleButton : self.enterInterestedTitleButton
+                completionHandler(success, msg, (self.view?.interestedTitleButton)!)
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
+                completionHandler(success, msg, "")
             }
         }
     }
@@ -195,9 +202,7 @@ class DetailThingPresenter: NSObject {
         
         saveComment(comment: comment)
     }
-    
 
-    
     func getRelationsImages(success: Bool){
         if !success {
             PostRequest.getRelationsInBackground(post: post, completionHandler: { (success, msg) in

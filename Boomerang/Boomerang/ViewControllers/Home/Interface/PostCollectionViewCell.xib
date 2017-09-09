@@ -31,6 +31,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXk-FN-EMQ">
                         <rect key="frame" x="0.0" y="157" width="270" height="70"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOA-yu-bcH">
+                                <rect key="frame" x="9.5" y="8.5" width="53" height="53"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="rcb-Fr-QOW">
                                 <rect key="frame" x="14" y="13" width="44" height="44"/>
                                 <constraints>
@@ -83,12 +87,16 @@
                             <constraint firstItem="ozp-0U-dht" firstAttribute="centerY" secondItem="oJe-xy-yLW" secondAttribute="centerY" id="2Zt-yu-GOY"/>
                             <constraint firstItem="rcb-Fr-QOW" firstAttribute="centerY" secondItem="oXk-FN-EMQ" secondAttribute="centerY" id="3yY-Cp-Nbe"/>
                             <constraint firstItem="em2-Qc-BRX" firstAttribute="centerY" secondItem="oXk-FN-EMQ" secondAttribute="centerY" id="DTw-hV-w29"/>
+                            <constraint firstItem="MOA-yu-bcH" firstAttribute="centerX" secondItem="rcb-Fr-QOW" secondAttribute="centerX" id="EHu-6v-8oq"/>
                             <constraint firstItem="Duo-Ul-SFy" firstAttribute="top" secondItem="Q4s-vz-pue" secondAttribute="bottom" constant="2" id="INZ-UB-oic"/>
                             <constraint firstItem="Q4s-vz-pue" firstAttribute="leading" secondItem="rcb-Fr-QOW" secondAttribute="trailing" constant="6" id="Jid-vt-n4l"/>
                             <constraint firstItem="Q4s-vz-pue" firstAttribute="top" secondItem="rcb-Fr-QOW" secondAttribute="top" constant="2" id="L66-Bx-DTR"/>
                             <constraint firstItem="Duo-Ul-SFy" firstAttribute="leading" secondItem="Q4s-vz-pue" secondAttribute="leading" id="PDy-47-Axg"/>
                             <constraint firstItem="em2-Qc-BRX" firstAttribute="leading" secondItem="Q4s-vz-pue" secondAttribute="trailing" constant="10" id="U9E-NR-vLD"/>
                             <constraint firstItem="oJe-xy-yLW" firstAttribute="centerY" secondItem="Duo-Ul-SFy" secondAttribute="centerY" id="ZJy-lC-Im6"/>
+                            <constraint firstItem="MOA-yu-bcH" firstAttribute="height" secondItem="rcb-Fr-QOW" secondAttribute="height" multiplier="1.2" id="cyb-us-rhe"/>
+                            <constraint firstItem="MOA-yu-bcH" firstAttribute="width" secondItem="rcb-Fr-QOW" secondAttribute="width" multiplier="1.2" id="l8i-2D-GJ5"/>
+                            <constraint firstItem="MOA-yu-bcH" firstAttribute="centerY" secondItem="rcb-Fr-QOW" secondAttribute="centerY" id="mA0-CB-kN7"/>
                             <constraint firstItem="ozp-0U-dht" firstAttribute="leading" secondItem="oJe-xy-yLW" secondAttribute="trailing" constant="3" id="nVJ-l4-sFl"/>
                             <constraint firstItem="rcb-Fr-QOW" firstAttribute="leading" secondItem="oXk-FN-EMQ" secondAttribute="leading" constant="14" id="rWq-ZX-1tR"/>
                             <constraint firstItem="oJe-xy-yLW" firstAttribute="leading" secondItem="Duo-Ul-SFy" secondAttribute="trailing" constant="3" id="zVn-9i-rgu"/>
@@ -120,6 +128,7 @@
                 <outlet property="dateLabel" destination="Duo-Ul-SFy" id="dT7-DA-Lod"/>
                 <outlet property="heightIconPostImage" destination="wRx-fN-O8o" id="DGm-G3-QCy"/>
                 <outlet property="likeButton" destination="OAO-3V-zcR" id="lFR-Fn-gx9"/>
+                <outlet property="profileButton" destination="MOA-yu-bcH" id="hM3-ol-4B9"/>
                 <outlet property="titleLabel" destination="Q4s-vz-pue" id="IOz-Ty-hh8"/>
                 <outlet property="typeIconImage" destination="em2-Qc-BRX" id="g2o-qz-2gE"/>
                 <outlet property="userImage" destination="rcb-Fr-QOW" id="UT0-r8-035"/>
