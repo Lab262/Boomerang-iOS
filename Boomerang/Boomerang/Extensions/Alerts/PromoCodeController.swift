@@ -37,8 +37,9 @@ class PromoCodeController: UIViewController {
 
     @IBAction func registerPromoCode(_ sender: Any) {
         if self.isValidated {
-            self.dismissViewAnimation()
-            self.delegate?.afterValidateCode()
+            self.dismiss(animated: false, completion: { 
+                self.delegate?.afterValidateCode()
+            })
         } else {
             self.promoCodeTextField.shakeAnimation()
         }
