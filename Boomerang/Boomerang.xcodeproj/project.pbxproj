@@ -266,6 +266,9 @@
 		A4E462FF1DCAEB0200A611C0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462FE1DCAEB0200A611C0 /* Profile.storyboard */; };
 		A4E463011DCAEB1500A611C0 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E463001DCAEB1500A611C0 /* Transaction.storyboard */; };
 		A4E463041DCAEC4F00A611C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E463031DCAEC4F00A611C0 /* Assets.xcassets */; };
+		A4ED8D9E1F6484510088052A /* PromoCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */; };
+		A4ED8D9F1F6484510088052A /* PromoCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */; };
+		A4ED8DA01F6484510088052A /* PromoCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */; };
 		A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F89B291DA809B100949A35 /* AppDelegate.swift */; };
 		A4F89B341DA809B100949A35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F89B321DA809B100949A35 /* LaunchScreen.storyboard */; };
 		A4F89B3F1DA809B100949A35 /* BoomerangTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F89B3E1DA809B100949A35 /* BoomerangTests.swift */; };
@@ -1107,6 +1110,7 @@
 		A4E462FE1DCAEB0200A611C0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A4E463001DCAEB1500A611C0 /* Transaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
 		A4E463031DCAEC4F00A611C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromoCodeRequest.swift; path = Requests/PromoCodeRequest.swift; sourceTree = "<group>"; };
 		A4F89B261DA809B100949A35 /* lab262.boomerang.test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab262.boomerang.test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F89B291DA809B100949A35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4F89B331DA809B100949A35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1495,6 +1499,7 @@
 		2FA93B271E4A88030080F99A /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */,
 				2FA93B281E4A881E0080F99A /* UserRequest.swift */,
 				D42443F31E6DFB1100620441 /* ParseRequest.swift */,
 				D498F0321E7F43EF002E8972 /* PostRequest.swift */,
@@ -3299,6 +3304,7 @@
 				D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */,
 				D4964CE41EA6613900BD3807 /* TransactionDetailPresenter.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
+				A4ED8D9E1F6484510088052A /* PromoCodeRequest.swift in Sources */,
 				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
 				D4AD97721EA8ED7400C9FAB9 /* EvaluationPresenter.swift in Sources */,
 				D4964CE61EA6615700BD3807 /* TransactionDetailCellPresenter.swift in Sources */,
@@ -3497,6 +3503,7 @@
 				D4AD97911EA9ACFD00C9FAB9 /* DetailThingPresenter.swift in Sources */,
 				D4AD97921EA9ACFD00C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
 				605DEF3B1ECCD03800D1D233 /* UILabelExtension.swift in Sources */,
+				A4ED8D9F1F6484510088052A /* PromoCodeRequest.swift in Sources */,
 				D4AD97931EA9ACFD00C9FAB9 /* TabBarController.swift in Sources */,
 				D4AD97941EA9ACFD00C9FAB9 /* ThingDetailViewController.swift in Sources */,
 				D4AD97951EA9ACFD00C9FAB9 /* EvaluationPresenter.swift in Sources */,
@@ -3686,6 +3693,7 @@
 				D4AD985D1EA9AD0400C9FAB9 /* DetailThingPresenter.swift in Sources */,
 				D4AD985E1EA9AD0400C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
 				605DEF3C1ECCD03800D1D233 /* UILabelExtension.swift in Sources */,
+				A4ED8DA01F6484510088052A /* PromoCodeRequest.swift in Sources */,
 				D4AD985F1EA9AD0400C9FAB9 /* TabBarController.swift in Sources */,
 				D4AD98601EA9AD0400C9FAB9 /* ThingDetailViewController.swift in Sources */,
 				D4AD98611EA9AD0400C9FAB9 /* EvaluationPresenter.swift in Sources */,

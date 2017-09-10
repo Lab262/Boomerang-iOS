@@ -43,10 +43,7 @@ class AuthenticationMainViewController: UIViewController {
     
     
     @IBAction func facebookAction(_ sender: Any) {
-        PromoCodeController.presentMe(inParent: self) { (item) in
-
-        }
-//        self.presenter.loginFacebook()
+        PromoCodeController.presentMe(inParent: self, delegate: self)
     }
 
     func showHomeVC() {
@@ -128,6 +125,12 @@ extension AuthenticationMainViewController: AuthenticationDelegate {
     
     func finishLoadingView() {
         self.view.unload()
+    }
+}
+
+extension AuthenticationMainViewController: PromoCodeRequestDelegate {
+    func afterValidateCode() {
+        self.presenter.loginFacebook()
     }
 }
 
