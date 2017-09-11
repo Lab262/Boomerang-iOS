@@ -227,7 +227,7 @@ class UserRequest: NSObject {
         ParseRequest.queryEqualToValueNotContainedObjects(className: Follow.parseClassName(), queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkOnly, notContainedObjects: notContainedObjects, includes: [FollowKeys.to], pagination: pagination) { (success, msg, objects) in
             if success {
                 for object in objects! {
-                    if let follow =  object.object(forKey: FollowKeys.to) as? Profile {
+                    if let follow = object.object(forKey: FollowKeys.to) as? Profile {
                         let profile = follow
                         following.append(profile)
                     }

@@ -93,13 +93,13 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digite o código de acesso" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBB-3l-a10">
-                            <rect key="frame" x="15" y="84" width="288.5" height="18.5"/>
+                            <rect key="frame" x="15" y="84" width="288.5" height="17.5"/>
                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dba-oc-T5h">
-                            <rect key="frame" x="16" y="122" width="286.5" height="44"/>
+                            <rect key="frame" x="16" y="121" width="286.5" height="44"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bote aqui" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f14-IW-IY4">
                                     <rect key="frame" x="14" y="0.0" width="257.5" height="44"/>
@@ -133,7 +133,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-uT-V1S">
-                            <rect key="frame" x="99.5" y="181" width="119" height="28"/>
+                            <rect key="frame" x="104.5" y="180" width="109" height="28"/>
                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
                             <state key="normal" title="Não Tenho Código">
                                 <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,7 +152,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="270.5" height="40"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jAo-vP-Cza">
-                                                    <rect key="frame" x="5" y="12.5" width="260.5" height="16"/>
+                                                    <rect key="frame" x="5" y="13" width="260.5" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -210,19 +210,19 @@
                             </constraints>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWE-Yq-OvF">
-                            <rect key="frame" x="32" y="219" width="270.5" height="40"/>
+                            <rect key="frame" x="32" y="218" width="270.5" height="40"/>
                             <attributedString key="attributedText">
                                 <fragment content="Concordo com todos os ">
                                     <attributes>
                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="13" name="Montserrat-Light"/>
+                                        <font key="NSFont" metaFont="system"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" minimumLineHeight="20" maximumLineHeight="20" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="Termos de Serviço">
                                     <attributes>
                                         <color key="NSColor" red="0.96470999999999996" green="0.62744999999999995" blue="0.12157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <font key="NSFont" size="13" name="Montserrat-Light"/>
+                                        <font key="NSFont" metaFont="system"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" minimumLineHeight="20" maximumLineHeight="20" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         <integer key="NSUnderline" value="1"/>
                                         <color key="NSUnderlineColor" red="0.96470999999999996" green="0.62744999999999995" blue="0.12157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -231,7 +231,7 @@
                                 <fragment content=" do Boomer">
                                     <attributes>
                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="13" name="Montserrat-Light"/>
+                                        <font key="NSFont" metaFont="system"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" minimumLineHeight="20" maximumLineHeight="20" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         <color key="NSUnderlineColor" red="0.96470999999999996" green="0.62744999999999995" blue="0.12157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </attributes>
@@ -240,14 +240,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_accept" translatesAutoresizingMaskIntoConstraints="NO" id="jCY-0o-Kix">
-                            <rect key="frame" x="16" y="224" width="14" height="14"/>
+                            <rect key="frame" x="16" y="223" width="14" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="14" id="aDe-3b-4oX"/>
                                 <constraint firstAttribute="width" constant="14" id="lxA-cW-v47"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeX-1k-Jl8">
-                            <rect key="frame" x="16" y="219" width="286.5" height="40"/>
+                            <rect key="frame" x="16" y="218" width="286.5" height="40"/>
                             <connections>
                                 <action selector="openTermsOfService:" destination="-1" eventType="touchUpInside" id="KMv-dU-UJn"/>
                             </connections>

@@ -100,7 +100,7 @@ struct NotificationKeys {
 //MARK - Paginations
 
 struct Paginations {
-    static let friends = 50
+    static let friends = 10
     static let facebookFriends = 20
     static let postsFeatureds = 4
     static let postsByFriends = 3
@@ -112,6 +112,7 @@ struct Paginations {
     static let messages = 100
     static let profiles = 20
     static let pagination = 10
+    static let recommendations = 10
     
 }
 
@@ -215,6 +216,14 @@ struct PostKeys {
 struct InterestedKeys {
     static let user = "user"
     static let post = "post"
+}
+
+//MARK - Recommended Keys
+
+struct RecommendedKeys {
+    static let sender = "sender"
+    static let post = "post"
+    static let receiver = "receiver"
 }
 
 //MARK - Like Keys

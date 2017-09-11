@@ -7,21 +7,47 @@
 //
 
 import UIKit
+import Parse
 
 class RecommendedRequest: NSObject {
-//    static func createRecommendation(evaluation: Evaluation, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-//        
-//        let newEvaluation = PFObject(className: "Evaluation")
-//        newEvaluation["scheme"] = ["__type": "Pointer", "className": "Scheme", "objectId": evaluation.scheme!.objectId]
-//        newEvaluation["comment"] = evaluation.comment!
-//        newEvaluation["amountStars"] = evaluation.amountStars!
-//        
-//        newEvaluation.saveInBackground { (success, error) in
-//            if error == nil {
-//                completionHandler(success, "success")
-//            } else {
-//                completionHandler(success, error!.localizedDescription)
-//            }
-//        }
-//    }
+    
+    static func fetchRecommendations(sender: Profile, post: Post, receivers: [Profile]?, pagination: Int, recommendationsDownloaded: [Recommended]?, completionHandler: @escaping (_ success: Bool, _ msg: String, _ recommendations: [Recommended]?) -> ()) {
+        
+        var recommendations: [Recommended] = [Recommended]()
+        var notContainedObjectIds = [String]()
+        
+        if let recommendationsDownloaded = recommendationsDownloaded {
+            recommendationsDownloaded.forEach {
+                notContainedObjectIds.append($0.objectId!)
+            }
+        }
+        
+        let query = PFQuery(className: Recommended.parseClassName())
+        query.limit = pagination
+        query.order(byDescending: ObjectKeys.createdAt)
+        query.whereKey(RecommendedKeys.sender, equalTo: sender)
+        query.whereKey(RecommendedKeys.post, equalTo: post)
+        
+        if let receivers = receivers {
+             query.whereKey(RecommendedKeys.receiver, containedIn: receivers)
+        }
+        
+        query.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+        
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        if let recommended = object as? Recommended {
+                            recommendations.append(recommended)
+                        }
+                    }
+                }
+                completionHandler(true, "success", recommendations)
+            } else {
+                completionHandler(false, "fail", nil)
+            }
+        }
+        
+    }
 }

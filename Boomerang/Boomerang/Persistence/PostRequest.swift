@@ -366,7 +366,6 @@ class PostRequest: NSObject {
                 completionHandler(false, msg, nil)
             }
         }
-        
     }
     
     static func exitInterestedListOf(profile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
