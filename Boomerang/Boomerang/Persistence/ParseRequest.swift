@@ -148,7 +148,6 @@ class ParseRequest: NSObject {
         let query = PFQuery(className: className)
         query.whereKey(key, containedIn: value)
         
-        
         query.countObjectsInBackground { (count, error) in
             if error == nil {
                 completionHandler(true, "Success", Int(count))

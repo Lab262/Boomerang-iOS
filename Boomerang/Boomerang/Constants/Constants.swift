@@ -216,6 +216,13 @@ struct InterestedKeys {
     static let post = "post"
 }
 
+//MARK - Like Keys
+
+struct LikeKeys {
+    static let profile = "profile"
+    static let post = "post"
+}
+
 //MARK - Follow keys
 
 struct FollowKeys {
