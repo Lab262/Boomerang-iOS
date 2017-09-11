@@ -217,8 +217,6 @@ class ParseRequest: NSObject {
     
     // QUERY 2
     
-
-    
     static func queryEqualToValue2(className: String, queryParams: [String: Any], includes: [String]?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         
             let query = PFQuery(className: className)

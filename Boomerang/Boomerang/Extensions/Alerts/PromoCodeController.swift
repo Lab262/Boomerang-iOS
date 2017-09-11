@@ -1,5 +1,9 @@
 import UIKit
 
+protocol PromoCodeRequestDelegate {
+    func afterValidateCode()
+}
+
 class PromoCodeController: UIViewController {
     @IBOutlet weak var centerYConstraint: NSLayoutConstraint!
     @IBOutlet var backgroundView: UIView!
@@ -7,8 +11,11 @@ class PromoCodeController: UIViewController {
     @IBOutlet weak var positiveActionLbl: UILabel!
     @IBOutlet weak var alertTitleLbl: UILabel!
     @IBOutlet weak var positiveButtonView: UIView!
-
+    @IBOutlet weak var promoCodeTextField: UITextField!
+    @IBOutlet weak var promoCodeTextFieldBackground: UIView!
+    var isValidated = false
     var alertActionBlock: (_ isPositiveAnswer: Bool) -> Void = { ok in }
+    var delegate: PromoCodeRequestDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +23,6 @@ class PromoCodeController: UIViewController {
     }
     
     @IBAction func selectPositiveAction(_ sender: Any) {
-        self.alertActionBlock(true)
         self.dismissViewAnimation()
     }
 
@@ -30,10 +36,19 @@ class PromoCodeController: UIViewController {
     }
 
     @IBAction func registerPromoCode(_ sender: Any) {
-        print("register promo code")
+        if self.isValidated {
+            self.dismiss(animated: false, completion: { 
+                self.delegate?.afterValidateCode()
+            })
+        } else {
+            self.promoCodeTextField.shakeAnimation()
+        }
     }
 
     @IBAction func didChangePromoCode(_ sender: UITextField) {
+        PromoCodeRequest.checkValidity(code: sender.text!, completionHandler: { (success, msg, isValid) in
+            self.setupValidState(isValid: isValid)
+        })
         print(sender.text ?? "")
     }
 
@@ -46,14 +61,25 @@ class PromoCodeController: UIViewController {
         self.dismissViewAnimation()
     }
 
-    public class func presentMe(inParent vc: UIViewController, alertActionBlock: @escaping (_ isPositiveAnswer: Bool) -> Void) {
+    public class func presentMe(inParent vc: UIViewController, delegate: PromoCodeRequestDelegate?) {
         
         let boomerAlert = PromoCodeController()
-        boomerAlert.alertActionBlock = alertActionBlock
-
+        boomerAlert.delegate = delegate
         boomerAlert.modalPresentationStyle = .overCurrentContext
         boomerAlert.view.backgroundColor = .clear
         vc.present(boomerAlert, animated: false, completion: nil)
+    }
+
+    func setupValidState(isValid: Bool) {
+
+        if isValid {
+            self.promoCodeTextField.textColor =  UIColor.colorWithHexString("2AC148")
+            self.promoCodeTextFieldBackground.borderColor = UIColor.colorWithHexString("2AC148")
+        } else {
+            self.promoCodeTextField.textColor = UIColor.colorWithHexString("FF4545")
+            self.promoCodeTextFieldBackground.borderColor = UIColor.colorWithHexString("FF4545")
+        }
+        self.isValidated = isValid
     }
 
 }
