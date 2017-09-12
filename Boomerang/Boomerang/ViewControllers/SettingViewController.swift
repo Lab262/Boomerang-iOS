@@ -38,7 +38,7 @@ class SettingViewController: UIViewController {
         var initialViewController: UIViewController? = nil
         
         //PFUser.current() = nil
-        initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "")
+        initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "AuthenticationMainViewController")
         
         self.present(initialViewController!, animated:true, completion:nil)
     }
