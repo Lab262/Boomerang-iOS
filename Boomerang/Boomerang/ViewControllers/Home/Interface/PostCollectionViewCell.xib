@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,7 +45,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ferramentas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4s-vz-pue">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ferramentas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4s-vz-pue">
                                 <rect key="frame" x="64" y="15" width="151" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -98,6 +98,7 @@
                             <constraint firstItem="MOA-yu-bcH" firstAttribute="width" secondItem="rcb-Fr-QOW" secondAttribute="width" multiplier="1.2" id="l8i-2D-GJ5"/>
                             <constraint firstItem="MOA-yu-bcH" firstAttribute="centerY" secondItem="rcb-Fr-QOW" secondAttribute="centerY" id="mA0-CB-kN7"/>
                             <constraint firstItem="ozp-0U-dht" firstAttribute="leading" secondItem="oJe-xy-yLW" secondAttribute="trailing" constant="3" id="nVJ-l4-sFl"/>
+                            <constraint firstAttribute="bottom" secondItem="ozp-0U-dht" secondAttribute="bottom" constant="17" id="ooT-hS-9h6"/>
                             <constraint firstItem="rcb-Fr-QOW" firstAttribute="leading" secondItem="oXk-FN-EMQ" secondAttribute="leading" constant="14" id="rWq-ZX-1tR"/>
                             <constraint firstItem="oJe-xy-yLW" firstAttribute="leading" secondItem="Duo-Ul-SFy" secondAttribute="trailing" constant="3" id="zVn-9i-rgu"/>
                         </constraints>
