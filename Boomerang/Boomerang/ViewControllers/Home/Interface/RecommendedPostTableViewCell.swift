@@ -148,7 +148,7 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
         
         let indexPath = postCollectionView.indexPathForItem(at: self.postCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: postCollectionView.frame.width/2, y: 0))
         
-        //GABIARRAAAAAAAA CONSERTAAAAA
+       
         if UIScreen.main.bounds.width == 320.0 {
             let indexPath2 = postCollectionView.indexPathForItem(at: self.postCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: postCollectionView.frame.width/2, y: 0)+CGPoint(x: 0, y: 19.5))
             
