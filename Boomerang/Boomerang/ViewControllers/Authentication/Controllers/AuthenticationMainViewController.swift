@@ -14,7 +14,7 @@ import ParseFacebookUtilsV4
 
 class AuthenticationMainViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageCollectionView: UICollectionView!
     @IBOutlet weak var facebookButton: UIButton!
     var presenter = AuthenticationPresenter()
     var pageIndicatorView: PageIndicatorView?
@@ -47,19 +47,19 @@ class AuthenticationMainViewController: UIViewController {
     }
     
     func updateCell(){
-        collectionView.reloadData()
+        pageCollectionView.reloadData()
         pageIndicatorView?.reload()
     }
     
     func setUpCollectionView() {
-        let flowLayout = collectionView.collectionViewLayout as? CenterCellCollectionViewFlowLayout
-        flowLayout?.centerOffset = CGPoint(x: collectionView.frame.width/2, y: 0)
+     
+        let flowLayout = pageCollectionView.collectionViewLayout as?CenterCellCollectionViewFlowLayout
+        flowLayout?.centerOffset = CGPoint(x: pageCollectionView.frame.width * 0.8, y: 0)
         
-        let margin: CGFloat = 2.0
+        let margin: CGFloat = 20.0
         
         flowLayout?.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin)
         flowLayout?.minimumLineSpacing = margin
-
     }
     
     
@@ -69,7 +69,7 @@ class AuthenticationMainViewController: UIViewController {
     }
     
     func registerNibs (){
-        collectionView.registerNibFrom(PageCollectionViewCell.self)
+        pageCollectionView.registerNibFrom(PageCollectionViewCell.self)
     }
     
     func setupCustomLabel(){
@@ -150,8 +150,6 @@ class AuthenticationMainViewController: UIViewController {
             completionHandler(success, msg)
         }
     }
-    
-   
 }
 
 extension AuthenticationMainViewController{
@@ -190,8 +188,35 @@ extension AuthenticationMainViewController: AuthenticationDelegate {
 extension AuthenticationMainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
- 
- 
+    
+
+        let flowLayout = (self.pageCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
+        
+        let indexPath = pageCollectionView.indexPathForItem(at: self.pageCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: pageCollectionView.frame.width/2, y: 0))
+        
+        
+        if UIScreen.main.bounds.width == 320.0 {
+            let indexPath2 = pageCollectionView.indexPathForItem(at: self.pageCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: pageCollectionView.frame.width/2, y: 0)+CGPoint(x: 0, y: 19.5))
+            
+            if let index = indexPath2 {
+                pageIndicatorView?.selectedPage = index.row
+            }
+        }
+        
+        if UIScreen.main.bounds.width == 414.0 {
+            let indexPath3 = pageCollectionView.indexPathForItem(at: self.pageCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: pageCollectionView.frame.width/2, y: 0)+CGPoint(x: 0, y: 14))
+            
+            if let index = indexPath3 {
+                pageIndicatorView?.selectedPage = index.row
+            }
+        }
+        
+        
+        
+        
+        if let index = indexPath {
+            pageIndicatorView?.selectedPage = index.row
+        }
     }
     
 
@@ -206,6 +231,8 @@ extension AuthenticationMainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             return generatePageCell(collectionView, cellForItemAt:indexPath)
     }
+    
+    
 
 }
 extension AuthenticationMainViewController: UICollectionViewDelegateFlowLayout {
@@ -214,6 +241,9 @@ extension AuthenticationMainViewController: UICollectionViewDelegateFlowLayout {
     
         return CGSize(width: PageCollectionViewCell.cellSize.width * UIView.heightScaleProportion(), height: PageCollectionViewCell.cellSize.height * UIView.heightScaleProportion())
     }
+    
+
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
         return 2

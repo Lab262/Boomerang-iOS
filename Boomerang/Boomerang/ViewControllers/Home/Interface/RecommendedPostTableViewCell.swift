@@ -160,6 +160,9 @@ extension RecommendedPostTableViewCell: UIScrollViewDelegate {
         if let index = indexPath {
             pageIndicatorView?.selectedPage = index.row
         }
+    
+        
+    
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

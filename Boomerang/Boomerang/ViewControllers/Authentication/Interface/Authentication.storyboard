@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wq2-7e-eQp" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="wgE-kE-JKz"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRB-2c-EXN">
-                                <rect key="frame" x="37" y="146" width="300" height="29"/>
+                                <rect key="frame" x="37.5" y="146" width="300" height="29"/>
                                 <string key="text">ADICIONE SEUS AMIGOS DO 
 FACEBOOK</string>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
@@ -62,7 +62,7 @@ FACEBOOK</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buscar" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jye-2e-udJ">
-                                <rect key="frame" x="37" y="88" width="300" height="38"/>
+                                <rect key="frame" x="37.5" y="88" width="300" height="38"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="nZb-Vd-EeH"/>
@@ -128,11 +128,8 @@ FACEBOOK</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KEh-yQ-5zi">
-                                        <rect key="frame" x="0.0" y="274" width="375" height="191"/>
+                                        <rect key="frame" x="0.0" y="273" width="375" height="227"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="191" id="qas-Ve-n8a"/>
-                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FhL-aB-Jfa">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -145,17 +142,21 @@ FACEBOOK</string>
                                             <outlet property="delegate" destination="fZ7-hI-ca6" id="7sZ-h4-JUg"/>
                                         </connections>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PHv-nT-aFF">
-                                        <rect key="frame" x="0.0" y="464" width="375" height="77"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHv-nT-aFF">
+                                        <rect key="frame" x="0.0" y="487" width="375" height="71"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="71" id="n9i-JS-1gt"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="KEh-yQ-5zi" secondAttribute="trailing" id="Iwm-QF-BzM"/>
-                                    <constraint firstItem="KEh-yQ-5zi" firstAttribute="leading" secondItem="34U-9Q-WK7" secondAttribute="leading" id="oJS-vB-0M4"/>
-                                    <constraint firstItem="KEh-yQ-5zi" firstAttribute="top" secondItem="34U-9Q-WK7" secondAttribute="top" constant="274" id="wvB-2G-K2H"/>
+                                    <constraint firstItem="PHv-nT-aFF" firstAttribute="top" secondItem="KEh-yQ-5zi" secondAttribute="bottom" constant="-13" id="ACd-4A-6KT"/>
+                                    <constraint firstItem="PHv-nT-aFF" firstAttribute="leading" secondItem="34U-9Q-WK7" secondAttribute="leading" id="K7e-i7-3E3"/>
+                                    <constraint firstAttribute="trailing" secondItem="KEh-yQ-5zi" secondAttribute="trailing" id="NLu-Yd-ANy"/>
+                                    <constraint firstAttribute="trailing" secondItem="PHv-nT-aFF" secondAttribute="trailing" id="hbZ-Fs-VFW"/>
+                                    <constraint firstItem="KEh-yQ-5zi" firstAttribute="leading" secondItem="34U-9Q-WK7" secondAttribute="leading" id="rdx-Wv-Hn1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -181,20 +182,20 @@ FACEBOOK</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boomer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="eCM-uz-4LA">
-                                <rect key="frame" x="147" y="93" width="82" height="82"/>
+                                <rect key="frame" x="146.5" y="92.5" width="82" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="82" id="BY5-kt-7DV"/>
                                     <constraint firstAttribute="width" constant="82" id="cKB-7p-5Ch"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boomer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZh-YX-0il">
-                                <rect key="frame" x="124" y="183" width="128.5" height="42"/>
+                                <rect key="frame" x="114.5" y="182.5" width="146" height="44"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKX-mS-0UJ" userLabel="Divider">
-                                <rect key="frame" x="158" y="240" width="60" height="4"/>
+                                <rect key="frame" x="157.5" y="241.5" width="60" height="4"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.73333333329999995" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="1Ng-gs-HBN"/>
@@ -207,10 +208,10 @@ FACEBOOK</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhq-q7-R1W">
-                                <rect key="frame" x="37" y="567" width="300" height="50"/>
+                                <rect key="frame" x="37.5" y="567" width="300" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-ol-kqc">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <rect key="frame" x="0.0" y="8" width="300" height="50"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                         <state key="normal" title="Entrar com Facebook">
@@ -230,7 +231,7 @@ FACEBOOK</string>
                                 <constraints>
                                     <constraint firstItem="vSU-ol-kqc" firstAttribute="height" secondItem="bhq-q7-R1W" secondAttribute="height" id="IDh-pJ-vUN"/>
                                     <constraint firstAttribute="height" constant="50" id="Y4k-9K-le3"/>
-                                    <constraint firstItem="vSU-ol-kqc" firstAttribute="centerY" secondItem="bhq-q7-R1W" secondAttribute="centerY" id="aEq-0g-FSa"/>
+                                    <constraint firstItem="vSU-ol-kqc" firstAttribute="centerY" secondItem="bhq-q7-R1W" secondAttribute="centerY" constant="8" id="aEq-0g-FSa"/>
                                     <constraint firstItem="vSU-ol-kqc" firstAttribute="centerX" secondItem="bhq-q7-R1W" secondAttribute="centerX" id="dDZ-gX-k0x"/>
                                     <constraint firstItem="vSU-ol-kqc" firstAttribute="width" secondItem="bhq-q7-R1W" secondAttribute="width" id="uq5-vk-xn0"/>
                                 </constraints>
@@ -258,24 +259,26 @@ FACEBOOK</string>
                             <constraint firstItem="34U-9Q-WK7" firstAttribute="height" secondItem="bAU-c7-UAa" secondAttribute="height" id="EiU-b2-04j"/>
                             <constraint firstItem="bhq-q7-R1W" firstAttribute="centerY" secondItem="bAU-c7-UAa" secondAttribute="centerY" multiplier="1.775" id="Frv-YQ-bny"/>
                             <constraint firstItem="OZh-YX-0il" firstAttribute="centerX" secondItem="eCM-uz-4LA" secondAttribute="centerX" id="IJV-iU-IKD"/>
+                            <constraint firstItem="KEh-yQ-5zi" firstAttribute="top" secondItem="OZh-YX-0il" secondAttribute="bottom" constant="46.5" id="Le8-ei-kzy"/>
                             <constraint firstItem="FKX-mS-0UJ" firstAttribute="top" secondItem="OZh-YX-0il" secondAttribute="bottom" constant="15" id="NY3-TQ-N5z"/>
                             <constraint firstItem="eCM-uz-4LA" firstAttribute="centerX" secondItem="bAU-c7-UAa" secondAttribute="centerX" id="UBm-eR-KKc"/>
                             <constraint firstItem="34U-9Q-WK7" firstAttribute="centerY" secondItem="bAU-c7-UAa" secondAttribute="centerY" id="Uyg-Op-Mv1"/>
                             <constraint firstItem="eCM-uz-4LA" firstAttribute="centerY" secondItem="bAU-c7-UAa" secondAttribute="centerY" multiplier="0.4" id="bGP-nh-TsM"/>
+                            <constraint firstItem="vSU-ol-kqc" firstAttribute="top" secondItem="PHv-nT-aFF" secondAttribute="bottom" constant="17" id="fzE-GK-X6X"/>
                             <constraint firstItem="bhq-q7-R1W" firstAttribute="width" secondItem="34U-9Q-WK7" secondAttribute="width" multiplier="0.8" id="gXx-D4-Nuk"/>
                             <constraint firstItem="34U-9Q-WK7" firstAttribute="width" secondItem="bAU-c7-UAa" secondAttribute="width" id="o1m-to-Jh4"/>
                             <constraint firstItem="OZh-YX-0il" firstAttribute="top" secondItem="eCM-uz-4LA" secondAttribute="bottom" constant="8" id="uZN-eI-Adf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="KEh-yQ-5zi" id="Urf-2O-ygk"/>
                         <outlet property="facebookButton" destination="vSU-ol-kqc" id="teu-v7-ZM5"/>
+                        <outlet property="pageCollectionView" destination="KEh-yQ-5zi" id="XsV-i3-3PT"/>
                         <outlet property="viewPages" destination="PHv-nT-aFF" id="Tx8-NO-W7x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oam-NH-a0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="524" y="448"/>
+            <point key="canvasLocation" x="522.39999999999998" y="447.52623688155927"/>
         </scene>
     </scenes>
     <resources>
