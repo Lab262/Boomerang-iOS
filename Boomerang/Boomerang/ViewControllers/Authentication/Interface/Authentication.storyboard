@@ -150,6 +150,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFF-vg-02W">
+                                <rect key="frame" x="0.0" y="493" width="375" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -160,11 +164,15 @@
                             <constraint firstItem="DJO-Qx-C6j" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="VCu-nX-h0Y"/>
                             <constraint firstItem="hgw-5K-Jyv" firstAttribute="top" secondItem="agE-nl-h5s" secondAttribute="bottom" constant="8" id="VGH-Wu-tUq"/>
                             <constraint firstItem="Jq6-Nz-0xo" firstAttribute="top" secondItem="G8x-7M-uVa" secondAttribute="bottom" constant="48" id="d17-tP-RW5"/>
+                            <constraint firstItem="mFF-vg-02W" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="jCS-PM-Yj2"/>
                             <constraint firstItem="agE-nl-h5s" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="jf6-RL-fha"/>
+                            <constraint firstItem="mFF-vg-02W" firstAttribute="top" secondItem="Jq6-Nz-0xo" secondAttribute="bottom" id="oEK-Pf-jPm"/>
                             <constraint firstItem="agE-nl-h5s" firstAttribute="centerY" secondItem="6hQ-UJ-Hzx" secondAttribute="centerY" multiplier="0.4" id="pDa-WR-mVe"/>
+                            <constraint firstItem="mFF-vg-02W" firstAttribute="height" secondItem="DJO-Qx-C6j" secondAttribute="height" multiplier="0.06" id="paP-Fb-jce"/>
                             <constraint firstItem="G8x-7M-uVa" firstAttribute="centerX" secondItem="hgw-5K-Jyv" secondAttribute="centerX" id="qWr-8v-GZe"/>
                             <constraint firstItem="DJO-Qx-C6j" firstAttribute="width" secondItem="6hQ-UJ-Hzx" secondAttribute="width" id="rNe-NO-Tkw"/>
                             <constraint firstItem="hgw-5K-Jyv" firstAttribute="centerX" secondItem="agE-nl-h5s" secondAttribute="centerX" id="ug4-vj-Iug"/>
+                            <constraint firstItem="mFF-vg-02W" firstAttribute="width" secondItem="DJO-Qx-C6j" secondAttribute="width" id="v5P-gw-MRY"/>
                             <constraint firstItem="SAy-jm-J2M" firstAttribute="centerY" secondItem="6hQ-UJ-Hzx" secondAttribute="centerY" multiplier="1.775" id="wrZ-MM-AUF"/>
                             <constraint firstItem="DJO-Qx-C6j" firstAttribute="centerY" secondItem="6hQ-UJ-Hzx" secondAttribute="centerY" id="yuo-Zm-sQd"/>
                         </constraints>
@@ -172,6 +180,7 @@
                     <connections>
                         <outlet property="facebookButton" destination="BNH-Tn-3st" id="Bo9-1W-j6t"/>
                         <outlet property="onboardCollectionView" destination="Jq6-Nz-0xo" id="PX8-Cg-ePc"/>
+                        <outlet property="viewPages" destination="mFF-vg-02W" id="dP6-dn-gQ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OH-Qp-fbb" userLabel="First Responder" sceneMemberID="firstResponder"/>

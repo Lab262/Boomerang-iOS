@@ -16,7 +16,9 @@ class AuthenticationMainViewController: UIViewController {
     
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var onboardCollectionView: UICollectionView!
+    @IBOutlet weak var viewPages: UIView!
     
+    var pageIndicatorView: PageIndicatorView?
     var presenter = AuthenticationPresenter()
     
     override func viewDidLoad() {
@@ -24,6 +26,7 @@ class AuthenticationMainViewController: UIViewController {
         //setupCustomLabel()
         setupViewDelegate()
         registerNib()
+        initializePageIndicatorView()
         setOnboarData()
     }
     
@@ -33,6 +36,15 @@ class AuthenticationMainViewController: UIViewController {
     
     func registerNib(){
         onboardCollectionView.registerNibFrom(OnboardAuthenticationCollectionViewCell.self)
+    }
+    
+    func initializePageIndicatorView(){
+        pageIndicatorView = PageIndicatorView(frame: viewPages.frame)
+        pageIndicatorView?.delegate = self
+        viewPages.addSubview(pageIndicatorView!)
+        pageIndicatorView?.centerXAnchor.constraint(equalTo: viewPages.centerXAnchor).isActive = true
+        pageIndicatorView?.centerYAnchor.constraint(equalTo: viewPages.centerYAnchor).isActive = true
+        pageIndicatorView?.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setOnboarData(){
@@ -136,6 +148,7 @@ extension AuthenticationMainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        pageIndicatorView?.reload()
         return presenter.onboardData.count
     }
     
@@ -147,12 +160,66 @@ extension AuthenticationMainViewController: UICollectionViewDataSource {
     }
 }
 
+extension AuthenticationMainViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let flowLayout = (onboardCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
+        
+        let indexPath = self.onboardCollectionView.indexPathForItem(at: self.onboardCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: onboardCollectionView.frame.width/2, y: 0))
+        
+        if let index = indexPath {
+            pageIndicatorView?.selectedPage = index.row
+        }
+    }
+}
+
 extension AuthenticationMainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return OnboardAuthenticationCollectionViewCell.cellSize
+    }
+}
+
+extension AuthenticationMainViewController: PageIndicatorViewDelegate {
+    
+    var numberOfPages: Int {
+        return presenter.onboardData.count
+    }
+    
+    var indicatorHeight: CGFloat {
+        return 6.0
+    }
+    
+    var defaultWidth: CGFloat {
+        return 7.0
+    }
+    
+    var selectedWidth: CGFloat {
+        return 20.0
+    }
+    
+    var defaultAlpha: CGFloat {
+        return 0.5
+    }
+    
+    var selectedAlpha: CGFloat {
+        return 1.0
+    }
+    
+    var animationDuration: Double {
+        return 0.2
+    }
+    
+    var indicatorsColor: UIColor {
+        return UIColor.colorWithHexString("FFFFFF")
+    }
+    
+    var stackViewConfig: (axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment, distribution: UIStackViewDistribution, spacing: CGFloat) {
+        
+        return (.horizontal, alignment: .center, distribution: .equalSpacing, spacing: 5.0)
     }
 }
 
@@ -175,6 +242,7 @@ extension AuthenticationMainViewController: AuthenticationDelegate {
     
     func reload() {
         self.onboardCollectionView.reloadData()
+        pageIndicatorView?.reload()
     }
 }
 
