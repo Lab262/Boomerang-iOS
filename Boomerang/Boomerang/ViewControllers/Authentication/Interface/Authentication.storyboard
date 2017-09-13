@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X73-22-FGr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X73-22-FGr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,23 +36,27 @@
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-Qx-C6j" customClass="GradientView" customModule="lab262_boomerang_dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem vindo a rede social mais amorzinho que você respeita" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jir-hp-yFh">
-                                        <rect key="frame" x="56" y="408.5" width="262.5" height="34"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconFirstPageLogin" translatesAutoresizingMaskIntoConstraints="NO" id="2fR-KL-XfV">
-                                        <rect key="frame" x="146.5" y="345.5" width="81" height="43"/>
-                                    </imageView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jq6-Nz-0xo">
+                                        <rect key="frame" x="0.0" y="293" width="375" height="200"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="B2o-88-R70">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="X73-22-FGr" id="0cT-bo-Oze"/>
+                                            <outlet property="delegate" destination="X73-22-FGr" id="kdI-Ch-DX4"/>
+                                        </connections>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="jir-hp-yFh" firstAttribute="top" secondItem="2fR-KL-XfV" secondAttribute="bottom" constant="20" id="1h0-Px-lNi"/>
-                                    <constraint firstItem="jir-hp-yFh" firstAttribute="centerX" secondItem="DJO-Qx-C6j" secondAttribute="centerX" id="Bwz-Z3-bbo"/>
-                                    <constraint firstItem="2fR-KL-XfV" firstAttribute="centerY" secondItem="DJO-Qx-C6j" secondAttribute="centerY" multiplier="1.1" id="FHw-7N-GrH"/>
-                                    <constraint firstItem="jir-hp-yFh" firstAttribute="width" secondItem="DJO-Qx-C6j" secondAttribute="width" multiplier="0.7" id="Kyn-fe-iB1"/>
-                                    <constraint firstItem="2fR-KL-XfV" firstAttribute="centerX" secondItem="DJO-Qx-C6j" secondAttribute="centerX" id="W8E-P1-ElB"/>
+                                    <constraint firstItem="Jq6-Nz-0xo" firstAttribute="height" secondItem="DJO-Qx-C6j" secondAttribute="height" multiplier="0.3" id="43t-EA-YVU"/>
+                                    <constraint firstItem="Jq6-Nz-0xo" firstAttribute="centerX" secondItem="DJO-Qx-C6j" secondAttribute="centerX" id="Yqs-eG-Zuu"/>
+                                    <constraint firstItem="Jq6-Nz-0xo" firstAttribute="width" secondItem="DJO-Qx-C6j" secondAttribute="width" id="xeh-sI-nDI"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -104,7 +108,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAy-jm-J2M">
-                                <rect key="frame" x="37" y="567" width="300" height="50"/>
+                                <rect key="frame" x="37.5" y="567" width="300" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNH-Tn-3st">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
@@ -155,6 +159,7 @@
                             <constraint firstItem="G8x-7M-uVa" firstAttribute="top" secondItem="hgw-5K-Jyv" secondAttribute="bottom" constant="15" id="SLh-H6-Y3s"/>
                             <constraint firstItem="DJO-Qx-C6j" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="VCu-nX-h0Y"/>
                             <constraint firstItem="hgw-5K-Jyv" firstAttribute="top" secondItem="agE-nl-h5s" secondAttribute="bottom" constant="8" id="VGH-Wu-tUq"/>
+                            <constraint firstItem="Jq6-Nz-0xo" firstAttribute="top" secondItem="G8x-7M-uVa" secondAttribute="bottom" constant="48" id="d17-tP-RW5"/>
                             <constraint firstItem="agE-nl-h5s" firstAttribute="centerX" secondItem="6hQ-UJ-Hzx" secondAttribute="centerX" id="jf6-RL-fha"/>
                             <constraint firstItem="agE-nl-h5s" firstAttribute="centerY" secondItem="6hQ-UJ-Hzx" secondAttribute="centerY" multiplier="0.4" id="pDa-WR-mVe"/>
                             <constraint firstItem="G8x-7M-uVa" firstAttribute="centerX" secondItem="hgw-5K-Jyv" secondAttribute="centerX" id="qWr-8v-GZe"/>
@@ -166,7 +171,7 @@
                     </view>
                     <connections>
                         <outlet property="facebookButton" destination="BNH-Tn-3st" id="Bo9-1W-j6t"/>
-                        <outlet property="welcomeLabel" destination="jir-hp-yFh" id="a55-tS-1fM"/>
+                        <outlet property="onboardCollectionView" destination="Jq6-Nz-0xo" id="PX8-Cg-ePc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OH-Qp-fbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,7 +191,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wq2-7e-eQp" customClass="IconNavigationBar" customModule="lab262_boomerang_dev" customModuleProvider="target">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="88"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="wgE-kE-JKz"/>
@@ -206,7 +211,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRB-2c-EXN">
-                                <rect key="frame" x="37" y="146" width="300" height="29"/>
+                                <rect key="frame" x="37.5" y="146" width="300" height="29"/>
                                 <string key="text">ADICIONE SEUS AMIGOS DO 
 FACEBOOK</string>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
@@ -214,7 +219,7 @@ FACEBOOK</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buscar" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jye-2e-udJ">
-                                <rect key="frame" x="37" y="88" width="300" height="38"/>
+                                <rect key="frame" x="37.5" y="88" width="300" height="38"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="nZb-Vd-EeH"/>
@@ -269,6 +274,5 @@ FACEBOOK</string>
         <image name="boomer_logo" width="85" height="85"/>
         <image name="ic_add_friends" width="23" height="27"/>
         <image name="ic_button_back" width="13" height="21"/>
-        <image name="iconFirstPageLogin" width="81" height="43"/>
     </resources>
 </document>

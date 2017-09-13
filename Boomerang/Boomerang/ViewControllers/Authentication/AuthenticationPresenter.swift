@@ -15,11 +15,18 @@ protocol AuthenticationDelegate {
     func finishLoadingView()
     func showMsg(success: Bool, msg: String)
     func showHome()
+    func reload()
 }
 
 class AuthenticationPresenter: NSObject {
     
     fileprivate var delegate: AuthenticationDelegate?
+    
+    var onboardData: [[String:Any]] = [[String:Any]]() {
+        didSet {
+            self.delegate?.reload()
+        }
+    }
     
     func setViewDelegate(delegate: AuthenticationDelegate) {
         self.delegate = delegate
@@ -138,6 +145,25 @@ class AuthenticationPresenter: NSObject {
                 self.delegate?.finishLoadingView()
             }
         }
+    }
+    
+    func setOnboardData() {
+        
+        let firstData = setDictOnboardData(image: OnboardLoginCellImages.firstCell, text: OnboardLoginCellStrings.firstCell)
+        let secondData = setDictOnboardData(image: OnboardLoginCellImages.secondCell, text: OnboardLoginCellStrings.secondCell)
+        let thirdData = setDictOnboardData(image: OnboardLoginCellImages.thirdCell, text: OnboardLoginCellStrings.thirdCell)
+        
+        self.onboardData.append(contentsOf: [firstData,secondData,thirdData])
+    }
+    
+    private func setDictOnboardData(image: UIImage, text: String) -> [String:Any] {
+        
+        var dictOnboardData = [String:Any]()
+        
+        dictOnboardData[OnboardLoginCellKeys.keyImageView] = image
+        dictOnboardData[OnboardLoginCellKeys.keyDescriptionLabel] = text
+        
+        return dictOnboardData
     }
 }
 

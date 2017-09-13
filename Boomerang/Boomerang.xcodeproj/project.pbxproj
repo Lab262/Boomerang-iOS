@@ -199,6 +199,12 @@
 		60A0F1121ED9F2B100585888 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A0F1111ED9F2B100585888 /* EmptyView.xib */; };
 		60A0F1131ED9F2B100585888 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A0F1111ED9F2B100585888 /* EmptyView.xib */; };
 		60A0F1141ED9F2B100585888 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A0F1111ED9F2B100585888 /* EmptyView.xib */; };
+		60DDA2AB1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */; };
+		60DDA2AC1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */; };
+		60DDA2AD1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */; };
+		60DDA2AE1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */; };
+		60DDA2AF1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */; };
+		60DDA2B01F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */; };
 		62D077E2A55DC0ABA69788E0 /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */; };
 		A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */; };
 		A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */; };
@@ -1048,6 +1054,8 @@
 		605DEF391ECCD03800D1D233 /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		60A0F10D1ED9F29000585888 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		60A0F1111ED9F2B100585888 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardAuthenticationCollectionViewCell.swift; sourceTree = "<group>"; };
+		60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardAuthenticationCollectionViewCell.xib; sourceTree = "<group>"; };
 		6546CCE556A22ECA77A8D013 /* Pods-lab262.boomerang.test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.debug.xcconfig"; sourceTree = "<group>"; };
 		7D9BA6CA9ACC4EC3191BB4BA /* Pods-lab262.boomerang.production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.debug.xcconfig"; sourceTree = "<group>"; };
 		8469F64EFE9F7899E31E9E7C /* Pods-BoomerangTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1531,6 +1539,15 @@
 			name = EmptyView;
 			sourceTree = "<group>";
 		};
+		60D057BD1F686BF20039ACAF /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */,
+				60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */,
+			);
+			name = Onboard;
+			sourceTree = "<group>";
+		};
 		60D752B71ED8611000885D25 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1869,6 +1886,7 @@
 		A4E462F51DCAEAC200A611C0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				60D057BD1F686BF20039ACAF /* Onboard */,
 				A431D0FD1F53B6C7009D7338 /* Alerts */,
 				60A0F1041ED9F11700585888 /* EmptyView */,
 				D4A013001E7B160B00B3B811 /* ScaledVisibleCellsCollectionView */,
@@ -2658,6 +2676,7 @@
 				2F49582C1ECD32C50001554E /* Tenho_00030.png in Resources */,
 				2F4958671ECD32D90001554E /* doar_00011.png in Resources */,
 				2F49585D1ECD32D90001554E /* doar_00001.png in Resources */,
+				60DDA2AE1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */,
 				D40C0E4D1E8B020A008174D2 /* PhotoThingCollectionViewCell.xib in Resources */,
 				2F4957C11ECD32AF0001554E /* preciso12.png in Resources */,
 				2F4958391ECD32C50001554E /* Tenho_00043.png in Resources */,
@@ -2870,6 +2889,7 @@
 				D4AD98141EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.xib in Resources */,
 				D4AD98161EA9ACFD00C9FAB9 /* Profile.storyboard in Resources */,
 				D4AD98171EA9ACFD00C9FAB9 /* PageControlCollectionViewCell.xib in Resources */,
+				60DDA2AF1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */,
 				2F0BAC0D1EDA67F400B31AFA /* LogOutTableViewCell.xib in Resources */,
 				D4AD98181EA9ACFD00C9FAB9 /* ActionsPostTableViewCell.xib in Resources */,
 				D4AD98191EA9ACFD00C9FAB9 /* Montserrat-UltraLight.otf in Resources */,
@@ -2940,6 +2960,7 @@
 				D4AD98E01EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.xib in Resources */,
 				D4AD98E21EA9AD0400C9FAB9 /* Profile.storyboard in Resources */,
 				D4AD98E31EA9AD0400C9FAB9 /* PageControlCollectionViewCell.xib in Resources */,
+				60DDA2B01F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */,
 				2F0BAC0E1EDA67F500B31AFA /* LogOutTableViewCell.xib in Resources */,
 				D4AD98E41EA9AD0400C9FAB9 /* ActionsPostTableViewCell.xib in Resources */,
 				D4AD98E51EA9AD0400C9FAB9 /* Montserrat-UltraLight.otf in Resources */,
@@ -3297,6 +3318,7 @@
 				D40C0E511E8B9A93008174D2 /* Photo.swift in Sources */,
 				D4B3B5521EAF9654008E6566 /* NotificationModel.swift in Sources */,
 				D40C0E4A1E8AA7CE008174D2 /* DetailThingPresenter.swift in Sources */,
+				60DDA2AB1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */,
 				D4964CE41EA6613900BD3807 /* TransactionDetailPresenter.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
 				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
@@ -3495,6 +3517,7 @@
 				D4AD978F1EA9ACFD00C9FAB9 /* Photo.swift in Sources */,
 				D4B3B5531EAF9654008E6566 /* NotificationModel.swift in Sources */,
 				D4AD97911EA9ACFD00C9FAB9 /* DetailThingPresenter.swift in Sources */,
+				60DDA2AC1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */,
 				D4AD97921EA9ACFD00C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
 				605DEF3B1ECCD03800D1D233 /* UILabelExtension.swift in Sources */,
 				D4AD97931EA9ACFD00C9FAB9 /* TabBarController.swift in Sources */,
@@ -3684,6 +3707,7 @@
 				D4AD985B1EA9AD0400C9FAB9 /* Photo.swift in Sources */,
 				D4B3B5541EAF9654008E6566 /* NotificationModel.swift in Sources */,
 				D4AD985D1EA9AD0400C9FAB9 /* DetailThingPresenter.swift in Sources */,
+				60DDA2AD1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */,
 				D4AD985E1EA9AD0400C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
 				605DEF3C1ECCD03800D1D233 /* UILabelExtension.swift in Sources */,
 				D4AD985F1EA9AD0400C9FAB9 /* TabBarController.swift in Sources */,

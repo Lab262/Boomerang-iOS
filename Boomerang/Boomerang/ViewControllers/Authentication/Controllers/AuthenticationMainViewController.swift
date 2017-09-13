@@ -14,39 +14,55 @@ import ParseFacebookUtilsV4
 
 class AuthenticationMainViewController: UIViewController {
     
-    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var facebookButton: UIButton!
-    var presenter = AuthenticationPresenter()
+    @IBOutlet weak var onboardCollectionView: UICollectionView!
     
-    let defaultTextTitleWelcome = "Bem vindo"
-    let defaultTextDescriptionWelcome = " a rede social mais amorzinho que você respeita"
-    let defaultSizeFontWelcomeLabel:CGFloat = 14
+    var presenter = AuthenticationPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCustomLabel()
+        //setupCustomLabel()
         setupViewDelegate()
+        registerNib()
+        setOnboarData()
     }
     
     func setupViewDelegate() {
         presenter.setViewDelegate(delegate: self)
     }
     
-    func setupCustomLabel(){
-        let textWelcomeLabel = NSMutableAttributedString(string: defaultTextTitleWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratBlack(size: defaultSizeFontWelcomeLabel)])
-        
-        let textWelcomeDescriptionLabel = NSMutableAttributedString(string: defaultTextDescriptionWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratLight(size: defaultSizeFontWelcomeLabel)])
-        
-        textWelcomeLabel.append(textWelcomeDescriptionLabel)
-        self.welcomeLabel.attributedText = textWelcomeLabel
+    func registerNib(){
+        onboardCollectionView.registerNibFrom(OnboardAuthenticationCollectionViewCell.self)
     }
+    
+    func setOnboarData(){
+        presenter.setOnboardData()
+    }
+    
+    func generateOnboardCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardAuthenticationCollectionViewCell.identifier, for: indexPath) as! OnboardAuthenticationCollectionViewCell
+        
+        cell.onboardData = presenter.onboardData[indexPath.row]
+        
+        return cell
+    }
+    
+//    func setupCustomLabel(){
+//        let textWelcomeLabel = NSMutableAttributedString(string: defaultTextTitleWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratBlack(size: defaultSizeFontWelcomeLabel)])
+//        
+//        let textWelcomeDescriptionLabel = NSMutableAttributedString(string: defaultTextDescriptionWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratLight(size: defaultSizeFontWelcomeLabel)])
+//        
+//        textWelcomeLabel.append(textWelcomeDescriptionLabel)
+//        self.welcomeLabel.attributedText = textWelcomeLabel
+//    }
     
     
     @IBAction func facebookAction(_ sender: Any) {
-        PromoCodeController.presentMe(inParent: self) { (item) in
-
-        }
-//        self.presenter.loginFacebook()
+//        PromoCodeController.presentMe(inParent: self) { (item) in
+//
+//        }
+       self.presenter.loginFacebook()
     }
 
     func showHomeVC() {
@@ -113,6 +129,33 @@ class AuthenticationMainViewController: UIViewController {
     
 }
 
+extension AuthenticationMainViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter.onboardData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = self.generateOnboardCell(collectionView, cellForItemAt: indexPath)
+        
+        return cell
+    }
+}
+
+extension AuthenticationMainViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return OnboardAuthenticationCollectionViewCell.cellSize
+    }
+}
+
 extension AuthenticationMainViewController: AuthenticationDelegate {
     func showHome() {
         self.showHomeVC()
@@ -128,6 +171,10 @@ extension AuthenticationMainViewController: AuthenticationDelegate {
     
     func finishLoadingView() {
         self.view.unload()
+    }
+    
+    func reload() {
+        self.onboardCollectionView.reloadData()
     }
 }
 
