@@ -53,7 +53,6 @@ class SearchFriendsTableViewCell: SwipeTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        following = false
         followButton.layer.cornerRadius = followButton.frame.height/2
         containerView.layer.cornerRadius = 4
         configureDynamicFonts()
@@ -76,7 +75,6 @@ class SearchFriendsTableViewCell: SwipeTableViewCell {
             presenter.getIsAlreadyFollwing()
         } else {
             following = isFollowing
-            changeFollowButtonStyle()
         }
         
         nameLabel.text = presenter.profile.fullName

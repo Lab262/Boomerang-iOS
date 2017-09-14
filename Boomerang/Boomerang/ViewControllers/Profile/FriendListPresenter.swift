@@ -33,6 +33,10 @@ class FriendListPresenter: NSObject {
         return isFollowers ? "Seguidores" : "Seguindo"
     }
     
+    func isFetchAlreadyFollowing() -> Bool {
+        return isFollowers ? true : false
+    }
+    
     func getProfiles() {
         self.view?.startFooterLoading()
         

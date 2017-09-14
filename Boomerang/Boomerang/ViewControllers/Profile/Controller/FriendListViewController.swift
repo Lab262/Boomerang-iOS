@@ -63,7 +63,7 @@ class FriendListViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchFriendsTableViewCell.identifier, for: indexPath) as! SearchFriendsTableViewCell
         cell.presenter.profile = presenter.profiles[indexPath.row]
-        cell.setupCellInformations(fetchAlreadyFollowing: false, isFollowing: !presenter.isFollowers)
+        cell.setupCellInformations(fetchAlreadyFollowing: presenter.isFetchAlreadyFollowing(), isFollowing: !presenter.isFollowers)
         
         return cell
     }
