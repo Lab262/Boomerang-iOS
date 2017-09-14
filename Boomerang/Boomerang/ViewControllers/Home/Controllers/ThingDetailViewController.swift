@@ -625,7 +625,8 @@ extension ThingDetailViewController: DetailThingDelegate {
         let title = isSuccess ? "Certo" : "Erro"
         GenericBoomerAlertController.presentMe(inParent: self, withTitle: title, negativeAction: "Ok") { (isPositive) in
             self.dismiss(animated: true, completion: nil)
-        }    }
+        }
+    }
 }
 
 extension ThingDetailViewController: PHFComposeBarViewDelegate {
