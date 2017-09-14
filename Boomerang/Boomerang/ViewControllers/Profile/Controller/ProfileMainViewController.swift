@@ -12,13 +12,15 @@ class ProfileMainViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var parallaxBackgroundHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var emptyView: EmptyView!
     internal var lastContentOffset: CGFloat = 0
     internal var backgroundIsFreezy = false
     
+    var isFollower: Bool = true
+    
     var presenter = ProfilePresenter()
     var currentIndex: IndexPath?
+    
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.showTabBar()
@@ -51,6 +53,16 @@ class ProfileMainViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func goFollowersList(_ sender: UIButton) {
+        isFollower = true
+        self.performSegue(withIdentifier: SegueIdentifiers.profileToFriendsList, sender: self)
+    }
+    
+    func goFollowingList(_ sender: UIButton) {
+        isFollower = false
+        self.performSegue(withIdentifier: SegueIdentifiers.profileToFriendsList, sender: self)
+    }
+    
     func popRootViewController(){
         navigationController?.popToRootViewController(animated: true)
     }
@@ -64,6 +76,11 @@ class ProfileMainViewController: UIViewController {
         
         if let controller = segue.destination as? ThingDetailViewController {
             controller.presenter.post = presenter.getPostsForCurrentFilter()[currentIndex!.row]
+        }
+        
+        if let controller = segue.destination as? FriendListViewController {
+            controller.presenter.isFollowers = isFollower
+            controller.presenter.profile = presenter.getProfile()
         }
     }
     
@@ -101,6 +118,8 @@ extension ProfileMainViewController: UICollectionViewDataSource {
             headerView.presenter = presenter
             headerView.updateCell()
             headerView.backButton.addTarget(self, action: #selector(popButtonToRoot(_:)), for: .touchUpInside)
+            headerView.followerButton.addTarget(self, action: #selector(goFollowersList(_:)), for: .touchUpInside)
+            headerView.followingButton.addTarget(self, action: #selector(goFollowingList(_:)), for: .touchUpInside)
             
             return headerView
         }
@@ -151,8 +170,8 @@ extension ProfileMainViewController: UIScrollViewDelegate {
         
         if (self.lastContentOffset > scrollView.contentOffset.y) {
 //            print("down")
-                   }
-        else if (self.lastContentOffset < scrollView.contentOffset.y) {
+        
+        } else if (self.lastContentOffset < scrollView.contentOffset.y) {
 //            print("up")
  
         }

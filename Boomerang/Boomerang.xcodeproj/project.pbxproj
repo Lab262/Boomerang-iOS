@@ -409,6 +409,12 @@
 		D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */; };
 		D498F04B1E820EA1002E8972 /* UserInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F0491E820EA1002E8972 /* UserInformationTableViewCell.xib */; };
 		D49955B71EA3AAEF00D89038 /* TransactionFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */; };
+		D49E712E1F6769B700460891 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E712D1F6769B700460891 /* FriendListViewController.swift */; };
+		D49E712F1F6769B700460891 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E712D1F6769B700460891 /* FriendListViewController.swift */; };
+		D49E71301F6769B700460891 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E712D1F6769B700460891 /* FriendListViewController.swift */; };
+		D49E71321F6769DC00460891 /* FriendListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E71311F6769DC00460891 /* FriendListPresenter.swift */; };
+		D49E71331F6769DC00460891 /* FriendListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E71311F6769DC00460891 /* FriendListPresenter.swift */; };
+		D49E71341F6769DC00460891 /* FriendListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E71311F6769DC00460891 /* FriendListPresenter.swift */; };
 		D4A012F51E7AC83900B3B811 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */; };
 		D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */; };
 		D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */; };
@@ -1139,7 +1145,7 @@
 		D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionMainHistoryViewController.swift; sourceTree = "<group>"; };
 		D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
-		D433D0811E93E59600112B32 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		D433D0811E93E59600112B32 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePresenter.swift; path = Controller/ProfilePresenter.swift; sourceTree = "<group>"; };
 		D436BF211E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePostCollectionViewCell.swift; path = Boomerang/ViewControllers/Profile/Controller/ProfilePostCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D436BF241E95A68B00BC7F00 /* LoanTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanTransactionViewController.swift; sourceTree = "<group>"; };
 		D436BF291E95A97300BC7F00 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
@@ -1202,6 +1208,8 @@
 		D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D498F0491E820EA1002E8972 /* UserInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserInformationTableViewCell.xib; path = ../Cells/UserInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFilterPresenter.swift; sourceTree = "<group>"; };
+		D49E712D1F6769B700460891 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		D49E71311F6769DC00460891 /* FriendListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListPresenter.swift; sourceTree = "<group>"; };
 		D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCollectionViewCell.swift; path = ../Interface/PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = ../Interface/PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -1588,7 +1596,7 @@
 			isa = PBXGroup;
 			children = (
 				A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */,
-				D433D0811E93E59600112B32 /* ProfilePresenter.swift */,
+				D49E712D1F6769B700460891 /* FriendListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1823,6 +1831,7 @@
 		A4E462ED1DCAEA7F00A611C0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				D49E712C1F67696000460891 /* Presenter */,
 				A404537E1DD4173700A42E4B /* Cell */,
 				A404537B1DD4149500A42E4B /* Controller */,
 				A4E462EE1DCAEA7F00A611C0 /* Interface */,
@@ -2251,6 +2260,15 @@
 			children = (
 			);
 			name = Historic;
+			sourceTree = "<group>";
+		};
+		D49E712C1F67696000460891 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D433D0811E93E59600112B32 /* ProfilePresenter.swift */,
+				D49E71311F6769DC00460891 /* FriendListPresenter.swift */,
+			);
+			name = Presenter;
 			sourceTree = "<group>";
 		};
 		D4A012F21E7A482400B3B811 /* Cells */ = {
@@ -3431,6 +3449,7 @@
 				D4A012FF1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift in Sources */,
 				D4788DE21ECE18FB00E5E55F /* MorePostPresenter.swift in Sources */,
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
+				D49E712E1F6769B700460891 /* FriendListViewController.swift in Sources */,
 				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
 				D4C5BBD91ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
@@ -3460,6 +3479,7 @@
 				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
 				D4AD97721EA8ED7400C9FAB9 /* EvaluationPresenter.swift in Sources */,
 				D4964CE61EA6615700BD3807 /* TransactionDetailCellPresenter.swift in Sources */,
+				D49E71321F6769DC00460891 /* FriendListPresenter.swift in Sources */,
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,
@@ -3630,6 +3650,7 @@
 				D4AD977E1EA9ACFD00C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
 				A4796CFC1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD977F1EA9ACFD00C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
+				D49E712F1F6769B700460891 /* FriendListViewController.swift in Sources */,
 				D4AD97801EA9ACFD00C9FAB9 /* AppDelegate.swift in Sources */,
 				D4C5BBDA1ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				D4AD97811EA9ACFD00C9FAB9 /* BoomerMainViewController.swift in Sources */,
@@ -3659,6 +3680,7 @@
 				D4AD97931EA9ACFD00C9FAB9 /* TabBarController.swift in Sources */,
 				D4AD97941EA9ACFD00C9FAB9 /* ThingDetailViewController.swift in Sources */,
 				D4AD97951EA9ACFD00C9FAB9 /* EvaluationPresenter.swift in Sources */,
+				D49E71331F6769DC00460891 /* FriendListPresenter.swift in Sources */,
 				D4AD97961EA9ACFD00C9FAB9 /* TransactionDetailCellPresenter.swift in Sources */,
 				D4AD97971EA9ACFD00C9FAB9 /* BoomerMyThingCell.swift in Sources */,
 				D4AD97981EA9ACFD00C9FAB9 /* ExperienceThingsViewController.swift in Sources */,
@@ -3820,6 +3842,7 @@
 				D4AD984A1EA9AD0400C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
 				A4796CFD1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD984B1EA9AD0400C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
+				D49E71301F6769B700460891 /* FriendListViewController.swift in Sources */,
 				D4AD984C1EA9AD0400C9FAB9 /* AppDelegate.swift in Sources */,
 				D4C5BBDB1ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				D4AD984D1EA9AD0400C9FAB9 /* BoomerMainViewController.swift in Sources */,
@@ -3849,6 +3872,7 @@
 				D4AD985F1EA9AD0400C9FAB9 /* TabBarController.swift in Sources */,
 				D4AD98601EA9AD0400C9FAB9 /* ThingDetailViewController.swift in Sources */,
 				D4AD98611EA9AD0400C9FAB9 /* EvaluationPresenter.swift in Sources */,
+				D49E71341F6769DC00460891 /* FriendListPresenter.swift in Sources */,
 				D4AD98621EA9AD0400C9FAB9 /* TransactionDetailCellPresenter.swift in Sources */,
 				D4AD98631EA9AD0400C9FAB9 /* BoomerMyThingCell.swift in Sources */,
 				D4AD98641EA9AD0400C9FAB9 /* ExperienceThingsViewController.swift in Sources */,

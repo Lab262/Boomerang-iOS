@@ -23,7 +23,7 @@ class ProfilePostCollectionViewCell: UICollectionViewCell {
     var presenter: ProfilePresenter = ProfilePresenter()
     
     func updatePostCell(){
-      //  presenter.getCountPhotos()
+        presenter.getCountPhotos()
         
         presenter.getCoverOfPost { (success, msg, image) in
             if success {

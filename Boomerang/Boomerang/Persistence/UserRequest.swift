@@ -74,6 +74,8 @@ class UserRequest: NSObject {
         }
     }
     
+    
+    
     static func getAllProfiles(profilesDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ profiles: [Profile]?) -> Void)  {
         
         var notContainedObjectIds = [String]()
@@ -141,7 +143,6 @@ class UserRequest: NSObject {
         }
     }
     
-    
     static func getUserCountOfDictionary(keysCount: [String: [String]], user: User, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         
         
@@ -206,6 +207,34 @@ class UserRequest: NSObject {
                 }
             } else {
                 completionHandler(success, msg, false)
+            }
+        }
+    }
+    
+    static func fetchProfileFriends(fromProfile: Profile, followingDownloaded: [Profile], isFollowers: Bool, pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
+        
+        var profiles: [Profile] = [Profile]()
+        
+        let followKey = isFollowers ? FollowKeys.to : FollowKeys.from
+        
+        let queryParams = [followKey : [fromProfile]]
+        
+        let includeKey = followKey == FollowKeys.from ? FollowKeys.to : FollowKeys.from
+        
+        let notContainedObjects = [includeKey: followingDownloaded]
+        
+        ParseRequest.queryEqualToValueNotContainedObjects(className: Follow.parseClassName(), queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkOnly, notContainedObjects: notContainedObjects, includes: [includeKey], pagination: pagination) { (success, msg, objects) in
+            if success {
+                for object in objects! {
+                    if let profile = object.object(forKey: includeKey
+                        ) as? Profile {
+                        let profile = profile
+                        profiles.append(profile)
+                    }
+                }
+                completionHandler(true, "Success", profiles)
+            } else {
+                completionHandler(false, msg.debugDescription, nil)
             }
         }
     }

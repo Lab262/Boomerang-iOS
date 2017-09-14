@@ -228,6 +228,7 @@ class PostRequest: NSObject {
     }
     
     static func getFollowingPostsCount(following: [Profile], completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
         ParseRequest.queryCountContainedIn(className: Post.parseClassName(), key: PostKeys.author, value: following) { (success, msg, count) in
             if success {
                 completionHandler(true, msg, count)
