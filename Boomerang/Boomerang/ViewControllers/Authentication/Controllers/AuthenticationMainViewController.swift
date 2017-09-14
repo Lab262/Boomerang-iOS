@@ -56,7 +56,7 @@ class AuthenticationMainViewController: UIViewController {
         let flowLayout = pageCollectionView.collectionViewLayout as?CenterCellCollectionViewFlowLayout
         flowLayout?.centerOffset = CGPoint(x: pageCollectionView.frame.width * 0.8, y: 0)
         
-        let margin: CGFloat = 20.0
+        let margin: CGFloat = 40.0
         
         flowLayout?.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin)
         flowLayout?.minimumLineSpacing = margin
