@@ -12,6 +12,7 @@ class MorePostViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var presenter = MorePostPresenter()
+    var selectedProfile = 0
     let tableViewTopInset: CGFloat = 94.0
     let tableViewBottomInset: CGFloat = 40.0
     
@@ -63,18 +64,19 @@ class MorePostViewController: UIViewController {
     }
     
     func goToProfile(_ sender: UIButton) {
+        selectedProfile = sender.tag
         self.performSegue(withIdentifier: SegueIdentifiers.morePostToProfile, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? ThingDetailViewController {
-            let indexPathRow = tableView.indexPathForSelectedRow!.row
-            controller.presenter.post = presenter.posts[indexPathRow]
+            if let indexPath = tableView.indexPathForSelectedRow {
+                controller.presenter.post = presenter.posts[indexPath.row]
+            }
         }
         
         if let controller = segue.destination as? ProfileMainViewController {
-            let indexPathRow = tableView.indexPathForSelectedRow!.row
-            controller.presenter.setProfile(profile: presenter.posts[indexPathRow].author!)
+            controller.presenter.setProfile(profile: presenter.posts[selectedProfile].author!)
         }
     }
 
@@ -90,6 +92,7 @@ extension MorePostViewController : UITableViewDataSource {
         cell.coverImage.image = nil
         cell.userImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
+        cell.profileButton.tag = indexPath.row
         cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
         
         cell.setupCell()

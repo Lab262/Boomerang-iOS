@@ -23,7 +23,7 @@ class Profile: PFObject {
     var alreadySearched = false
     var follow: Follow?
     var alreadyFollow: Bool?
-    
+    var isRecommended: Bool = false
     
     override init() {
         super.init()

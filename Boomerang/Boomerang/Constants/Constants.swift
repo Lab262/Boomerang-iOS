@@ -71,6 +71,8 @@ struct SegueIdentifiers {
     static let notificationToSchemeDetail = "goToSchemeDetail"
     static let homeToProfile = "goToProfile"
     static let morePostToProfile = "goToProfile"
+    static let profileToFriendsList = "goToFriendsList"
+    static let friendsListToProfile = "goToProfile"
 }
 
 //MARK - Storyboard Ids
@@ -100,7 +102,7 @@ struct NotificationKeys {
 //MARK - Paginations
 
 struct Paginations {
-    static let friends = 50
+    static let friends = 10
     static let facebookFriends = 20
     static let postsFeatureds = 4
     static let postsByFriends = 3
@@ -112,6 +114,7 @@ struct Paginations {
     static let messages = 100
     static let profiles = 20
     static let pagination = 10
+    static let recommendations = 10
     
 }
 
@@ -192,6 +195,7 @@ struct CloudFunctions {
     static let featuredPosts = "featuredPosts"
     static let enterInterestedList = "enterInterestedList"
     static let likePost = "likePost"
+    static let validatePromoCode = "validatePromoCode"
 }
 
 //MARK - Server keys
@@ -213,6 +217,21 @@ struct PostKeys {
 
 struct InterestedKeys {
     static let user = "user"
+    static let post = "post"
+}
+
+//MARK - Recommended Keys
+
+struct RecommendedKeys {
+    static let sender = "sender"
+    static let post = "post"
+    static let receiver = "receiver"
+}
+
+//MARK - Like Keys
+
+struct LikeKeys {
+    static let profile = "profile"
     static let post = "post"
 }
 

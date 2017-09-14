@@ -13,6 +13,27 @@ class PostRequest: NSObject {
     
     let userDefaults = UserDefaults.standard
     
+    static func getLikeCount(by post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        ParseRequest.queryCountContainedIn(className: "Like", key: "post", value: [post]) { (success, msg, count) in
+            if success {
+                completionHandler(true, msg, count)
+            } else {
+                completionHandler(true, msg, nil)
+            }
+        }
+    }
+    
+    static func getRecommendationCount(by post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
+        ParseRequest.queryCountContainedIn(className: "Recommended", key: "post", value: [post]) { (success, msg, count) in
+            if success {
+                completionHandler(true, msg, count)
+            } else {
+                completionHandler(true, msg, nil)
+            }
+        }
+    }
+    
     static func fetchFeaturedPosts(postsDownloaded:[Post], completionHandler: @escaping (_ success: Bool, _ msg: String, [Post]?) -> Void) {
         
         var posts: [Post] = [Post]()
@@ -78,6 +99,21 @@ class PostRequest: NSObject {
                 completionHandler(false, error!.localizedDescription)
             } else {
                 completionHandler(true, "success")
+            }
+        }
+    }
+    
+    static func unlikePost(profile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        var queryParams = [String : Any]()
+        queryParams[LikeKeys.profile] = profile
+        queryParams[LikeKeys.post] = post
+        
+        ParseRequest.updateForIsDeletedObjectBy(className: Like.parseClassName(), queryParams: queryParams) { (success, msg) in
+            if success {
+                completionHandler(success, msg)
+            } else {
+                completionHandler(success, msg)
             }
         }
     }
@@ -174,7 +210,25 @@ class PostRequest: NSObject {
         }
     }
     
+    static func verifyAlreadyLiked(currentProfile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, _ alreadyInterested: Bool) -> ()) {
+        
+        var queryParams = [String : Any]()
+        queryParams[LikeKeys.profile] = currentProfile
+        queryParams[LikeKeys.post] = post
+        
+        ParseRequest.queryEqualToValue(className: Like.parseClassName(), queryParams: queryParams, includes: nil) { (success, msg, objects) in
+            if success {
+                if objects!.count > 0 {
+                    completionHandler(true, "Success", true)
+                } else {
+                    completionHandler(true, msg, false)
+                }
+            }
+        }
+    }
+    
     static func getFollowingPostsCount(following: [Profile], completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
+        
         ParseRequest.queryCountContainedIn(className: Post.parseClassName(), key: PostKeys.author, value: following) { (success, msg, count) in
             if success {
                 completionHandler(true, msg, count)
@@ -313,7 +367,6 @@ class PostRequest: NSObject {
                 completionHandler(false, msg, nil)
             }
         }
-        
     }
     
     static func exitInterestedListOf(profile: Profile, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {

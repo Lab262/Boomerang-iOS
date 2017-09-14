@@ -178,18 +178,18 @@ class ProfilePresenter: NSObject {
         return filteredPosts
     }
     
-//    func getCountPhotos(){
-//        if getPost().countPhotos < 1 {
-//            getPost().getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
-//                if success {
-//                    self.getPost().countPhotos = count!
-//                    ApplicationState.sharedInstance.callDelegateUpdate(post: self.getPost(), success: true, updateType: .amount)
-//                } else {
-//                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: true, updateType: .amount)
-//                }
-//            })
-//        }
-//    }
+    func getCountPhotos(){
+        if getPost().countPhotos < 1 {
+            getPost().getRelationCountInBackgroundBy(key: "photos", completionHandler: { (success, msg, count) in
+                if success {
+                    self.getPost().countPhotos = count!
+                    ApplicationState.sharedInstance.callDelegateUpdate(post: self.getPost(), success: true, updateType: .amount)
+                } else {
+                    ApplicationState.sharedInstance.callDelegateUpdate(post: nil, success: true, updateType: .amount)
+                }
+            })
+        }
+    }
     
     
 //    func getCoverOfPost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){

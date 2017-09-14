@@ -53,7 +53,6 @@ class SearchFriendsTableViewCell: SwipeTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        following = false
         followButton.layer.cornerRadius = followButton.frame.height/2
         containerView.layer.cornerRadius = 4
         configureDynamicFonts()
@@ -70,8 +69,14 @@ class SearchFriendsTableViewCell: SwipeTableViewCell {
     }
     
     
-    func setupCellInformations() {
-        presenter.getIsAlreadyFollwing()
+    func setupCellInformations(fetchAlreadyFollowing: Bool, isFollowing: Bool? = false) {
+        
+        if fetchAlreadyFollowing {
+            presenter.getIsAlreadyFollwing()
+        } else {
+            following = isFollowing
+        }
+        
         nameLabel.text = presenter.profile.fullName
         cityLabel.text = "Brasília - DF"
         userImage.getUserImage(profile: presenter.profile) { (success, msg) in
@@ -85,19 +90,27 @@ class SearchFriendsTableViewCell: SwipeTableViewCell {
         }
     }
     
+    private func setupSelectedFollowButton() {
+        self.followButton.backgroundColor = self.followButtonHighlightedBackgroundColor
+        self.followButton.setTitleColor(self.followButtonHighlightedTitleColor, for: .normal)
+    }
+    
+    private func setupNormalFollowButton() {
+        self.followButton.backgroundColor = self.followButtonNormalBackgroundColor
+        self.followButton.setTitleColor(self.followButtonNormalTitleColor, for: .normal)
+    }
+    
     func changeFollowButtonStyle() {
         let animationDuration = 0.07
         
         if following! {
             UIView.animate(withDuration: animationDuration) {
-                self.followButton.backgroundColor = self.followButtonHighlightedBackgroundColor
-                self.followButton.setTitleColor(self.followButtonHighlightedTitleColor, for: .normal)
+                self.setupSelectedFollowButton()
             }
             followButton.setTitle(followButtonHighlightedTitle, for: .normal)
         } else {
             UIView.animate(withDuration: animationDuration) {
-                self.followButton.backgroundColor = self.followButtonNormalBackgroundColor
-                self.followButton.setTitleColor(self.followButtonNormalTitleColor, for: .normal)
+                self.setupNormalFollowButton()
             }
             followButton.setTitle(followButtonNormalTitle, for: .normal)
         }

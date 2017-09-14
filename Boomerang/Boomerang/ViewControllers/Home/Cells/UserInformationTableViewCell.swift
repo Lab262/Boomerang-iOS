@@ -46,9 +46,13 @@ class UserInformationTableViewCell: UITableViewCell {
     
 
     func updateCellUI(){
-        userNameLabel.text = presenter.post.author!.fullName
-        dateLabel.text = presenter.post.createdAt!.timeSinceNow()
+        if let author = presenter.post.author {
+            userNameLabel.text = author.fullName
+        }
         
+        if let createdAt = presenter.post.createdAt {
+            dateLabel.text = createdAt.timeSinceNow()
+        }
         
         userImage.getUserImageFrom(file: presenter.post.author!.photo!) { (success, msg) in
             

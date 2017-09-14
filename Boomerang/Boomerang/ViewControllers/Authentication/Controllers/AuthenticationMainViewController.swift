@@ -83,10 +83,9 @@ class AuthenticationMainViewController: UIViewController {
     
     
     @IBAction func facebookAction(_ sender: Any) {
-        PromoCodeController.presentMe(inParent: self) { (item) in
 
-        }
-//        self.presenter.loginFacebook()
+        self.presenter.loginFacebook()
+
     }
 
     func showHomeVC() {
