@@ -83,9 +83,11 @@ class AuthenticationMainViewController: UIViewController {
     
     
     @IBAction func facebookAction(_ sender: Any) {
-
-        self.presenter.loginFacebook()
-
+       
+        PromoCodeController.presentMe(inParent: self, delegate: self)
+        
+        //self.presenter.loginFacebook()
+        
     }
 
     func showHomeVC() {
@@ -183,7 +185,11 @@ extension AuthenticationMainViewController: AuthenticationDelegate {
         self.view.unload()
     }
 }
-
+extension AuthenticationMainViewController: PromoCodeRequestDelegate {
+    func afterValidateCode() {
+        self.presenter.loginFacebook()
+    }
+}
 extension AuthenticationMainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
