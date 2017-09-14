@@ -1,28 +1,28 @@
 //
-//  OnboardAuthenticationCollectionViewCell.swift
+//  OnboardCollectionViewCell.swift
 //  Boomerang
 //
-//  Created by Luís Resende on 13/09/17.
+//  Created by Luís Resende on 14/09/17.
 //  Copyright © 2017 Lab262. All rights reserved.
 //
 
 import UIKit
 
-class OnboardAuthenticationCollectionViewCell: UICollectionViewCell {
+class OnboardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     static var identifier: String {
-        return "onboardAuthenticationCollectionViewCell"
+        return "onboardCollectionViewCell"
     }
     
     static var cellSize: CGSize {
-        return  CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.3)
+        return  CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.7436)
     }
     
     static var nibName: String {
-        return "OnboardAuthenticationCollectionViewCell"
+        return "OnboardCollectionViewCell"
     }
 
     override func awakeFromNib() {
@@ -40,4 +40,5 @@ class OnboardAuthenticationCollectionViewCell: UICollectionViewCell {
         self.imageView.image = onboardData[OnboardCellKeys.keyImageView] as? UIImage
         self.descriptionLabel.text = onboardData[OnboardCellKeys.keyDescriptionLabel] as? String
     }
+
 }

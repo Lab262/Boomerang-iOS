@@ -160,8 +160,8 @@ class AuthenticationPresenter: NSObject {
         
         var dictOnboardData = [String:Any]()
         
-        dictOnboardData[OnboardLoginCellKeys.keyImageView] = image
-        dictOnboardData[OnboardLoginCellKeys.keyDescriptionLabel] = text
+        dictOnboardData[OnboardCellKeys.keyImageView] = image
+        dictOnboardData[OnboardCellKeys.keyDescriptionLabel] = text
         
         return dictOnboardData
     }

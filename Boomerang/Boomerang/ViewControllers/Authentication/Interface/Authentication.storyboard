@@ -278,8 +278,158 @@ FACEBOOK</string>
             </objects>
             <point key="canvasLocation" x="1708" y="474"/>
         </scene>
+        <!--Onboard Main View Controller-->
+        <scene sceneID="Lds-LR-vM9">
+            <objects>
+                <viewController storyboardIdentifier="OnboardMainViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oX8-aD-B35" customClass="OnboardMainViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fLq-Ec-rlT"/>
+                        <viewControllerLayoutGuide type="bottom" id="aPv-fX-EnK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kUI-rs-LAu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DiU-nE-l9R">
+                                <rect key="frame" x="0.0" y="38" width="375" height="496"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bqZ-Xc-bob">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="oX8-aD-B35" id="FWU-Yj-CxA"/>
+                                    <outlet property="delegate" destination="oX8-aD-B35" id="4RO-lV-EfC"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vje-Nd-Ahn" customClass="GradientView" customModule="lab262_boomerang_dev" customModuleProvider="target">
+                                <rect key="frame" x="-0.5" y="613.5" width="375" height="53.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowWhiteLeft" translatesAutoresizingMaskIntoConstraints="NO" id="chY-uR-1bW">
+                                        <rect key="frame" x="18" y="20.5" width="16" height="13"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowWhiteRight" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-LW-nTV">
+                                        <rect key="frame" x="341" y="20.5" width="16" height="13"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xm6-X9-qiW">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="54"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
+                                        <inset key="titleEdgeInsets" minX="42" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="VOLTAR">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickedBackButton:" destination="oX8-aD-B35" eventType="touchUpInside" id="UBg-dZ-oKU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Aw-wf-hhV">
+                                        <rect key="frame" x="254.5" y="0.0" width="120.5" height="53.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="42" maxY="0.0"/>
+                                        <state key="normal" title="PRÓXIMO">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickedForwardButton:" destination="oX8-aD-B35" eventType="touchUpInside" id="U6W-EL-g6m"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2Aw-wf-hhV" secondAttribute="trailing" id="0NP-fa-GkF"/>
+                                    <constraint firstItem="chY-uR-1bW" firstAttribute="leading" secondItem="Vje-Nd-Ahn" secondAttribute="leading" constant="18" id="0hg-gg-C4V"/>
+                                    <constraint firstItem="xm6-X9-qiW" firstAttribute="width" secondItem="Vje-Nd-Ahn" secondAttribute="width" multiplier="0.322" id="AcH-xY-oVM"/>
+                                    <constraint firstItem="xm6-X9-qiW" firstAttribute="leading" secondItem="Vje-Nd-Ahn" secondAttribute="leading" id="CAV-Zm-2o6"/>
+                                    <constraint firstItem="2Aw-wf-hhV" firstAttribute="height" secondItem="Vje-Nd-Ahn" secondAttribute="height" id="DeG-XZ-X4x"/>
+                                    <constraint firstAttribute="trailing" secondItem="nrA-LW-nTV" secondAttribute="trailing" constant="18" id="F86-9E-r1L"/>
+                                    <constraint firstItem="xm6-X9-qiW" firstAttribute="height" secondItem="Vje-Nd-Ahn" secondAttribute="height" id="Odu-6o-IIi"/>
+                                    <constraint firstItem="chY-uR-1bW" firstAttribute="centerY" secondItem="Vje-Nd-Ahn" secondAttribute="centerY" id="VLI-7a-0rL"/>
+                                    <constraint firstItem="2Aw-wf-hhV" firstAttribute="width" secondItem="Vje-Nd-Ahn" secondAttribute="width" multiplier="0.322" id="ZHj-mj-UI4"/>
+                                    <constraint firstItem="xm6-X9-qiW" firstAttribute="centerY" secondItem="Vje-Nd-Ahn" secondAttribute="centerY" id="cqm-Na-4sZ"/>
+                                    <constraint firstItem="nrA-LW-nTV" firstAttribute="centerY" secondItem="Vje-Nd-Ahn" secondAttribute="centerY" id="hRT-XT-rbW"/>
+                                    <constraint firstItem="2Aw-wf-hhV" firstAttribute="centerY" secondItem="Vje-Nd-Ahn" secondAttribute="centerY" id="tRY-jM-Qpd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.9882352941176471" green="0.79607843137254897" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                        <color key="value" red="0.97647058823529409" green="0.70980392156862748" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.96470588235294119" green="0.62745098039215685" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="diagonalMode" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                        <real key="value" value="0.050000000000000003"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                        <real key="value" value="0.94999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="middleLocation">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9P-Nb-kwY">
+                                <rect key="frame" x="-0.5" y="556.5" width="375" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU9-bF-5v7">
+                                <rect key="frame" x="303" y="40" width="55" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="CaM-bX-42d"/>
+                                    <constraint firstAttribute="height" constant="24" id="Obo-B5-tdO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="10"/>
+                                <state key="normal" title="PULAR">
+                                    <color key="titleColor" red="0.40392156862745099" green="0.16078431372549018" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickedSkipButton:" destination="oX8-aD-B35" eventType="touchUpInside" id="u1A-Zx-fIu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r9P-Nb-kwY" firstAttribute="centerY" secondItem="kUI-rs-LAu" secondAttribute="centerY" multiplier="1.714" id="3Yo-O7-qyw"/>
+                            <constraint firstItem="DiU-nE-l9R" firstAttribute="centerY" secondItem="kUI-rs-LAu" secondAttribute="centerY" multiplier="0.858" id="5GX-2k-jj5"/>
+                            <constraint firstItem="Vje-Nd-Ahn" firstAttribute="height" secondItem="kUI-rs-LAu" secondAttribute="height" multiplier="0.08" id="7U4-BX-mB9"/>
+                            <constraint firstItem="aPv-fX-EnK" firstAttribute="top" secondItem="Vje-Nd-Ahn" secondAttribute="bottom" id="9tM-K4-IaS"/>
+                            <constraint firstItem="Vje-Nd-Ahn" firstAttribute="width" secondItem="kUI-rs-LAu" secondAttribute="width" id="BL2-Pu-jcY"/>
+                            <constraint firstItem="Vje-Nd-Ahn" firstAttribute="centerX" secondItem="kUI-rs-LAu" secondAttribute="centerX" id="Ha0-YU-kf5"/>
+                            <constraint firstItem="DiU-nE-l9R" firstAttribute="width" secondItem="kUI-rs-LAu" secondAttribute="width" id="ROJ-h8-9lb"/>
+                            <constraint firstItem="DiU-nE-l9R" firstAttribute="height" secondItem="kUI-rs-LAu" secondAttribute="height" multiplier="0.7436" id="S1J-52-yq3"/>
+                            <constraint firstAttribute="trailing" secondItem="oU9-bF-5v7" secondAttribute="trailing" constant="17" id="WmV-Uj-4vS"/>
+                            <constraint firstItem="DiU-nE-l9R" firstAttribute="centerX" secondItem="kUI-rs-LAu" secondAttribute="centerX" id="c59-BN-zWS"/>
+                            <constraint firstItem="r9P-Nb-kwY" firstAttribute="height" secondItem="kUI-rs-LAu" secondAttribute="height" multiplier="0.045" id="fNN-PD-899"/>
+                            <constraint firstItem="r9P-Nb-kwY" firstAttribute="centerX" secondItem="kUI-rs-LAu" secondAttribute="centerX" id="jA5-ed-m3c"/>
+                            <constraint firstItem="r9P-Nb-kwY" firstAttribute="width" secondItem="kUI-rs-LAu" secondAttribute="width" id="jnJ-lW-RAa"/>
+                            <constraint firstItem="DiU-nE-l9R" firstAttribute="top" secondItem="oU9-bF-5v7" secondAttribute="bottom" constant="-26" id="z6O-mY-BSz"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="backButton" destination="xm6-X9-qiW" id="msg-BW-IST"/>
+                        <outlet property="forwardButton" destination="2Aw-wf-hhV" id="12G-SP-PiS"/>
+                        <outlet property="leftImage" destination="chY-uR-1bW" id="dLP-gJ-Sqt"/>
+                        <outlet property="onboardCollectionView" destination="DiU-nE-l9R" id="rEt-ZK-BEy"/>
+                        <outlet property="rightImage" destination="nrA-LW-nTV" id="AFm-po-K4b"/>
+                        <outlet property="skipButton" destination="oU9-bF-5v7" id="JBd-pY-0bM"/>
+                        <outlet property="viewPages" destination="r9P-Nb-kwY" id="fm5-e7-lRi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0uv-cq-Wcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1085.5999999999999" y="1140.1799100449775"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrowWhiteLeft" width="16" height="13"/>
+        <image name="arrowWhiteRight" width="16" height="13"/>
         <image name="boomer_logo" width="85" height="85"/>
         <image name="ic_add_friends" width="23" height="27"/>
         <image name="ic_button_back" width="13" height="21"/>

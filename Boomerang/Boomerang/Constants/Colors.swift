@@ -128,5 +128,12 @@ extension UIColor {
         }
     }
     
+    //MARK: - COLORS ONBOARD
+    static var purpleTextColor: UIColor  {
+        get {
+            return UIColor.colorWithHexString("672958")
+        }
+    }
+    
     
 }

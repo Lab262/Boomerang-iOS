@@ -385,7 +385,7 @@ struct CreatePostTitles {
 
 //MARK - Onboard strings
 
-struct OnboardLoginCellKeys {
+struct OnboardCellKeys {
     static let keyImageView = "keyImageView"
     static let keyDescriptionLabel = "keyDescriptionLabel"
 }
@@ -400,4 +400,18 @@ struct OnboardLoginCellImages {
     static let firstCell = #imageLiteral(resourceName: "iconFirstPageLogin")
     static let secondCell = #imageLiteral(resourceName: "iconSecondPageLogin")
     static let thirdCell = #imageLiteral(resourceName: "iconThirdPageLogin")
+}
+
+struct OnboardMainCellStrings {
+    static let firstCell = "Precisa de alguma coisa? Quer trocar ou doar algo? Posta no Boomer!"
+    static let secondCell = "Algum amigo com certeza vai te ajudar!"
+    static let thirdCell = "Vocês conversam e já marcam o esquema pelo app!"
+    static let fourthCell = "O Boomer é uma rede de amigos, Aproveite!"
+}
+
+struct OnboardMainCellImages {
+    static let firstCell = #imageLiteral(resourceName: "firstPageOnBoard")
+    static let secondCell = #imageLiteral(resourceName: "secondPageOnBoard")
+    static let thirdCell = #imageLiteral(resourceName: "thirdPageOnBoard")
+    static let fourthCell = #imageLiteral(resourceName: "fourthPageOnBoard")
 }

@@ -199,6 +199,18 @@
 		60A0F1121ED9F2B100585888 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A0F1111ED9F2B100585888 /* EmptyView.xib */; };
 		60A0F1131ED9F2B100585888 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A0F1111ED9F2B100585888 /* EmptyView.xib */; };
 		60A0F1141ED9F2B100585888 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A0F1111ED9F2B100585888 /* EmptyView.xib */; };
+		60B0DE461F6AF6E10029ACBC /* OnboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B0DE441F6AF6E10029ACBC /* OnboardCollectionViewCell.swift */; };
+		60B0DE471F6AF6E10029ACBC /* OnboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B0DE441F6AF6E10029ACBC /* OnboardCollectionViewCell.swift */; };
+		60B0DE481F6AF6E10029ACBC /* OnboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B0DE441F6AF6E10029ACBC /* OnboardCollectionViewCell.swift */; };
+		60B0DE491F6AF6E10029ACBC /* OnboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B0DE451F6AF6E10029ACBC /* OnboardCollectionViewCell.xib */; };
+		60B0DE4A1F6AF6E10029ACBC /* OnboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B0DE451F6AF6E10029ACBC /* OnboardCollectionViewCell.xib */; };
+		60B0DE4B1F6AF6E10029ACBC /* OnboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B0DE451F6AF6E10029ACBC /* OnboardCollectionViewCell.xib */; };
+		60B0DE501F6B02860029ACBC /* OnboardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B0DE4F1F6B02860029ACBC /* OnboardMainViewController.swift */; };
+		60B0DE511F6B02860029ACBC /* OnboardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B0DE4F1F6B02860029ACBC /* OnboardMainViewController.swift */; };
+		60B0DE521F6B02860029ACBC /* OnboardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B0DE4F1F6B02860029ACBC /* OnboardMainViewController.swift */; };
+		60B0DE541F6B02AE0029ACBC /* OnboardMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B0DE531F6B02AE0029ACBC /* OnboardMainPresenter.swift */; };
+		60B0DE551F6B02AE0029ACBC /* OnboardMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B0DE531F6B02AE0029ACBC /* OnboardMainPresenter.swift */; };
+		60B0DE561F6B02AE0029ACBC /* OnboardMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B0DE531F6B02AE0029ACBC /* OnboardMainPresenter.swift */; };
 		60DDA2AB1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */; };
 		60DDA2AC1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */; };
 		60DDA2AD1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */; };
@@ -1054,6 +1066,10 @@
 		605DEF391ECCD03800D1D233 /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		60A0F10D1ED9F29000585888 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		60A0F1111ED9F2B100585888 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		60B0DE441F6AF6E10029ACBC /* OnboardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardCollectionViewCell.swift; sourceTree = "<group>"; };
+		60B0DE451F6AF6E10029ACBC /* OnboardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardCollectionViewCell.xib; sourceTree = "<group>"; };
+		60B0DE4F1F6B02860029ACBC /* OnboardMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardMainViewController.swift; sourceTree = "<group>"; };
+		60B0DE531F6B02AE0029ACBC /* OnboardMainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardMainPresenter.swift; sourceTree = "<group>"; };
 		60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardAuthenticationCollectionViewCell.swift; sourceTree = "<group>"; };
 		60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardAuthenticationCollectionViewCell.xib; sourceTree = "<group>"; };
 		6546CCE556A22ECA77A8D013 /* Pods-lab262.boomerang.test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1539,11 +1555,38 @@
 			name = EmptyView;
 			sourceTree = "<group>";
 		};
+		60B0DE4C1F6AFBFE0029ACBC /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				60B0DE4E1F6AFC0E0029ACBC /* Presenter */,
+				60B0DE4D1F6AFC040029ACBC /* Controllers */,
+			);
+			name = Onboard;
+			sourceTree = "<group>";
+		};
+		60B0DE4D1F6AFC040029ACBC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				60B0DE4F1F6B02860029ACBC /* OnboardMainViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		60B0DE4E1F6AFC0E0029ACBC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				60B0DE531F6B02AE0029ACBC /* OnboardMainPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
 		60D057BD1F686BF20039ACAF /* Onboard */ = {
 			isa = PBXGroup;
 			children = (
 				60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */,
 				60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */,
+				60B0DE441F6AF6E10029ACBC /* OnboardCollectionViewCell.swift */,
+				60B0DE451F6AF6E10029ACBC /* OnboardCollectionViewCell.xib */,
 			);
 			name = Onboard;
 			sourceTree = "<group>";
@@ -1776,6 +1819,7 @@
 		A4E462E71DCAEA7F00A611C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				60B0DE4C1F6AFBFE0029ACBC /* Onboard */,
 				D4C5BBCC1ED750B3008EB531 /* Friends */,
 				D4CA48A21EC9F40A003C17F6 /* Recommended */,
 				D44C9A0C1EB00D0D004B7796 /* Chat */,
@@ -2718,6 +2762,7 @@
 				A4FE062C1DD0965700BFDC4D /* BoomerThingCell.xib in Resources */,
 				A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */,
 				2F4957C81ECD32AF0001554E /* preciso19.png in Resources */,
+				60B0DE491F6AF6E10029ACBC /* OnboardCollectionViewCell.xib in Resources */,
 				2F4958781ECD32D90001554E /* doar_00028.png in Resources */,
 				2F4957D11ECD32AF0001554E /* preciso28.png in Resources */,
 				2F4958701ECD32D90001554E /* doar_00020.png in Resources */,
@@ -2909,6 +2954,7 @@
 				D4AD98231EA9ACFD00C9FAB9 /* RecommendedPostCollectionViewCell.xib in Resources */,
 				D4AD98241EA9ACFD00C9FAB9 /* HighlightCollectionViewCell.xib in Resources */,
 				D4AD98251EA9ACFD00C9FAB9 /* TransactionTableViewCell.xib in Resources */,
+				60B0DE4A1F6AF6E10029ACBC /* OnboardCollectionViewCell.xib in Resources */,
 				D4AD98261EA9ACFD00C9FAB9 /* HeaderPostTableViewCell.xib in Resources */,
 				D484FA391EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
 				D4AD98271EA9ACFD00C9FAB9 /* Main.storyboard in Resources */,
@@ -2980,6 +3026,7 @@
 				D4AD98EF1EA9AD0400C9FAB9 /* RecommendedPostCollectionViewCell.xib in Resources */,
 				D4AD98F01EA9AD0400C9FAB9 /* HighlightCollectionViewCell.xib in Resources */,
 				D4AD98F11EA9AD0400C9FAB9 /* TransactionTableViewCell.xib in Resources */,
+				60B0DE4B1F6AF6E10029ACBC /* OnboardCollectionViewCell.xib in Resources */,
 				D4AD98F21EA9AD0400C9FAB9 /* HeaderPostTableViewCell.xib in Resources */,
 				D484FA3A1EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
 				D4AD98F31EA9AD0400C9FAB9 /* Main.storyboard in Resources */,
@@ -3305,6 +3352,7 @@
 				2F744CD91EC25ECB00AF724A /* BoomerPresenter.swift in Sources */,
 				D4A012FE1E7B15E900B3B811 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
+				60B0DE501F6B02860029ACBC /* OnboardMainViewController.swift in Sources */,
 				D4788DDA1ECCE82400E5E55F /* PostPresenter.swift in Sources */,
 				D42F22E91EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */,
 				D4C5BBD11ED7513A008EB531 /* AddBoomerPresenter.swift in Sources */,
@@ -3369,6 +3417,7 @@
 				D4642BC31E9ED301002C8ADC /* LinkPostTableViewCell.swift in Sources */,
 				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
 				D4470A6F1EB6A6A5002330C5 /* Profile.swift in Sources */,
+				60B0DE461F6AF6E10029ACBC /* OnboardCollectionViewCell.swift in Sources */,
 				D4FBBCEB1E907D5400611F63 /* InterestedPresenter.swift in Sources */,
 				D4C5BBD51ED7551F008EB531 /* SearchFriendsCellPresenter.swift in Sources */,
 				D43C6B2F1EB2B54300F118AA /* DemoConversation.swift in Sources */,
@@ -3444,6 +3493,7 @@
 				A40A25281DCBC46D00DF9523 /* RightMenuTableViewController.swift in Sources */,
 				D484FA261EACF4E90054E415 /* OtherActionsSegmentViewController.swift in Sources */,
 				D4470A671EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */,
+				60B0DE541F6B02AE0029ACBC /* OnboardMainPresenter.swift in Sources */,
 				D498F0331E7F43EF002E8972 /* PostRequest.swift in Sources */,
 				D4F71F851F4A7D7F0085636F /* AmountPostInteractionTableViewCell.swift in Sources */,
 				A4AFBB0B1DD2D6C400F270C7 /* MessagesMainViewController.swift in Sources */,
@@ -3504,6 +3554,7 @@
 				D4AD97861EA9ACFD00C9FAB9 /* ExchangeTransactionViewController.swift in Sources */,
 				D4AD97871EA9ACFD00C9FAB9 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4AD97881EA9ACFD00C9FAB9 /* Post.swift in Sources */,
+				60B0DE511F6B02860029ACBC /* OnboardMainViewController.swift in Sources */,
 				D4AD97891EA9ACFD00C9FAB9 /* NotificationsMainViewController.swift in Sources */,
 				D4AD978A1EA9ACFD00C9FAB9 /* CommentRequest.swift in Sources */,
 				D4C5BBD21ED7513D008EB531 /* AddBoomerPresenter.swift in Sources */,
@@ -3568,6 +3619,7 @@
 				D4AD97BA1EA9ACFD00C9FAB9 /* LinkPostTableViewCell.swift in Sources */,
 				D4AD97BB1EA9ACFD00C9FAB9 /* UIImageViewExtension.swift in Sources */,
 				D4470A701EB6A6A5002330C5 /* Profile.swift in Sources */,
+				60B0DE471F6AF6E10029ACBC /* OnboardCollectionViewCell.swift in Sources */,
 				D4AD97BC1EA9ACFD00C9FAB9 /* InterestedPresenter.swift in Sources */,
 				D4C5BBD61ED7551F008EB531 /* SearchFriendsCellPresenter.swift in Sources */,
 				D43C6B301EB2B54300F118AA /* DemoConversation.swift in Sources */,
@@ -3643,6 +3695,7 @@
 				D4470A681EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */,
 				D4788DE81ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */,
 				D4AD97EE1EA9ACFD00C9FAB9 /* PostRequest.swift in Sources */,
+				60B0DE551F6B02AE0029ACBC /* OnboardMainPresenter.swift in Sources */,
 				D4AD97EF1EA9ACFD00C9FAB9 /* MessagesMainViewController.swift in Sources */,
 				D4F71F861F4A7D7F0085636F /* AmountPostInteractionTableViewCell.swift in Sources */,
 				D4AD97F01EA9ACFD00C9FAB9 /* PageIndicatorView.swift in Sources */,
@@ -3694,6 +3747,7 @@
 				D4AD98521EA9AD0400C9FAB9 /* ExchangeTransactionViewController.swift in Sources */,
 				D4AD98531EA9AD0400C9FAB9 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				D4AD98541EA9AD0400C9FAB9 /* Post.swift in Sources */,
+				60B0DE521F6B02860029ACBC /* OnboardMainViewController.swift in Sources */,
 				D4AD98551EA9AD0400C9FAB9 /* NotificationsMainViewController.swift in Sources */,
 				D4AD98561EA9AD0400C9FAB9 /* CommentRequest.swift in Sources */,
 				D4C5BBD31ED7513E008EB531 /* AddBoomerPresenter.swift in Sources */,
@@ -3758,6 +3812,7 @@
 				D4AD98861EA9AD0400C9FAB9 /* LinkPostTableViewCell.swift in Sources */,
 				D4AD98871EA9AD0400C9FAB9 /* UIImageViewExtension.swift in Sources */,
 				D4470A711EB6A6A5002330C5 /* Profile.swift in Sources */,
+				60B0DE481F6AF6E10029ACBC /* OnboardCollectionViewCell.swift in Sources */,
 				D4AD98881EA9AD0400C9FAB9 /* InterestedPresenter.swift in Sources */,
 				D4C5BBD71ED7551F008EB531 /* SearchFriendsCellPresenter.swift in Sources */,
 				D43C6B311EB2B54300F118AA /* DemoConversation.swift in Sources */,
@@ -3833,6 +3888,7 @@
 				D4470A691EB5952A002330C5 /* PhotoThingPresenter.swift in Sources */,
 				D4788DE91ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */,
 				D4AD98BA1EA9AD0400C9FAB9 /* PostRequest.swift in Sources */,
+				60B0DE561F6B02AE0029ACBC /* OnboardMainPresenter.swift in Sources */,
 				D4AD98BB1EA9AD0400C9FAB9 /* MessagesMainViewController.swift in Sources */,
 				D4F71F871F4A7D7F0085636F /* AmountPostInteractionTableViewCell.swift in Sources */,
 				D4AD98BC1EA9AD0400C9FAB9 /* PageIndicatorView.swift in Sources */,
