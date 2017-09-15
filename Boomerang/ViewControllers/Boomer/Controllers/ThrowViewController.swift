@@ -202,9 +202,7 @@ class ThrowViewController: UIViewController {
         }else{
             cell.isFirstOptionSelected = self.isAvailable
         }
-        
-        
-        
+
         return cell
         
     }

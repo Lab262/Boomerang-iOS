@@ -47,10 +47,19 @@ class UserCommentTableViewCell: UITableViewCell {
     }
 
     func updateCellUI(){
-        userNameLabel.text = comment!.author!.fullName
-        userDescriptionLabel.text = comment!.content
-        dateLabel.text = comment!.createdAt!.timeSinceNow()
-        getUserPhotoImage()
+        
+        if let comment = comment {
+            userDescriptionLabel.text = comment.content
+            if let author = comment.author {
+                 userNameLabel.text = author.fullName
+            }
+            
+            if let createdAt = comment.createdAt {
+                dateLabel.text = createdAt.timeSinceNow()
+            }
+            
+            getUserPhotoImage()
+        }
     }
     
     func getUserPhotoImage() {

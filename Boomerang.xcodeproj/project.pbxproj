@@ -164,6 +164,12 @@
 		2F79676D1E8357F700476D2D /* TypePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */; };
 		2F79677A1E86FA7E00476D2D /* HeaderPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7967781E86FA7E00476D2D /* HeaderPostTableViewCell.swift */; };
 		2F79677B1E86FA7E00476D2D /* HeaderPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7967791E86FA7E00476D2D /* HeaderPostTableViewCell.xib */; };
+		2F8C4E9D1F6474DF000B0AE9 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C4E9B1F6474DF000B0AE9 /* PageCollectionViewCell.swift */; };
+		2F8C4E9E1F6474DF000B0AE9 /* PageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C4E9C1F6474DF000B0AE9 /* PageCollectionViewCell.xib */; };
+		2F8C4E9F1F648A8E000B0AE9 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C4E9B1F6474DF000B0AE9 /* PageCollectionViewCell.swift */; };
+		2F8C4EA01F648A8F000B0AE9 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C4E9B1F6474DF000B0AE9 /* PageCollectionViewCell.swift */; };
+		2F8C4EA11F648A98000B0AE9 /* PageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C4E9C1F6474DF000B0AE9 /* PageCollectionViewCell.xib */; };
+		2F8C4EA31F648A9A000B0AE9 /* PageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C4E9C1F6474DF000B0AE9 /* PageCollectionViewCell.xib */; };
 		2F9841071EB179AA00A937A3 /* FeedbackConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9841061EB179AA00A937A3 /* FeedbackConfirmationViewController.swift */; };
 		2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */; };
 		2FA0CB351E6E590B00224284 /* TextViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0CB341E6E590B00224284 /* TextViewHandler.swift */; };
@@ -284,6 +290,9 @@
 		A4E462FF1DCAEB0200A611C0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E462FE1DCAEB0200A611C0 /* Profile.storyboard */; };
 		A4E463011DCAEB1500A611C0 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E463001DCAEB1500A611C0 /* Transaction.storyboard */; };
 		A4E463041DCAEC4F00A611C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E463031DCAEC4F00A611C0 /* Assets.xcassets */; };
+		A4ED8D9E1F6484510088052A /* PromoCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */; };
+		A4ED8D9F1F6484510088052A /* PromoCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */; };
+		A4ED8DA01F6484510088052A /* PromoCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */; };
 		A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F89B291DA809B100949A35 /* AppDelegate.swift */; };
 		A4F89B341DA809B100949A35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F89B321DA809B100949A35 /* LaunchScreen.storyboard */; };
 		A4F89B3F1DA809B100949A35 /* BoomerangTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F89B3E1DA809B100949A35 /* BoomerangTests.swift */; };
@@ -424,6 +433,12 @@
 		D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */; };
 		D498F04B1E820EA1002E8972 /* UserInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D498F0491E820EA1002E8972 /* UserInformationTableViewCell.xib */; };
 		D49955B71EA3AAEF00D89038 /* TransactionFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */; };
+		D49E712E1F6769B700460891 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E712D1F6769B700460891 /* FriendListViewController.swift */; };
+		D49E712F1F6769B700460891 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E712D1F6769B700460891 /* FriendListViewController.swift */; };
+		D49E71301F6769B700460891 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E712D1F6769B700460891 /* FriendListViewController.swift */; };
+		D49E71321F6769DC00460891 /* FriendListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E71311F6769DC00460891 /* FriendListPresenter.swift */; };
+		D49E71331F6769DC00460891 /* FriendListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E71311F6769DC00460891 /* FriendListPresenter.swift */; };
+		D49E71341F6769DC00460891 /* FriendListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E71311F6769DC00460891 /* FriendListPresenter.swift */; };
 		D4A012F51E7AC83900B3B811 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */; };
 		D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */; };
 		D4A012F91E7AC85600B3B811 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */; };
@@ -1044,6 +1059,8 @@
 		2F79676B1E8357F700476D2D /* TypePostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TypePostTableViewCell.xib; path = ../TypePostTableViewCell.xib; sourceTree = "<group>"; };
 		2F7967781E86FA7E00476D2D /* HeaderPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderPostTableViewCell.swift; path = Interface/HeaderPostTableViewCell.swift; sourceTree = "<group>"; };
 		2F7967791E86FA7E00476D2D /* HeaderPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderPostTableViewCell.xib; sourceTree = "<group>"; };
+		2F8C4E9B1F6474DF000B0AE9 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F8C4E9C1F6474DF000B0AE9 /* PageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F9841061EB179AA00A937A3 /* FeedbackConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackConfirmationViewController.swift; sourceTree = "<group>"; };
 		2FA0CB321E6E573E00224284 /* TextFieldHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldHandler.swift; sourceTree = "<group>"; };
 		2FA0CB341E6E590B00224284 /* TextViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = TextViewHandler.swift; sourceTree = "<group>"; };
@@ -1131,6 +1148,7 @@
 		A4E462FE1DCAEB0200A611C0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A4E463001DCAEB1500A611C0 /* Transaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
 		A4E463031DCAEC4F00A611C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromoCodeRequest.swift; path = Requests/PromoCodeRequest.swift; sourceTree = "<group>"; };
 		A4F89B261DA809B100949A35 /* lab262.boomerang.test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab262.boomerang.test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F89B291DA809B100949A35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4F89B331DA809B100949A35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1159,7 +1177,7 @@
 		D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionMainHistoryViewController.swift; sourceTree = "<group>"; };
 		D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
-		D433D0811E93E59600112B32 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		D433D0811E93E59600112B32 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePresenter.swift; path = Controller/ProfilePresenter.swift; sourceTree = "<group>"; };
 		D436BF211E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePostCollectionViewCell.swift; path = Boomerang/ViewControllers/Profile/Controller/ProfilePostCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D436BF241E95A68B00BC7F00 /* LoanTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanTransactionViewController.swift; sourceTree = "<group>"; };
 		D436BF291E95A97300BC7F00 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
@@ -1222,6 +1240,8 @@
 		D498F0481E820EA1002E8972 /* UserInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D498F0491E820EA1002E8972 /* UserInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserInformationTableViewCell.xib; path = ../Cells/UserInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D49955B61EA3AAEF00D89038 /* TransactionFilterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFilterPresenter.swift; sourceTree = "<group>"; };
+		D49E712D1F6769B700460891 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		D49E71311F6769DC00460891 /* FriendListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListPresenter.swift; sourceTree = "<group>"; };
 		D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCollectionViewCell.swift; path = ../Interface/PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A012F41E7AC83900B3B811 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = ../Interface/PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -1516,9 +1536,19 @@
 			name = Presenters;
 			sourceTree = "<group>";
 		};
+		2F8C4E9A1F64747B000B0AE9 /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2F8C4E9B1F6474DF000B0AE9 /* PageCollectionViewCell.swift */,
+				2F8C4E9C1F6474DF000B0AE9 /* PageCollectionViewCell.xib */,
+			);
+			name = UICollectionViewCell;
+			sourceTree = "<group>";
+		};
 		2FA93B271E4A88030080F99A /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				A4ED8D9D1F6484510088052A /* PromoCodeRequest.swift */,
 				2FA93B281E4A881E0080F99A /* UserRequest.swift */,
 				D42443F31E6DFB1100620441 /* ParseRequest.swift */,
 				D498F0321E7F43EF002E8972 /* PostRequest.swift */,
@@ -1643,7 +1673,7 @@
 			isa = PBXGroup;
 			children = (
 				A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */,
-				D433D0811E93E59600112B32 /* ProfilePresenter.swift */,
+				D49E712D1F6769B700460891 /* FriendListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1743,6 +1773,7 @@
 		A489B1F31DDA7D0300B239D5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				2F8C4E9A1F64747B000B0AE9 /* UICollectionViewCell */,
 				D4FB71701EDE637400852AD9 /* Presenter */,
 				A489B1F41DDA7D0300B239D5 /* Controllers */,
 				A489B1F51DDA7D0300B239D5 /* Interface */,
@@ -1879,6 +1910,7 @@
 		A4E462ED1DCAEA7F00A611C0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				D49E712C1F67696000460891 /* Presenter */,
 				A404537E1DD4173700A42E4B /* Cell */,
 				A404537B1DD4149500A42E4B /* Controller */,
 				A4E462EE1DCAEA7F00A611C0 /* Interface */,
@@ -2308,6 +2340,15 @@
 			children = (
 			);
 			name = Historic;
+			sourceTree = "<group>";
+		};
+		D49E712C1F67696000460891 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D433D0811E93E59600112B32 /* ProfilePresenter.swift */,
+				D49E71311F6769DC00460891 /* FriendListPresenter.swift */,
+			);
+			name = Presenter;
 			sourceTree = "<group>";
 		};
 		D4A012F21E7A482400B3B811 /* Cells */ = {
@@ -2844,6 +2885,7 @@
 				2F49582F1ECD32C50001554E /* Tenho_00033.png in Resources */,
 				2F4957C21ECD32AF0001554E /* preciso13.png in Resources */,
 				2F4958151ECD32C40001554E /* Tenho_00007.png in Resources */,
+				2F8C4E9E1F6474DF000B0AE9 /* PageCollectionViewCell.xib in Resources */,
 				A44E0C671DD092650028F06C /* Montserrat-Black.otf in Resources */,
 				2F4957BC1ECD32AF0001554E /* preciso7.png in Resources */,
 				A4FE06341DD09C7500BFDC4D /* BoomerThingCollection.xib in Resources */,
@@ -2959,6 +3001,7 @@
 				D484FA391EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
 				D4AD98271EA9ACFD00C9FAB9 /* Main.storyboard in Resources */,
 				D4AD98281EA9ACFD00C9FAB9 /* PhotoNavigationBar.xib in Resources */,
+				2F8C4EA11F648A98000B0AE9 /* PageCollectionViewCell.xib in Resources */,
 				D4AD98291EA9ACFD00C9FAB9 /* Montserrat-Black.otf in Resources */,
 				D4AD982A1EA9ACFD00C9FAB9 /* BoomerThingCollection.xib in Resources */,
 				D484FA411EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
@@ -3031,6 +3074,7 @@
 				D484FA3A1EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
 				D4AD98F31EA9AD0400C9FAB9 /* Main.storyboard in Resources */,
 				D4AD98F41EA9AD0400C9FAB9 /* PhotoNavigationBar.xib in Resources */,
+				2F8C4EA31F648A9A000B0AE9 /* PageCollectionViewCell.xib in Resources */,
 				D4AD98F51EA9AD0400C9FAB9 /* Montserrat-Black.otf in Resources */,
 				D4AD98F61EA9AD0400C9FAB9 /* BoomerThingCollection.xib in Resources */,
 				D484FA421EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
@@ -3074,9 +3118,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lab262.boomerang.test-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3089,9 +3136,44 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PHFComposeBarView/PHFComposeBarView.framework",
+				"${BUILT_PRODUCTS_DIR}/PHFDelegateChain/PHFDelegateChain.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseFacebookUtilsV4/ParseFacebookUtilsV4.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PHFComposeBarView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PHFDelegateChain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseFacebookUtilsV4.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3134,9 +3216,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lab262.boomerang.production-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3179,9 +3264,44 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PHFComposeBarView/PHFComposeBarView.framework",
+				"${BUILT_PRODUCTS_DIR}/PHFDelegateChain/PHFDelegateChain.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseFacebookUtilsV4/ParseFacebookUtilsV4.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PHFComposeBarView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PHFDelegateChain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseFacebookUtilsV4.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3209,9 +3329,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lab262.boomerang.dev-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3254,9 +3377,44 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lab262.boomerang.dev/Pods-lab262.boomerang.dev-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PHFComposeBarView/PHFComposeBarView.framework",
+				"${BUILT_PRODUCTS_DIR}/PHFDelegateChain/PHFDelegateChain.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseFacebookUtilsV4/ParseFacebookUtilsV4.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PHFComposeBarView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PHFDelegateChain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseFacebookUtilsV4.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3299,9 +3457,44 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PHFComposeBarView/PHFComposeBarView.framework",
+				"${BUILT_PRODUCTS_DIR}/PHFDelegateChain/PHFDelegateChain.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseFacebookUtilsV4/ParseFacebookUtilsV4.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PHFComposeBarView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PHFDelegateChain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseFacebookUtilsV4.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3314,9 +3507,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BoomerangTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3342,6 +3538,7 @@
 				D4A012FF1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift in Sources */,
 				D4788DE21ECE18FB00E5E55F /* MorePostPresenter.swift in Sources */,
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
+				D49E712E1F6769B700460891 /* FriendListViewController.swift in Sources */,
 				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
 				D4C5BBD91ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
@@ -3369,9 +3566,11 @@
 				60DDA2AB1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */,
 				D4964CE41EA6613900BD3807 /* TransactionDetailPresenter.swift in Sources */,
 				A4E462F31DCAEA7F00A611C0 /* TabBarController.swift in Sources */,
+				A4ED8D9E1F6484510088052A /* PromoCodeRequest.swift in Sources */,
 				D43DF1321E66970400397251 /* ThingDetailViewController.swift in Sources */,
 				D4AD97721EA8ED7400C9FAB9 /* EvaluationPresenter.swift in Sources */,
 				D4964CE61EA6615700BD3807 /* TransactionDetailCellPresenter.swift in Sources */,
+				D49E71321F6769DC00460891 /* FriendListPresenter.swift in Sources */,
 				A42768101DD3DDF600363343 /* BoomerMyThingCell.swift in Sources */,
 				A427680A1DD3948700363343 /* ExperienceThingsViewController.swift in Sources */,
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,
@@ -3467,6 +3666,7 @@
 				2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */,
 				A4FE06291DD0953200BFDC4D /* HomeTableViewController.swift in Sources */,
 				D4E4BEB91E8256B000F8DC2E /* PHFComposeBarView_TextView.m in Sources */,
+				2F8C4E9D1F6474DF000B0AE9 /* PageCollectionViewCell.swift in Sources */,
 				D498F0411E81621F002E8972 /* ThingNavigationBar.swift in Sources */,
 				A427680C1DD3A09D00363343 /* UIColorExtension.swift in Sources */,
 				D44C9A161EB00D9B004B7796 /* ChatPresenter.swift in Sources */,
@@ -3544,6 +3744,7 @@
 				D4AD977E1EA9ACFD00C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
 				A4796CFC1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD977F1EA9ACFD00C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
+				D49E712F1F6769B700460891 /* FriendListViewController.swift in Sources */,
 				D4AD97801EA9ACFD00C9FAB9 /* AppDelegate.swift in Sources */,
 				D4C5BBDA1ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				D4AD97811EA9ACFD00C9FAB9 /* BoomerMainViewController.swift in Sources */,
@@ -3571,9 +3772,11 @@
 				60DDA2AC1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */,
 				D4AD97921EA9ACFD00C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
 				605DEF3B1ECCD03800D1D233 /* UILabelExtension.swift in Sources */,
+				A4ED8D9F1F6484510088052A /* PromoCodeRequest.swift in Sources */,
 				D4AD97931EA9ACFD00C9FAB9 /* TabBarController.swift in Sources */,
 				D4AD97941EA9ACFD00C9FAB9 /* ThingDetailViewController.swift in Sources */,
 				D4AD97951EA9ACFD00C9FAB9 /* EvaluationPresenter.swift in Sources */,
+				D49E71331F6769DC00460891 /* FriendListPresenter.swift in Sources */,
 				D4AD97961EA9ACFD00C9FAB9 /* TransactionDetailCellPresenter.swift in Sources */,
 				D4AD97971EA9ACFD00C9FAB9 /* BoomerMyThingCell.swift in Sources */,
 				D4AD97981EA9ACFD00C9FAB9 /* ExperienceThingsViewController.swift in Sources */,
@@ -3669,6 +3872,7 @@
 				D484FA291EACF4F00054E415 /* OtherActionsMainViewController.swift in Sources */,
 				D4AD97D91EA9ACFD00C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD97DA1EA9ACFD00C9FAB9 /* HomeTableViewController.swift in Sources */,
+				2F8C4E9F1F648A8E000B0AE9 /* PageCollectionViewCell.swift in Sources */,
 				D4AD97DB1EA9ACFD00C9FAB9 /* PHFComposeBarView_TextView.m in Sources */,
 				D44C9A171EB00D9B004B7796 /* ChatPresenter.swift in Sources */,
 				D4AD97DC1EA9ACFD00C9FAB9 /* ThingNavigationBar.swift in Sources */,
@@ -3737,6 +3941,7 @@
 				D4AD984A1EA9AD0400C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
 				A4796CFD1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD984B1EA9AD0400C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
+				D49E71301F6769B700460891 /* FriendListViewController.swift in Sources */,
 				D4AD984C1EA9AD0400C9FAB9 /* AppDelegate.swift in Sources */,
 				D4C5BBDB1ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				D4AD984D1EA9AD0400C9FAB9 /* BoomerMainViewController.swift in Sources */,
@@ -3764,9 +3969,11 @@
 				60DDA2AD1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift in Sources */,
 				D4AD985E1EA9AD0400C9FAB9 /* TransactionDetailPresenter.swift in Sources */,
 				605DEF3C1ECCD03800D1D233 /* UILabelExtension.swift in Sources */,
+				A4ED8DA01F6484510088052A /* PromoCodeRequest.swift in Sources */,
 				D4AD985F1EA9AD0400C9FAB9 /* TabBarController.swift in Sources */,
 				D4AD98601EA9AD0400C9FAB9 /* ThingDetailViewController.swift in Sources */,
 				D4AD98611EA9AD0400C9FAB9 /* EvaluationPresenter.swift in Sources */,
+				D49E71341F6769DC00460891 /* FriendListPresenter.swift in Sources */,
 				D4AD98621EA9AD0400C9FAB9 /* TransactionDetailCellPresenter.swift in Sources */,
 				D4AD98631EA9AD0400C9FAB9 /* BoomerMyThingCell.swift in Sources */,
 				D4AD98641EA9AD0400C9FAB9 /* ExperienceThingsViewController.swift in Sources */,
@@ -3862,6 +4069,7 @@
 				D484FA2A1EACF4F10054E415 /* OtherActionsMainViewController.swift in Sources */,
 				D4AD98A51EA9AD0400C9FAB9 /* SocialMediaType.swift in Sources */,
 				D4AD98A61EA9AD0400C9FAB9 /* HomeTableViewController.swift in Sources */,
+				2F8C4EA01F648A8F000B0AE9 /* PageCollectionViewCell.swift in Sources */,
 				D4AD98A71EA9AD0400C9FAB9 /* PHFComposeBarView_TextView.m in Sources */,
 				D44C9A181EB00D9B004B7796 /* ChatPresenter.swift in Sources */,
 				D4AD98A81EA9AD0400C9FAB9 /* ThingNavigationBar.swift in Sources */,

@@ -121,13 +121,57 @@ class OnboardMainViewController: UIViewController {
         }
     }
     
+    func getActualIndexPath () -> IndexPath? {
+        
+        let flowLayout = (onboardCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
+        
+        let indexPath = self.onboardCollectionView.indexPathForItem(at: self.onboardCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: onboardCollectionView.frame.width/2, y: 0))
+        return indexPath
+    }
+    
     @IBAction func clickedForwardButton(_ sender: Any) {
+        if forwardButton.title(for: .normal) == titleForward {
+            if let indexPath = getActualIndexPath() {
+                var newIndexPath = indexPath
+                newIndexPath.row = indexPath.row + 1
+                onboardCollectionView.scrollToItem(at: newIndexPath, at: .left, animated: true)
+            }
+        }else {
+            showHomeVC()
+        }
     }
     
     @IBAction func clickedBackButton(_ sender: Any) {
+        if let indexPath = getActualIndexPath() {
+            var newIndexPath = indexPath
+            newIndexPath.row = indexPath.row - 1
+            onboardCollectionView.scrollToItem(at: newIndexPath, at: .left, animated: true)
+        }
     }
     
     @IBAction func clickedSkipButton(_ sender: Any) {
+        showHomeVC()
+    }
+    
+    func showHomeVC() {
+        self.view.loadAnimation()
+        let staticAuthenticationPresenter = AuthenticationPresenter()
+        staticAuthenticationPresenter.requestInformationsProfileUser { (success, msg) in
+            if success {
+                self.view.unload()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vcToShow = storyboard.instantiateInitialViewController()!
+                self.present(vcToShow, animated: true, completion: nil)
+            }else {
+                //TODO: Review text when have error in login
+                self.showAlertError(message: msg)
+            }
+        }
+    }
+    
+    func showAlertError(message: String){
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Erro: \(message)! Tente novamente mais tarde", negativeAction: "Ok") { (isPositive) in
+        }
     }
 }
 
@@ -154,11 +198,7 @@ extension OnboardMainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        let flowLayout = (onboardCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
-        
-        let indexPath = self.onboardCollectionView.indexPathForItem(at: self.onboardCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: onboardCollectionView.frame.width/2, y: 0))
-        
-        if let index = indexPath {
+        if let index = getActualIndexPath() {
             pageIndicatorView?.selectedPage = index.row
             setupButtonsBasedOnCurrentPage()
         }

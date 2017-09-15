@@ -50,15 +50,16 @@ class SearchFriendsViewController: UIViewController {
     }
     
     func generateTitleCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
-        return cell
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+        
+        return cell
     }
     
     func generateSearchFriendCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchFriendsTableViewCell.identifier, for: indexPath) as! SearchFriendsTableViewCell
         cell.presenter.profile = presenter.profiles[indexPath.row-1]
-        cell.setupCellInformations()
+        cell.setupCellInformations(fetchAlreadyFollowing: true)
         return cell
     }
     
@@ -73,7 +74,6 @@ class SearchFriendsViewController: UIViewController {
             controller.presenter.setProfile(profile: presenter.profiles[tableView.indexPathForSelectedRow!.row-1])
         }
     }
-
 }
 
 extension SearchFriendsViewController: UIScrollViewDelegate {

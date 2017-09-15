@@ -65,8 +65,18 @@ class RecommendedViewController: UIViewController {
         cell.followButton.isHidden = true
         cell.profile = presenter.friends[indexPath.row-1]
         (cell as SwipeTableViewCell).delegate = self
-
+        
+        
+        if presenter.friends[indexPath.row-1].isRecommended {
+            setupRecommendedCell(cell: cell)
+        }
+    
         return cell
+    }
+    
+    func setupRecommendedCell(cell: SearchFriendsTableViewCell) {
+        cell.toggleRecomendedAnimation()
+        cell.isUserInteractionEnabled = false
     }
     
 }
@@ -135,8 +145,8 @@ extension RecommendedViewController: SwipeTableViewCellDelegate {
 
         let throwAction = SwipeAction(style: .default, title: nil ) { action, indexPath in
             let searchFriendsCell = tableView.cellForRow(at: indexPath) as! SearchFriendsTableViewCell
-            searchFriendsCell.toggleRecomendedAnimation()
-                        self.presenter.createRecommendation(friend: self.presenter.friends[indexPath.row-1])
+            self.setupRecommendedCell(cell: searchFriendsCell)
+            self.presenter.createRecommendation(friend: self.presenter.friends[indexPath.row-1])
 
         }
         throwAction.image = #imageLiteral(resourceName: "throwActionBackground")

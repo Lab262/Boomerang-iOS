@@ -18,6 +18,8 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     let titleButtonEditProfile = "Editar Perfil"
     
+    @IBOutlet weak var followingButton: UIButton!
+    @IBOutlet weak var followerButton: UIButton!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var filterAllButton: UIButton!
     @IBOutlet weak var filterHaveButton: UIButton!
@@ -30,6 +32,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var boomerAmountLabel: UILabel!
+    
     
     @IBOutlet weak var backButton: UIButton!
     
@@ -228,7 +231,19 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             filterDonationButton.isSelected = true
             delegate?.updateCell()
         }
+    }
+    
+    @IBAction func goFollowingList(_ sender: Any) {
+        
         
     }
+    
+    @IBAction func goFollowersList(_ sender: Any) {
+        
+    }
+    
+    
+    
+    
 }
 

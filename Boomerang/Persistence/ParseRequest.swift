@@ -148,7 +148,6 @@ class ParseRequest: NSObject {
         let query = PFQuery(className: className)
         query.whereKey(key, containedIn: value)
         
-        
         query.countObjectsInBackground { (count, error) in
             if error == nil {
                 completionHandler(true, "Success", Int(count))
@@ -217,8 +216,6 @@ class ParseRequest: NSObject {
     
     
     // QUERY 2
-    
-
     
     static func queryEqualToValue2(className: String, queryParams: [String: Any], includes: [String]?, selectKeys: [String]? = nil, pagination: Int? = 100, skip: Int? = 0, completionHandler: @escaping (_ success: Bool, _ msg: String, _ objects: [PFObject]?) -> Void) {
         

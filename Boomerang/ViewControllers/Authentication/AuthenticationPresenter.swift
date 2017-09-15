@@ -147,6 +147,45 @@ class AuthenticationPresenter: NSObject {
         }
     }
     
+    private func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.getAllTypes { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    private func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.getAllConditions { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    private func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        SchemeRequest.getAllStatus { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    func requestInformationsProfileUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        self.requestAllPostTypes(completionHandler: { (success, msg) in
+            if success {
+                self.requestAllPostConditions(completionHandler: { (success, msg) in
+                    if success {
+                        self.requestSchemeStatus(completionHandler: { (success, msg) in
+                            completionHandler(success,msg)
+                            return
+                        })
+                    }else{
+                        completionHandler(success,msg)
+                        return
+                    }
+                })
+            }else{
+                completionHandler(success,msg)
+                return
+            }
+        })
+    }
+    
     func setOnboardData() {
         
         let firstData = setDictOnboardData(image: OnboardLoginCellImages.firstCell, text: OnboardLoginCellStrings.firstCell)

@@ -337,7 +337,7 @@ class ThingDetailViewController: UIViewController {
             completion: nil)
     }
     
-    func configureGestureRecognizer(){
+    func configureGestureRecognizer() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didGesture(_:)))
         panGesture.delegate = self
         tableView.addGestureRecognizer(panGesture)
@@ -366,7 +366,6 @@ class ThingDetailViewController: UIViewController {
             } else {
                 controller.presenter.setPost(post: presenter.post)
             }
-            
         }
         
         if let controller = segue.destination as? RecommendedViewController {
@@ -434,6 +433,10 @@ class ThingDetailViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: AmountPostInteractionTableViewCell.identifier, for: indexPath) as! AmountPostInteractionTableViewCell
         
         cell.presenter.post = presenter.post
+        cell.presenter.getLikeAmount(isSelectedButton: nil)
+        cell.presenter.getCommentAmount()
+        cell.presenter.getRecommendationAmount()
+        cell.presenter.verifyIsLiked()
         
         return cell
     }
@@ -629,7 +632,8 @@ extension ThingDetailViewController: DetailThingDelegate {
         let title = isSuccess ? "Certo" : "Erro"
         GenericBoomerAlertController.presentMe(inParent: self, withTitle: title, negativeAction: "Ok") { (isPositive) in
             self.dismiss(animated: true, completion: nil)
-        }    }
+        }
+    }
 }
 
 extension ThingDetailViewController: PHFComposeBarViewDelegate {

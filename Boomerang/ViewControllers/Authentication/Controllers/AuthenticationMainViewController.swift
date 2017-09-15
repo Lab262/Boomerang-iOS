@@ -60,61 +60,65 @@ class AuthenticationMainViewController: UIViewController {
         return cell
     }
     
-//    func setupCustomLabel(){
-//        let textWelcomeLabel = NSMutableAttributedString(string: defaultTextTitleWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratBlack(size: defaultSizeFontWelcomeLabel)])
-//        
-//        let textWelcomeDescriptionLabel = NSMutableAttributedString(string: defaultTextDescriptionWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratLight(size: defaultSizeFontWelcomeLabel)])
-//        
-//        textWelcomeLabel.append(textWelcomeDescriptionLabel)
-//        self.welcomeLabel.attributedText = textWelcomeLabel
-//    }
-    
-    
     @IBAction func facebookAction(_ sender: Any) {
-//        PromoCodeController.presentMe(inParent: self) { (item) in
-//
-//        }
-       self.presenter.loginFacebook()
+        PromoCodeController.presentMe(inParent: self, delegate: self)
+        //self.presenter.loginFacebook()
     }
-
+    
     func showHomeVC() {
         
-        self.requestAllPostTypes(completionHandler: { (success, msg) in
+        self.presenter.requestInformationsProfileUser { (success, msg) in
             if success {
-                self.requestAllPostConditions(completionHandler: { (success, msg) in
-                    if success {
-                        self.requestSchemeStatus(completionHandler: { (success, msg) in
-                            if success {
-                                self.finishLoadingView()
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                let vcToShow = storyboard.instantiateInitialViewController()!
-                                self.present(vcToShow, animated: true, completion: nil)
-                            }
-                        })
-                    }
-                })
+                self.finishLoadingView()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vcToShow = storyboard.instantiateInitialViewController()!
+                self.present(vcToShow, animated: true, completion: nil)
+            }else {
+                //TODO: Review text when have error in login
+                self.showAlertError(message: msg)
             }
-        })
-//        UserRequest.getProfileUser(completionHandler: { (success, msg) in
-//            if success {
-//                self.requestAllPostTypes(completionHandler: { (success, msg) in
-//                    if success {
-//                        self.requestAllPostConditions(completionHandler: { (success, msg) in
-//                            if success {
-//                                self.requestSchemeStatus(completionHandler: { (success, msg) in
-//                                    if success {
-//                                        self.view.unload()
-//                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                                        let vcToShow = storyboard.instantiateInitialViewController()!
-//                                        self.present(vcToShow, animated: true, completion: nil)
-//                                    }
-//                                })
-//                            }
-//                        })
-//                    }
-//                })
-//            }
-//        })
+        }
+        //        UserRequest.getProfileUser(completionHandler: { (success, msg) in
+        //            if success {
+        //                self.requestAllPostTypes(completionHandler: { (success, msg) in
+        //                    if success {
+        //                        self.requestAllPostConditions(completionHandler: { (success, msg) in
+        //                            if success {
+        //                                self.requestSchemeStatus(completionHandler: { (success, msg) in
+        //                                    if success {
+        //                                        self.view.unload()
+        //                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //                                        let vcToShow = storyboard.instantiateInitialViewController()!
+        //                                        self.present(vcToShow, animated: true, completion: nil)
+        //                                    }
+        //                                })
+        //                            }
+        //                        })
+        //                    }
+        //                })
+        //            }
+        //        })
+    }
+    
+    func showAlertError(message: String){
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Erro: \(message)! Tente novamente mais tarde", negativeAction: "Ok") { (isPositive) in
+        }
+    }
+    
+    func verifyIfFirstTimeLogin() -> Bool {
+        //TODO: Verify rules of onboardview
+        let userDefaults = UserDefaults.standard
+        if let _ = userDefaults.string(forKey: OnboardKeyLogin.keyLoginFirstTime) {
+            return false
+        }else{
+            userDefaults.set(OnboardKeyLogin.keyLoginFirstTime, forKey: OnboardKeyLogin.keyLoginFirstTime)
+            return true
+        }
+    }
+    
+    func showOnboarMainViewController(){
+        let onboardMaindViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "OnboardMainViewController")
+        self.present(onboardMaindViewController!, animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -139,6 +143,12 @@ class AuthenticationMainViewController: UIViewController {
         }
     }
     
+}
+
+extension AuthenticationMainViewController: PromoCodeRequestDelegate {
+    func afterValidateCode() {
+        self.presenter.loginFacebook()
+    }
 }
 
 extension AuthenticationMainViewController: UICollectionViewDataSource {
@@ -214,7 +224,7 @@ extension AuthenticationMainViewController: PageIndicatorViewDelegate {
     }
     
     var indicatorsColor: UIColor {
-        return UIColor.colorWithHexString("FFFFFF")
+        return UIColor.white
     }
     
     var stackViewConfig: (axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment, distribution: UIStackViewDistribution, spacing: CGFloat) {
@@ -225,7 +235,11 @@ extension AuthenticationMainViewController: PageIndicatorViewDelegate {
 
 extension AuthenticationMainViewController: AuthenticationDelegate {
     func showHome() {
-        self.showHomeVC()
+        if self.verifyIfFirstTimeLogin() {
+            self.showOnboarMainViewController()
+        }else {
+            self.showHomeVC()
+        }
     }
     
     func showMsg(success: Bool, msg: String) {

@@ -37,8 +37,12 @@ class SettingViewController: UIViewController {
     func disconect(){
         var initialViewController: UIViewController? = nil
         
-        //PFUser.current() = nil
-        initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "")
+        //TODO: Verify rules of show onboard main
+        UserDefaults.standard.set(nil, forKey: OnboardKeyLogin.keyLoginFirstTime)
+        
+        PFUser.logOut()
+        
+        initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "AuthenticationMainViewController")
         
         self.present(initialViewController!, animated:true, completion:nil)
     }
