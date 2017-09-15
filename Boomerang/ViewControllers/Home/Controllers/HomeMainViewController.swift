@@ -95,9 +95,11 @@ class HomeMainViewController: UIViewController {
             switch presenter.currentSectionPost! {
             case .recommended:
                 controller.presenter.setProfile(profile: presenter.featuredPosts[currentIndex!.row].author!)
-            default: break
+            case .friends:
+                controller.presenter.setProfile(profile: presenter.friendsPosts[currentIndex!.row].author!)
+            case .city:
+                controller.presenter.setProfile(profile: presenter.othersPosts[currentIndex!.row].author!)
             }
-            
         }
     }
 }
