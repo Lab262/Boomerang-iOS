@@ -53,6 +53,7 @@ class PostTableViewCell: UITableViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
         cell.coverImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
+        cell.profileButton.tag = indexPath.row
         cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
         
         return cell
