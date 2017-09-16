@@ -41,6 +41,7 @@ class ThingDetailViewController: UIViewController {
     }
     
     let tableViewTopInset: CGFloat = 98.0
+    let authorPostTag = 00
     var presenter = DetailThingPresenter()
     var textFieldHeight: CGFloat = 70
     var composeBarView: PHFComposeBarView?
@@ -188,8 +189,8 @@ class ThingDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
     func goToProfile(_ sender: UIButton) {
-        
         self.currentIndexPath = IndexPath(row: sender.tag, section: 0)
         performSegue(withIdentifier: SegueIdentifiers.detailThingToProfile, sender: self)
     }
@@ -357,7 +358,12 @@ class ThingDetailViewController: UIViewController {
         
         if let controller = segue.destination as? ProfileMainViewController {
             if let index = self.currentIndexPath {
-                controller.presenter.setProfile(profile: presenter.comments[index.row].author!)
+                
+                if index.row == authorPostTag {
+                    controller.presenter.setProfile(profile: presenter.post.author!)
+                } else {
+                    controller.presenter.setProfile(profile: presenter.comments[index.row].author!)
+                }
                 self.currentIndexPath = nil
             } else {
                 controller.presenter.setPost(post: presenter.post)
@@ -419,6 +425,8 @@ class ThingDetailViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: UserInformationTableViewCell.identifier, for: indexPath) as! UserInformationTableViewCell
         cell.presenter.post = presenter.post
+        cell.userButton.tag = authorPostTag
+        cell.userButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
         cell.updateCellUI()
         
         return cell

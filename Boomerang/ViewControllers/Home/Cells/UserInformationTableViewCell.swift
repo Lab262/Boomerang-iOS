@@ -14,6 +14,7 @@ class UserInformationTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var userButton: UIButton!
     
     @IBOutlet var evaluationStarImage: [UIImageView]!
     

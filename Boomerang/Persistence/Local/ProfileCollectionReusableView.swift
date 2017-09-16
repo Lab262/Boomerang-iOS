@@ -74,6 +74,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     func configureButtons(){
         let buttons = [filterAllButton, filterNeedButton, filterHaveButton, filterDonationButton]
+        
         for (i, button) in buttons.enumerated() {
             button?.setImage(inputConfigurationButtons[i].deselectedImage, for: .normal)
             button?.setImage(inputConfigurationButtons[i].selectedImage, for: .selected)

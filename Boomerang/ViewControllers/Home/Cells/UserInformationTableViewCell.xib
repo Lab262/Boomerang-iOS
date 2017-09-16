@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -51,7 +51,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" alpha="0.0" contentMode="center" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ohq-5c-EJj">
-                        <rect key="frame" x="256" y="19" width="99" height="14"/>
+                        <rect key="frame" x="256" y="19.5" width="99" height="14"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-4U-rrd">
                                 <rect key="frame" x="0.0" y="0.0" width="15" height="14"/>
@@ -85,6 +85,9 @@
                         <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3S-Dg-pZh">
+                        <rect key="frame" x="18" y="9.5" width="56" height="55"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="VZ4-h4-kL1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4kH-dU-j04"/>
@@ -92,9 +95,13 @@
                     <constraint firstItem="VZ4-h4-kL1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.25" id="6ii-BU-m3B"/>
                     <constraint firstItem="csg-fj-fWw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.8" id="84X-Dk-lBl"/>
                     <constraint firstAttribute="bottom" secondItem="VZ4-h4-kL1" secondAttribute="bottom" constant="14.5" id="EBb-mE-tsp"/>
+                    <constraint firstItem="y3S-Dg-pZh" firstAttribute="height" secondItem="VZ4-h4-kL1" secondAttribute="height" multiplier="1.2" id="IYg-Rg-tXp"/>
+                    <constraint firstItem="y3S-Dg-pZh" firstAttribute="centerY" secondItem="VZ4-h4-kL1" secondAttribute="centerY" id="K7S-Ac-GFe"/>
                     <constraint firstItem="Qi6-o8-zd1" firstAttribute="leading" secondItem="diO-X6-Aef" secondAttribute="trailing" constant="4" id="P3A-lA-PRo"/>
+                    <constraint firstItem="y3S-Dg-pZh" firstAttribute="width" secondItem="VZ4-h4-kL1" secondAttribute="width" multiplier="1.2" id="P4P-Da-vgx"/>
                     <constraint firstItem="csg-fj-fWw" firstAttribute="leading" secondItem="VZ4-h4-kL1" secondAttribute="trailing" constant="13.5" id="Qft-5I-gwI"/>
                     <constraint firstItem="Qi6-o8-zd1" firstAttribute="centerY" secondItem="F3p-iU-V4w" secondAttribute="centerY" multiplier="1.15" id="Uxf-tU-PY4"/>
+                    <constraint firstItem="y3S-Dg-pZh" firstAttribute="centerX" secondItem="VZ4-h4-kL1" secondAttribute="centerX" id="dof-SA-Xlf"/>
                     <constraint firstItem="csg-fj-fWw" firstAttribute="top" secondItem="VZ4-h4-kL1" secondAttribute="top" multiplier="1.1" id="eld-2l-Rv2"/>
                     <constraint firstAttribute="trailing" secondItem="Ohq-5c-EJj" secondAttribute="trailing" constant="20" id="iui-zj-Y73"/>
                     <constraint firstItem="diO-X6-Aef" firstAttribute="centerY" secondItem="F3p-iU-V4w" secondAttribute="centerY" id="jrA-J6-ool"/>
@@ -106,6 +113,7 @@
             <connections>
                 <outlet property="cityLabel" destination="Qi6-o8-zd1" id="rJN-jB-DCB"/>
                 <outlet property="dateLabel" destination="F3p-iU-V4w" id="He9-bT-K7x"/>
+                <outlet property="userButton" destination="y3S-Dg-pZh" id="ngB-Lb-pCk"/>
                 <outlet property="userImage" destination="VZ4-h4-kL1" id="wdk-Up-Lyg"/>
                 <outlet property="userNameLabel" destination="csg-fj-fWw" id="KIf-jS-iG4"/>
                 <outletCollection property="evaluationStarImage" destination="HNI-4U-rrd" collectionClass="NSMutableArray" id="HwU-KA-zEF"/>
