@@ -15,11 +15,18 @@ protocol AuthenticationDelegate {
     func finishLoadingView()
     func showMsg(success: Bool, msg: String)
     func showHome()
+    func reload()
 }
 
 class AuthenticationPresenter: NSObject {
     
     fileprivate var delegate: AuthenticationDelegate?
+    
+    var onboardData: [[String:Any]] = [[String:Any]]() {
+        didSet {
+            self.delegate?.reload()
+        }
+    }
     
     func setViewDelegate(delegate: AuthenticationDelegate) {
         self.delegate = delegate
@@ -138,6 +145,64 @@ class AuthenticationPresenter: NSObject {
                 self.delegate?.finishLoadingView()
             }
         }
+    }
+    
+    private func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.getAllTypes { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    private func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.getAllConditions { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    private func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        SchemeRequest.getAllStatus { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
+    func requestInformationsProfileUser(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        self.requestAllPostTypes(completionHandler: { (success, msg) in
+            if success {
+                self.requestAllPostConditions(completionHandler: { (success, msg) in
+                    if success {
+                        self.requestSchemeStatus(completionHandler: { (success, msg) in
+                            completionHandler(success,msg)
+                            return
+                        })
+                    }else{
+                        completionHandler(success,msg)
+                        return
+                    }
+                })
+            }else{
+                completionHandler(success,msg)
+                return
+            }
+        })
+    }
+    
+    func setOnboardData() {
+        
+        let firstData = setDictOnboardData(image: OnboardLoginCellImages.firstCell, text: OnboardLoginCellStrings.firstCell)
+        let secondData = setDictOnboardData(image: OnboardLoginCellImages.secondCell, text: OnboardLoginCellStrings.secondCell)
+        let thirdData = setDictOnboardData(image: OnboardLoginCellImages.thirdCell, text: OnboardLoginCellStrings.thirdCell)
+        
+        self.onboardData.append(contentsOf: [firstData,secondData,thirdData])
+    }
+    
+    private func setDictOnboardData(image: UIImage, text: String) -> [String:Any] {
+        
+        var dictOnboardData = [String:Any]()
+        
+        dictOnboardData[OnboardCellKeys.keyImageView] = image
+        dictOnboardData[OnboardCellKeys.keyDescriptionLabel] = text
+        
+        return dictOnboardData
     }
 }
 

@@ -14,27 +14,28 @@ import ParseFacebookUtilsV4
 
 class AuthenticationMainViewController: UIViewController {
     
-    @IBOutlet weak var pageCollectionView: UICollectionView!
     @IBOutlet weak var facebookButton: UIButton!
-    var presenter = AuthenticationPresenter()
-    var pageIndicatorView: PageIndicatorView?
-    let spaceCells: CGFloat = 2
-    let sizeCells: Int = 8
+    @IBOutlet weak var onboardCollectionView: UICollectionView!
     @IBOutlet weak var viewPages: UIView!
-    let defaultTextTitleWelcome = "Bem vindo"
-    let defaultTextDescriptionWelcome = " a rede social mais amorzinho que você respeita"
-    let defaultSizeFontWelcomeLabel:CGFloat = 14
-    let allText = ["Bem vindo a rede social mais amorzinho que você respeita"," Aqui todo mundo se conhece! Nossa rede é feita de amigos para amigos.","Entre com o Facebook para conseguir o código boomer"]
-    let allImages = [#imageLiteral(resourceName: "ic_heart_auth"),#imageLiteral(resourceName: "ic_friends_auth"),#imageLiteral(resourceName: "ic_padlock_auth")]
+    
+    var pageIndicatorView: PageIndicatorView?
+    var presenter = AuthenticationPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCustomLabel()
+        //setupCustomLabel()
         setupViewDelegate()
-        self.registerNibs()
-        self.setUpCollectionView()
+        registerNib()
         initializePageIndicatorView()
-        
+        setOnboarData()
+    }
+    
+    func setupViewDelegate() {
+        presenter.setViewDelegate(delegate: self)
+    }
+    
+    func registerNib(){
+        onboardCollectionView.registerNibFrom(OnboardAuthenticationCollectionViewCell.self)
     }
     
     func initializePageIndicatorView(){
@@ -46,41 +47,18 @@ class AuthenticationMainViewController: UIViewController {
         pageIndicatorView?.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func updateCell(){
-        pageCollectionView.reloadData()
-        pageIndicatorView?.reload()
+    func setOnboarData(){
+        presenter.setOnboardData()
     }
     
-    func setUpCollectionView() {
-     
-        let flowLayout = pageCollectionView.collectionViewLayout as?CenterCellCollectionViewFlowLayout
-        flowLayout?.centerOffset = CGPoint(x: pageCollectionView.frame.width * 0.8, y: 0)
+    func generateOnboardCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let margin: CGFloat = 40.0
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardAuthenticationCollectionViewCell.identifier, for: indexPath) as! OnboardAuthenticationCollectionViewCell
         
-        flowLayout?.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin)
-        flowLayout?.minimumLineSpacing = margin
-    }
-    
-    
-    
-    func setupViewDelegate() {
-        presenter.setViewDelegate(delegate: self)
-    }
-    
-    func registerNibs (){
-        pageCollectionView.registerNibFrom(PageCollectionViewCell.self)
-    }
-    
-    func setupCustomLabel(){
-        let textWelcomeLabel = NSMutableAttributedString(string: defaultTextTitleWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratBlack(size: defaultSizeFontWelcomeLabel)])
+        cell.onboardData = presenter.onboardData[indexPath.row]
         
-        let textWelcomeDescriptionLabel = NSMutableAttributedString(string: defaultTextDescriptionWelcome, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.montserratLight(size: defaultSizeFontWelcomeLabel)])
-        
-        textWelcomeLabel.append(textWelcomeDescriptionLabel)
-        //self.welcomeLabel.attributedText = textWelcomeLabel
+        return cell
     }
-    
     
     @IBAction func facebookAction(_ sender: Any) {
        
@@ -89,45 +67,61 @@ class AuthenticationMainViewController: UIViewController {
         self.presenter.loginFacebook()
         
     }
-
+    
     func showHomeVC() {
         
-        self.requestAllPostTypes(completionHandler: { (success, msg) in
+        self.presenter.requestInformationsProfileUser { (success, msg) in
             if success {
-                self.requestAllPostConditions(completionHandler: { (success, msg) in
-                    if success {
-                        self.requestSchemeStatus(completionHandler: { (success, msg) in
-                            if success {
-                                self.finishLoadingView()
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                let vcToShow = storyboard.instantiateInitialViewController()!
-                                self.present(vcToShow, animated: true, completion: nil)
-                            }
-                        })
-                    }
-                })
+                self.finishLoadingView()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vcToShow = storyboard.instantiateInitialViewController()!
+                self.present(vcToShow, animated: true, completion: nil)
+            }else {
+                //TODO: Review text when have error in login
+                self.showAlertError(message: msg)
             }
-        })
-//        UserRequest.getProfileUser(completionHandler: { (success, msg) in
-//            if success {
-//                self.requestAllPostTypes(completionHandler: { (success, msg) in
-//                    if success {
-//                        self.requestAllPostConditions(completionHandler: { (success, msg) in
-//                            if success {
-//                                self.requestSchemeStatus(completionHandler: { (success, msg) in
-//                                    if success {
-//                                        self.view.unload()
-//                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                                        let vcToShow = storyboard.instantiateInitialViewController()!
-//                                        self.present(vcToShow, animated: true, completion: nil)
-//                                    }
-//                                })
-//                            }
-//                        })
-//                    }
-//                })
-//            }
-//        })
+        }
+        //        UserRequest.getProfileUser(completionHandler: { (success, msg) in
+        //            if success {
+        //                self.requestAllPostTypes(completionHandler: { (success, msg) in
+        //                    if success {
+        //                        self.requestAllPostConditions(completionHandler: { (success, msg) in
+        //                            if success {
+        //                                self.requestSchemeStatus(completionHandler: { (success, msg) in
+        //                                    if success {
+        //                                        self.view.unload()
+        //                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //                                        let vcToShow = storyboard.instantiateInitialViewController()!
+        //                                        self.present(vcToShow, animated: true, completion: nil)
+        //                                    }
+        //                                })
+        //                            }
+        //                        })
+        //                    }
+        //                })
+        //            }
+        //        })
+    }
+    
+    func showAlertError(message: String){
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Erro: \(message)! Tente novamente mais tarde", negativeAction: "Ok") { (isPositive) in
+        }
+    }
+    
+    func verifyIfFirstTimeLogin() -> Bool {
+        //TODO: Verify rules of onboardview
+        let userDefaults = UserDefaults.standard
+        if let _ = userDefaults.string(forKey: OnboardKeyLogin.keyLoginFirstTime) {
+            return false
+        }else{
+            userDefaults.set(OnboardKeyLogin.keyLoginFirstTime, forKey: OnboardKeyLogin.keyLoginFirstTime)
+            return true
+        }
+    }
+    
+    func showOnboarMainViewController(){
+        let onboardMaindViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Authentication", identifier: "OnboardMainViewController")
+        self.present(onboardMaindViewController!, animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -151,115 +145,61 @@ class AuthenticationMainViewController: UIViewController {
             completionHandler(success, msg)
         }
     }
+    
 }
 
-extension AuthenticationMainViewController{
-    
-    
-    func generatePageCell (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageCollectionViewCell.identifier, for: indexPath) as! PageCollectionViewCell
-        cell.imagePageView.image = allImages[indexPath.row]
-        cell.titleText.text = allText[indexPath.row]
-        
-        return cell
-    }
-}
-
-
-
-extension AuthenticationMainViewController: AuthenticationDelegate {
-    func showHome() {
-        self.showHomeVC()
-    }
-    
-    func showMsg(success: Bool, msg: String) {
-        
-    }
-    
-    func startLoadingView() {
-        self.view.loadAnimation()
-    }
-    
-    func finishLoadingView() {
-        self.view.unload()
-    }
-}
 extension AuthenticationMainViewController: PromoCodeRequestDelegate {
     func afterValidateCode() {
         self.presenter.loginFacebook()
     }
 }
+
+extension AuthenticationMainViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        pageIndicatorView?.reload()
+        return presenter.onboardData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = self.generateOnboardCell(collectionView, cellForItemAt: indexPath)
+        
+        return cell
+    }
+}
+
 extension AuthenticationMainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    
-
-        let flowLayout = (self.pageCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
         
-        let indexPath = pageCollectionView.indexPathForItem(at: self.pageCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: pageCollectionView.frame.width/2, y: 0))
+        let flowLayout = (onboardCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
         
-        
-        if UIScreen.main.bounds.width == 320.0 {
-            let indexPath2 = pageCollectionView.indexPathForItem(at: self.pageCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: pageCollectionView.frame.width/2, y: 0)+CGPoint(x: 0, y: 19.5))
-            
-            if let index = indexPath2 {
-                pageIndicatorView?.selectedPage = index.row
-            }
-        }
-        
-        if UIScreen.main.bounds.width == 414.0 {
-            let indexPath3 = pageCollectionView.indexPathForItem(at: self.pageCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: pageCollectionView.frame.width/2, y: 0)+CGPoint(x: 0, y: 14))
-            
-            if let index = indexPath3 {
-                pageIndicatorView?.selectedPage = index.row
-            }
-        }
-        
-        
-        
+        let indexPath = self.onboardCollectionView.indexPathForItem(at: self.onboardCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: onboardCollectionView.frame.width/2, y: 0))
         
         if let index = indexPath {
             pageIndicatorView?.selectedPage = index.row
         }
     }
-    
-
 }
 
-extension AuthenticationMainViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            return generatePageCell(collectionView, cellForItemAt:indexPath)
-    }
-    
-    
-
-}
 extension AuthenticationMainViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
-        return CGSize(width: PageCollectionViewCell.cellSize.width * UIView.heightScaleProportion(), height: PageCollectionViewCell.cellSize.height * UIView.heightScaleProportion())
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return OnboardAuthenticationCollectionViewCell.cellSize
     }
-    
-
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 2
-    }
-  
 }
 
 extension AuthenticationMainViewController: PageIndicatorViewDelegate {
     
     var numberOfPages: Int {
-        return 3
+        return presenter.onboardData.count
     }
     
     var indicatorHeight: CGFloat {
@@ -295,3 +235,32 @@ extension AuthenticationMainViewController: PageIndicatorViewDelegate {
         return (.horizontal, alignment: .center, distribution: .equalSpacing, spacing: 5.0)
     }
 }
+
+extension AuthenticationMainViewController: AuthenticationDelegate {
+    func showHome() {
+        if self.verifyIfFirstTimeLogin() {
+            self.showOnboarMainViewController()
+        }else {
+            self.showHomeVC()
+        }
+    }
+    
+    func showMsg(success: Bool, msg: String) {
+        
+    }
+    
+    func startLoadingView() {
+        self.view.loadAnimation()
+    }
+    
+    func finishLoadingView() {
+        self.view.unload()
+    }
+    
+    func reload() {
+        self.onboardCollectionView.reloadData()
+        pageIndicatorView?.reload()
+    }
+}
+
+

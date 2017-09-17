@@ -40,8 +40,8 @@ class ThingDetailViewController: UIViewController {
         }
     }
     
-    let tableViewTopInset: CGFloat = 98.0
     let authorPostTag = 00
+    var tableViewTopInset: CGFloat = 90.0*UIView.heightScaleProportion()
     var presenter = DetailThingPresenter()
     var textFieldHeight: CGFloat = 70
     var composeBarView: PHFComposeBarView?
@@ -88,6 +88,10 @@ class ThingDetailViewController: UIViewController {
     }
     
     func configureTableView(){
+        
+        //Set inset based on lines title label
+        tableViewTopInset += navigationInformationsView.getHeightLabel()*UIView.heightScaleProportion()
+        
         tableView.contentInset = UIEdgeInsetsMake(tableViewTopInset, 0, buttonsStackView.frame.height, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
@@ -104,10 +108,10 @@ class ThingDetailViewController: UIViewController {
         super.viewDidLoad()
         setupInformations()
         setPresenterDelegate()
+        setNavigationInformations()
         registerNibs()
         //configureButtons()
         configureTableView()
-        setNavigationInformations()
         initializeComposeBar()
         setupKeyboardNotifications()
         getCommentsCount()
@@ -250,11 +254,11 @@ class ThingDetailViewController: UIViewController {
 
     
     func setNavigationInformations(){
-       navigationBarView.titleBarLabel.text = presenter.getCurrentType()
-       navigationInformationsView.thingNameLabel.text = presenter.post.title
+        navigationBarView.titleBarLabel.text = presenter.getCurrentType()
+        navigationInformationsView.thingNameLabel.text = presenter.post.title
         navigationInformationsView.thingNameLabel.setDynamicFont()
         navigationBarView.titleBarLabel.setDynamicFont()
-       navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+        navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {

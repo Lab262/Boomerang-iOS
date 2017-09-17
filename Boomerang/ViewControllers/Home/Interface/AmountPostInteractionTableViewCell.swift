@@ -21,7 +21,7 @@ class AmountPostInteractionTableViewCell: UITableViewCell {
     static var nibName: String {
         return "AmountPostInteractionTableViewCell"
     }
-
+    
     @IBOutlet weak var likeAmountButton: UIButton!
     
     @IBOutlet weak var commentAmountButton: UIButton!

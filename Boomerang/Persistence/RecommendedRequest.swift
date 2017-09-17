@@ -10,7 +10,6 @@ import UIKit
 import Parse
 
 class RecommendedRequest: NSObject {
-    
     static func fetchRecommendations(sender: Profile, post: Post, receivers: [Profile]?, pagination: Int, recommendationsDownloaded: [Recommended]?, completionHandler: @escaping (_ success: Bool, _ msg: String, _ recommendations: [Recommended]?) -> ()) {
         
         var recommendations: [Recommended] = [Recommended]()
@@ -29,7 +28,7 @@ class RecommendedRequest: NSObject {
         query.whereKey(RecommendedKeys.post, equalTo: post)
         
         if let receivers = receivers {
-             query.whereKey(RecommendedKeys.receiver, containedIn: receivers)
+            query.whereKey(RecommendedKeys.receiver, containedIn: receivers)
         }
         
         query.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)

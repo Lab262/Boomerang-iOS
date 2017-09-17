@@ -401,3 +401,39 @@ struct CreatePostTitles {
     static let msgErrorTime = "Campo de Por quanto tempo inválido!"
     static let msgErrorExchangeDescription = "Campo de O que posso dar em troca inválido!"
 }
+
+//MARK - Onboard strings
+struct OnboardKeyLogin {
+    static let keyLoginFirstTime = "keyLoginFirstTime"
+}
+
+struct OnboardCellKeys {
+    static let keyImageView = "keyImageView"
+    static let keyDescriptionLabel = "keyDescriptionLabel"
+}
+
+struct OnboardLoginCellStrings {
+    static let firstCell = "Bem vindo a rede social mais amorzinho que você respeita"
+    static let secondCell = "Aqui todo mundo se conhece! Nossa rede é feita de amigos para amigos."
+    static let thirdCell = "Entre com o Facebook para conseguir o código boomer"
+}
+
+struct OnboardLoginCellImages {
+    static let firstCell = #imageLiteral(resourceName: "iconFirstPageLogin")
+    static let secondCell = #imageLiteral(resourceName: "iconSecondPageLogin")
+    static let thirdCell = #imageLiteral(resourceName: "iconThirdPageLogin")
+}
+
+struct OnboardMainCellStrings {
+    static let firstCell = "Precisa de alguma coisa? Quer trocar ou doar algo? Posta no Boomer!"
+    static let secondCell = "Algum amigo com certeza vai te ajudar!"
+    static let thirdCell = "Vocês conversam e já marcam o esquema pelo app!"
+    static let fourthCell = "O Boomer é uma rede de amigos, Aproveite!"
+}
+
+struct OnboardMainCellImages {
+    static let firstCell = #imageLiteral(resourceName: "firstPageOnBoard")
+    static let secondCell = #imageLiteral(resourceName: "secondPageOnBoard")
+    static let thirdCell = #imageLiteral(resourceName: "thirdPageOnBoard")
+    static let fourthCell = #imageLiteral(resourceName: "fourthPageOnBoard")
+}

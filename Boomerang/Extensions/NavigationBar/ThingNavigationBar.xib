@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -30,7 +29,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Casinha de Cachorro" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wue-Zi-zwl">
-                    <rect key="frame" x="56" y="55" width="300" height="29"/>
+                    <rect key="frame" x="56" y="55" width="291" height="29"/>
                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -40,10 +39,10 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ym2-Uz-a3W" secondAttribute="bottom" id="Gev-OQ-nfM"/>
                 <constraint firstItem="ym2-Uz-a3W" firstAttribute="top" secondItem="aop-7O-aRH" secondAttribute="top" id="HPx-Vx-4ZP"/>
-                <constraint firstItem="Wue-Zi-zwl" firstAttribute="leading" secondItem="aop-7O-aRH" secondAttribute="leading" constant="56" id="JNC-Jh-5b5"/>
+                <constraint firstAttribute="trailing" secondItem="Wue-Zi-zwl" secondAttribute="trailing" constant="28" id="Z9L-rB-NGK"/>
                 <constraint firstItem="ym2-Uz-a3W" firstAttribute="leading" secondItem="aop-7O-aRH" secondAttribute="leading" id="f2t-z3-pvi"/>
                 <constraint firstItem="Wue-Zi-zwl" firstAttribute="top" secondItem="aop-7O-aRH" secondAttribute="top" constant="55" id="jaI-Cf-XFQ"/>
-                <constraint firstItem="Wue-Zi-zwl" firstAttribute="width" secondItem="ym2-Uz-a3W" secondAttribute="width" multiplier="0.8" id="nGR-PO-RVG"/>
+                <constraint firstItem="Wue-Zi-zwl" firstAttribute="leading" secondItem="aop-7O-aRH" secondAttribute="leading" constant="56" id="kg9-tX-Phc"/>
                 <constraint firstAttribute="trailing" secondItem="ym2-Uz-a3W" secondAttribute="trailing" id="zVf-Aj-AzG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

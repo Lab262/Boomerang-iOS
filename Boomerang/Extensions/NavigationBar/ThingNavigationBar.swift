@@ -27,12 +27,19 @@ class ThingNavigationBar: UIView {
     func nibInit() {
         Bundle.main.loadNibNamed("ThingNavigationBar", owner: self, options: nil)
         self.addSubview(view)
-        view.frame = self.bounds
+        view.frame = CGRect(origin: self.bounds.origin, size: CGSize(width: UIScreen.main.bounds.width, height: self.bounds.height*UIView.heightScaleProportion()))
         thingNameLabel.setDynamicFont()
     }
     
     override func awakeFromNib() {
         
+    }
+    
+    func getHeightLabel() -> CGFloat {
+        self.thingNameLabel.sizeToFit()
+        let heightLine = lroundf(Float(self.thingNameLabel.font.lineHeight))
+        let numberOfLines = lroundf(Float(self.thingNameLabel.frame.height/CGFloat(heightLine)))
+        return CGFloat((numberOfLines-1)*heightLine)
     }
     
     @IBInspectable var thingNameLabelHidden: Bool {
