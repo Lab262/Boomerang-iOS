@@ -144,7 +144,15 @@ class ProfilePresenter: NSObject {
         }
     }
     
-    func getUserCountOf(key: String, className: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void){
+    func getAverageStars (completionHandler: @escaping (_ success: Bool, _ msg: String, _ averageStars: Int?) -> ()){
+        
+        ProfileRequest.getAverageStars(profile: profile) { (success, msg, averageStars) in
+            completionHandler(success, msg, averageStars)
+        }
+        
+    }
+    
+    func getUserCountOf(key: String, className: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void) {
         
         UserRequest.getProfileCountOf(key: key, className: className, profile: profile) { (success, msg, count) in
             if success {

@@ -43,7 +43,7 @@ class EvaluationViewController: UIViewController {
     func setupInformations(){
         
         var nameUser = ""
-        if presenter.scheme.owner?.objectId == User.current()?.objectId {
+        if presenter.scheme.owner?.objectId == User.current()?.profile!.objectId {
             nameUser = (presenter.scheme.dealer?.fullName)!
             userImage.getUserImageFrom(file: (presenter.scheme.dealer?.photo!)!) { (success, msg) in
             }

@@ -196,6 +196,7 @@ struct CloudFunctions {
     static let enterInterestedList = "enterInterestedList"
     static let likePost = "likePost"
     static let validatePromoCode = "validatePromoCode"
+    static let averageStars = "averageStars"
 }
 
 //MARK - Server keys

@@ -33,6 +33,8 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var boomerAmountLabel: UILabel!
     
+    @IBOutlet var evaluationStars: [UIImageView]!
+    @IBOutlet weak var starsStackView: UIStackView!
     
     @IBOutlet weak var backButton: UIButton!
     
@@ -50,10 +52,12 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     }
     
     func configureButtonAction() {
+        
         if presenter.authorPostIsCurrent() {
             self.backButton.isHidden = true
             button.isHidden = true
             button.setTitle(titleButtonEditProfile, for: .normal)
+            
         } else {
             self.backButton.isHidden = false
             presenter.alreadyFollowing(completionHandler: { (success, msg, alreadyFollowing) in
@@ -153,11 +157,21 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     func getAmountInformations(){
         
+        presenter.getAverageStars { (success, msg, averageStars) in
+            if success {
+                for i in 0 ..< averageStars! {
+                    self.evaluationStars[i].image = UIImage(named: "selected-star-button")
+                }
+            } else {
+                print("AVERAGE STARS")
+            }
+        }
+        
         presenter.getUserCountOf(key: "to", className: "Follow") { (success, msg, count) in
             if success {
                 self.followersLabel.text = count?.description
             } else {
-                print ("ERROR COUNT FOLLOWERS")
+                print("ERROR COUNT FOLLOWERS")
             }
         }
         
@@ -169,7 +183,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             }
         }
         
-        presenter.getUserCountOf(key: "from", className: "Scheme") { (success, msg, count) in
+        presenter.getUserCountOf(key: "owner", className: "Scheme") { (success, msg, count) in
             if success {
                 
                 var text: String?
@@ -177,9 +191,9 @@ class ProfileCollectionReusableView: UICollectionReusableView {
                 if count == 0 {
                     text = "Sem arremesso."
                 } else if count == 1 {
-                    text = "\(String(describing: count)) arremesso."
+                    text = "\(String(count!)) arremesso"
                 } else {
-                    text = "\(String(describing: count)) arremessos."
+                    text = "\(String(count!)) arremessos"
                 }
                 self.boomerAmountLabel.text = text
                 self.delegate?.unload()
@@ -187,6 +201,8 @@ class ProfileCollectionReusableView: UICollectionReusableView {
                 print ("ERROR COUNT SCHEME")
             }
         }
+        
+        
     }
     
     @IBAction func filterForAllPosts(_ sender: Any) {

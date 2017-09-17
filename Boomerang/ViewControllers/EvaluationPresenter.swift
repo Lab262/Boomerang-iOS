@@ -19,7 +19,7 @@ protocol EvaluationDelegate {
 class EvaluationPresenter: NSObject {
     
     var scheme: Scheme!
-    var user: User = User.current()!
+    var profile: Profile = User.current()!.profile!
     fileprivate var view: EvaluationDelegate?
     var placeHolderText: String = EvaluationTitles.placeholder
     
@@ -30,12 +30,17 @@ class EvaluationPresenter: NSObject {
     func createEvaluationBy(starButtons: [UIButton], comment: String) {
         if verifyTextIsValid(text: comment) {
    
-            let evaluation = Evaluation(scheme: scheme, comment: comment, amountStars: NSNumber(integerLiteral: getAmountStars(starButtons: starButtons)))
+            let evaluation = Evaluation(scheme: scheme, comment: comment, evaluated: self.scheme!.dealer!, appraiser: self.profile, amountStars: NSNumber(integerLiteral: getAmountStars(starButtons: starButtons)))
+            
             saveEvaluation(evaluation: evaluation)
         } else {
             self.view?.showMessage(error: "Avaliação inválida! :(")
         }
     }
+    
+//    func getEvaluatedOfScheme() -> Profile {
+//        return self.scheme.owner == self.profile ? self.scheme.
+//    }
     
     private func getAmountStars(starButtons: [UIButton]) -> Int {
         var selectedStarButtons = [UIButton]()
@@ -49,11 +54,12 @@ class EvaluationPresenter: NSObject {
     
     private func saveEvaluation(evaluation: Evaluation) {
         
-        EvaluationRequest.createEvaluation(evaluation: evaluation) { (success, msg) in
-            if success {
-                self.view?.presentView()
+        evaluation.saveInBackground { (success, error) in
+            
+            if let error = error {
+                self.view?.showMessage(error: error.localizedDescription)
             } else {
-                self.view?.showMessage(error: msg)
+                self.view?.presentView()
             }
         }
     }

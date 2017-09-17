@@ -118,31 +118,31 @@
                                                                 <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jrK-Um-I7Q">
                                                                     <rect key="frame" x="0.0" y="0.0" width="101.5" height="14"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="LQ8-BK-vqi">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="LQ8-BK-vqi">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15.5" height="14"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="LQ8-BK-vqi" secondAttribute="height" multiplier="15:14" id="fu4-as-E6t"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="5Al-Wn-Zzn">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="5Al-Wn-Zzn">
                                                                             <rect key="frame" x="21.5" y="0.0" width="15.5" height="14"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="5Al-Wn-Zzn" secondAttribute="height" multiplier="15:14" id="o0U-aq-dhP"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="Tsl-ij-aB3">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="Tsl-ij-aB3">
                                                                             <rect key="frame" x="43" y="0.0" width="15.5" height="14"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="Tsl-ij-aB3" secondAttribute="height" multiplier="15:14" id="muj-oB-XVc"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="rB2-Xk-BlP">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="rB2-Xk-BlP">
                                                                             <rect key="frame" x="64.5" y="0.0" width="15.5" height="14"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="rB2-Xk-BlP" secondAttribute="height" multiplier="15:14" id="RTy-GH-JWv"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="ELm-fg-2ke">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="ELm-fg-2ke">
                                                                             <rect key="frame" x="86" y="0.0" width="15.5" height="14"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="ELm-fg-2ke" secondAttribute="height" multiplier="15:14" id="Q7i-tr-U15"/>
@@ -463,6 +463,12 @@
                                         <outlet property="followingLabel" destination="zcl-k0-QsP" id="44I-Q8-ofI"/>
                                         <outlet property="nameLabel" destination="CSD-eb-DMq" id="jKq-u2-0rX"/>
                                         <outlet property="profileImage" destination="eM7-CP-yPq" id="lgs-q0-POw"/>
+                                        <outlet property="starsStackView" destination="jrK-Um-I7Q" id="CC0-u5-r57"/>
+                                        <outletCollection property="evaluationStars" destination="LQ8-BK-vqi" collectionClass="NSMutableArray" id="V3K-Rq-Od2"/>
+                                        <outletCollection property="evaluationStars" destination="5Al-Wn-Zzn" collectionClass="NSMutableArray" id="7Qo-Y1-Qyy"/>
+                                        <outletCollection property="evaluationStars" destination="Tsl-ij-aB3" collectionClass="NSMutableArray" id="vAI-kU-A4t"/>
+                                        <outletCollection property="evaluationStars" destination="rB2-Xk-BlP" collectionClass="NSMutableArray" id="8DI-ai-Uu0"/>
+                                        <outletCollection property="evaluationStars" destination="ELm-fg-2ke" collectionClass="NSMutableArray" id="5FT-vJ-XzA"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
@@ -607,7 +613,7 @@
         <image name="inventory_have_icon_unselected" width="21" height="32"/>
         <image name="inventory_need_icon_unselected" width="20" height="27"/>
         <image name="perfil_dummy" width="371" height="372"/>
-        <image name="selected-star-button" width="15" height="14"/>
+        <image name="unselected-star-button" width="15" height="14"/>
         <image name="verified_icon" width="16" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>

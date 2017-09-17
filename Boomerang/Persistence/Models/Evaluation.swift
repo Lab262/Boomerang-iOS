@@ -14,20 +14,18 @@ class Evaluation: PFObject {
     @NSManaged var scheme: Scheme?
     @NSManaged var comment: String?
     @NSManaged var amountStars: NSNumber?
-    @NSManaged var owner: Profile?
-    @NSManaged var requester: Profile?
-    var createdDate: Date?
+    @NSManaged var evaluated: Profile?
+    @NSManaged var appraiser: Profile?
     
     override init(){
         super.init()
     }
     
-    
-    convenience init(scheme: Scheme, comment: String, amountStars: NSNumber) {
+    convenience init(scheme: Scheme, comment: String, evaluated: Profile, appraiser: Profile, amountStars: NSNumber) {
         self.init()
         self.scheme = scheme
-        self.owner = scheme.owner
-        self.requester = scheme.requester
+        self.evaluated = evaluated
+        self.appraiser = appraiser
         self.comment = comment
         self.amountStars = amountStars
     }
