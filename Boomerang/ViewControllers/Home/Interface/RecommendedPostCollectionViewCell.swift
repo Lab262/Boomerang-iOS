@@ -9,6 +9,7 @@
 import UIKit
 
 class RecommendedPostCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var containerCellView: UIView!
     @IBOutlet weak var containerIconView: UIView!
@@ -75,11 +76,40 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
         }
         
         presenter.getCountPhotos()
+        
         presenter.getCoverOfPost { (success, msg, image) in
             if success {
                 self.postImage.image = image!
             } else {
                 print ("FAIL COVER POST")
+            }
+        }
+        
+        presenter.getLikeAmount { (success, msg, amount) in
+            
+            if success {
+                
+                self.likeAmountLabel.text = String(amount!)
+            } else {
+                
+            }
+        }
+        
+        presenter.getCommentAmount { (success, msg, amount) in
+            
+            if success {
+                self.commentAmountLabel.text = String(amount!)
+            } else {
+                
+            }
+        }
+        
+        presenter.getRecommendationAmount { (success, msg, amount) in
+            
+            if success {
+                self.sharedAmountLabel.text = String(amount!)
+            } else {
+                
             }
         }
     }

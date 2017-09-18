@@ -31,9 +31,7 @@ class AmountPostInteractionPresenter: NSObject {
     
     func getLikeAmount(isSelectedButton: Bool?) {
         PostRequest.getLikeCount(by: post!) { (success, msg, amount) in
-            
             if success {
-                
                 self.delegate?.likeAmount = String(amount!)
                 
                 if let isSelectedButton = isSelectedButton {

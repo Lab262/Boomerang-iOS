@@ -62,7 +62,27 @@ class PostPresenter: NSObject {
                 })
             }
         }
+    }
+    
+    func getLikeAmount(completionHandler: @escaping (_ success: Bool, _ msg: String, _ amount: Int?) -> Void) {
         
+        PostRequest.getLikeCount(by: post) { (success, msg, amount) in
+           completionHandler(success, msg, amount)
+        }
+    }
+    
+    func getCommentAmount(completionHandler: @escaping (_ success: Bool, _ msg: String, _ amount: Int?) -> Void) {
+        
+        CommentRequest.getCommentsCount(by: post) { (success, msg, amount) in
+            completionHandler(success, msg, amount)
+        }
+    }
+    
+    func getRecommendationAmount(completionHandler: @escaping (_ success: Bool, _ msg: String, _ amount: Int?) -> Void) {
+        
+        PostRequest.getRecommendationCount(by: post) { (success, msg, amount) in
+            completionHandler(success, msg, amount)
+        }
     }
     
     func downloadCoverImagePost(completionHandler: @escaping (_ success: Bool, _ msg: String, _ image: UIImage?) -> Void){
