@@ -11,7 +11,7 @@ import Parse
 
 class ProfilePresenter: NSObject {
     
-    fileprivate var profile: Profile = User.current()!.profile!
+    fileprivate var profile: Profile! = User.current()!.profile!
     fileprivate let pagination = 20
     fileprivate var skip = 0
     fileprivate var allPosts: [Post] = [Post]()
@@ -28,7 +28,6 @@ class ProfilePresenter: NSObject {
     
     fileprivate var currentPostsCount = 0
     fileprivate var controller: ViewDelegate?
-    
     
     func setControllerDelegate(controller: ViewDelegate) {
         self.controller = controller
@@ -146,10 +145,9 @@ class ProfilePresenter: NSObject {
     
     func getAverageStars (completionHandler: @escaping (_ success: Bool, _ msg: String, _ averageStars: Int?) -> ()){
         
-        ProfileRequest.getAverageStars(profile: profile) { (success, msg, averageStars) in
+        ProfileRequest.getAverageStars(profile: getProfile()) { (success, msg, averageStars) in
             completionHandler(success, msg, averageStars)
         }
-        
     }
     
     func getUserCountOf(key: String, className: String, completionHandler: @escaping (_ success: Bool, _ msg: String, _ count: Int?) -> Void) {

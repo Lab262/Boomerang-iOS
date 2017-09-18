@@ -77,6 +77,7 @@ class MorePostViewController: UIViewController {
         
         if let controller = segue.destination as? ProfileMainViewController {
             controller.presenter.setProfile(profile: presenter.posts[selectedProfile].author!)
+            
         }
     }
 

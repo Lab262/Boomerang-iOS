@@ -21,12 +21,25 @@ class MessagesChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInformationsHeader()
+        getAverageStars()
     }
     
     func setupInformationsHeader() {
         userImage.getUserImage(profile: profile!) { (success, msg) in
         }
         userName.text = profile?.fullName
+    }
+    
+    func getAverageStars() {
+        ProfileRequest.getAverageStars(profile: profile!) { (success, msg, averageStars) in
+            if success {
+                for i in 0 ..< averageStars {
+                    self.starImages[i].image = UIImage(named: "chat_star_full")
+                }
+            } else {
+                
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

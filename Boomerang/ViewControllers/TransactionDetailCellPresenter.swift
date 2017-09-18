@@ -38,7 +38,7 @@ class TransactionDetailCellPresenter: NSObject {
     }
     
     func getUserOwnATransaction() -> Profile {
-        if scheme.owner == self.profile {
+        if scheme.owner?.objectId == self.profile.objectId {
             return scheme.requester!
         } else {
             return scheme.owner!
