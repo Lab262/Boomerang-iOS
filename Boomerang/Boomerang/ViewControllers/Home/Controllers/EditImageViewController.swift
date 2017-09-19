@@ -20,6 +20,15 @@ class EditImageViewController: UIViewController {
         collectionView.reloadData()
         self.registerNib()
     }
+    @IBAction func closeDetail(_ sender: Any) {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionFade
+        transition.subtype = kCATransitionFromBottom
+        navigationController?.view.layer.add(transition, forKey:kCATransition)
+        let _ = navigationController?.popViewController(animated: false)
+    }
     func registerNib(){
         collectionView.registerNibFrom(EditPhotoCollectionViewCell.self)
     }

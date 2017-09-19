@@ -328,11 +328,7 @@ class ThingDetailViewController: UIViewController {
             controller.presenter.post = presenter.post
         }
         
-        if let controller = segue.destination as? EditImageViewController {
-            controller.photo = presenter.getImagePostByIndex(0)
-        }
-        
-        
+
         
     }
     
@@ -596,8 +592,23 @@ extension ThingDetailViewController : UIGestureRecognizerDelegate {
 extension ThingDetailViewController:PhotoDetailDelegate {
     
     func displayPhoto(){
-        self.performSegue(withIdentifier:"detailPhoto", sender:nil)
+        self.open()
     }
+
+    func open() {
+        
+        let nextVC = ViewUtil.viewControllerFromStoryboardWithIdentifier("Home", identifier:"editImageVC") as? EditImageViewController
+        nextVC?.photo = presenter.getImagePostByIndex(0)
+        
+        let transition = CATransition()
+        transition.duration = 0.2
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionReveal
+        transition.subtype = kCATransitionFade
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.pushViewController(nextVC!, animated: false)
+    }
+
 }
 
 

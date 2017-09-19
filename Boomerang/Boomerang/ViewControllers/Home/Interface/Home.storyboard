@@ -38,13 +38,13 @@
                                         <rect key="frame" x="-0.5" y="0.0" width="375" height="192"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olar, Amanda" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rk-n9-dAq">
-                                        <rect key="frame" x="20" y="42" width="335" height="28"/>
+                                        <rect key="frame" x="20" y="42" width="335" height="29"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_dummy" translatesAutoresizingMaskIntoConstraints="NO" id="SXu-VK-YbB">
-                                        <rect key="frame" x="313" y="35.5" width="42" height="42"/>
+                                        <rect key="frame" x="313" y="36" width="42" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="FaI-Xu-9yY"/>
                                             <constraint firstAttribute="width" constant="42" id="g8V-13-QNi"/>
@@ -60,7 +60,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bE9-O6-w9V">
-                                        <rect key="frame" x="302.5" y="25" width="63" height="63"/>
+                                        <rect key="frame" x="302.5" y="25.5" width="63" height="63"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -607,7 +607,7 @@
         <!--Edit Image View Controller-->
         <scene sceneID="Q09-JA-p0i">
             <objects>
-                <viewController modalTransitionStyle="partialCurl" modalPresentationStyle="currentContext" id="43l-tK-9bh" customClass="EditImageViewController" customModule="lab262_boomerang_test" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editImageVC" modalTransitionStyle="partialCurl" modalPresentationStyle="currentContext" id="43l-tK-9bh" customClass="EditImageViewController" customModule="lab262_boomerang_test" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gue-bY-p5q"/>
                         <viewControllerLayoutGuide type="bottom" id="fch-iu-XAY"/>
@@ -665,14 +665,14 @@
                                     <outlet property="delegate" destination="43l-tK-9bh" id="lqc-3J-DfR"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0y-nZ-iGq">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0y-nZ-iGq">
                                 <rect key="frame" x="4" y="28" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Efp-Kz-74X"/>
                                     <constraint firstAttribute="width" constant="48" id="i2g-S8-6lF"/>
                                 </constraints>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="ic_keyboard_arrow_down"/>
+                                <state key="normal" image="ic_arrow_down"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="24"/>
@@ -681,7 +681,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="43l-tK-9bh" eventType="touchUpInside" id="dLT-cs-xuE"/>
+                                    <action selector="closeDetail:" destination="43l-tK-9bh" eventType="touchUpInside" id="uIM-e9-DZA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -710,7 +710,7 @@
     <resources>
         <image name="back-button" width="12" height="19"/>
         <image name="bg_nav" width="375" height="163"/>
-        <image name="ic_keyboard_arrow_down" width="24" height="24"/>
+        <image name="ic_arrow_down" width="21" height="13"/>
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
