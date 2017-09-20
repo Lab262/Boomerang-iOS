@@ -637,8 +637,8 @@ extension ThingDetailViewController: DetailThingDelegate {
     }
     
     func showMessage(isSuccess: Bool, msg: String) {
-        let title = isSuccess ? "Certo" : "Erro"
-        GenericBoomerAlertController.presentMe(inParent: self, withTitle: title, negativeAction: "Ok") { (isPositive) in
+        let title = isSuccess ? "" : "Erro: "
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: title + msg, negativeAction: "Ok") { (isPositive) in
             self.dismiss(animated: true, completion: nil)
         }
     }
