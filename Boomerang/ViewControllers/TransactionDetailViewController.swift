@@ -126,6 +126,19 @@ class TransactionDetailViewController: UIViewController {
         cell.presenter.scheme = presenter.scheme
         cell.updateInformationsCell()
         
+        if self.presenter.scheme.statusSchemeEnum != .done && self.presenter.scheme.statusSchemeEnum != .finished  {
+            
+            cell.arrowRoundImage.isHidden = true
+            cell.dateFinishLabel.isHidden = true
+            cell.finishLabel.isHidden = true
+            cell.startLabelCenterLeftConstraint.isActive = false
+            cell.startLabelCenterConstraint.isActive = true
+            cell.layoutIfNeeded()
+            
+        }
+        
+        cell.cancelButtonContainerView.isHidden = true
+        
         return cell
     }
     
