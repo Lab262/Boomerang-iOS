@@ -112,8 +112,10 @@ class ThingDetailViewController: UIViewController {
         registerNibs()
         //configureButtons()
         configureTableView()
-        initializeComposeBar()
-        setupKeyboardNotifications()
+        if self.presenter.post.isAvailable {
+            initializeComposeBar()
+            setupKeyboardNotifications()
+        }
         getCommentsCount()
         registerObservers()
         setupSubscribe()
