@@ -16,7 +16,7 @@ protocol SearchThingsResultDelegate {
     func finishFooterLoading()
     func startLoading()
     func finishLoading()
-    func didSearch(scope: SearchThingsScope, searchString: String)
+    func didSearch(scope: TypePostEnum, searchString: String)
 }
 
 class SearchThingsPresenter: NSObject {
@@ -25,14 +25,38 @@ class SearchThingsPresenter: NSObject {
     var people: [Profile] = [Profile]()
     var profile: Profile = User.current()!.profile!
     var view: SearchThingsResultDelegate?
+    var currentScope = TypePostEnum.atIndex(0)
+    var currentSearchString = ""
 
     func setViewDelegate(view: SearchThingsResultDelegate) {
         self.view = view
     }
+    
+    func searchPost(in scope: TypePostEnum, with searchString: String) {
+        self.currentScope = scope
+        self.currentSearchString = searchString
+        self.view?.startFooterLoading()
+        PostRequest.searchPosts(type: scope, searchString: searchString, postsDownloaded: self.posts, pagination: Paginations.morePosts) { (success, msg, posts) in
+            if success {
+                if posts!.count > 0 {
+                    self.posts = [Post]()
+                    posts!.forEach {
+                        self.posts.append($0)
+                    }
+                    self.view?.reload()
+                }
+
+            } else {
+                self.view?.showMessage(isSuccess: false, msg: msg)
+            }
+
+            self.view?.finishFooterLoading()
+        }
+    }
 
     func getMorePosts() {
         self.view?.startFooterLoading()
-        PostRequest.getPostsThatNotContain(friends: [], postsDownloaded: posts, pagination: Paginations.morePosts) { (success, msg, posts) in
+        PostRequest.searchPosts(type: self.currentScope, searchString: self.currentSearchString, postsDownloaded: self.posts, pagination: Paginations.morePosts) { (success, msg, posts) in
             if success {
                 if posts!.count > 0 {
                     posts!.forEach {
@@ -40,11 +64,11 @@ class SearchThingsPresenter: NSObject {
                     }
                     self.view?.reload()
                 }
-              
+
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }
-            
+
             self.view?.finishFooterLoading()
         }
     }

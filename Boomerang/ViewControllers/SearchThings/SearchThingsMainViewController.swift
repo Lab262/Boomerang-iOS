@@ -132,8 +132,8 @@ extension SearchThingsMainViewController: SegmentControlPageDelegate {
 
 extension SearchThingsMainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let scope = SearchThingsScope(rawValue: self.segmentVC!.previousPage)
-        self.segmentVC!.searchDelegate!.didSearch(scope: scope!, searchString: searchBar.text!)
+        let scope = TypePostEnum.atIndex(self.segmentVC!.previousPage)
+        self.segmentVC!.searchDelegate!.didSearch(scope: scope, searchString: searchBar.text!)
     }
 }
 

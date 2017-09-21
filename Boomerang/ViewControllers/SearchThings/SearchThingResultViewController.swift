@@ -40,14 +40,27 @@ class SearchThingResultViewController: UIViewController {
     }
 
     func getMorePosts(){
-        presenter.getMorePosts()
+        presenter.searchPost(in: TypePostEnum.atIndex(0), with: "")
     }
 
 
     func registerNib(){
         tableView.registerNibFrom(MorePostTableViewCell.self)
     }
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if let controller = segue.destination as? ThingDetailViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                controller.presenter.post = presenter.posts[indexPath.row]
+            }
+        }
+
+//        if let controller = segue.destination as? ProfileMainViewController {
+//            controller.presenter.setProfile(profile: presenter.posts[selectedProfile].author!)
+//
+//        }
+    }
 
 }
 
@@ -122,8 +135,8 @@ extension SearchThingResultViewController: SearchThingsResultDelegate {
         self.tableView.tableFooterView?.unload()
     }
 
-    func didSearch(scope: SearchThingsScope, searchString: String) {
-        print("\(scope)" + searchString)
+    func didSearch(scope: TypePostEnum, searchString: String) {
+       self.presenter.searchPost(in: scope, with: searchString)
     }
 }
 

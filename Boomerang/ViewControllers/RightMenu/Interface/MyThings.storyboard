@@ -153,7 +153,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6tJ-GG-Y7U" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ia1-ch-nHw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ia1-ch-nHw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -423,7 +423,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="6yI-zn-Z9W" id="R7D-dN-zXv"/>
                         <outlet property="tableView" destination="MXU-YC-co1" id="1zT-5c-MHq"/>
                         <segue destination="xWH-hl-94I" kind="show" identifier="goToProfile" id="0Ix-XT-r2P"/>
                     </connections>

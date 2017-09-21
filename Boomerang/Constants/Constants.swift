@@ -14,10 +14,6 @@ enum SectionPost: Int {
     case city = 2
 }
 
-enum SearchThingsScope: Int {
-    case have = 0, need, donate
-}
-
 //MARK - Facebook Urls
 
 struct FacebookUrls {
@@ -216,6 +212,9 @@ struct PostKeys {
     static let author = "author"
     static let photos = "photos"
     static let isAvailable = "isAvailable"
+    static let type = "type"
+    static let title = "title"
+
 }
 
 //MARK - Interested Keys
