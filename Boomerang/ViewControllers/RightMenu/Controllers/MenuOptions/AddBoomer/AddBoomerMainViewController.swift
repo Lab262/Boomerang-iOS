@@ -27,7 +27,6 @@ class AddBoomerMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibs()
-        setupSearchBarConfiguration()
         setupViewDelegate()
         getFacebookFriends()
     }
@@ -44,16 +43,7 @@ class AddBoomerMainViewController: UIViewController {
         presenter.getFriendsByFacebook()
     }
     
-    func setupSearchBarConfiguration() {
-        searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
-        searchBar.setBackgroundSearchBarColor(color: UIColor.backgroundSearchColor)
-        searchBar.setCursorSearchBarColor(color: UIColor.textSearchColor)
-        searchBar.setPlaceholderSearchBarColor(color: UIColor.textSearchColor)
-        searchBar.setTextSearchBarColor(color: UIColor.textSearchColor)
-        searchBar.setIconSearchBarColor(color: UIColor.textSearchColor)
-        searchBar.setClearIconSearchBarColor(color: UIColor.textSearchColor)
-    }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.window?.endEditing(true)
     }

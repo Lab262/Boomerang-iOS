@@ -267,6 +267,21 @@
 		A4796CFD1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */; };
 		A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A489B1F61DDA7D1100B239D5 /* Authentication.storyboard */; };
 		A489B1F91DDA7D3E00B239D5 /* AuthenticationMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489B1F81DDA7D3E00B239D5 /* AuthenticationMainViewController.swift */; };
+		A4A0DB991F733DC2008AD89A /* SearchThings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4A0DB971F733DC2008AD89A /* SearchThings.storyboard */; };
+		A4A0DB9A1F733DC2008AD89A /* SearchThings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4A0DB971F733DC2008AD89A /* SearchThings.storyboard */; };
+		A4A0DB9B1F733DC2008AD89A /* SearchThings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4A0DB971F733DC2008AD89A /* SearchThings.storyboard */; };
+		A4A0DB9C1F733DC2008AD89A /* SearchThingsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DB981F733DC2008AD89A /* SearchThingsMainViewController.swift */; };
+		A4A0DB9D1F733DC2008AD89A /* SearchThingsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DB981F733DC2008AD89A /* SearchThingsMainViewController.swift */; };
+		A4A0DB9E1F733DC2008AD89A /* SearchThingsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DB981F733DC2008AD89A /* SearchThingsMainViewController.swift */; };
+		A4A0DBA01F733EC9008AD89A /* SearchThingsSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DB9F1F733EC9008AD89A /* SearchThingsSegmentViewController.swift */; };
+		A4A0DBA11F733EC9008AD89A /* SearchThingsSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DB9F1F733EC9008AD89A /* SearchThingsSegmentViewController.swift */; };
+		A4A0DBA21F733EC9008AD89A /* SearchThingsSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DB9F1F733EC9008AD89A /* SearchThingsSegmentViewController.swift */; };
+		A4A0DBA41F733F53008AD89A /* SearchThingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DBA31F733F53008AD89A /* SearchThingResultViewController.swift */; };
+		A4A0DBA51F733F53008AD89A /* SearchThingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DBA31F733F53008AD89A /* SearchThingResultViewController.swift */; };
+		A4A0DBA61F733F53008AD89A /* SearchThingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DBA31F733F53008AD89A /* SearchThingResultViewController.swift */; };
+		A4A0DBA81F734154008AD89A /* SearchThingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DBA71F734154008AD89A /* SearchThingsPresenter.swift */; };
+		A4A0DBA91F734154008AD89A /* SearchThingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DBA71F734154008AD89A /* SearchThingsPresenter.swift */; };
+		A4A0DBAA1F734154008AD89A /* SearchThingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0DBA71F734154008AD89A /* SearchThingsPresenter.swift */; };
 		A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */; };
 		A4AFBB041DD28FC400F270C7 /* BoomerMessageAndNotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */; };
 		A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */; };
@@ -1129,6 +1144,11 @@
 		A4796CFA1EB6D36D00B0E543 /* NotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		A489B1F61DDA7D1100B239D5 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		A489B1F81DDA7D3E00B239D5 /* AuthenticationMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationMainViewController.swift; sourceTree = "<group>"; };
+		A4A0DB971F733DC2008AD89A /* SearchThings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchThings.storyboard; sourceTree = "<group>"; };
+		A4A0DB981F733DC2008AD89A /* SearchThingsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchThingsMainViewController.swift; sourceTree = "<group>"; };
+		A4A0DB9F1F733EC9008AD89A /* SearchThingsSegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchThingsSegmentViewController.swift; sourceTree = "<group>"; };
+		A4A0DBA31F733F53008AD89A /* SearchThingResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchThingResultViewController.swift; sourceTree = "<group>"; };
+		A4A0DBA71F734154008AD89A /* SearchThingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchThingsPresenter.swift; sourceTree = "<group>"; };
 		A4AFBB011DD272A700F270C7 /* UIApplication+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Navigation.swift"; sourceTree = "<group>"; };
 		A4AFBB031DD28FC300F270C7 /* BoomerMessageAndNotificationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomerMessageAndNotificationsCell.swift; sourceTree = "<group>"; };
 		A4AFBB051DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoomerMessageAndNotificationsCell.xib; sourceTree = "<group>"; };
@@ -1797,6 +1817,18 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		A4A0DB961F733DC2008AD89A /* SearchThings */ = {
+			isa = PBXGroup;
+			children = (
+				A4A0DB971F733DC2008AD89A /* SearchThings.storyboard */,
+				A4A0DB981F733DC2008AD89A /* SearchThingsMainViewController.swift */,
+				A4A0DB9F1F733EC9008AD89A /* SearchThingsSegmentViewController.swift */,
+				A4A0DBA31F733F53008AD89A /* SearchThingResultViewController.swift */,
+				A4A0DBA71F734154008AD89A /* SearchThingsPresenter.swift */,
+			);
+			path = SearchThings;
+			sourceTree = "<group>";
+		};
 		A4AFBB091DD2D6C400F270C7 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
@@ -1863,6 +1895,7 @@
 				A4E462EC1DCAEA7F00A611C0 /* Main.storyboard */,
 				A4E462ED1DCAEA7F00A611C0 /* Profile */,
 				A4E462EF1DCAEA7F00A611C0 /* RightMenu */,
+				A4A0DB961F733DC2008AD89A /* SearchThings */,
 				A4E462F11DCAEA7F00A611C0 /* TabBarController.swift */,
 			);
 			path = ViewControllers;
@@ -2908,6 +2941,7 @@
 				2F4957DA1ECD32AF0001554E /* preciso37.png in Resources */,
 				D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */,
 				2F49586E1ECD32D90001554E /* doar_00018.png in Resources */,
+				A4A0DB991F733DC2008AD89A /* SearchThings.storyboard in Resources */,
 				2F49581A1ECD32C40001554E /* Tenho_00012.png in Resources */,
 				D4E4BEAA1E8233EF00F8DC2E /* ThingConditionTableViewCell.xib in Resources */,
 				2F4958211ECD32C40001554E /* Tenho_00019.png in Resources */,
@@ -2990,6 +3024,7 @@
 				D4AD981F1EA9ACFD00C9FAB9 /* UserInformationTableViewCell.xib in Resources */,
 				D4AD98201EA9ACFD00C9FAB9 /* DescriptionTableViewCell.xib in Resources */,
 				D4AD98211EA9ACFD00C9FAB9 /* Home.storyboard in Resources */,
+				A4A0DB9A1F733DC2008AD89A /* SearchThings.storyboard in Resources */,
 				60A0F1131ED9F2B100585888 /* EmptyView.xib in Resources */,
 				D4F71F891F4A7D7F0085636F /* AmountPostInteractionTableViewCell.xib in Resources */,
 				D4AD98221EA9ACFD00C9FAB9 /* Montserrat-Regular.otf in Resources */,
@@ -3063,6 +3098,7 @@
 				D4AD98EB1EA9AD0400C9FAB9 /* UserInformationTableViewCell.xib in Resources */,
 				D4AD98EC1EA9AD0400C9FAB9 /* DescriptionTableViewCell.xib in Resources */,
 				D4AD98ED1EA9AD0400C9FAB9 /* Home.storyboard in Resources */,
+				A4A0DB9B1F733DC2008AD89A /* SearchThings.storyboard in Resources */,
 				60A0F1141ED9F2B100585888 /* EmptyView.xib in Resources */,
 				D4F71F8A1F4A7D7F0085636F /* AmountPostInteractionTableViewCell.xib in Resources */,
 				D4AD98EE1EA9AD0400C9FAB9 /* Montserrat-Regular.otf in Resources */,
@@ -3127,7 +3163,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81F257C77482D4401703111B /* [CP] Embed Pods Frameworks */ = {
@@ -3225,7 +3261,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD98391EA9ACFD00C9FAB9 /* Adding tags to comment */ = {
@@ -3338,7 +3374,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD99051EA9AD0400C9FAB9 /* Adding tags to comment */ = {
@@ -3516,7 +3552,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3551,6 +3587,7 @@
 				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
 				60B0DE501F6B02860029ACBC /* OnboardMainViewController.swift in Sources */,
 				D4788DDA1ECCE82400E5E55F /* PostPresenter.swift in Sources */,
+				A4A0DBA01F733EC9008AD89A /* SearchThingsSegmentViewController.swift in Sources */,
 				D42F22E91EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */,
 				D4C5BBD11ED7513A008EB531 /* AddBoomerPresenter.swift in Sources */,
 				A4CE0A601DD2408200576360 /* NotificationsMainViewController.swift in Sources */,
@@ -3590,6 +3627,7 @@
 				D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */,
 				D498F0311E7F334E002E8972 /* HomePresenter.swift in Sources */,
 				A40A252B1DCBD4C000DF9523 /* HomeMainViewController.swift in Sources */,
+				A4A0DB9C1F733DC2008AD89A /* SearchThingsMainViewController.swift in Sources */,
 				2F3C79D11E9969D00013F4F9 /* ActivitIndicatorView.swift in Sources */,
 				2FA0CB331E6E573E00224284 /* TextFieldHandler.swift in Sources */,
 				D45165591E8959FF002A21F0 /* UserCommentTableViewCell.swift in Sources */,
@@ -3657,6 +3695,7 @@
 				D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */,
 				D492C1DE1EBB7579004243DE /* ThingBar.swift in Sources */,
 				D464AE771EA53C4B0084056A /* TransactionCellPresenter.swift in Sources */,
+				A4A0DBA81F734154008AD89A /* SearchThingsPresenter.swift in Sources */,
 				D40DBB9D1E9684000075E74B /* Follow.swift in Sources */,
 				2F0BABFB1EDA230300B31AFA /* NotificationSwitchTableViewCell.swift in Sources */,
 				D48735031E7885000065E13A /* String+CharacterSpacing.swift in Sources */,
@@ -3679,6 +3718,7 @@
 				D436BF251E95A68B00BC7F00 /* LoanTransactionViewController.swift in Sources */,
 				D44EE9E71ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
+				A4A0DBA41F733F53008AD89A /* SearchThingResultViewController.swift in Sources */,
 				A4796CFB1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
@@ -3757,6 +3797,7 @@
 				D4AD97881EA9ACFD00C9FAB9 /* Post.swift in Sources */,
 				60B0DE511F6B02860029ACBC /* OnboardMainViewController.swift in Sources */,
 				D4AD97891EA9ACFD00C9FAB9 /* NotificationsMainViewController.swift in Sources */,
+				A4A0DBA11F733EC9008AD89A /* SearchThingsSegmentViewController.swift in Sources */,
 				D4AD978A1EA9ACFD00C9FAB9 /* CommentRequest.swift in Sources */,
 				D4C5BBD21ED7513D008EB531 /* AddBoomerPresenter.swift in Sources */,
 				D4AD978B1EA9ACFD00C9FAB9 /* ThrowViewController.swift in Sources */,
@@ -3796,6 +3837,7 @@
 				D4AD97A31EA9ACFD00C9FAB9 /* DescriptionTableViewCell.swift in Sources */,
 				D4AD97A41EA9ACFD00C9FAB9 /* HomePresenter.swift in Sources */,
 				D44BFF261EBD1B6A00E1B2A7 /* MoreCommentTableViewCell.swift in Sources */,
+				A4A0DB9D1F733DC2008AD89A /* SearchThingsMainViewController.swift in Sources */,
 				D4AD97A51EA9ACFD00C9FAB9 /* HomeMainViewController.swift in Sources */,
 				D4AD97A61EA9ACFD00C9FAB9 /* ActivitIndicatorView.swift in Sources */,
 				D4AD97A71EA9ACFD00C9FAB9 /* TextFieldHandler.swift in Sources */,
@@ -3863,6 +3905,7 @@
 				D4CF4D9E1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD97D31EA9ACFD00C9FAB9 /* TransactionCellPresenter.swift in Sources */,
 				D4AD97D51EA9ACFD00C9FAB9 /* Follow.swift in Sources */,
+				A4A0DBA91F734154008AD89A /* SearchThingsPresenter.swift in Sources */,
 				D4C8ECD91EC1FD5400E3CB17 /* PostType.swift in Sources */,
 				2F0BABFD1EDA26D600B31AFA /* NotificationSwitchTableViewCell.swift in Sources */,
 				D4AD97D61EA9ACFD00C9FAB9 /* String+CharacterSpacing.swift in Sources */,
@@ -3885,6 +3928,7 @@
 				D4AD97E21EA9ACFD00C9FAB9 /* LoanTransactionViewController.swift in Sources */,
 				D4AD97E31EA9ACFD00C9FAB9 /* MyThingsMainViewController.swift in Sources */,
 				D4AD97E41EA9ACFD00C9FAB9 /* ChatTableViewCell.swift in Sources */,
+				A4A0DBA51F733F53008AD89A /* SearchThingResultViewController.swift in Sources */,
 				D4AD97E51EA9ACFD00C9FAB9 /* RecommendedPostCollectionViewCell.swift in Sources */,
 				D4AD97E61EA9ACFD00C9FAB9 /* RequestedThingsViewController.swift in Sources */,
 				D4AD97E71EA9ACFD00C9FAB9 /* InterestedListViewController.swift in Sources */,
@@ -3954,6 +3998,7 @@
 				D4AD98541EA9AD0400C9FAB9 /* Post.swift in Sources */,
 				60B0DE521F6B02860029ACBC /* OnboardMainViewController.swift in Sources */,
 				D4AD98551EA9AD0400C9FAB9 /* NotificationsMainViewController.swift in Sources */,
+				A4A0DBA21F733EC9008AD89A /* SearchThingsSegmentViewController.swift in Sources */,
 				D4AD98561EA9AD0400C9FAB9 /* CommentRequest.swift in Sources */,
 				D4C5BBD31ED7513E008EB531 /* AddBoomerPresenter.swift in Sources */,
 				D4AD98571EA9AD0400C9FAB9 /* ThrowViewController.swift in Sources */,
@@ -3993,6 +4038,7 @@
 				D4AD986F1EA9AD0400C9FAB9 /* DescriptionTableViewCell.swift in Sources */,
 				D4AD98701EA9AD0400C9FAB9 /* HomePresenter.swift in Sources */,
 				D44BFF271EBD1B6A00E1B2A7 /* MoreCommentTableViewCell.swift in Sources */,
+				A4A0DB9E1F733DC2008AD89A /* SearchThingsMainViewController.swift in Sources */,
 				D4AD98711EA9AD0400C9FAB9 /* HomeMainViewController.swift in Sources */,
 				D4AD98721EA9AD0400C9FAB9 /* ActivitIndicatorView.swift in Sources */,
 				D4AD98731EA9AD0400C9FAB9 /* TextFieldHandler.swift in Sources */,
@@ -4060,6 +4106,7 @@
 				D4CF4D9F1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD989F1EA9AD0400C9FAB9 /* TransactionCellPresenter.swift in Sources */,
 				D4AD98A11EA9AD0400C9FAB9 /* Follow.swift in Sources */,
+				A4A0DBAA1F734154008AD89A /* SearchThingsPresenter.swift in Sources */,
 				D4C8ECDA1EC1FD5400E3CB17 /* PostType.swift in Sources */,
 				2F0BABFE1EDA26D700B31AFA /* NotificationSwitchTableViewCell.swift in Sources */,
 				D4AD98A21EA9AD0400C9FAB9 /* String+CharacterSpacing.swift in Sources */,
@@ -4082,6 +4129,7 @@
 				D4AD98AE1EA9AD0400C9FAB9 /* LoanTransactionViewController.swift in Sources */,
 				D4AD98AF1EA9AD0400C9FAB9 /* MyThingsMainViewController.swift in Sources */,
 				D4AD98B01EA9AD0400C9FAB9 /* ChatTableViewCell.swift in Sources */,
+				A4A0DBA61F733F53008AD89A /* SearchThingResultViewController.swift in Sources */,
 				D4AD98B11EA9AD0400C9FAB9 /* RecommendedPostCollectionViewCell.swift in Sources */,
 				D4AD98B21EA9AD0400C9FAB9 /* RequestedThingsViewController.swift in Sources */,
 				D4AD98B31EA9AD0400C9FAB9 /* InterestedListViewController.swift in Sources */,
