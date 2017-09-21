@@ -220,12 +220,11 @@ class ThingDetailViewController: UIViewController {
                 actionsPostCell.recommendButton.setTitle(presenter.recommendedTitleButton, for: .normal)
 
             } else {
-                actionsPostCell.recommendButton.isHidden = true
+                //actionsPostCell.recommendButton.isHidden = true
                 //actionsPostCell.waitingListButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
                 actionsPostCell.waitingListButton.setTitle(presenter.interestedListTitleButton, for: .normal)
+                actionsPostCell.recommendButton.setTitle(presenter.recommendedTitleButton, for: .normal)
             }
-            
-            actionsPostCell.layoutIfNeeded()
         }
     }
     
@@ -492,12 +491,13 @@ class ThingDetailViewController: UIViewController {
     
     func generateActionsPostsCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: ActionsPostTableViewCell.identifier, for: indexPath) as! ActionsPostTableViewCell
-        
-        configureButtons(actionsPostCell: cell)
-        setupActionButtons(actionsPostCell: cell)
-        
-        return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ActionsPostTableViewCell.identifier, for: indexPath) as! ActionsPostTableViewCell
+            
+            configureButtons(actionsPostCell: cell)
+            setupActionButtons(actionsPostCell: cell)
+            
+            return cell
+
     }
     
     func textFieldFirstResponder(_ sender: UIButton) {
@@ -508,8 +508,12 @@ class ThingDetailViewController: UIViewController {
 extension ThingDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-//        case inputFieldsCondition.count+4:
-//            return textFieldHeight
+        case inputFieldsCondition.count+4:
+            if !presenter.post.isAvailable {
+               return 0.1
+            } else {
+                return UITableViewAutomaticDimension
+            }
         default:
             return UITableViewAutomaticDimension
         }
