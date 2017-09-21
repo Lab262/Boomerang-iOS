@@ -16,6 +16,7 @@ protocol SearchThingsResultDelegate {
     func finishFooterLoading()
     func startLoading()
     func finishLoading()
+    func didSearch(scope: SearchThingsScope, searchString: String)
 }
 
 class SearchThingsPresenter: NSObject {

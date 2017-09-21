@@ -13,30 +13,25 @@ class SearchThingsSegmentViewController: UIViewController {
     var previousPage: Int = 0
     var segmentControlPageDelegate: SegmentControlPageDelegate?
 
+    var searchThingResultControllers = [SearchThingsResultDelegate]()
+
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    var searchDelegate: SearchThingsResultDelegate?
+
     override func viewDidLayoutSubviews() {
         scrollView.delegate = self
     }
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        self.searchDelegate = searchThingResultControllers.first!
     }
 
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? LoanTransactionViewController {
-//            vc.notificationKey = notificationKey
-//        }
-//        
-//        if let vc = segue.destination as? ExchangeTransactionViewController {
-//            vc.notificationKey = notificationKey
-//        }
-//        
-//        if let vc = segue.destination as? DonationTransactionViewController {
-//            vc.notificationKey = notificationKey
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SearchThingsResultDelegate {
+            self.searchThingResultControllers.append(vc)
+        }
+    }
 }
 
 //Pragma MARK: - UIScrollViewDelegate
@@ -54,12 +49,14 @@ extension SearchThingsSegmentViewController: UIScrollViewDelegate {
             segmentControlPageDelegate?.segmentScrolled(page)
             previousPage = page
         }
+        
     }
 }
 
 //Pragma MARK: - SegmentControlButtonDelegate
 extension SearchThingsSegmentViewController: SegmentControlButtonDelegate {
     func segmentSelected(_ viewIndex: Int) {
+        self.searchDelegate = self.searchThingResultControllers[viewIndex]
         var rectToScroll = self.view.frame
         rectToScroll.origin.x = self.view.frame.width * CGFloat(viewIndex)
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions(), animations: {

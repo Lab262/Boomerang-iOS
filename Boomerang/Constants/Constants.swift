@@ -14,6 +14,9 @@ enum SectionPost: Int {
     case city = 2
 }
 
+enum SearchThingsScope: Int {
+    case have = 0, need, donate
+}
 
 //MARK - Facebook Urls
 

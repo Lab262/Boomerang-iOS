@@ -17,7 +17,8 @@ class SearchThingsMainViewController: UIViewController {
     }
     
     var segmentControlButtonDelegate: SegmentControlButtonDelegate?
-    
+    var segmentVC: SearchThingsSegmentViewController?
+
     @IBOutlet weak var navigationBar: IconNavigationBar!
     @IBOutlet weak var viewLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewCenterConstraint: NSLayoutConstraint!
@@ -74,24 +75,28 @@ class SearchThingsMainViewController: UIViewController {
         if let segmentVC = segue.destination as? SearchThingsSegmentViewController {
             segmentControlButtonDelegate = segmentVC
             segmentVC.segmentControlPageDelegate = self
+            self.segmentVC = segmentVC
         }
     }
     
     @IBAction func showLoanTransactions(_ sender: Any? = nil) {
         setSelectionIndication(true, center: false, trailing: false)
         segmentControlButtonDelegate?.segmentSelected(0)
+        self.segmentVC?.searchDelegate?.didSearch(scope: .have, searchString: searchBar.text!)
     }
     
     @IBAction func showExchangeTransactions(_ sender: Any? = nil) {
         setSelectionIndication(false, center: true, trailing: false)
         segmentControlButtonDelegate?.segmentSelected(1)
+        self.segmentVC?.searchDelegate?.didSearch(scope: .need, searchString: searchBar.text!)
     }
-    
+
     @IBAction func showDonationTransaction(_ sender: Any? = nil) {
         setSelectionIndication(false, center: false, trailing: true)
         segmentControlButtonDelegate?.segmentSelected(2)
+        self.segmentVC?.searchDelegate?.didSearch(scope: .donate, searchString: searchBar.text!)
     }
-    
+
     func setSelectionIndication(_ leading: Bool, center:Bool, trailing: Bool) {
         viewLeftConstraint.isActive = false
         viewCenterConstraint.isActive = false
@@ -122,6 +127,13 @@ extension SearchThingsMainViewController: SegmentControlPageDelegate {
         default: break
         
         }
+    }
+}
+
+extension SearchThingsMainViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let scope = SearchThingsScope(rawValue: self.segmentVC!.previousPage)
+        self.segmentVC!.searchDelegate!.didSearch(scope: scope!, searchString: searchBar.text!)
     }
 }
 

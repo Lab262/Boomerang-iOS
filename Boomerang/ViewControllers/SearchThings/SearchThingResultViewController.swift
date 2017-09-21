@@ -121,5 +121,9 @@ extension SearchThingResultViewController: SearchThingsResultDelegate {
     func finishFooterLoading() {
         self.tableView.tableFooterView?.unload()
     }
+
+    func didSearch(scope: SearchThingsScope, searchString: String) {
+        print("\(scope)" + searchString)
+    }
 }
 
