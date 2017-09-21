@@ -16,7 +16,6 @@ protocol ViewDelegate {
 
 class HomeMainViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var greetingText: UILabel!
     @IBOutlet weak var navigationBarView: UIView!
@@ -32,7 +31,7 @@ class HomeMainViewController: UIViewController {
         super.viewWillAppear(animated)
         TabBarController.mainTabBarController.showTabBar()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewDelegate()
@@ -44,9 +43,14 @@ class HomeMainViewController: UIViewController {
         registerObservers()
         getTimeLinePosts()
         setupSubscribe()
-        hideKeyboardWhenTappedAround()
     }
     
+    @IBAction func showSearchThingsVC(_ sender: Any) {
+        TabBarController.mainTabBarController.hideTabBar()
+        let viewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("SearchThings")
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
+
     func setupSubscribe() {
         presenter.setupSubscribes()
     }
@@ -325,27 +329,6 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
         }
 
     }
-}
-extension HomeMainViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeMainViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
-extension HomeMainViewController: UISearchBarDelegate {
-
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        let viewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("SearchThings")
-
-        self.navigationController
-    }
-
 }
 
 

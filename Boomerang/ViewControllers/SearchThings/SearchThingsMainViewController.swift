@@ -25,31 +25,33 @@ class SearchThingsMainViewController: UIViewController {
     @IBOutlet weak var loanTransactionButton: UIButton!
     @IBOutlet weak var exchangeTransactionButton: UIButton!
     @IBOutlet weak var donationTransactionButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        TabBarController.mainTabBarController.showTabBar()
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.searchBar.becomeFirstResponder()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.segmentSelected = 0
-        navigationBar.leftButtonIcon.isHidden = true
-        navigationBar.rightButton.addTarget(self, action: #selector(pushForDetailHistoric(_:)), for: .touchUpInside)
-        registerObservers()
+        self.setupNavigationActions()
     }
-    
-    
-    func registerObservers(){
-        NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootSchemes), object: nil)
+
+    func setupNavigationActions() {
+        navigationBar.leftButtonIcon.isHidden = false
+        navigationBar.leftButton.isHidden = false
+        navigationBar.rightButton.isHidden = true
+        navigationBar.rightIcon.isHidden = true
+        navigationBar.leftButton.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
     }
-    
-    func popToRoot(_ notification : Notification){
+
+    func popToRoot(){
         navigationController?.popToRootViewController(animated: true)
-    }
-    
-    func pushForDetailHistoric(_ sender: UIButton) {
-        self.performSegue(withIdentifier: SegueIdentifiers.transactionToHistoric, sender: self)
     }
     
     func setFontButtonBySegmentSelected(){
@@ -69,11 +71,9 @@ class SearchThingsMainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let segmentVC = segue.destination as? TransactionSegmentViewController {
+        if let segmentVC = segue.destination as? SearchThingsSegmentViewController {
             segmentControlButtonDelegate = segmentVC
             segmentVC.segmentControlPageDelegate = self
-            segmentVC.presenter.notContainedStatusScheme = [.canceled, .done, .finished]
-            segmentVC.notificationKey = NotificationKeys.updateSchemes
         }
     }
     

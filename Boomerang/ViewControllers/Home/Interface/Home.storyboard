@@ -76,20 +76,26 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="defaultSearchBarTheme" value="YES"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="defaultTheme" value="YES"/>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="delegate" destination="Y4o-Ot-Hoh" id="ZfB-Cm-DH2"/>
-                                        </connections>
                                     </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jiw-1c-5on">
+                                        <rect key="frame" x="164" y="81" width="46" height="30"/>
+                                        <connections>
+                                            <action selector="showSearchThingsVC:" destination="Y4o-Ot-Hoh" eventType="touchUpInside" id="Pfl-Bu-sTQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="bE9-O6-w9V" firstAttribute="height" secondItem="SXu-VK-YbB" secondAttribute="height" multiplier="1.5" id="6dE-g7-CYk"/>
                                     <constraint firstItem="PDl-VX-F99" firstAttribute="centerX" secondItem="whq-g7-neK" secondAttribute="centerX" id="6yP-lX-Aw3"/>
                                     <constraint firstItem="PDl-VX-F99" firstAttribute="width" secondItem="whq-g7-neK" secondAttribute="width" id="86j-jL-9kc"/>
+                                    <constraint firstItem="Jiw-1c-5on" firstAttribute="height" secondItem="8NO-f7-jeX" secondAttribute="height" id="8ty-ii-iLU"/>
                                     <constraint firstItem="1Rk-n9-dAq" firstAttribute="top" secondItem="whq-g7-neK" secondAttribute="top" constant="42" id="FO2-3t-LRV"/>
                                     <constraint firstItem="1Rk-n9-dAq" firstAttribute="leading" secondItem="whq-g7-neK" secondAttribute="leading" constant="20" id="FYZ-Lu-93a"/>
                                     <constraint firstItem="PDl-VX-F99" firstAttribute="height" secondItem="whq-g7-neK" secondAttribute="height" id="NZn-hr-2eG"/>
+                                    <constraint firstItem="Jiw-1c-5on" firstAttribute="centerY" secondItem="8NO-f7-jeX" secondAttribute="centerY" id="P3z-HV-afT"/>
                                     <constraint firstItem="bE9-O6-w9V" firstAttribute="centerX" secondItem="SXu-VK-YbB" secondAttribute="centerX" id="TgC-wY-PtH"/>
+                                    <constraint firstItem="Jiw-1c-5on" firstAttribute="centerX" secondItem="8NO-f7-jeX" secondAttribute="centerX" id="UUj-L2-87H"/>
                                     <constraint firstAttribute="trailing" secondItem="SXu-VK-YbB" secondAttribute="trailing" constant="20" id="X2U-nr-9jH"/>
                                     <constraint firstAttribute="height" constant="192" id="aWj-TI-Nfh"/>
                                     <constraint firstItem="1Rk-n9-dAq" firstAttribute="centerX" secondItem="whq-g7-neK" secondAttribute="centerX" id="eR4-ox-zAI"/>
@@ -97,6 +103,7 @@
                                     <constraint firstItem="PDl-VX-F99" firstAttribute="centerY" secondItem="whq-g7-neK" secondAttribute="centerY" id="faI-Jp-WRe"/>
                                     <constraint firstItem="8NO-f7-jeX" firstAttribute="leading" secondItem="whq-g7-neK" secondAttribute="leading" constant="8" id="iYv-RT-2rO"/>
                                     <constraint firstItem="bE9-O6-w9V" firstAttribute="centerY" secondItem="SXu-VK-YbB" secondAttribute="centerY" id="ief-zr-6hh"/>
+                                    <constraint firstItem="Jiw-1c-5on" firstAttribute="width" secondItem="8NO-f7-jeX" secondAttribute="width" id="k7z-Ve-mbD"/>
                                     <constraint firstItem="SXu-VK-YbB" firstAttribute="centerY" secondItem="1Rk-n9-dAq" secondAttribute="centerY" id="lOk-Aj-RjS"/>
                                     <constraint firstItem="bE9-O6-w9V" firstAttribute="width" secondItem="SXu-VK-YbB" secondAttribute="width" multiplier="1.5" id="uwx-fW-cu5"/>
                                 </constraints>
@@ -128,7 +135,6 @@
                         <outlet property="greetingText" destination="1Rk-n9-dAq" id="vhV-xN-wja"/>
                         <outlet property="navigationBarView" destination="whq-g7-neK" id="ZeL-eS-z5v"/>
                         <outlet property="profileImage" destination="SXu-VK-YbB" id="Wrj-j8-vki"/>
-                        <outlet property="searchBar" destination="8NO-f7-jeX" id="AtU-5H-KSh"/>
                         <outlet property="tableView" destination="YTg-zH-wsh" id="yLx-B4-LaL"/>
                         <segue destination="OAa-qd-sUY" kind="show" identifier="goToDetailThing" id="AL7-AX-imq"/>
                         <segue destination="Nkf-dN-nrN" kind="show" identifier="goToMorePosts" id="Go6-gi-o13"/>
@@ -624,7 +630,7 @@
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AL7-AX-imq"/>
-        <segue reference="62i-PM-F01"/>
+        <segue reference="y32-IY-2mw"/>
+        <segue reference="Oq6-Oc-jjw"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="obE-ua-UmT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yfD-bC-I5M">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="60" id="etf-FT-5ZK"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Esquemas"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Busca"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundTitleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
@@ -50,8 +50,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <searchBar hidden="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-hx-hrY">
-                                <rect key="frame" x="8" y="52" width="359" height="44"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-hx-hrY">
+                                <rect key="frame" x="8" y="78" width="359" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -59,9 +59,12 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="defaultSearchBarTheme" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="defaultTheme" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="yfD-bC-I5M" id="92h-to-8V3"/>
+                                </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKf-7U-gkP">
-                                <rect key="frame" x="0.0" y="88" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="107" width="375" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OqR-wx-fom">
                                         <rect key="frame" x="49" y="48" width="26" height="4"/>
@@ -85,7 +88,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jc-tM-nAr">
                                         <rect key="frame" x="250" y="0.0" width="125" height="60"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
-                                        <state key="normal" title="Preciso">
+                                        <state key="normal" title="Doação">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -95,7 +98,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Og4-dV-Z7y">
                                         <rect key="frame" x="125" y="0.0" width="125" height="60"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
-                                        <state key="normal" title="Doação">
+                                        <state key="normal" title="Preciso">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -133,22 +136,21 @@
                                 </variation>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mq-8h-9jC">
-                                <rect key="frame" x="0.0" y="156" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="162" width="375" height="505"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="PoE-sV-9Kb" kind="embed" id="kYF-IT-WU3"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="DKf-7U-gkP" firstAttribute="top" secondItem="rc3-hx-hrY" secondAttribute="bottom" constant="-8" id="BRB-pp-L2p"/>
-                            <constraint firstItem="9mq-8h-9jC" firstAttribute="top" secondItem="DKf-7U-gkP" secondAttribute="bottom" constant="8" id="Bzw-pb-jS1"/>
+                            <constraint firstItem="DKf-7U-gkP" firstAttribute="top" secondItem="rc3-hx-hrY" secondAttribute="bottom" constant="-15" id="BRB-pp-L2p"/>
                             <constraint firstItem="eyQ-FR-Ndw" firstAttribute="top" secondItem="iJM-kS-XcD" secondAttribute="top" id="JXb-Te-4S5"/>
                             <constraint firstAttribute="trailing" secondItem="DKf-7U-gkP" secondAttribute="trailing" id="LRX-5s-w50"/>
                             <constraint firstItem="rc3-hx-hrY" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leadingMargin" constant="-8" id="RJJ-jD-VYE"/>
                             <constraint firstItem="tbE-OD-9tx" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="Rsd-I9-wpB"/>
-                            <constraint firstItem="rc3-hx-hrY" firstAttribute="top" secondItem="eyQ-FR-Ndw" secondAttribute="bottom" constant="-8" id="Ti4-nN-Ckh"/>
+                            <constraint firstItem="rc3-hx-hrY" firstAttribute="top" secondItem="eyQ-FR-Ndw" secondAttribute="bottom" constant="18" id="Ti4-nN-Ckh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rc3-hx-hrY" secondAttribute="trailing" constant="-8" id="WP5-Z2-UUP"/>
                             <constraint firstItem="9mq-8h-9jC" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="Y2D-mK-GoZ"/>
                             <constraint firstAttribute="trailing" secondItem="eyQ-FR-Ndw" secondAttribute="trailing" id="Y5F-XO-U30"/>
@@ -158,6 +160,7 @@
                             <constraint firstItem="dKa-LT-aJj" firstAttribute="top" secondItem="9mq-8h-9jC" secondAttribute="bottom" id="i6S-hE-UfX"/>
                             <constraint firstItem="DKf-7U-gkP" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="iub-WA-B18"/>
                             <constraint firstItem="tbE-OD-9tx" firstAttribute="top" secondItem="iJM-kS-XcD" secondAttribute="top" id="kLD-io-dOS"/>
+                            <constraint firstItem="9mq-8h-9jC" firstAttribute="top" secondItem="DKf-7U-gkP" secondAttribute="bottom" constant="-5" id="sCv-dR-lwb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l0t-m3-7of"/>
@@ -169,6 +172,7 @@
                         <outlet property="exchangeTransactionButton" destination="Og4-dV-Z7y" id="Xkw-Q5-5Rr"/>
                         <outlet property="loanTransactionButton" destination="tu1-0J-c5A" id="59u-w0-CQK"/>
                         <outlet property="navigationBar" destination="eyQ-FR-Ndw" id="kfx-1i-NNX"/>
+                        <outlet property="searchBar" destination="rc3-hx-hrY" id="Qom-42-Kpp"/>
                         <outlet property="viewCenterConstraint" destination="Ig5-eq-hcs" id="7HW-JZ-y6e"/>
                         <outlet property="viewLeftConstraint" destination="fmT-q8-uBP" id="PoC-Nw-DD1"/>
                         <outlet property="viewRightConstraint" destination="JlV-W5-PbY" id="Lqo-u7-CmN"/>
@@ -176,25 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ub9-a2-4Xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="590"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Fej-iW-KVw">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obE-ua-UmT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vbn-Kd-cio">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="yfD-bC-I5M" kind="relationship" relationship="rootViewController" id="0FI-fc-QPK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fJ9-W4-R6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="900" y="-185"/>
+            <point key="canvasLocation" x="900" y="589.65517241379314"/>
         </scene>
         <!--Search Things Segment View Controller-->
         <scene sceneID="nKw-Iq-V4a">

@@ -15,16 +15,14 @@ class SearchThingResultViewController: UIViewController {
     @IBOutlet weak var emptyView: EmptyView!
     var presenter = SearchThingsPresenter()
     var notificationKey: String!
-    let tableViewTopInset: CGFloat = 94.0
+    let tableViewTopInset: CGFloat = 0.0
     let tableViewBottomInset: CGFloat = 40.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerObservers()
         presenter.setViewDelegate(view: self)
         configureTableView()
         self.emptyView.isHidden = true
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
         self.getMorePosts()
     
     }
@@ -47,46 +45,27 @@ class SearchThingResultViewController: UIViewController {
 
 
     func registerNib(){
-        tableView.registerNibFrom(TransactionTableViewCell.self)
+        tableView.registerNibFrom(MorePostTableViewCell.self)
     }
     
-    func registerObservers(){
-//         NotificationCenter.default.addObserver(self, selector: #selector(updateSchemes(_:)), name: NSNotification.Name(rawValue: notificationKey), object: nil)
-    }
-    
-//    func updateSchemes (_ notification: Notification) {
-//        if let schemes = notification.object as! [Scheme]? {
-//            presenter.setSchemes(schemes: schemes)
-//            reload()
-//            if presenter.getSchemesFor(postCondition: .loan).count == 0{
-//                self.tableView.isHidden = true
-//                self.emptyView.isHidden = false
-//            }else{
-//                self.tableView.isHidden = false
-//                self.emptyView.isHidden = true
-//            }
-//        }
-//    }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let destinationVC = segue.destination as? TransactionDetailViewController {
-//            
-//            destinationVC.presenter.scheme = presenter.getSchemes()[tableView.indexPathForSelectedRow!.row]
-//        }
-//    }
 }
 
 extension SearchThingResultViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as! TransactionTableViewCell
-        
-//        cell.presenter.scheme = presenter.getSchemesFor(postCondition: .loan)[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: MorePostTableViewCell.identifier, for: indexPath) as! MorePostTableViewCell
 
-            //presenter.getSchemes()[indexPath.row]
-        cell.updateCell()
-        
+
+        cell.coverImage.image = nil
+        cell.userImage.image = nil
+        cell.presenter.post = presenter.posts[indexPath.row]
+        cell.profileButton.tag = indexPath.row
+//        cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
+
+        cell.setupCell()
+
         return cell
     }
     
@@ -109,13 +88,11 @@ extension SearchThingResultViewController: UIScrollViewDelegate {
 extension SearchThingResultViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        performSegue(withIdentifier: SegueIdentifiers.transactionToProfile, sender: self)
+        performSegue(withIdentifier: SegueIdentifiers.morePostToDetailThing, sender: self)
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return TransactionTableViewCell.cellHeight*UIView.heightScaleProportion()
+        return MorePostTableViewCell.cellHeight * UIView.heightScaleProportion()
     }
 }
 
