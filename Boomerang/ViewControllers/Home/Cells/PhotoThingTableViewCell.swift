@@ -20,7 +20,7 @@ class PhotoThingTableViewCell: UITableViewCell {
     }
     
     static var cellHeight: CGFloat {
-        return 254.0
+        return 327.0
     }
     
     static var nibName: String {
@@ -37,7 +37,6 @@ class PhotoThingTableViewCell: UITableViewCell {
         ApplicationState.sharedInstance.delegate = self
         presenter.setViewDelegate(view: self)
         initializePageIndicatorView()
-        (photoCollectionView.collectionViewLayout as! CenterCellCollectionViewFlowLayout).centerCellInset = CGPoint(x: 15, y: 0)
     }
     
     func registerNib(){
@@ -89,6 +88,7 @@ extension PhotoThingTableViewCell: UIScrollViewDelegate {
         
         if let index = indexPath {
             pageIndicatorView?.selectedPage = index.row
+            
         }
     }
 }
@@ -96,7 +96,7 @@ extension PhotoThingTableViewCell: UIScrollViewDelegate {
 extension PhotoThingTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 345*UIView.widthScaleProportion(), height: 291*UIView.widthScaleProportion())
+        return CGSize(width: 375*UIView.widthScaleProportion(), height: 290)
     }
 }
 
@@ -151,7 +151,7 @@ extension PhotoThingTableViewCell: PageIndicatorViewDelegate {
     }
     
     var defaultAlpha: CGFloat {
-        return 0.5
+        return 0.3
     }
     
     var selectedAlpha: CGFloat {
@@ -163,7 +163,7 @@ extension PhotoThingTableViewCell: PageIndicatorViewDelegate {
     }
     
     var indicatorsColor: UIColor {
-        return UIColor.white
+        return UIColor.purpleTextColor
     }
     
     var stackViewConfig: (axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment, distribution: UIStackViewDistribution, spacing: CGFloat) {
