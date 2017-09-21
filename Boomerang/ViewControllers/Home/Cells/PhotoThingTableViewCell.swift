@@ -85,7 +85,7 @@ extension PhotoThingTableViewCell: UIScrollViewDelegate {
         
         let flowLayout = (photoCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
         
-        let indexPath = self.photoCollectionView.indexPathForItem(at: self.photoCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: photoCollectionView.frame.width/2, y: 0))
+        let indexPath = self.photoCollectionView.indexPathForItem(at: self.photoCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: photoCollectionView.frame.width/2, y: 0) + CGPoint(x: 0, y: flowLayout.itemSize.height))
         
         if let index = indexPath {
             pageIndicatorView?.selectedPage = index.row
@@ -163,7 +163,7 @@ extension PhotoThingTableViewCell: PageIndicatorViewDelegate {
     }
     
     var indicatorsColor: UIColor {
-        return UIColor.colorWithHexString("FFFFFF")
+        return UIColor.white
     }
     
     var stackViewConfig: (axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment, distribution: UIStackViewDistribution, spacing: CGFloat) {
