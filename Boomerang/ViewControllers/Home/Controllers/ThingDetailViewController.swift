@@ -224,6 +224,8 @@ class ThingDetailViewController: UIViewController {
                 //actionsPostCell.waitingListButton.backgroundColor = UIColor.colorWithHexString("FBBB47")
                 actionsPostCell.waitingListButton.setTitle(presenter.interestedListTitleButton, for: .normal)
             }
+            
+            actionsPostCell.layoutIfNeeded()
         }
     }
     
