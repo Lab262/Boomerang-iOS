@@ -31,6 +31,16 @@ class TransactionDetailPresenter: NSObject {
         return scheme.post!.createdAt!
     }
     
+    func seeScheme() {
+        SchemeRequest.see(scheme: scheme) { (success, msg) in
+            if success {
+                print ("POST VISTO")
+            } else {
+                print ("POST NAO VISTO")
+            }
+        }
+    }
+    
     func getDealerTransaction() -> Profile {
         if scheme.owner?.objectId == profile.objectId {
             return scheme.requester!

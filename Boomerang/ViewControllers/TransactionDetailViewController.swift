@@ -33,11 +33,16 @@ class TransactionDetailViewController: UIViewController {
         configureTableView()
         setupPresenterDelegate()
         setupPopoverAction()
+        seePost()
         
         if self.presenter.scheme.statusSchemeEnum == .done || self.presenter.scheme.statusSchemeEnum == .finished || self.presenter.scheme.statusSchemeEnum == .negotiation{
             self.finalizeButton.isHidden = true
         }
         configureNavigationsBars()
+    }
+    
+    func seePost() {
+        presenter.seeScheme()
     }
     
     func configureNavigationsBars(){

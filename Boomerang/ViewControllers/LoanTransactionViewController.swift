@@ -64,6 +64,8 @@ extension LoanTransactionViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as! TransactionTableViewCell
         
         cell.presenter.scheme = presenter.getSchemesFor(postCondition: .loan)[indexPath.row]
+        
+        
 
             //presenter.getSchemes()[indexPath.row]
         cell.updateCell()
