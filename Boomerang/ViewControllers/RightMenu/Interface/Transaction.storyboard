@@ -554,7 +554,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirley Schmidt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mf1-IZ-jfp">
-                                        <rect key="frame" x="106.5" y="35.5" width="163" height="24"/>
+                                        <rect key="frame" x="106" y="36" width="163" height="24"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -576,7 +576,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WnW-0b-yq0">
-                                        <rect key="frame" x="125.5" y="65.5" width="125" height="16"/>
+                                        <rect key="frame" x="125.5" y="66" width="125" height="16"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="DDW-qt-wsP">
                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="16"/>
@@ -595,6 +595,12 @@
                                             </imageView>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9y-zr-L7H">
+                                        <rect key="frame" x="311.5" y="21.5" width="55" height="55"/>
+                                        <connections>
+                                            <action selector="goToProfileView:" destination="adt-ZK-Kg5" eventType="touchUpInside" id="tj9-xu-bbH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -603,6 +609,8 @@
                                     <constraint firstItem="WnW-0b-yq0" firstAttribute="top" secondItem="mf1-IZ-jfp" secondAttribute="bottom" constant="6" id="86O-lF-q80"/>
                                     <constraint firstItem="sQU-Ji-daI" firstAttribute="leading" secondItem="Na3-jA-0OY" secondAttribute="leading" constant="15" id="8ZE-fq-3YK"/>
                                     <constraint firstItem="D9T-kb-4Ah" firstAttribute="top" secondItem="Na3-jA-0OY" secondAttribute="top" constant="28" id="9bN-Hv-jON"/>
+                                    <constraint firstItem="G9y-zr-L7H" firstAttribute="centerX" secondItem="D9T-kb-4Ah" secondAttribute="centerX" id="AgU-YW-iPt"/>
+                                    <constraint firstItem="G9y-zr-L7H" firstAttribute="height" secondItem="D9T-kb-4Ah" secondAttribute="height" multiplier="1.3" id="BNy-Gf-JIj"/>
                                     <constraint firstItem="SlX-4d-sCd" firstAttribute="centerX" secondItem="sQU-Ji-daI" secondAttribute="centerX" id="BRq-9M-vml"/>
                                     <constraint firstItem="mf1-IZ-jfp" firstAttribute="centerY" secondItem="sQU-Ji-daI" secondAttribute="centerY" id="BdD-H3-6tm"/>
                                     <constraint firstItem="qWB-i2-Oul" firstAttribute="centerY" secondItem="Na3-jA-0OY" secondAttribute="centerY" id="BuR-g3-mp4"/>
@@ -611,10 +619,12 @@
                                     <constraint firstItem="sQU-Ji-daI" firstAttribute="top" secondItem="Na3-jA-0OY" secondAttribute="top" constant="38" id="OHM-CZ-QOF"/>
                                     <constraint firstItem="qWB-i2-Oul" firstAttribute="height" secondItem="Na3-jA-0OY" secondAttribute="height" id="R9J-cW-lmz"/>
                                     <constraint firstAttribute="trailing" secondItem="D9T-kb-4Ah" secondAttribute="trailing" constant="15" id="WDR-Ed-8aH"/>
+                                    <constraint firstItem="G9y-zr-L7H" firstAttribute="centerY" secondItem="D9T-kb-4Ah" secondAttribute="centerY" id="agi-3C-5W8"/>
                                     <constraint firstItem="SlX-4d-sCd" firstAttribute="width" secondItem="sQU-Ji-daI" secondAttribute="width" multiplier="2" id="cuh-gx-j69"/>
                                     <constraint firstItem="qWB-i2-Oul" firstAttribute="centerX" secondItem="Na3-jA-0OY" secondAttribute="centerX" id="fVX-jW-Qor"/>
                                     <constraint firstItem="qWB-i2-Oul" firstAttribute="width" secondItem="Na3-jA-0OY" secondAttribute="width" id="lm5-Nw-Abh"/>
                                     <constraint firstAttribute="height" constant="137" id="pUm-v9-EKS"/>
+                                    <constraint firstItem="G9y-zr-L7H" firstAttribute="width" secondItem="D9T-kb-4Ah" secondAttribute="width" multiplier="1.3" id="wTO-iB-kMA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNB-ic-cye">
@@ -658,6 +668,7 @@
                     <navigationItem key="navigationItem" title="Title" id="BqW-YR-SbX"/>
                     <connections>
                         <outlet property="containerView" destination="zNB-ic-cye" id="tfc-Wd-JT3"/>
+                        <outlet property="linkProfileButton" destination="G9y-zr-L7H" id="DB0-BH-sig"/>
                         <outlet property="userImage" destination="D9T-kb-4Ah" id="7zu-G5-Dgt"/>
                         <outlet property="userName" destination="mf1-IZ-jfp" id="9FY-ad-0ID"/>
                         <outletCollection property="starImages" destination="DDW-qt-wsP" collectionClass="NSMutableArray" id="Q1K-5r-2XP"/>
@@ -665,11 +676,20 @@
                         <outletCollection property="starImages" destination="XdK-Bk-WSh" collectionClass="NSMutableArray" id="8uL-lq-0wj"/>
                         <outletCollection property="starImages" destination="X3k-Kd-IKz" collectionClass="NSMutableArray" id="Ih7-fM-PWB"/>
                         <outletCollection property="starImages" destination="f0I-Qc-KU4" collectionClass="NSMutableArray" id="91P-TB-Hkl"/>
+                        <segue destination="aTv-kc-CQQ" kind="show" identifier="goToProfile" id="9eb-22-QtI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVc-16-fu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="3714"/>
+            <point key="canvasLocation" x="820" y="3734"/>
+        </scene>
+        <!--profileView-->
+        <scene sceneID="6UZ-Za-DOH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="profileView" id="aTv-kc-CQQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WcJ-H7-aZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="3559"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fej-iW-KVw">

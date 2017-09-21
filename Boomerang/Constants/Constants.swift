@@ -73,6 +73,7 @@ struct SegueIdentifiers {
     static let morePostToProfile = "goToProfile"
     static let profileToFriendsList = "goToFriendsList"
     static let friendsListToProfile = "goToProfile"
+    static let chatToPofile = "goToProfile"
 }
 
 //MARK - Storyboard Ids
