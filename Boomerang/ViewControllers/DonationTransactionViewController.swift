@@ -23,8 +23,19 @@ class DonationTransactionViewController: UIViewController {
         registerNib()
         registerObservers()
         presenter.setViewDelegate(view: self)
-        self.emptyView.isHidden = true
+        configureEmptyView()
         tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
+    }
+    
+    func configureEmptyView() {
+        self.emptyView.isHidden = true
+        self.emptyView.emptyButton.addTarget(self, action: #selector(showSearchVC), for: .touchUpInside)
+    }
+    
+    func showSearchVC() {
+        TabBarController.mainTabBarController.hideTabBar()
+        let viewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("SearchThings")
+        self.navigationController?.pushViewController(viewController!, animated: true)
     }
     
     func registerNib(){

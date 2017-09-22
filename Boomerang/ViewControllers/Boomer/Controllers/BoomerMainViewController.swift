@@ -70,6 +70,10 @@ class BoomerMainViewController: UIViewController {
         self.performSegue(withIdentifier:"goThrowVC", sender:nil)
         
     }
+    @IBAction func goToProfile(_ sender: Any) {
+        TabBarController.mainTabBarController.uiTabBarController.selectedIndex = 1
+        TabBarController.mainTabBarController.changeStatesButtons(tag: 1)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.window?.endEditing(true)

@@ -22,13 +22,24 @@ class LoanTransactionViewController: UIViewController {
         registerNib()
         registerObservers()
         presenter.setViewDelegate(view: self)
-        self.emptyView.isHidden = true
+        self.configureEmptyView()
         tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
     
     }
     
     func registerNib(){
         tableView.registerNibFrom(TransactionTableViewCell.self)
+    }
+    
+    func configureEmptyView() {
+        self.emptyView.isHidden = true
+        self.emptyView.emptyButton.addTarget(self, action: #selector(showSearchVC), for: .touchUpInside)
+    }
+    
+    func showSearchVC() {
+        TabBarController.mainTabBarController.hideTabBar()
+        let viewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("SearchThings")
+        self.navigationController?.pushViewController(viewController!, animated: true)
     }
     
     func registerObservers(){
