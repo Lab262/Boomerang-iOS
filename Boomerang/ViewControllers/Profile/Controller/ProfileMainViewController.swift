@@ -39,6 +39,12 @@ class ProfileMainViewController: UIViewController {
         self.emptyView.imageEmpty.isHidden = true
         self.emptyView.isHidden = true
         self.emptyView.setCustomViewLabelSize()
+        self.emptyView.emptyButton.addTarget(self, action: #selector(goToCreatePost), for: .touchUpInside)
+    }
+    
+    func goToCreatePost() {
+        TabBarController.mainTabBarController.uiTabBarController.selectedIndex = 2
+        TabBarController.mainTabBarController.changeStatesButtons(tag: 2)
     }
     
     func registerObservers(){
