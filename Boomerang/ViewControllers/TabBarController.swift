@@ -8,10 +8,9 @@
 
 import UIKit
 
-
-
 class TabBarController: UIViewController {
 
+    @IBOutlet weak var badgeView: UIView!
     @IBOutlet weak var viewContainerTabBar: UIView!
     var uiTabBarController: UITabBarController!
     @IBOutlet weak var imgViewCenterOption: UIImageView!
@@ -110,6 +109,14 @@ class TabBarController: UIViewController {
 //            self.viewContainerTabBar.isHidden = true
 //        }
 //    }
+    }
+    
+    func showBadge() {
+        self.badgeView.isHidden = false
+    }
+    
+    func removeBadge() {
+        self.badgeView.isHidden = true
     }
 
     func showTabBar() {

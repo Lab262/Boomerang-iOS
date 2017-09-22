@@ -31,6 +31,7 @@ class SchemeRequest: NSObject {
         var queryParams = [String: Any]()
         queryParams[ObjectKeys.objectId] = scheme.objectId
         var colunmsUpdated = [String: Any]()
+        colunmsUpdated["showNotification"] = false
         
         for status in allStatus where status.status == StatusSchemeEnum.finished.rawValue {
             colunmsUpdated[SchemeKeys.status] = status
@@ -49,6 +50,7 @@ class SchemeRequest: NSObject {
         var colunmsUpdated = [String: Any]()
         
         colunmsUpdated["beenSeen"] = true
+        colunmsUpdated["showNotification"] = false
         
         ParseRequest.updateObject(className: scheme.parseClassName, queryParams: queryParams, colunmsUpdated: colunmsUpdated) { (success, msg) in
             completionHandler(success, msg)
@@ -65,6 +67,8 @@ class SchemeRequest: NSObject {
         for status in allStatus where status.status == statusScheme.rawValue {
             colunmsUpdated[SchemeKeys.status] = status
         }
+        
+        colunmsUpdated["showNotification"] = true
         
         ParseRequest.updateObject(className: scheme.parseClassName, queryParams: queryParams, colunmsUpdated: colunmsUpdated) { (success, msg) in
             completionHandler(success, msg)
