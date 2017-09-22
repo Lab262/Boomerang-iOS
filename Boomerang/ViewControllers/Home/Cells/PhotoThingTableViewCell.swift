@@ -46,6 +46,9 @@ class PhotoThingTableViewCell: UITableViewCell {
         initializePageIndicatorView()
     }
     
+    
+    
+    
     func registerNib(){
         photoCollectionView.registerNibFrom(PhotoThingCollectionViewCell.self)
     }
@@ -81,7 +84,7 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
 extension PhotoThingTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            self.delegate?.displayPhoto()
+         self.delegate?.displayPhoto()  
     }
 }
 
