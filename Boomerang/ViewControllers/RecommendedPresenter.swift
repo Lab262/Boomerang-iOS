@@ -51,22 +51,24 @@ class RecommendedPresenter: NSObject {
                 profiles!.forEach {
                     self.friends.append($0)
                 }
-                self.getRecommendations()
+                self.getRecommendations(refresh: false)
             } else {
                 self.view?.showMessage(success: success, msg: msg)
             }
         }
     }
     
-    func getRecommendations() {
+    func getRecommendations(refresh: Bool) {
         RecommendedRequest.fetchRecommendations(sender: sender, post: post!, receivers: friends, pagination: Paginations.recommendations, recommendationsDownloaded: recommendations) { (success, msg, recommendations) in
             
             if success {
+                if refresh {
+                    self.recommendations = [Recommended]()
+                }
                 recommendations!.forEach {
                     self.recommendations.append($0)
                 }
                 self.checkFriendRecommended()
-                self.view?.reload()
             } else {
                 self.view?.showMessage(success: success, msg: msg)
             }
@@ -79,7 +81,11 @@ class RecommendedPresenter: NSObject {
             for friend in friends where recommendation.receiver?.objectId == friend.objectId {
                 friend.isRecommended = true
             }
+            for friend in friends where recommendation.receiver?.objectId != friend.objectId {
+                friend.isRecommended = false
+            }
         }
+        self.view?.reload()
     }
 
     func searchProfiles(searchString: String, refresh: Bool) {
@@ -96,7 +102,7 @@ class RecommendedPresenter: NSObject {
                                         profiles!.forEach {
                                             self.friends.append($0)
                                         }
-                                        self.getRecommendations()
+                                        self.getRecommendations(refresh: refresh)
 
                                     } else {
                                         self.view?.showMessage(success: success,msg: msg)

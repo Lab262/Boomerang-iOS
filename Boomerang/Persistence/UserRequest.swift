@@ -243,28 +243,35 @@ class UserRequest: NSObject {
 
     static func fetchFollowing(fromProfile: Profile, followingDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
         
-        var following: [Profile] = [Profile]()
-        let queryParams = [FollowKeys.from : [fromProfile]]
-    
         var notContainedObjectIds = [String]()
-        
+        notContainedObjectIds.append(User.current()!.objectId!)
         followingDownloaded.forEach{
             notContainedObjectIds.append($0.objectId!)
         }
-        
-        let notContainedObjects = [ObjectKeys.objectId: notContainedObjectIds]
-        
-        ParseRequest.queryEqualToValueNotContainedObjects(className: Follow.parseClassName(), queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkOnly, notContainedObjects: notContainedObjects, includes: [FollowKeys.to], pagination: pagination) { (success, msg, objects) in
-            if success {
-                for object in objects! {
-                    if let follow = object.object(forKey: FollowKeys.to) as? Profile {
-                        let profile = follow
-                        following.append(profile)
+
+        var profiles = [Profile]()
+        let profilesQuery =  PFQuery(className: Profile.parseClassName())
+        profilesQuery.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+
+        let followQuery = PFQuery(className: Follow.parseClassName())
+        followQuery.whereKey(FollowKeys.to, matchesQuery: profilesQuery)
+        followQuery.whereKey(FollowKeys.from, equalTo: fromProfile)
+        followQuery.includeKey(FollowKeys.to)
+        followQuery.limit = pagination
+        followQuery.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        if let profile = object.object(forKey: FollowKeys.to
+                            ) as? Profile {
+                            let profile = profile
+                            profiles.append(profile)
+                        }
                     }
                 }
-                completionHandler(true, "Success", following)
+                completionHandler(true, "success", profiles)
             } else {
-                completionHandler(false, msg.debugDescription, nil)
+                completionHandler(false, (error?.localizedDescription)!, nil)
             }
         }
     }

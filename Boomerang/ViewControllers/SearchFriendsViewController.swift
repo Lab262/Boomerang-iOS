@@ -167,6 +167,7 @@ extension SearchFriendsViewController: UISearchBarDelegate {
             self.presenter.searchProfiles(searchString: searchText, refresh: true)
         } else {
             self.presenter.currentSearchString = ""
+            self.presenter.profiles = [Profile]()
             presenter.getProfiles()
         }
     }

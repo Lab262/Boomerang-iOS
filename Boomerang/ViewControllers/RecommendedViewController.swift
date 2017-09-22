@@ -75,9 +75,13 @@ class RecommendedViewController: UIViewController {
         
         
         if presenter.friends[indexPath.row-1].isRecommended {
-            setupRecommendedCell(cell: cell)
+            cell.recomendedIndicatorImageView.fadeIn(0.25)
+            cell.isUserInteractionEnabled = false
+        } else {
+            cell.recomendedIndicatorImageView.fadeOut(0.25)
+            cell.isUserInteractionEnabled = true
         }
-    
+
         return cell
     }
     
@@ -186,6 +190,8 @@ extension RecommendedViewController: UISearchBarDelegate {
         if searchText.characters.count > 0 {
             self.presenter.searchProfiles(searchString: searchText, refresh: true)
         } else {
+            self.presenter.friends = [Profile]()
+            self.presenter.recommendations = [Recommended]()
             presenter.getFriends()
         }
     }
