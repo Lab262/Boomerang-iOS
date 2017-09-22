@@ -36,10 +36,10 @@ class SearchFriendsPresenter: NSObject {
                     profiles!.forEach {
                         if $0.objectId != User.current()!.profile?.objectId {
                             self.profiles.append($0)
-                            self.view?.reload()
                         }
                     }
                 }
+                self.view?.reload()
                 self.view?.finishFooterLoading()
             } else {
                 self.view?.showMessage(msg: msg)
