@@ -51,6 +51,11 @@ class HomeMainViewController: UIViewController {
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
 
+    @IBAction func goToProfile(_ sender: Any) {
+        TabBarController.mainTabBarController.uiTabBarController.selectedIndex = 1
+        TabBarController.mainTabBarController.changeStatesButtons(tag: 1)
+    }
+    
     func setupSubscribe() {
         presenter.setupSubscribes()
     }
