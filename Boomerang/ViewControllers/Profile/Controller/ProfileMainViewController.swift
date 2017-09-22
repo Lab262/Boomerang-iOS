@@ -103,8 +103,12 @@ extension ProfileMainViewController: UICollectionViewDataSource {
         
         let countPosts = presenter.getPostsForCurrentFilter().count
         
-        if countPosts == 0 {
-            self.emptyView.isHidden = false
+        if presenter.authorPostIsCurrent() {
+            if countPosts == 0 {
+                self.emptyView.isHidden = false
+            }else {
+                self.emptyView.isHidden = true
+            }
         }else {
             self.emptyView.isHidden = true
         }
