@@ -38,6 +38,7 @@ class ProfileMainViewController: UIViewController {
     func configureEmptyView(){
         self.emptyView.imageEmpty.isHidden = true
         self.emptyView.isHidden = true
+        self.emptyView.setCustomViewLabelSize()
     }
     
     func registerObservers(){
@@ -94,7 +95,15 @@ extension ProfileMainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return presenter.getPostsForCurrentFilter().count
+        let countPosts = presenter.getPostsForCurrentFilter().count
+        
+        if countPosts == 0 {
+            self.emptyView.isHidden = false
+        }else {
+            self.emptyView.isHidden = true
+        }
+        
+        return countPosts
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -31,6 +31,12 @@
 		2F0BAC101EDA67F900B31AFA /* LogOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BAC091EDA667800B31AFA /* LogOutTableViewCell.swift */; };
 		2F0C104D1E87424900E1C40E /* PhotoNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */; };
 		2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */; };
+		2F226DA51F736AD0006F707C /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F226DA41F736AD0006F707C /* EditImageViewController.swift */; };
+		2F226DA71F736AF7006F707C /* EditPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F226DA61F736AF7006F707C /* EditPhotoCollectionViewCell.swift */; };
+		2F226DA81F736C90006F707C /* EditPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F226DA61F736AF7006F707C /* EditPhotoCollectionViewCell.swift */; };
+		2F226DA91F736C91006F707C /* EditPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F226DA61F736AF7006F707C /* EditPhotoCollectionViewCell.swift */; };
+		2F226DAA1F736C98006F707C /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F226DA41F736AD0006F707C /* EditImageViewController.swift */; };
+		2F226DAB1F736C99006F707C /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F226DA41F736AD0006F707C /* EditImageViewController.swift */; };
 		2F2F078C1E64CA2D00C61A6D /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */; };
 		2F2F07901E6733CC00C61A6D /* ThrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */; };
 		2F2F07941E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2F07921E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift */; };
@@ -941,6 +947,8 @@
 		2F0BAC0A1EDA667800B31AFA /* LogOutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogOutTableViewCell.xib; sourceTree = "<group>"; };
 		2F0C104C1E87424900E1C40E /* PhotoNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoNavigationBar.swift; sourceTree = "<group>"; };
 		2F0C10521E874F8500E1C40E /* PhotoNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoNavigationBar.xib; sourceTree = "<group>"; };
+		2F226DA41F736AD0006F707C /* EditImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditImageViewController.swift; path = ../Interface/EditImageViewController.swift; sourceTree = "<group>"; };
+		2F226DA61F736AF7006F707C /* EditPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F2F078B1E64CA2D00C61A6D /* SocialMediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
 		2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowViewController.swift; sourceTree = "<group>"; };
 		2F2F07921E685F0500C61A6D /* SimpleTextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTextFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -1733,6 +1741,7 @@
 			children = (
 				D4FBBCE91E907D2A00611F63 /* Presenters */,
 				A40A252A1DCBD4C000DF9523 /* HomeMainViewController.swift */,
+				2F226DA41F736AD0006F707C /* EditImageViewController.swift */,
 				A4FE06281DD0953200BFDC4D /* HomeTableViewController.swift */,
 				D43DF1311E66970400397251 /* ThingDetailViewController.swift */,
 				D4FBBCE71E907BF700611F63 /* InterestedListViewController.swift */,
@@ -2326,6 +2335,7 @@
 			children = (
 				A4FE062F1DD09A1100BFDC4D /* BoomerThingCell.swift */,
 				A4FE06351DD09D0300BFDC4D /* BoomerThingCollection.swift */,
+				2F226DA61F736AF7006F707C /* EditPhotoCollectionViewCell.swift */,
 				D4A012F31E7AC83900B3B811 /* PostCollectionViewCell.swift */,
 				D4A013051E7C2B2A00B3B811 /* PageControlCollectionViewCell.swift */,
 				D498F03C1E808A95002E8972 /* PhotoThingCollectionViewCell.swift */,
@@ -3571,6 +3581,7 @@
 				A4CB02691DD261D900B01A6B /* IconNavigationBar.swift in Sources */,
 				D4CA48A61EC9F49E003C17F6 /* Recommended.swift in Sources */,
 				A42768091DD3948700363343 /* MyThingsSegmentViewController.swift in Sources */,
+				2F226DA51F736AD0006F707C /* EditImageViewController.swift in Sources */,
 				D4A012FF1E7B15E900B3B811 /* ScaledVisibleCellsCollectionView.swift in Sources */,
 				D4788DE21ECE18FB00E5E55F /* MorePostPresenter.swift in Sources */,
 				A4F89B2A1DA809B100949A35 /* AppDelegate.swift in Sources */,
@@ -3652,6 +3663,7 @@
 				D498F04A1E820EA1002E8972 /* UserInformationTableViewCell.swift in Sources */,
 				D4B3B57E1EAFD5CC008E6566 /* NotificationCellPresenter.swift in Sources */,
 				D4642BC31E9ED301002C8ADC /* LinkPostTableViewCell.swift in Sources */,
+				2F226DA71F736AF7006F707C /* EditPhotoCollectionViewCell.swift in Sources */,
 				2FAE03091E78F7540062E155 /* UIImageViewExtension.swift in Sources */,
 				D4470A6F1EB6A6A5002330C5 /* Profile.swift in Sources */,
 				60B0DE461F6AF6E10029ACBC /* OnboardCollectionViewCell.swift in Sources */,
@@ -3781,6 +3793,7 @@
 				D4AD977C1EA9ACFD00C9FAB9 /* Chat.swift in Sources */,
 				D4B3B55B1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				D4AD977D1EA9ACFD00C9FAB9 /* IconNavigationBar.swift in Sources */,
+				2F226DA81F736C90006F707C /* EditPhotoCollectionViewCell.swift in Sources */,
 				D4AD977E1EA9ACFD00C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
 				A4796CFC1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD977F1EA9ACFD00C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
@@ -3804,6 +3817,7 @@
 				2F0BAC051EDA649F00B31AFA /* DistanceRadiusTableViewCell.swift in Sources */,
 				D4CA48A01EC7DA87003C17F6 /* PostCondition.swift in Sources */,
 				D4AD978C1EA9ACFD00C9FAB9 /* UIView+Animations.swift in Sources */,
+				2F226DAA1F736C98006F707C /* EditImageViewController.swift in Sources */,
 				D4AD978D1EA9ACFD00C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
 				D4AD978E1EA9ACFD00C9FAB9 /* RightMenuCell.swift in Sources */,
 				D4CA48AB1EC9F5AB003C17F6 /* RecommendedViewController.swift in Sources */,
@@ -3982,6 +3996,7 @@
 				D4AD98481EA9AD0400C9FAB9 /* Chat.swift in Sources */,
 				D4B3B55C1EAF98C9008E6566 /* NotificationPresenter.swift in Sources */,
 				D4AD98491EA9AD0400C9FAB9 /* IconNavigationBar.swift in Sources */,
+				2F226DA91F736C91006F707C /* EditPhotoCollectionViewCell.swift in Sources */,
 				D4AD984A1EA9AD0400C9FAB9 /* MyThingsSegmentViewController.swift in Sources */,
 				A4796CFD1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
 				D4AD984B1EA9AD0400C9FAB9 /* ScaledVisibleCellsCollectionView.swift in Sources */,
@@ -4005,6 +4020,7 @@
 				2F0BAC061EDA64A000B31AFA /* DistanceRadiusTableViewCell.swift in Sources */,
 				D4CA48A11EC7DA87003C17F6 /* PostCondition.swift in Sources */,
 				D4AD98581EA9AD0400C9FAB9 /* UIView+Animations.swift in Sources */,
+				2F226DAB1F736C99006F707C /* EditImageViewController.swift in Sources */,
 				D4AD98591EA9AD0400C9FAB9 /* SimpleTextFieldTableViewCell.swift in Sources */,
 				D4AD985A1EA9AD0400C9FAB9 /* RightMenuCell.swift in Sources */,
 				D4CA48AC1EC9F5AB003C17F6 /* RecommendedViewController.swift in Sources */,

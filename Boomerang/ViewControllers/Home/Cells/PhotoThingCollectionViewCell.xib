@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,8 +19,11 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-detail-thing" translatesAutoresizingMaskIntoConstraints="NO" id="Too-kh-bn0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
+                        <rect key="frame" x="15" y="0.0" width="345" height="290"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="290" id="eYM-kc-SFm"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="11"/>
@@ -31,9 +34,9 @@
             </view>
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Too-kh-bn0" secondAttribute="trailing" id="59b-xP-0mn"/>
+                <constraint firstAttribute="trailing" secondItem="Too-kh-bn0" secondAttribute="trailing" constant="15" id="59b-xP-0mn"/>
                 <constraint firstItem="Too-kh-bn0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Q4y-xq-Grf"/>
-                <constraint firstItem="Too-kh-bn0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qn6-vu-C5h"/>
+                <constraint firstItem="Too-kh-bn0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="Qn6-vu-C5h"/>
                 <constraint firstAttribute="bottom" secondItem="Too-kh-bn0" secondAttribute="bottom" id="y9m-4n-mRO"/>
             </constraints>
             <connections>

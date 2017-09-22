@@ -8,19 +8,24 @@
 
 import UIKit
 
+protocol PhotoDetailDelegate {
+    func displayPhoto()
+}
 class PhotoThingTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var areaTouchButton: UIButton!
     @IBOutlet weak var postIconImage: UIImageView!
     @IBOutlet weak var heightIconConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthIconConstraint: NSLayoutConstraint!
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    var delegate: PhotoDetailDelegate?
     
     static var identifier: String {
         return "photoThingCell"
     }
     
     static var cellHeight: CGFloat {
-        return 254.0
+        return 327.0
     }
     
     static var nibName: String {
@@ -35,9 +40,10 @@ class PhotoThingTableViewCell: UITableViewCell {
         super.awakeFromNib()
         registerNib()
         ApplicationState.sharedInstance.delegate = self
+    
+        
         presenter.setViewDelegate(view: self)
         initializePageIndicatorView()
-        (photoCollectionView.collectionViewLayout as! CenterCellCollectionViewFlowLayout).centerCellInset = CGPoint(x: 15, y: 0)
     }
     
     func registerNib(){
@@ -75,7 +81,7 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
 extension PhotoThingTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+            self.delegate?.displayPhoto()
     }
 }
 
@@ -85,10 +91,11 @@ extension PhotoThingTableViewCell: UIScrollViewDelegate {
         
         let flowLayout = (photoCollectionView.collectionViewLayout as! UICollectionViewFlowLayout)
         
-        let indexPath = self.photoCollectionView.indexPathForItem(at: self.photoCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: photoCollectionView.frame.width/2, y: 0))
+        let indexPath = self.photoCollectionView.indexPathForItem(at: self.photoCollectionView.contentOffset + CGPoint(x: flowLayout.sectionInset.left, y: flowLayout.sectionInset.top) + CGPoint(x: photoCollectionView.frame.width/2, y: 0) + CGPoint(x: 0, y: flowLayout.itemSize.height))
         
         if let index = indexPath {
             pageIndicatorView?.selectedPage = index.row
+            
         }
     }
 }
@@ -96,7 +103,7 @@ extension PhotoThingTableViewCell: UIScrollViewDelegate {
 extension PhotoThingTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 345*UIView.widthScaleProportion(), height: 291*UIView.widthScaleProportion())
+        return CGSize(width: 375*UIView.widthScaleProportion(), height: 290)
     }
 }
 
@@ -151,7 +158,7 @@ extension PhotoThingTableViewCell: PageIndicatorViewDelegate {
     }
     
     var defaultAlpha: CGFloat {
-        return 0.5
+        return 0.3
     }
     
     var selectedAlpha: CGFloat {
@@ -163,7 +170,7 @@ extension PhotoThingTableViewCell: PageIndicatorViewDelegate {
     }
     
     var indicatorsColor: UIColor {
-        return UIColor.colorWithHexString("FFFFFF")
+        return UIColor.purpleTextColor
     }
     
     var stackViewConfig: (axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment, distribution: UIStackViewDistribution, spacing: CGFloat) {

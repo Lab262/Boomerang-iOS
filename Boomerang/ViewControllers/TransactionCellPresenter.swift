@@ -66,6 +66,11 @@ class TransactionCellPresenter: NSObject {
         })
     }
     
+    func schemeBeenSeen() -> Bool {
+        return scheme.beenSeen
+    }
+    
+    
     func setupDevolutionDescriptionStyle(label: UILabel) {
         
         
