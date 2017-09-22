@@ -58,6 +58,21 @@ class UserInformationTableViewCell: UITableViewCell {
         userImage.getUserImageFrom(file: presenter.post.author!.photo!) { (success, msg) in
             
         }
+        
+        getAverageStars()
+    }
+    
+    func getAverageStars(){
+        
+        presenter.getAverageStars { (success, msg, averageStars) in
+            if success {
+                for i in 0 ..< averageStars! {
+                    self.evaluationStarImage[i].image = UIImage(named: "selected-star-button")
+                }
+            } else {
+                print("AVERAGE STARS")
+            }
+        }
     }
 }
 

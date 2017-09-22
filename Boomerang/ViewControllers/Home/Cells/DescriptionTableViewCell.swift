@@ -23,15 +23,19 @@ class DescriptionTableViewCell: UITableViewCell {
     }
     
     @IBOutlet weak var descriptionPostLabel: UILabel!
+    @IBOutlet weak var titlePostLabel: UILabel!
+    
     var presenter = DetailThingPresenter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         descriptionPostLabel.setDynamicFont()
+        titlePostLabel.setDynamicFont()
     }
     
     func updateCell(){
         descriptionPostLabel.text = presenter.post.content
+        titlePostLabel.text = presenter.post.title
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -315,7 +315,7 @@ FACEBOOK</string>
                                         <rect key="frame" x="341" y="20.5" width="16" height="13"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xm6-X9-qiW">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="54"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="150" height="53.5"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="42" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="VOLTAR">
@@ -326,7 +326,7 @@ FACEBOOK</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Aw-wf-hhV">
-                                        <rect key="frame" x="254.5" y="0.0" width="120.5" height="53.5"/>
+                                        <rect key="frame" x="225" y="0.0" width="150" height="53.5"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="42" maxY="0.0"/>
                                         <state key="normal" title="PRÓXIMO">
@@ -341,13 +341,13 @@ FACEBOOK</string>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="2Aw-wf-hhV" secondAttribute="trailing" id="0NP-fa-GkF"/>
                                     <constraint firstItem="chY-uR-1bW" firstAttribute="leading" secondItem="Vje-Nd-Ahn" secondAttribute="leading" constant="18" id="0hg-gg-C4V"/>
-                                    <constraint firstItem="xm6-X9-qiW" firstAttribute="width" secondItem="Vje-Nd-Ahn" secondAttribute="width" multiplier="0.322" id="AcH-xY-oVM"/>
+                                    <constraint firstItem="xm6-X9-qiW" firstAttribute="width" secondItem="2Aw-wf-hhV" secondAttribute="width" id="3qz-PF-Gj7"/>
                                     <constraint firstItem="xm6-X9-qiW" firstAttribute="leading" secondItem="Vje-Nd-Ahn" secondAttribute="leading" id="CAV-Zm-2o6"/>
                                     <constraint firstItem="2Aw-wf-hhV" firstAttribute="height" secondItem="Vje-Nd-Ahn" secondAttribute="height" id="DeG-XZ-X4x"/>
                                     <constraint firstAttribute="trailing" secondItem="nrA-LW-nTV" secondAttribute="trailing" constant="18" id="F86-9E-r1L"/>
-                                    <constraint firstItem="xm6-X9-qiW" firstAttribute="height" secondItem="Vje-Nd-Ahn" secondAttribute="height" id="Odu-6o-IIi"/>
+                                    <constraint firstItem="xm6-X9-qiW" firstAttribute="height" secondItem="2Aw-wf-hhV" secondAttribute="height" id="Qut-U8-v8q"/>
                                     <constraint firstItem="chY-uR-1bW" firstAttribute="centerY" secondItem="Vje-Nd-Ahn" secondAttribute="centerY" id="VLI-7a-0rL"/>
-                                    <constraint firstItem="2Aw-wf-hhV" firstAttribute="width" secondItem="Vje-Nd-Ahn" secondAttribute="width" multiplier="0.322" id="ZHj-mj-UI4"/>
+                                    <constraint firstItem="2Aw-wf-hhV" firstAttribute="width" secondItem="Vje-Nd-Ahn" secondAttribute="width" multiplier="0.4" id="ZHj-mj-UI4"/>
                                     <constraint firstItem="xm6-X9-qiW" firstAttribute="centerY" secondItem="Vje-Nd-Ahn" secondAttribute="centerY" id="cqm-Na-4sZ"/>
                                     <constraint firstItem="nrA-LW-nTV" firstAttribute="centerY" secondItem="Vje-Nd-Ahn" secondAttribute="centerY" id="hRT-XT-rbW"/>
                                     <constraint firstItem="2Aw-wf-hhV" firstAttribute="centerY" secondItem="Vje-Nd-Ahn" secondAttribute="centerY" id="tRY-jM-Qpd"/>
