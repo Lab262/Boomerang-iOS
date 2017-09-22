@@ -40,7 +40,9 @@ class SearchThingsPresenter: NSObject {
             if success {
                 self.posts = [Post]()
                 posts!.forEach {
-                    self.posts.append($0)
+                    if !self.posts.contains($0) {
+                        self.posts.append($0)
+                    }
                 }
                 self.view?.reload()
             } else {
@@ -56,7 +58,9 @@ class SearchThingsPresenter: NSObject {
         PostRequest.searchPosts(type: self.currentScope, searchString: self.currentSearchString, postsDownloaded: self.posts, pagination: Paginations.morePosts) { (success, msg, posts) in
             if success {
                 posts!.forEach {
-                    self.posts.append($0)
+                    if !self.posts.contains($0) {
+                        self.posts.append($0)
+                    }
                 }
                 self.view?.reload()
             } else {

@@ -26,7 +26,7 @@ class SearchFriendsViewController: UIViewController {
     }
 
     func getProfiles() {
-        presenter.getProfiles()
+        presenter.getProfiles(refresh: false)
     }
 
     func setupViewDelegate() {
@@ -70,7 +70,7 @@ extension SearchFriendsViewController: UIScrollViewDelegate {
             if self.presenter.currentSearchString.characters.count > 0 {
                 presenter.searchProfiles(searchString: self.presenter.currentSearchString, refresh: false)
             } else {
-                presenter.getProfiles()
+                presenter.getProfiles(refresh: false)
             }
         }
     }
@@ -167,8 +167,7 @@ extension SearchFriendsViewController: UISearchBarDelegate {
             self.presenter.searchProfiles(searchString: searchText, refresh: true)
         } else {
             self.presenter.currentSearchString = ""
-            self.presenter.profiles = [Profile]()
-            presenter.getProfiles()
+            presenter.getProfiles(refresh: true)
         }
     }
 

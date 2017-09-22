@@ -39,7 +39,7 @@ class RecommendedViewController: UIViewController {
     }
     
     func fetchFriends(){
-        presenter.getFriends()
+        presenter.getFriends(refresh: false)
     }
     
     func configureSearchBar() {
@@ -192,7 +192,7 @@ extension RecommendedViewController: UISearchBarDelegate {
         } else {
             self.presenter.friends = [Profile]()
             self.presenter.recommendations = [Recommended]()
-            presenter.getFriends()
+            presenter.getFriends(refresh: true)
         }
     }
 
@@ -209,7 +209,7 @@ extension RecommendedViewController: UIScrollViewDelegate {
             if self.presenter.currentSearchString.characters.count > 0 {
                 presenter.searchProfiles(searchString: self.presenter.currentSearchString, refresh: false)
             } else {
-                presenter.getFriends()
+                presenter.getFriends(refresh: false)
             }
         }
     }

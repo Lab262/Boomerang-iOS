@@ -45,11 +45,16 @@ class RecommendedPresenter: NSObject {
     }
     
     
-    func getFriends() {
+    func getFriends(refresh: Bool) {
         UserRequest.fetchFollowing(fromProfile: sender, followingDownloaded: friends, pagination: Paginations.friends) { (success, msg, profiles) in
             if success {
+                if refresh {
+                    self.friends = [Profile]()
+                }
                 profiles!.forEach {
-                    self.friends.append($0)
+                    if $0.objectId != User.current()!.profile?.objectId && !self.friends.contains($0) {
+                        self.friends.append($0)
+                    }
                 }
                 self.getRecommendations(refresh: false)
             } else {
@@ -100,7 +105,9 @@ class RecommendedPresenter: NSObject {
                                             self.friends = [Profile]()
                                         }
                                         profiles!.forEach {
-                                            self.friends.append($0)
+                                            if $0.objectId != User.current()!.profile?.objectId && !self.friends.contains($0) {
+                                                self.friends.append($0)
+                                            }
                                         }
                                         self.getRecommendations(refresh: refresh)
 

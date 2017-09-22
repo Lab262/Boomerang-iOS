@@ -28,13 +28,16 @@ class SearchFriendsPresenter: NSObject {
         self.view = view
     }
     
-    func getProfiles() {
+    func getProfiles(refresh: Bool) {
         self.view?.startFooterLoading()
         UserRequest.getAllProfiles(profilesDownloaded: profiles, pagination: pagination) { (success, msg, profiles) in
             if success {
+                if refresh {
+                    self.profiles = [Profile]()
+                }
                 if profiles!.count > 1 {
                     profiles!.forEach {
-                        if $0.objectId != User.current()!.profile?.objectId {
+                        if $0.objectId != User.current()!.profile?.objectId && !self.profiles.contains($0) {
                             self.profiles.append($0)
                         }
                     }
@@ -60,7 +63,7 @@ class SearchFriendsPresenter: NSObject {
                     self.profiles = [Profile]()
                 }
                 profiles!.forEach {
-                    if $0.objectId != User.current()!.profile?.objectId {
+                    if $0.objectId != User.current()!.profile?.objectId && !self.profiles.contains($0) {
                         self.profiles.append($0)
                     }
                 }
