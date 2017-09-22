@@ -67,6 +67,13 @@ class TransactionTableViewCell: UITableViewCell {
     }
     
     func updateCell(){
+        if presenter.schemeBeenSeen() {
+            containerView.borderColor = UIColor.clear
+            containerView.borderWidth = 0.0
+        } else {
+            containerView.borderColor = UIColor.yellowBoomerColor
+            containerView.borderWidth = 2.0
+        }
         presenter.getInformationsOfTransaction()
         presenter.setupDevolutionDescriptionStyle(label: devolutionLabel)
         configureDynamicFont()

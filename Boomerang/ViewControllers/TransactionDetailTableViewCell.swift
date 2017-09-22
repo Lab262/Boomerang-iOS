@@ -20,8 +20,18 @@ class TransactionDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleOfTransactionLabel: UILabel!
+    @IBOutlet weak var dateFinishLabel: UILabel!
     
+    @IBOutlet weak var arrowRoundImage: UIImageView!
+    @IBOutlet weak var finishLabel: UILabel!
     @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var cancelButtonContainerView: UIView!
+    @IBOutlet weak var chatButtonContainerView: UIView!
+    @IBOutlet weak var startLabelCenterLeftConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var startLabelCenterConstraint: NSLayoutConstraint!
+    
+
     
     @IBOutlet weak var goToChatLabel: UILabel!
     

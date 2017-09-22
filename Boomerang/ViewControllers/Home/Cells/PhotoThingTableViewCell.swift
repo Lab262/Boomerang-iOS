@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol PhotoDetailDelegate {
+    func displayPhoto()
+}
 class PhotoThingTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var areaTouchButton: UIButton!
     @IBOutlet weak var postIconImage: UIImageView!
     @IBOutlet weak var heightIconConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthIconConstraint: NSLayoutConstraint!
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    var delegate: PhotoDetailDelegate?
     
     static var identifier: String {
         return "photoThingCell"
@@ -35,6 +40,8 @@ class PhotoThingTableViewCell: UITableViewCell {
         super.awakeFromNib()
         registerNib()
         ApplicationState.sharedInstance.delegate = self
+    
+        
         presenter.setViewDelegate(view: self)
         initializePageIndicatorView()
     }
@@ -74,7 +81,7 @@ extension PhotoThingTableViewCell: UICollectionViewDataSource {
 extension PhotoThingTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+            self.delegate?.displayPhoto()
     }
 }
 

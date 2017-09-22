@@ -41,6 +41,20 @@ class SchemeRequest: NSObject {
         }
     }
     
+    static func see(scheme: Scheme, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        
+        var queryParams = [String: Any]()
+        queryParams[ObjectKeys.objectId] = scheme.objectId
+        
+        var colunmsUpdated = [String: Any]()
+        
+        colunmsUpdated["beenSeen"] = true
+        
+        ParseRequest.updateObject(className: scheme.parseClassName, queryParams: queryParams, colunmsUpdated: colunmsUpdated) { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
     static func updateScheme(scheme: Scheme, statusScheme: StatusSchemeEnum, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         let allStatus = ApplicationState.sharedInstance.schemeStatus

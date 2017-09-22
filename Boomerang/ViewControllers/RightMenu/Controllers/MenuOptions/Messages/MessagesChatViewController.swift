@@ -14,6 +14,7 @@ class MessagesChatViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var linkProfileButton: UIButton!
     
     var chat: Chat?
     var profile: Profile?
@@ -22,6 +23,10 @@ class MessagesChatViewController: UIViewController {
         super.viewDidLoad()
         setupInformationsHeader()
         getAverageStars()
+    }
+    
+    @IBAction func goToProfileView(_ sender: Any) {
+        performSegue(withIdentifier: SegueIdentifiers.chatToPofile, sender: self)
     }
     
     func setupInformationsHeader() {
@@ -54,6 +59,13 @@ class MessagesChatViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? ChatViewController {
             controller.presenter.chat = chat!
+        }
+        
+        if let controller = segue.destination as? ProfileMainViewController {
+            if let profile = profile {
+                controller.presenter.setProfile(profile: profile)
+            }
+            
         }
     }
 

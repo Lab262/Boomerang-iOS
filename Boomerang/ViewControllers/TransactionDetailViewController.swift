@@ -33,11 +33,16 @@ class TransactionDetailViewController: UIViewController {
         configureTableView()
         setupPresenterDelegate()
         setupPopoverAction()
+        seePost()
         
         if self.presenter.scheme.statusSchemeEnum == .done || self.presenter.scheme.statusSchemeEnum == .finished || self.presenter.scheme.statusSchemeEnum == .negotiation{
             self.finalizeButton.isHidden = true
         }
         configureNavigationsBars()
+    }
+    
+    func seePost() {
+        presenter.seeScheme()
     }
     
     func configureNavigationsBars(){
@@ -125,6 +130,19 @@ class TransactionDetailViewController: UIViewController {
         cell.chatButton.addTarget(self, action: #selector(goChat(_:)), for: .touchUpInside)
         cell.presenter.scheme = presenter.scheme
         cell.updateInformationsCell()
+        
+        if self.presenter.scheme.statusSchemeEnum != .done && self.presenter.scheme.statusSchemeEnum != .finished  {
+            
+            cell.arrowRoundImage.isHidden = true
+            cell.dateFinishLabel.isHidden = true
+            cell.finishLabel.isHidden = true
+            cell.startLabelCenterLeftConstraint.isActive = false
+            cell.startLabelCenterConstraint.isActive = true
+            cell.layoutIfNeeded()
+            
+        }
+        
+        cell.cancelButtonContainerView.isHidden = true
         
         return cell
     }
