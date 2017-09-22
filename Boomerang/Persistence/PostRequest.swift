@@ -445,8 +445,7 @@ class PostRequest: NSObject {
             completionHandler(success, msg)
         }
     }
-    
-    
+
     static func getAllConditions (completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         var allConditions = [PostCondition]()
@@ -464,5 +463,52 @@ class PostRequest: NSObject {
             }
             completionHandler(success, msg)
         }
+    }
+
+    static func searchPosts(type: TypePostEnum,
+                                       searchString: String,
+                                       postsDownloaded: [Post],
+                                       pagination: Int,
+                                       completionHandler: @escaping (_ success: Bool, _ msg: String, _ posts: [Post]?) -> ()) {
+
+        var posts: [Post] = [Post]()
+
+        let query = PFQuery(className: Post.parseClassName())
+        query.order(byDescending: ObjectKeys.createdAt)
+        query.includeKey(PostKeys.author)
+
+        let profiles = [User.current()!.profile!]
+
+        var notContainedObjectIds = [String]()
+
+            postsDownloaded.forEach {
+                notContainedObjectIds.append($0.objectId!)
+            }
+
+        let postType = ApplicationState.sharedInstance.postTypes.filter { $0.type == type.rawValue }.first!
+
+        query.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+        query.whereKey(PostKeys.author, notContainedIn: profiles)
+        query.whereKey(PostKeys.isAvailable, equalTo: true)
+        query.whereKey(PostKeys.type, equalTo: postType)
+        query.whereKey(PostKeys.title, matchesRegex: "(?i)\(searchString)")
+//        query.whereKey(PostKeys.title, contains: searchString)
+        query.limit = pagination
+
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        let post = object as? Post
+                        post?.setupEnums()
+                        posts.append(post!)
+                    }
+                }
+                completionHandler(true, "success", posts)
+            } else {
+                completionHandler(false, (error?.localizedDescription)!, nil)
+            }
+        }
+
     }
 }

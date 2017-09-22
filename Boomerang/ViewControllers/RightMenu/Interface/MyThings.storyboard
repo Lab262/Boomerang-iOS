@@ -347,6 +347,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="defaultSearchBarTheme" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="defaultTheme" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MXU-YC-co1">
                                 <rect key="frame" x="0.0" y="48" width="375" height="523"/>
@@ -419,7 +423,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="6yI-zn-Z9W" id="R7D-dN-zXv"/>
                         <outlet property="tableView" destination="MXU-YC-co1" id="1zT-5c-MHq"/>
                         <segue destination="xWH-hl-94I" kind="show" identifier="goToProfile" id="0Ix-XT-r2P"/>
                     </connections>

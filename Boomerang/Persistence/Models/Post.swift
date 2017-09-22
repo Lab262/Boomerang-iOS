@@ -13,6 +13,19 @@ enum TypePostEnum: String {
     case have = "Have"
     case need = "Need"
     case donate = "Donate"
+
+    static func atIndex(_ index: Int) -> TypePostEnum {
+        switch index {
+        case 0:
+            return .have
+        case 1:
+            return .need
+        case 2:
+            return .donate
+        default:
+           return .have
+        }
+    }
 }
 
 enum ConditionEnum: String {

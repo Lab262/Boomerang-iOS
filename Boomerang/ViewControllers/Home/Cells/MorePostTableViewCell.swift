@@ -50,7 +50,7 @@ class MorePostTableViewCell: UITableViewCell {
     }
     
     func setupCell(){
-        descriptionLabel.text = presenter.post.content
+        descriptionLabel.text = presenter.post.title
         nameLabel.text = presenter.post.author!.fullName
         presenter.getIconPost(iconImage: postIconImage, height: heightPostIconConstraint, width: widthPostIconConstraint)
         userImage.getUserImage(profile: presenter.post.author!) { (success, msg) in

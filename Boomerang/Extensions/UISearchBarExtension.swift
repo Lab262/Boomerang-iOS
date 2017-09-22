@@ -55,5 +55,22 @@ extension UISearchBar {
         let textFieldInsideSearchBar = self.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.tintColor = color
     }
-    
+
+    @IBInspectable var defaultTheme: Bool {
+        get {
+            return true
+        }
+        set {
+            if newValue == true {
+                self.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:self.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
+                self.setBackgroundSearchBarColor(color: UIColor.backgroundSearchColor)
+                self.setCursorSearchBarColor(color: UIColor.textSearchColor)
+                self.setPlaceholderSearchBarColor(color: UIColor.textSearchColor)
+                self.setTextSearchBarColor(color: UIColor.textSearchColor)
+                self.setIconSearchBarColor(color: UIColor.textSearchColor)
+                self.setClearIconSearchBarColor(color: UIColor.textSearchColor)
+            }
+        }
+    }
+
 }

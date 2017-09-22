@@ -16,7 +16,6 @@ protocol ViewDelegate {
 
 class HomeMainViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var greetingText: UILabel!
     @IBOutlet weak var navigationBarView: UIView!
@@ -32,22 +31,26 @@ class HomeMainViewController: UIViewController {
         super.viewWillAppear(animated)
         TabBarController.mainTabBarController.showTabBar()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewDelegate()
         setupNavigationConfiguration()
         setupUserInformationsInHUD()
         setupNavigationConfiguration()
-        setupSearchBarConfiguration()
         setupTableViewConfiguration()
         registerNib()
         registerObservers()
         getTimeLinePosts()
         setupSubscribe()
-        hideKeyboardWhenTappedAround()
     }
     
+    @IBAction func showSearchThingsVC(_ sender: Any) {
+        TabBarController.mainTabBarController.hideTabBar()
+        let viewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("SearchThings")
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
+
     func setupSubscribe() {
         presenter.setupSubscribes()
     }
@@ -190,16 +193,7 @@ extension HomeMainViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-    func setupSearchBarConfiguration() {
-        searchBar.setBackgroundImage(ViewUtil.imageFromColor(.clear, forSize:searchBar.frame.size, withCornerRadius: 0), for: .any, barMetrics: .default)
-        searchBar.setBackgroundSearchBarColor(color: UIColor.backgroundSearchColor)
-        searchBar.setCursorSearchBarColor(color: UIColor.textSearchColor)
-        searchBar.setPlaceholderSearchBarColor(color: UIColor.textSearchColor)
-        searchBar.setTextSearchBarColor(color: UIColor.textSearchColor)
-        searchBar.setIconSearchBarColor(color: UIColor.textSearchColor)
-        searchBar.setClearIconSearchBarColor(color: UIColor.textSearchColor)
-    }
-    
+
     func setupTableViewConfiguration() {
         tableView.contentInset = UIEdgeInsetsMake(0, 0, tableViewBottomInset, 0)
     }
@@ -336,17 +330,5 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
 
     }
 }
-extension HomeMainViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeMainViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
 
 
