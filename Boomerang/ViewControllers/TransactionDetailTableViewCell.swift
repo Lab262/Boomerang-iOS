@@ -31,8 +31,6 @@ class TransactionDetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var startLabelCenterConstraint: NSLayoutConstraint!
     
-
-    
     @IBOutlet weak var goToChatLabel: UILabel!
     
     @IBOutlet weak var cancelProcessLabel: UILabel!
@@ -75,6 +73,10 @@ class TransactionDetailTableViewCell: UITableViewCell {
         titleOfTransactionLabel.text = presenter.getTitleOfTransaction()
         dateTransactionLabel.text = presenter.getStartDateScheme().getStringToDate(dateFormat: "dd/MM/YYYY")
         presenter.getImageOfUser()
+        
+        if let finalizeDate = presenter.getFinalizedDateScheme() {
+            dateFinishLabel.text = finalizeDate.getStringToDate(dateFormat: "dd/MM/YYYY")
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

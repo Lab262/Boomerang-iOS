@@ -27,6 +27,7 @@ class Scheme: PFObject {
     @NSManaged var chat: Chat?
     @NSManaged var beenSeen: Bool
     @NSManaged var showNotification: Bool
+    @NSManaged var finalizedDate: Date?
     var statusSchemeEnum: StatusSchemeEnum?
     var condition: ConditionEnum?
     var dealer: Profile?

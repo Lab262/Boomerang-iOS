@@ -32,6 +32,7 @@ class SchemeRequest: NSObject {
         queryParams[ObjectKeys.objectId] = scheme.objectId
         var colunmsUpdated = [String: Any]()
         colunmsUpdated["showNotification"] = false
+        colunmsUpdated["finalizedDate"] = Date()
         
         for status in allStatus where status.status == StatusSchemeEnum.finished.rawValue {
             colunmsUpdated[SchemeKeys.status] = status
