@@ -32,11 +32,11 @@ class TransactionDetailPresenter: NSObject {
     }
     
     func seeScheme() {
-        SchemeRequest.see(scheme: scheme) { (success, msg) in
-            if success {
-                print ("POST VISTO")
-            } else {
-                print ("POST NAO VISTO")
+        if !scheme.beenSeen {
+            SchemeRequest.see(scheme: scheme) { (success, msg) in
+                if success {
+                } else {
+                }
             }
         }
     }

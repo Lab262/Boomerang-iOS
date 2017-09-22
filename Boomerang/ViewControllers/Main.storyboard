@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aFI-aJ-oa2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aFI-aJ-oa2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -112,6 +112,17 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-Wu-zZa" userLabel="FourthOption">
                                                 <rect key="frame" x="226" y="0.0" width="74" height="50"/>
                                                 <subviews>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lE2-Ih-Kar">
+                                                        <rect key="frame" x="48" y="4" width="20" height="20"/>
+                                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="27Y-jM-U3w"/>
+                                                            <constraint firstAttribute="height" constant="20" id="zcz-UZ-DPr"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSd-zk-gdC">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="50"/>
                                                         <state key="normal" image="tabbar_schemas_icon"/>
@@ -124,8 +135,10 @@
                                                 <constraints>
                                                     <constraint firstItem="WSd-zk-gdC" firstAttribute="height" secondItem="Afb-Wu-zZa" secondAttribute="height" id="JCG-ta-kOu"/>
                                                     <constraint firstItem="WSd-zk-gdC" firstAttribute="centerX" secondItem="Afb-Wu-zZa" secondAttribute="centerX" id="OCP-AY-f6s"/>
+                                                    <constraint firstItem="lE2-Ih-Kar" firstAttribute="top" secondItem="Afb-Wu-zZa" secondAttribute="top" constant="4" id="V8N-NJ-om1"/>
                                                     <constraint firstItem="WSd-zk-gdC" firstAttribute="width" secondItem="Afb-Wu-zZa" secondAttribute="width" id="aqX-Qm-Td3"/>
                                                     <constraint firstItem="WSd-zk-gdC" firstAttribute="centerY" secondItem="Afb-Wu-zZa" secondAttribute="centerY" id="oE9-zk-cP6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lE2-Ih-Kar" secondAttribute="trailing" constant="6" id="pqE-o5-vAd"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -283,6 +296,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="badgeView" destination="lE2-Ih-Kar" id="w45-If-6mH"/>
                         <outlet property="imgViewCenterOption" destination="TKu-lQ-7zT" id="sSQ-qz-oTM"/>
                         <outlet property="viewContainerCenterOption" destination="BTL-uU-asz" id="XMr-sl-CCb"/>
                         <outlet property="viewContainerTabBar" destination="BvM-S8-hCt" id="Dm8-Xj-VDU"/>

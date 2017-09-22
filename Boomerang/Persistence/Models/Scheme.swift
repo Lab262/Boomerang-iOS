@@ -26,6 +26,7 @@ class Scheme: PFObject {
     @NSManaged var status: SchemeStatus?
     @NSManaged var chat: Chat?
     @NSManaged var beenSeen: Bool
+    @NSManaged var showNotification: Bool
     var statusSchemeEnum: StatusSchemeEnum?
     var condition: ConditionEnum?
     var dealer: Profile?
@@ -51,7 +52,10 @@ class Scheme: PFObject {
         self.post = post
         self.requester = requester
         self.owner = owner
+        self.showNotification = true
+        self.beenSeen = false
         //self.chat = chat
+        
         
         let statusPost = ApplicationState.sharedInstance.schemeStatus
         

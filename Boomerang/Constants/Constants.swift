@@ -104,13 +104,13 @@ struct NotificationKeys {
 struct Paginations {
     static let friends = 10
     static let facebookFriends = 20
-    static let postsFeatureds = 4
-    static let postsByFriends = 3
-    static let postsByCity = 3
-    static let schemes = 3
-    static let notifications = 3
-    static let comments = 1
-    static let morePosts = 2
+    static let postsFeatureds = 3
+    static let postsByFriends = 5
+    static let postsByCity = 5
+    static let schemes = 10
+    static let notifications = 10
+    static let comments = 10
+    static let morePosts = 10
     static let messages = 100
     static let profiles = 20
     static let pagination = 10
