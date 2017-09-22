@@ -34,8 +34,10 @@ class SearchFriendsPresenter: NSObject {
             if success {
                 if profiles!.count > 1 {
                     profiles!.forEach {
-                        self.profiles.append($0)
-                        self.view?.reload()
+                        if $0.objectId != User.current()!.profile?.objectId {
+                            self.profiles.append($0)
+                            self.view?.reload()
+                        }
                     }
                 }
                 self.view?.finishFooterLoading()
@@ -58,7 +60,9 @@ class SearchFriendsPresenter: NSObject {
                     self.profiles = [Profile]()
                 }
                 profiles!.forEach {
-                    self.profiles.append($0)
+                    if $0.objectId != User.current()!.profile?.objectId {
+                        self.profiles.append($0)
+                    }
                 }
                 self.view?.reload()
 
