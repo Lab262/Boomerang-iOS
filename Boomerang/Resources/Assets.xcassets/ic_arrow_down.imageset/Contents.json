@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Group 2.png",
+      "filename" : "arrow_down.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Group 2@2x.png",
+      "filename" : "cópia de Back Chevron@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Group 2@3x.png",
+      "filename" : "arrow_down2.png",
       "scale" : "3x"
     }
   ],

@@ -34,7 +34,7 @@ class PhotoThingCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        print(#function, "corner: \(self.thingImage.cornerRadius)")
         // Initialization code
     }
     

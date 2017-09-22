@@ -20,7 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyView" customModule="lab262_boomerang_dev" customModuleProvider="target">
             <connections>
-                <outlet property="constraintButton" destination="7OA-QK-EiV" id="RzV-Ek-e2Z"/>
+                <outlet property="constraintLabel" destination="z4F-rf-gPU" id="uFV-qJ-bXE"/>
                 <outlet property="descriptionLabel" destination="AjY-T6-o7L" id="fvH-jC-r2J"/>
                 <outlet property="emptyButton" destination="ua5-SY-e1r" id="Pqk-xD-Ylv"/>
                 <outlet property="imageEmpty" destination="7BY-1b-yfd" id="NzM-aq-dDa"/>
@@ -37,22 +37,22 @@
                     <rect key="frame" x="134.5" y="11" width="105" height="102"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHc-QF-FZ7">
-                    <rect key="frame" x="168" y="123" width="38.5" height="17.5"/>
+                    <rect key="frame" x="168" y="123" width="38.5" height="18"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjY-T6-o7L">
-                    <rect key="frame" x="37" y="149.5" width="300" height="60.5"/>
+                    <rect key="frame" x="37" y="150" width="300" height="17"/>
                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
                     <color key="textColor" red="0.37647058823529411" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgk-gi-R1J">
-                    <rect key="frame" x="37" y="220" width="300" height="30"/>
+                    <rect key="frame" x="37" y="177" width="300" height="32"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-SY-e1r">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="32"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="16"/>
                             <state key="normal" title="Button">
@@ -71,7 +71,6 @@
                         <constraint firstItem="ua5-SY-e1r" firstAttribute="centerY" secondItem="qgk-gi-R1J" secondAttribute="centerY" id="55H-mu-nRI"/>
                         <constraint firstItem="ua5-SY-e1r" firstAttribute="height" secondItem="qgk-gi-R1J" secondAttribute="height" id="JeM-9n-Vtc"/>
                         <constraint firstItem="ua5-SY-e1r" firstAttribute="centerX" secondItem="qgk-gi-R1J" secondAttribute="centerX" id="WRb-XP-Gnu"/>
-                        <constraint firstAttribute="height" constant="30" id="ing-BE-8yC"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -89,11 +88,10 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="qgk-gi-R1J" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5iP-UR-Qbz"/>
                 <constraint firstItem="AjY-T6-o7L" firstAttribute="top" secondItem="RHc-QF-FZ7" secondAttribute="bottom" constant="9" id="6eA-J4-oSb"/>
-                <constraint firstItem="qgk-gi-R1J" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="80" id="7OA-QK-EiV"/>
                 <constraint firstItem="7BY-1b-yfd" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.33" id="8cR-p5-xF3"/>
                 <constraint firstItem="ua5-SY-e1r" firstAttribute="top" secondItem="AjY-T6-o7L" secondAttribute="bottom" constant="10" id="I6v-Kg-dUs"/>
                 <constraint firstItem="7BY-1b-yfd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.28" id="IAm-yg-jdV"/>

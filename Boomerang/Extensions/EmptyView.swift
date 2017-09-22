@@ -16,7 +16,7 @@ class EmptyView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var emptyButton: UIButton!
-    @IBOutlet weak var constraintButton: NSLayoutConstraint!
+    @IBOutlet weak var constraintLabel: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,6 +38,14 @@ class EmptyView: UIView {
         self.titleLabel.setDynamicFont()
         self.descriptionLabel.setDynamicFont()
         self.emptyButton.titleLabel?.setDynamicFont()
+    }
+    
+    func setCustomViewLabelSize () {
+        if UIView.heightScaleProportion() < 1.0 {
+            self.titleLabel.isHidden = true
+            self.descriptionLabel.text = self.titleLabel.text
+            self.constraintLabel.constant = 20.0
+        }
     }
     
     @IBInspectable var emptyImage: UIImage? {
@@ -73,15 +81,6 @@ class EmptyView: UIView {
         }
         get {
             return self.emptyButton.titleLabel?.text
-        }
-    }
-    
-    @IBInspectable var constraintButtonMultiplier: CGFloat? {
-        set {
-            self.constraintButton.constant = newValue!
-        }
-        get {
-            return self.constraintButton.constant
         }
     }
 }

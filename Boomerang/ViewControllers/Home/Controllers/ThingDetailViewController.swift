@@ -119,7 +119,10 @@ class ThingDetailViewController: UIViewController {
         getCommentsCount()
         registerObservers()
         setupSubscribe()
+        
     }
+    
+  
     
     func setupInformations(){
         switch presenter.getCurrentType() {
@@ -417,6 +420,8 @@ class ThingDetailViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: PhotoThingTableViewCell.identifier, for: indexPath) as! PhotoThingTableViewCell
         
         cell.presenter.post = presenter.post
+        cell.delegate = self
+        cell.areaTouchButton.addTarget(self, action: #selector(openDetailPhoto(_:)), for: .touchUpInside)
         
         if cell.presenter.post!.relations == nil {
            cell.presenter.getCountPhotos(success: false)
@@ -504,6 +509,19 @@ class ThingDetailViewController: UIViewController {
     
     func textFieldFirstResponder(_ sender: UIButton) {
         composeBarView?.becomeFirstResponder()
+    }
+    func openDetailPhoto(_ sender: UIButton) {
+        
+        if let nextVC = ViewUtil.viewControllerFromStoryboardWithIdentifier("Home", identifier:"editImageVC") as? EditImageViewController{
+            nextVC.photo = presenter.getImagePostByIndex(0)
+            let transition = CATransition()
+            transition.duration = 0.2
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            transition.type = kCATransitionReveal
+            transition.subtype = kCATransitionFade
+            self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+            self.navigationController?.pushViewController(nextVC, animated: false)
+        }
     }
 }
 
@@ -645,8 +663,8 @@ extension ThingDetailViewController: DetailThingDelegate {
     }
     
     func showMessage(isSuccess: Bool, msg: String) {
-        let title = isSuccess ? "Certo" : "Erro"
-        GenericBoomerAlertController.presentMe(inParent: self, withTitle: title, negativeAction: "Ok") { (isPositive) in
+        let title = isSuccess ? "" : "Erro: "
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: title + msg, negativeAction: "Ok") { (isPositive) in
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -677,6 +695,15 @@ extension ThingDetailViewController : UIGestureRecognizerDelegate {
         return true
     }
 }
+
+extension ThingDetailViewController:PhotoDetailDelegate {
+    
+    func displayPhoto(){
+       
+    }
+    
+  }
+
 
 
 

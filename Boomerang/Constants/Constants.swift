@@ -171,7 +171,7 @@ struct DetailPostTitles {
 //MARK - Notification Success Messages
 
 struct NotificationSuccessMessages {
-    static let enterInterestedList = "Estou interessado, fico feliz em ajudar"
+    static let enterInterestedList = "Pronto! Você está na lista de espera. Para ver se houve resposta, vá em seus esquemas."
     static let exitInterestedList = "Você saiu da lista de interessados."
 }
 

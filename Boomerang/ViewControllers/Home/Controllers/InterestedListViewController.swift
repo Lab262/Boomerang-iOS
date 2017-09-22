@@ -64,9 +64,12 @@ class InterestedListViewController: UIViewController {
     }
     
     func createScheme(_ sender: UIButton) {
-        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Deseja fechar o esquema?", positiveAction: "Bora", negativeAction: "Não, bora") { (isPositive) in
+        let interestedUser = self.presenter.getInteresteds()[sender.tag]
+        let nameInterested = interestedUser.user?.firstName
+        
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Deseja fechar o esquema com \(nameInterested ?? "")?", positiveAction: "Bora", negativeAction: "Não, bora") { (isPositive) in
             if isPositive {
-                self.presenter.setInterested(interested: self.presenter.getInteresteds()[sender.tag])
+                self.presenter.setInterested(interested: interestedUser)
                 self.presenter.createScheme()
             }
         }
