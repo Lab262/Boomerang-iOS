@@ -287,11 +287,11 @@ class ThingDetailViewController: UIViewController {
         } else {
             if sender.currentTitle == presenter.enterInterestedTitleButton {
                 presenter.enterInterestedList(completionHandler: { (success, msg, title) in
-                    sender.titleLabel?.text = title
+                    sender.setTitle(title, for: .normal)
                 })
             } else {
                 presenter.exitInterestedList(completionHandler: { (success, msg, title) in
-                    sender.titleLabel?.text = title
+                    sender.setTitle(title, for: .normal)
                 })
             }
         }
