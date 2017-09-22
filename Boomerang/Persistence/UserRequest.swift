@@ -278,15 +278,14 @@ class UserRequest: NSObject {
         }
 
         var profiles = [Profile]()
+        let firstNameQuery =  PFQuery(className: Profile.parseClassName()).whereKey(ProfileKeys.firstName, matchesRegex: "(?i)\(searchString)")
+        let lastNameQuery =  PFQuery(className: Profile.parseClassName()).whereKey(ProfileKeys.lastName, matchesRegex: "(?i)\(searchString)")
+        let orQuery = PFQuery.orQuery(withSubqueries: [firstNameQuery,lastNameQuery])
+        orQuery.order(byDescending: ProfileKeys.firstName)
+        orQuery.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+        orQuery.limit = pagination
 
-        let query = PFQuery(className: Profile.parseClassName())
-        query.order(byDescending: ObjectKeys.createdAt)
-        query.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
-        query.whereKey(ProfileKeys.firstName, matchesRegex: "(?i)\(searchString)")
-        query.whereKey(ProfileKeys.lastName, matchesRegex: "(?i)\(searchString)")
-        query.limit = pagination
-
-        query.findObjectsInBackground { (objects, error) in
+        orQuery.findObjectsInBackground { (objects, error) in
             if error == nil {
                 if let objects = objects {
                     for object in objects {
@@ -299,6 +298,42 @@ class UserRequest: NSObject {
                 completionHandler(false, (error?.localizedDescription)!, nil)
             }
         }
+    }
 
+    static func searchFriends(searchString: String,fromProfile: Profile, profilesDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ profiles: [Profile]?) -> Void)  {
+
+        var notContainedObjectIds = [String]()
+        notContainedObjectIds.append(User.current()!.objectId!)
+        profilesDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+
+        var profiles = [Profile]()
+        let firstNameQuery =  PFQuery(className: Profile.parseClassName()).whereKey(ProfileKeys.firstName, matchesRegex: "(?i)\(searchString)")
+        let lastNameQuery =  PFQuery(className: Profile.parseClassName()).whereKey(ProfileKeys.lastName, matchesRegex: "(?i)\(searchString)")
+        let orQuery = PFQuery.orQuery(withSubqueries: [firstNameQuery,lastNameQuery])
+        orQuery.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+
+        let followQuery = PFQuery(className: Follow.parseClassName())
+        followQuery.whereKey(FollowKeys.to, matchesQuery: orQuery)
+        followQuery.whereKey(FollowKeys.from, equalTo: fromProfile)
+        followQuery.includeKey(FollowKeys.to)
+        followQuery.limit = pagination
+        followQuery.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        if let profile = object.object(forKey: FollowKeys.to
+                            ) as? Profile {
+                            let profile = profile
+                            profiles.append(profile)
+                        }
+                    }
+                }
+                completionHandler(true, "success", profiles)
+            } else {
+                completionHandler(false, (error?.localizedDescription)!, nil)
+            }
+        }
     }
 }

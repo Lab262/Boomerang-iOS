@@ -261,10 +261,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Snh-G4-ziB">
-                                <rect key="frame" x="0.0" y="60" width="375" height="44"/>
+                                <rect key="frame" x="15" y="60" width="345" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="defaultTheme" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="sb2-yh-WZM" id="xJl-qn-Mrr"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zF5-4P-pmC">
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
@@ -338,10 +344,10 @@
                             <constraint firstItem="zF5-4P-pmC" firstAttribute="top" secondItem="Snh-G4-ziB" secondAttribute="bottom" constant="12" id="drK-bg-0vv"/>
                             <constraint firstAttribute="trailing" secondItem="xxg-xT-X0t" secondAttribute="trailing" id="hJL-xZ-K85"/>
                             <constraint firstItem="yzk-Ec-nHJ" firstAttribute="top" secondItem="zF5-4P-pmC" secondAttribute="bottom" id="hzU-Pz-qUF"/>
-                            <constraint firstItem="Snh-G4-ziB" firstAttribute="leading" secondItem="nrY-II-MMO" secondAttribute="leading" id="iMO-1K-vXT"/>
+                            <constraint firstItem="Snh-G4-ziB" firstAttribute="leading" secondItem="nrY-II-MMO" secondAttribute="leading" constant="15" id="iMO-1K-vXT"/>
                             <constraint firstItem="zF5-4P-pmC" firstAttribute="top" secondItem="Snh-G4-ziB" secondAttribute="bottom" constant="12" id="u7u-1M-mMF"/>
                             <constraint firstAttribute="trailing" secondItem="Sew-gA-pil" secondAttribute="trailing" id="uqL-Du-j2O"/>
-                            <constraint firstAttribute="trailing" secondItem="Snh-G4-ziB" secondAttribute="trailing" id="vLa-N1-Gbj"/>
+                            <constraint firstAttribute="trailing" secondItem="Snh-G4-ziB" secondAttribute="trailing" constant="15" id="vLa-N1-Gbj"/>
                             <constraint firstItem="Sew-gA-pil" firstAttribute="leading" secondItem="nrY-II-MMO" secondAttribute="leading" id="zsW-jU-TyR"/>
                         </constraints>
                     </view>
@@ -622,7 +628,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcr-AS-ZtQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n0d-99-g7M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0d-99-g7M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
