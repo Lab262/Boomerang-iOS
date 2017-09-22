@@ -49,6 +49,7 @@ class ThingDetailViewController: UIViewController {
     var container: UIView?
     var keyboardFrameSize: CGRect?
     var currentCommentsCount = 0
+    var defaultValueAlphaTitleNavigation:CGFloat = 1.0
     
     var inputFieldsCondition: [Fields] = []
     
@@ -260,9 +261,11 @@ class ThingDetailViewController: UIViewController {
 
     
     func setNavigationInformations(){
+        defaultValueAlphaTitleNavigation = navigationBarView.titleBarLabel.alpha
         navigationBarView.titleBarLabel.text = presenter.getCurrentType()
-        navigationInformationsView.thingNameLabel.text = presenter.post.title
-        navigationInformationsView.thingNameLabel.setDynamicFont()
+//        navigationInformationsView.thingNameLabel.text = presenter.post.title
+//        navigationInformationsView.thingNameLabel.setDynamicFont()
+        navigationInformationsView.thingNameLabel.isHidden = true
         navigationBarView.titleBarLabel.setDynamicFont()
         navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
     }
@@ -607,7 +610,19 @@ extension ThingDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
+        updateNavigationBarView(yOffset)
         updateInformationsCell(yOffset)
+    }
+    
+    func updateNavigationBarView(_ yOffset: CGFloat) {
+        if yOffset > 0 {
+            let newAlpha = 1 - ((yOffset)/self.navigationBarView.frame.size.height*2)
+            if newAlpha < self.defaultValueAlphaTitleNavigation {
+                self.navigationBarView.titleBarLabel.alpha = newAlpha
+            }
+        } else {
+            self.navigationBarView.titleBarLabel.alpha = self.defaultValueAlphaTitleNavigation
+        }
     }
     
     
