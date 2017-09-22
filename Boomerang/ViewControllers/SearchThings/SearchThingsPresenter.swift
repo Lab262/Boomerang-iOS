@@ -36,16 +36,13 @@ class SearchThingsPresenter: NSObject {
         self.currentScope = scope
         self.currentSearchString = searchString
         self.view?.startFooterLoading()
-        PostRequest.searchPosts(type: scope, searchString: searchString, postsDownloaded: self.posts, pagination: Paginations.morePosts) { (success, msg, posts) in
+        PostRequest.searchPosts(type: scope, searchString: searchString, postsDownloaded: [Post](), pagination: Paginations.morePosts) { (success, msg, posts) in
             if success {
-                if posts!.count > 0 {
-                    self.posts = [Post]()
-                    posts!.forEach {
-                        self.posts.append($0)
-                    }
-                    self.view?.reload()
+                self.posts = [Post]()
+                posts!.forEach {
+                    self.posts.append($0)
                 }
-
+                self.view?.reload()
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }
@@ -58,13 +55,10 @@ class SearchThingsPresenter: NSObject {
         self.view?.startFooterLoading()
         PostRequest.searchPosts(type: self.currentScope, searchString: self.currentSearchString, postsDownloaded: self.posts, pagination: Paginations.morePosts) { (success, msg, posts) in
             if success {
-                if posts!.count > 0 {
-                    posts!.forEach {
-                        self.posts.append($0)
-                    }
-                    self.view?.reload()
+                posts!.forEach {
+                    self.posts.append($0)
                 }
-
+                self.view?.reload()
             } else {
                 self.view?.showMessage(isSuccess: false, msg: msg)
             }
@@ -72,4 +66,6 @@ class SearchThingsPresenter: NSObject {
             self.view?.finishFooterLoading()
         }
     }
+
+
 }

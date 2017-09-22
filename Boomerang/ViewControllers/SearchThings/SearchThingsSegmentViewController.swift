@@ -30,6 +30,9 @@ class SearchThingsSegmentViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SearchThingsResultDelegate {
             self.searchThingResultControllers.append(vc)
+            if let vc = segue.destination as? SearchThingResultViewController {
+                vc.presenter.currentScope = TypePostEnum.atIndex(self.searchThingResultControllers.count - 1)
+            }
         }
     }
 }

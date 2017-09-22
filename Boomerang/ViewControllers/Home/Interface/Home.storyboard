@@ -222,7 +222,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="profileView" id="MLa-Zh-1Fj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pob-r7-Q66" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335" y="891"/>
+            <point key="canvasLocation" x="1814" y="948"/>
         </scene>
         <!--Recommended View Controller-->
         <scene sceneID="YxE-5O-buv">
@@ -746,7 +746,7 @@
         <image name="profile_dummy" width="53" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="AL7-AX-imq"/>
         <segue reference="y32-IY-2mw"/>
-        <segue reference="Oq6-Oc-jjw"/>
     </inferredMetricsTieBreakers>
 </document>

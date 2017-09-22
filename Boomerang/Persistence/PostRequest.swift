@@ -467,7 +467,6 @@ class PostRequest: NSObject {
         var posts: [Post] = [Post]()
 
         let query = PFQuery(className: Post.parseClassName())
-        query.limit = pagination
         query.order(byDescending: ObjectKeys.createdAt)
         query.includeKey(PostKeys.author)
 
@@ -485,8 +484,9 @@ class PostRequest: NSObject {
         query.whereKey(PostKeys.author, notContainedIn: profiles)
         query.whereKey(PostKeys.isAvailable, equalTo: true)
         query.whereKey(PostKeys.type, equalTo: postType)
-        query.whereKey(PostKeys.title, contains: searchString)
-
+        query.whereKey(PostKeys.title, matchesRegex: "(?i)\(searchString)")
+//        query.whereKey(PostKeys.title, contains: searchString)
+        query.limit = pagination
 
         query.findObjectsInBackground { (objects, error) in
             if error == nil {

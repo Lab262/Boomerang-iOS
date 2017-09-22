@@ -17,14 +17,14 @@ class SearchThingResultViewController: UIViewController {
     var notificationKey: String!
     let tableViewTopInset: CGFloat = 0.0
     let tableViewBottomInset: CGFloat = 40.0
+    var selectedProfile = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.setViewDelegate(view: self)
         configureTableView()
         self.emptyView.isHidden = true
-        self.getMorePosts()
-    
+        self.presenter.getMorePosts()
     }
 
     func refreshIndicatorInTableViewFooter() -> UIView {
@@ -39,13 +39,14 @@ class SearchThingResultViewController: UIViewController {
         tableView.tableFooterView = refreshIndicatorInTableViewFooter()
     }
 
-    func getMorePosts(){
-        presenter.searchPost(in: TypePostEnum.atIndex(0), with: "")
-    }
-
 
     func registerNib(){
         tableView.registerNibFrom(MorePostTableViewCell.self)
+    }
+
+    func goToProfile(_ sender: UIButton) {
+        selectedProfile = sender.tag
+        self.performSegue(withIdentifier: SegueIdentifiers.morePostToProfile, sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,10 +57,9 @@ class SearchThingResultViewController: UIViewController {
             }
         }
 
-//        if let controller = segue.destination as? ProfileMainViewController {
-//            controller.presenter.setProfile(profile: presenter.posts[selectedProfile].author!)
-//
-//        }
+        if let controller = segue.destination as? ProfileMainViewController {
+            controller.presenter.setProfile(profile: presenter.posts[selectedProfile].author!)
+        }
     }
 
 }
@@ -69,16 +69,12 @@ extension SearchThingResultViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MorePostTableViewCell.identifier, for: indexPath) as! MorePostTableViewCell
-
-
         cell.coverImage.image = nil
         cell.userImage.image = nil
         cell.presenter.post = presenter.posts[indexPath.row]
         cell.profileButton.tag = indexPath.row
-//        cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
-
+        cell.profileButton.addTarget(self, action: #selector(goToProfile(_:)), for: .touchUpInside)
         cell.setupCell()
-
         return cell
     }
     
@@ -94,6 +90,10 @@ extension SearchThingResultViewController: UIScrollViewDelegate {
         if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
             presenter.getMorePosts()
         }
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissKeyboard"), object: nil)
     }
 }
 

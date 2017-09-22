@@ -41,6 +41,7 @@ class SearchThingsMainViewController: UIViewController {
         super.viewDidLoad()
         self.segmentSelected = 0
         self.setupNavigationActions()
+        NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard), name: NSNotification.Name(rawValue: "dismissKeyboard"), object: nil)
     }
 
     func setupNavigationActions() {
@@ -109,6 +110,10 @@ class SearchThingsMainViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
 }
 
 extension SearchThingsMainViewController: SegmentControlPageDelegate {
@@ -135,6 +140,11 @@ extension SearchThingsMainViewController: UISearchBarDelegate {
         let scope = TypePostEnum.atIndex(self.segmentVC!.previousPage)
         self.segmentVC!.searchDelegate!.didSearch(scope: scope, searchString: searchBar.text!)
     }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
+
 }
 
 
