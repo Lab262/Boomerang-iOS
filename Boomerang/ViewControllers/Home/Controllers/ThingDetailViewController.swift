@@ -172,6 +172,7 @@ class ThingDetailViewController: UIViewController {
     
     func setupSubscribe() {
         presenter.subscribeToUpdateComment()
+        presenter.subscribeToUpdateLike()
     }
     
     func refreshIndicatorInTableViewFooter() -> UIView {

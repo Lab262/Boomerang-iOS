@@ -36,7 +36,9 @@ class DetailThingPresenter: NSObject {
     var view: DetailThingDelegate?
     var commentCount = 0
     let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient
-    var subscription: Subscription<Comment>?
+    var subscriptionComment: Subscription<Comment>?
+    var subscriptionCreateLike: Subscription<Like>?
+    var subscriptionUpdateLike: Subscription<Like>?
     
     func setViewDelegate(view: DetailThingDelegate) {
         self.view = view
@@ -247,7 +249,7 @@ class DetailThingPresenter: NSObject {
         }
     }
     
-    func getCountPhotos(success: Bool){
+    func getCountPhotos(success: Bool) {
         if success {
             view?.reload()
         } else {
@@ -274,13 +276,32 @@ extension DetailThingPresenter {
             .order(byAscending: "createdAt")as! PFQuery<Comment>)
     }
     
+    var likeQuery: PFQuery<Like>? {
+        return (Like.query()?.whereKey("post", equalTo: post) as! PFQuery<Like>)
+    }
+    
     func subscribeToUpdateComment() {
-        subscription = liveQueryClient
+        subscriptionComment = liveQueryClient
             .subscribe(commentQuery!)
             .handle(Event.created) { _, comment in
                 self.printMessage(comment: comment)
         }
     }
+    
+    func subscribeToUpdateLike() {
+//        subscriptionCreateLike = liveQueryClient
+//            .subscribe(likeQuery!)
+//            .handle(Event.created) { _, like in
+//                self.view?.reload()
+//        }
+//        
+//        subscriptionUpdateLike = liveQueryClient
+//            .subscribe(likeQuery!)
+//            .handle(Event.updated) { _, like in
+//                self.view?.reload()
+//        }
+    }
+    
     
     func printMessage(comment: Comment) {
         self.getLastComments()

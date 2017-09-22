@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="obE-ua-UmT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="obE-ua-UmT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -554,7 +554,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirley Schmidt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mf1-IZ-jfp">
-                                        <rect key="frame" x="106" y="36" width="163" height="24"/>
+                                        <rect key="frame" x="106.5" y="35.5" width="163" height="24"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -576,7 +576,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WnW-0b-yq0">
-                                        <rect key="frame" x="125.5" y="66" width="125" height="16"/>
+                                        <rect key="frame" x="125.5" y="65.5" width="125" height="16"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="DDW-qt-wsP">
                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="16"/>
@@ -843,7 +843,7 @@ Vamos ver</string>
                     <connections>
                         <outlet property="emptyView" destination="6XF-4h-GME" id="VtY-iD-VIz"/>
                         <outlet property="tableView" destination="eUc-js-B4b" id="bcO-r2-3O0"/>
-                        <segue destination="khZ-JM-2dz" kind="show" identifier="goToProfile" id="Kao-uo-qv0"/>
+                        <segue destination="khZ-JM-2dz" kind="show" identifier="goToTransactionDetail" id="Kao-uo-qv0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMy-64-cTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -899,7 +899,7 @@ Vamos ver</string>
                     <connections>
                         <outlet property="emptyView" destination="aH3-aE-cO7" id="jqk-q5-T9d"/>
                         <outlet property="tableView" destination="YYG-NH-nrb" id="abh-oU-nQR"/>
-                        <segue destination="khZ-JM-2dz" kind="show" identifier="goToProfile" id="2Ee-Kc-PiE"/>
+                        <segue destination="khZ-JM-2dz" kind="show" identifier="goToTransactionDetail" id="2Ee-Kc-PiE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1t4-ym-Ibm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1382,7 +1382,7 @@ Vamos ver</string>
                     <connections>
                         <outlet property="emptyView" destination="vMM-jp-2L9" id="pXu-ev-YsA"/>
                         <outlet property="tableView" destination="nzb-7F-2cJ" id="R4L-Jf-rQ3"/>
-                        <segue destination="khZ-JM-2dz" kind="show" identifier="goToProfile" id="iKo-QB-MRJ"/>
+                        <segue destination="khZ-JM-2dz" kind="show" identifier="goToTransactionDetail" id="iKo-QB-MRJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQ5-3Y-eWD" userLabel="First Responder" sceneMemberID="firstResponder"/>

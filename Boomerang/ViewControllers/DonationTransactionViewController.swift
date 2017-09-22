@@ -83,7 +83,7 @@ extension DonationTransactionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: SegueIdentifiers.transactionToProfile, sender: self)
+        performSegue(withIdentifier: SegueIdentifiers.transactionToTransactionDetail, sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

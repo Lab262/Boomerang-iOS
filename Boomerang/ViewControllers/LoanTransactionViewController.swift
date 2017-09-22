@@ -52,7 +52,7 @@ class LoanTransactionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? TransactionDetailViewController {
             
-            destinationVC.presenter.scheme = presenter.getSchemes()[tableView.indexPathForSelectedRow!.row]
+            destinationVC.presenter.scheme = presenter.getSchemesFor(postCondition: .loan)[tableView.indexPathForSelectedRow!.row]
         }
     }
 }
@@ -83,7 +83,7 @@ extension LoanTransactionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: SegueIdentifiers.transactionToProfile, sender: self)
+        performSegue(withIdentifier: SegueIdentifiers.transactionToTransactionDetail, sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

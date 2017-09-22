@@ -56,7 +56,7 @@ struct SegueIdentifiers {
     static let transactionToDetailThing = "goToDetailThing"
     static let morePostToDetailThing = "goToDetailThing"
     static let detailThingToProfile = "goToProfile"
-    static let transactionToProfile = "goToProfile"
+    static let transactionToTransactionDetail = "goToTransactionDetail"
     static let segmentTransactionToTransaction = "goToTransaction"
     static let detailTransactionToEvaluation = "goToEvaluation"
     static let notificationToDetailThing = "goToDetailThing"
