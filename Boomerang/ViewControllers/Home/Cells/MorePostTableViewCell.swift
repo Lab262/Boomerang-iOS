@@ -66,6 +66,34 @@ class MorePostTableViewCell: UITableViewCell {
                 print ("FAIL COVER POST")
             }
         }
+        
+        presenter.getLikeAmount { (success, msg, amount) in
+            
+            if success {
+                
+                self.likeAmountLabel.text = String(amount!)
+            } else {
+                
+            }
+        }
+        
+        presenter.getCommentAmount { (success, msg, amount) in
+            
+            if success {
+                self.commentAmount.text = String(amount!)
+            } else {
+                
+            }
+        }
+        
+        presenter.getRecommendationAmount { (success, msg, amount) in
+            
+            if success {
+                self.sharedAmount.text = String(amount!)
+            } else {
+                
+            }
+        }
     }
 
     
