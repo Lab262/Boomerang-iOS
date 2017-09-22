@@ -25,8 +25,8 @@ class SettingViewController: UIViewController {
     
     func registerNib(){
         tableView.registerNibFrom(NotificationSwitchTableViewCell.self)
-          tableView.registerNibFrom(DistanceRadiusTableViewCell.self)
-                  tableView.registerNibFrom(LogOutTableViewCell.self)
+        tableView.registerNibFrom(DistanceRadiusTableViewCell.self)
+        tableView.registerNibFrom(LogOutTableViewCell.self)
     }
     
     

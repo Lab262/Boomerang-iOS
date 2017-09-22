@@ -16,4 +16,6 @@ protocol TableViewSelectionDelegate: class {
 protocol CollectionViewSelectionDelegate: class {
     
     func pushFor(identifier: String, sectionPost: SectionPost?, didSelectItemAt indexPath: IndexPath?)
+    
+    func callSearchFriendsController()
 }

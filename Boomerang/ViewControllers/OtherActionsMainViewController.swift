@@ -42,6 +42,7 @@ class OtherActionsMainViewController: UIViewController {
     
     func registerObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootOthers), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showSearchFriends(_:)), name: NSNotification.Name(rawValue: NotificationKeys.selectSearchFriendsTab), object: nil)
     }
     
     func popToRoot(_ notification : Notification){

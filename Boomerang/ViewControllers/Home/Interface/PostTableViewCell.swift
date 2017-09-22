@@ -37,6 +37,7 @@ class PostTableViewCell: UITableViewCell {
     func registerNib(){
         collectionView.registerNibFrom(PostCollectionViewCell.self)
         collectionView.registerNibFrom(SeeMoreCollectionViewCell.self)
+        collectionView.registerNibFrom(EmptyFriendsCollectionViewCell.self)
     }
     
     func goToProfile(_ sender: UIButton) {
@@ -65,25 +66,32 @@ class PostTableViewCell: UITableViewCell {
         
         return cell
     }
+    
+    func generateEmptyFriendsUserCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyFriendsCollectionViewCell.identifier, for: indexPath) as! EmptyFriendsCollectionViewCell
+        
+        return cell
+    }
 }
 
 extension PostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if presenter.posts.count > 0 {
-            return presenter.posts.count+1
-        } else {
-            return presenter.posts.count
-        }
+        return presenter.posts.count+1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        switch indexPath.row {
-        case presenter.posts.endIndex:
-            return generateSeeMoreCell(collectionView, cellForItemAt: indexPath)
-        default:
-            return generatePostCell(collectionView, cellForItemAt: indexPath)
+        if presenter.posts.count > 0 {
+            switch indexPath.row {
+            case presenter.posts.endIndex:
+                return generateSeeMoreCell(collectionView, cellForItemAt: indexPath)
+            default:
+                return generatePostCell(collectionView, cellForItemAt: indexPath)
+            }
+        }else {
+            return generateEmptyFriendsUserCell(collectionView, cellForItemAt: indexPath)
         }
     }
 
@@ -100,7 +108,11 @@ extension PostTableViewCell: UICollectionViewDelegateFlowLayout {
 extension PostTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == presenter.posts.endIndex {
-            self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToMorePost, sectionPost: SectionPost(rawValue:self.tag)!, didSelectItemAt: indexPath)
+            if presenter.posts.count > 0 {
+                self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToMorePost, sectionPost: SectionPost(rawValue:self.tag)!, didSelectItemAt: indexPath)
+            }else {
+                self.selectionDelegate?.callSearchFriendsController()
+            }
         } else {
             self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToDetailThing, sectionPost: SectionPost(rawValue:self.tag)!, didSelectItemAt: indexPath)
         }

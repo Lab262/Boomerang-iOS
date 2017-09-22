@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="emptyFriendsCollectionViewCell" id="gTV-IL-0wX" customClass="EmptyFriendsCollectionViewCell" customModule="lab262_boomerang_dev" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="270" height="228"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="270" height="228"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4w5-dx-gqt">
+                        <rect key="frame" x="0.0" y="0.0" width="270" height="156.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageEmptyStateFriends" translatesAutoresizingMaskIntoConstraints="NO" id="xG5-9M-ZcW">
+                                <rect key="frame" x="54" y="19" width="162" height="118"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.56470588235294117" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xG5-9M-ZcW" firstAttribute="centerX" secondItem="4w5-dx-gqt" secondAttribute="centerX" id="WQ8-ig-HZ0"/>
+                            <constraint firstItem="xG5-9M-ZcW" firstAttribute="centerY" secondItem="4w5-dx-gqt" secondAttribute="centerY" id="xcM-Yn-YA9"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.56470588239999997" green="0.2274509804" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicione seus amigos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPR-XK-c5z">
+                        <rect key="frame" x="14" y="164.5" width="165.5" height="18"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN2-zh-c3m">
+                        <rect key="frame" x="14" y="185.5" width="240.5" height="31.5"/>
+                        <string key="text">Você ainda não tem nenhum amigo, 
+adicione e comece os arremessos.</string>
+                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
+                        <color key="textColor" red="0.67450980392156867" green="0.72156862745098038" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmJ-Rn-BbN">
+                        <rect key="frame" x="206" y="134.5" width="44" height="44"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageArrowEmptyStateFriends" translatesAutoresizingMaskIntoConstraints="NO" id="FRz-HK-jdV">
+                                <rect key="frame" x="12" y="14" width="20" height="16"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.62745098039215685" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FRz-HK-jdV" firstAttribute="centerY" secondItem="mmJ-Rn-BbN" secondAttribute="centerY" id="ZNd-EO-Jgu"/>
+                            <constraint firstAttribute="height" constant="44" id="dDn-vl-Gxq"/>
+                            <constraint firstAttribute="width" constant="44" id="uVg-hh-tx9"/>
+                            <constraint firstItem="FRz-HK-jdV" firstAttribute="centerX" secondItem="mmJ-Rn-BbN" secondAttribute="centerX" id="x8z-XT-Tf0"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="gN2-zh-c3m" firstAttribute="top" secondItem="NPR-XK-c5z" secondAttribute="bottom" constant="3" id="5y5-OA-Y9Z"/>
+                <constraint firstItem="NPR-XK-c5z" firstAttribute="top" secondItem="4w5-dx-gqt" secondAttribute="bottom" constant="8" id="9Ok-xt-el2"/>
+                <constraint firstItem="4w5-dx-gqt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GXw-Hi-fXR"/>
+                <constraint firstItem="NPR-XK-c5z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="W6y-Fj-GS2"/>
+                <constraint firstItem="4w5-dx-gqt" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.686" id="Xp7-ho-BUr"/>
+                <constraint firstItem="4w5-dx-gqt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eEf-tL-hFu"/>
+                <constraint firstItem="gN2-zh-c3m" firstAttribute="leading" secondItem="NPR-XK-c5z" secondAttribute="leading" id="eKA-KZ-97l"/>
+                <constraint firstAttribute="trailing" secondItem="4w5-dx-gqt" secondAttribute="trailing" id="efq-At-BKC"/>
+                <constraint firstAttribute="trailing" secondItem="mmJ-Rn-BbN" secondAttribute="trailing" constant="20" id="hJj-CB-tfD"/>
+                <constraint firstItem="mmJ-Rn-BbN" firstAttribute="centerY" secondItem="4w5-dx-gqt" secondAttribute="centerY" multiplier="2" id="lyx-cN-DYA"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="3"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="messageLabel" destination="gN2-zh-c3m" id="p8Y-zw-rho"/>
+                <outlet property="titleLabel" destination="NPR-XK-c5z" id="ues-XG-Unm"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="imageArrowEmptyStateFriends" width="20" height="16"/>
+        <image name="imageEmptyStateFriends" width="162" height="118"/>
+    </resources>
+</document>

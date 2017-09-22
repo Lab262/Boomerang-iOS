@@ -229,6 +229,12 @@
 		60DDA2AE1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */; };
 		60DDA2AF1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */; };
 		60DDA2B01F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */; };
+		60F6974B1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F697491F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift */; };
+		60F6974C1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F697491F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift */; };
+		60F6974D1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F697491F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift */; };
+		60F6974E1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F6974A1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib */; };
+		60F6974F1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F6974A1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib */; };
+		60F697501F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F6974A1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib */; };
 		62D077E2A55DC0ABA69788E0 /* Pods_BoomerangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3288D5BFDB7DA5C592B676D8 /* Pods_BoomerangTests.framework */; };
 		A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */; };
 		A404537D1DD414B000A42E4B /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404537C1DD414B000A42E4B /* ProfileMainViewController.swift */; };
@@ -1112,6 +1118,8 @@
 		60B0DE531F6B02AE0029ACBC /* OnboardMainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardMainPresenter.swift; sourceTree = "<group>"; };
 		60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardAuthenticationCollectionViewCell.swift; sourceTree = "<group>"; };
 		60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardAuthenticationCollectionViewCell.xib; sourceTree = "<group>"; };
+		60F697491F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyFriendsCollectionViewCell.swift; sourceTree = "<group>"; };
+		60F6974A1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyFriendsCollectionViewCell.xib; sourceTree = "<group>"; };
 		6546CCE556A22ECA77A8D013 /* Pods-lab262.boomerang.test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.debug.xcconfig"; sourceTree = "<group>"; };
 		7D9BA6CA9ACC4EC3191BB4BA /* Pods-lab262.boomerang.production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.production/Pods-lab262.boomerang.production.debug.xcconfig"; sourceTree = "<group>"; };
 		8469F64EFE9F7899E31E9E7C /* Pods-BoomerangTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoomerangTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoomerangTests/Pods-BoomerangTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1609,6 +1617,8 @@
 			children = (
 				60A0F10D1ED9F29000585888 /* EmptyView.swift */,
 				60A0F1111ED9F2B100585888 /* EmptyView.xib */,
+				60F697491F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift */,
+				60F6974A1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib */,
 			);
 			name = EmptyView;
 			sourceTree = "<group>";
@@ -2933,6 +2943,7 @@
 				2F4957BC1ECD32AF0001554E /* preciso7.png in Resources */,
 				A4FE06341DD09C7500BFDC4D /* BoomerThingCollection.xib in Resources */,
 				D484FA401EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
+				60F6974E1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib in Resources */,
 				2F49582A1ECD32C50001554E /* Tenho_00028.png in Resources */,
 				2F4958251ECD32C40001554E /* Tenho_00023.png in Resources */,
 				2F49583C1ECD32C50001554E /* Tenho_00046.png in Resources */,
@@ -3048,6 +3059,7 @@
 				D4AD98281EA9ACFD00C9FAB9 /* PhotoNavigationBar.xib in Resources */,
 				2F8C4EA11F648A98000B0AE9 /* PageCollectionViewCell.xib in Resources */,
 				D4AD98291EA9ACFD00C9FAB9 /* Montserrat-Black.otf in Resources */,
+				60F6974F1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib in Resources */,
 				D4AD982A1EA9ACFD00C9FAB9 /* BoomerThingCollection.xib in Resources */,
 				D484FA411EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
 				D4AD982C1EA9ACFD00C9FAB9 /* PostTableViewCell.xib in Resources */,
@@ -3122,6 +3134,7 @@
 				D4AD98F41EA9AD0400C9FAB9 /* PhotoNavigationBar.xib in Resources */,
 				2F8C4EA31F648A9A000B0AE9 /* PageCollectionViewCell.xib in Resources */,
 				D4AD98F51EA9AD0400C9FAB9 /* Montserrat-Black.otf in Resources */,
+				60F697501F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib in Resources */,
 				D4AD98F61EA9AD0400C9FAB9 /* BoomerThingCollection.xib in Resources */,
 				D484FA421EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
 				D4AD98F81EA9AD0400C9FAB9 /* PostTableViewCell.xib in Resources */,
@@ -3634,6 +3647,7 @@
 				D4E4BEAD1E824E4600F8DC2E /* ActionsPostTableViewCell.swift in Sources */,
 				D4C8ECDC1EC22B4200E3CB17 /* StatusRequest.swift in Sources */,
 				D484FA301EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
+				60F6974B1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift in Sources */,
 				D4788DE71ECE1BDD00E5E55F /* MorePostTableViewCell.swift in Sources */,
 				D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */,
 				D498F0311E7F334E002E8972 /* HomePresenter.swift in Sources */,
@@ -3846,6 +3860,7 @@
 				D4AD97A01EA9ACFD00C9FAB9 /* LendingThingsViewController.swift in Sources */,
 				D4AD97A11EA9ACFD00C9FAB9 /* ActionsPostTableViewCell.swift in Sources */,
 				D4C8ECD51EC1FD3B00E3CB17 /* SchemeStatus.swift in Sources */,
+				60F6974C1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift in Sources */,
 				6010BF711EBB9A59008B5F02 /* GradientView.swift in Sources */,
 				D484FA311EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
 				D4AD97A31EA9ACFD00C9FAB9 /* DescriptionTableViewCell.swift in Sources */,
@@ -4049,6 +4064,7 @@
 				D4AD986C1EA9AD0400C9FAB9 /* LendingThingsViewController.swift in Sources */,
 				D4AD986D1EA9AD0400C9FAB9 /* ActionsPostTableViewCell.swift in Sources */,
 				D4C8ECD61EC1FD3B00E3CB17 /* SchemeStatus.swift in Sources */,
+				60F6974D1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift in Sources */,
 				6010BF721EBB9A59008B5F02 /* GradientView.swift in Sources */,
 				D484FA321EACFA590054E415 /* SearchFriendsViewController.swift in Sources */,
 				D4AD986F1EA9AD0400C9FAB9 /* DescriptionTableViewCell.swift in Sources */,

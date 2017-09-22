@@ -96,6 +96,7 @@ struct NotificationKeys {
     static let popToRootBoomer = "popToRootBoomer"
     static let popToRootSchemes = "popToRootScheme"
     static let popToRootOthers = "popToRootOthers"
+    static let selectSearchFriendsTab = "selectSearchFriendsTab"
 }
 
 

@@ -334,6 +334,14 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
         }
 
     }
+    
+    func callSearchFriendsController() {
+        TabBarController.mainTabBarController.uiTabBarController.selectedIndex = 4
+        TabBarController.mainTabBarController.changeStatesButtons(tag: 4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.selectSearchFriendsTab), object: nil, userInfo: nil)
+        }
+    }
 }
 
 
