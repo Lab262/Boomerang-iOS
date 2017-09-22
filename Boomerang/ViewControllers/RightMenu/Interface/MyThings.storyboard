@@ -342,7 +342,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar hidden="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6yI-zn-Z9W">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6yI-zn-Z9W">
                                 <rect key="frame" x="8" y="-8" width="359" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -351,6 +351,9 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="defaultSearchBarTheme" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="defaultTheme" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="P36-NT-g3H" id="mDP-1l-c0r"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MXU-YC-co1">
                                 <rect key="frame" x="0.0" y="48" width="375" height="523"/>

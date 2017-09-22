@@ -211,6 +211,7 @@ class UserRequest: NSObject {
         }
     }
     
+    
     static func fetchProfileFriends(fromProfile: Profile, followingDownloaded: [Profile], isFollowers: Bool, pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
         
         var profiles: [Profile] = [Profile]()
@@ -266,5 +267,38 @@ class UserRequest: NSObject {
                 completionHandler(false, msg.debugDescription, nil)
             }
         }
+    }
+
+    static func searchProfiles(searchString: String, profilesDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ profiles: [Profile]?) -> Void)  {
+
+        var notContainedObjectIds = [String]()
+        notContainedObjectIds.append(User.current()!.objectId!)
+        profilesDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+
+        var profiles = [Profile]()
+
+        let query = PFQuery(className: Profile.parseClassName())
+        query.order(byDescending: ObjectKeys.createdAt)
+        query.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+        query.whereKey(ProfileKeys.firstName, matchesRegex: "(?i)\(searchString)")
+        query.whereKey(ProfileKeys.lastName, matchesRegex: "(?i)\(searchString)")
+        query.limit = pagination
+
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        let profile = object as? Profile
+                        profiles.append(profile!)
+                    }
+                }
+                completionHandler(true, "success", profiles)
+            } else {
+                completionHandler(false, (error?.localizedDescription)!, nil)
+            }
+        }
+
     }
 }

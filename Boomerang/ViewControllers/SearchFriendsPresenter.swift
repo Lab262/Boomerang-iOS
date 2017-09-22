@@ -45,4 +45,21 @@ class SearchFriendsPresenter: NSObject {
             }
         }
     }
+
+    func searchProfiles(searchString: String) {
+        self.view?.startFooterLoading()
+        UserRequest.searchProfiles(searchString: searchString, profilesDownloaded: self.profiles, pagination: Paginations.friends) { (success, msg, profiles) in
+            if success {
+                self.profiles = [Profile]()
+                profiles!.forEach {
+                    self.profiles.append($0)
+                    self.view?.reload()
+                }
+            } else {
+                self.view?.showMessage(msg: msg)
+            }
+            self.view?.finishFooterLoading()
+
+        }
+    }
 }

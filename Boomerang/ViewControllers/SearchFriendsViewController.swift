@@ -71,6 +71,10 @@ extension SearchFriendsViewController: UIScrollViewDelegate {
             presenter.getProfiles()
         }
     }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
 }
 
 extension SearchFriendsViewController : UITableViewDataSource {
@@ -146,5 +150,17 @@ extension SearchFriendsViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+}
+
+
+extension SearchFriendsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.presenter.searchProfiles(searchString: searchText)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
+    
 }
 
