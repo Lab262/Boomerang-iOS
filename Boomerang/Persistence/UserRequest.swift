@@ -211,6 +211,7 @@ class UserRequest: NSObject {
         }
     }
     
+    
     static func fetchProfileFriends(fromProfile: Profile, followingDownloaded: [Profile], isFollowers: Bool, pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
         
         var profiles: [Profile] = [Profile]()
@@ -242,28 +243,103 @@ class UserRequest: NSObject {
 
     static func fetchFollowing(fromProfile: Profile, followingDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Profile]?) -> Void) {
         
-        var following: [Profile] = [Profile]()
-        let queryParams = [FollowKeys.from : [fromProfile]]
-    
         var notContainedObjectIds = [String]()
-        
+        notContainedObjectIds.append(User.current()!.objectId!)
         followingDownloaded.forEach{
             notContainedObjectIds.append($0.objectId!)
         }
-        
-        let notContainedObjects = [ObjectKeys.objectId: notContainedObjectIds]
-        
-        ParseRequest.queryEqualToValueNotContainedObjects(className: Follow.parseClassName(), queryType: .common, whereTypes: [.equal], params: queryParams, cachePolicy: .networkOnly, notContainedObjects: notContainedObjects, includes: [FollowKeys.to], pagination: pagination) { (success, msg, objects) in
-            if success {
-                for object in objects! {
-                    if let follow = object.object(forKey: FollowKeys.to) as? Profile {
-                        let profile = follow
-                        following.append(profile)
+
+        var profiles = [Profile]()
+        let profilesQuery =  PFQuery(className: Profile.parseClassName())
+        profilesQuery.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+
+        let followQuery = PFQuery(className: Follow.parseClassName())
+        followQuery.whereKey(FollowKeys.to, matchesQuery: profilesQuery)
+        followQuery.whereKey(FollowKeys.from, equalTo: fromProfile)
+        followQuery.includeKey(FollowKeys.to)
+        followQuery.limit = pagination
+        followQuery.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        if let profile = object.object(forKey: FollowKeys.to
+                            ) as? Profile {
+                            let profile = profile
+                            profiles.append(profile)
+                        }
                     }
                 }
-                completionHandler(true, "Success", following)
+                completionHandler(true, "success", profiles)
             } else {
-                completionHandler(false, msg.debugDescription, nil)
+                completionHandler(false, (error?.localizedDescription)!, nil)
+            }
+        }
+    }
+
+    static func searchProfiles(searchString: String, profilesDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ profiles: [Profile]?) -> Void)  {
+
+        var notContainedObjectIds = [String]()
+        notContainedObjectIds.append(User.current()!.objectId!)
+        profilesDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+
+        var profiles = [Profile]()
+        let firstNameQuery =  PFQuery(className: Profile.parseClassName()).whereKey(ProfileKeys.firstName, matchesRegex: "(?i)\(searchString)")
+        let lastNameQuery =  PFQuery(className: Profile.parseClassName()).whereKey(ProfileKeys.lastName, matchesRegex: "(?i)\(searchString)")
+        let orQuery = PFQuery.orQuery(withSubqueries: [firstNameQuery,lastNameQuery])
+        orQuery.order(byDescending: ProfileKeys.firstName)
+        orQuery.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+        orQuery.limit = pagination
+
+        orQuery.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        let profile = object as? Profile
+                        profiles.append(profile!)
+                    }
+                }
+                completionHandler(true, "success", profiles)
+            } else {
+                completionHandler(false, (error?.localizedDescription)!, nil)
+            }
+        }
+    }
+
+    static func searchFriends(searchString: String,fromProfile: Profile, profilesDownloaded: [Profile], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ profiles: [Profile]?) -> Void)  {
+
+        var notContainedObjectIds = [String]()
+        notContainedObjectIds.append(User.current()!.objectId!)
+        profilesDownloaded.forEach{
+            notContainedObjectIds.append($0.objectId!)
+        }
+
+        var profiles = [Profile]()
+        let firstNameQuery =  PFQuery(className: Profile.parseClassName()).whereKey(ProfileKeys.firstName, matchesRegex: "(?i)\(searchString)")
+        let lastNameQuery =  PFQuery(className: Profile.parseClassName()).whereKey(ProfileKeys.lastName, matchesRegex: "(?i)\(searchString)")
+        let orQuery = PFQuery.orQuery(withSubqueries: [firstNameQuery,lastNameQuery])
+        orQuery.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
+
+        let followQuery = PFQuery(className: Follow.parseClassName())
+        followQuery.whereKey(FollowKeys.to, matchesQuery: orQuery)
+        followQuery.whereKey(FollowKeys.from, equalTo: fromProfile)
+        followQuery.includeKey(FollowKeys.to)
+        followQuery.limit = pagination
+        followQuery.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        if let profile = object.object(forKey: FollowKeys.to
+                            ) as? Profile {
+                            let profile = profile
+                            profiles.append(profile)
+                        }
+                    }
+                }
+                completionHandler(true, "success", profiles)
+            } else {
+                completionHandler(false, (error?.localizedDescription)!, nil)
             }
         }
     }

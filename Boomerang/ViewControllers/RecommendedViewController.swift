@@ -48,8 +48,15 @@ class RecommendedViewController: UIViewController {
     
     func registerNib(){
         tableView.registerNibFrom(SearchFriendsTableViewCell.self)
+        self.tableView.tableFooterView = refreshIndicatorInTableViewFooter()
     }
-    
+
+    func refreshIndicatorInTableViewFooter() -> UIView {
+        let viewIndicator = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
+        viewIndicator.backgroundColor = UIColor.clear
+        return viewIndicator
+    }
+
     func generateTitleCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
@@ -68,9 +75,13 @@ class RecommendedViewController: UIViewController {
         
         
         if presenter.friends[indexPath.row-1].isRecommended {
-            setupRecommendedCell(cell: cell)
+            cell.recomendedIndicatorImageView.fadeIn(0.25)
+            cell.isUserInteractionEnabled = false
+        } else {
+            cell.recomendedIndicatorImageView.fadeOut(0.25)
+            cell.isUserInteractionEnabled = true
         }
-    
+
         return cell
     }
     
@@ -135,6 +146,14 @@ extension RecommendedViewController: RecommendedDelegate {
     func dismissRowAction() {
         tableView.setEditing(false, animated: true)
     }
+
+    func startFooterLoading() {
+        tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
+    }
+
+    func finishFooterLoading() {
+        self.tableView.tableFooterView?.unload()
+    }
 }
 
 extension RecommendedViewController: SwipeTableViewCellDelegate {
@@ -165,3 +184,38 @@ extension RecommendedViewController: SwipeTableViewCellDelegate {
         return options
     }
 }
+
+extension RecommendedViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.characters.count > 0 {
+            self.presenter.searchProfiles(searchString: searchText, refresh: true)
+        } else {
+            self.presenter.friends = [Profile]()
+            self.presenter.recommendations = [Recommended]()
+            presenter.getFriends()
+        }
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
+
+}
+
+extension RecommendedViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
+            if self.presenter.currentSearchString.characters.count > 0 {
+                presenter.searchProfiles(searchString: self.presenter.currentSearchString, refresh: false)
+            } else {
+                presenter.getFriends()
+            }
+        }
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
+}
+

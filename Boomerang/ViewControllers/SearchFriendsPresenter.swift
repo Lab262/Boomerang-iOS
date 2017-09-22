@@ -22,7 +22,8 @@ class SearchFriendsPresenter: NSObject {
     private var view: SearchFriendsDelegate?
     private var pagination: Int = Paginations.profiles
     var profiles = [Profile]()
-    
+    var currentSearchString = ""
+
     func setViewDelegate(view: SearchFriendsDelegate){
         self.view = view
     }
@@ -43,6 +44,29 @@ class SearchFriendsPresenter: NSObject {
                 self.view?.finishFooterLoading()
                 
             }
+        }
+    }
+
+    func searchProfiles(searchString: String, refresh: Bool) {
+        self.view?.startFooterLoading()
+        self.currentSearchString = searchString
+        UserRequest.searchProfiles(searchString: self.currentSearchString,
+                                   profilesDownloaded: refresh ? [Profile]() : self.profiles,
+                                   pagination: Paginations.friends) { (success, msg, profiles) in
+            if success {
+                if refresh {
+                    self.profiles = [Profile]()
+                }
+                profiles!.forEach {
+                    self.profiles.append($0)
+                }
+                self.view?.reload()
+
+            } else {
+                self.view?.showMessage(msg: msg)
+            }
+            self.view?.finishFooterLoading()
+
         }
     }
 }
