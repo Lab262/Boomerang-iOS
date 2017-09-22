@@ -261,6 +261,13 @@ class DetailThingPresenter: NSObject {
             })
         }
     }
+    
+    func getAverageStars (completionHandler: @escaping (_ success: Bool, _ msg: String, _ averageStars: Int?) -> ()){
+        
+        ProfileRequest.getAverageStars(profile: post.author!) { (success, msg, averageStars) in
+            completionHandler(success, msg, averageStars)
+        }
+    }
 }
 
 

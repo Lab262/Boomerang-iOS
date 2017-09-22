@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,7 +35,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diO-X6-Aef">
-                        <rect key="frame" x="122" y="43" width="4" height="4"/>
+                        <rect key="frame" x="122" y="43.5" width="4" height="4"/>
                         <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="4" id="C1K-YI-oXK"/>
@@ -43,42 +43,42 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3p-iU-V4w">
-                        <rect key="frame" x="83.5" y="37" width="34.5" height="16"/>
+                        <rect key="frame" x="83.5" y="37.5" width="34.5" height="16"/>
                         <string key="text">12 jan   
 </string>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                         <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" alpha="0.0" contentMode="center" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ohq-5c-EJj">
-                        <rect key="frame" x="256" y="19.5" width="99" height="14"/>
+                    <stackView opaque="NO" contentMode="center" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ohq-5c-EJj">
+                        <rect key="frame" x="256" y="19" width="99" height="14"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-4U-rrd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-4U-rrd">
                                 <rect key="frame" x="0.0" y="0.0" width="15" height="14"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="wad-OZ-2Db">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="wad-OZ-2Db">
                                 <rect key="frame" x="21" y="0.0" width="15" height="14"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="gbR-a2-HYY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="gbR-a2-HYY">
                                 <rect key="frame" x="42" y="0.0" width="15" height="14"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="nVF-6Q-ubr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="nVF-6Q-ubr">
                                 <rect key="frame" x="63" y="0.0" width="15" height="14"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="qEy-gU-FXw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected-star-button" translatesAutoresizingMaskIntoConstraints="NO" id="qEy-gU-FXw">
                                 <rect key="frame" x="84" y="0.0" width="15" height="14"/>
                             </imageView>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csg-fj-fWw">
-                        <rect key="frame" x="84" y="16" width="132" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csg-fj-fWw">
+                        <rect key="frame" x="84" y="16" width="164" height="19.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-o8-zd1">
-                        <rect key="frame" x="130" y="36" width="72" height="31.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-o8-zd1">
+                        <rect key="frame" x="130" y="35.5" width="72" height="18"/>
                         <string key="text">Água Claras   
 </string>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
@@ -89,18 +89,20 @@
                         <rect key="frame" x="18" y="9.5" width="56" height="55"/>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="Qi6-o8-zd1" firstAttribute="top" secondItem="csg-fj-fWw" secondAttribute="bottom" id="2V0-BH-m63"/>
                     <constraint firstItem="VZ4-h4-kL1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4kH-dU-j04"/>
                     <constraint firstItem="diO-X6-Aef" firstAttribute="leading" secondItem="F3p-iU-V4w" secondAttribute="trailing" constant="4" id="5e2-eB-aV1"/>
                     <constraint firstItem="VZ4-h4-kL1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.25" id="6ii-BU-m3B"/>
-                    <constraint firstItem="csg-fj-fWw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.8" id="84X-Dk-lBl"/>
+                    <constraint firstItem="csg-fj-fWw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.8" constant="16" id="84X-Dk-lBl"/>
                     <constraint firstAttribute="bottom" secondItem="VZ4-h4-kL1" secondAttribute="bottom" constant="14.5" id="EBb-mE-tsp"/>
                     <constraint firstItem="y3S-Dg-pZh" firstAttribute="height" secondItem="VZ4-h4-kL1" secondAttribute="height" multiplier="1.2" id="IYg-Rg-tXp"/>
                     <constraint firstItem="y3S-Dg-pZh" firstAttribute="centerY" secondItem="VZ4-h4-kL1" secondAttribute="centerY" id="K7S-Ac-GFe"/>
                     <constraint firstItem="Qi6-o8-zd1" firstAttribute="leading" secondItem="diO-X6-Aef" secondAttribute="trailing" constant="4" id="P3A-lA-PRo"/>
                     <constraint firstItem="y3S-Dg-pZh" firstAttribute="width" secondItem="VZ4-h4-kL1" secondAttribute="width" multiplier="1.2" id="P4P-Da-vgx"/>
                     <constraint firstItem="csg-fj-fWw" firstAttribute="leading" secondItem="VZ4-h4-kL1" secondAttribute="trailing" constant="13.5" id="Qft-5I-gwI"/>
-                    <constraint firstItem="Qi6-o8-zd1" firstAttribute="centerY" secondItem="F3p-iU-V4w" secondAttribute="centerY" multiplier="1.15" id="Uxf-tU-PY4"/>
+                    <constraint firstItem="Qi6-o8-zd1" firstAttribute="bottom" secondItem="F3p-iU-V4w" secondAttribute="bottom" id="RPh-C2-GMx"/>
                     <constraint firstItem="y3S-Dg-pZh" firstAttribute="centerX" secondItem="VZ4-h4-kL1" secondAttribute="centerX" id="dof-SA-Xlf"/>
                     <constraint firstItem="csg-fj-fWw" firstAttribute="top" secondItem="VZ4-h4-kL1" secondAttribute="top" multiplier="1.1" id="eld-2l-Rv2"/>
                     <constraint firstAttribute="trailing" secondItem="Ohq-5c-EJj" secondAttribute="trailing" constant="20" id="iui-zj-Y73"/>
@@ -126,6 +128,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="selected-star-button" width="15" height="14"/>
+        <image name="unselected-star-button" width="15" height="14"/>
     </resources>
 </document>
