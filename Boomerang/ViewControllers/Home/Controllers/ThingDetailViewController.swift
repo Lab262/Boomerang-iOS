@@ -267,9 +267,9 @@ class ThingDetailViewController: UIViewController {
     func setNavigationInformations(){
         defaultValueAlphaTitleNavigation = navigationBarView.titleBarLabel.alpha
         navigationBarView.titleBarLabel.text = presenter.getCurrentType()
-//        navigationInformationsView.thingNameLabel.text = presenter.post.title
-//        navigationInformationsView.thingNameLabel.setDynamicFont()
-        navigationInformationsView.thingNameLabel.isHidden = true
+        navigationInformationsView.thingNameLabel.text = presenter.post.title
+        navigationInformationsView.thingNameLabel.setDynamicFont()
+
         navigationBarView.titleBarLabel.setDynamicFont()
         navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
     }
