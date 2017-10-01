@@ -77,6 +77,7 @@ class InterestedListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? MessagesChatViewController {
+            controller.profile = presenter.getInterested().user
             controller.chat = presenter.getChat()
         }
     }
@@ -107,7 +108,7 @@ extension InterestedListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.setInterested(interested: presenter.getInteresteds()[indexPath.row])
-        //presenter.fetchChat()
+        presenter.fetchChat()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -152,7 +153,7 @@ extension InterestedListViewController: InterestedDelegate {
     }
     
     func pushForChatView() {
-     //   performSegue(withIdentifier: SegueIdentifiers.interestedToChat, sender: self)
+        performSegue(withIdentifier: SegueIdentifiers.interestedToChat, sender: self)
     }
     
     func presentTo(storyBoard: String, identifier: String) {
