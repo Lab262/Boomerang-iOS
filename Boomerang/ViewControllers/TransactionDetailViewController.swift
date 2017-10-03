@@ -35,7 +35,7 @@ class TransactionDetailViewController: UIViewController {
         setupPopoverAction()
         seePost()
         
-        if self.presenter.scheme.statusSchemeEnum == .done || self.presenter.scheme.statusSchemeEnum == .finished || self.presenter.scheme.statusSchemeEnum == .negotiation{
+        if self.presenter.scheme.statusSchemeEnum == .done || self.presenter.scheme.statusSchemeEnum == .finished || self.presenter.scheme.statusSchemeEnum == .negotiation || self.presenter.userRated() {
             self.finalizeButton.isHidden = true
         }
         configureNavigationsBars()
@@ -132,14 +132,12 @@ class TransactionDetailViewController: UIViewController {
         cell.updateInformationsCell()
         
         if self.presenter.scheme.statusSchemeEnum != .done && self.presenter.scheme.statusSchemeEnum != .finished  {
-            
             cell.arrowRoundImage.isHidden = true
             cell.dateFinishLabel.isHidden = true
             cell.finishLabel.isHidden = true
             cell.startLabelCenterLeftConstraint.isActive = false
             cell.startLabelCenterConstraint.isActive = true
             cell.layoutIfNeeded()
-            
         }
         
         cell.cancelButtonContainerView.isHidden = true
@@ -148,7 +146,7 @@ class TransactionDetailViewController: UIViewController {
     }
     
     @IBAction func finalizeTransaction(_ sender: Any) {
-        presenter.finalizeScheme()
+        self.push(identifier: SegueIdentifiers.detailTransactionToEvaluation)
     }
 }
 
@@ -230,19 +228,13 @@ extension TransactionDetailViewController: TransactionDetailDelegate {
     }
     
     func push(identifier: String) {
-        
         if identifier == SegueIdentifiers.detailTransactionToEvaluation {
-            
             let viewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Transaction", identifier: "evaluationView") as? EvaluationViewController
             viewController?.presenter.scheme = presenter.scheme
             self.present(viewController!, animated: true, completion: nil)
         } else {
             performSegue(withIdentifier: identifier, sender: self)
         }
-        
-        //performSegue(withIdentifier: SegueIdentifiers.detailTransactionToChat, sender: self)
-        
-        
         
     }
     

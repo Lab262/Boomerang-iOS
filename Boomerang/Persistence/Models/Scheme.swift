@@ -11,6 +11,7 @@ import Parse
 
 
 enum StatusSchemeEnum: String {
+    case evaluation = "Evaluation"
     case progress = "Progress"
     case done = "Done"
     case canceled = "Canceled"
@@ -27,6 +28,8 @@ class Scheme: PFObject {
     @NSManaged var chat: Chat?
     @NSManaged var beenSeen: Bool
     @NSManaged var showNotification: Bool
+    @NSManaged var requesterEvaluated: Bool
+    @NSManaged var ownerEvaluated: Bool
     @NSManaged var finalizedDate: Date?
     var statusSchemeEnum: StatusSchemeEnum?
     var condition: ConditionEnum?

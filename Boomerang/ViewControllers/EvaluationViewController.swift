@@ -41,7 +41,6 @@ class EvaluationViewController: UIViewController {
     }
     
     func setupInformations(){
-        
         var nameUser = ""
         if presenter.scheme.owner?.objectId == User.current()?.profile!.objectId {
             nameUser = (presenter.scheme.dealer?.fullName)!
