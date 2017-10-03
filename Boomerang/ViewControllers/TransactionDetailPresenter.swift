@@ -41,23 +41,27 @@ class TransactionDetailPresenter: NSObject {
         }
     }
     
+    func userRated() -> Bool {
+        if scheme.owner?.objectId == profile.objectId {
+            if scheme.ownerEvaluated == true {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            if scheme.requesterEvaluated == true {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+    
     func getDealerTransaction() -> Profile {
         if scheme.owner?.objectId == profile.objectId {
             return scheme.requester!
         } else {
             return scheme.owner!
-        }
-    }
-    
-    func finalizeScheme() {
-        view?.startingLoadingView()
-        SchemeRequest.finalize(for: scheme) { (success, msg) in
-            if success {
-                self.view?.push(identifier: SegueIdentifiers.detailTransactionToEvaluation)
-            } else {
-                self.view?.showMessage(msg: msg)
-            }
-            self.view?.finishLoadingView()
         }
     }
  

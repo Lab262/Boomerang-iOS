@@ -26,10 +26,9 @@ class EvaluationPresenter: NSObject {
     func setViewDelegate(view: EvaluationDelegate){
         self.view = view
     }
-    
+
     func createEvaluationBy(starButtons: [UIButton], comment: String) {
         if verifyTextIsValid(text: comment) {
-   
             let evaluation = Evaluation(scheme: scheme, comment: comment, evaluated: self.scheme!.dealer!, appraiser: self.profile, amountStars: NSNumber(integerLiteral: getAmountStars(starButtons: starButtons)))
             
             saveEvaluation(evaluation: evaluation)

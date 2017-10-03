@@ -83,11 +83,8 @@ extension DonationTransactionViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return presenter.getSchemesFor(postCondition: .donation).count
     }
-    
-    
 }
 
 extension DonationTransactionViewController: UITableViewDelegate {

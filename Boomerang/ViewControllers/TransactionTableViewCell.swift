@@ -21,7 +21,7 @@ class TransactionTableViewCell: UITableViewCell {
     var fromImage: UIImage? {
         didSet{
             fromUserImage.image = fromImage
-            self.toUserImage.getUserImageFrom(file: presenter.user.profile!.photo!) { (success, msg) in
+            self.toUserImage.getUserImageFrom(file: presenter.currentProfile.photo!) { (success, msg) in
             }
         }
     }
@@ -30,7 +30,7 @@ class TransactionTableViewCell: UITableViewCell {
         didSet{
             toUserImage.image = toImage
             
-            self.fromUserImage.getUserImageFrom(file: presenter.user.profile!.photo!) { (success, msg) in
+            self.fromUserImage.getUserImageFrom(file: presenter.currentProfile.photo!) { (success, msg) in
             }
         }
     }

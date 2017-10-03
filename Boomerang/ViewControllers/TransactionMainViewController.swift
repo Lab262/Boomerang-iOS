@@ -39,7 +39,6 @@ class TransactionMainViewController: UIViewController {
         registerObservers()
     }
     
-    
     func registerObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootSchemes), object: nil)
     }

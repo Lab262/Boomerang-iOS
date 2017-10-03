@@ -26,7 +26,7 @@ class TransactionCellPresenter: NSObject {
     
     var scheme: Scheme = Scheme()
     fileprivate var view: TransactionCellDelegate?
-    var user: User = User.current()!
+    var currentProfile: Profile = User.current()!.profile!
     
     func setViewDelegate(view: TransactionCellDelegate) {
         self.view = view
@@ -70,14 +70,31 @@ class TransactionCellPresenter: NSObject {
         return scheme.beenSeen
     }
     
-    
     func setupDevolutionDescriptionStyle(label: UILabel) {
-        
-        
         if scheme.statusSchemeEnum == .negotiation {
             label.font = UIFont.montserratRegular(size: 13)
             label.textColor = UIColor.yellowTransactioColor
             label.text = "Em aberto"
+        } else if scheme.statusSchemeEnum == .finished {
+            label.font = UIFont.montserratRegular(size: 13)
+            label.textColor = UIColor.yellowTransactioColor
+            label.text = "Finalizado"
+        } else if scheme.statusSchemeEnum == .evaluation {
+            label.font = UIFont.montserratRegular(size: 13)
+            label.textColor = UIColor.yellowTransactioColor
+            if getOwnerOfTransaction().objectId == currentProfile.objectId {
+                if !scheme.ownerEvaluated {
+                    label.text = "Sua avaliação está pendente."
+                } else {
+                    label.text = "Avaliação do migo pendente."
+                }
+            } else {
+                if !scheme.requesterEvaluated {
+                    label.text = "Sua avaliação está pendente."
+                } else {
+                    label.text = "Avaliação do migo pendente."
+                }
+            }
         } else if scheme.post?.postConditionEnum == .loan {
             label.font = UIFont.montserratRegular(size: 13)
             label.textColor = UIColor.black
@@ -127,7 +144,7 @@ class TransactionCellPresenter: NSObject {
     }
     
     func getInformationsOfTransaction(){
-        if scheme.owner?.objectId == self.user.profile?.objectId {
+        if scheme.owner?.objectId == self.currentProfile.objectId {
             scheme.dealer = scheme.requester
             getInformationsTransactionByTypeOfPost(isFromUser: true, postCondition: getPost().postConditionEnum!)
            // view?.fromImage = self.user.photo.getdata
