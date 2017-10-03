@@ -505,13 +505,18 @@ class ThingDetailViewController: UIViewController {
     
     func generateActionsPostsCell (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-            let cell = tableView.dequeueReusableCell(withIdentifier: ActionsPostTableViewCell.identifier, for: indexPath) as! ActionsPostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActionsPostTableViewCell.identifier, for: indexPath) as! ActionsPostTableViewCell
             
             configureButtons(actionsPostCell: cell)
             setupActionButtons(actionsPostCell: cell)
-            
-            return cell
-
+        
+        presenter.getWaitingListAmount { (success, msg, amount) in
+            if amount != 0 {
+                cell.setupWaitingListAmount(amount: amount)
+            }
+        }
+        
+        return cell
     }
     
     func textFieldFirstResponder(_ sender: UIButton) {

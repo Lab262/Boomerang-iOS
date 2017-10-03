@@ -339,6 +339,9 @@
 		D40C0E4F1E8B1490008174D2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E4E1E8B1490008174D2 /* Date+Utils.swift */; };
 		D40C0E511E8B9A93008174D2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C0E501E8B9A93008174D2 /* Photo.swift */; };
 		D40DBB9D1E9684000075E74B /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40DBB9C1E9684000075E74B /* Follow.swift */; };
+		D41623091F83447300E7C1AF /* InterestedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41623081F83447300E7C1AF /* InterestedRequest.swift */; };
+		D416230A1F83447300E7C1AF /* InterestedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41623081F83447300E7C1AF /* InterestedRequest.swift */; };
+		D416230B1F83447300E7C1AF /* InterestedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41623081F83447300E7C1AF /* InterestedRequest.swift */; };
 		D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D42F22E91EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
 		D42F22EA1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
@@ -1209,6 +1212,7 @@
 		D40C0E4E1E8B1490008174D2 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		D40C0E501E8B9A93008174D2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D40DBB9C1E9684000075E74B /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
+		D41623081F83447300E7C1AF /* InterestedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedRequest.swift; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionMainHistoryViewController.swift; sourceTree = "<group>"; };
 		D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -1596,6 +1600,7 @@
 				D4470A6A1EB6A5D8002330C5 /* ProfileRequest.swift */,
 				D4C8ECDB1EC22B4200E3CB17 /* StatusRequest.swift */,
 				D44EE9E61ECB348700ECDDC1 /* RecommendedRequest.swift */,
+				D41623081F83447300E7C1AF /* InterestedRequest.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -3705,6 +3710,7 @@
 				D4E4BEBA1E8256B000F8DC2E /* PHFComposeBarView.m in Sources */,
 				D4AD99241EA9AFF400C9FAB9 /* AppConfig.swift in Sources */,
 				605300EF1ED3A29E00584418 /* UISearchBarExtension.swift in Sources */,
+				D41623091F83447300E7C1AF /* InterestedRequest.swift in Sources */,
 				A42767FB1DD362D500363343 /* AddBoomerCell.swift in Sources */,
 				D44C9A0F1EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				605DEF3A1ECCD03800D1D233 /* UILabelExtension.swift in Sources */,
@@ -3918,6 +3924,7 @@
 				D4AD99261EA9B00000C9FAB9 /* AppConfig.swift in Sources */,
 				605300F01ED3A29E00584418 /* UISearchBarExtension.swift in Sources */,
 				D4788DDF1ECE18E700E5E55F /* MorePostViewController.swift in Sources */,
+				D416230A1F83447300E7C1AF /* InterestedRequest.swift in Sources */,
 				D4AD97CB1EA9ACFD00C9FAB9 /* AddBoomerCell.swift in Sources */,
 				D44C9A101EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD97CC1EA9ACFD00C9FAB9 /* CGOperations.swift in Sources */,
@@ -4122,6 +4129,7 @@
 				D4AD99281EA9B00900C9FAB9 /* AppConfig.swift in Sources */,
 				605300F11ED3A29E00584418 /* UISearchBarExtension.swift in Sources */,
 				D4788DE01ECE18E700E5E55F /* MorePostViewController.swift in Sources */,
+				D416230B1F83447300E7C1AF /* InterestedRequest.swift in Sources */,
 				D4AD98971EA9AD0400C9FAB9 /* AddBoomerCell.swift in Sources */,
 				D44C9A111EB00D59004B7796 /* ChatViewController.swift in Sources */,
 				D4AD98981EA9AD0400C9FAB9 /* CGOperations.swift in Sources */,

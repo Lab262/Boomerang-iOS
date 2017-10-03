@@ -66,6 +66,12 @@ class DetailThingPresenter: NSObject {
         }
     }
     
+    func getWaitingListAmount(completionHandler: @escaping (_ success: Bool, _ msg: String, _ amount: Int) -> ())  {
+        InterestedRequest.getWaitingListCount(by: post) { (success, msg, amount) in
+            completionHandler(success, msg, amount ?? 0)
+        }
+    }
+    
     func getLastComments() {
          self.view?.startFooterLoading()
         CommentRequest.fetchLastCommentsBy(post: self.post, commentsObject: self.comments, pagination: Paginations.comments) { (success, msg, comments) in

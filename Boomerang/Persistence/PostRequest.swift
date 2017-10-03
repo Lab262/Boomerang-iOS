@@ -11,8 +11,6 @@ import Parse
 
 class PostRequest: NSObject {
     
-    let userDefaults = UserDefaults.standard
-    
     static func getLikeCount(by post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         ParseRequest.queryCountContainedIn(className: "Like", key: "post", value: [post]) { (success, msg, count) in
             if success {
@@ -22,6 +20,8 @@ class PostRequest: NSObject {
             }
         }
     }
+    
+    
     
     static func getRecommendationCount(by post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         
