@@ -796,7 +796,6 @@ extension PFObject {
     }
     
     func fetchObjectBy(key: String) -> PFObject? {
-        
         let object = self.object(forKey: key) as? PFObject
         
         do {

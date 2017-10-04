@@ -100,29 +100,14 @@ class HomePresenter: NSObject {
             }
         }
     }
-//    
-//    private func requestAllPostTypes(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-//        PostRequest.getAllTypes { (success, msg) in
-//            completionHandler(success, msg)
-//        }
-//    }
-//    
-//    private func requestAllPostConditions(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-//        PostRequest.getAllConditions { (success, msg) in
-//            completionHandler(success, msg)
-//        }
-//    }
-//    
-//    private func requestSchemeStatus(completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
-//        SchemeRequest.getAllStatus { (success, msg) in
-//            completionHandler(success, msg)
-//        }
-//    }
-    
     fileprivate func appendNewPostInFeatured(post: Post) {
-        self.featuredPosts.removeLast()
-        self.featuredPosts.insert(post, at: 0)
-        self.delegate?.reload()
+        PostRequest.fetchAuthor(of: post) { (success, msg) in
+            if success {
+                self.featuredPosts.removeLast()
+                self.featuredPosts.insert(post, at: 0)
+                self.delegate?.reload()
+            }
+        }
     }
 }
 

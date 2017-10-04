@@ -215,6 +215,7 @@ struct PostKeys {
     static let isAvailable = "isAvailable"
     static let type = "type"
     static let title = "title"
+    static let condition = "condition"
 
 }
 

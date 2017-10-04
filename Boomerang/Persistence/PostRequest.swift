@@ -346,6 +346,18 @@ class PostRequest: NSObject {
         }
     }
     
+    static func fetchAuthor(of post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        post.fetchObjectInBackgroundBy(key: PostKeys.author) { (success, msg, object) in
+            if success {
+                if let author = object as? Profile {
+                    post.author = author
+                    post.setupEnums()
+                    completionHandler(success, msg)
+                }
+            }
+        }
+    }
+    
     static func fetchInterestedOf(post: Post, selectKeys: [String]?, pagination: Int, skip: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, [Interested]?) -> Void) {
         
         var interesteds: [Interested] = [Interested]()
