@@ -157,13 +157,13 @@ class ThingDetailViewController: UIViewController {
     }
     
     func setFieldExchange(title:String){
-        let fieldExchange = Fields.init(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: title, descriptionCondition: presenter.post.exchangeDescription!, constraintIconWidth: 14.0*UIView.heightScaleProportion(), constraintIconHeight: 15.0*UIView.heightScaleProportion())
+        let fieldExchange = Fields.init(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: title, descriptionCondition: "ttteste", constraintIconWidth: 14.0*UIView.heightScaleProportion(), constraintIconHeight: 15.0*UIView.heightScaleProportion())
         
         self.inputFieldsCondition.append(fieldExchange)
     }
     
-    func setFieldTime(){
-        let fieldTime = Fields.init(iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: DetailPostTitles.titleTime, descriptionCondition: presenter.post.loanTime!, constraintIconWidth: 16.0*UIView.heightScaleProportion(), constraintIconHeight: 16.0*UIView.heightScaleProportion())
+    func setFieldTime() {
+        let fieldTime = Fields.init(iconCondition:#imageLiteral(resourceName: "time-icon"), titleCondition: DetailPostTitles.titleTime, descriptionCondition: presenter.post.loanTime!, constraintIconWidth: 16.0*UIView.heightScaleProportion(), constraintIconHeight: 16.0 * UIView.heightScaleProportion())
         
         self.inputFieldsCondition.append(fieldTime)
     }

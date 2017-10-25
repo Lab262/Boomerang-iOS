@@ -32,6 +32,8 @@ class ThrowViewController: UIViewController {
     var isAvailable:Bool?
     var boolTypeScheme:Bool?
     
+    var isNeedToGiveSomething = false
+    
     @IBOutlet weak var coverPostHeightConstraint: NSLayoutConstraint!
     var titleHeader = String()
     var allimages:[UIImage]?
@@ -232,6 +234,7 @@ class ThrowViewController: UIViewController {
     //MARK: Generate Tables Views
     
     func generateTableViewNeed(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
         switch indexPath.row {
         case  0:
             return generateHeadPostCell(tableView, indexPath:indexPath, image: #imageLiteral(resourceName: "ic_need"))
@@ -267,10 +270,8 @@ class ThrowViewController: UIViewController {
         case 4:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titleHowLong, placeholder: CreatePostTitles.placeholderConversation)
         case 5:
-            return generateDescriptionCell(tableView, indexPath:indexPath, titleCell: CreatePostTitles.titleChangeBorrowed, sizeFont: defaultSize14)
-        case 6:
             return generateSimpleTextFieldCell(tableView, indexPath:indexPath, title: CreatePostTitles.titlePlace, placeholder: CreatePostTitles.placeholderConversation)
-        case 7:
+        case 6:
             return generateSwitchButtonCell(tableView, indexPath:indexPath, firstTitle: CreatePostTitles.validated, secondTitle: CreatePostTitles.notValidated, isTypeScheme: false)
         default:
             return UITableViewCell()
@@ -308,8 +309,14 @@ class ThrowViewController: UIViewController {
         self.params[CreatePostTitles.keyParseTitle] = self.fields[2]
         self.params[CreatePostTitles.keyParseContent] = self.fields[3]
         self.params[CreatePostTitles.keyParseTime] = self.fields[4]
-        self.params[CreatePostTitles.keyParseExchangeDescription] = self.fields[5]
-        self.params[CreatePostTitles.keyParsePlace] = self.fields[6]
+        
+        if typeVC == .need {
+            self.params[CreatePostTitles.keyParseExchangeDescription] = self.fields[5]
+            self.params[CreatePostTitles.keyParsePlace] = self.fields[6]
+        } else {
+            self.params[CreatePostTitles.keyParsePlace] = self.fields[5]
+        }
+        
     }
     
     func parseFieldsDonate(){
@@ -353,7 +360,7 @@ class ThrowViewController: UIViewController {
             return msgErro
         }
         
-        if typeVC == .need || typeVC == .have {
+        if typeVC == .need {
             if self.params[CreatePostTitles.keyParseTime] == nil || self.params[CreatePostTitles.keyParseTime] == "" {
                 msgErro = CreatePostTitles.msgErrorTime
                 return msgErro
@@ -363,11 +370,16 @@ class ThrowViewController: UIViewController {
                 msgErro = CreatePostTitles.msgErrorExchangeDescription
                 return msgErro
             }
+        } else if typeVC == .have {
+            
+            if self.params[CreatePostTitles.keyParseTime] == nil || self.params[CreatePostTitles.keyParseTime] == "" {
+                msgErro = CreatePostTitles.msgErrorTime
+                return msgErro
+            }
         }
         
         return msgErro
     }
-    
     
     func createPost () {
         self.view.endEditing(true)
@@ -381,64 +393,57 @@ class ThrowViewController: UIViewController {
                         condition: typeScheme,
                         typePost: typeVC)
         
-        let pictureData = UIImageJPEGRepresentation((allimages?.first)!, 0.2)
-        let pictureFileObject =  PFFile(data: pictureData!, contentType: "image/jpeg")
+        var allFilesObject = [PFObject]()
         
-        let photos = PFObject(className:"Photo")
-        
-        photos["imageFile"] = pictureFileObject
-        
-        self.view.loadAnimation()
-        
-        photos.saveInBackground(block: { (success, error) in
-            if success {
-                let relation = post.relation(forKey: "photos")
-                
-                relation.add(photos)
-                
-                post.saveInBackground(block: { (success, error) in
-                    if success {
-                        self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Boomer", identifier: "feedbackCreatePost")!, animated: true, completion: nil)
-                        
-                        //self.view.unload()
-                    }else {
-
-                        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Algo deu errado.", negativeAction: "Ok") { (isPositive) in
-                            self.dismiss(animated: true, completion: nil)
-                        }
-
-                        ActivitIndicatorView.hide(on:self)
+        if let allImages = allimages {
+            for image in allImages {
+                if let pictureData = UIImageJPEGRepresentation(image, 0.2) {
+                    let pictureFileObject = PFFile(data: pictureData, contentType: "image/jpeg")
+                    let photo = PFObject(className: "Photo")
+                    photo["imageFile"] = pictureFileObject
+                    allFilesObject.append(photo)
+                }
+            }
+            
+            self.view.loadAnimation()
+            
+            PFObject.saveAll(inBackground: allFilesObject) { (success, error) in
+                if success {
+                    let relation = post.relation(forKey: "photos")
+                    for fileObject in allFilesObject {
+                        relation.add(fileObject)
                     }
                     
-                    self.view.unload()
-                })
-                
-                
-            }else {
-                GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Algo deu errado.", negativeAction: "Ok") { (isPositive) in
-                    self.dismiss(animated: true, completion: nil)
+                    post.saveInBackground(block: { (success, error) in
+                        if success {
+                            self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Boomer", identifier: "feedbackCreatePost")!, animated: true, completion: nil)
+                            
+                            //self.view.unload()
+                        } else {
+                            
+                            GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Algo deu errado.", negativeAction: "Ok") { (isPositive) in
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                            
+                            ActivitIndicatorView.hide(on:self)
+                        }
+                        
+                        self.view.unload()
+                    })
                 }
-                self.view.unload()
             }
-        })
+        }
     }
-    
 }
 
 extension ThrowViewController: UITableViewDataSource {
     // MARK: - Table view data source
     
-
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 8
+        return typeVC == .need ? 8 : 7
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         switch typeVC {
         case .need:
             return generateTableViewNeed(tableView, cellForRowAt: indexPath)
