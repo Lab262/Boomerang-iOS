@@ -22,6 +22,7 @@ class ThrowViewController: UIViewController {
     @IBOutlet weak var anexButton: UIButtonWithPicker!
     @IBOutlet weak var anexButtonCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var anexAreaButton: UIButtonWithPicker!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var fields:[Int:String] = [:]
     var nameThing = String ()
@@ -36,7 +37,7 @@ class ThrowViewController: UIViewController {
     
     @IBOutlet weak var coverPostHeightConstraint: NSLayoutConstraint!
     var titleHeader = String()
-    var allimages:[UIImage]?
+    var allImages = [UIImage]()
     
     var headerHeight = CGFloat(200)
     
@@ -78,13 +79,11 @@ class ThrowViewController: UIViewController {
     }
     
     func registerNib() {
-        
         tableView.registerNibFrom(SwitchButtonTableViewCell.self)
         tableView.registerNibFrom(SimpleTextFieldTableViewCell.self)
         tableView.registerNibFrom(DescriptionTextTableViewCell.self)
         tableView.registerNibFrom(TypePostTableViewCell.self)
-      //  tableView.registerNibFrom(HeaderPostTableViewCell.self)
-
+        collectionView.registerNibFrom(PostPhotoCollectionViewCell.self)
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -328,11 +327,12 @@ class ThrowViewController: UIViewController {
     func verifyEmptyParams() -> String? {
         var msgErro: String?
         
-        if allimages?.first == nil {
+        
+        if allImages.count < 1 {
             msgErro = CreatePostTitles.msgErrorImage
             return msgErro
         }
-        
+     
         if typeVC == .need || typeVC == .have {
             if typeScheme == nil {
                 msgErro = CreatePostTitles.msgErrorTypeScheme
@@ -395,7 +395,6 @@ class ThrowViewController: UIViewController {
         
         var allFilesObject = [PFObject]()
         
-        if let allImages = allimages {
             for image in allImages {
                 if let pictureData = UIImageJPEGRepresentation(image, 0.2) {
                     let pictureFileObject = PFFile(data: pictureData, contentType: "image/jpeg")
@@ -433,7 +432,6 @@ class ThrowViewController: UIViewController {
                 }
             }
         }
-    }
 }
 
 extension ThrowViewController: UITableViewDataSource {
@@ -530,10 +528,11 @@ extension ThrowViewController: UIIButtonWithPickerDelegate{
     
     
     func didPickEditedImage(image: [UIImage]){
-        allimages = image
+        allImages = image
         self.addTitleLabel.isHidden = true
         self.iconCameraView.isHidden = true
         self.coverPostImage.image = image[0]
+        self.collectionView.reloadData()
        // self.tableView.reloadData()
     }
 
@@ -547,6 +546,33 @@ extension ThrowViewController {
     
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension ThrowViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostPhotoCollectionViewCell.identifier, for: indexPath) as? PostPhotoCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.postPhoto.image = allImages[indexPath.row]
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return allImages.count
+    }
+}
+
+extension ThrowViewController: UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 375, height: 100)
     }
 }
 

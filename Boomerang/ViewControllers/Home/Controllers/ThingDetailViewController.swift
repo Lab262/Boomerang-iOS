@@ -156,8 +156,8 @@ class ThingDetailViewController: UIViewController {
         setFieldPlace()
     }
     
-    func setFieldExchange(title:String){
-        let fieldExchange = Fields.init(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: title, descriptionCondition: "ttteste", constraintIconWidth: 14.0*UIView.heightScaleProportion(), constraintIconHeight: 15.0*UIView.heightScaleProportion())
+    func setFieldExchange(title:String) {
+        let fieldExchange = Fields(iconCondition: #imageLiteral(resourceName: "exchange-icon"), titleCondition: title, descriptionCondition: "ttteste", constraintIconWidth: 14.0*UIView.heightScaleProportion(), constraintIconHeight: 15.0*UIView.heightScaleProportion())
         
         self.inputFieldsCondition.append(fieldExchange)
     }
