@@ -10,6 +10,7 @@ import UIKit
 
 class TabBarController: UIViewController {
 
+    @IBOutlet weak var badgeAmountNumber: UILabel!
     @IBOutlet weak var badgeView: UIView!
     @IBOutlet weak var viewContainerTabBar: UIView!
     var uiTabBarController: UITabBarController!
@@ -24,9 +25,25 @@ class TabBarController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureBadgeNumber()
         TabBarController.mainTabBarController = self
         self.uiTabBarController.tabBar.isHidden = true
         configureButtons()
+    }
+    
+    func configureBadgeNumber() {
+        let badgeNumber = UIApplication.shared.applicationIconBadgeNumber
+        if badgeNumber > 0 {
+            badgeView.isHidden = false
+            if badgeNumber > 99 {
+                badgeAmountNumber.text = "99+"
+            } else {
+                badgeAmountNumber.text = "\(badgeNumber)"
+            }
+        } else {
+            badgeAmountNumber.text = ""
+            badgeView.isHidden = true
+        }
     }
     
     func configureButtons(){

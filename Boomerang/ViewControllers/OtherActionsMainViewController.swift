@@ -26,6 +26,8 @@ class OtherActionsMainViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        TabBarController.mainTabBarController.configureBadgeNumber()
         TabBarController.mainTabBarController.showTabBar()
     }
     

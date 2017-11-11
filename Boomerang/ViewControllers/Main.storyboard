@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aFI-aJ-oa2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aFI-aJ-oa2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.otf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="sFg-Y2-3IV">
@@ -112,17 +116,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-Wu-zZa" userLabel="FourthOption">
                                                 <rect key="frame" x="226" y="0.0" width="74" height="50"/>
                                                 <subviews>
-                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lE2-Ih-Kar">
-                                                        <rect key="frame" x="48" y="4" width="20" height="20"/>
-                                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="27Y-jM-U3w"/>
-                                                            <constraint firstAttribute="height" constant="20" id="zcz-UZ-DPr"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSd-zk-gdC">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="50"/>
                                                         <state key="normal" image="tabbar_schemas_icon"/>
@@ -135,10 +128,8 @@
                                                 <constraints>
                                                     <constraint firstItem="WSd-zk-gdC" firstAttribute="height" secondItem="Afb-Wu-zZa" secondAttribute="height" id="JCG-ta-kOu"/>
                                                     <constraint firstItem="WSd-zk-gdC" firstAttribute="centerX" secondItem="Afb-Wu-zZa" secondAttribute="centerX" id="OCP-AY-f6s"/>
-                                                    <constraint firstItem="lE2-Ih-Kar" firstAttribute="top" secondItem="Afb-Wu-zZa" secondAttribute="top" constant="4" id="V8N-NJ-om1"/>
                                                     <constraint firstItem="WSd-zk-gdC" firstAttribute="width" secondItem="Afb-Wu-zZa" secondAttribute="width" id="aqX-Qm-Td3"/>
                                                     <constraint firstItem="WSd-zk-gdC" firstAttribute="centerY" secondItem="Afb-Wu-zZa" secondAttribute="centerY" id="oE9-zk-cP6"/>
-                                                    <constraint firstAttribute="trailing" secondItem="lE2-Ih-Kar" secondAttribute="trailing" constant="6" id="pqE-o5-vAd"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -155,6 +146,29 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0do-Rq-cDl" userLabel="FifthOption">
                                                 <rect key="frame" x="301" y="0.0" width="74" height="50"/>
                                                 <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLj-Nw-rmX">
+                                                        <rect key="frame" x="48" y="4" width="20" height="20"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="arB-uh-jiW">
+                                                                <rect key="frame" x="2" y="2" width="15" height="15"/>
+                                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="12"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="arB-uh-jiW" firstAttribute="centerX" secondItem="nLj-Nw-rmX" secondAttribute="centerX" id="6W0-Bv-ffm"/>
+                                                            <constraint firstItem="arB-uh-jiW" firstAttribute="height" secondItem="nLj-Nw-rmX" secondAttribute="height" multiplier="0.75" id="ICc-8O-Oal"/>
+                                                            <constraint firstAttribute="width" constant="20" id="Ly2-2H-xDt"/>
+                                                            <constraint firstItem="arB-uh-jiW" firstAttribute="width" secondItem="nLj-Nw-rmX" secondAttribute="width" multiplier="0.75" id="UFf-bO-bRB"/>
+                                                            <constraint firstItem="arB-uh-jiW" firstAttribute="centerY" secondItem="nLj-Nw-rmX" secondAttribute="centerY" id="dAd-wN-0Uh"/>
+                                                            <constraint firstAttribute="height" constant="20" id="wCx-Yg-bzA"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCircle" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHB-fO-sa0">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="50"/>
                                                         <state key="normal" image="tabbar_notifications_icon"/>
@@ -169,6 +183,8 @@
                                                     <constraint firstItem="qHB-fO-sa0" firstAttribute="height" secondItem="0do-Rq-cDl" secondAttribute="height" id="8N8-sE-XVl"/>
                                                     <constraint firstItem="qHB-fO-sa0" firstAttribute="centerX" secondItem="0do-Rq-cDl" secondAttribute="centerX" id="EyR-2G-QQV"/>
                                                     <constraint firstItem="qHB-fO-sa0" firstAttribute="centerY" secondItem="0do-Rq-cDl" secondAttribute="centerY" id="SiK-dK-FMv"/>
+                                                    <constraint firstItem="nLj-Nw-rmX" firstAttribute="top" secondItem="0do-Rq-cDl" secondAttribute="top" constant="4" id="bzj-c7-hf7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="nLj-Nw-rmX" secondAttribute="trailing" constant="6" id="frW-HV-kdg"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -296,7 +312,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="badgeView" destination="lE2-Ih-Kar" id="w45-If-6mH"/>
+                        <outlet property="badgeAmountNumber" destination="arB-uh-jiW" id="4FC-Ns-Wq2"/>
+                        <outlet property="badgeView" destination="nLj-Nw-rmX" id="2B9-Xe-e1u"/>
                         <outlet property="imgViewCenterOption" destination="TKu-lQ-7zT" id="sSQ-qz-oTM"/>
                         <outlet property="viewContainerCenterOption" destination="BTL-uU-asz" id="XMr-sl-CCb"/>
                         <outlet property="viewContainerTabBar" destination="BvM-S8-hCt" id="Dm8-Xj-VDU"/>

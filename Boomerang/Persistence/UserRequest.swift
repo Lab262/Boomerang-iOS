@@ -16,7 +16,6 @@ class UserRequest: NSObject {
     static func facebookLoginUser(completionHandler: @escaping (_ success: Bool, _ msg: String, _ user: PFUser?) -> ()) {
         
         let permissions = [FacebookParams.publicProfile, FacebookParams.email, FacebookParams.userFriends]
-        
         PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
             if let user = user, error == nil {
                 completionHandler(true, "", user)
