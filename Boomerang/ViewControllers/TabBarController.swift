@@ -22,10 +22,15 @@ class TabBarController: UIViewController {
     
     var inputConfigurationButtons = [(deselectedImage: #imageLiteral(resourceName: "tabbar_home_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_home_icon_selected"), selectIndex: 0), (deselectedImage: #imageLiteral(resourceName: "tabbar_profile_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_profile_icon_selected"), selectIndex: 1), (deselectedImage: #imageLiteral(resourceName: "tabbar_boomer_icon"), selectedImage: #imageLiteral(resourceName: "ic_boomerangWhite"), selectIndex: 2), (deselectedImage: #imageLiteral(resourceName: "tabbar_schemas_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_schemas_icon_selected"), selectIndex: 3), (deselectedImage: #imageLiteral(resourceName: "tabbar_notifications_icon"), selectedImage: #imageLiteral(resourceName: "tabbar_notifications_icon_selected"), selectIndex: 4)]
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.configureBadgeNumber()
+    }
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureBadgeNumber()
         TabBarController.mainTabBarController = self
         self.uiTabBarController.tabBar.isHidden = true
         configureButtons()

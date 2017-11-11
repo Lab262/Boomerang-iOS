@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class OtherActionsMainViewController: UIViewController {
     
@@ -26,9 +27,12 @@ class OtherActionsMainViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        TabBarController.mainTabBarController.configureBadgeNumber()
+        
         TabBarController.mainTabBarController.showTabBar()
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        PFInstallation.current()?.badge = 0
+        PFInstallation.current()?.saveEventually()
+        TabBarController.mainTabBarController.configureBadgeNumber()
     }
     
     override func viewDidLoad() {
