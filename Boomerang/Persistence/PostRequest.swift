@@ -419,6 +419,19 @@ class PostRequest: NSObject {
         }
     }
     
+    static func getPostWithId(postId: String, completionHandler: @escaping (_ post: Post?) -> ()) {
+        let query = PFQuery(className: "Post")
+        query.getObjectInBackground(withId: postId) { (object, error) in
+            if error == nil {
+                let post = object as? Post
+                PostRequest.fetchAuthor(of: post!, completionHandler: { (success, error) in
+                    completionHandler(post)
+                })
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
     
     static func updatePostIsAvailable(isAvailable: Bool, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         

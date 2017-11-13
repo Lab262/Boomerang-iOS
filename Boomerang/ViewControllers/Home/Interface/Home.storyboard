@@ -366,7 +366,7 @@
         <!--Thing Detail View Controller-->
         <scene sceneID="yTL-aV-yR5">
             <objects>
-                <viewController storyboardIdentifier="detailThingView" automaticallyAdjustsScrollViewInsets="NO" id="OAa-qd-sUY" customClass="ThingDetailViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailThingView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OAa-qd-sUY" customClass="ThingDetailViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gsM-3m-uNa"/>
                         <viewControllerLayoutGuide type="bottom" id="c9M-eD-pal"/>

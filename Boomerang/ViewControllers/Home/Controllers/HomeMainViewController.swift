@@ -110,6 +110,17 @@ class HomeMainViewController: UIViewController {
             }
         }
     }
+    
+    func presentThingDetailWithPost(_ notification : Notification) {
+        if let postId = notification.userInfo?["postObject"] as? String {
+            PostRequest.getPostWithId(postId: postId, completionHandler: { (post) in
+                let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "detailThingView") as! ThingDetailViewController
+                vc.presenter.post = post!
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+        }
+    }
 }
 
 extension HomeMainViewController: UITableViewDataSource {
@@ -211,6 +222,8 @@ extension HomeMainViewController {
     
     func registerObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootHome), object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(presentThingDetailWithPost(_:)), name: NSNotification.Name(rawValue: NotificationKeys.showDetailThingsForPost), object: nil)
+        
     }
 }
 
