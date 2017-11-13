@@ -166,6 +166,21 @@ class SchemeRequest: NSObject {
         }
     }
     
+    static func getSchemeWithId(schemeId: String, completionHandler: @escaping (_ post: Scheme?) -> ()) {
+        let query = PFQuery(className: Scheme.parseClassName())
+        query.includeKeys( [SchemeKeys.owner, SchemeKeys.post, SchemeKeys.requester])
+        query.getObjectInBackground(withId: schemeId) { (object, error) in
+            if error == nil {
+                let scheme = object as? Scheme
+                scheme?.post?.setupEnums()
+                scheme?.setupEnums()
+                scheme?.post?.author = scheme?.owner
+                completionHandler(scheme)
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
     
     static func getRequesterSchemesForUser(requester: Profile, schemesDownloaded: [Scheme], notContainedStatus: [StatusSchemeEnum], pagination: Int, completionHandler: @escaping (_ success: Bool, _ msg: String, _ schemes: [Scheme]?) -> ()) {
         

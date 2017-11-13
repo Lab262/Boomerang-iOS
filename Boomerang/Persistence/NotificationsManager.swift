@@ -199,14 +199,21 @@ extension NotificationsManager {
             switch category {
             case "waitingList", "postUpdate", "recommendation":
                 if TabBarController.mainTabBarController != nil {
-                    TabBarController.mainTabBarController.setupNotification(tabBarIndexView: 0)
+                    let sender = UIButton()
+                    sender.tag = 0
+                    TabBarController.mainTabBarController.selectButton(sender)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.showDetailThingsForPost), object: nil, userInfo: ["postObject": thingPostId])
                 }
                 break
             case "scheme":
                 if TabBarController.mainTabBarController != nil {
-                    TabBarController.mainTabBarController.setupNotification(tabBarIndexView: 3)
+                    let sender = UIButton()
+                    sender.tag = 3
+                    TabBarController.mainTabBarController.selectButton(sender)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.showSchemeDetailForScheme), object: nil, userInfo: ["schemeObject": schemeId])
                 }
+                break
+
                 break
             default:
                 break

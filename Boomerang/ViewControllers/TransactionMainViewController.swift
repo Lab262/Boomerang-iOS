@@ -9,7 +9,7 @@
 import UIKit
 
 class TransactionMainViewController: UIViewController {
-    
+
     var segmentSelected: Int? {
         didSet {
             setFontButtonBySegmentSelected()
@@ -41,6 +41,8 @@ class TransactionMainViewController: UIViewController {
     
     func registerObservers(){
         NotificationCenter.default.addObserver(self, selector: #selector(popToRoot(_:)), name: NSNotification.Name(rawValue: NotificationKeys.popToRootSchemes), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(presentSchemeDetailWithScheme(_:)), name: NSNotification.Name(rawValue: NotificationKeys.showSchemeDetailForScheme), object: nil)
+
     }
     
     func popToRoot(_ notification : Notification){
@@ -102,6 +104,17 @@ class TransactionMainViewController: UIViewController {
             self.viewRightConstraint.isActive = trailing
             self.view.layoutIfNeeded()
         }, completion: nil)
+    }
+    
+    func presentSchemeDetailWithScheme(_ notification : Notification) {
+        if let schemeId = notification.userInfo?["schemeObject"] as? String {
+            SchemeRequest.getSchemeWithId(schemeId: schemeId, completionHandler: { (scheme) in
+                let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "schemeDetailView") as! TransactionDetailViewController
+                vc.presenter.scheme = scheme!
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+        }
     }
 }
 
