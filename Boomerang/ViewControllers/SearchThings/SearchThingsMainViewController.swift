@@ -19,10 +19,9 @@ class SearchThingsMainViewController: UIViewController {
     var segmentControlButtonDelegate: SegmentControlButtonDelegate?
     var segmentVC: SearchThingsSegmentViewController?
 
+    @IBOutlet weak var selectionView: UIView!
     @IBOutlet weak var navigationBar: IconNavigationBar!
-    @IBOutlet weak var viewLeftConstraint: NSLayoutConstraint!
-    @IBOutlet weak var viewCenterConstraint: NSLayoutConstraint!
-    @IBOutlet weak var viewRightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var allTransactionButton: UIButton!
     @IBOutlet weak var loanTransactionButton: UIButton!
     @IBOutlet weak var exchangeTransactionButton: UIButton!
     @IBOutlet weak var donationTransactionButton: UIButton!
@@ -57,7 +56,7 @@ class SearchThingsMainViewController: UIViewController {
     }
     
     func setFontButtonBySegmentSelected(){
-        let buttons = [loanTransactionButton, exchangeTransactionButton, donationTransactionButton]
+        let buttons = [allTransactionButton, loanTransactionButton, exchangeTransactionButton, donationTransactionButton]
         
         for (i, button) in buttons.enumerated() {
             if i == segmentSelected {
@@ -80,33 +79,36 @@ class SearchThingsMainViewController: UIViewController {
         }
     }
     
-    @IBAction func showLoanTransactions(_ sender: Any? = nil) {
-        setSelectionIndication(true, center: false, trailing: false)
+    
+    @IBAction func showAllTransactions(_ sender: Any? = nil) {
+        setSelectionIndication(inButton: self.allTransactionButton)
         segmentControlButtonDelegate?.segmentSelected(0)
+        self.segmentVC?.searchDelegate?.didSearch(scope: .all, searchString: searchBar.text!)
+    }
+    
+    @IBAction func showLoanTransactions(_ sender: Any? = nil) {
+        setSelectionIndication(inButton: self.loanTransactionButton)
+        segmentControlButtonDelegate?.segmentSelected(1)
         self.segmentVC?.searchDelegate?.didSearch(scope: .have, searchString: searchBar.text!)
     }
     
     @IBAction func showExchangeTransactions(_ sender: Any? = nil) {
-        setSelectionIndication(false, center: true, trailing: false)
-        segmentControlButtonDelegate?.segmentSelected(1)
+        setSelectionIndication(inButton: self.exchangeTransactionButton)
+        segmentControlButtonDelegate?.segmentSelected(2)
         self.segmentVC?.searchDelegate?.didSearch(scope: .need, searchString: searchBar.text!)
     }
 
     @IBAction func showDonationTransaction(_ sender: Any? = nil) {
-        setSelectionIndication(false, center: false, trailing: true)
-        segmentControlButtonDelegate?.segmentSelected(2)
+        setSelectionIndication(inButton: self.donationTransactionButton)
+        segmentControlButtonDelegate?.segmentSelected(3)
         self.segmentVC?.searchDelegate?.didSearch(scope: .donate, searchString: searchBar.text!)
     }
 
-    func setSelectionIndication(_ leading: Bool, center:Bool, trailing: Bool) {
-        viewLeftConstraint.isActive = false
-        viewCenterConstraint.isActive = false
-        viewRightConstraint.isActive = false
-     
+    func setSelectionIndication(inButton button: UIButton?) {
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions(), animations: {
-            self.viewLeftConstraint.isActive = leading
-            self.viewCenterConstraint.isActive = center
-            self.viewRightConstraint.isActive = trailing
+            if let xPosition = button?.layer.position.x {
+                self.selectionView.layer.position.x = xPosition
+            }
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -121,14 +123,17 @@ extension SearchThingsMainViewController: SegmentControlPageDelegate {
     func segmentScrolled(_ viewIndex: Int) {
         switch viewIndex {
         case 0:
-            showLoanTransactions()
+            showAllTransactions()
             segmentSelected = 0
         case 1:
-            showExchangeTransactions()
+            showLoanTransactions()
             segmentSelected = 1
         case 2:
-            showDonationTransaction()
+            showExchangeTransactions()
             segmentSelected = 2
+        case 3:
+            showDonationTransaction()
+            segmentSelected = 3
         default: break
         
         }

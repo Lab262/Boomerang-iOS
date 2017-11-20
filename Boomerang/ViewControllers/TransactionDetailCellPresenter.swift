@@ -51,7 +51,7 @@ class TransactionDetailCellPresenter: NSObject {
     
     func getTitleOfTransaction() -> String {
         switch getTypeTransaction() {
-        case .have:
+        case .have, .all:
             return TransactionTitles.have
         case .donate:
             return TransactionTitles.donate

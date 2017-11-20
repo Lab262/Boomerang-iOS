@@ -13,6 +13,7 @@ enum TypePostEnum: String {
     case have = "Have"
     case need = "Need"
     case donate = "Donate"
+    case all = "All"
 
     static func atIndex(_ index: Int) -> TypePostEnum {
         switch index {
@@ -22,6 +23,8 @@ enum TypePostEnum: String {
             return .need
         case 2:
             return .donate
+        case 3:
+            return .all
         default:
            return .have
         }

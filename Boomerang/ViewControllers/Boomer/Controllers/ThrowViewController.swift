@@ -297,7 +297,7 @@ class ThrowViewController: UIViewController {
     //MARK: Parse Fields
     func parseFields(){
         switch typeVC {
-        case .need, .have:
+        case .need, .have, .all:
             parseFieldsNeedOrHave()
         case .donate:
             parseFieldsDonate()
@@ -443,7 +443,7 @@ extension ThrowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch typeVC {
-        case .need:
+        case .need, .all:
             return generateTableViewNeed(tableView, cellForRowAt: indexPath)
         case .have:
             return generateTableViewHave(tableView, cellForRowAt: indexPath)

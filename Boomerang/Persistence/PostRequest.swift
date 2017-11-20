@@ -510,12 +510,13 @@ class PostRequest: NSObject {
                 notContainedObjectIds.append($0.objectId!)
             }
 
-        let postType = ApplicationState.sharedInstance.postTypes.filter { $0.type == type.rawValue }.first!
+        if let postType = ApplicationState.sharedInstance.postTypes.filter ({ $0.type == type.rawValue }).first {
+            query.whereKey(PostKeys.type, equalTo: postType)
+        }
 
         query.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
         query.whereKey(PostKeys.author, notContainedIn: profiles)
         query.whereKey(PostKeys.isAvailable, equalTo: true)
-        query.whereKey(PostKeys.type, equalTo: postType)
         query.whereKey(PostKeys.title, matchesRegex: "(?i)\(searchString)")
 //        query.whereKey(PostKeys.title, contains: searchString)
         query.limit = pagination
