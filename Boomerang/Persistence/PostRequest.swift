@@ -419,6 +419,19 @@ class PostRequest: NSObject {
         }
     }
     
+    static func getPostWithId(postId: String, completionHandler: @escaping (_ post: Post?) -> ()) {
+        let query = PFQuery(className: "Post")
+        query.getObjectInBackground(withId: postId) { (object, error) in
+            if error == nil {
+                let post = object as? Post
+                PostRequest.fetchAuthor(of: post!, completionHandler: { (success, error) in
+                    completionHandler(post)
+                })
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
     
     static func updatePostIsAvailable(isAvailable: Bool, post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
@@ -497,12 +510,13 @@ class PostRequest: NSObject {
                 notContainedObjectIds.append($0.objectId!)
             }
 
-        let postType = ApplicationState.sharedInstance.postTypes.filter { $0.type == type.rawValue }.first!
+        if let postType = ApplicationState.sharedInstance.postTypes.filter ({ $0.type == type.rawValue }).first {
+            query.whereKey(PostKeys.type, equalTo: postType)
+        }
 
         query.whereKey(ObjectKeys.objectId, notContainedIn: notContainedObjectIds)
         query.whereKey(PostKeys.author, notContainedIn: profiles)
         query.whereKey(PostKeys.isAvailable, equalTo: true)
-        query.whereKey(PostKeys.type, equalTo: postType)
         query.whereKey(PostKeys.title, matchesRegex: "(?i)\(searchString)")
 //        query.whereKey(PostKeys.title, contains: searchString)
         query.limit = pagination

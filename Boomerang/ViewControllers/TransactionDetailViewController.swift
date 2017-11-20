@@ -48,7 +48,7 @@ class TransactionDetailViewController: UIViewController {
     func configureNavigationsBars(){
         
         switch presenter.scheme.post!.typePostEnum! {
-        case .have:
+        case .have, .all:
             navigationBar.titleLabelText = TypePostTitles.have
         case .need:
             navigationBar.titleLabelText = TypePostTitles.need

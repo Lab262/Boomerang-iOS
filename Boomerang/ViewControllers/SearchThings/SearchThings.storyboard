@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yfD-bC-I5M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yfD-bC-I5M">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,7 +50,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-hx-hrY">
-                                <rect key="frame" x="8" y="78" width="359" height="44"/>
+                                <rect key="frame" x="8" y="78" width="359" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -64,19 +63,33 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKf-7U-gkP">
-                                <rect key="frame" x="0.0" y="107" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="119" width="375" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OqR-wx-fom">
-                                        <rect key="frame" x="49" y="48" width="26" height="4"/>
+                                        <rect key="frame" x="34" y="46" width="26" height="4"/>
                                         <color key="backgroundColor" red="0.96470588235294119" green="0.62745098039215685" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="Ow0-1V-hKe"/>
+                                            <constraint firstAttribute="width" constant="26" id="Vvt-b9-AL7"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C19-8J-ndr">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="60"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
+                                        <state key="normal" title="Todos">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showAllTransactions:" destination="yfD-bC-I5M" eventType="touchUpInside" id="y9J-9Q-ure"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tu1-0J-c5A">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="60"/>
+                                        <rect key="frame" x="94" y="0.0" width="94" height="60"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                         <state key="normal" title="Tenho">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,18 +98,8 @@
                                             <action selector="showLoanTransactions:" destination="yfD-bC-I5M" eventType="touchUpInside" id="ODT-tQ-zZp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jc-tM-nAr">
-                                        <rect key="frame" x="250" y="0.0" width="125" height="60"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
-                                        <state key="normal" title="Doação">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showDonationTransaction:" destination="yfD-bC-I5M" eventType="touchUpInside" id="NE9-Bz-p4j"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Og4-dV-Z7y">
-                                        <rect key="frame" x="125" y="0.0" width="125" height="60"/>
+                                        <rect key="frame" x="188" y="0.0" width="93.5" height="60"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                         <state key="normal" title="Preciso">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,38 +108,42 @@
                                             <action selector="showExchangeTransactions:" destination="yfD-bC-I5M" eventType="touchUpInside" id="XMf-b9-f2r"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jc-tM-nAr">
+                                        <rect key="frame" x="281" y="0.0" width="94" height="60"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
+                                        <state key="normal" title="Doação">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showDonationTransaction:" destination="yfD-bC-I5M" eventType="touchUpInside" id="NE9-Bz-p4j"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Og4-dV-Z7y" firstAttribute="leading" secondItem="tu1-0J-c5A" secondAttribute="trailing" id="0D9-ca-sKc"/>
-                                    <constraint firstItem="Og4-dV-Z7y" firstAttribute="centerY" secondItem="tu1-0J-c5A" secondAttribute="centerY" id="1nV-RG-Fax"/>
-                                    <constraint firstItem="tu1-0J-c5A" firstAttribute="centerX" secondItem="DKf-7U-gkP" secondAttribute="centerX" multiplier="1/3" id="Ad7-nU-FTO"/>
-                                    <constraint firstItem="tu1-0J-c5A" firstAttribute="height" secondItem="DKf-7U-gkP" secondAttribute="height" id="BB0-h5-o06"/>
-                                    <constraint firstItem="OqR-wx-fom" firstAttribute="centerY" secondItem="tu1-0J-c5A" secondAttribute="centerY" multiplier="1.65" id="Fqc-14-fyN"/>
-                                    <constraint firstItem="OqR-wx-fom" firstAttribute="centerX" secondItem="Og4-dV-Z7y" secondAttribute="centerX" id="Ig5-eq-hcs"/>
-                                    <constraint firstItem="OqR-wx-fom" firstAttribute="centerX" secondItem="0Jc-tM-nAr" secondAttribute="centerX" id="JlV-W5-PbY"/>
-                                    <constraint firstItem="tu1-0J-c5A" firstAttribute="centerY" secondItem="DKf-7U-gkP" secondAttribute="centerY" id="Kfn-2x-wcz"/>
-                                    <constraint firstItem="0Jc-tM-nAr" firstAttribute="leading" secondItem="Og4-dV-Z7y" secondAttribute="trailing" id="LGb-PL-mcW"/>
+                                    <constraint firstItem="Og4-dV-Z7y" firstAttribute="width" secondItem="tu1-0J-c5A" secondAttribute="width" id="04l-IF-AiK"/>
+                                    <constraint firstItem="C19-8J-ndr" firstAttribute="centerY" secondItem="DKf-7U-gkP" secondAttribute="centerY" id="74H-VX-xAV"/>
+                                    <constraint firstItem="Og4-dV-Z7y" firstAttribute="leading" secondItem="tu1-0J-c5A" secondAttribute="trailing" id="8hB-Yg-2RB"/>
+                                    <constraint firstItem="tu1-0J-c5A" firstAttribute="leading" secondItem="C19-8J-ndr" secondAttribute="trailing" id="Jcd-74-Lkj"/>
                                     <constraint firstAttribute="height" constant="60" id="LdW-KS-MpQ"/>
-                                    <constraint firstItem="0Jc-tM-nAr" firstAttribute="width" secondItem="Og4-dV-Z7y" secondAttribute="width" id="QeM-je-Mwu"/>
-                                    <constraint firstItem="OqR-wx-fom" firstAttribute="height" secondItem="tu1-0J-c5A" secondAttribute="height" multiplier="0.064" id="WYi-aE-uSg"/>
-                                    <constraint firstItem="0Jc-tM-nAr" firstAttribute="centerY" secondItem="Og4-dV-Z7y" secondAttribute="centerY" id="YYF-2t-avQ"/>
-                                    <constraint firstItem="OqR-wx-fom" firstAttribute="width" secondItem="tu1-0J-c5A" secondAttribute="width" multiplier="0.21" id="Yrz-6a-lD8"/>
-                                    <constraint firstItem="Og4-dV-Z7y" firstAttribute="height" secondItem="tu1-0J-c5A" secondAttribute="height" id="ZlJ-UN-wXa"/>
-                                    <constraint firstItem="0Jc-tM-nAr" firstAttribute="height" secondItem="Og4-dV-Z7y" secondAttribute="height" id="cqW-ZO-9ar"/>
-                                    <constraint firstItem="Og4-dV-Z7y" firstAttribute="width" secondItem="tu1-0J-c5A" secondAttribute="width" id="dIv-55-Pul"/>
-                                    <constraint firstItem="OqR-wx-fom" firstAttribute="centerX" secondItem="tu1-0J-c5A" secondAttribute="centerX" id="fmT-q8-uBP"/>
-                                    <constraint firstItem="tu1-0J-c5A" firstAttribute="width" secondItem="DKf-7U-gkP" secondAttribute="width" multiplier="1/3" id="vbT-o3-e8u"/>
+                                    <constraint firstItem="tu1-0J-c5A" firstAttribute="centerY" secondItem="C19-8J-ndr" secondAttribute="centerY" id="Ogs-l9-iEi"/>
+                                    <constraint firstItem="0Jc-tM-nAr" firstAttribute="height" secondItem="Og4-dV-Z7y" secondAttribute="height" id="Rmq-ha-9ma"/>
+                                    <constraint firstItem="OqR-wx-fom" firstAttribute="centerY" secondItem="DKf-7U-gkP" secondAttribute="centerY" multiplier="1.6" id="S6b-qI-Bkd"/>
+                                    <constraint firstItem="tu1-0J-c5A" firstAttribute="height" secondItem="C19-8J-ndr" secondAttribute="height" id="Swv-YJ-7Di"/>
+                                    <constraint firstItem="OqR-wx-fom" firstAttribute="centerX" secondItem="DKf-7U-gkP" secondAttribute="centerX" multiplier="1/4" id="UdO-oo-HkJ"/>
+                                    <constraint firstItem="0Jc-tM-nAr" firstAttribute="leading" secondItem="Og4-dV-Z7y" secondAttribute="trailing" id="XRV-vh-4Hx"/>
+                                    <constraint firstItem="0Jc-tM-nAr" firstAttribute="width" secondItem="Og4-dV-Z7y" secondAttribute="width" id="a6D-Z7-MT3"/>
+                                    <constraint firstItem="Og4-dV-Z7y" firstAttribute="height" secondItem="tu1-0J-c5A" secondAttribute="height" id="eoY-FD-O7U"/>
+                                    <constraint firstItem="tu1-0J-c5A" firstAttribute="width" secondItem="C19-8J-ndr" secondAttribute="width" id="suz-jK-g3v"/>
+                                    <constraint firstItem="Og4-dV-Z7y" firstAttribute="centerY" secondItem="tu1-0J-c5A" secondAttribute="centerY" id="tLm-75-vB5"/>
+                                    <constraint firstItem="0Jc-tM-nAr" firstAttribute="centerY" secondItem="Og4-dV-Z7y" secondAttribute="centerY" id="vHh-an-Sma"/>
+                                    <constraint firstItem="C19-8J-ndr" firstAttribute="height" secondItem="DKf-7U-gkP" secondAttribute="height" id="wR1-Zd-Th4"/>
+                                    <constraint firstItem="C19-8J-ndr" firstAttribute="width" secondItem="DKf-7U-gkP" secondAttribute="width" multiplier="1/4" id="xd6-Tn-6FS"/>
+                                    <constraint firstItem="C19-8J-ndr" firstAttribute="centerX" secondItem="DKf-7U-gkP" secondAttribute="centerX" multiplier="1/4" id="xeL-GQ-qP0"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Ig5-eq-hcs"/>
-                                        <exclude reference="JlV-W5-PbY"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mq-8h-9jC">
-                                <rect key="frame" x="0.0" y="162" width="375" height="505"/>
+                                <rect key="frame" x="0.0" y="174" width="375" height="493"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="PoE-sV-9Kb" kind="embed" id="kYF-IT-WU3"/>
@@ -168,14 +175,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="allTransactionButton" destination="C19-8J-ndr" id="kSb-9K-Bs3"/>
                         <outlet property="donationTransactionButton" destination="0Jc-tM-nAr" id="3gE-3q-5vn"/>
                         <outlet property="exchangeTransactionButton" destination="Og4-dV-Z7y" id="Xkw-Q5-5Rr"/>
                         <outlet property="loanTransactionButton" destination="tu1-0J-c5A" id="59u-w0-CQK"/>
                         <outlet property="navigationBar" destination="eyQ-FR-Ndw" id="kfx-1i-NNX"/>
                         <outlet property="searchBar" destination="rc3-hx-hrY" id="Qom-42-Kpp"/>
-                        <outlet property="viewCenterConstraint" destination="Ig5-eq-hcs" id="7HW-JZ-y6e"/>
-                        <outlet property="viewLeftConstraint" destination="fmT-q8-uBP" id="PoC-Nw-DD1"/>
-                        <outlet property="viewRightConstraint" destination="JlV-W5-PbY" id="Lqo-u7-CmN"/>
+                        <outlet property="selectionView" destination="OqR-wx-fom" id="e6c-wP-JFL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ub9-a2-4Xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,23 +204,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6H3-nu-5AH" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="1125" height="531"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1500" height="531"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odw-OK-Wom" userLabel="LOANED">
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8s1-3N-1qg" userLabel="ALL">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <segue destination="hBZ-0u-B8P" kind="embed" id="JBY-oo-SEC"/>
+                                                </connections>
+                                            </containerView>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odw-OK-Wom" userLabel="LOANED">
+                                                <rect key="frame" x="375" y="0.0" width="375" height="531"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <segue destination="hBZ-0u-B8P" kind="embed" identifier="goToTransaction" id="gfv-Bp-SQw"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQS-kD-7pw" userLabel="EXCHANGE">
-                                                <rect key="frame" x="375" y="0.0" width="375" height="531"/>
+                                                <rect key="frame" x="750" y="0.0" width="375" height="531"/>
                                                 <connections>
                                                     <segue destination="hBZ-0u-B8P" kind="embed" id="d8t-bA-EEu"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKQ-g9-BXd" userLabel="DONATION">
-                                                <rect key="frame" x="750" y="0.0" width="375" height="531"/>
+                                                <rect key="frame" x="1125" y="0.0" width="375" height="531"/>
                                                 <connections>
                                                     <segue destination="hBZ-0u-B8P" kind="embed" id="bgz-N7-MGq"/>
                                                 </connections>
@@ -222,15 +235,19 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="odw-OK-Wom" firstAttribute="width" secondItem="6H3-nu-5AH" secondAttribute="width" multiplier="1/3" id="0KY-wT-g3u"/>
                                             <constraint firstItem="TQS-kD-7pw" firstAttribute="width" secondItem="odw-OK-Wom" secondAttribute="width" id="2VW-wL-AdU"/>
                                             <constraint firstItem="TQS-kD-7pw" firstAttribute="centerY" secondItem="odw-OK-Wom" secondAttribute="centerY" id="5Sn-y7-w2Y"/>
                                             <constraint firstItem="eKQ-g9-BXd" firstAttribute="height" secondItem="TQS-kD-7pw" secondAttribute="height" id="70N-3Q-KKP"/>
+                                            <constraint firstItem="8s1-3N-1qg" firstAttribute="leading" secondItem="6H3-nu-5AH" secondAttribute="leading" id="9EV-he-1zh"/>
+                                            <constraint firstItem="odw-OK-Wom" firstAttribute="height" secondItem="8s1-3N-1qg" secondAttribute="height" id="C1k-ZL-LEm"/>
                                             <constraint firstItem="odw-OK-Wom" firstAttribute="centerY" secondItem="eKQ-g9-BXd" secondAttribute="centerY" id="CIo-0U-LYp"/>
-                                            <constraint firstItem="odw-OK-Wom" firstAttribute="centerY" secondItem="6H3-nu-5AH" secondAttribute="centerY" id="VVo-Sy-X7O"/>
-                                            <constraint firstItem="odw-OK-Wom" firstAttribute="leading" secondItem="6H3-nu-5AH" secondAttribute="leading" id="Wl3-Zn-BvE"/>
+                                            <constraint firstItem="8s1-3N-1qg" firstAttribute="height" secondItem="6H3-nu-5AH" secondAttribute="height" id="Fae-2J-Ke8"/>
+                                            <constraint firstItem="8s1-3N-1qg" firstAttribute="width" secondItem="6H3-nu-5AH" secondAttribute="width" multiplier="1/4" id="HrA-Ly-9b0"/>
+                                            <constraint firstItem="odw-OK-Wom" firstAttribute="width" secondItem="8s1-3N-1qg" secondAttribute="width" id="SaK-M2-rrB"/>
+                                            <constraint firstItem="odw-OK-Wom" firstAttribute="leading" secondItem="8s1-3N-1qg" secondAttribute="trailing" id="UCm-ct-FgG"/>
                                             <constraint firstItem="eKQ-g9-BXd" firstAttribute="leading" secondItem="TQS-kD-7pw" secondAttribute="trailing" id="bDR-kc-5PD"/>
-                                            <constraint firstItem="odw-OK-Wom" firstAttribute="height" secondItem="6H3-nu-5AH" secondAttribute="height" id="cdO-Cz-qei"/>
+                                            <constraint firstItem="8s1-3N-1qg" firstAttribute="centerY" secondItem="6H3-nu-5AH" secondAttribute="centerY" id="dmt-ic-3f3"/>
+                                            <constraint firstItem="odw-OK-Wom" firstAttribute="centerY" secondItem="8s1-3N-1qg" secondAttribute="centerY" id="n0a-SX-qhU"/>
                                             <constraint firstItem="eKQ-g9-BXd" firstAttribute="width" secondItem="TQS-kD-7pw" secondAttribute="width" id="pRn-xe-wHr"/>
                                             <constraint firstItem="TQS-kD-7pw" firstAttribute="leading" secondItem="odw-OK-Wom" secondAttribute="trailing" id="s3h-f3-kQS"/>
                                             <constraint firstItem="eKQ-g9-BXd" firstAttribute="centerY" secondItem="TQS-kD-7pw" secondAttribute="centerY" id="sOp-dq-hZN"/>
@@ -245,7 +262,7 @@
                                     <constraint firstAttribute="bottom" secondItem="6H3-nu-5AH" secondAttribute="bottom" id="et1-gL-PBW"/>
                                     <constraint firstItem="6H3-nu-5AH" firstAttribute="top" secondItem="OG4-jx-xUl" secondAttribute="top" id="myt-1p-aOd"/>
                                     <constraint firstItem="6H3-nu-5AH" firstAttribute="leading" secondItem="OG4-jx-xUl" secondAttribute="leading" id="tvZ-Jm-ssl"/>
-                                    <constraint firstItem="6H3-nu-5AH" firstAttribute="width" secondItem="OG4-jx-xUl" secondAttribute="width" multiplier="3" id="v6c-4I-iCY"/>
+                                    <constraint firstItem="6H3-nu-5AH" firstAttribute="width" secondItem="OG4-jx-xUl" secondAttribute="width" multiplier="4" id="v6c-4I-iCY"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -280,7 +297,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-js-B4b">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="511"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hBZ-0u-B8P" id="yuQ-T9-nEL"/>
@@ -288,7 +305,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XF-4h-GME" customClass="EmptyView" customModule="lab262_boomerang_dev" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="375" height="481"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="461"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Sem Esquemas para hoje"/>
@@ -346,6 +363,6 @@ Vamos ver</string>
         <image name="schemeEmptyImage" width="125" height="124"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gfv-Bp-SQw"/>
+        <segue reference="d8t-bA-EEu"/>
     </inferredMetricsTieBreakers>
 </document>

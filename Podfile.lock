@@ -39,18 +39,18 @@ PODS:
   - SwipeCellKit (1.9.1)
 
 DEPENDENCIES:
-  - ActiveLabel
-  - Crashlytics
-  - Fabric
-  - ImagePicker
-  - JSQMessagesViewController
-  - Kingfisher (~> 3.0)
-  - Parse
-  - ParseFacebookUtilsV4
-  - ParseLiveQuery
-  - PHFComposeBarView (~> 2.0.1)
-  - SwiftyJSON
-  - SwipeCellKit
+  - ActiveLabel (= 0.7.1)
+  - Crashlytics (= 3.8.4)
+  - Fabric (= 1.6.11)
+  - ImagePicker (= 2.1.1)
+  - JSQMessagesViewController (= 7.3.4)
+  - Kingfisher (= 3.6.2)
+  - Parse (= 1.14.4)
+  - ParseFacebookUtilsV4 (= 1.11.1)
+  - ParseLiveQuery (= 2.0.0)
+  - PHFComposeBarView (= 2.0.2)
+  - SwiftyJSON (= 3.1.4)
+  - SwipeCellKit (= 1.9.1)
 
 SPEC CHECKSUMS:
   ActiveLabel: 68625f22775f51c31bb691ca8de20f1e5a3bc825
@@ -73,6 +73,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwipeCellKit: e9ff953c820394a4e641cfb0118b6c959506aec2
 
-PODFILE CHECKSUM: a97ef2bdc646de6369ea6172d2d6d7ed9918fbd6
+PODFILE CHECKSUM: 6c8afc9936d3cd8082d787cccf28c0fbce377ee2
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.2.1
