@@ -14,7 +14,7 @@ class TransactionFilterPresenter: NSObject {
     fileprivate var schemes: [Scheme] = [Scheme]()
     fileprivate var scheme: Scheme = Scheme()
     fileprivate var view: ViewDelegate?
-    fileprivate var user: User = User.current()!
+    fileprivate var profile: Profile = User.current()!.profile!
     
     func setViewDelegate(view: ViewDelegate) {
         self.view = view
@@ -43,7 +43,7 @@ class TransactionFilterPresenter: NSObject {
     
     func filterSchemesFor(postCondition: ConditionEnum) -> [Scheme] {
         let filteredSchemes = (self.schemes.filter { scheme in
-            return scheme.post?.postConditionEnum == postCondition
+            return scheme.post?.postConditionEnum == postCondition && !(scheme.owner?.objectId == profile.objectId && scheme.statusSchemeEnum == .negotiation)
         })
         return filteredSchemes
     }
