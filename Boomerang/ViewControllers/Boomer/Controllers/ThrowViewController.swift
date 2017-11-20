@@ -58,7 +58,6 @@ class ThrowViewController: UIViewController {
     func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
-        tableView.contentInset = UIEdgeInsetsMake(coverImageHeight - navigationBarHeight, 0, 0, 0)
     }
     
     func setupDelegates() {
@@ -124,7 +123,8 @@ class ThrowViewController: UIViewController {
             animations: {
                 () -> Void in
                 self.anexButton.isHidden = false
-                self.tableView.contentInset =  UIEdgeInsetsMake(self.coverImageHeight - self.navigationBarHeight, 0, 0, 0)
+                self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                self.tableView.scrollIndicatorInsets = self.tableView.contentInset
                 self.anexButton.layoutIfNeeded()
                 self.tableView.layoutIfNeeded()
                 self.view.layoutIfNeeded()
@@ -420,10 +420,7 @@ class ThrowViewController: UIViewController {
                     post.saveInBackground(block: { (success, error) in
                         if success {
                             self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Boomer", identifier: "feedbackCreatePost")!, animated: true, completion: nil)
-                            
-                            //self.view.unload()
                         } else {
-                            
                             GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Algo deu errado.", negativeAction: "Ok") { (isPositive) in
                                 self.dismiss(animated: true, completion: nil)
                             }
@@ -461,71 +458,26 @@ extension ThrowViewController: UITableViewDataSource {
 extension ThrowViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         let yOffset = scrollView.contentOffset.y + scrollView.contentInset.top
         updateInformationsCell(yOffset)
-        updateImageScale(yOffset)
-    }
-    
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        //
-        //        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
-        //            tableView.tableFooterView?.loadAnimation(0.2, UIColor.white, UIActivityIndicatorViewStyle.gray, 1.0)
-        //
-        //            updateComments()
-        //        }
     }
     
     func updateInformationsCell(_ yOffset: CGFloat) {
-        //let informationAlphaThreshold: CGFloat = 20.0
-        
         if yOffset > 0 {
             if self.anexButton.alpha == 1.0 {
                 UIView.animate(withDuration: 0.15, animations: {
                     self.anexButton.alpha = 0.0
-                    self.anexAreaButton.isEnabled = false
                 })
             }
-          
         } else {
             if self.anexButton.alpha == 0.0 {
                 UIView.animate(withDuration: 0.15, animations: {
                     self.anexButton.alpha = 1.0
-                    self.anexAreaButton.isEnabled = true
-                })
-            }
-        }
-        
-        if yOffset > 98 {
-            if self.iconCameraView.alpha == 1.0 {
-                UIView.animate(withDuration: 0.15, animations: {
-                    self.iconCameraView.alpha = 0.0
-                })
-            }
-        } else {
-            if self.iconCameraView.alpha == 0.0 {
-                UIView.animate(withDuration: 0.15, animations: {
-                    self.iconCameraView.alpha = 1.0
                 })
             }
         }
     }
- 
-    func updateImageScale(_ yOffset: CGFloat) {
-        
-        if yOffset < 0 {
-            coverPostHeightConstraint.constant = coverImageHeight - yOffset
-        } else if coverPostHeightConstraint.constant != coverImageHeight {
-            coverPostHeightConstraint.constant = coverImageHeight
-            
-        } else if yOffset <= coverImageHeight - navigationBarHeight {
-            coverPostTopConstraint.constant = -(yOffset * 0.5)
-            anexButtonCenterYConstraint.constant = +(yOffset * 0.5)
-            
-        }
-        
-    }
+
 }
 
 extension ThrowViewController: UIIButtonWithPickerDelegate{
@@ -535,9 +487,9 @@ extension ThrowViewController: UIIButtonWithPickerDelegate{
         allImages = image
         self.addTitleLabel.isHidden = true
         self.iconCameraView.isHidden = true
-        self.coverPostImage.image = image[0]
+        self.coverPostImage.isHidden = true
+        self.collectionView.isHidden = false
         self.collectionView.reloadData()
-       // self.tableView.reloadData()
     }
 
 }
@@ -574,7 +526,7 @@ extension ThrowViewController: UICollectionViewDataSource {
 extension ThrowViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: self.view.frame.size.width, height: 165)
+        return CGSize(width: self.view.frame.size.width, height: self.collectionView.frame.height)
     }
 }
 
