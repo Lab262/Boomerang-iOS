@@ -393,6 +393,9 @@
 		D458F8651FA02A28006A71AD /* PostPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D458F8611FA02A28006A71AD /* PostPhotoCollectionViewCell.xib */; };
 		D458F8661FA02A28006A71AD /* PostPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D458F8611FA02A28006A71AD /* PostPhotoCollectionViewCell.xib */; };
 		D458F8671FA02A28006A71AD /* PostPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D458F8611FA02A28006A71AD /* PostPhotoCollectionViewCell.xib */; };
+		D45953661FC0B35200490FDC /* ThrowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45953651FC0B35200490FDC /* ThrowPresenter.swift */; };
+		D45953671FC0B35200490FDC /* ThrowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45953651FC0B35200490FDC /* ThrowPresenter.swift */; };
+		D45953681FC0B35200490FDC /* ThrowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45953651FC0B35200490FDC /* ThrowPresenter.swift */; };
 		D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */; };
 		D4642BBE1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4642BBC1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib */; };
 		D4642BC01E9EC637002C8ADC /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4642BBF1E9EC637002C8ADC /* TransactionDetailViewController.swift */; };
@@ -1244,6 +1247,7 @@
 		D45165581E8959FE002A21F0 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCommentTableViewCell.xib; path = ../../../UserCommentTableViewCell.xib; sourceTree = "<group>"; };
 		D458F8601FA02A28006A71AD /* PostPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostPhotoCollectionViewCell.swift; path = Interface/PostPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D458F8611FA02A28006A71AD /* PostPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		D45953651FC0B35200490FDC /* ThrowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowPresenter.swift; sourceTree = "<group>"; };
 		D4642BBB1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
 		D4642BBC1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionDetailTableViewCell.xib; sourceTree = "<group>"; };
 		D4642BBF1E9EC637002C8ADC /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
@@ -1581,6 +1585,7 @@
 			isa = PBXGroup;
 			children = (
 				2F744CD81EC25ECB00AF724A /* BoomerPresenter.swift */,
+				D45953651FC0B35200490FDC /* ThrowPresenter.swift */,
 			);
 			name = Presenters;
 			sourceTree = "<group>";
@@ -3718,6 +3723,7 @@
 				D436BF2C1E95B19500BC7F00 /* TransactionPresenter.swift in Sources */,
 				D4CF4D9D1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				A431D1001F53B6C7009D7338 /* GenericBoomerAlertController.swift in Sources */,
+				D45953661FC0B35200490FDC /* ThrowPresenter.swift in Sources */,
 				A4FE06321DD09AA200BFDC4D /* HomeCollectionHeader.swift in Sources */,
 				D436BF221E9437F300BC7F00 /* ProfilePostCollectionViewCell.swift in Sources */,
 				D4E4BEBA1E8256B000F8DC2E /* PHFComposeBarView.m in Sources */,
@@ -3933,6 +3939,7 @@
 				D4AD97C61EA9ACFD00C9FAB9 /* TransactionPresenter.swift in Sources */,
 				D4AD97C71EA9ACFD00C9FAB9 /* HomeCollectionHeader.swift in Sources */,
 				A431D1011F53B6C7009D7338 /* GenericBoomerAlertController.swift in Sources */,
+				D45953671FC0B35200490FDC /* ThrowPresenter.swift in Sources */,
 				D4AD97C81EA9ACFD00C9FAB9 /* ProfilePostCollectionViewCell.swift in Sources */,
 				D4AD97C91EA9ACFD00C9FAB9 /* PHFComposeBarView.m in Sources */,
 				D4AD99261EA9B00000C9FAB9 /* AppConfig.swift in Sources */,
@@ -4139,6 +4146,7 @@
 				D4AD98921EA9AD0400C9FAB9 /* TransactionPresenter.swift in Sources */,
 				D4AD98931EA9AD0400C9FAB9 /* HomeCollectionHeader.swift in Sources */,
 				A431D1021F53B6C7009D7338 /* GenericBoomerAlertController.swift in Sources */,
+				D45953681FC0B35200490FDC /* ThrowPresenter.swift in Sources */,
 				D4AD98941EA9AD0400C9FAB9 /* ProfilePostCollectionViewCell.swift in Sources */,
 				D4AD98951EA9AD0400C9FAB9 /* PHFComposeBarView.m in Sources */,
 				D4AD99281EA9B00900C9FAB9 /* AppConfig.swift in Sources */,

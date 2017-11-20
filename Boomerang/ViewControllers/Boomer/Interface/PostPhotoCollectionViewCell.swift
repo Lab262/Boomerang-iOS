@@ -15,7 +15,7 @@ class PostPhotoCollectionViewCell: UICollectionViewCell {
     }
     
     static var cellSize: CGSize {
-        return CGSize(width: 375, height: 185)
+        return CGSize(width: 200, height: 185)
     }
     
     static var nibName: String {

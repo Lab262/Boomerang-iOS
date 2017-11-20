@@ -43,7 +43,6 @@ class FriendListPresenter: NSObject {
         UserRequest.fetchProfileFriends(fromProfile: profile, followingDownloaded: profiles, isFollowers: isFollowers, pagination: Paginations.friends) { (success, msg, profiles) in
 
             if success {
-                self.profiles = [Profile]()
                 profiles!.forEach {
                     self.profiles.append($0)
                     self.view?.reload()

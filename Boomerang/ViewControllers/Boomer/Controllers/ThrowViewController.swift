@@ -48,14 +48,22 @@ class ThrowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerNib()
+        registerNib()
+        setupTableView()
+        setupDelegates()
+        hideKeyboardWhenTappedAround()
+        setupKeyboardNotifications()
+    }
+    
+    func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         tableView.contentInset = UIEdgeInsetsMake(coverImageHeight - navigationBarHeight, 0, 0, 0)
+    }
+    
+    func setupDelegates() {
         self.anexButton.delegate = self
         self.anexAreaButton.delegate = self
-        self.hideKeyboardWhenTappedAround()
-        self.setupKeyboardNotifications()
     }
     
     
@@ -120,8 +128,7 @@ class ThrowViewController: UIViewController {
                 self.anexButton.layoutIfNeeded()
                 self.tableView.layoutIfNeeded()
                 self.view.layoutIfNeeded()
-                
-        },
+            },
             completion: nil)
     }
 
@@ -226,9 +233,7 @@ class ThrowViewController: UIViewController {
         }
         
         return cell
-        
     }
-
     
     //MARK: Generate Tables Views
     
@@ -315,7 +320,6 @@ class ThrowViewController: UIViewController {
         } else {
             self.params[CreatePostTitles.keyParsePlace] = self.fields[5]
         }
-        
     }
     
     func parseFieldsDonate(){
@@ -539,7 +543,7 @@ extension ThrowViewController: UIIButtonWithPickerDelegate{
 }
 extension ThrowViewController {
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ThrowViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
@@ -568,11 +572,17 @@ extension ThrowViewController: UICollectionViewDataSource {
 }
 
 extension ThrowViewController: UICollectionViewDelegateFlowLayout {
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 375, height: 100)
+        return CGSize(width: self.view.frame.size.width, height: 165)
+    }
+}
+
+extension ThrowViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
     }
 }
 
