@@ -905,6 +905,9 @@
 		D4D7B8A11F522A010006F441 /* AmountPostInteractionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D7B8A01F522A010006F441 /* AmountPostInteractionPresenter.swift */; };
 		D4D7B8A21F522A010006F441 /* AmountPostInteractionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D7B8A01F522A010006F441 /* AmountPostInteractionPresenter.swift */; };
 		D4D7B8A31F522A010006F441 /* AmountPostInteractionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D7B8A01F522A010006F441 /* AmountPostInteractionPresenter.swift */; };
+		D4E3BE121FD4DCB800C6ED42 /* HeaderPostDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3BE111FD4DCB800C6ED42 /* HeaderPostDataSource.swift */; };
+		D4E3BE131FD4DCB800C6ED42 /* HeaderPostDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3BE111FD4DCB800C6ED42 /* HeaderPostDataSource.swift */; };
+		D4E3BE141FD4DCB800C6ED42 /* HeaderPostDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3BE111FD4DCB800C6ED42 /* HeaderPostDataSource.swift */; };
 		D4E4BEA51E822FBE00F8DC2E /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */; };
 		D4E4BEA61E822FBE00F8DC2E /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */; };
 		D4E4BEA91E8233EF00F8DC2E /* ThingConditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */; };
@@ -1339,6 +1342,7 @@
 		D4CF4D9B1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4CF4D9C1ED52E7600E732DE /* SeeMoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SeeMoreCollectionViewCell.xib; path = ../Cells/SeeMoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4D7B8A01F522A010006F441 /* AmountPostInteractionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountPostInteractionPresenter.swift; sourceTree = "<group>"; };
+		D4E3BE111FD4DCB800C6ED42 /* HeaderPostDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPostDataSource.swift; sourceTree = "<group>"; };
 		D4E4BEA31E822FBE00F8DC2E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		D4E4BEA41E822FBE00F8DC2E /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DescriptionTableViewCell.xib; path = ../Cells/DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		D4E4BEA71E8233EF00F8DC2E /* ThingConditionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThingConditionTableViewCell.swift; path = ../Interface/ThingConditionTableViewCell.swift; sourceTree = "<group>"; };
@@ -1723,6 +1727,7 @@
 				A40453791DD3F33800A42E4B /* BoomerMainViewController.swift */,
 				2F2F078F1E6733CC00C61A6D /* ThrowViewController.swift */,
 				2F9841061EB179AA00A937A3 /* FeedbackConfirmationViewController.swift */,
+				D4E3BE111FD4DCB800C6ED42 /* HeaderPostDataSource.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -3776,6 +3781,7 @@
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
 				D4FBBCE81E907BF700611F63 /* InterestedListViewController.swift in Sources */,
 				D4EEC1CA1E6CF0E800F5C1D6 /* ProfileCollectionReusableView.swift in Sources */,
+				D4E3BE121FD4DCB800C6ED42 /* HeaderPostDataSource.swift in Sources */,
 				D484FA241EACF4820054E415 /* OtherActionsMainViewController.swift in Sources */,
 				2F79677A1E86FA7E00476D2D /* HeaderPostTableViewCell.swift in Sources */,
 				D48735021E7885000065E13A /* UITableViewCell+Utils.swift in Sources */,
@@ -3992,6 +3998,7 @@
 				D4AD97E81EA9ACFD00C9FAB9 /* ProfileCollectionReusableView.swift in Sources */,
 				D4AD97E91EA9ACFD00C9FAB9 /* HeaderPostTableViewCell.swift in Sources */,
 				D4AD97EA1EA9ACFD00C9FAB9 /* UITableViewCell+Utils.swift in Sources */,
+				D4E3BE131FD4DCB800C6ED42 /* HeaderPostDataSource.swift in Sources */,
 				D4AD97EB1EA9ACFD00C9FAB9 /* ViewUtil.swift in Sources */,
 				D492C1DF1EBB7579004243DE /* ThingBar.swift in Sources */,
 				D4AD97EC1EA9ACFD00C9FAB9 /* ThingConditionTableViewCell.swift in Sources */,
@@ -4199,6 +4206,7 @@
 				D4AD98B41EA9AD0400C9FAB9 /* ProfileCollectionReusableView.swift in Sources */,
 				D4AD98B51EA9AD0400C9FAB9 /* HeaderPostTableViewCell.swift in Sources */,
 				D4AD98B61EA9AD0400C9FAB9 /* UITableViewCell+Utils.swift in Sources */,
+				D4E3BE141FD4DCB800C6ED42 /* HeaderPostDataSource.swift in Sources */,
 				D4AD98B71EA9AD0400C9FAB9 /* ViewUtil.swift in Sources */,
 				D492C1E01EBB7579004243DE /* ThingBar.swift in Sources */,
 				D4AD98B81EA9AD0400C9FAB9 /* ThingConditionTableViewCell.swift in Sources */,

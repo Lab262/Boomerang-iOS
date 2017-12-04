@@ -9,9 +9,6 @@
 import UIKit
 
 class ViewUtil: NSObject {
-
-
-
     class func viewControllerFromStoryboardWithIdentifier(_ name: String, identifier: String = "")->UIViewController?{
 
         let storyboard : UIStoryboard = UIStoryboard(name: name as String, bundle: nil)
