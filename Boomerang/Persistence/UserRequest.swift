@@ -13,14 +13,22 @@ import ParseFacebookUtilsV4
 
 class UserRequest: NSObject {
     
-    static func facebookLoginUser(completionHandler: @escaping (_ success: Bool, _ msg: String, _ user: PFUser?) -> ()) {
+    static func facebookLoginUser(completionHandler: @escaping (_ success: Bool, _ msg: String, _ user: PFUser?, _ isWithValidePromoCode: Bool?) -> ()) {
         
         let permissions = [FacebookParams.publicProfile, FacebookParams.email, FacebookParams.userFriends]
         PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
             if let user = user, error == nil {
-                completionHandler(true, "", user)
+                let query = PFQuery(className: "UserPromoCodes")
+                query.whereKey("userGuestPointer", equalTo: user.objectId!)
+                query.findObjectsInBackground(block: { (objectArray, error) in
+                    if let objectArray = objectArray, error == nil, objectArray.count > 0 {
+                        completionHandler(true, "", user, true)
+                    } else {
+                        completionHandler(true, "", user,false)
+                    }
+                })
             } else {
-                completionHandler(false, error?.localizedDescription ?? "user nil", nil)
+                completionHandler(false, error?.localizedDescription ?? "user nil", nil, false)
             }
         }
     }

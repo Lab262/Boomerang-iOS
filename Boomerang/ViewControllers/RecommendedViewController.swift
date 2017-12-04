@@ -68,19 +68,10 @@ class RecommendedViewController: UIViewController {
     func generateRecommendedFriendCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchFriendsTableViewCell.identifier, for: indexPath) as! SearchFriendsTableViewCell
-
+        let profile = presenter.friends[indexPath.row-1]
         cell.followButton.isHidden = true
-        cell.profile = presenter.friends[indexPath.row-1]
-        (cell as SwipeTableViewCell).delegate = self
-        
-        
-        if presenter.friends[indexPath.row-1].isRecommended {
-            cell.recomendedIndicatorImageView.fadeIn(0.25)
-            cell.isUserInteractionEnabled = false
-        } else {
-            cell.recomendedIndicatorImageView.fadeOut(0.25)
-            cell.isUserInteractionEnabled = true
-        }
+        cell.profile = profile
+        (cell as SwipeTableViewCell).delegate = self        
 
         return cell
     }

@@ -82,12 +82,12 @@ class RecommendedPresenter: NSObject {
     }
 
     private func checkFriendRecommended() {
+        for friend in friends {
+            friend.isRecommended = false
+        }
         for recommendation in recommendations {
             for friend in friends where recommendation.receiver?.objectId == friend.objectId {
                 friend.isRecommended = true
-            }
-            for friend in friends where recommendation.receiver?.objectId != friend.objectId {
-                friend.isRecommended = false
             }
         }
         self.view?.reload()

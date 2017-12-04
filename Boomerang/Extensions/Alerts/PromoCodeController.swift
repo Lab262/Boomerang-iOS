@@ -16,7 +16,8 @@ class PromoCodeController: UIViewController {
     var isValidated = false
     var alertActionBlock: (_ isPositiveAnswer: Bool) -> Void = { ok in }
     var delegate: PromoCodeRequestDelegate?
-
+    var keyboardHeight = CGFloat(0.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.centerYConstraint.constant = self.view.frame.size.height
@@ -86,12 +87,30 @@ class PromoCodeController: UIViewController {
 
 //Pragma MARK: - PopUp Animation
 extension PromoCodeController {
+    
+    func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            keyboardHeight = keyboardRectangle.height
+            showViewAnimation()
+        }
+    }
+    
     func showViewAnimation() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
         UIView.animate(withDuration: 0.1, animations: {
             self.backgroundView.alpha = 1.0
         }, completion: { (finished) in
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-                self.centerYConstraint.constant = 0
+                self.centerYConstraint.constant = 0.0
+                if self.keyboardHeight > 0 {
+                     self.centerYConstraint.constant = 0.0 - self.keyboardHeight + self.viewCont.frame.size.height
+                }
                 self.view.layoutIfNeeded()
                 }, completion: nil)
         }) 

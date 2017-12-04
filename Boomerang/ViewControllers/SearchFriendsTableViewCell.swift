@@ -88,6 +88,13 @@ class SearchFriendsTableViewCell: SwipeTableViewCell {
         cityLabel.text = "Brasília - DF"
         userImage.getUserImage(profile: profile!) { (success, msg) in
         }
+        if profile?.isRecommended ?? false {
+            self.recomendedIndicatorImageView.alpha = 1
+            self.isUserInteractionEnabled = false
+        } else {
+            self.recomendedIndicatorImageView.alpha = 0
+            self.isUserInteractionEnabled = true
+        }
     }
     
     private func setupSelectedFollowButton() {
@@ -121,11 +128,11 @@ class SearchFriendsTableViewCell: SwipeTableViewCell {
         self.userImage.bouncingAnimation(duration: 0.25, delay: 0.0)
         self.recomendedIndicatorImageView.bouncingAnimation(duration: 0.25, delay: 0.0)
 
-        if self.recomendedIndicatorImageView.alpha <= 0 {
-            self.recomendedIndicatorImageView.fadeIn(0.25)
-        } else {
-            self.recomendedIndicatorImageView.fadeOut(0.25)
-        }
+//        if self.recomendedIndicatorImageView.alpha <= 0 {
+//            self.recomendedIndicatorImageView.fadeIn(0.25)
+//        } else {
+//            self.recomendedIndicatorImageView.fadeOut(0.25)
+//        }
     }
 
     @IBAction func followAction(_ sender: Any) {
