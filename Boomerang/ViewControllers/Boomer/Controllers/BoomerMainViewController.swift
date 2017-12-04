@@ -21,12 +21,25 @@ class BoomerMainViewController: UIViewController {
     @IBOutlet weak var buttonHave: UIButton!
     @IBOutlet weak var buttonDonate: UIButton!
     
+    @IBOutlet weak var iconNeedImageView: UIImageView!
+    @IBOutlet weak var iconHaveImageView: UIImageView!
+    @IBOutlet weak var iconDonateImageView: UIImageView!
+    
     override func viewDidLoad() {
         configureDynamicFonts()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         getProfilePhoto()
+        animateIconImage(iconImageView: iconNeedImageView, animationDuration: 1.5, prefixImage: "preciso", countImages: 41)
+        animateIconImage(iconImageView: iconHaveImageView, animationDuration: 1.5, prefixImage: "Tenho_000", countImages: 47)
+        animateIconImage(iconImageView: iconDonateImageView, animationDuration: 1.5, prefixImage: "doar_000", countImages: 31)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.iconNeedImageView.stopAnimating()
+        self.iconHaveImageView.stopAnimating()
+        self.iconDonateImageView.stopAnimating()
     }
     
     func getProfilePhoto(){
@@ -40,6 +53,20 @@ class BoomerMainViewController: UIViewController {
         buttonNeed.titleLabel?.setDynamicFont()
         buttonHave.titleLabel?.setDynamicFont()
         buttonDonate.titleLabel?.setDynamicFont()
+    }
+    
+    func animateIconImage(iconImageView: UIImageView, animationDuration: TimeInterval, prefixImage: String, countImages: Int){
+        
+        var arrayImages = [UIImage]()
+        for i in 0..<countImages {
+            if let image = UIImage(named: prefixImage + "\(i)"){
+                arrayImages.append(image)
+            }
+        }
+        
+        iconImageView.animationImages = arrayImages
+        iconImageView.animationDuration = animationDuration
+        iconImageView.startAnimating()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
