@@ -88,6 +88,13 @@ class SearchFriendsTableViewCell: SwipeTableViewCell {
         cityLabel.text = "Brasília - DF"
         userImage.getUserImage(profile: profile!) { (success, msg) in
         }
+        if profile?.isRecommended ?? false {
+            self.recomendedIndicatorImageView.alpha = 1
+            self.isUserInteractionEnabled = false
+        } else {
+            self.recomendedIndicatorImageView.alpha = 0
+            self.isUserInteractionEnabled = true
+        }
     }
     
     private func setupSelectedFollowButton() {

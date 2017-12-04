@@ -15,6 +15,7 @@ protocol AuthenticationDelegate {
     func finishLoadingView()
     func showMsg(success: Bool, msg: String)
     func showHome()
+    func showPromoCode()
     func reload()
 }
 
@@ -34,10 +35,10 @@ class AuthenticationPresenter: NSObject {
     
     func loginFacebook() {
         self.delegate?.startLoadingView()
-        UserRequest.facebookLoginUser { (success, msg, user) in
+        UserRequest.facebookLoginUser { (success, msg, user, isWithValidPromoCode) in
             if success {
-                if user!.isNew {
-                    self.getFacebookInformations()
+                if user!.isNew || !isWithValidPromoCode! {
+                    self.delegate?.showPromoCode()
                 } else {
                     self.setupUserInstallation(user: user as! User)
                     self.getProfileUser()
@@ -121,7 +122,7 @@ class AuthenticationPresenter: NSObject {
         })
     }
     
-    private func getFacebookInformations() {
+    func getFacebookInformations() {
         UserRequest.requestFacebookParameters { (success, msg, result) in
             if success {
                 if let user = self.setupUserInformationsByResult(result: result!) {

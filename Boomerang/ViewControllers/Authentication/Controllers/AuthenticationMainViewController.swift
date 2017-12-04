@@ -21,6 +21,11 @@ class AuthenticationMainViewController: UIViewController {
     var pageIndicatorView: PageIndicatorView?
     var presenter = AuthenticationPresenter()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.finishLoadingView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //setupCustomLabel()
@@ -61,11 +66,7 @@ class AuthenticationMainViewController: UIViewController {
     }
     
     @IBAction func facebookAction(_ sender: Any) {
-       
-//        PromoCodeController.presentMe(inParent: self, delegate: self)
-
         self.presenter.loginFacebook()
-
     }
     
     func showHomeVC() {
@@ -75,6 +76,8 @@ class AuthenticationMainViewController: UIViewController {
                 self.finishLoadingView()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vcToShow = storyboard.instantiateInitialViewController()!
+                let userDefaults = UserDefaults.standard
+                userDefaults.set(OnboardKeyLogin.keyLoginFirstTime, forKey: OnboardKeyLogin.keyLoginFirstTime)
                 self.present(vcToShow, animated: true, completion: nil)
             }else {
                 //TODO: Review text when have error in login
@@ -114,7 +117,6 @@ class AuthenticationMainViewController: UIViewController {
         if let _ = userDefaults.string(forKey: OnboardKeyLogin.keyLoginFirstTime) {
             return false
         }else{
-            userDefaults.set(OnboardKeyLogin.keyLoginFirstTime, forKey: OnboardKeyLogin.keyLoginFirstTime)
             return true
         }
     }
@@ -150,7 +152,8 @@ class AuthenticationMainViewController: UIViewController {
 
 extension AuthenticationMainViewController: PromoCodeRequestDelegate {
     func afterValidateCode() {
-        self.presenter.loginFacebook()
+        self.startLoadingView()
+        self.presenter.getFacebookInformations()
     }
 }
 
@@ -238,6 +241,7 @@ extension AuthenticationMainViewController: PageIndicatorViewDelegate {
 
 extension AuthenticationMainViewController: AuthenticationDelegate {
     func showHome() {
+        self.finishLoadingView()
         if self.verifyIfFirstTimeLogin() {
             self.showOnboarMainViewController()
         }else {
@@ -260,6 +264,10 @@ extension AuthenticationMainViewController: AuthenticationDelegate {
     func reload() {
         self.onboardCollectionView.reloadData()
         pageIndicatorView?.reload()
+    }
+    
+    func showPromoCode() {
+        PromoCodeController.presentMe(inParent: self, delegate: self)
     }
 }
 
