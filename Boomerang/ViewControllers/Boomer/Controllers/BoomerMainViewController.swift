@@ -16,10 +16,15 @@ class BoomerMainViewController: UIViewController {
     var type: TypePostEnum = TypePostEnum.need
     var titlePost = String()
     var presenter = HomePresenter()
+    var timerAnimation: Timer?
     
     @IBOutlet weak var buttonNeed: UIButton!
     @IBOutlet weak var buttonHave: UIButton!
     @IBOutlet weak var buttonDonate: UIButton!
+    
+    @IBOutlet weak var iconNeedImageView: UIImageView!
+    @IBOutlet weak var iconHaveImageView: UIImageView!
+    @IBOutlet weak var iconDonateImageView: UIImageView!
     
     override func viewDidLoad() {
         configureDynamicFonts()
@@ -27,6 +32,15 @@ class BoomerMainViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         getProfilePhoto()
+        self.resetIconImagesAnimations()
+        animateIconImages()
+        timerAnimation = Timer.scheduledTimer(withTimeInterval: 5.7, repeats: true) { (timer) in
+            self.animateIconImages()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.resetIconImagesAnimations()
     }
     
     func getProfilePhoto(){
@@ -40,6 +54,41 @@ class BoomerMainViewController: UIViewController {
         buttonNeed.titleLabel?.setDynamicFont()
         buttonHave.titleLabel?.setDynamicFont()
         buttonDonate.titleLabel?.setDynamicFont()
+    }
+    
+    func animateIconImages() {
+        animateIconImage(iconImageView: iconNeedImageView, animationDuration: 1.5, prefixImage: "preciso", countImages: 41)
+        Timer.scheduledTimer(withTimeInterval: 1.7, repeats: false) { (timer) in
+            self.animateIconImage(iconImageView: self.iconHaveImageView, animationDuration: 2.3, prefixImage: "Tenho_000", countImages: 47)
+            timer.invalidate()
+            Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { (timer) in
+                self.animateIconImage(iconImageView: self.iconDonateImageView, animationDuration: 1.3, prefixImage: "doar_000", countImages: 31)
+                timer.invalidate()
+            }
+        }
+    }
+    
+    func animateIconImage(iconImageView: UIImageView, animationDuration: TimeInterval, prefixImage: String, countImages: Int){
+        
+        var arrayImages = [UIImage]()
+        for i in 0..<countImages {
+            if let image = UIImage(named: prefixImage + "\(i)"){
+                arrayImages.append(image)
+            }
+        }
+        
+        iconImageView.animationImages = arrayImages
+        iconImageView.animationDuration = animationDuration
+        iconImageView.animationRepeatCount = 1
+        iconImageView.startAnimating()
+        
+    }
+    
+    func resetIconImagesAnimations(){
+        self.timerAnimation?.invalidate()
+        self.iconNeedImageView.stopAnimating()
+        self.iconHaveImageView.stopAnimating()
+        self.iconDonateImageView.stopAnimating()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

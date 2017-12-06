@@ -86,17 +86,6 @@
 		2F4957DB1ECD32AF0001554E /* preciso38.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957B21ECD32AF0001554E /* preciso38.png */; };
 		2F4957DC1ECD32AF0001554E /* preciso39.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957B31ECD32AF0001554E /* preciso39.png */; };
 		2F4957DD1ECD32AF0001554E /* preciso40.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957B41ECD32AF0001554E /* preciso40.png */; };
-		2F4957DE1ECD32AF0001554E /* preciso41.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957B51ECD32AF0001554E /* preciso41.png */; };
-		2F49580E1ECD32C40001554E /* Tenho_00000.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957DF1ECD32C40001554E /* Tenho_00000.png */; };
-		2F49580F1ECD32C40001554E /* Tenho_00001.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E01ECD32C40001554E /* Tenho_00001.png */; };
-		2F4958101ECD32C40001554E /* Tenho_00002.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E11ECD32C40001554E /* Tenho_00002.png */; };
-		2F4958111ECD32C40001554E /* Tenho_00003.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E21ECD32C40001554E /* Tenho_00003.png */; };
-		2F4958121ECD32C40001554E /* Tenho_00004.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E31ECD32C40001554E /* Tenho_00004.png */; };
-		2F4958131ECD32C40001554E /* Tenho_00005.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E41ECD32C40001554E /* Tenho_00005.png */; };
-		2F4958141ECD32C40001554E /* Tenho_00006.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E51ECD32C40001554E /* Tenho_00006.png */; };
-		2F4958151ECD32C40001554E /* Tenho_00007.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E61ECD32C40001554E /* Tenho_00007.png */; };
-		2F4958161ECD32C40001554E /* Tenho_00008.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E71ECD32C40001554E /* Tenho_00008.png */; };
-		2F4958171ECD32C40001554E /* Tenho_00009.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E81ECD32C40001554E /* Tenho_00009.png */; };
 		2F4958181ECD32C40001554E /* Tenho_00010.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957E91ECD32C40001554E /* Tenho_00010.png */; };
 		2F4958191ECD32C40001554E /* Tenho_00011.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957EA1ECD32C40001554E /* Tenho_00011.png */; };
 		2F49581A1ECD32C40001554E /* Tenho_00012.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4957EB1ECD32C40001554E /* Tenho_00012.png */; };
@@ -134,16 +123,6 @@
 		2F49583A1ECD32C50001554E /* Tenho_00044.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F49580B1ECD32C40001554E /* Tenho_00044.png */; };
 		2F49583B1ECD32C50001554E /* Tenho_00045.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F49580C1ECD32C40001554E /* Tenho_00045.png */; };
 		2F49583C1ECD32C50001554E /* Tenho_00046.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F49580D1ECD32C40001554E /* Tenho_00046.png */; };
-		2F49585C1ECD32D90001554E /* doar_00000.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F49583D1ECD32D90001554E /* doar_00000.png */; };
-		2F49585D1ECD32D90001554E /* doar_00001.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F49583E1ECD32D90001554E /* doar_00001.png */; };
-		2F49585E1ECD32D90001554E /* doar_00002.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F49583F1ECD32D90001554E /* doar_00002.png */; };
-		2F49585F1ECD32D90001554E /* doar_00003.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958401ECD32D90001554E /* doar_00003.png */; };
-		2F4958601ECD32D90001554E /* doar_00004.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958411ECD32D90001554E /* doar_00004.png */; };
-		2F4958611ECD32D90001554E /* doar_00005.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958421ECD32D90001554E /* doar_00005.png */; };
-		2F4958621ECD32D90001554E /* doar_00006.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958431ECD32D90001554E /* doar_00006.png */; };
-		2F4958631ECD32D90001554E /* doar_00007.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958441ECD32D90001554E /* doar_00007.png */; };
-		2F4958641ECD32D90001554E /* doar_00008.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958451ECD32D90001554E /* doar_00008.png */; };
-		2F4958651ECD32D90001554E /* doar_00009.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958461ECD32D90001554E /* doar_00009.png */; };
 		2F4958661ECD32D90001554E /* doar_00010.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958471ECD32D90001554E /* doar_00010.png */; };
 		2F4958671ECD32D90001554E /* doar_00011.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958481ECD32D90001554E /* doar_00011.png */; };
 		2F4958681ECD32D90001554E /* doar_00012.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4958491ECD32D90001554E /* doar_00012.png */; };
@@ -229,6 +208,69 @@
 		60DDA2AE1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */; };
 		60DDA2AF1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */; };
 		60DDA2B01F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */; };
+		60F518C41FD5EEC600C08C8D /* Tenho_0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BA1FD5EEC300C08C8D /* Tenho_0005.png */; };
+		60F518C51FD5EEC600C08C8D /* Tenho_0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BA1FD5EEC300C08C8D /* Tenho_0005.png */; };
+		60F518C61FD5EEC600C08C8D /* Tenho_0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BA1FD5EEC300C08C8D /* Tenho_0005.png */; };
+		60F518C71FD5EEC600C08C8D /* Tenho_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BB1FD5EEC400C08C8D /* Tenho_0001.png */; };
+		60F518C81FD5EEC600C08C8D /* Tenho_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BB1FD5EEC400C08C8D /* Tenho_0001.png */; };
+		60F518C91FD5EEC600C08C8D /* Tenho_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BB1FD5EEC400C08C8D /* Tenho_0001.png */; };
+		60F518CA1FD5EEC600C08C8D /* Tenho_0000.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BC1FD5EEC400C08C8D /* Tenho_0000.png */; };
+		60F518CB1FD5EEC600C08C8D /* Tenho_0000.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BC1FD5EEC400C08C8D /* Tenho_0000.png */; };
+		60F518CC1FD5EEC600C08C8D /* Tenho_0000.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BC1FD5EEC400C08C8D /* Tenho_0000.png */; };
+		60F518CD1FD5EEC600C08C8D /* Tenho_0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BD1FD5EEC400C08C8D /* Tenho_0004.png */; };
+		60F518CE1FD5EEC600C08C8D /* Tenho_0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BD1FD5EEC400C08C8D /* Tenho_0004.png */; };
+		60F518CF1FD5EEC600C08C8D /* Tenho_0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BD1FD5EEC400C08C8D /* Tenho_0004.png */; };
+		60F518D01FD5EEC600C08C8D /* Tenho_0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BE1FD5EEC400C08C8D /* Tenho_0006.png */; };
+		60F518D11FD5EEC600C08C8D /* Tenho_0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BE1FD5EEC400C08C8D /* Tenho_0006.png */; };
+		60F518D21FD5EEC600C08C8D /* Tenho_0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BE1FD5EEC400C08C8D /* Tenho_0006.png */; };
+		60F518D31FD5EEC600C08C8D /* Tenho_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BF1FD5EEC400C08C8D /* Tenho_0008.png */; };
+		60F518D41FD5EEC600C08C8D /* Tenho_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BF1FD5EEC400C08C8D /* Tenho_0008.png */; };
+		60F518D51FD5EEC600C08C8D /* Tenho_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518BF1FD5EEC400C08C8D /* Tenho_0008.png */; };
+		60F518D61FD5EEC600C08C8D /* Tenho_0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C01FD5EEC500C08C8D /* Tenho_0003.png */; };
+		60F518D71FD5EEC600C08C8D /* Tenho_0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C01FD5EEC500C08C8D /* Tenho_0003.png */; };
+		60F518D81FD5EEC600C08C8D /* Tenho_0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C01FD5EEC500C08C8D /* Tenho_0003.png */; };
+		60F518D91FD5EEC600C08C8D /* Tenho_0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C11FD5EEC500C08C8D /* Tenho_0009.png */; };
+		60F518DA1FD5EEC600C08C8D /* Tenho_0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C11FD5EEC500C08C8D /* Tenho_0009.png */; };
+		60F518DB1FD5EEC600C08C8D /* Tenho_0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C11FD5EEC500C08C8D /* Tenho_0009.png */; };
+		60F518DC1FD5EEC600C08C8D /* Tenho_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C21FD5EEC500C08C8D /* Tenho_0002.png */; };
+		60F518DD1FD5EEC600C08C8D /* Tenho_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C21FD5EEC500C08C8D /* Tenho_0002.png */; };
+		60F518DE1FD5EEC600C08C8D /* Tenho_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C21FD5EEC500C08C8D /* Tenho_0002.png */; };
+		60F518DF1FD5EEC600C08C8D /* Tenho_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C31FD5EEC500C08C8D /* Tenho_0007.png */; };
+		60F518E01FD5EEC600C08C8D /* Tenho_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C31FD5EEC500C08C8D /* Tenho_0007.png */; };
+		60F518E11FD5EEC600C08C8D /* Tenho_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518C31FD5EEC500C08C8D /* Tenho_0007.png */; };
+		60F518EC1FD5EF0C00C08C8D /* doar_0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E21FD5EF0A00C08C8D /* doar_0006.png */; };
+		60F518ED1FD5EF0C00C08C8D /* doar_0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E21FD5EF0A00C08C8D /* doar_0006.png */; };
+		60F518EE1FD5EF0C00C08C8D /* doar_0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E21FD5EF0A00C08C8D /* doar_0006.png */; };
+		60F518EF1FD5EF0C00C08C8D /* doar_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E31FD5EF0A00C08C8D /* doar_0007.png */; };
+		60F518F01FD5EF0C00C08C8D /* doar_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E31FD5EF0A00C08C8D /* doar_0007.png */; };
+		60F518F11FD5EF0C00C08C8D /* doar_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E31FD5EF0A00C08C8D /* doar_0007.png */; };
+		60F518F21FD5EF0C00C08C8D /* doar_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E41FD5EF0A00C08C8D /* doar_0002.png */; };
+		60F518F31FD5EF0C00C08C8D /* doar_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E41FD5EF0A00C08C8D /* doar_0002.png */; };
+		60F518F41FD5EF0C00C08C8D /* doar_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E41FD5EF0A00C08C8D /* doar_0002.png */; };
+		60F518F51FD5EF0C00C08C8D /* doar_0000.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E51FD5EF0B00C08C8D /* doar_0000.png */; };
+		60F518F61FD5EF0C00C08C8D /* doar_0000.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E51FD5EF0B00C08C8D /* doar_0000.png */; };
+		60F518F71FD5EF0C00C08C8D /* doar_0000.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E51FD5EF0B00C08C8D /* doar_0000.png */; };
+		60F518F81FD5EF0C00C08C8D /* doar_0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E61FD5EF0B00C08C8D /* doar_0003.png */; };
+		60F518F91FD5EF0C00C08C8D /* doar_0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E61FD5EF0B00C08C8D /* doar_0003.png */; };
+		60F518FA1FD5EF0C00C08C8D /* doar_0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E61FD5EF0B00C08C8D /* doar_0003.png */; };
+		60F518FB1FD5EF0C00C08C8D /* doar_0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E71FD5EF0B00C08C8D /* doar_0004.png */; };
+		60F518FC1FD5EF0C00C08C8D /* doar_0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E71FD5EF0B00C08C8D /* doar_0004.png */; };
+		60F518FD1FD5EF0C00C08C8D /* doar_0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E71FD5EF0B00C08C8D /* doar_0004.png */; };
+		60F518FE1FD5EF0C00C08C8D /* doar_0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E81FD5EF0B00C08C8D /* doar_0005.png */; };
+		60F518FF1FD5EF0C00C08C8D /* doar_0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E81FD5EF0B00C08C8D /* doar_0005.png */; };
+		60F519001FD5EF0C00C08C8D /* doar_0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E81FD5EF0B00C08C8D /* doar_0005.png */; };
+		60F519011FD5EF0C00C08C8D /* doar_0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E91FD5EF0B00C08C8D /* doar_0009.png */; };
+		60F519021FD5EF0C00C08C8D /* doar_0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E91FD5EF0B00C08C8D /* doar_0009.png */; };
+		60F519031FD5EF0C00C08C8D /* doar_0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518E91FD5EF0B00C08C8D /* doar_0009.png */; };
+		60F519041FD5EF0C00C08C8D /* doar_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518EA1FD5EF0C00C08C8D /* doar_0001.png */; };
+		60F519051FD5EF0C00C08C8D /* doar_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518EA1FD5EF0C00C08C8D /* doar_0001.png */; };
+		60F519061FD5EF0C00C08C8D /* doar_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518EA1FD5EF0C00C08C8D /* doar_0001.png */; };
+		60F519071FD5EF0C00C08C8D /* doar_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518EB1FD5EF0C00C08C8D /* doar_0008.png */; };
+		60F519081FD5EF0C00C08C8D /* doar_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518EB1FD5EF0C00C08C8D /* doar_0008.png */; };
+		60F519091FD5EF0C00C08C8D /* doar_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F518EB1FD5EF0C00C08C8D /* doar_0008.png */; };
+		60F5190B1FD5F04300C08C8D /* preciso0.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F5190A1FD5F04200C08C8D /* preciso0.png */; };
+		60F5190C1FD5F04300C08C8D /* preciso0.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F5190A1FD5F04200C08C8D /* preciso0.png */; };
+		60F5190D1FD5F04300C08C8D /* preciso0.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F5190A1FD5F04200C08C8D /* preciso0.png */; };
 		60F6974B1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F697491F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift */; };
 		60F6974C1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F697491F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift */; };
 		60F6974D1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F697491F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift */; };
@@ -1019,17 +1061,6 @@
 		2F4957B21ECD32AF0001554E /* preciso38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preciso38.png; sourceTree = "<group>"; };
 		2F4957B31ECD32AF0001554E /* preciso39.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preciso39.png; sourceTree = "<group>"; };
 		2F4957B41ECD32AF0001554E /* preciso40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preciso40.png; sourceTree = "<group>"; };
-		2F4957B51ECD32AF0001554E /* preciso41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preciso41.png; sourceTree = "<group>"; };
-		2F4957DF1ECD32C40001554E /* Tenho_00000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00000.png; sourceTree = "<group>"; };
-		2F4957E01ECD32C40001554E /* Tenho_00001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00001.png; sourceTree = "<group>"; };
-		2F4957E11ECD32C40001554E /* Tenho_00002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00002.png; sourceTree = "<group>"; };
-		2F4957E21ECD32C40001554E /* Tenho_00003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00003.png; sourceTree = "<group>"; };
-		2F4957E31ECD32C40001554E /* Tenho_00004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00004.png; sourceTree = "<group>"; };
-		2F4957E41ECD32C40001554E /* Tenho_00005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00005.png; sourceTree = "<group>"; };
-		2F4957E51ECD32C40001554E /* Tenho_00006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00006.png; sourceTree = "<group>"; };
-		2F4957E61ECD32C40001554E /* Tenho_00007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00007.png; sourceTree = "<group>"; };
-		2F4957E71ECD32C40001554E /* Tenho_00008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00008.png; sourceTree = "<group>"; };
-		2F4957E81ECD32C40001554E /* Tenho_00009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00009.png; sourceTree = "<group>"; };
 		2F4957E91ECD32C40001554E /* Tenho_00010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00010.png; sourceTree = "<group>"; };
 		2F4957EA1ECD32C40001554E /* Tenho_00011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00011.png; sourceTree = "<group>"; };
 		2F4957EB1ECD32C40001554E /* Tenho_00012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00012.png; sourceTree = "<group>"; };
@@ -1067,16 +1098,6 @@
 		2F49580B1ECD32C40001554E /* Tenho_00044.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00044.png; sourceTree = "<group>"; };
 		2F49580C1ECD32C40001554E /* Tenho_00045.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00045.png; sourceTree = "<group>"; };
 		2F49580D1ECD32C40001554E /* Tenho_00046.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_00046.png; sourceTree = "<group>"; };
-		2F49583D1ECD32D90001554E /* doar_00000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00000.png; sourceTree = "<group>"; };
-		2F49583E1ECD32D90001554E /* doar_00001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00001.png; sourceTree = "<group>"; };
-		2F49583F1ECD32D90001554E /* doar_00002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00002.png; sourceTree = "<group>"; };
-		2F4958401ECD32D90001554E /* doar_00003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00003.png; sourceTree = "<group>"; };
-		2F4958411ECD32D90001554E /* doar_00004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00004.png; sourceTree = "<group>"; };
-		2F4958421ECD32D90001554E /* doar_00005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00005.png; sourceTree = "<group>"; };
-		2F4958431ECD32D90001554E /* doar_00006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00006.png; sourceTree = "<group>"; };
-		2F4958441ECD32D90001554E /* doar_00007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00007.png; sourceTree = "<group>"; };
-		2F4958451ECD32D90001554E /* doar_00008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00008.png; sourceTree = "<group>"; };
-		2F4958461ECD32D90001554E /* doar_00009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00009.png; sourceTree = "<group>"; };
 		2F4958471ECD32D90001554E /* doar_00010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00010.png; sourceTree = "<group>"; };
 		2F4958481ECD32D90001554E /* doar_00011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00011.png; sourceTree = "<group>"; };
 		2F4958491ECD32D90001554E /* doar_00012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_00012.png; sourceTree = "<group>"; };
@@ -1133,6 +1154,27 @@
 		60B0DE531F6B02AE0029ACBC /* OnboardMainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardMainPresenter.swift; sourceTree = "<group>"; };
 		60DDA2A91F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardAuthenticationCollectionViewCell.swift; sourceTree = "<group>"; };
 		60DDA2AA1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardAuthenticationCollectionViewCell.xib; sourceTree = "<group>"; };
+		60F518BA1FD5EEC300C08C8D /* Tenho_0005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0005.png; sourceTree = "<group>"; };
+		60F518BB1FD5EEC400C08C8D /* Tenho_0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0001.png; sourceTree = "<group>"; };
+		60F518BC1FD5EEC400C08C8D /* Tenho_0000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0000.png; sourceTree = "<group>"; };
+		60F518BD1FD5EEC400C08C8D /* Tenho_0004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0004.png; sourceTree = "<group>"; };
+		60F518BE1FD5EEC400C08C8D /* Tenho_0006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0006.png; sourceTree = "<group>"; };
+		60F518BF1FD5EEC400C08C8D /* Tenho_0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0008.png; sourceTree = "<group>"; };
+		60F518C01FD5EEC500C08C8D /* Tenho_0003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0003.png; sourceTree = "<group>"; };
+		60F518C11FD5EEC500C08C8D /* Tenho_0009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0009.png; sourceTree = "<group>"; };
+		60F518C21FD5EEC500C08C8D /* Tenho_0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0002.png; sourceTree = "<group>"; };
+		60F518C31FD5EEC500C08C8D /* Tenho_0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tenho_0007.png; sourceTree = "<group>"; };
+		60F518E21FD5EF0A00C08C8D /* doar_0006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0006.png; sourceTree = "<group>"; };
+		60F518E31FD5EF0A00C08C8D /* doar_0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0007.png; sourceTree = "<group>"; };
+		60F518E41FD5EF0A00C08C8D /* doar_0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0002.png; sourceTree = "<group>"; };
+		60F518E51FD5EF0B00C08C8D /* doar_0000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0000.png; sourceTree = "<group>"; };
+		60F518E61FD5EF0B00C08C8D /* doar_0003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0003.png; sourceTree = "<group>"; };
+		60F518E71FD5EF0B00C08C8D /* doar_0004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0004.png; sourceTree = "<group>"; };
+		60F518E81FD5EF0B00C08C8D /* doar_0005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0005.png; sourceTree = "<group>"; };
+		60F518E91FD5EF0B00C08C8D /* doar_0009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0009.png; sourceTree = "<group>"; };
+		60F518EA1FD5EF0C00C08C8D /* doar_0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0001.png; sourceTree = "<group>"; };
+		60F518EB1FD5EF0C00C08C8D /* doar_0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doar_0008.png; sourceTree = "<group>"; };
+		60F5190A1FD5F04200C08C8D /* preciso0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preciso0.png; sourceTree = "<group>"; };
 		60F697491F758DF300D35FAB /* EmptyFriendsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyFriendsCollectionViewCell.swift; sourceTree = "<group>"; };
 		60F6974A1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyFriendsCollectionViewCell.xib; sourceTree = "<group>"; };
 		6546CCE556A22ECA77A8D013 /* Pods-lab262.boomerang.test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lab262.boomerang.test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lab262.boomerang.test/Pods-lab262.boomerang.test.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1448,16 +1490,16 @@
 		2F49578A1ECD32810001554E /* Donate */ = {
 			isa = PBXGroup;
 			children = (
-				2F49583D1ECD32D90001554E /* doar_00000.png */,
-				2F49583E1ECD32D90001554E /* doar_00001.png */,
-				2F49583F1ECD32D90001554E /* doar_00002.png */,
-				2F4958401ECD32D90001554E /* doar_00003.png */,
-				2F4958411ECD32D90001554E /* doar_00004.png */,
-				2F4958421ECD32D90001554E /* doar_00005.png */,
-				2F4958431ECD32D90001554E /* doar_00006.png */,
-				2F4958441ECD32D90001554E /* doar_00007.png */,
-				2F4958451ECD32D90001554E /* doar_00008.png */,
-				2F4958461ECD32D90001554E /* doar_00009.png */,
+				60F518E51FD5EF0B00C08C8D /* doar_0000.png */,
+				60F518EA1FD5EF0C00C08C8D /* doar_0001.png */,
+				60F518E41FD5EF0A00C08C8D /* doar_0002.png */,
+				60F518E61FD5EF0B00C08C8D /* doar_0003.png */,
+				60F518E71FD5EF0B00C08C8D /* doar_0004.png */,
+				60F518E81FD5EF0B00C08C8D /* doar_0005.png */,
+				60F518E21FD5EF0A00C08C8D /* doar_0006.png */,
+				60F518E31FD5EF0A00C08C8D /* doar_0007.png */,
+				60F518EB1FD5EF0C00C08C8D /* doar_0008.png */,
+				60F518E91FD5EF0B00C08C8D /* doar_0009.png */,
 				2F4958471ECD32D90001554E /* doar_00010.png */,
 				2F4958481ECD32D90001554E /* doar_00011.png */,
 				2F4958491ECD32D90001554E /* doar_00012.png */,
@@ -1486,16 +1528,16 @@
 		2F49578B1ECD32890001554E /* Have */ = {
 			isa = PBXGroup;
 			children = (
-				2F4957DF1ECD32C40001554E /* Tenho_00000.png */,
-				2F4957E01ECD32C40001554E /* Tenho_00001.png */,
-				2F4957E11ECD32C40001554E /* Tenho_00002.png */,
-				2F4957E21ECD32C40001554E /* Tenho_00003.png */,
-				2F4957E31ECD32C40001554E /* Tenho_00004.png */,
-				2F4957E41ECD32C40001554E /* Tenho_00005.png */,
-				2F4957E51ECD32C40001554E /* Tenho_00006.png */,
-				2F4957E61ECD32C40001554E /* Tenho_00007.png */,
-				2F4957E71ECD32C40001554E /* Tenho_00008.png */,
-				2F4957E81ECD32C40001554E /* Tenho_00009.png */,
+				60F518BC1FD5EEC400C08C8D /* Tenho_0000.png */,
+				60F518BB1FD5EEC400C08C8D /* Tenho_0001.png */,
+				60F518C21FD5EEC500C08C8D /* Tenho_0002.png */,
+				60F518C01FD5EEC500C08C8D /* Tenho_0003.png */,
+				60F518BD1FD5EEC400C08C8D /* Tenho_0004.png */,
+				60F518BA1FD5EEC300C08C8D /* Tenho_0005.png */,
+				60F518BE1FD5EEC400C08C8D /* Tenho_0006.png */,
+				60F518C31FD5EEC500C08C8D /* Tenho_0007.png */,
+				60F518BF1FD5EEC400C08C8D /* Tenho_0008.png */,
+				60F518C11FD5EEC500C08C8D /* Tenho_0009.png */,
 				2F4957E91ECD32C40001554E /* Tenho_00010.png */,
 				2F4957EA1ECD32C40001554E /* Tenho_00011.png */,
 				2F4957EB1ECD32C40001554E /* Tenho_00012.png */,
@@ -1540,6 +1582,7 @@
 		2F49578C1ECD32920001554E /* Need */ = {
 			isa = PBXGroup;
 			children = (
+				60F5190A1FD5F04200C08C8D /* preciso0.png */,
 				2F49578D1ECD32AF0001554E /* preciso1.png */,
 				2F49578E1ECD32AF0001554E /* preciso2.png */,
 				2F49578F1ECD32AF0001554E /* preciso3.png */,
@@ -1580,7 +1623,6 @@
 				2F4957B21ECD32AF0001554E /* preciso38.png */,
 				2F4957B31ECD32AF0001554E /* preciso39.png */,
 				2F4957B41ECD32AF0001554E /* preciso40.png */,
-				2F4957B51ECD32AF0001554E /* preciso41.png */,
 			);
 			name = Need;
 			sourceTree = "<group>";
@@ -2832,49 +2874,46 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4F71F881F4A7D7F0085636F /* AmountPostInteractionTableViewCell.xib in Resources */,
-				2F49580F1ECD32C40001554E /* Tenho_00001.png in Resources */,
 				2F0BAC0C1EDA667800B31AFA /* LogOutTableViewCell.xib in Resources */,
 				2F4957BE1ECD32AF0001554E /* preciso9.png in Resources */,
 				2F4957B61ECD32AF0001554E /* preciso1.png in Resources */,
 				2F49582C1ECD32C50001554E /* Tenho_00030.png in Resources */,
 				2F4958671ECD32D90001554E /* doar_00011.png in Resources */,
-				2F49585D1ECD32D90001554E /* doar_00001.png in Resources */,
 				60DDA2AE1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */,
 				D40C0E4D1E8B020A008174D2 /* PhotoThingCollectionViewCell.xib in Resources */,
 				2F4957C11ECD32AF0001554E /* preciso12.png in Resources */,
 				2F4958391ECD32C50001554E /* Tenho_00043.png in Resources */,
 				A44E0C691DD092650028F06C /* Montserrat-ExtraBold.otf in Resources */,
 				2F4958231ECD32C40001554E /* Tenho_00021.png in Resources */,
-				2F4958141ECD32C40001554E /* Tenho_00006.png in Resources */,
 				2F2F07991E688DF400C61A6D /* DescriptionTextTableViewCell.xib in Resources */,
+				60F518EC1FD5EF0C00C08C8D /* doar_0006.png in Resources */,
 				D433D07F1E91D8E700112B32 /* Montserrat-Medium.ttf in Resources */,
 				A449676E1DDA1F4600990008 /* ChatTableViewCell.xib in Resources */,
 				2F49586F1ECD32D90001554E /* doar_00019.png in Resources */,
 				2F4957CB1ECD32AF0001554E /* preciso22.png in Resources */,
 				2F4957D21ECD32AF0001554E /* preciso29.png in Resources */,
 				2F4957D31ECD32AF0001554E /* preciso30.png in Resources */,
+				60F5190B1FD5F04300C08C8D /* preciso0.png in Resources */,
 				A4FE062E1DD0967E00BFDC4D /* HomeCollectionHeader.xib in Resources */,
 				2F4957CA1ECD32AF0001554E /* preciso21.png in Resources */,
 				2F4958381ECD32C50001554E /* Tenho_00042.png in Resources */,
-				2F4958651ECD32D90001554E /* doar_00009.png in Resources */,
 				A44E0C6D1DD092650028F06C /* Montserrat-SemiBold.otf in Resources */,
-				2F4958621ECD32D90001554E /* doar_00006.png in Resources */,
 				2F49582B1ECD32C50001554E /* Tenho_00029.png in Resources */,
 				2F4958191ECD32C40001554E /* Tenho_00011.png in Resources */,
 				2F4958221ECD32C40001554E /* Tenho_00020.png in Resources */,
 				A4CB02671DD261B200B01A6B /* IconNavigationBar.xib in Resources */,
 				2F79676D1E8357F700476D2D /* TypePostTableViewCell.xib in Resources */,
-				2F4958111ECD32C40001554E /* Tenho_00003.png in Resources */,
 				2F4958261ECD32C40001554E /* Tenho_00024.png in Resources */,
 				2F4958731ECD32D90001554E /* doar_00023.png in Resources */,
 				A427680E1DD3DC4600363343 /* BoomerMyThingCell.xib in Resources */,
+				60F518D01FD5EEC600C08C8D /* Tenho_0006.png in Resources */,
 				2F4958331ECD32C50001554E /* Tenho_00037.png in Resources */,
 				2F4957BA1ECD32AF0001554E /* preciso5.png in Resources */,
-				2F4958101ECD32C40001554E /* Tenho_00002.png in Resources */,
 				A4AFBB0F1DD3612F00F270C7 /* AddBoomerCell.xib in Resources */,
 				2F49586C1ECD32D90001554E /* doar_00016.png in Resources */,
 				A42767FF1DD393D800363343 /* MyThings.storyboard in Resources */,
 				2F49583B1ECD32C50001554E /* Tenho_00045.png in Resources */,
+				60F518DF1FD5EEC600C08C8D /* Tenho_0007.png in Resources */,
 				D4FBBCE61E90706400611F63 /* InterestedTableViewCell.xib in Resources */,
 				2F49581B1ECD32C40001554E /* Tenho_00013.png in Resources */,
 				D458F8651FA02A28006A71AD /* PostPhotoCollectionViewCell.xib in Resources */,
@@ -2882,19 +2921,24 @@
 				A4FE062C1DD0965700BFDC4D /* BoomerThingCell.xib in Resources */,
 				A489B1F71DDA7D1100B239D5 /* Authentication.storyboard in Resources */,
 				2F4957C81ECD32AF0001554E /* preciso19.png in Resources */,
+				60F519011FD5EF0C00C08C8D /* doar_0009.png in Resources */,
 				60B0DE491F6AF6E10029ACBC /* OnboardCollectionViewCell.xib in Resources */,
 				2F4958781ECD32D90001554E /* doar_00028.png in Resources */,
 				2F4957D11ECD32AF0001554E /* preciso28.png in Resources */,
 				2F4958701ECD32D90001554E /* doar_00020.png in Resources */,
+				60F519041FD5EF0C00C08C8D /* doar_0001.png in Resources */,
 				D4642BC41E9ED301002C8ADC /* LinkPostTableViewCell.xib in Resources */,
 				2F4958341ECD32C50001554E /* Tenho_00038.png in Resources */,
 				A431D1031F53B6C7009D7338 /* GenericBoomerAlertController.xib in Resources */,
 				A44E0C6A1DD092650028F06C /* Montserrat-Hairline.otf in Resources */,
+				60F518CD1FD5EEC600C08C8D /* Tenho_0004.png in Resources */,
 				2F4958691ECD32D90001554E /* doar_00013.png in Resources */,
 				2F4957D61ECD32AF0001554E /* preciso33.png in Resources */,
+				60F518FB1FD5EF0C00C08C8D /* doar_0004.png in Resources */,
 				2F4957C91ECD32AF0001554E /* preciso20.png in Resources */,
 				2F4957B81ECD32AF0001554E /* preciso3.png in Resources */,
 				2F4958281ECD32C40001554E /* Tenho_00026.png in Resources */,
+				60F518F51FD5EF0C00C08C8D /* doar_0000.png in Resources */,
 				D4642BBE1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.xib in Resources */,
 				2F4957D81ECD32AF0001554E /* preciso35.png in Resources */,
 				2F49581F1ECD32C40001554E /* Tenho_00017.png in Resources */,
@@ -2909,15 +2953,12 @@
 				2F4958321ECD32C50001554E /* Tenho_00036.png in Resources */,
 				2F4957C51ECD32AF0001554E /* preciso16.png in Resources */,
 				D498F0371E808861002E8972 /* PhotoThingTableViewCell.xib in Resources */,
-				2F4958131ECD32C40001554E /* Tenho_00005.png in Resources */,
 				2F4958181ECD32C40001554E /* Tenho_00010.png in Resources */,
 				A4AFBB061DD2913400F270C7 /* BoomerMessageAndNotificationsCell.xib in Resources */,
-				2F49585F1ECD32D90001554E /* doar_00003.png in Resources */,
 				2F4957CC1ECD32AF0001554E /* preciso23.png in Resources */,
 				D498F0431E816243002E8972 /* ThingNavigationBar.xib in Resources */,
 				2F4957B91ECD32AF0001554E /* preciso4.png in Resources */,
 				2F49583A1ECD32C50001554E /* Tenho_00044.png in Resources */,
-				2F4958641ECD32D90001554E /* doar_00008.png in Resources */,
 				2F49586D1ECD32D90001554E /* doar_00017.png in Resources */,
 				D451655A1E8959FF002A21F0 /* UserCommentTableViewCell.xib in Resources */,
 				2F4958271ECD32C40001554E /* Tenho_00025.png in Resources */,
@@ -2927,12 +2968,11 @@
 				2F4957DC1ECD32AF0001554E /* preciso39.png in Resources */,
 				2F4957D71ECD32AF0001554E /* preciso34.png in Resources */,
 				D498F04B1E820EA1002E8972 /* UserInformationTableViewCell.xib in Resources */,
-				2F4958161ECD32C40001554E /* Tenho_00008.png in Resources */,
 				2F4957D01ECD32AF0001554E /* preciso27.png in Resources */,
 				D4E4BEA61E822FBE00F8DC2E /* DescriptionTableViewCell.xib in Resources */,
 				A4E462FD1DCAEAF800A611C0 /* Home.storyboard in Resources */,
 				A44E0C6C1DD092650028F06C /* Montserrat-Regular.otf in Resources */,
-				2F4958171ECD32C40001554E /* Tenho_00009.png in Resources */,
+				60F518D91FD5EEC600C08C8D /* Tenho_0009.png in Resources */,
 				2F4958681ECD32D90001554E /* doar_00012.png in Resources */,
 				D48735081E78F6ED0065E13A /* RecommendedPostCollectionViewCell.xib in Resources */,
 				2F4958661ECD32D90001554E /* doar_00010.png in Resources */,
@@ -2941,29 +2981,30 @@
 				2F4957BB1ECD32AF0001554E /* preciso6.png in Resources */,
 				2F4957BF1ECD32AF0001554E /* preciso10.png in Resources */,
 				2F49586A1ECD32D90001554E /* doar_00014.png in Resources */,
-				2F4958601ECD32D90001554E /* doar_00004.png in Resources */,
 				2F0BAC041EDA5DF800B31AFA /* DistanceRadiusTableViewCell.xib in Resources */,
+				60F518FE1FD5EF0C00C08C8D /* doar_0005.png in Resources */,
 				2F4958721ECD32D90001554E /* doar_00022.png in Resources */,
 				2F3C79CF1E995B930013F4F9 /* HighlightCollectionViewCell.xib in Resources */,
 				D436BF2E1E95B50E00BC7F00 /* TransactionTableViewCell.xib in Resources */,
 				2F4958761ECD32D90001554E /* doar_00026.png in Resources */,
+				60F518EF1FD5EF0C00C08C8D /* doar_0007.png in Resources */,
 				2F79677B1E86FA7E00476D2D /* HeaderPostTableViewCell.xib in Resources */,
 				D484FA381EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
+				60F518D61FD5EEC600C08C8D /* Tenho_0003.png in Resources */,
 				A4E462F21DCAEA7F00A611C0 /* Main.storyboard in Resources */,
 				2F0C10531E874F8500E1C40E /* PhotoNavigationBar.xib in Resources */,
 				2F4958311ECD32C50001554E /* Tenho_00035.png in Resources */,
 				2F4957BD1ECD32AF0001554E /* preciso8.png in Resources */,
 				2F4957CD1ECD32AF0001554E /* preciso24.png in Resources */,
 				2F4958201ECD32C40001554E /* Tenho_00018.png in Resources */,
-				2F4958121ECD32C40001554E /* Tenho_00004.png in Resources */,
 				2F4957C41ECD32AF0001554E /* preciso15.png in Resources */,
 				2F4958291ECD32C50001554E /* Tenho_00027.png in Resources */,
 				2F4957DB1ECD32AF0001554E /* preciso38.png in Resources */,
 				2F4958741ECD32D90001554E /* doar_00024.png in Resources */,
-				2F49585C1ECD32D90001554E /* doar_00000.png in Resources */,
+				60F518C41FD5EEC600C08C8D /* Tenho_0005.png in Resources */,
 				2F49582F1ECD32C50001554E /* Tenho_00033.png in Resources */,
 				2F4957C21ECD32AF0001554E /* preciso13.png in Resources */,
-				2F4958151ECD32C40001554E /* Tenho_00007.png in Resources */,
+				60F518C71FD5EEC600C08C8D /* Tenho_0001.png in Resources */,
 				2F8C4E9E1F6474DF000B0AE9 /* PageCollectionViewCell.xib in Resources */,
 				A44E0C671DD092650028F06C /* Montserrat-Black.otf in Resources */,
 				2F4957BC1ECD32AF0001554E /* preciso7.png in Resources */,
@@ -2978,9 +3019,9 @@
 				2F49587A1ECD32D90001554E /* doar_00030.png in Resources */,
 				2F4957D91ECD32AF0001554E /* preciso36.png in Resources */,
 				2F4957C01ECD32AF0001554E /* preciso11.png in Resources */,
-				2F4957DE1ECD32AF0001554E /* preciso41.png in Resources */,
 				D4A012FA1E7AC85600B3B811 /* PostTableViewCell.xib in Resources */,
 				2F4957C71ECD32AF0001554E /* preciso18.png in Resources */,
+				60F518CA1FD5EEC600C08C8D /* Tenho_0000.png in Resources */,
 				2F4957CF1ECD32AF0001554E /* preciso26.png in Resources */,
 				2F49581E1ECD32C40001554E /* Tenho_00016.png in Resources */,
 				2F4957D41ECD32AF0001554E /* preciso31.png in Resources */,
@@ -2989,22 +3030,23 @@
 				D4A012F61E7AC83900B3B811 /* PostCollectionViewCell.xib in Resources */,
 				2F49586E1ECD32D90001554E /* doar_00018.png in Resources */,
 				A4A0DB991F733DC2008AD89A /* SearchThings.storyboard in Resources */,
+				60F518F21FD5EF0C00C08C8D /* doar_0002.png in Resources */,
 				2F49581A1ECD32C40001554E /* Tenho_00012.png in Resources */,
 				D4E4BEAA1E8233EF00F8DC2E /* ThingConditionTableViewCell.xib in Resources */,
 				2F4958211ECD32C40001554E /* Tenho_00019.png in Resources */,
 				2F4957C31ECD32AF0001554E /* preciso14.png in Resources */,
 				A4E463041DCAEC4F00A611C0 /* Assets.xcassets in Resources */,
-				2F49585E1ECD32D90001554E /* doar_00002.png in Resources */,
 				D492C1E21EBB7596004243DE /* ThingBar.xib in Resources */,
 				2F4958241ECD32C40001554E /* Tenho_00022.png in Resources */,
+				60F518D31FD5EEC600C08C8D /* Tenho_0008.png in Resources */,
 				2F49581D1ECD32C40001554E /* Tenho_00015.png in Resources */,
+				60F518F81FD5EF0C00C08C8D /* doar_0003.png in Resources */,
 				D48734FE1E7884470065E13A /* RecommendedPostTableViewCell.xib in Resources */,
 				A4C9A9911F5E14030099AB95 /* PromoCodeController.xib in Resources */,
 				A4E463011DCAEB1500A611C0 /* Transaction.storyboard in Resources */,
 				2F4958351ECD32C50001554E /* Tenho_00039.png in Resources */,
 				2F4958361ECD32C50001554E /* Tenho_00040.png in Resources */,
 				D4CF4DA01ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */,
-				2F49580E1ECD32C40001554E /* Tenho_00000.png in Resources */,
 				A4F89B341DA809B100949A35 /* LaunchScreen.storyboard in Resources */,
 				A44E0C681DD092650028F06C /* Montserrat-Bold.otf in Resources */,
 				2F49581C1ECD32C40001554E /* Tenho_00014.png in Resources */,
@@ -3014,10 +3056,10 @@
 				2F2F07951E685F0500C61A6D /* SimpleTextFieldTableViewCell.xib in Resources */,
 				2F4958711ECD32D90001554E /* doar_00021.png in Resources */,
 				2FC9E06C1E8CB7A100A048A4 /* SwitchButtonTableViewCell.xib in Resources */,
-				2F4958611ECD32D90001554E /* doar_00005.png in Resources */,
-				2F4958631ECD32D90001554E /* doar_00007.png in Resources */,
+				60F518DC1FD5EEC600C08C8D /* Tenho_0002.png in Resources */,
 				2F0BABFC1EDA230300B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				60A0F1121ED9F2B100585888 /* EmptyView.xib in Resources */,
+				60F519071FD5EF0C00C08C8D /* doar_0008.png in Resources */,
 				2F4958771ECD32D90001554E /* doar_00027.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3035,6 +3077,7 @@
 			files = (
 				D4AD98011EA9ACFD00C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */,
 				D4AD98021EA9ACFD00C9FAB9 /* Montserrat-ExtraBold.otf in Resources */,
+				60F518D41FD5EEC600C08C8D /* Tenho_0008.png in Resources */,
 				2F0BAC071EDA64A900B31AFA /* DistanceRadiusTableViewCell.xib in Resources */,
 				D4AD98041EA9ACFD00C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */,
 				D4AD98051EA9ACFD00C9FAB9 /* Montserrat-Medium.ttf in Resources */,
@@ -3045,19 +3088,27 @@
 				2F0BABFF1EDA298F00B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				D4AD98091EA9ACFD00C9FAB9 /* IconNavigationBar.xib in Resources */,
 				D4AD980A1EA9ACFD00C9FAB9 /* TypePostTableViewCell.xib in Resources */,
+				60F518D71FD5EEC600C08C8D /* Tenho_0003.png in Resources */,
 				D4AD980B1EA9ACFD00C9FAB9 /* BoomerMyThingCell.xib in Resources */,
 				D4AD980C1EA9ACFD00C9FAB9 /* AddBoomerCell.xib in Resources */,
 				D4AD980D1EA9ACFD00C9FAB9 /* MyThings.storyboard in Resources */,
 				D4AD980E1EA9ACFD00C9FAB9 /* InterestedTableViewCell.xib in Resources */,
 				D4AD980F1EA9ACFD00C9FAB9 /* Montserrat-MediumItalic.ttf in Resources */,
+				60F518C51FD5EEC600C08C8D /* Tenho_0005.png in Resources */,
 				D4AD98101EA9ACFD00C9FAB9 /* BoomerThingCell.xib in Resources */,
 				D4AD98111EA9ACFD00C9FAB9 /* Authentication.storyboard in Resources */,
+				60F518DA1FD5EEC600C08C8D /* Tenho_0009.png in Resources */,
 				D4AD98121EA9ACFD00C9FAB9 /* LinkPostTableViewCell.xib in Resources */,
 				D4AD98131EA9ACFD00C9FAB9 /* Montserrat-Hairline.otf in Resources */,
+				60F518F31FD5EF0C00C08C8D /* doar_0002.png in Resources */,
 				D4AD98141EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.xib in Resources */,
+				60F518DD1FD5EEC600C08C8D /* Tenho_0002.png in Resources */,
+				60F518CE1FD5EEC600C08C8D /* Tenho_0004.png in Resources */,
 				D4AD98161EA9ACFD00C9FAB9 /* Profile.storyboard in Resources */,
 				D4AD98171EA9ACFD00C9FAB9 /* PageControlCollectionViewCell.xib in Resources */,
+				60F519021FD5EF0C00C08C8D /* doar_0009.png in Resources */,
 				60DDA2AF1F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */,
+				60F518F01FD5EF0C00C08C8D /* doar_0007.png in Resources */,
 				2F0BAC0D1EDA67F400B31AFA /* LogOutTableViewCell.xib in Resources */,
 				D4AD98181EA9ACFD00C9FAB9 /* ActionsPostTableViewCell.xib in Resources */,
 				D4AD98191EA9ACFD00C9FAB9 /* Montserrat-UltraLight.otf in Resources */,
@@ -3066,14 +3117,17 @@
 				D4AD981C1EA9ACFD00C9FAB9 /* ThingNavigationBar.xib in Resources */,
 				D4CF4DA11ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */,
 				D4AD981D1EA9ACFD00C9FAB9 /* UserCommentTableViewCell.xib in Resources */,
+				60F5190C1FD5F04300C08C8D /* preciso0.png in Resources */,
 				D4AD981E1EA9ACFD00C9FAB9 /* Boomer.storyboard in Resources */,
 				D4788DEB1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */,
 				D4AD981F1EA9ACFD00C9FAB9 /* UserInformationTableViewCell.xib in Resources */,
 				D4AD98201EA9ACFD00C9FAB9 /* DescriptionTableViewCell.xib in Resources */,
+				60F518ED1FD5EF0C00C08C8D /* doar_0006.png in Resources */,
 				D4AD98211EA9ACFD00C9FAB9 /* Home.storyboard in Resources */,
 				A4A0DB9A1F733DC2008AD89A /* SearchThings.storyboard in Resources */,
 				60A0F1131ED9F2B100585888 /* EmptyView.xib in Resources */,
 				D4F71F891F4A7D7F0085636F /* AmountPostInteractionTableViewCell.xib in Resources */,
+				60F518E01FD5EEC600C08C8D /* Tenho_0007.png in Resources */,
 				D4AD98221EA9ACFD00C9FAB9 /* Montserrat-Regular.otf in Resources */,
 				D4AD98231EA9ACFD00C9FAB9 /* RecommendedPostCollectionViewCell.xib in Resources */,
 				D4AD98241EA9ACFD00C9FAB9 /* HighlightCollectionViewCell.xib in Resources */,
@@ -3083,14 +3137,22 @@
 				D484FA391EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
 				D4AD98271EA9ACFD00C9FAB9 /* Main.storyboard in Resources */,
 				D4AD98281EA9ACFD00C9FAB9 /* PhotoNavigationBar.xib in Resources */,
+				60F518D11FD5EEC600C08C8D /* Tenho_0006.png in Resources */,
+				60F519051FD5EF0C00C08C8D /* doar_0001.png in Resources */,
 				2F8C4EA11F648A98000B0AE9 /* PageCollectionViewCell.xib in Resources */,
+				60F518FF1FD5EF0C00C08C8D /* doar_0005.png in Resources */,
+				60F518FC1FD5EF0C00C08C8D /* doar_0004.png in Resources */,
+				60F519081FD5EF0C00C08C8D /* doar_0008.png in Resources */,
 				D4AD98291EA9ACFD00C9FAB9 /* Montserrat-Black.otf in Resources */,
 				60F6974F1F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib in Resources */,
+				60F518F91FD5EF0C00C08C8D /* doar_0003.png in Resources */,
 				D4AD982A1EA9ACFD00C9FAB9 /* BoomerThingCollection.xib in Resources */,
 				D484FA411EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
 				D4AD982C1EA9ACFD00C9FAB9 /* PostTableViewCell.xib in Resources */,
 				D4AD982D1EA9ACFD00C9FAB9 /* PostCollectionViewCell.xib in Resources */,
+				60F518C81FD5EEC600C08C8D /* Tenho_0001.png in Resources */,
 				D4AD982E1EA9ACFD00C9FAB9 /* ThingConditionTableViewCell.xib in Resources */,
+				60F518F61FD5EF0C00C08C8D /* doar_0000.png in Resources */,
 				D4AD98301EA9ACFD00C9FAB9 /* Assets.xcassets in Resources */,
 				D492C1E31EBB7596004243DE /* ThingBar.xib in Resources */,
 				D4AD98311EA9ACFD00C9FAB9 /* RecommendedPostTableViewCell.xib in Resources */,
@@ -3101,6 +3163,7 @@
 				D4AD98371EA9ACFD00C9FAB9 /* SimpleTextFieldTableViewCell.xib in Resources */,
 				A431D1041F53B6C7009D7338 /* GenericBoomerAlertController.xib in Resources */,
 				D4AD98381EA9ACFD00C9FAB9 /* SwitchButtonTableViewCell.xib in Resources */,
+				60F518CB1FD5EEC600C08C8D /* Tenho_0000.png in Resources */,
 				D458F8661FA02A28006A71AD /* PostPhotoCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3111,6 +3174,7 @@
 			files = (
 				D4AD98CD1EA9AD0400C9FAB9 /* PhotoThingCollectionViewCell.xib in Resources */,
 				D4AD98CE1EA9AD0400C9FAB9 /* Montserrat-ExtraBold.otf in Resources */,
+				60F518D51FD5EEC600C08C8D /* Tenho_0008.png in Resources */,
 				2F0BAC081EDA64AA00B31AFA /* DistanceRadiusTableViewCell.xib in Resources */,
 				D4AD98D01EA9AD0400C9FAB9 /* DescriptionTextTableViewCell.xib in Resources */,
 				D4AD98D11EA9AD0400C9FAB9 /* Montserrat-Medium.ttf in Resources */,
@@ -3121,19 +3185,27 @@
 				2F0BAC001EDA299000B31AFA /* NotificationSwitchTableViewCell.xib in Resources */,
 				D4AD98D51EA9AD0400C9FAB9 /* IconNavigationBar.xib in Resources */,
 				D4AD98D61EA9AD0400C9FAB9 /* TypePostTableViewCell.xib in Resources */,
+				60F518D81FD5EEC600C08C8D /* Tenho_0003.png in Resources */,
 				D4AD98D71EA9AD0400C9FAB9 /* BoomerMyThingCell.xib in Resources */,
 				D4AD98D81EA9AD0400C9FAB9 /* AddBoomerCell.xib in Resources */,
 				D4AD98D91EA9AD0400C9FAB9 /* MyThings.storyboard in Resources */,
 				D4AD98DA1EA9AD0400C9FAB9 /* InterestedTableViewCell.xib in Resources */,
 				D4AD98DB1EA9AD0400C9FAB9 /* Montserrat-MediumItalic.ttf in Resources */,
+				60F518C61FD5EEC600C08C8D /* Tenho_0005.png in Resources */,
 				D4AD98DC1EA9AD0400C9FAB9 /* BoomerThingCell.xib in Resources */,
 				D4AD98DD1EA9AD0400C9FAB9 /* Authentication.storyboard in Resources */,
+				60F518DB1FD5EEC600C08C8D /* Tenho_0009.png in Resources */,
 				D4AD98DE1EA9AD0400C9FAB9 /* LinkPostTableViewCell.xib in Resources */,
 				D4AD98DF1EA9AD0400C9FAB9 /* Montserrat-Hairline.otf in Resources */,
+				60F518F41FD5EF0C00C08C8D /* doar_0002.png in Resources */,
 				D4AD98E01EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.xib in Resources */,
+				60F518DE1FD5EEC600C08C8D /* Tenho_0002.png in Resources */,
+				60F518CF1FD5EEC600C08C8D /* Tenho_0004.png in Resources */,
 				D4AD98E21EA9AD0400C9FAB9 /* Profile.storyboard in Resources */,
 				D4AD98E31EA9AD0400C9FAB9 /* PageControlCollectionViewCell.xib in Resources */,
+				60F519031FD5EF0C00C08C8D /* doar_0009.png in Resources */,
 				60DDA2B01F69910B0044BD64 /* OnboardAuthenticationCollectionViewCell.xib in Resources */,
+				60F518F11FD5EF0C00C08C8D /* doar_0007.png in Resources */,
 				2F0BAC0E1EDA67F500B31AFA /* LogOutTableViewCell.xib in Resources */,
 				D4AD98E41EA9AD0400C9FAB9 /* ActionsPostTableViewCell.xib in Resources */,
 				D4AD98E51EA9AD0400C9FAB9 /* Montserrat-UltraLight.otf in Resources */,
@@ -3142,14 +3214,17 @@
 				D4AD98E81EA9AD0400C9FAB9 /* ThingNavigationBar.xib in Resources */,
 				D4CF4DA21ED52E7600E732DE /* SeeMoreCollectionViewCell.xib in Resources */,
 				D4AD98E91EA9AD0400C9FAB9 /* UserCommentTableViewCell.xib in Resources */,
+				60F5190D1FD5F04300C08C8D /* preciso0.png in Resources */,
 				D4AD98EA1EA9AD0400C9FAB9 /* Boomer.storyboard in Resources */,
 				D4788DEC1ECE1BDD00E5E55F /* MorePostTableViewCell.xib in Resources */,
 				D4AD98EB1EA9AD0400C9FAB9 /* UserInformationTableViewCell.xib in Resources */,
 				D4AD98EC1EA9AD0400C9FAB9 /* DescriptionTableViewCell.xib in Resources */,
+				60F518EE1FD5EF0C00C08C8D /* doar_0006.png in Resources */,
 				D4AD98ED1EA9AD0400C9FAB9 /* Home.storyboard in Resources */,
 				A4A0DB9B1F733DC2008AD89A /* SearchThings.storyboard in Resources */,
 				60A0F1141ED9F2B100585888 /* EmptyView.xib in Resources */,
 				D4F71F8A1F4A7D7F0085636F /* AmountPostInteractionTableViewCell.xib in Resources */,
+				60F518E11FD5EEC600C08C8D /* Tenho_0007.png in Resources */,
 				D4AD98EE1EA9AD0400C9FAB9 /* Montserrat-Regular.otf in Resources */,
 				D4AD98EF1EA9AD0400C9FAB9 /* RecommendedPostCollectionViewCell.xib in Resources */,
 				D4AD98F01EA9AD0400C9FAB9 /* HighlightCollectionViewCell.xib in Resources */,
@@ -3159,14 +3234,22 @@
 				D484FA3A1EAD8B660054E415 /* NotificationTableViewCell.xib in Resources */,
 				D4AD98F31EA9AD0400C9FAB9 /* Main.storyboard in Resources */,
 				D4AD98F41EA9AD0400C9FAB9 /* PhotoNavigationBar.xib in Resources */,
+				60F518D21FD5EEC600C08C8D /* Tenho_0006.png in Resources */,
+				60F519061FD5EF0C00C08C8D /* doar_0001.png in Resources */,
 				2F8C4EA31F648A9A000B0AE9 /* PageCollectionViewCell.xib in Resources */,
+				60F519001FD5EF0C00C08C8D /* doar_0005.png in Resources */,
+				60F518FD1FD5EF0C00C08C8D /* doar_0004.png in Resources */,
+				60F519091FD5EF0C00C08C8D /* doar_0008.png in Resources */,
 				D4AD98F51EA9AD0400C9FAB9 /* Montserrat-Black.otf in Resources */,
 				60F697501F758DF300D35FAB /* EmptyFriendsCollectionViewCell.xib in Resources */,
+				60F518FA1FD5EF0C00C08C8D /* doar_0003.png in Resources */,
 				D4AD98F61EA9AD0400C9FAB9 /* BoomerThingCollection.xib in Resources */,
 				D484FA421EADB3190054E415 /* SearchFriendsTableViewCell.xib in Resources */,
 				D4AD98F81EA9AD0400C9FAB9 /* PostTableViewCell.xib in Resources */,
 				D4AD98F91EA9AD0400C9FAB9 /* PostCollectionViewCell.xib in Resources */,
+				60F518C91FD5EEC600C08C8D /* Tenho_0001.png in Resources */,
 				D4AD98FA1EA9AD0400C9FAB9 /* ThingConditionTableViewCell.xib in Resources */,
+				60F518F71FD5EF0C00C08C8D /* doar_0000.png in Resources */,
 				D4AD98FC1EA9AD0400C9FAB9 /* Assets.xcassets in Resources */,
 				D492C1E41EBB7596004243DE /* ThingBar.xib in Resources */,
 				D4AD98FD1EA9AD0400C9FAB9 /* RecommendedPostTableViewCell.xib in Resources */,
@@ -3177,6 +3260,7 @@
 				D4AD99031EA9AD0400C9FAB9 /* SimpleTextFieldTableViewCell.xib in Resources */,
 				A431D1051F53B6C7009D7338 /* GenericBoomerAlertController.xib in Resources */,
 				D4AD99041EA9AD0400C9FAB9 /* SwitchButtonTableViewCell.xib in Resources */,
+				60F518CC1FD5EEC600C08C8D /* Tenho_0000.png in Resources */,
 				D458F8671FA02A28006A71AD /* PostPhotoCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
