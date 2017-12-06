@@ -319,22 +319,22 @@ class ThrowViewController: UIViewController {
     }
     
     func parseFieldsNeedOrHave(){
-        self.params[CreatePostTitles.keyParseTitle] = self.fields[2]
-        self.params[CreatePostTitles.keyParseContent] = self.fields[3]
-        self.params[CreatePostTitles.keyParseTime] = self.fields[4]
+        self.params[CreatePostTitles.keyParseTitle] = self.fields[3]
+        self.params[CreatePostTitles.keyParseContent] = self.fields[4]
+        self.params[CreatePostTitles.keyParseTime] = self.fields[5]
         
         if typeVC == .need {
-            self.params[CreatePostTitles.keyParseExchangeDescription] = self.fields[5]
-            self.params[CreatePostTitles.keyParsePlace] = self.fields[6]
+            self.params[CreatePostTitles.keyParseExchangeDescription] = self.fields[6]
+            self.params[CreatePostTitles.keyParsePlace] = self.fields[7]
         } else {
-            self.params[CreatePostTitles.keyParsePlace] = self.fields[5]
+            self.params[CreatePostTitles.keyParsePlace] = self.fields[6]
         }
     }
     
     func parseFieldsDonate(){
-        self.params[CreatePostTitles.keyParseTitle] = self.fields[1]
-        self.params[CreatePostTitles.keyParseContent] = self.fields[2]
-        self.params[CreatePostTitles.keyParsePlace] = self.fields[3]
+        self.params[CreatePostTitles.keyParseTitle] = self.fields[2]
+        self.params[CreatePostTitles.keyParseContent] = self.fields[3]
+        self.params[CreatePostTitles.keyParsePlace] = self.fields[4]
     }
     
     func verifyEmptyParams() -> String? {
@@ -363,9 +363,12 @@ class ThrowViewController: UIViewController {
             return msgErro
         }
         
-        if self.params[CreatePostTitles.keyParsePlace] == nil || self.params[CreatePostTitles.keyParsePlace] == "" {
-            msgErro = CreatePostTitles.msgErrorPlace
-            return msgErro
+        if self.params[CreatePostTitles.keyParsePlace] == "" || self.params[CreatePostTitles.keyParsePlace] == nil {
+            self.params[CreatePostTitles.keyParsePlace] = "Na base da conversa"
+        }
+        
+        if self.params[CreatePostTitles.keyParseTime] == "" || self.params[CreatePostTitles.keyParseTime] == nil {
+            self.params[CreatePostTitles.keyParseTime] = "Na base da conversa"
         }
         
         if self.isAvailable == nil {
@@ -374,19 +377,8 @@ class ThrowViewController: UIViewController {
         }
         
         if typeVC == .need {
-            if self.params[CreatePostTitles.keyParseTime] == nil || self.params[CreatePostTitles.keyParseTime] == "" {
-                msgErro = CreatePostTitles.msgErrorTime
-                return msgErro
-            }
-            
             if self.params[CreatePostTitles.keyParseExchangeDescription] == nil || self.params[CreatePostTitles.keyParseExchangeDescription] == "" {
                 msgErro = CreatePostTitles.msgErrorExchangeDescription
-                return msgErro
-            }
-        } else if typeVC == .have {
-            
-            if self.params[CreatePostTitles.keyParseTime] == nil || self.params[CreatePostTitles.keyParseTime] == "" {
-                msgErro = CreatePostTitles.msgErrorTime
                 return msgErro
             }
         }
@@ -394,20 +386,22 @@ class ThrowViewController: UIViewController {
         return msgErro
     }
     
-    func createPost () {
+    func createPost() {
         self.view.endEditing(true)
-        let post = Post(author:
-            User.current()!.profile!,
-                        title: params[CreatePostTitles.keyParseTitle]!,
-                        content: params[CreatePostTitles.keyParseContent]!,
-                        loanTime: params[CreatePostTitles.keyParseTime],
-                        exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription],
-                        place: params[CreatePostTitles.keyParsePlace]!,
-                        condition: typeScheme,
-                        typePost: typeVC)
         
-        var allFilesObject = [PFObject]()
-        
+        if let profile = User.current()!.profile, let title = params[CreatePostTitles.keyParseTitle], let content = params[CreatePostTitles.keyParseContent], let place = params[CreatePostTitles.keyParsePlace] {
+            
+            let post = Post(author: profile,
+                            title: title,
+                            content: content,
+                            loanTime: params[CreatePostTitles.keyParseTime],
+                            exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription],
+                            place: place,
+                            condition: typeScheme,
+                            typePost: typeVC)
+            
+            var allFilesObject = [PFObject]()
+            
             for image in allImages {
                 if let pictureData = UIImageJPEGRepresentation(image, 0.2) {
                     let pictureFileObject = PFFile(data: pictureData, contentType: "image/jpeg")
@@ -442,6 +436,7 @@ class ThrowViewController: UIViewController {
                 }
             }
         }
+    }
 }
 
 extension ThrowViewController: UITableViewDataSource {
@@ -519,39 +514,5 @@ extension ThrowViewController {
         view.endEditing(true)
     }
 }
-
-extension ThrowViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostPhotoCollectionViewCell.identifier, for: indexPath) as? PostPhotoCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        
-        cell.postPhoto.image = allImages[indexPath.row]
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return allImages.count
-    }
-}
-
-extension ThrowViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: self.view.frame.size.width, height: self.collectionView.frame.height)
-    }
-}
-
-extension ThrowViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-    }
-}
-
 
 
