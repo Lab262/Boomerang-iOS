@@ -200,6 +200,8 @@ struct CloudFunctions {
     static let enterInterestedList = "enterInterestedList"
     static let likePost = "likePost"
     static let validatePromoCode = "validatePromoCode"
+    static let registerPromoCode = "registerPromoCode"
+
     static let averageStars = "averageStars"
 }
 
