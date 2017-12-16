@@ -46,7 +46,6 @@ class RecommendedEmptyStateTableViewCell: UITableViewCell {
     func generateEmptyFriendsUserCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyFriendsCollectionViewCell.identifier, for: indexPath) as! EmptyFriendsCollectionViewCell
-        
         cell.titleLabel.text = "Adicione posts."
         cell.messageLabel.text = "O aplicativo ainda não possui posts. Adicione posts, e comece os arremessos."
         
