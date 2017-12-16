@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6tJ-GG-Y7U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6tJ-GG-Y7U">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -154,7 +153,7 @@
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ia1-ch-nHw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -275,7 +274,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ib3-OU-oB4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="551"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="lwI-ha-fq8" id="YhG-TX-vIE"/>
@@ -283,7 +282,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocF-wu-cir" customClass="EmptyView" customModule="lab262_boomerang_dev" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="375" height="521"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="501"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Está tudo tranquilo por aqui"/>
@@ -292,7 +291,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_throw_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="BXL-QW-spo">
-                                <rect key="frame" x="0.0" y="349.5" width="375" height="221.5"/>
+                                <rect key="frame" x="0.0" y="357.5" width="375" height="213.5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -343,7 +342,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6yI-zn-Z9W">
-                                <rect key="frame" x="8" y="-8" width="359" height="44"/>
+                                <rect key="frame" x="8" y="12" width="359" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -356,7 +355,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MXU-YC-co1">
-                                <rect key="frame" x="0.0" y="48" width="375" height="523"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="491"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="50" id="4iJ-QM-tnC">
@@ -413,26 +412,36 @@
                                     <outlet property="delegate" destination="P36-NT-g3H" id="1m4-bV-YQo"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foi mal! Mas não achei nada nessa busca.. tenta outra migx vai que cola!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omz-tb-Y0e">
+                                <rect key="frame" x="47" y="315.5" width="281" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6yI-zn-Z9W" firstAttribute="top" secondItem="OaU-jl-BAb" secondAttribute="bottom" constant="-8" id="1g1-RO-P2V"/>
                             <constraint firstAttribute="trailing" secondItem="6yI-zn-Z9W" secondAttribute="trailing" constant="8" id="98T-gQ-QpB"/>
                             <constraint firstItem="MXU-YC-co1" firstAttribute="leading" secondItem="OUf-dZ-x8S" secondAttribute="leading" id="Auk-Qd-0F8"/>
+                            <constraint firstItem="Omz-tb-Y0e" firstAttribute="centerX" secondItem="MXU-YC-co1" secondAttribute="centerX" id="EmM-uK-Hne"/>
                             <constraint firstAttribute="trailing" secondItem="MXU-YC-co1" secondAttribute="trailing" id="Wiz-ph-uQQ"/>
+                            <constraint firstItem="Omz-tb-Y0e" firstAttribute="centerY" secondItem="MXU-YC-co1" secondAttribute="centerY" id="fOD-Mf-goU"/>
                             <constraint firstAttribute="bottom" secondItem="MXU-YC-co1" secondAttribute="bottom" id="gIj-Tf-XZp"/>
+                            <constraint firstItem="Omz-tb-Y0e" firstAttribute="width" secondItem="MXU-YC-co1" secondAttribute="width" multiplier="0.75" id="jpu-Kl-oFh"/>
                             <constraint firstItem="6yI-zn-Z9W" firstAttribute="leading" secondItem="OUf-dZ-x8S" secondAttribute="leading" constant="8" id="uUw-4O-fD4"/>
                             <constraint firstItem="MXU-YC-co1" firstAttribute="top" secondItem="6yI-zn-Z9W" secondAttribute="bottom" constant="12" id="wpj-6a-vJl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchResultEmptyStateLabel" destination="Omz-tb-Y0e" id="WWU-JY-zzd"/>
                         <outlet property="tableView" destination="MXU-YC-co1" id="1zT-5c-MHq"/>
                         <segue destination="xWH-hl-94I" kind="show" identifier="goToProfile" id="0Ix-XT-r2P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juC-Ik-082" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="2118"/>
+            <point key="canvasLocation" x="1085.5999999999999" y="2117.9910044977514"/>
         </scene>
         <!--profileView-->
         <scene sceneID="Gou-4v-DRS">
@@ -455,7 +464,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qoK-ug-ZNa">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="551"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="nVa-n2-p05" id="tAl-Wf-fYf"/>
@@ -463,7 +472,7 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_throw_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="dkP-CT-hLC">
-                                <rect key="frame" x="0.0" y="349.5" width="375" height="221.5"/>
+                                <rect key="frame" x="0.0" y="357.5" width="375" height="213.5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
