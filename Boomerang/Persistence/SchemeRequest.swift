@@ -43,14 +43,19 @@ class SchemeRequest: NSObject {
         }
     }
     
-    static func see(scheme: Scheme, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+    static func see(scheme: Scheme, isOwner: Bool, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
         
         var queryParams = [String: Any]()
         queryParams[ObjectKeys.objectId] = scheme.objectId
         
         var colunmsUpdated = [String: Any]()
         
-        colunmsUpdated["beenSeen"] = true
+        if isOwner {
+            colunmsUpdated["beenSeenOwner"] = true
+        } else {
+            colunmsUpdated["beenSeenRequester"] = true
+        }
+   
         colunmsUpdated["showNotification"] = false
         
         ParseRequest.updateObject(className: scheme.parseClassName, queryParams: queryParams, colunmsUpdated: colunmsUpdated) { (success, msg) in

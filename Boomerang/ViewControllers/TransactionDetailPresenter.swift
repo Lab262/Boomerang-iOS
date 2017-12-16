@@ -32,10 +32,22 @@ class TransactionDetailPresenter: NSObject {
     }
     
     func seeScheme() {
-        if !scheme.beenSeen {
-            SchemeRequest.see(scheme: scheme) { (success, msg) in
+        if isOwnerOfScheme() && !scheme.beenSeenOwner {
+            SchemeRequest.see(scheme: scheme, isOwner: isOwnerOfScheme()) { (success, msg) in
                 if success {
+                    
                 } else {
+                    
+                }
+            }
+        }
+        
+        if !isOwnerOfScheme() && !scheme.beenSeenRequester {
+            SchemeRequest.see(scheme: scheme, isOwner: isOwnerOfScheme()) { (success, msg) in
+                if success {
+                    
+                } else {
+                    
                 }
             }
         }
@@ -63,6 +75,10 @@ class TransactionDetailPresenter: NSObject {
         } else {
             return scheme.owner!
         }
+    }
+    
+    func isOwnerOfScheme() -> Bool {
+        return scheme.owner?.objectId == profile.objectId
     }
  
     func fetchChat() {

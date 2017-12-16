@@ -67,7 +67,11 @@ class TransactionCellPresenter: NSObject {
     }
     
     func schemeBeenSeen() -> Bool {
-        return scheme.beenSeen
+        if isOwnerOfScheme() {
+            return scheme.beenSeenOwner
+        } else {
+            return scheme.beenSeenRequester
+        }
     }
     
     func setupDevolutionDescriptionStyle(label: UILabel) {
@@ -153,6 +157,10 @@ class TransactionCellPresenter: NSObject {
             getInformationsTransactionByTypeOfPost(isFromUser: false, postCondition: getPost().postConditionEnum!)
             //iew?.toImage = self.user.profileImage
         }
+    }
+    
+    func isOwnerOfScheme() -> Bool {
+        return scheme.owner?.objectId == currentProfile.objectId
     }
     
     func getCustomAttributtedTextStartsWithPhrase(title: String) -> NSMutableAttributedString{
