@@ -26,6 +26,7 @@ class HomeMainViewController: UIViewController {
     let tableViewTopInset: CGFloat = 0
     let tableViewBottomInset: CGFloat = 40.0
     var presenter = HomePresenter()
+    var refreshControl = UIRefreshControl()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,7 +44,20 @@ class HomeMainViewController: UIViewController {
         registerObservers()
         getTimeLinePosts()
         setupSubscribe()
+        tableView.addSubview(refreshControl)
+        //refreshControl.backgroundColor = UIColor.redColo
+       // refreshControl.tintColor = .white
+     //   refreshControl.addTarget(self, action: #selector(getTimeLinePosts()), for: .valueChanged)
+//        [self.refreshControl addTarget:self
+//            action:@selector(getLatestLoans)
+//            forControlEvents:UIControlEventValueChanged];
     }
+    
+//    func getTimeLinePosts() {
+//        if self.refreshControl.isRefreshing {
+//            self.refreshControl.endRefreshing()
+//        }
+//    }
     
     @IBAction func showSearchThingsVC(_ sender: Any) {
         TabBarController.mainTabBarController.hideTabBar()

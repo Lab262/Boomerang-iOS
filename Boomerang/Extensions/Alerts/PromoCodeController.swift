@@ -20,7 +20,17 @@ class PromoCodeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupObservers()
         self.centerYConstraint.constant = self.view.frame.size.height
+    }
+    
+    func setupObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
     }
     
     @IBAction func selectPositiveAction(_ sender: Any) {
@@ -92,24 +102,27 @@ extension PromoCodeController {
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             keyboardHeight = keyboardRectangle.height
-            showViewAnimation()
+        
+            UIView.animate(
+                withDuration: 0.25,
+                delay: 0.0,
+                options: UIViewAnimationOptions(),
+                animations: {
+                    () -> Void in
+                    self.centerYConstraint.constant = -self.keyboardHeight
+            },
+                completion: nil)
         }
     }
     
     func showViewAnimation() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: NSNotification.Name.UIKeyboardWillShow,
-            object: nil
-        )
         UIView.animate(withDuration: 0.1, animations: {
             self.backgroundView.alpha = 1.0
         }, completion: { (finished) in
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
                 self.centerYConstraint.constant = 0.0
                 if self.keyboardHeight > 0 {
-                     self.centerYConstraint.constant = 0.0 - self.keyboardHeight + self.viewCont.frame.size.height
+                     self.centerYConstraint.constant = self.keyboardHeight + self.viewCont.frame.size.height
                 }
                 self.view.layoutIfNeeded()
                 }, completion: nil)

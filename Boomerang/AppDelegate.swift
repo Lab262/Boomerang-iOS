@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var initialViewController: UIViewController? = nil
         
-        if let _ = PFUser.current() {
+        if let _ = PFUser.current()?.email {
             UserRequest.getProfileUser(completionHandler: { (success, msg) in
                 if success {
                     initialViewController = ViewUtil.viewControllerFromStoryboardWithIdentifier("Main", identifier: "")
