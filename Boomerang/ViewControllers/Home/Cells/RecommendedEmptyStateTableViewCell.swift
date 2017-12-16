@@ -11,6 +11,7 @@ import UIKit
 class RecommendedEmptyStateTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    weak var selectionDelegate: CollectionViewSelectionDelegate?
     
     static var identifier: String {
         return "recommendedEmptyStateCell"
@@ -37,6 +38,7 @@ class RecommendedEmptyStateTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
     func registerNib(){
         collectionView.registerNibFrom(EmptyFriendsCollectionViewCell.self)
     }
@@ -49,6 +51,13 @@ class RecommendedEmptyStateTableViewCell: UITableViewCell {
         cell.messageLabel.text = "O aplicativo ainda não possui posts. Adicione posts, e comece os arremessos."
         
         return cell
+    }
+    
+    func goToCreatePost(_ sender: UIButton) {
+        
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        
+        self.selectionDelegate?.pushFor(identifier: SegueIdentifiers.homeToProfile, sectionPost: .recommended, didSelectItemAt: indexPath)
     }
 }
 
@@ -67,7 +76,9 @@ extension RecommendedEmptyStateTableViewCell: UICollectionViewDataSource {
 
 
 extension RecommendedEmptyStateTableViewCell: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectionDelegate?.callCreatePostController()
+    }
 }
 
 
