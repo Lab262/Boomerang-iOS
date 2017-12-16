@@ -19,7 +19,7 @@ class UserRequest: NSObject {
         PFFacebookUtils.logInInBackground(withReadPermissions: permissions) { (user, error) in
             if let user = user, error == nil {
                 let query = PFQuery(className: "UserPromoCodes")
-                query.whereKey("userGuestPointer", equalTo: user.objectId!)
+                query.whereKey("userGuestPointer", equalTo: user)
                 query.findObjectsInBackground(block: { (objectArray, error) in
                     if let objectArray = objectArray, error == nil, objectArray.count > 0 {
                         completionHandler(true, "", user, true)

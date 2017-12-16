@@ -17,6 +17,7 @@ class PromoCodeController: UIViewController {
     var alertActionBlock: (_ isPositiveAnswer: Bool) -> Void = { ok in }
     var delegate: PromoCodeRequestDelegate?
     var keyboardHeight = CGFloat(0.0)
+    var promoCodeId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,42 +37,47 @@ class PromoCodeController: UIViewController {
     @IBAction func selectPositiveAction(_ sender: Any) {
         self.dismissViewAnimation()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showViewAnimation()
     }
-
+    
     @IBAction func openTermsOfService(_ sender: Any) {
         print("open terms of service")
     }
-
+    
     @IBAction func registerPromoCode(_ sender: Any) {
         if self.isValidated {
-            self.dismiss(animated: false, completion: { 
-                self.delegate?.afterValidateCode()
+            PromoCodeRequest.registerCode(code: self.promoCodeId, completionHandler: { (success, msg) in
+                self.dismiss(animated: false, completion: {
+                    self.delegate?.afterValidateCode()
+                })
             })
         } else {
             self.promoCodeTextField.shakeAnimation()
         }
     }
-
+    
     @IBAction func didChangePromoCode(_ sender: UITextField) {
-        PromoCodeRequest.checkValidity(code: sender.text!, completionHandler: { (success, msg, isValid) in
+        PromoCodeRequest.checkValidity(code: sender.text!, completionHandler: { (success, msg, isValid, promoCodeId) in
             self.setupValidState(isValid: isValid)
+            if isValid {
+                self.promoCodeId = promoCodeId
+            }
         })
         print(sender.text ?? "")
     }
-
+    
     @IBAction func askPromoCode(_ sender: Any) {
         print("ask promo code ")
     }
-
-
+    
+    
     @IBAction func dismissView(_ sender: Any) {
         self.dismissViewAnimation()
     }
-
+    
     public class func presentMe(inParent vc: UIViewController, delegate: PromoCodeRequestDelegate?) {
         
         let boomerAlert = PromoCodeController()
@@ -80,9 +86,9 @@ class PromoCodeController: UIViewController {
         boomerAlert.view.backgroundColor = .clear
         vc.present(boomerAlert, animated: false, completion: nil)
     }
-
+    
     func setupValidState(isValid: Bool) {
-
+        
         if isValid {
             self.promoCodeTextField.textColor =  UIColor.colorWithHexString("2AC148")
             self.promoCodeTextFieldBackground.borderColor = UIColor.colorWithHexString("2AC148")
@@ -92,7 +98,7 @@ class PromoCodeController: UIViewController {
         }
         self.isValidated = isValid
     }
-
+    
 }
 
 //Pragma MARK: - PopUp Animation
@@ -102,16 +108,12 @@ extension PromoCodeController {
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             keyboardHeight = keyboardRectangle.height
-        
-            UIView.animate(
-                withDuration: 0.25,
-                delay: 0.0,
-                options: UIViewAnimationOptions(),
-                animations: {
-                    () -> Void in
-                    self.centerYConstraint.constant = -100
+            
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+                () -> Void in
+                self.centerYConstraint.constant = -100
             },
-                completion: nil)
+                           completion: nil)
         }
     }
     
@@ -122,11 +124,11 @@ extension PromoCodeController {
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
                 self.centerYConstraint.constant = 0.0
                 if self.keyboardHeight > 0 {
-                     self.centerYConstraint.constant = self.keyboardHeight + self.viewCont.frame.size.height
+                    self.centerYConstraint.constant = self.keyboardHeight + self.viewCont.frame.size.height
                 }
                 self.view.layoutIfNeeded()
-                }, completion: { (finished) in
-                    self.promoCodeTextField.becomeFirstResponder()
+            }, completion: { (finished) in
+                self.promoCodeTextField.becomeFirstResponder()
             })
         }) 
     }
@@ -136,8 +138,8 @@ extension PromoCodeController {
             self.centerYConstraint.constant = self.view.frame.size.height
             self.view.layoutIfNeeded()
             self.backgroundView.alpha = 0.0
-            }, completion: { (finished) in
-                self.dismiss(animated: false, completion:nil)
+        }, completion: { (finished) in
+            self.dismiss(animated: false, completion:nil)
         })
     }
 }

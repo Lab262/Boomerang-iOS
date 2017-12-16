@@ -57,12 +57,12 @@ class BoomerMainViewController: UIViewController {
     }
     
     func animateIconImages() {
-        animateIconImage(iconImageView: iconNeedImageView, animationDuration: 1.5, prefixImage: "preciso", countImages: 41)
-        Timer.scheduledTimer(withTimeInterval: 1.7, repeats: false) { (timer) in
-            self.animateIconImage(iconImageView: self.iconHaveImageView, animationDuration: 2.3, prefixImage: "Tenho_000", countImages: 47)
+        animateIconImage(iconImageView: iconNeedImageView, animationDuration: 0.7, prefixImage: "Preciso_000", countImages: 41)
+        Timer.scheduledTimer(withTimeInterval: 0.9, repeats: false) { (timer) in
+            self.animateIconImage(iconImageView: self.iconHaveImageView, animationDuration: 0.7, prefixImage: "Tenho_000", countImages: 47)
             timer.invalidate()
-            Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { (timer) in
-                self.animateIconImage(iconImageView: self.iconDonateImageView, animationDuration: 1.3, prefixImage: "doar_000", countImages: 31)
+            Timer.scheduledTimer(withTimeInterval: 0.9, repeats: false) { (timer) in
+                self.animateIconImage(iconImageView: self.iconDonateImageView, animationDuration: 0.9, prefixImage: "doar_000", countImages: 31)
                 timer.invalidate()
             }
         }
