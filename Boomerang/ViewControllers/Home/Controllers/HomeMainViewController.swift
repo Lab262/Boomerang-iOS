@@ -44,20 +44,7 @@ class HomeMainViewController: UIViewController {
         registerObservers()
         getTimeLinePosts()
         setupSubscribe()
-       // tableView.addSubview(refreshControl)
-        //refreshControl.backgroundColor = UIColor.redColo
-       // refreshControl.tintColor = .white
-     //   refreshControl.addTarget(self, action: #selector(getTimeLinePosts()), for: .valueChanged)
-//        [self.refreshControl addTarget:self
-//            action:@selector(getLatestLoans)
-//            forControlEvents:UIControlEventValueChanged];
     }
-    
-//    func getTimeLinePosts() {
-//        if self.refreshControl.isRefreshing {
-//            self.refreshControl.endRefreshing()
-//        }
-//    }
     
     @IBAction func showSearchThingsVC(_ sender: Any) {
         TabBarController.mainTabBarController.hideTabBar()
@@ -278,6 +265,8 @@ extension HomeMainViewController {
     func generateEmptyStateCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedEmptyStateTableViewCell.identifier, for: indexPath) as! RecommendedEmptyStateTableViewCell
         
+         cell.selectionDelegate = self
+        
 //        cell.presenter.posts = presenter.featuredPosts
 //        cell.updateCell()
 //        cell.delegate = self
@@ -394,6 +383,11 @@ extension HomeMainViewController: CollectionViewSelectionDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationKeys.selectSearchFriendsTab), object: nil, userInfo: nil)
         }
+    }
+    
+    func callCreatePostController() {
+        TabBarController.mainTabBarController.uiTabBarController.selectedIndex = 2
+        TabBarController.mainTabBarController.changeStatesButtons(tag: 2)
     }
 }
 

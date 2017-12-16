@@ -18,4 +18,6 @@ protocol CollectionViewSelectionDelegate: class {
     func pushFor(identifier: String, sectionPost: SectionPost?, didSelectItemAt indexPath: IndexPath?)
     
     func callSearchFriendsController()
+    
+    func callCreatePostController()
 }
