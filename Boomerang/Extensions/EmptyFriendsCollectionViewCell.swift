@@ -10,6 +10,7 @@ import UIKit
 
 class EmptyFriendsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var backgroundImageView: UIView!
     static var identifier: String {
         return "emptyFriendsCollectionViewCell"
     }
