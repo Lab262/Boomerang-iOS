@@ -44,7 +44,7 @@ class HomeMainViewController: UIViewController {
         registerObservers()
         getTimeLinePosts()
         setupSubscribe()
-        tableView.addSubview(refreshControl)
+       // tableView.addSubview(refreshControl)
         //refreshControl.backgroundColor = UIColor.redColo
        // refreshControl.tintColor = .white
      //   refreshControl.addTarget(self, action: #selector(getTimeLinePosts()), for: .valueChanged)
@@ -152,14 +152,26 @@ extension HomeMainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.section {
-        case 0:
-            return generateRecommendedCell(tableView, cellForRowAt: indexPath)
-        case 1:
+        if indexPath.section == 0 {
+            if self.presenter.featuredPosts.isEmpty  {
+                return generateEmptyStateCell(tableView, cellForRowAt: indexPath)
+            } else {
+                return generateRecommendedCell(tableView, cellForRowAt: indexPath)
+            }
+        } else if indexPath.section == 1 {
             return generateFriendsPostsCell(tableView, cellForRowAt: indexPath)
-        default:
+        } else {
             return generateOthersPostsCell(tableView, cellForRowAt: indexPath)
         }
+        
+//        switch indexPath.section {
+//        case 0:
+//            return generateRecommendedCell(tableView, cellForRowAt: indexPath)
+//        case 1:
+//            return generateFriendsPostsCell(tableView, cellForRowAt: indexPath)
+//        default:
+//            return generateOthersPostsCell(tableView, cellForRowAt: indexPath)
+//        }
     }
 }
 
@@ -232,6 +244,7 @@ extension HomeMainViewController {
         tableView.registerNibFrom(HomeCollectionHeader.self)
         tableView.registerNibFrom(RecommendedPostTableViewCell.self)
         tableView.registerNibFrom(PostTableViewCell.self)
+        tableView.registerNibFrom(RecommendedEmptyStateTableViewCell.self)
     }
     
     func registerObservers(){
@@ -261,6 +274,19 @@ extension HomeMainViewController {
         
         return cell
     }
+    
+    func generateEmptyStateCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RecommendedEmptyStateTableViewCell.identifier, for: indexPath) as! RecommendedEmptyStateTableViewCell
+        
+//        cell.presenter.posts = presenter.featuredPosts
+//        cell.updateCell()
+//        cell.delegate = self
+//        cell.selectionDelegate = self
+//        boomerThingDelegate = cell
+        
+        return cell
+    }
+    
     
     func generateFriendsPostsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell

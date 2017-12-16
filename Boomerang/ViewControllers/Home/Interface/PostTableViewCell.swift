@@ -90,7 +90,7 @@ extension PostTableViewCell: UICollectionViewDataSource {
             default:
                 return generatePostCell(collectionView, cellForItemAt: indexPath)
             }
-        }else {
+        } else {
             return generateEmptyFriendsUserCell(collectionView, cellForItemAt: indexPath)
         }
     }

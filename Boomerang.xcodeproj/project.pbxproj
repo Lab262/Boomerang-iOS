@@ -388,6 +388,12 @@
 		D42F22E91EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
 		D42F22EA1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
 		D42F22EB1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
+		D43282781FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43282761FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift */; };
+		D43282791FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43282761FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift */; };
+		D432827A1FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43282761FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift */; };
+		D432827B1FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43282771FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib */; };
+		D432827C1FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43282771FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib */; };
+		D432827D1FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43282771FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib */; };
 		D433D07F1E91D8E700112B32 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */; };
 		D433D0801E91D8E700112B32 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */; };
 		D433D0821E93E59600112B32 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433D0811E93E59600112B32 /* ProfilePresenter.swift */; };
@@ -1269,6 +1275,8 @@
 		D41623081F83447300E7C1AF /* InterestedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedRequest.swift; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionMainHistoryViewController.swift; sourceTree = "<group>"; };
+		D43282761FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedEmptyStateTableViewCell.swift; sourceTree = "<group>"; };
+		D43282771FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendedEmptyStateTableViewCell.xib; sourceTree = "<group>"; };
 		D433D07D1E91D8E700112B32 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		D433D07E1E91D8E700112B32 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
 		D433D0811E93E59600112B32 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePresenter.swift; path = Controller/ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -2390,6 +2398,8 @@
 		D498F0441E820D54002E8972 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				D43282761FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift */,
+				D43282771FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib */,
 				A4FE06311DD09AA200BFDC4D /* HomeCollectionHeader.swift */,
 				D48734FB1E7884470065E13A /* RecommendedPostTableViewCell.swift */,
 				D4A012F71E7AC85600B3B811 /* PostTableViewCell.swift */,
@@ -2894,6 +2904,7 @@
 				2F4957D21ECD32AF0001554E /* preciso29.png in Resources */,
 				2F4957D31ECD32AF0001554E /* preciso30.png in Resources */,
 				60F5190B1FD5F04300C08C8D /* preciso0.png in Resources */,
+				D432827B1FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib in Resources */,
 				A4FE062E1DD0967E00BFDC4D /* HomeCollectionHeader.xib in Resources */,
 				2F4957CA1ECD32AF0001554E /* preciso21.png in Resources */,
 				2F4958381ECD32C50001554E /* Tenho_00042.png in Resources */,
@@ -3159,6 +3170,7 @@
 				D4AD98321EA9ACFD00C9FAB9 /* Transaction.storyboard in Resources */,
 				D4AD98331EA9ACFD00C9FAB9 /* LaunchScreen.storyboard in Resources */,
 				D4AD98341EA9ACFD00C9FAB9 /* Montserrat-Bold.otf in Resources */,
+				D432827C1FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib in Resources */,
 				D4AD98361EA9ACFD00C9FAB9 /* Montserrat-Light.otf in Resources */,
 				D4AD98371EA9ACFD00C9FAB9 /* SimpleTextFieldTableViewCell.xib in Resources */,
 				A431D1041F53B6C7009D7338 /* GenericBoomerAlertController.xib in Resources */,
@@ -3256,6 +3268,7 @@
 				D4AD98FE1EA9AD0400C9FAB9 /* Transaction.storyboard in Resources */,
 				D4AD98FF1EA9AD0400C9FAB9 /* LaunchScreen.storyboard in Resources */,
 				D4AD99001EA9AD0400C9FAB9 /* Montserrat-Bold.otf in Resources */,
+				D432827D1FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.xib in Resources */,
 				D4AD99021EA9AD0400C9FAB9 /* Montserrat-Light.otf in Resources */,
 				D4AD99031EA9AD0400C9FAB9 /* SimpleTextFieldTableViewCell.xib in Resources */,
 				A431D1051F53B6C7009D7338 /* GenericBoomerAlertController.xib in Resources */,
@@ -3714,6 +3727,7 @@
 				A404537A1DD3F33800A42E4B /* BoomerMainViewController.swift in Sources */,
 				D4C5BBD91ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				2FA93B291E4A881E0080F99A /* UserRequest.swift in Sources */,
+				D43282781FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift in Sources */,
 				A4AFBB021DD272A700F270C7 /* UIApplication+Navigation.swift in Sources */,
 				D4C134E91E9C8265003F55E4 /* ChatRequest.swift in Sources */,
 				D4AD976E1EA81A1F00C9FAB9 /* EvaluationViewController.swift in Sources */,
@@ -3931,6 +3945,7 @@
 				D4AD97801EA9ACFD00C9FAB9 /* AppDelegate.swift in Sources */,
 				D4C5BBDA1ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				D4AD97811EA9ACFD00C9FAB9 /* BoomerMainViewController.swift in Sources */,
+				D43282791FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift in Sources */,
 				D4AD97821EA9ACFD00C9FAB9 /* UserRequest.swift in Sources */,
 				D4AD97831EA9ACFD00C9FAB9 /* UIApplication+Navigation.swift in Sources */,
 				D4AD97841EA9ACFD00C9FAB9 /* ChatRequest.swift in Sources */,
@@ -4139,6 +4154,7 @@
 				D4AD984C1EA9AD0400C9FAB9 /* AppDelegate.swift in Sources */,
 				D4C5BBDB1ED7764D008EB531 /* SearchFriendsPresenter.swift in Sources */,
 				D4AD984D1EA9AD0400C9FAB9 /* BoomerMainViewController.swift in Sources */,
+				D432827A1FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift in Sources */,
 				D4AD984E1EA9AD0400C9FAB9 /* UserRequest.swift in Sources */,
 				D4AD984F1EA9AD0400C9FAB9 /* UIApplication+Navigation.swift in Sources */,
 				D4AD98501EA9AD0400C9FAB9 /* ChatRequest.swift in Sources */,

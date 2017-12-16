@@ -10,7 +10,6 @@ import UIKit
 
 class EmptyView: UIView {
 
-    
     @IBOutlet var view: UIView!
     @IBOutlet weak var imageEmpty: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

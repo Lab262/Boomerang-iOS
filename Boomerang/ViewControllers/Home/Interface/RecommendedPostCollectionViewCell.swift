@@ -32,7 +32,7 @@ class RecommendedPostCollectionViewCell: UICollectionViewCell {
     }
     
     static var cellSize: CGSize {
-        return  CGSize(width: 366, height: 306)
+        return CGSize(width: 366, height: 306)
     }
     
     static var nibName: String {
