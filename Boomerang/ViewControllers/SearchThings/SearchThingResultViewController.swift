@@ -11,6 +11,7 @@ import UIKit
 class SearchThingResultViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchPlaceholderLabel: UILabel!
     
     @IBOutlet weak var emptyView: EmptyView!
     var presenter = SearchThingsPresenter()
@@ -79,7 +80,11 @@ extension SearchThingResultViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        if presenter.posts.count > 0 {
+            self.searchPlaceholderLabel.isHidden = true
+        } else {
+            self.searchPlaceholderLabel.isHidden = false
+        }
         return presenter.posts.count
     }
 }

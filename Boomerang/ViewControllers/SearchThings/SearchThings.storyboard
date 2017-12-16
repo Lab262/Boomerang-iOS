@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yfD-bC-I5M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yfD-bC-I5M">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +12,9 @@
     <customFonts key="customFonts">
         <array key="Montserrat-Bold.otf">
             <string>Montserrat-Bold</string>
+        </array>
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -317,21 +320,31 @@ Vamos ver</string>
                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="schemeEmptyImage"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foi mal! Mas não achei nada nessa busca.. tenta outra migx vai que cola!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAy-Tu-dRo">
+                                <rect key="frame" x="47" y="235" width="281" height="61.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MuD-Ow-FpC" firstAttribute="top" secondItem="6XF-4h-GME" secondAttribute="bottom" id="550-Mq-4Vx"/>
                             <constraint firstItem="6XF-4h-GME" firstAttribute="leading" secondItem="A0f-BS-JFj" secondAttribute="leading" id="7eo-CX-dm6"/>
+                            <constraint firstItem="eAy-Tu-dRo" firstAttribute="centerX" secondItem="A0f-BS-JFj" secondAttribute="centerX" id="Gdt-L2-Y3F"/>
                             <constraint firstAttribute="trailing" secondItem="eUc-js-B4b" secondAttribute="trailing" id="KYg-QV-LCE"/>
+                            <constraint firstItem="eAy-Tu-dRo" firstAttribute="width" secondItem="A0f-BS-JFj" secondAttribute="width" multiplier="0.75" id="R9W-1Q-iSk"/>
                             <constraint firstItem="eUc-js-B4b" firstAttribute="leading" secondItem="A0f-BS-JFj" secondAttribute="leading" id="T9x-OT-qsm"/>
                             <constraint firstItem="6XF-4h-GME" firstAttribute="top" secondItem="y6f-xz-HiD" secondAttribute="bottom" constant="50" id="hyg-SR-vB3"/>
                             <constraint firstItem="MuD-Ow-FpC" firstAttribute="top" secondItem="eUc-js-B4b" secondAttribute="bottom" id="oRC-qR-Fw3"/>
                             <constraint firstItem="eUc-js-B4b" firstAttribute="top" secondItem="y6f-xz-HiD" secondAttribute="bottom" id="odg-dQ-s2B"/>
                             <constraint firstAttribute="trailing" secondItem="6XF-4h-GME" secondAttribute="trailing" id="s7i-AU-oW9"/>
+                            <constraint firstItem="eAy-Tu-dRo" firstAttribute="centerY" secondItem="A0f-BS-JFj" secondAttribute="centerY" id="wN8-sH-K1Y"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emptyView" destination="6XF-4h-GME" id="VtY-iD-VIz"/>
+                        <outlet property="searchPlaceholderLabel" destination="eAy-Tu-dRo" id="NoB-qQ-6Pg"/>
                         <outlet property="tableView" destination="eUc-js-B4b" id="bcO-r2-3O0"/>
                         <segue destination="Kzt-uV-Wlz" kind="show" identifier="goToProfile" id="d2l-Y0-QN6"/>
                         <segue destination="xmC-2O-tJ8" kind="show" identifier="goToDetailThing" id="U9K-gD-G6h"/>
@@ -339,7 +352,7 @@ Vamos ver</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMy-64-cTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="2034"/>
+            <point key="canvasLocation" x="900" y="2033.433283358321"/>
         </scene>
         <!--profileView-->
         <scene sceneID="4Tl-wI-pdb">
