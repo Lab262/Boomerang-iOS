@@ -97,7 +97,7 @@ class TabBarController: UIViewController {
     
     func selectButtonPost(tag: Int){
         if tag == 2 {
-            self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.01, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
+            self.viewContainerCenterOption.bouncingAnimation(false, duration: 0.1, delay: 0.0, completion: {(finished) in }, finalAlpha: 1.0, animationOptions: .curveEaseInOut)
             self.imgViewCenterOption.image = #imageLiteral(resourceName: "ic_boomerangWhite")
             self.viewContainerCenterOption.backgroundColor = .yellowBoomerColor
         }else{
