@@ -109,7 +109,7 @@ extension PromoCodeController {
                 options: UIViewAnimationOptions(),
                 animations: {
                     () -> Void in
-                    self.centerYConstraint.constant = -self.keyboardHeight
+                    self.centerYConstraint.constant = -100
             },
                 completion: nil)
         }
@@ -125,7 +125,9 @@ extension PromoCodeController {
                      self.centerYConstraint.constant = self.keyboardHeight + self.viewCont.frame.size.height
                 }
                 self.view.layoutIfNeeded()
-                }, completion: nil)
+                }, completion: { (finished) in
+                    self.promoCodeTextField.becomeFirstResponder()
+            })
         }) 
     }
     
