@@ -246,8 +246,8 @@ class ThingDetailViewController: UIViewController {
     }
     
     func initializeComposeBar(){
-        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height - 100, width: self.view.frame.width, height: 100.0)
-        composeBarView = PHFComposeBarView(frame: CGRect(x: 0.0, y: (initialViewFrame?.size.height)! - PHFComposeBarViewInitialHeight, width: (initialViewFrame?.size.width)!, height: PHFComposeBarViewInitialHeight))
+        initialViewFrame = CGRect(x: 0.0, y: self.view.frame.height - PHFComposeBarViewInitialHeight, width: self.view.frame.width, height: PHFComposeBarViewInitialHeight)
+        composeBarView = PHFComposeBarView(frame: CGRect(x: 0.0, y: 0.0, width: (initialViewFrame?.size.width)!, height: PHFComposeBarViewInitialHeight))
         composeBarView?.maxCharCount = 160
         composeBarView?.maxLinesCount = 5
         composeBarView?.placeholder = "Comente"
