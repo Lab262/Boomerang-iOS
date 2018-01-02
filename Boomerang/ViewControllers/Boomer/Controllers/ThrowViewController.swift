@@ -33,6 +33,7 @@ class ThrowViewController: UIViewController {
     var typeScheme:ConditionEnum?
     var isAvailable:Bool?
     var boolTypeScheme:Bool?
+    var editablePost: Post?
     
     var isNeedToGiveSomething = false
     
@@ -147,6 +148,7 @@ class ThrowViewController: UIViewController {
         }
 
         self.createPost()
+        
     }
     
     //MARK: Generate Tables Views Cells
@@ -178,6 +180,10 @@ class ThrowViewController: UIViewController {
         cell.selectionStyle = .none
         cell.titleLabel.text = titleCell
         cell.defaultSizeFont = sizeFont
+        
+        if self.fields[indexPath.row] != "" &&  self.fields[indexPath.row] != nil {
+            cell.textView.text = self.fields[indexPath.row]
+        }
         
         cell.handler!.completion = { (text) -> Void in
             self.fields[indexPath.row] = text
@@ -225,6 +231,10 @@ class ThrowViewController: UIViewController {
         cell.selectionStyle = .none
         cell.titleLabel.text = title
         cell.textField.placeholder = placeholder
+        
+        if self.fields[indexPath.row] != "" &&  self.fields[indexPath.row] != nil {
+            cell.textField.text = self.fields[indexPath.row]
+        }
         
         cell.handler!.completion = { (text) -> Void in
             self.fields[indexPath.row] = text
@@ -515,4 +525,47 @@ extension ThrowViewController {
     }
 }
 
+//MARK: Editable Post
+extension ThrowViewController {
+    func setupEditablePost (post: Post) {
+        self.editablePost = post
+        self.typeScheme = self.editablePost?.postConditionEnum
+        self.setupFields()
+    }
+    
+    private func setupFields(){
+        switch typeVC {
+        case .need, .have, .all:
+            setupFieldsNeedOrHave()
+        case .donate:
+            setupFieldsDonate()
+        }
+        self.isAvailable = self.editablePost?.isAvailable
+    }
+    
+    private func setupFieldsNeedOrHave(){
+        self.fields[3] = self.editablePost?.title
+        self.fields[4] = self.editablePost?.content
+        self.fields[5] = self.editablePost?.loanTime
+        
+        if typeVC == .need {
+            self.fields[6] = self.editablePost?.exchangeDescription
+            self.fields[7] = self.editablePost?.place
+        } else {
+            self.fields[6] = self.editablePost?.place
+        }
+        
+        if self.typeScheme == ConditionEnum.loan {
+            self.boolTypeScheme = true
+        }else if self.typeScheme == ConditionEnum.exchange {
+            self.boolTypeScheme = false
+        }
+    }
+    
+    private func setupFieldsDonate(){
+        self.fields[2] = self.editablePost?.title
+        self.fields[3] = self.editablePost?.content
+        self.fields[4] = self.editablePost?.place
+    }
+}
 

@@ -14,6 +14,10 @@ class ThingBar: UIView {
     @IBOutlet weak var titleBarLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var editButtonImage: UIImageView!
+    
+    var typePost = TypePostEnum.have
+    var titlePost = TypePostTitles.have
     
     @IBAction func leftAction(_ sender: Any) {
         if let navController = UIApplication.topViewController()?.navigationController {
@@ -35,6 +39,18 @@ class ThingBar: UIView {
         self.addSubview(view)
         view.frame = self.bounds
         titleBarLabel.setDynamicFont()
+        self.showEditAction(isHidden: true)
+    }
+    
+    private func showEditAction(isHidden: Bool = false){
+        self.editButton.isHidden = isHidden
+        self.editButtonImage.isHidden = isHidden
+    }
+    
+    func setupEditAction(typePost: TypePostEnum, titlePost: String) {
+        self.showEditAction()
+        self.typePost = typePost
+        self.titlePost = titlePost
     }
     
     @IBInspectable var titleLabelText: String? {

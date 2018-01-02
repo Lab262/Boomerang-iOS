@@ -267,11 +267,19 @@ class ThingDetailViewController: UIViewController {
     func setNavigationInformations(){
         defaultValueAlphaTitleNavigation = navigationBarView.titleBarLabel.alpha
         navigationBarView.titleBarLabel.text = presenter.getCurrentType()
-        navigationInformationsView.thingNameLabel.text = presenter.post.title
+        if presenter.authorPostIsCurrent() {
+            navigationBarView.editButton.addTarget(self, action: #selector(goToEditPost(_:)), for: .touchUpInside)
+            navigationBarView.setupEditAction(typePost: presenter.post.typePostEnum ?? TypePostEnum.have, titlePost: presenter.getCurrentType())
+        }
+        navigationInformationsView.thingNameLabel.text = presenter.post.title ?? ""
         navigationInformationsView.thingNameLabel.setDynamicFont()
 
         navigationBarView.titleBarLabel.setDynamicFont()
         navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+    }
+    
+    func goToEditPost(_ sender: Any){
+        performSegue(withIdentifier: SegueIdentifiers.detailThingToEditPost, sender: self)
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
@@ -390,6 +398,26 @@ class ThingDetailViewController: UIViewController {
         if let controller = segue.destination as? RecommendedViewController {
             controller.presenter.post = presenter.post
         }
+        
+        if let controller = segue.destination as? ThrowViewController {
+            setupThrowViewControllerInfo(controller: controller)
+        }
+    }
+    
+    func setupThrowViewControllerInfo(controller: ThrowViewController){
+        controller.typeVC = presenter.post.typePostEnum ?? TypePostEnum.have
+        controller.titleHeader = presenter.getCurrentType()
+        
+        //Get Images
+        if let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? PhotoThingTableViewCell {
+            let numberPhotos = cell.photoCollectionView.numberOfItems(inSection: 0)
+            for row in 0...(numberPhotos - 1) {
+                let imagePost = cell.presenter.getImagePostByIndex(row)
+                controller.allImages.append(imagePost)
+            }
+        }
+        
+        controller.setupEditablePost(post: presenter.post)
     }
     
     func generateMoreButton(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
