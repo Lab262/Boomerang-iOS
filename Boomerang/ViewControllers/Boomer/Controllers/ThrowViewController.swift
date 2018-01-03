@@ -147,7 +147,7 @@ class ThrowViewController: UIViewController {
             return
         }
 
-        self.createPost()
+        self.createOrUpdatePost()
         
     }
     
@@ -396,19 +396,25 @@ class ThrowViewController: UIViewController {
         return msgErro
     }
     
-    func createPost() {
+    func createOrUpdatePost() {
         self.view.endEditing(true)
         
         if let profile = User.current()!.profile, let title = params[CreatePostTitles.keyParseTitle], let content = params[CreatePostTitles.keyParseContent], let place = params[CreatePostTitles.keyParsePlace] {
             
-            let post = Post(author: profile,
-                            title: title,
-                            content: content,
-                            loanTime: params[CreatePostTitles.keyParseTime],
-                            exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription],
-                            place: place,
-                            condition: typeScheme,
-                            typePost: typeVC)
+            var post = self.editablePost
+            
+            if post == nil {
+                post = Post()
+            }
+            
+            post?.setup(author: profile,
+                        title: title,
+                        content: content,
+                        loanTime: params[CreatePostTitles.keyParseTime],
+                        exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription],
+                        place: place,
+                        condition: typeScheme,
+                        typePost: typeVC)
             
             var allFilesObject = [PFObject]()
             
@@ -425,12 +431,30 @@ class ThrowViewController: UIViewController {
             
             PFObject.saveAll(inBackground: allFilesObject) { (success, error) in
                 if success {
-                    let relation = post.relation(forKey: "photos")
-                    for fileObject in allFilesObject {
-                        relation.add(fileObject)
+                    let relation = post?.relation(forKey: "photos")
+                    
+                    //Removing older relations
+                    let relationQuery = relation?.query()
+                    var objectArray: [PFObject]?
+                    
+                    do {
+                        objectArray = try relationQuery?.findObjects()
+                    } catch {
+                        objectArray = nil
                     }
                     
-                    post.saveInBackground(block: { (success, error) in
+                    if let objectArray = objectArray {
+                        for object in objectArray {
+                            relation?.remove(object)
+                        }
+                    }
+                    
+                    //Adding new relations
+                    for fileObject in allFilesObject {
+                        relation?.add(fileObject)
+                    }
+                    
+                    post?.saveInBackground(block: { (success, error) in
                         if success {
                             self.present(ViewUtil.viewControllerFromStoryboardWithIdentifier("Boomer", identifier: "feedbackCreatePost")!, animated: true, completion: nil)
                         } else {

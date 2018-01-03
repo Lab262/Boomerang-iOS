@@ -101,9 +101,7 @@ class Post: PFObject {
         }
     }
     
-    convenience init(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: ConditionEnum?, typePost: TypePostEnum) {
-        
-        self.init()
+    func setup(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: ConditionEnum?, typePost: TypePostEnum) {
         
         self.author = author
         self.title = title
@@ -113,7 +111,7 @@ class Post: PFObject {
         
         let postTypes = ApplicationState.sharedInstance.postTypes
         let conditions = ApplicationState.sharedInstance.postConditions
-    
+        
         for postType in postTypes where postType.type == typePost.rawValue {
             self.type = postType
         }
@@ -138,6 +136,14 @@ class Post: PFObject {
                 self.condition = cond
             }
         }
+        
+    }
+    
+    convenience init(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: ConditionEnum?, typePost: TypePostEnum) {
+        
+        self.init()
+        
+        self.setup(author: author, title: title, content: content, loanTime: loanTime, exchangeDescription: exchangeDescription, place: place, condition: condition, typePost: typePost)
     }
 }
 
