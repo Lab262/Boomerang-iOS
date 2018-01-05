@@ -538,11 +538,11 @@ class ThingDetailViewController: UIViewController {
             configureButtons(actionsPostCell: cell)
             setupActionButtons(actionsPostCell: cell)
         
-        presenter.getWaitingListAmount { (success, msg, amount) in
-            if amount != 0 {
-                cell.setupWaitingListAmount(amount: amount)
-            }
-        }
+//        presenter.getWaitingListAmount { (success, msg, amount) in
+//            if amount != 0 {
+//                cell.setupWaitingListAmount(amount: amount)
+//            }
+//        }
         
         return cell
     }
