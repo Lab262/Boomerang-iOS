@@ -92,8 +92,10 @@ class ChatViewController: JSQMessagesViewController {
 
 extension ChatViewController: ChatDelegate {
     func reload() {
-        self.finishSendingMessage(animated: true)
-        self.collectionView.reloadData()
+        DispatchQueue.main.sync {
+            self.finishSendingMessage(animated: true)
+            self.collectionView.reloadData()
+        }
     }
     
     func updateStatusMessage(success: Bool) {
