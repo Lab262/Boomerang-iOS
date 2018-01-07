@@ -1,6 +1,6 @@
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "2.35.1"
+fastlane_version "2.72.0"
 
 default_platform :ios
 
@@ -8,7 +8,7 @@ app_base_bundle = "lab262.boomerang"
 
 
   platform :ios do
-    
+
     before_all do
       ENV['DEVELOPER_DIR'] = '/Applications/Xcode.app/'
       ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
@@ -27,7 +27,7 @@ app_base_bundle = "lab262.boomerang"
       )
       gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
       changelog_from_git_commits # this will generate the changelog based on your last commits
-      testflight(username: "thiago.mb@icloud.com",
+      testflight(username: "tmb0710@gmail.com",
       team_name:"Thiago Bernardes",
       beta_app_description: "Olá Futuros Boomers! Como estão?
 
@@ -57,7 +57,7 @@ app_base_bundle = "lab262.boomerang"
       )
       gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
       changelog_from_git_commits # this will generate the changelog based on your last commits
-      testflight(username: "thiago.mb@icloud.com",
+      testflight(username: "tmb0710@gmail.com",
       team_name:"Thiago Bernardes",
       beta_app_description: "Olá Futuros Boomers! Como estão?
 
@@ -86,7 +86,7 @@ app_base_bundle = "lab262.boomerang"
       )
       increment_version_number
       gym(scheme: app_final_bundle, include_bitcode: false, clean: true)
-      deliver(username: "thiago.mb@icloud.com",team_name:"Thiago Bernardes",force: true,app_identifier:app_final_bundle)
+      deliver(username: "tmb0710@gmail.com",team_name:"Thiago Bernardes",force: true,app_identifier:app_final_bundle)
       slack(message: 'Successfully released a new App Store build')
     end
 
