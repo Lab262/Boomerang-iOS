@@ -39,6 +39,7 @@ class NotificationRequester: NSObject {
         query.whereKey("receiver", equalTo: profile)
         query.includeKey("sender")
         query.includeKey("post")
+        query.includeKey("post.author")
         query.includeKey("scheme")
         query.selectKeys(["sender", "post", "hasBeenSeen", "notificationDescription", "scheme"])
         query.whereKey("objectId", notContainedIn: objectIds)
@@ -51,19 +52,13 @@ class NotificationRequester: NSObject {
                         let notification = obj as? NotificationModel
                         notification?.receiver = profile
                         notification?.post?.setupEnums()
-                        notification?.scheme?.post = notification?.post
-                        if notification?.post?.author?.objectId == profile.objectId {
-                            notification?.post?.author = profile
-                            notification?.scheme?.post?.author = profile
+                        if let _ = notification?.scheme {
+                            notification?.scheme?.post = notification?.post
+                            notification?.scheme?.post?.author = notification?.post?.author
                             notification?.scheme?.owner = profile
                             notification?.scheme?.requester = notification?.sender
-                        } else {
-                            notification?.post?.author = notification?.sender
-                            notification?.scheme?.post?.author = notification?.sender
-                            notification?.scheme?.owner = notification?.sender
-                            notification?.scheme?.requester = profile
-                            
                         }
+                        
                         notifications.append(notification!)
                     }
                 }
