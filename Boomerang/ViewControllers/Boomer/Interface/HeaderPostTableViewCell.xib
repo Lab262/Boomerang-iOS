@@ -77,6 +77,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addCoverLabel" destination="GXH-F7-TMD" id="DNk-Cg-xZs"/>
+                <outlet property="backgroundImageTopConstraint" destination="Nf8-X5-Toy" id="mMm-BA-rz1"/>
                 <outlet property="backgroundImageView" destination="aaK-F5-Cwf" id="aCS-ak-F3h"/>
                 <outlet property="collectionView" destination="7Js-lC-Rj1" id="TKU-rv-0NZ"/>
                 <outlet property="iconCameraImage" destination="oEj-BP-dMD" id="crc-d3-6Hu"/>

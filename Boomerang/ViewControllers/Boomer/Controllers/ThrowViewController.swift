@@ -38,6 +38,7 @@ class ThrowViewController: UIViewController {
     var isNeedToGiveSomething = false
     
     @IBOutlet weak var coverPostHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     var titleHeader = String()
     var allImages = [UIImage]()
     
@@ -60,6 +61,10 @@ class ThrowViewController: UIViewController {
     func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            tableViewTopConstraint.constant = -45.0
+        }
     }
     
     func setupDelegates() {

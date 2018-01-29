@@ -22,6 +22,7 @@ class HeaderPostTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var addCoverLabel: UILabel!
     @IBOutlet weak var iconCameraImage: UIImageView!
+    @IBOutlet weak var backgroundImageTopConstraint: NSLayoutConstraint!
     
     private lazy var headerPostDataSource: HeaderPostDataSource = {
         [unowned self] in
@@ -39,6 +40,10 @@ class HeaderPostTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNib()
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            backgroundImageTopConstraint.constant = 40.0
+        }
     }
     
     func registerNib() {

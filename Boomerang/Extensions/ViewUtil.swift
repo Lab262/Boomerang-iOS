@@ -138,7 +138,12 @@ extension UIView {
     }
 
     static func heightScaleProportion() -> CGFloat {
-        return UIScreen.main.bounds.height / 667.0
+        let heightScreen = UIScreen.main.bounds.height
+        var proportion = heightScreen / 667.0
+        if heightScreen >= 812.0 {
+            proportion = proportion * 0.9
+        }
+        return proportion
     }
 
     static func widthScaleProportion() -> CGFloat {
