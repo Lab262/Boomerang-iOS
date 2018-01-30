@@ -207,6 +207,7 @@
                         <outlet property="navigationBar" destination="eTH-5p-7hf" id="IJc-ll-ssG"/>
                         <outlet property="navigationBarHeightConstraint" destination="f3W-tH-78f" id="5eG-o3-Act"/>
                         <outlet property="tableView" destination="nAt-8R-zUn" id="CVd-PN-jtU"/>
+                        <outlet property="thingNavigationBarHeightConstraint" destination="22d-oB-1rd" id="b5y-UU-f5K"/>
                         <segue destination="OAa-qd-sUY" kind="show" identifier="goToDetailThing" id="Oq6-Oc-jjw"/>
                         <segue destination="MLa-Zh-1Fj" kind="show" identifier="goToProfile" id="y32-IY-2mw"/>
                     </connections>
@@ -526,6 +527,8 @@
                         <outlet property="navigationInformationsView" destination="jlc-vg-cyQ" id="ECp-ER-mhE"/>
                         <outlet property="secondButton" destination="eyM-Z3-cUg" id="Ve1-73-kpn"/>
                         <outlet property="tableView" destination="MYy-Ur-yOs" id="m2r-me-coa"/>
+                        <outlet property="thingBarHeightConstraint" destination="f9p-ea-uCE" id="EE9-hI-CqV"/>
+                        <outlet property="thingNavigationBarHeightConstraint" destination="eel-I3-H9L" id="BVr-R7-6Hw"/>
                         <segue destination="nqi-1T-dTg" kind="show" identifier="goToInterestedList" id="XQL-ae-FkL"/>
                         <segue destination="MLa-Zh-1Fj" kind="show" identifier="goToProfile" id="jkn-bi-iuA"/>
                         <segue destination="sb2-yh-WZM" kind="show" identifier="goToRecommended" id="wmz-BD-fDu"/>
@@ -609,6 +612,7 @@
                         <outlet property="navigationBar" destination="y1K-iB-3MG" id="Lmr-AR-fMJ"/>
                         <outlet property="navigationBarHeightConstraint" destination="6OA-DT-HRe" id="SfK-mI-f9w"/>
                         <outlet property="tableView" destination="Wep-AY-WV6" id="N5v-0o-oMj"/>
+                        <outlet property="thingNavigationBarHeightConstraint" destination="1Iu-9h-kEw" id="ahx-xn-jFR"/>
                         <segue destination="pUB-g2-0Er" kind="show" identifier="goToChat" id="aNp-Bi-LDZ"/>
                     </connections>
                 </viewController>
@@ -751,6 +755,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AL7-AX-imq"/>
-        <segue reference="62i-PM-F01"/>
+        <segue reference="jkn-bi-iuA"/>
     </inferredMetricsTieBreakers>
 </document>

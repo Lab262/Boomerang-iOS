@@ -27,7 +27,9 @@ class ThingDetailViewController: UIViewController {
     @IBOutlet weak var navigationInformationsView: ThingNavigationBar!
     @IBOutlet weak var navigationBarView: ThingBar!
     var currentIndexPath: IndexPath?
-   
+    @IBOutlet weak var thingNavigationBarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var thingBarHeightConstraint: NSLayoutConstraint!
+    
     var commentCount: Int? = 0 {
         didSet{
             tableView.reloadData()
@@ -276,6 +278,11 @@ class ThingDetailViewController: UIViewController {
 
         navigationBarView.titleBarLabel.setDynamicFont()
         navigationBarView.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            thingNavigationBarHeightConstraint.constant += 25.0
+            thingBarHeightConstraint.constant += 25.0
+        }
     }
     
     func goToEditPost(_ sender: Any){

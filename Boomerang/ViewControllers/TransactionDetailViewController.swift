@@ -13,11 +13,13 @@ class TransactionDetailViewController: UIViewController {
     let tableViewTopInset: CGFloat = 131.0
     
     @IBOutlet weak var navigationBar: ThingBar!
+    @IBOutlet weak var thingBarHeightConstraint: NSLayoutConstraint!
     
     
     @IBOutlet weak var finalizeButton: UIButton!
     
     @IBOutlet weak var thingNavigationBar: ThingNavigationBar!
+    @IBOutlet weak var thingNavigationBarHeightConstraint: NSLayoutConstraint!
     
     var presenter: TransactionDetailPresenter = TransactionDetailPresenter()
     
@@ -60,6 +62,11 @@ class TransactionDetailViewController: UIViewController {
         
         navigationBar.titleBarLabel.setDynamicFont()
         thingNavigationBar.thingNameLabel.setDynamicFont()
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            thingNavigationBarHeightConstraint.constant += 25.0
+            thingBarHeightConstraint.constant += 25.0
+        }
     }
     
     func setupPopoverAction(){

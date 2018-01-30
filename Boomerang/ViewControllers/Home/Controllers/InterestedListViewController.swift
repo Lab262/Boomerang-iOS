@@ -17,6 +17,7 @@ class InterestedListViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: IconNavigationBar!
     @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var thingNavigationBarHeightConstraint: NSLayoutConstraint!
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.hideTabBar()
@@ -33,6 +34,7 @@ class InterestedListViewController: UIViewController {
         //iPhone X
         if UIScreen.main.bounds.height >= 812.0 {
             navigationBarHeightConstraint.constant += 25.0
+            thingNavigationBarHeightConstraint.constant += 25.0
         }
         
     }

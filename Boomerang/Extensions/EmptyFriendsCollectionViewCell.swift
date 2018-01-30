@@ -29,7 +29,7 @@ class EmptyFriendsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.titleLabel.setDynamicFont()
-        self.messageLabel.setDynamicFont()
+        //self.messageLabel.setDynamicFont()
     }
 
 }

@@ -50,7 +50,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN2-zh-c3m">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN2-zh-c3m">
                         <rect key="frame" x="14" y="185.5" width="240.5" height="31.5"/>
                         <string key="text">Você ainda não tem nenhum amigo, 
 adicione e comece os arremessos.</string>
@@ -82,6 +82,7 @@ adicione e comece os arremessos.</string>
             <constraints>
                 <constraint firstItem="gN2-zh-c3m" firstAttribute="top" secondItem="NPR-XK-c5z" secondAttribute="bottom" constant="3" id="5y5-OA-Y9Z"/>
                 <constraint firstItem="NPR-XK-c5z" firstAttribute="top" secondItem="4w5-dx-gqt" secondAttribute="bottom" constant="8" id="9Ok-xt-el2"/>
+                <constraint firstAttribute="bottom" secondItem="gN2-zh-c3m" secondAttribute="bottom" constant="11" id="BOT-AE-zWd"/>
                 <constraint firstAttribute="trailing" secondItem="gN2-zh-c3m" secondAttribute="trailing" constant="15.5" id="GLc-wb-uFa"/>
                 <constraint firstItem="4w5-dx-gqt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GXw-Hi-fXR"/>
                 <constraint firstItem="NPR-XK-c5z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="W6y-Fj-GS2"/>
