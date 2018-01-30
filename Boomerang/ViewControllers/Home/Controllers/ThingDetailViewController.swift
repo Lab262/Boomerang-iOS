@@ -219,7 +219,9 @@ class ThingDetailViewController: UIViewController {
         
         if actionsPostCell.recommendButton.titleLabel?.text == nil {
             if !presenter.post.isAvailable {
-                actionsPostCell.isHidden = true
+                actionsPostCell.waitingListButton.setTitle(presenter.notAvailabeTitleButton, for: .normal)
+                actionsPostCell.waitingListButton.backgroundColor = UIColor.colorWithHexString("C20024")
+                actionsPostCell.recommendButton.isHidden = true
             } else if !presenter.authorPostIsCurrent() {
                 actionsPostCell.waitingListButton.titleLabel?.loadAnimation()
                 presenter.alreadyInterested(completionHandler: { (success, msg, title) in
@@ -244,7 +246,12 @@ class ThingDetailViewController: UIViewController {
         
         actionsPostCell.recommendButton.addTarget(self, action: #selector(goToRecommendedView(_:)), for: .touchUpInside)
         
-        actionsPostCell.waitingListButton.addTarget(self, action: #selector(enterInterestedList(_:)), for: .touchUpInside)
+        if self.presenter.post.isAvailable {
+            actionsPostCell.waitingListButton.addTarget(self, action: #selector(enterInterestedList(_:)), for: .touchUpInside)
+        }else {
+            actionsPostCell.waitingListButton.addTarget(self, action: #selector(showAlertNotAvailabe), for: .touchUpInside)
+        }
+        
     }
     
     func initializeComposeBar(){
@@ -327,6 +334,10 @@ class ThingDetailViewController: UIViewController {
         self.performSegue(withIdentifier: SegueIdentifiers.detailThingToRecommended, sender: self)
     }
     
+    func showAlertNotAvailabe(){
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Esse post não tá valendo! Quem fez o post ainda não liberou ele pra jogo :(", negativeAction: "Ok!") { (isPositive) in
+        }
+    }
     
     func setupKeyboardNotifications(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
@@ -567,11 +578,12 @@ extension ThingDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case inputFieldsCondition.count+4:
-            if !presenter.post.isAvailable {
-               return 0.1
-            } else {
-                return UITableViewAutomaticDimension
-            }
+//            if !presenter.post.isAvailable {
+//               return 0.1
+//            } else {
+//
+//            }
+             return UITableViewAutomaticDimension
         default:
             return UITableViewAutomaticDimension
         }

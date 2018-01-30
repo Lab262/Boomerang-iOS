@@ -33,6 +33,7 @@ class DetailThingPresenter: NSObject {
     let exitInterestedTitleButton: String = TitleButtons.exitInterested
     let recommendedTitleButton: String = TitleButtons.recommended
     let interestedListTitleButton: String = TitleButtons.interestedList
+    let notAvailabeTitleButton = TitleButtons.notAvailable
     var view: DetailThingDelegate?
     var commentCount = 0
     let liveQueryClient = ApplicationState.sharedInstance.liveQueryClient

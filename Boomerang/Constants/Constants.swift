@@ -152,6 +152,7 @@ struct TitleButtons {
     static let exitInterested = "Perdi interesse"
     static let recommended = "Recomendar"
     static let interestedList = "Lista de interessados"
+    static let notAvailable = "Esse post não tá valendo :)"
 }
 
 //MARK - Type Post Titles

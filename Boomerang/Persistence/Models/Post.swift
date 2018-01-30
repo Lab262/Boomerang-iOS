@@ -101,7 +101,7 @@ class Post: PFObject {
         }
     }
     
-    func setup(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: ConditionEnum?, typePost: TypePostEnum) {
+    func setup(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: ConditionEnum?, typePost: TypePostEnum, isAvailable: Bool?) {
         
         self.author = author
         self.title = title
@@ -116,7 +116,11 @@ class Post: PFObject {
             self.type = postType
         }
         
-        self.isAvailable = true
+        if let isAvailable = isAvailable {
+            self.isAvailable = isAvailable
+        }else {
+            self.isAvailable = true
+        }
         
         if let loanTime = loanTime {
             self.loanTime = loanTime
@@ -139,11 +143,11 @@ class Post: PFObject {
         
     }
     
-    convenience init(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: ConditionEnum?, typePost: TypePostEnum) {
+    convenience init(author: Profile, title: String, content: String, loanTime: String?, exchangeDescription: String?, place: String, condition: ConditionEnum?, typePost: TypePostEnum, isAvailable: Bool?) {
         
         self.init()
         
-        self.setup(author: author, title: title, content: content, loanTime: loanTime, exchangeDescription: exchangeDescription, place: place, condition: condition, typePost: typePost)
+        self.setup(author: author, title: title, content: content, loanTime: loanTime, exchangeDescription: exchangeDescription, place: place, condition: condition, typePost: typePost, isAvailable: isAvailable)
     }
 }
 

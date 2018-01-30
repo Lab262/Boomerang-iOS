@@ -419,7 +419,8 @@ class ThrowViewController: UIViewController {
                         exchangeDescription: params[CreatePostTitles.keyParseExchangeDescription],
                         place: place,
                         condition: typeScheme,
-                        typePost: typeVC)
+                        typePost: typeVC,
+                        isAvailable: isAvailable)
             
             var allFilesObject = [PFObject]()
             

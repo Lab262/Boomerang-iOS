@@ -31,6 +31,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_nav" translatesAutoresizingMaskIntoConstraints="NO" id="3bk-CY-qHr">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
+                    <color key="backgroundColor" red="0.76078431372549016" green="0.0" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="163" id="mBW-w5-yjw"/>
                     </constraints>
