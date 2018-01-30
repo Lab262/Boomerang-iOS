@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yfD-bC-I5M">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yfD-bC-I5M">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -22,10 +23,6 @@
         <scene sceneID="MXb-hn-9mw">
             <objects>
                 <viewController id="yfD-bC-I5M" customClass="SearchThingsMainViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5q0-ts-3rF"/>
-                        <viewControllerLayoutGuide type="bottom" id="dKa-LT-aJj"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iJM-kS-XcD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,7 +99,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Og4-dV-Z7y">
-                                        <rect key="frame" x="188" y="0.0" width="93.5" height="60"/>
+                                        <rect key="frame" x="188" y="0.0" width="93.666666666666686" height="60"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                         <state key="normal" title="Preciso">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,7 +143,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mq-8h-9jC">
-                                <rect key="frame" x="0.0" y="174" width="375" height="493"/>
+                                <rect key="frame" x="0.0" y="174" width="375" height="459"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="PoE-sV-9Kb" kind="embed" id="kYF-IT-WU3"/>
@@ -157,21 +154,22 @@
                         <constraints>
                             <constraint firstItem="DKf-7U-gkP" firstAttribute="top" secondItem="rc3-hx-hrY" secondAttribute="bottom" constant="-15" id="BRB-pp-L2p"/>
                             <constraint firstItem="eyQ-FR-Ndw" firstAttribute="top" secondItem="iJM-kS-XcD" secondAttribute="top" id="JXb-Te-4S5"/>
-                            <constraint firstAttribute="trailing" secondItem="DKf-7U-gkP" secondAttribute="trailing" id="LRX-5s-w50"/>
+                            <constraint firstItem="iwq-A7-Y6E" firstAttribute="trailing" secondItem="DKf-7U-gkP" secondAttribute="trailing" id="LRX-5s-w50"/>
                             <constraint firstItem="rc3-hx-hrY" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leadingMargin" constant="-8" id="RJJ-jD-VYE"/>
-                            <constraint firstItem="tbE-OD-9tx" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="Rsd-I9-wpB"/>
+                            <constraint firstItem="tbE-OD-9tx" firstAttribute="leading" secondItem="iwq-A7-Y6E" secondAttribute="leading" id="Rsd-I9-wpB"/>
                             <constraint firstItem="rc3-hx-hrY" firstAttribute="top" secondItem="eyQ-FR-Ndw" secondAttribute="bottom" constant="18" id="Ti4-nN-Ckh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rc3-hx-hrY" secondAttribute="trailing" constant="-8" id="WP5-Z2-UUP"/>
-                            <constraint firstItem="9mq-8h-9jC" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="Y2D-mK-GoZ"/>
-                            <constraint firstAttribute="trailing" secondItem="eyQ-FR-Ndw" secondAttribute="trailing" id="Y5F-XO-U30"/>
-                            <constraint firstItem="eyQ-FR-Ndw" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="YDi-n8-sha"/>
-                            <constraint firstAttribute="trailing" secondItem="9mq-8h-9jC" secondAttribute="trailing" id="YRW-vT-H4k"/>
-                            <constraint firstAttribute="trailing" secondItem="tbE-OD-9tx" secondAttribute="trailing" id="eBS-3V-5Vq"/>
-                            <constraint firstItem="dKa-LT-aJj" firstAttribute="top" secondItem="9mq-8h-9jC" secondAttribute="bottom" id="i6S-hE-UfX"/>
-                            <constraint firstItem="DKf-7U-gkP" firstAttribute="leading" secondItem="iJM-kS-XcD" secondAttribute="leading" id="iub-WA-B18"/>
+                            <constraint firstItem="9mq-8h-9jC" firstAttribute="leading" secondItem="iwq-A7-Y6E" secondAttribute="leading" id="Y2D-mK-GoZ"/>
+                            <constraint firstItem="iwq-A7-Y6E" firstAttribute="trailing" secondItem="eyQ-FR-Ndw" secondAttribute="trailing" id="Y5F-XO-U30"/>
+                            <constraint firstItem="eyQ-FR-Ndw" firstAttribute="leading" secondItem="iwq-A7-Y6E" secondAttribute="leading" id="YDi-n8-sha"/>
+                            <constraint firstItem="iwq-A7-Y6E" firstAttribute="trailing" secondItem="9mq-8h-9jC" secondAttribute="trailing" id="YRW-vT-H4k"/>
+                            <constraint firstItem="iwq-A7-Y6E" firstAttribute="trailing" secondItem="tbE-OD-9tx" secondAttribute="trailing" id="eBS-3V-5Vq"/>
+                            <constraint firstItem="iwq-A7-Y6E" firstAttribute="bottom" secondItem="9mq-8h-9jC" secondAttribute="bottom" id="i6S-hE-UfX"/>
+                            <constraint firstItem="DKf-7U-gkP" firstAttribute="leading" secondItem="iwq-A7-Y6E" secondAttribute="leading" id="iub-WA-B18"/>
                             <constraint firstItem="tbE-OD-9tx" firstAttribute="top" secondItem="iJM-kS-XcD" secondAttribute="top" id="kLD-io-dOS"/>
                             <constraint firstItem="9mq-8h-9jC" firstAttribute="top" secondItem="DKf-7U-gkP" secondAttribute="bottom" constant="-5" id="sCv-dR-lwb"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="iwq-A7-Y6E"/>
                     </view>
                     <navigationItem key="navigationItem" id="l0t-m3-7of"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -179,10 +177,12 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="allTransactionButton" destination="C19-8J-ndr" id="kSb-9K-Bs3"/>
+                        <outlet property="bgNavHeightConstraint" destination="EhC-VZ-775" id="jpy-ug-yE6"/>
                         <outlet property="donationTransactionButton" destination="0Jc-tM-nAr" id="3gE-3q-5vn"/>
                         <outlet property="exchangeTransactionButton" destination="Og4-dV-Z7y" id="Xkw-Q5-5Rr"/>
                         <outlet property="loanTransactionButton" destination="tu1-0J-c5A" id="59u-w0-CQK"/>
                         <outlet property="navigationBar" destination="eyQ-FR-Ndw" id="kfx-1i-NNX"/>
+                        <outlet property="navigationBarHeightConstraint" destination="etf-FT-5ZK" id="17M-i7-UCU"/>
                         <outlet property="searchBar" destination="rc3-hx-hrY" id="Qom-42-Kpp"/>
                         <outlet property="selectionView" destination="OqR-wx-fom" id="e6c-wP-JFL"/>
                     </connections>
@@ -195,10 +195,6 @@
         <scene sceneID="nKw-Iq-V4a">
             <objects>
                 <viewController id="PoE-sV-9Kb" customClass="SearchThingsSegmentViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MpX-ex-oYt"/>
-                        <viewControllerLayoutGuide type="bottom" id="ke1-dz-uZf"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9d0-GJ-UoE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,11 +267,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="OG4-jx-xUl" secondAttribute="trailing" id="1ui-pW-9DL"/>
+                            <constraint firstItem="Yh6-be-3Gt" firstAttribute="trailing" secondItem="OG4-jx-xUl" secondAttribute="trailing" id="1ui-pW-9DL"/>
                             <constraint firstItem="OG4-jx-xUl" firstAttribute="top" secondItem="9d0-GJ-UoE" secondAttribute="top" id="IHQ-Jm-Hr9"/>
                             <constraint firstAttribute="bottom" secondItem="OG4-jx-xUl" secondAttribute="bottom" id="Kdg-Z7-Jek"/>
-                            <constraint firstItem="OG4-jx-xUl" firstAttribute="leading" secondItem="9d0-GJ-UoE" secondAttribute="leading" id="lkF-VJ-jMI"/>
+                            <constraint firstItem="OG4-jx-xUl" firstAttribute="leading" secondItem="Yh6-be-3Gt" secondAttribute="leading" id="lkF-VJ-jMI"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yh6-be-3Gt"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="531"/>
@@ -291,16 +288,12 @@
         <scene sceneID="Sgo-Nd-be2">
             <objects>
                 <viewController id="hBZ-0u-B8P" customClass="SearchThingResultViewController" customModule="lab262_boomerang_dev" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y6f-xz-HiD"/>
-                        <viewControllerLayoutGuide type="bottom" id="MuD-Ow-FpC"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="A0f-BS-JFj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-js-B4b">
-                                <rect key="frame" x="0.0" y="20" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="453"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hBZ-0u-B8P" id="yuQ-T9-nEL"/>
@@ -308,7 +301,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XF-4h-GME" customClass="EmptyView" customModule="lab262_boomerang_dev" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="70" width="375" height="461"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="403"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Sem Esquemas para hoje"/>
@@ -321,7 +314,7 @@ Vamos ver</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foi mal! Mas não achei nada nessa busca.. tenta outra migx vai que cola!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAy-Tu-dRo">
-                                <rect key="frame" x="47" y="235" width="281" height="61.5"/>
+                                <rect key="frame" x="47" y="235.00000000000003" width="281" height="61.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -329,18 +322,19 @@ Vamos ver</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MuD-Ow-FpC" firstAttribute="top" secondItem="6XF-4h-GME" secondAttribute="bottom" id="550-Mq-4Vx"/>
-                            <constraint firstItem="6XF-4h-GME" firstAttribute="leading" secondItem="A0f-BS-JFj" secondAttribute="leading" id="7eo-CX-dm6"/>
-                            <constraint firstItem="eAy-Tu-dRo" firstAttribute="centerX" secondItem="A0f-BS-JFj" secondAttribute="centerX" id="Gdt-L2-Y3F"/>
-                            <constraint firstAttribute="trailing" secondItem="eUc-js-B4b" secondAttribute="trailing" id="KYg-QV-LCE"/>
+                            <constraint firstItem="wS7-Fm-w1n" firstAttribute="bottom" secondItem="6XF-4h-GME" secondAttribute="bottom" id="550-Mq-4Vx"/>
+                            <constraint firstItem="6XF-4h-GME" firstAttribute="leading" secondItem="wS7-Fm-w1n" secondAttribute="leading" id="7eo-CX-dm6"/>
+                            <constraint firstItem="eAy-Tu-dRo" firstAttribute="centerX" secondItem="wS7-Fm-w1n" secondAttribute="centerX" id="Gdt-L2-Y3F"/>
+                            <constraint firstItem="wS7-Fm-w1n" firstAttribute="trailing" secondItem="eUc-js-B4b" secondAttribute="trailing" id="KYg-QV-LCE"/>
                             <constraint firstItem="eAy-Tu-dRo" firstAttribute="width" secondItem="A0f-BS-JFj" secondAttribute="width" multiplier="0.75" id="R9W-1Q-iSk"/>
-                            <constraint firstItem="eUc-js-B4b" firstAttribute="leading" secondItem="A0f-BS-JFj" secondAttribute="leading" id="T9x-OT-qsm"/>
-                            <constraint firstItem="6XF-4h-GME" firstAttribute="top" secondItem="y6f-xz-HiD" secondAttribute="bottom" constant="50" id="hyg-SR-vB3"/>
-                            <constraint firstItem="MuD-Ow-FpC" firstAttribute="top" secondItem="eUc-js-B4b" secondAttribute="bottom" id="oRC-qR-Fw3"/>
-                            <constraint firstItem="eUc-js-B4b" firstAttribute="top" secondItem="y6f-xz-HiD" secondAttribute="bottom" id="odg-dQ-s2B"/>
-                            <constraint firstAttribute="trailing" secondItem="6XF-4h-GME" secondAttribute="trailing" id="s7i-AU-oW9"/>
+                            <constraint firstItem="eUc-js-B4b" firstAttribute="leading" secondItem="wS7-Fm-w1n" secondAttribute="leading" id="T9x-OT-qsm"/>
+                            <constraint firstItem="6XF-4h-GME" firstAttribute="top" secondItem="wS7-Fm-w1n" secondAttribute="top" constant="50" id="hyg-SR-vB3"/>
+                            <constraint firstItem="wS7-Fm-w1n" firstAttribute="bottom" secondItem="eUc-js-B4b" secondAttribute="bottom" id="oRC-qR-Fw3"/>
+                            <constraint firstItem="eUc-js-B4b" firstAttribute="top" secondItem="wS7-Fm-w1n" secondAttribute="top" id="odg-dQ-s2B"/>
+                            <constraint firstItem="wS7-Fm-w1n" firstAttribute="trailing" secondItem="6XF-4h-GME" secondAttribute="trailing" id="s7i-AU-oW9"/>
                             <constraint firstItem="eAy-Tu-dRo" firstAttribute="centerY" secondItem="A0f-BS-JFj" secondAttribute="centerY" id="wN8-sH-K1Y"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="wS7-Fm-w1n"/>
                     </view>
                     <connections>
                         <outlet property="emptyView" destination="6XF-4h-GME" id="VtY-iD-VIz"/>

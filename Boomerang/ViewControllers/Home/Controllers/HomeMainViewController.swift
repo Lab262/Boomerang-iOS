@@ -20,6 +20,7 @@ class HomeMainViewController: UIViewController {
     @IBOutlet weak var greetingText: UILabel!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var navigationBarTopConstraint: NSLayoutConstraint!
     
     var boomerThingDelegate: UICollectionViewDelegate?
     var currentIndex: IndexPath?
@@ -220,6 +221,10 @@ extension HomeMainViewController {
     
     func setupNavigationConfiguration() {
         navigationController?.navigationBar.isHidden = true
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            navigationBarTopConstraint.constant = -45.0
+        }
     }
     
 

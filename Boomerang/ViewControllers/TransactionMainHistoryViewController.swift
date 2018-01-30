@@ -19,6 +19,7 @@ class TransactionMainHistoryViewController: UIViewController {
     var segmentControlButtonDelegate: SegmentControlButtonDelegate?
     
     @IBOutlet weak var navigationBar: IconNavigationBar!
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewRightConstraint: NSLayoutConstraint!
@@ -37,6 +38,10 @@ class TransactionMainHistoryViewController: UIViewController {
         navigationBar.titleLabel.text = "Histórico"
         navigationBar.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
         navigationBar.rightIcon.isHidden = true
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            navigationBarHeightConstraint.constant += 25.0
+        }
     }
     
     func pushForDetailHistoric(_ sender: UIButton) {

@@ -13,6 +13,7 @@ class FriendListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var navigationBar: IconNavigationBar!
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
     
     var presenter = FriendListPresenter()
 
@@ -39,6 +40,10 @@ class FriendListViewController: UIViewController {
         navigationBar.titleLabel.text = presenter.getTitleView()
         navigationBar.titleLabel.setDynamicFont()
         navigationBar.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            navigationBarHeightConstraint.constant += 25.0
+        }
     }
     
     func backView(_ sender: UIButton) {

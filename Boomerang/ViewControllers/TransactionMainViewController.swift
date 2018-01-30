@@ -19,6 +19,7 @@ class TransactionMainViewController: UIViewController {
     var segmentControlButtonDelegate: SegmentControlButtonDelegate?
     
     @IBOutlet weak var navigationBar: IconNavigationBar!
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewRightConstraint: NSLayoutConstraint!
@@ -35,6 +36,10 @@ class TransactionMainViewController: UIViewController {
         super.viewDidLoad()
         self.segmentSelected = 0
         navigationBar.leftButtonIcon.isHidden = true
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            navigationBarHeightConstraint.constant += 25.0
+        }
         navigationBar.rightButton.addTarget(self, action: #selector(pushForDetailHistoric(_:)), for: .touchUpInside)
         registerObservers()
     }

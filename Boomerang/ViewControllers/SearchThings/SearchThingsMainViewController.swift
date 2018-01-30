@@ -26,6 +26,8 @@ class SearchThingsMainViewController: UIViewController {
     @IBOutlet weak var exchangeTransactionButton: UIButton!
     @IBOutlet weak var donationTransactionButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bgNavHeightConstraint: NSLayoutConstraint!
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
@@ -49,6 +51,11 @@ class SearchThingsMainViewController: UIViewController {
         navigationBar.rightButton.isHidden = true
         navigationBar.rightIcon.isHidden = true
         navigationBar.leftButton.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            navigationBarHeightConstraint.constant += 25.0
+            bgNavHeightConstraint.constant += 25.0
+        }
     }
 
     func popToRoot(){

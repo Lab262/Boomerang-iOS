@@ -16,6 +16,7 @@ class AddBoomerMainViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
     
     var presenter = AddBoomerPresenter()
     
@@ -29,6 +30,10 @@ class AddBoomerMainViewController: UIViewController {
         registerNibs()
         setupViewDelegate()
         getFacebookFriends()
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            navigationBarHeightConstraint.constant += 25.0
+        }
     }
     
     func setupViewDelegate() {

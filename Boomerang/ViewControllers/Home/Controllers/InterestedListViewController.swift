@@ -16,6 +16,7 @@ class InterestedListViewController: UIViewController {
     let tableViewBottomInset: CGFloat = 40.0*UIView.heightScaleProportion()
     
     @IBOutlet weak var navigationBar: IconNavigationBar!
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.hideTabBar()
@@ -29,6 +30,10 @@ class InterestedListViewController: UIViewController {
     
     func configureNavigationBar() {
         navigationBar.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            navigationBarHeightConstraint.constant += 25.0
+        }
         
     }
     

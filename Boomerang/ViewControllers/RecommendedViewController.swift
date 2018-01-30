@@ -14,6 +14,7 @@ class RecommendedViewController: UIViewController {
     @IBOutlet weak var navigationBar: IconNavigationBar!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
     var presenter = RecommendedPresenter()
     let tableViewTopInset: CGFloat = 10.0
     
@@ -28,6 +29,10 @@ class RecommendedViewController: UIViewController {
     
     func configureNavigationBar() {
         navigationBar.leftButton.addTarget(self, action: #selector(backView(_:)), for: .touchUpInside)
+        //iPhone X
+        if UIScreen.main.bounds.height >= 812.0 {
+            navigationBarHeightConstraint.constant += 25.0
+        }
     }
     
     func backView(_ sender: UIButton) {
