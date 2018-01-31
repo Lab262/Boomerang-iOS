@@ -39,18 +39,22 @@ class ThingBar: UIView {
         self.addSubview(view)
         view.frame = self.bounds
         titleBarLabel.setDynamicFont()
-        self.showEditAction(isHidden: true)
+        self.showRightButtonAction(isHidden: true)
     }
     
-    private func showEditAction(isHidden: Bool = false){
+    private func showRightButtonAction(isHidden: Bool = false){
         self.editButton.isHidden = isHidden
         self.editButtonImage.isHidden = isHidden
     }
     
-    func setupEditAction(typePost: TypePostEnum, titlePost: String) {
-        self.showEditAction()
-        self.typePost = typePost
-        self.titlePost = titlePost
+    func setupRightButtonAction(typePost: TypePostEnum, titlePost: String, isEdit: Bool) {
+        if isEdit {
+            self.typePost = typePost
+            self.titlePost = titlePost
+        } else {
+            self.editButtonImage.image = #imageLiteral(resourceName: "more-button")
+        }
+        self.showRightButtonAction()
     }
     
     @IBInspectable var titleLabelText: String? {

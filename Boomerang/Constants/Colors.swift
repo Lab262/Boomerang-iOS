@@ -34,6 +34,14 @@ extension UIColor {
 
 extension UIColor {
     
+    static var reportAlertBorderButtonColor: UIColor {
+        get {
+            return UIColor.colorWithHexString("C2012A")
+        }
+    }
+    
+    //C2012A
+    
     //MARK: - CHAT MESSAGES COLORS
     static var myMessageChatTextColor: UIColor  {
         get {

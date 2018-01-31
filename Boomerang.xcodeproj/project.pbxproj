@@ -464,6 +464,18 @@
 		D41623091F83447300E7C1AF /* InterestedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41623081F83447300E7C1AF /* InterestedRequest.swift */; };
 		D416230A1F83447300E7C1AF /* InterestedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41623081F83447300E7C1AF /* InterestedRequest.swift */; };
 		D416230B1F83447300E7C1AF /* InterestedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41623081F83447300E7C1AF /* InterestedRequest.swift */; };
+		D4239A8020213DF800F596B3 /* ReportAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A7F20213DF800F596B3 /* ReportAlertViewController.swift */; };
+		D4239A8120213DF800F596B3 /* ReportAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A7F20213DF800F596B3 /* ReportAlertViewController.swift */; };
+		D4239A8220213DF800F596B3 /* ReportAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A7F20213DF800F596B3 /* ReportAlertViewController.swift */; };
+		D4239A8420213E2A00F596B3 /* ReportAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8320213E2A00F596B3 /* ReportAlertContainerView.swift */; };
+		D4239A8520213E2A00F596B3 /* ReportAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8320213E2A00F596B3 /* ReportAlertContainerView.swift */; };
+		D4239A8620213E2A00F596B3 /* ReportAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8320213E2A00F596B3 /* ReportAlertContainerView.swift */; };
+		D4239A8820213E7700F596B3 /* ReportAlertButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8720213E7700F596B3 /* ReportAlertButtonContainerView.swift */; };
+		D4239A8920213E7700F596B3 /* ReportAlertButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8720213E7700F596B3 /* ReportAlertButtonContainerView.swift */; };
+		D4239A8A20213E7700F596B3 /* ReportAlertButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8720213E7700F596B3 /* ReportAlertButtonContainerView.swift */; };
+		D4239A8C20213F3D00F596B3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8B20213F3D00F596B3 /* RadioButton.swift */; };
+		D4239A8D20213F3D00F596B3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8B20213F3D00F596B3 /* RadioButton.swift */; };
+		D4239A8E20213F3D00F596B3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8B20213F3D00F596B3 /* RadioButton.swift */; };
 		D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D42F22E91EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
 		D42F22EA1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
@@ -1353,6 +1365,10 @@
 		D40C0E501E8B9A93008174D2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D40DBB9C1E9684000075E74B /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 		D41623081F83447300E7C1AF /* InterestedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedRequest.swift; sourceTree = "<group>"; };
+		D4239A7F20213DF800F596B3 /* ReportAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertViewController.swift; sourceTree = "<group>"; };
+		D4239A8320213E2A00F596B3 /* ReportAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertContainerView.swift; sourceTree = "<group>"; };
+		D4239A8720213E7700F596B3 /* ReportAlertButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertButtonContainerView.swift; sourceTree = "<group>"; };
+		D4239A8B20213F3D00F596B3 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionMainHistoryViewController.swift; sourceTree = "<group>"; };
 		D43282761FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedEmptyStateTableViewCell.swift; sourceTree = "<group>"; };
@@ -2088,6 +2104,7 @@
 		A4E462E91DCAEA7F00A611C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				D4239A7E20213DBC00F596B3 /* ReportAlert */,
 				60D752B81ED8612C00885D25 /* Cells */,
 				A4E462FA1DCAEAE800A611C0 /* Boomer.storyboard */,
 			);
@@ -2306,6 +2323,17 @@
 				A44967731DDA246100990008 /* BoomerChatData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D4239A7E20213DBC00F596B3 /* ReportAlert */ = {
+			isa = PBXGroup;
+			children = (
+				D4239A7F20213DF800F596B3 /* ReportAlertViewController.swift */,
+				D4239A8320213E2A00F596B3 /* ReportAlertContainerView.swift */,
+				D4239A8720213E7700F596B3 /* ReportAlertButtonContainerView.swift */,
+				D4239A8B20213F3D00F596B3 /* RadioButton.swift */,
+			);
+			name = ReportAlert;
 			sourceTree = "<group>";
 		};
 		D436BF231E95A66C00BC7F00 /* Transaction */ = {
@@ -3471,7 +3499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		81F257C77482D4401703111B /* [CP] Embed Pods Frameworks */ = {
@@ -3569,7 +3597,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD98391EA9ACFD00C9FAB9 /* Adding tags to comment */ = {
@@ -3682,7 +3710,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD99051EA9AD0400C9FAB9 /* Adding tags to comment */ = {
@@ -3860,7 +3888,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3897,6 +3925,7 @@
 				D4EEC1C11E6CACFA00F5C1D6 /* Post.swift in Sources */,
 				60B0DE501F6B02860029ACBC /* OnboardMainViewController.swift in Sources */,
 				D4788DDA1ECCE82400E5E55F /* PostPresenter.swift in Sources */,
+				D4239A8820213E7700F596B3 /* ReportAlertButtonContainerView.swift in Sources */,
 				A4A0DBA01F733EC9008AD89A /* SearchThingsSegmentViewController.swift in Sources */,
 				D42F22E91EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */,
 				D4C5BBD11ED7513A008EB531 /* AddBoomerPresenter.swift in Sources */,
@@ -3923,6 +3952,7 @@
 				A44967761DDA300100990008 /* DefaultsHelper.swift in Sources */,
 				D4C8ECD41EC1FD3B00E3CB17 /* SchemeStatus.swift in Sources */,
 				D46A0A911F53B11300D1E59C /* Like.swift in Sources */,
+				D4239A8020213DF800F596B3 /* ReportAlertViewController.swift in Sources */,
 				D4FBBCEF1E908E0F00611F63 /* Interested.swift in Sources */,
 				D40C0E4F1E8B1490008174D2 /* Date+Utils.swift in Sources */,
 				2FC9E0721E8EFCE200A048A4 /* FieldCellData.swift in Sources */,
@@ -4028,12 +4058,14 @@
 				2F79676C1E8357F700476D2D /* TypePostTableViewCell.swift in Sources */,
 				A4C9A98E1F5E14030099AB95 /* PromoCodeController.swift in Sources */,
 				2FC9E06B1E8CB7A000A048A4 /* SwitchButtonTableViewCell.swift in Sources */,
+				D4239A8420213E2A00F596B3 /* ReportAlertContainerView.swift in Sources */,
 				D4E6A28A1E95C5D1005B4E34 /* TransactionMainViewController.swift in Sources */,
 				D436BF251E95A68B00BC7F00 /* LoanTransactionViewController.swift in Sources */,
 				D44EE9E71ECB348700ECDDC1 /* RecommendedRequest.swift in Sources */,
 				A42768081DD3948700363343 /* MyThingsMainViewController.swift in Sources */,
 				A4A0DBA41F733F53008AD89A /* SearchThingResultViewController.swift in Sources */,
 				A4796CFB1EB6D36D00B0E543 /* NotificationsManager.swift in Sources */,
+				D4239A8C20213F3D00F596B3 /* RadioButton.swift in Sources */,
 				A449676B1DDA1F3300990008 /* ChatTableViewCell.swift in Sources */,
 				D48735071E78F6ED0065E13A /* RecommendedPostCollectionViewCell.swift in Sources */,
 				A42768071DD3948700363343 /* RequestedThingsViewController.swift in Sources */,
@@ -4115,6 +4147,7 @@
 				D4AD97881EA9ACFD00C9FAB9 /* Post.swift in Sources */,
 				60B0DE511F6B02860029ACBC /* OnboardMainViewController.swift in Sources */,
 				D4AD97891EA9ACFD00C9FAB9 /* NotificationsMainViewController.swift in Sources */,
+				D4239A8920213E7700F596B3 /* ReportAlertButtonContainerView.swift in Sources */,
 				A4A0DBA11F733EC9008AD89A /* SearchThingsSegmentViewController.swift in Sources */,
 				D4AD978A1EA9ACFD00C9FAB9 /* CommentRequest.swift in Sources */,
 				D4C5BBD21ED7513D008EB531 /* AddBoomerPresenter.swift in Sources */,
@@ -4141,6 +4174,7 @@
 				D4AD97971EA9ACFD00C9FAB9 /* BoomerMyThingCell.swift in Sources */,
 				D4AD97981EA9ACFD00C9FAB9 /* ExperienceThingsViewController.swift in Sources */,
 				D4AD97991EA9ACFD00C9FAB9 /* DefaultsHelper.swift in Sources */,
+				D4239A8120213DF800F596B3 /* ReportAlertViewController.swift in Sources */,
 				D46A0A921F53B11300D1E59C /* Like.swift in Sources */,
 				D4AD979A1EA9ACFD00C9FAB9 /* Interested.swift in Sources */,
 				D4AD979B1EA9ACFD00C9FAB9 /* Date+Utils.swift in Sources */,
@@ -4246,12 +4280,14 @@
 				D4AD97DF1EA9ACFD00C9FAB9 /* TypePostTableViewCell.swift in Sources */,
 				A4C9A98F1F5E14030099AB95 /* PromoCodeController.swift in Sources */,
 				D4AD97E01EA9ACFD00C9FAB9 /* SwitchButtonTableViewCell.swift in Sources */,
+				D4239A8520213E2A00F596B3 /* ReportAlertContainerView.swift in Sources */,
 				D4AD97E11EA9ACFD00C9FAB9 /* TransactionMainViewController.swift in Sources */,
 				D4AD97E21EA9ACFD00C9FAB9 /* LoanTransactionViewController.swift in Sources */,
 				D4AD97E31EA9ACFD00C9FAB9 /* MyThingsMainViewController.swift in Sources */,
 				D4AD97E41EA9ACFD00C9FAB9 /* ChatTableViewCell.swift in Sources */,
 				A4A0DBA51F733F53008AD89A /* SearchThingResultViewController.swift in Sources */,
 				D4AD97E51EA9ACFD00C9FAB9 /* RecommendedPostCollectionViewCell.swift in Sources */,
+				D4239A8D20213F3D00F596B3 /* RadioButton.swift in Sources */,
 				D4AD97E61EA9ACFD00C9FAB9 /* RequestedThingsViewController.swift in Sources */,
 				D4AD97E71EA9ACFD00C9FAB9 /* InterestedListViewController.swift in Sources */,
 				D4AD97E81EA9ACFD00C9FAB9 /* ProfileCollectionReusableView.swift in Sources */,
@@ -4324,6 +4360,7 @@
 				D4AD98541EA9AD0400C9FAB9 /* Post.swift in Sources */,
 				60B0DE521F6B02860029ACBC /* OnboardMainViewController.swift in Sources */,
 				D4AD98551EA9AD0400C9FAB9 /* NotificationsMainViewController.swift in Sources */,
+				D4239A8A20213E7700F596B3 /* ReportAlertButtonContainerView.swift in Sources */,
 				A4A0DBA21F733EC9008AD89A /* SearchThingsSegmentViewController.swift in Sources */,
 				D4AD98561EA9AD0400C9FAB9 /* CommentRequest.swift in Sources */,
 				D4C5BBD31ED7513E008EB531 /* AddBoomerPresenter.swift in Sources */,
@@ -4350,6 +4387,7 @@
 				D4AD98631EA9AD0400C9FAB9 /* BoomerMyThingCell.swift in Sources */,
 				D4AD98641EA9AD0400C9FAB9 /* ExperienceThingsViewController.swift in Sources */,
 				D4AD98651EA9AD0400C9FAB9 /* DefaultsHelper.swift in Sources */,
+				D4239A8220213DF800F596B3 /* ReportAlertViewController.swift in Sources */,
 				D46A0A931F53B11300D1E59C /* Like.swift in Sources */,
 				D4AD98661EA9AD0400C9FAB9 /* Interested.swift in Sources */,
 				D4AD98671EA9AD0400C9FAB9 /* Date+Utils.swift in Sources */,
@@ -4455,12 +4493,14 @@
 				D4AD98AB1EA9AD0400C9FAB9 /* TypePostTableViewCell.swift in Sources */,
 				A4C9A9901F5E14030099AB95 /* PromoCodeController.swift in Sources */,
 				D4AD98AC1EA9AD0400C9FAB9 /* SwitchButtonTableViewCell.swift in Sources */,
+				D4239A8620213E2A00F596B3 /* ReportAlertContainerView.swift in Sources */,
 				D4AD98AD1EA9AD0400C9FAB9 /* TransactionMainViewController.swift in Sources */,
 				D4AD98AE1EA9AD0400C9FAB9 /* LoanTransactionViewController.swift in Sources */,
 				D4AD98AF1EA9AD0400C9FAB9 /* MyThingsMainViewController.swift in Sources */,
 				D4AD98B01EA9AD0400C9FAB9 /* ChatTableViewCell.swift in Sources */,
 				A4A0DBA61F733F53008AD89A /* SearchThingResultViewController.swift in Sources */,
 				D4AD98B11EA9AD0400C9FAB9 /* RecommendedPostCollectionViewCell.swift in Sources */,
+				D4239A8E20213F3D00F596B3 /* RadioButton.swift in Sources */,
 				D4AD98B21EA9AD0400C9FAB9 /* RequestedThingsViewController.swift in Sources */,
 				D4AD98B31EA9AD0400C9FAB9 /* InterestedListViewController.swift in Sources */,
 				D4AD98B41EA9AD0400C9FAB9 /* ProfileCollectionReusableView.swift in Sources */,

@@ -18,6 +18,11 @@ struct Fields {
     let constraintIconHeight: CGFloat
 }
 
+enum ReasonReport: String {
+    case spam = "É imprópria"
+    case improper = "É spam"
+}
+
 class ThingDetailViewController: UIViewController {
     
     @IBOutlet weak var buttonsStackView: UIStackView!
@@ -52,8 +57,17 @@ class ThingDetailViewController: UIViewController {
     var keyboardFrameSize: CGRect?
     var currentCommentsCount = 0
     var defaultValueAlphaTitleNavigation:CGFloat = 1.0
-    
     var inputFieldsCondition: [Fields] = []
+    
+    var stepOneReportAlertViewController: ReportAlertViewController?
+    var stepTwoReportAlertViewController: ReportAlertViewController?
+    
+    var leadingReportViewControllerConstraint: NSLayoutConstraint?
+    
+    var containerView: UIView?
+    var switchAnimation: (() -> ())!
+    var switchAnimator: UIViewPropertyAnimator!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         TabBarController.mainTabBarController.hideTabBar()
@@ -278,7 +292,10 @@ class ThingDetailViewController: UIViewController {
         navigationBarView.titleBarLabel.text = presenter.getCurrentType()
         if presenter.authorPostIsCurrent() {
             navigationBarView.editButton.addTarget(self, action: #selector(goToEditPost(_:)), for: .touchUpInside)
-            navigationBarView.setupEditAction(typePost: presenter.post.typePostEnum ?? TypePostEnum.have, titlePost: presenter.getCurrentType())
+            navigationBarView.setupRightButtonAction(typePost: presenter.post.typePostEnum ?? TypePostEnum.have, titlePost: presenter.getCurrentType(), isEdit: true)
+        } else {
+            navigationBarView.editButton.addTarget(self, action: #selector(goToAlertReport(_:)), for: .touchUpInside)
+            navigationBarView.setupRightButtonAction(typePost: presenter.post.typePostEnum ?? TypePostEnum.have, titlePost: presenter.getCurrentType(), isEdit: false)
         }
         navigationInformationsView.thingNameLabel.text = presenter.post.title ?? ""
         navigationInformationsView.thingNameLabel.setDynamicFont()
@@ -294,6 +311,10 @@ class ThingDetailViewController: UIViewController {
     
     func goToEditPost(_ sender: Any){
         performSegue(withIdentifier: SegueIdentifiers.detailThingToEditPost, sender: self)
+    }
+    
+    func goToAlertReport(_ sender: Any) {
+        self.setupReportAlertController()
     }
     
     @IBAction func firstButtonAction(_ sender: Any) {
@@ -773,7 +794,105 @@ extension ThingDetailViewController:PhotoDetailDelegate {
         }
     }
     
-  }
+}
+
+extension ThingDetailViewController {
+    enum ReportControllers {
+        
+        case firstView
+        case secondView
+        
+        var presentedLeadingOffset: CGFloat {
+            
+            let offset: CGFloat
+            let screenWidth = UIScreen.main.bounds.width
+            
+            switch self {
+            case .firstView: offset = 0
+            case .secondView: offset = -screenWidth
+            }
+            
+            return offset
+        }
+    }
+    
+    func setupReportAlertController() {
+        switchAnimator = UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: nil)
+        switchAnimation = {
+            self.view.layoutIfNeeded()
+        }
+        
+        initializeFirstStep()
+        initializeSecondStep()
+        setupLayouts()
+    }
+    
+    func setPresentedController(_ controller: ReportControllers) {
+        leadingReportViewControllerConstraint?.constant = controller.presentedLeadingOffset
+        
+        switchAnimator.addAnimations(switchAnimation)
+        switchAnimator.startAnimation()
+    }
+    
+    func setupLayouts() {
+        self.stepOneReportAlertViewController?.view.translatesAutoresizingMaskIntoConstraints = false
+        self.stepOneReportAlertViewController?.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.leadingReportViewControllerConstraint = self.stepOneReportAlertViewController?.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        self.leadingReportViewControllerConstraint?.isActive = true
+        self.stepOneReportAlertViewController?.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        self.stepOneReportAlertViewController?.view.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        
+        self.stepTwoReportAlertViewController?.view.translatesAutoresizingMaskIntoConstraints = false
+        self.stepTwoReportAlertViewController?.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.stepTwoReportAlertViewController?.view.leadingAnchor.constraint(equalTo: self.stepOneReportAlertViewController!.view.trailingAnchor).isActive = true
+        self.stepTwoReportAlertViewController?.view.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        self.stepTwoReportAlertViewController?.view.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+    }
+    
+    func initializeFirstStep() {
+        self.stepOneReportAlertViewController = ReportAlertViewController(titleText: "Escolha um motivo para denúnciar:")
+        self.stepOneReportAlertViewController?.modalPresentationStyle = .overCurrentContext
+        self.stepOneReportAlertViewController?.addButton(titleButton: ReasonReport.improper.rawValue, border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        self.stepOneReportAlertViewController?.addButton(titleButton: ReasonReport.spam.rawValue, border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        
+        self.stepOneReportAlertViewController?.doneAction { (title) in
+            guard let title = title else {
+                return
+            }
+            
+            switch ReasonReport(rawValue: title)! {
+            case .improper: self.setPresentedController(.secondView)
+            case .spam: break
+            }
+        }
+        
+        addChildViewController(self.stepOneReportAlertViewController!)
+        view.addSubview(self.stepOneReportAlertViewController!.view)
+        stepOneReportAlertViewController?.didMove(toParentViewController: self)
+    }
+    
+    func initializeSecondStep() {
+        self.stepTwoReportAlertViewController = ReportAlertViewController(titleText: "É impropria porque contém:")
+        self.stepTwoReportAlertViewController?.modalPresentationStyle = .overCurrentContext
+        self.stepTwoReportAlertViewController?.addButton(titleButton: "Automutilação", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        self.stepTwoReportAlertViewController?.addButton(titleButton: "Assédio ou bullying", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        self.stepTwoReportAlertViewController?.addButton(titleButton: "Venda ou incentivo ao uso de drogas", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        self.stepTwoReportAlertViewController?.addButton(titleButton: "Venda ou promoção de armas de fogo", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        self.stepTwoReportAlertViewController?.addButton(titleButton: "Nudez ou pornografia", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        self.stepTwoReportAlertViewController?.addButton(titleButton: "Violência ou danos", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        self.stepTwoReportAlertViewController?.addButton(titleButton: "Símbolos ou discurso de ódio", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        self.stepTwoReportAlertViewController?.addButton(titleButton: "Violação de propriedade intelectual", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        self.stepTwoReportAlertViewController?.doneAction { (msg) in
+            print(msg ?? "nao clicou em opção nenhuma")
+            print("segunda view contorller")
+            self.setPresentedController(.firstView)
+        }
+        
+        addChildViewController(self.stepTwoReportAlertViewController!)
+        view.addSubview(self.stepTwoReportAlertViewController!.view)
+        stepTwoReportAlertViewController?.didMove(toParentViewController: self)
+    }
+}
 
 
 
