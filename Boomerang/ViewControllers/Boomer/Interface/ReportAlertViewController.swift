@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ReportAlertDelegate {
+    func dismiss()
+}
+
 class ReportAlertViewController: UIViewController {
 
     var titleText: String
@@ -22,17 +26,26 @@ class ReportAlertViewController: UIViewController {
         backgroundView.backgroundColor = .black
         backgroundView.alpha = 0.0
         return backgroundView
-        }()
+    }()
+    
+    lazy var dismissButton: UIButton = { [unowned self] in
+        let button = UIButton(frame: self.view.frame)
+        button.backgroundColor = .clear
+        return button
+    }()
     
     private var currentReport: String?
     
     private var doneActionBlock: ((String?) -> ())?
     
+    var delegate: ReportAlertDelegate?
+    
     var containerShowConstraint: NSLayoutConstraint?
     var containerHideConstraint: NSLayoutConstraint?
     
-    init(titleText: String) {
+    init(titleText: String, delegate: ReportAlertDelegate) {
         self.titleText = titleText
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -81,11 +94,13 @@ class ReportAlertViewController: UIViewController {
     
     private func setupViews() {
         view.addSubview(backgroundView)
+        view.addSubview(dismissButton)
         view.addSubview(containerView)
     }
     
     private func configureView() {
         view.backgroundColor = .clear
+        dismissButton.addTarget(self, action: #selector(dismissViewAnimation(_:)), for: .touchUpInside)
     }
     
     func addButton(titleButton: String, border: Border, selectedBorder: Border) {
@@ -140,14 +155,15 @@ extension ReportAlertViewController {
         })
     }
     
-    func dismissViewAnimation(completion: @escaping () -> Void) {
+    func dismissViewAnimation(_ sender: UIButton? = nil) {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {
             self.changeContainerConstraint(isShowContainer: false)
             self.backgroundView.alpha = 0.0
             self.view.layoutIfNeeded()
         }, completion: { (_) in
-            completion()
+            self.dismiss(animated: false, completion: nil)
+            self.delegate?.dismiss()
         })
     }
 }

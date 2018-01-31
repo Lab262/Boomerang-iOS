@@ -824,6 +824,7 @@ extension ThingDetailViewController {
         
         initializeFirstStep()
         initializeSecondStep()
+        addReportViews()
         setupLayouts()
     }
     
@@ -850,7 +851,7 @@ extension ThingDetailViewController {
     }
     
     func initializeFirstStep() {
-        self.stepOneReportAlertViewController = ReportAlertViewController(titleText: "Escolha um motivo para denúnciar:")
+        self.stepOneReportAlertViewController = ReportAlertViewController(titleText: "Escolha um motivo para denúnciar:", delegate: self)
         self.stepOneReportAlertViewController?.modalPresentationStyle = .overCurrentContext
         self.stepOneReportAlertViewController?.addButton(titleButton: ReasonReport.improper.rawValue, border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
         self.stepOneReportAlertViewController?.addButton(titleButton: ReasonReport.spam.rawValue, border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
@@ -865,14 +866,10 @@ extension ThingDetailViewController {
             case .spam: break
             }
         }
-        
-        addChildViewController(self.stepOneReportAlertViewController!)
-        view.addSubview(self.stepOneReportAlertViewController!.view)
-        stepOneReportAlertViewController?.didMove(toParentViewController: self)
     }
     
     func initializeSecondStep() {
-        self.stepTwoReportAlertViewController = ReportAlertViewController(titleText: "É impropria porque contém:")
+        self.stepTwoReportAlertViewController = ReportAlertViewController(titleText: "É impropria porque contém:", delegate: self)
         self.stepTwoReportAlertViewController?.modalPresentationStyle = .overCurrentContext
         self.stepTwoReportAlertViewController?.addButton(titleButton: "Automutilação", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
         self.stepTwoReportAlertViewController?.addButton(titleButton: "Assédio ou bullying", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
@@ -888,9 +885,28 @@ extension ThingDetailViewController {
             self.setPresentedController(.firstView)
         }
         
+    }
+    
+    func addReportViews() {
+        addChildViewController(self.stepOneReportAlertViewController!)
+        view.addSubview(self.stepOneReportAlertViewController!.view)
+        stepOneReportAlertViewController?.didMove(toParentViewController: self)
+        
         addChildViewController(self.stepTwoReportAlertViewController!)
         view.addSubview(self.stepTwoReportAlertViewController!.view)
         stepTwoReportAlertViewController?.didMove(toParentViewController: self)
+    }
+}
+
+extension ThingDetailViewController: ReportAlertDelegate {
+    
+    func dismiss() {
+        self.stepOneReportAlertViewController?.removeFromParentViewController()
+        self.stepTwoReportAlertViewController?.removeFromParentViewController()
+        self.stepOneReportAlertViewController?.view.removeFromSuperview()
+        self.stepTwoReportAlertViewController?.view.removeFromSuperview()
+        self.stepOneReportAlertViewController = nil
+        self.stepTwoReportAlertViewController = nil
     }
 }
 
