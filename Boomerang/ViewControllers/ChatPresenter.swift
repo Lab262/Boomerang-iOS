@@ -106,8 +106,10 @@ extension ChatPresenter {
             .handle(Event.created) { _, message in
                 
                if message.sender?.objectId != self.profile.objectId {
-                    self.setMessage(message: message)
-                    self.view?.reload()
+                    DispatchQueue.main.sync {
+                        self.setMessage(message: message)
+                        self.view?.reload()
+                    }
                 }
                 //self.requestMessagesOfChat()
         }

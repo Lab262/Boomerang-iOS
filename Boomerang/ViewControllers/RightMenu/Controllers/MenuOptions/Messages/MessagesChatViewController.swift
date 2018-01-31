@@ -50,6 +50,8 @@ class MessagesChatViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        TabBarController.mainTabBarController.hideTabBar()
+        
     }
     
     @IBAction func popView(_ sender: Any) {
