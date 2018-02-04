@@ -14,6 +14,7 @@ class ChatViewController: JSQMessagesViewController {
     var incomingBubble: JSQMessagesBubbleImage!
     var outgoingBubble: JSQMessagesBubbleImage!
     var presenter: ChatPresenter = ChatPresenter()
+    var isFinalizedScheme: Bool = false
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,6 +29,13 @@ class ChatViewController: JSQMessagesViewController {
         configureCollectionView()
         requestMessages()
         setupSubscriptions()
+        hideTextFieldIfNeeded()
+    }
+    
+    func hideTextFieldIfNeeded() {
+        if isFinalizedScheme {
+            self.inputToolbar.isHidden = true
+        }
     }
     
     func requestMessages() {
@@ -45,7 +53,7 @@ class ChatViewController: JSQMessagesViewController {
     func configureCollectionView() {
         collectionView?.collectionViewLayout.incomingAvatarViewSize = .zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = .zero
-        collectionView.collectionViewLayout.messageBubbleFont = UIFont.montserratSemiBold(size: 14)
+        collectionView.collectionViewLayout.messageBubbleFont = .montserratSemiBold(size: 14)
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
     }

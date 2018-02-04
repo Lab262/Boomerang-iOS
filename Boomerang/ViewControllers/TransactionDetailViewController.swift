@@ -103,6 +103,9 @@ class TransactionDetailViewController: UIViewController {
         if let viewController = segue.destination as? MessagesChatViewController  {
             viewController.chat = presenter.chat
             viewController.profile = presenter.getDealerTransaction()
+            if presenter.scheme.statusSchemeEnum == .finished || presenter.scheme.statusSchemeEnum == .canceled {
+                viewController.isFinalizedScheme = true
+            }
         }
     }
     

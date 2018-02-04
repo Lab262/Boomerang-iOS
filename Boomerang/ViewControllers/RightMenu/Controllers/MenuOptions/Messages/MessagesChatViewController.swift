@@ -18,6 +18,7 @@ class MessagesChatViewController: UIViewController {
     
     var chat: Chat?
     var profile: Profile?
+    var isFinalizedScheme: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,7 @@ class MessagesChatViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? ChatViewController {
             controller.presenter.chat = chat!
+            controller.isFinalizedScheme = isFinalizedScheme
         }
         
         if let controller = segue.destination as? ProfileMainViewController {
