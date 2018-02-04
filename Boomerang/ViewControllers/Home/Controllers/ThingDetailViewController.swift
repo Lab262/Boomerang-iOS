@@ -61,6 +61,7 @@ class ThingDetailViewController: UIViewController {
     
     var stepOneReportAlertViewController: ReportAlertViewController?
     var stepTwoReportAlertViewController: ReportAlertViewController?
+    var finalStepReportAlertViewController: ReportAlertViewController?
     
     var leadingReportViewControllerConstraint: NSLayoutConstraint?
     
@@ -801,6 +802,7 @@ extension ThingDetailViewController {
         
         case firstView
         case secondView
+        case finalView
         
         var presentedLeadingOffset: CGFloat {
             
@@ -810,6 +812,7 @@ extension ThingDetailViewController {
             switch self {
             case .firstView: offset = 0
             case .secondView: offset = -screenWidth
+            case .finalView: offset = -screenWidth*2
             }
             
             return offset
@@ -824,6 +827,7 @@ extension ThingDetailViewController {
         
         initializeFirstStep()
         initializeSecondStep()
+        initializeFinalStep()
         addReportViews()
         setupLayouts()
     }
@@ -848,6 +852,14 @@ extension ThingDetailViewController {
         self.stepTwoReportAlertViewController?.view.leadingAnchor.constraint(equalTo: self.stepOneReportAlertViewController!.view.trailingAnchor).isActive = true
         self.stepTwoReportAlertViewController?.view.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         self.stepTwoReportAlertViewController?.view.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        
+        self.finalStepReportAlertViewController?.view.translatesAutoresizingMaskIntoConstraints = false
+        self.finalStepReportAlertViewController?.view.translatesAutoresizingMaskIntoConstraints = false
+        self.finalStepReportAlertViewController?.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.finalStepReportAlertViewController?.view.leadingAnchor.constraint(equalTo: self.stepTwoReportAlertViewController!.view.trailingAnchor).isActive = true
+        self.finalStepReportAlertViewController?.view.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        self.finalStepReportAlertViewController?.view.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        
     }
     
     func initializeFirstStep() {
@@ -863,7 +875,7 @@ extension ThingDetailViewController {
             
             switch ReasonReport(rawValue: title)! {
             case .improper: self.setPresentedController(.secondView)
-            case .spam: break
+            case .spam: self.setPresentedController(.finalView)
             }
         }
     }
@@ -879,12 +891,24 @@ extension ThingDetailViewController {
         self.stepTwoReportAlertViewController?.addButton(titleButton: "Violência ou danos", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
         self.stepTwoReportAlertViewController?.addButton(titleButton: "Símbolos ou discurso de ódio", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
         self.stepTwoReportAlertViewController?.addButton(titleButton: "Violação de propriedade intelectual", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
+        
         self.stepTwoReportAlertViewController?.doneAction { (msg) in
             print(msg ?? "nao clicou em opção nenhuma")
             print("segunda view contorller")
-            self.setPresentedController(.firstView)
+            self.setPresentedController(.finalView)
         }
+    }
         
+    func initializeFinalStep() {
+        self.finalStepReportAlertViewController = ReportAlertViewController(titleText: "Obrigado por nos manter atentxs!", descriptionText: "Assim conseguimos deixar nossa comunidade um espaço onde todxs são respeitadxs :D", logoImage: #imageLiteral(resourceName: "report-logo"), delegate: self)
+            
+        self.finalStepReportAlertViewController?.modalPresentationStyle = .overCurrentContext
+            
+        self.finalStepReportAlertViewController?.doneAction { (msg) in
+            print(msg ?? "nao clicou em opção nenhuma")
+            print("segunda view contorller")
+            self.finalStepReportAlertViewController?.dismissViewAnimation()
+        }
     }
     
     func addReportViews() {
@@ -895,6 +919,10 @@ extension ThingDetailViewController {
         addChildViewController(self.stepTwoReportAlertViewController!)
         view.addSubview(self.stepTwoReportAlertViewController!.view)
         stepTwoReportAlertViewController?.didMove(toParentViewController: self)
+        
+        addChildViewController(self.finalStepReportAlertViewController!)
+        view.addSubview(self.finalStepReportAlertViewController!.view)
+        finalStepReportAlertViewController?.didMove(toParentViewController: self)
     }
 }
 
@@ -903,10 +931,13 @@ extension ThingDetailViewController: ReportAlertDelegate {
     func dismiss() {
         self.stepOneReportAlertViewController?.removeFromParentViewController()
         self.stepTwoReportAlertViewController?.removeFromParentViewController()
+        self.finalStepReportAlertViewController?.removeFromParentViewController()
         self.stepOneReportAlertViewController?.view.removeFromSuperview()
         self.stepTwoReportAlertViewController?.view.removeFromSuperview()
+        self.finalStepReportAlertViewController?.view.removeFromSuperview()
         self.stepOneReportAlertViewController = nil
         self.stepTwoReportAlertViewController = nil
+        self.finalStepReportAlertViewController = nil
     }
 }
 

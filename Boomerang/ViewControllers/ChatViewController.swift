@@ -14,6 +14,11 @@ class ChatViewController: JSQMessagesViewController {
     var incomingBubble: JSQMessagesBubbleImage!
     var outgoingBubble: JSQMessagesBubbleImage!
     var presenter: ChatPresenter = ChatPresenter()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    TabBarController.mainTabBarController.hideTabBar()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
