@@ -15,6 +15,7 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var toUserImage: UIImageView!
     @IBOutlet weak var transactionLabel: UILabel!
     @IBOutlet weak var devolutionLabel: UILabel!
+    @IBOutlet weak var devolutionLabelBottomConstraint: NSLayoutConstraint!
     
     var presenter = TransactionCellPresenter()
     
@@ -75,7 +76,7 @@ class TransactionTableViewCell: UITableViewCell {
             containerView.borderWidth = 2.0
         }
         presenter.getInformationsOfTransaction()
-        presenter.setupDevolutionDescriptionStyle(label: devolutionLabel)
+        presenter.setupDevolutionDescriptionStyle(label: devolutionLabel, constraint: devolutionLabelBottomConstraint)
         configureDynamicFont()
     }
 }

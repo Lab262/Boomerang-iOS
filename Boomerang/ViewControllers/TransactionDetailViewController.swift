@@ -15,7 +15,6 @@ class TransactionDetailViewController: UIViewController {
     @IBOutlet weak var navigationBar: ThingBar!
     @IBOutlet weak var thingBarHeightConstraint: NSLayoutConstraint!
     
-    
     @IBOutlet weak var finalizeButton: UIButton!
     
     @IBOutlet weak var thingNavigationBar: ThingNavigationBar!

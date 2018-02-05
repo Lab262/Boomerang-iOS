@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -81,8 +80,8 @@
                                     <constraint firstAttribute="width" constant="70" id="xRY-Mc-NXP"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPI-5N-4aI">
-                                <rect key="frame" x="107" y="89" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPI-5N-4aI">
+                                <rect key="frame" x="107" y="74.5" width="35" height="14.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -95,7 +94,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você está emprestando Guitarra Fender para João Almeida" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ux1-qY-dc7">
-                                <rect key="frame" x="107" y="19" width="175" height="49"/>
+                                <rect key="frame" x="107" y="19" width="175" height="50.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -103,6 +102,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wPI-5N-4aI" firstAttribute="top" secondItem="ux1-qY-dc7" secondAttribute="bottom" constant="5" id="0ot-Kw-Ke6"/>
                             <constraint firstItem="Z6y-8b-Mmy" firstAttribute="centerY" secondItem="gPR-h5-lw4" secondAttribute="centerY" id="1tg-qP-TSs"/>
                             <constraint firstItem="wPI-5N-4aI" firstAttribute="leading" secondItem="Z6y-8b-Mmy" secondAttribute="trailing" constant="20" id="J7g-UL-tlh"/>
                             <constraint firstItem="ux1-qY-dc7" firstAttribute="leading" secondItem="Z6y-8b-Mmy" secondAttribute="trailing" constant="20" id="MFz-3z-B9f"/>
@@ -138,6 +138,7 @@
             <connections>
                 <outlet property="containerView" destination="gPR-h5-lw4" id="oh6-Fn-o2H"/>
                 <outlet property="devolutionLabel" destination="wPI-5N-4aI" id="F3A-tw-zR1"/>
+                <outlet property="devolutionLabelBottomConstraint" destination="aJu-CS-QtK" id="BcK-3f-X1x"/>
                 <outlet property="fromUserImage" destination="IDp-Uc-cRa" id="HGv-zh-WGf"/>
                 <outlet property="toUserImage" destination="NuO-41-7VI" id="y9k-Kd-iLY"/>
                 <outlet property="transactionLabel" destination="ux1-qY-dc7" id="T9L-eD-Qcd"/>

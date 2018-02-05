@@ -74,18 +74,18 @@ class TransactionCellPresenter: NSObject {
         }
     }
     
-    func setupDevolutionDescriptionStyle(label: UILabel) {
+    func setupDevolutionDescriptionStyle(label: UILabel, constraint: NSLayoutConstraint) {
         if scheme.statusSchemeEnum == .negotiation {
-            label.font = UIFont.montserratRegular(size: 13)
-            label.textColor = UIColor.yellowTransactioColor
+            label.font = .montserratRegular(size: 13)
+            label.textColor = .yellowTransactioColor
             label.text = "Em aberto"
         } else if scheme.statusSchemeEnum == .finished {
-            label.font = UIFont.montserratRegular(size: 13)
-            label.textColor = UIColor.yellowTransactioColor
+            label.font = .montserratRegular(size: 13)
+            label.textColor = .yellowTransactioColor
             label.text = "Finalizado"
         } else if scheme.statusSchemeEnum == .evaluation {
-            label.font = UIFont.montserratRegular(size: 13)
-            label.textColor = UIColor.yellowTransactioColor
+            label.font = .montserratRegular(size: 13)
+            label.textColor = .yellowTransactioColor
             if getOwnerOfTransaction().objectId == currentProfile.objectId {
                 if !scheme.ownerEvaluated {
                     label.text = "Sua avaliação está pendente."
@@ -100,10 +100,13 @@ class TransactionCellPresenter: NSObject {
                 }
             }
         } else if scheme.post?.postConditionEnum == .loan {
-            label.font = UIFont.montserratRegular(size: 13)
-            label.textColor = UIColor.black
+            label.font = .montserratRegular(size: 13)
+            label.textColor = .black
+            constraint.isActive = false
+            label.isHidden = true
         } else {
-            label.text = ""
+            label.isHidden = true
+            constraint.isActive = false
         }
     }
     
