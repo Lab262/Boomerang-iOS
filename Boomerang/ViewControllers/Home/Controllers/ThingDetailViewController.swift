@@ -19,8 +19,8 @@ struct Fields {
 }
 
 enum ReasonReport: String {
-    case spam = "É imprópria"
-    case improper = "É spam"
+    case spam = "É spam"
+    case improper = "É imprópria"
 }
 
 class ThingDetailViewController: UIViewController {
@@ -874,8 +874,14 @@ extension ThingDetailViewController {
             }
             
             switch ReasonReport(rawValue: title)! {
-            case .improper: self.setPresentedController(.secondView)
-            case .spam: self.setPresentedController(.finalView)
+            case .improper:
+                self.setPresentedController(.secondView)
+            case .spam:
+                self.stepOneReportAlertViewController?.startLoading()
+                self.presenter.report(reason: title, completionHandler: { (success, msg) in
+                    self.stepOneReportAlertViewController?.finishLoading()
+                    self.setPresentedController(.finalView)
+                })
             }
         }
     }
@@ -892,10 +898,14 @@ extension ThingDetailViewController {
         self.stepTwoReportAlertViewController?.addButton(titleButton: "Símbolos ou discurso de ódio", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
         self.stepTwoReportAlertViewController?.addButton(titleButton: "Violação de propriedade intelectual", border: Border(width: 1.0, color: .gray)!, selectedBorder: Border(width: 1.0, color: .reportAlertBorderButtonColor)!)
         
-        self.stepTwoReportAlertViewController?.doneAction { (msg) in
-            print(msg ?? "nao clicou em opção nenhuma")
-            print("segunda view contorller")
-            self.setPresentedController(.finalView)
+        self.stepTwoReportAlertViewController?.doneAction { (reason) in
+            if let reason = reason {
+                self.stepTwoReportAlertViewController?.startLoading()
+                self.presenter.report(reason: reason, completionHandler: { (success, msg) in
+                    self.stepTwoReportAlertViewController?.finishLoading()
+                    self.setPresentedController(.finalView)
+                })
+            }
         }
     }
         

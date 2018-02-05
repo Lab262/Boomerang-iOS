@@ -176,6 +176,14 @@ class ReportAlertViewController: UIViewController {
             currentReport = container.titleLabel.text
         }
     }
+    
+    func startLoading() {
+        self.view.loadAnimation()
+    }
+    
+    func finishLoading() {
+        self.view.unload()
+    }
 }
 
 // MARK: - PopUp Animation
