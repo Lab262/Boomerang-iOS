@@ -90,6 +90,12 @@ class DetailThingPresenter: NSObject {
         }
     }
     
+    func report(reason: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> ()) {
+        PostRequest.report(post: self.post, denouncer: self.profile!, reason: reason) { (success, msg) in
+            completionHandler(success, msg)
+        }
+    }
+    
     func getLastsComments(isUpdate: Bool = false) {
         self.view?.startFooterLoading()
         CommentRequest.fetchCommentsBy(post: self.post, commentsObject: self.comments, pagination: Paginations.comments) { (success, msg, comments) in

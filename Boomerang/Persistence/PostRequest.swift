@@ -11,6 +11,23 @@ import Parse
 
 class PostRequest: NSObject {
     
+    static func report(post: Post, denouncer: Profile, reason: String, completionHandler: @escaping (_ success: Bool, _ msg: String) -> Void) {
+        
+        var params = [String: String]()
+        
+        params["postId"] = post.objectId
+        params["profileId"] = denouncer.objectId
+        params["reason"] = reason
+        
+        PFCloud.callFunction(inBackground: CloudFunctions.report, withParameters: params) { (objects, error) in
+            if let _ = error {
+                completionHandler(false, error!.localizedDescription)
+            } else {
+                completionHandler(true, "")
+            }
+        }
+    }
+    
     static func getLikeCount(by post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         ParseRequest.queryCountContainedIn(className: "Like", key: "post", value: [post]) { (success, msg, count) in
             if success {
@@ -20,8 +37,6 @@ class PostRequest: NSObject {
             }
         }
     }
-    
-    
     
     static func getRecommendationCount(by post: Post, completionHandler: @escaping (_ success: Bool, _ msg: String, Int?) -> Void) {
         

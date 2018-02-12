@@ -476,6 +476,9 @@
 		D4239A8C20213F3D00F596B3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8B20213F3D00F596B3 /* RadioButton.swift */; };
 		D4239A8D20213F3D00F596B3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8B20213F3D00F596B3 /* RadioButton.swift */; };
 		D4239A8E20213F3D00F596B3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8B20213F3D00F596B3 /* RadioButton.swift */; };
+		D4239A9020215D1F00F596B3 /* ReportAlertDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8F20215D1F00F596B3 /* ReportAlertDoneView.swift */; };
+		D4239A9120215D1F00F596B3 /* ReportAlertDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8F20215D1F00F596B3 /* ReportAlertDoneView.swift */; };
+		D4239A9220215D1F00F596B3 /* ReportAlertDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4239A8F20215D1F00F596B3 /* ReportAlertDoneView.swift */; };
 		D42443F41E6DFB1100620441 /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42443F31E6DFB1100620441 /* ParseRequest.swift */; };
 		D42F22E91EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
 		D42F22EA1EBE72C90090EDFE /* TransactionMainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */; };
@@ -1369,6 +1372,7 @@
 		D4239A8320213E2A00F596B3 /* ReportAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertContainerView.swift; sourceTree = "<group>"; };
 		D4239A8720213E7700F596B3 /* ReportAlertButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertButtonContainerView.swift; sourceTree = "<group>"; };
 		D4239A8B20213F3D00F596B3 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		D4239A8F20215D1F00F596B3 /* ReportAlertDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlertDoneView.swift; sourceTree = "<group>"; };
 		D42443F31E6DFB1100620441 /* ParseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		D42F22E81EBE72C90090EDFE /* TransactionMainHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionMainHistoryViewController.swift; sourceTree = "<group>"; };
 		D43282761FE4D183005C36CB /* RecommendedEmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedEmptyStateTableViewCell.swift; sourceTree = "<group>"; };
@@ -2332,6 +2336,7 @@
 				D4239A8320213E2A00F596B3 /* ReportAlertContainerView.swift */,
 				D4239A8720213E7700F596B3 /* ReportAlertButtonContainerView.swift */,
 				D4239A8B20213F3D00F596B3 /* RadioButton.swift */,
+				D4239A8F20215D1F00F596B3 /* ReportAlertDoneView.swift */,
 			);
 			name = ReportAlert;
 			sourceTree = "<group>";
@@ -3499,7 +3504,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81F257C77482D4401703111B /* [CP] Embed Pods Frameworks */ = {
@@ -3597,7 +3602,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD98391EA9ACFD00C9FAB9 /* Adding tags to comment */ = {
@@ -3710,7 +3715,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D4AD99051EA9AD0400C9FAB9 /* Adding tags to comment */ = {
@@ -3888,7 +3893,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4038,6 +4043,7 @@
 				D48735041E7885000065E13A /* UICollectionViewCell+Utils.swift in Sources */,
 				D4642BBD1E9EA9A3002C8ADC /* TransactionDetailTableViewCell.swift in Sources */,
 				D492C1DE1EBB7579004243DE /* ThingBar.swift in Sources */,
+				D4239A9020215D1F00F596B3 /* ReportAlertDoneView.swift in Sources */,
 				D464AE771EA53C4B0084056A /* TransactionCellPresenter.swift in Sources */,
 				A4A0DBA81F734154008AD89A /* SearchThingsPresenter.swift in Sources */,
 				D40DBB9D1E9684000075E74B /* Follow.swift in Sources */,
@@ -4260,6 +4266,7 @@
 				D4AD97D21EA9ACFD00C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
 				D4CF4D9E1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD97D31EA9ACFD00C9FAB9 /* TransactionCellPresenter.swift in Sources */,
+				D4239A9120215D1F00F596B3 /* ReportAlertDoneView.swift in Sources */,
 				D4AD97D51EA9ACFD00C9FAB9 /* Follow.swift in Sources */,
 				A4A0DBA91F734154008AD89A /* SearchThingsPresenter.swift in Sources */,
 				D4C8ECD91EC1FD5400E3CB17 /* PostType.swift in Sources */,
@@ -4473,6 +4480,7 @@
 				D4AD989E1EA9AD0400C9FAB9 /* TransactionDetailTableViewCell.swift in Sources */,
 				D4CF4D9F1ED52E7600E732DE /* SeeMoreCollectionViewCell.swift in Sources */,
 				D4AD989F1EA9AD0400C9FAB9 /* TransactionCellPresenter.swift in Sources */,
+				D4239A9220215D1F00F596B3 /* ReportAlertDoneView.swift in Sources */,
 				D4AD98A11EA9AD0400C9FAB9 /* Follow.swift in Sources */,
 				A4A0DBAA1F734154008AD89A /* SearchThingsPresenter.swift in Sources */,
 				D4C8ECDA1EC1FD5400E3CB17 /* PostType.swift in Sources */,
@@ -4684,6 +4692,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Boomerang/Boomerang-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -4707,6 +4716,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Boomerang/Boomerang-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -4764,6 +4774,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Boomerang/Boomerang-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -4787,6 +4798,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Boomerang/Boomerang-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -4812,6 +4824,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Boomerang/Boomerang-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -4836,6 +4849,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Boomerang/Boomerang-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

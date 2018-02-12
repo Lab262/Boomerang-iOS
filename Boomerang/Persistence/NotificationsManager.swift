@@ -20,8 +20,10 @@ class NotificationsManager: NSObject {
                 if !accepted {
                     print("Notification access denied.")
                 } else {
-                    UNUserNotificationCenter.current().delegate = UIApplication.shared.delegate as! AppDelegate
-                    UIApplication.shared.registerForRemoteNotifications()
+                    DispatchQueue.main.sync {
+                        UNUserNotificationCenter.current().delegate = UIApplication.shared.delegate as! AppDelegate
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
                 }
             }
         } else {

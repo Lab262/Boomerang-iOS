@@ -14,11 +14,18 @@ protocol ReportAlertDelegate {
 
 class ReportAlertViewController: UIViewController {
 
-    var titleText: String
+    private var titleText: String?
+    private var logoImage: UIImage?
+    private var descriptionText: String?
     
     lazy var containerView: ReportAlertContainerView = {
-        let containerView = ReportAlertContainerView(titleText: self.titleText)
+        let containerView = ReportAlertContainerView(titleText: self.titleText ?? "")
         return containerView
+    }()
+    
+    lazy var containerDoneView: ReportAlertDoneView = {
+        let containerDoneView = ReportAlertDoneView(logoImage: self.logoImage ?? UIImage(), titleText: self.titleText ?? "", descriptionText: self.descriptionText ?? "")
+        return containerDoneView
     }()
     
     lazy var backgroundView: UIView = { [unowned self] in
@@ -49,6 +56,14 @@ class ReportAlertViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    init(titleText: String, descriptionText: String, logoImage: UIImage, delegate: ReportAlertDelegate) {
+        self.titleText = titleText
+        self.descriptionText = descriptionText
+        self.logoImage = logoImage
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -70,10 +85,18 @@ class ReportAlertViewController: UIViewController {
     }
     
     private func configureContainer() {
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        changeContainerConstraint(isShowContainer: false)
+        
+        if let _ = titleText, let _ = descriptionText, let _ = logoImage {
+            containerDoneView.translatesAutoresizingMaskIntoConstraints = false
+            containerDoneView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+            containerDoneView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+            changeContainerConstraint(isShowContainer: false)
+        } else {
+            containerView.translatesAutoresizingMaskIntoConstraints = false
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+            changeContainerConstraint(isShowContainer: false)
+        }
     }
     
     func changeContainerConstraint(isShowContainer: Bool) {
@@ -88,18 +111,29 @@ class ReportAlertViewController: UIViewController {
     }
     
     private func configureHideAndShowConstraints() {
-        containerHideConstraint = containerView.bottomAnchor.constraint(equalTo: view.topAnchor)
-        containerShowConstraint = containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 74.0)
+        if let _ = titleText, let _ = descriptionText, let _ = logoImage {
+            containerHideConstraint = containerDoneView.bottomAnchor.constraint(equalTo: view.topAnchor)
+            containerShowConstraint = containerDoneView.topAnchor.constraint(equalTo: view.topAnchor, constant: 74.0)
+        } else {
+            containerHideConstraint = containerView.bottomAnchor.constraint(equalTo: view.topAnchor)
+            containerShowConstraint = containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 74.0)
+        }
     }
     
     private func setupViews() {
         view.addSubview(backgroundView)
         view.addSubview(dismissButton)
-        view.addSubview(containerView)
+        
+        if let _ = titleText, let _ = descriptionText, let _ = logoImage {
+            view.addSubview(containerDoneView)
+        } else {
+            view.addSubview(containerView)
+        }
     }
     
     private func configureView() {
         view.backgroundColor = .clear
+        
         dismissButton.addTarget(self, action: #selector(dismissViewAnimation(_:)), for: .touchUpInside)
     }
     
@@ -113,7 +147,12 @@ class ReportAlertViewController: UIViewController {
     
     func doneAction(completionHandler: @escaping (_ currentReport: String?) -> ()) {
         doneActionBlock = completionHandler
-        containerView.doneButton.addTarget(self, action: #selector(done(_:)), for: .touchUpInside)
+        
+        if let _ = titleText, let _ = descriptionText, let _ = logoImage {
+            containerDoneView.doneButton.addTarget(self, action: #selector(done(_:)), for: .touchUpInside)
+        } else {
+            containerView.doneButton.addTarget(self, action: #selector(done(_:)), for: .touchUpInside)
+        }
     }
     
     @objc func done(_ sender: UIButton) {
@@ -136,6 +175,14 @@ class ReportAlertViewController: UIViewController {
             container.radioButton.selectedButton = true
             currentReport = container.titleLabel.text
         }
+    }
+    
+    func startLoading() {
+        self.view.loadAnimation()
+    }
+    
+    func finishLoading() {
+        self.view.unload()
     }
 }
 

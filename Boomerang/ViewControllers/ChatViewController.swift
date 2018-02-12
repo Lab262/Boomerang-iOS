@@ -10,10 +10,16 @@ import UIKit
 import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
-    
+
     var incomingBubble: JSQMessagesBubbleImage!
     var outgoingBubble: JSQMessagesBubbleImage!
     var presenter: ChatPresenter = ChatPresenter()
+    var isFinalizedScheme: Bool = false
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    TabBarController.mainTabBarController.hideTabBar()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,41 +29,48 @@ class ChatViewController: JSQMessagesViewController {
         configureCollectionView()
         requestMessages()
         setupSubscriptions()
+        hideTextFieldIfNeeded()
     }
-    
+
+    func hideTextFieldIfNeeded() {
+        if isFinalizedScheme {
+            self.inputToolbar.isHidden = true
+        }
+    }
+
     func requestMessages() {
         presenter.requestMessagesOfChat()
     }
-    
+
     func setupSubscriptions() {
         presenter.setupSubscriptions()
     }
-    
+
     func setupPresenterDelegate() {
         presenter.setViewDelegate(view: self)
     }
-    
+
     func configureCollectionView() {
         collectionView?.collectionViewLayout.incomingAvatarViewSize = .zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = .zero
-        collectionView.collectionViewLayout.messageBubbleFont = UIFont.montserratSemiBold(size: 14)
+        collectionView.collectionViewLayout.messageBubbleFont = .montserratSemiBold(size: 14)
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
     }
-    
+
     func setupDelegateProperties() {
         self.senderId = presenter.profile.objectId!
         self.senderDisplayName = presenter.profile.fullName
     }
-    
+
     func setupBubbles() {
         incomingBubble = JSQMessagesBubbleImageFactory(bubble: .jsq_bubbleCompactTailless(), capInsets: .zero).incomingMessagesBubbleImage(with: UIColor.friendMessageChatBackgroundColor)
-        
+
         outgoingBubble = JSQMessagesBubbleImageFactory(bubble: .jsq_bubbleCompactTailless(), capInsets: .zero).incomingMessagesBubbleImage(with: UIColor.myMessageChatBackgroundColor)
     }
-    
+
     // MARK: JSQMessagesViewController method overrides
-    
+
     override func didPressSend(_ button: UIButton, withMessageText text: String, senderId: String, senderDisplayName: String, date: Date) {
         presenter.sendMessage(senderId: senderId, text: text)
         self.finishSendingMessage(animated: true)
@@ -66,17 +79,17 @@ class ChatViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.messages.count
     }
-    
+
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageDataForItemAt indexPath: IndexPath) -> JSQMessageData {
         return presenter.messages[indexPath.item]
     }
-        
+
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageBubbleImageDataForItemAt indexPath: IndexPath) -> JSQMessageBubbleImageDataSource {
-        
+
         return presenter.messages[indexPath.item].senderId == self.senderId ? outgoingBubble : incomingBubble
     }
-    
-    
+
+
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? JSQMessagesCollectionViewCellIncoming {
             cell.textView.textColor = .black
@@ -84,7 +97,7 @@ class ChatViewController: JSQMessagesViewController {
             cell.textView.textColor = .white
         }
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -92,17 +105,15 @@ class ChatViewController: JSQMessagesViewController {
 
 extension ChatViewController: ChatDelegate {
     func reload() {
-        //DispatchQueue.main.sync {
-            self.finishSendingMessage(animated: true)
-            self.collectionView.reloadData()
-        //}
+        self.finishSendingMessage(animated: true)
+        self.collectionView.reloadData()
     }
-    
+
     func updateStatusMessage(success: Bool) {
         reload()
     }
-    
+
     func showMessage(msg: String) {
-        
+
     }
 }
