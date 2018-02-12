@@ -2948,6 +2948,7 @@
 					};
 					D4AD97761EA9ACFD00C9FAB9 = {
 						DevelopmentTeam = B865ENT4P3;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -4761,6 +4762,7 @@
 				CODE_SIGN_ENTITLEMENTS = lab262.boomerang.production/lab262.boomerang.production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = B865ENT4P3;
@@ -4787,6 +4789,7 @@
 				CODE_SIGN_ENTITLEMENTS = lab262.boomerang.production/lab262.boomerang.production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "";
 				DEVELOPMENT_TEAM = B865ENT4P3;
 				INFOPLIST_FILE = Boomerang/Info.plist;
