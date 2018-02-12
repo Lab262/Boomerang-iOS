@@ -48,20 +48,15 @@ class PromoCodeController: UIViewController {
     }
     
     @IBAction func registerPromoCode(_ sender: Any) {
-        PromoCodeRequest.registerCode(code: self.promoCodeId, completionHandler: { (success, msg) in
-            self.dismiss(animated: false, completion: {
-                self.delegate?.afterValidateCode()
+        if self.isValidated {
+            PromoCodeRequest.registerCode(code: self.promoCodeId, completionHandler: { (success, msg) in
+                self.dismiss(animated: false, completion: {
+                    self.delegate?.afterValidateCode()
+                })
             })
-        })
-//        if self.isValidated {
-//            PromoCodeRequest.registerCode(code: self.promoCodeId, completionHandler: { (success, msg) in
-//                self.dismiss(animated: false, completion: {
-//                    self.delegate?.afterValidateCode()
-//                })
-//            })
-//        } else {
-//            self.promoCodeTextField.shakeAnimation()
-//        }
+        } else {
+            self.promoCodeTextField.shakeAnimation()
+        }
     }
     
     @IBAction func didChangePromoCode(_ sender: UITextField) {
