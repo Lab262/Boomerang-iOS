@@ -70,7 +70,12 @@ class PromoCodeController: UIViewController {
     }
     
     @IBAction func askPromoCode(_ sender: Any) {
-        print("ask promo code ")
+        GenericBoomerAlertController.presentMe(inParent: self, withTitle: "Olar, você encontrará o código no nosso grupo do Facebook ;D", positiveAction: "Abrir o grupo", negativeAction: "Cancelar") { (isPositiveAnswer) in
+            if isPositiveAnswer {
+                UIApplication.shared.open(URL(string: "https://www.facebook.com/groups/356334564577278")!, options: [:], completionHandler: { (isOpened) in
+                })
+            }
+        }
     }
     
     
