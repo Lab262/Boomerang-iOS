@@ -37,9 +37,15 @@ class AuthenticationPresenter: NSObject {
         self.delegate?.startLoadingView()
         UserRequest.facebookLoginUser { (success, msg, user, isWithValidPromoCode) in
             if success {
-                if user!.isNew || !isWithValidPromoCode! {
-                    self.delegate?.showPromoCode()
-                } else {
+                //Comment to Remove promo code 
+//                if user!.isNew || !isWithValidPromoCode! {
+//                    self.delegate?.showPromoCode()
+//                }
+                if user!.isNew {
+                    self.delegate?.startLoadingView()
+                   self.getFacebookInformations()
+                }
+                else {
                     self.setupUserInstallation(user: user as! User)
                     self.getProfileUser()
                 }
