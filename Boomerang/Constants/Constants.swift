@@ -428,7 +428,7 @@ struct OnboardCellKeys {
 struct OnboardLoginCellStrings {
     static let firstCell = "Bem vindo a rede social mais amorzinho que você respeita"
     static let secondCell = "Aqui todo mundo se conhece! Nossa rede é feita de amigos para amigos."
-    static let thirdCell = "Entre com o Facebook para conseguir o código boomer"
+    static let thirdCell = "Entre com o Facebook para participar da comunidade!"
 }
 
 struct OnboardLoginCellImages {
